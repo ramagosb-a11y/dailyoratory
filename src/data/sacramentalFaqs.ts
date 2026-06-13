@@ -1,0 +1,21 @@
+import type { SacramentalFAQ } from "@/types/sacramentals";
+
+export const sacramentalFaqs: SacramentalFAQ[] = [
+  { id: "faq-what", question: "What is a sacramental?", answer: "A sacramental is a sacred sign instituted by the Church that prepares us to receive grace and helps sanctify ordinary life.", category: "basics", sortOrder: 10 },
+  { id: "faq-same", question: "Are sacramentals the same as sacraments?", answer: "No. The sacraments were instituted by Christ and confer grace in a unique way. Sacramentals are instituted by the Church and dispose us to receive grace.", category: "basics", sortOrder: 20 },
+  { id: "faq-magic", question: "Are sacramentals magic?", answer: "No. They are not charms or spiritual technology. They help us pray, remember God, and receive the Church's blessing with faith.", category: "superstition", sortOrder: 30 },
+  { id: "faq-protect", question: "Do sacramentals automatically protect me?", answer: "Protection comes from God. Sacramentals should be used with faith, prayer, repentance, and trust in Christ.", category: "superstition", sortOrder: 40 },
+  { id: "faq-noncatholic", question: "Can non-Catholics use sacramentals?", answer: "A non-Catholic can respectfully encounter many Catholic sacramentals, but their fullest meaning is within the prayer and sacramental life of the Church.", category: "exploring", sortOrder: 50 },
+  { id: "faq-blessed", question: "Do sacramentals need to be blessed?", answer: "Many sacramentals are commonly blessed by a priest or deacon. Ask your parish if you are unsure.", category: "blessings", sortOrder: 60 },
+  { id: "faq-who-bless", question: "Who can bless sacramentals?", answer: "Many sacramentals may be blessed by a priest or deacon according to the Church's practice.", category: "blessings", sortOrder: 70 },
+  { id: "faq-holy-water", question: "What is holy water?", answer: "Holy water is blessed water used as a reminder of Baptism and as a prayerful sign of purification, blessing, and protection.", category: "items", sortOrder: 80 },
+  { id: "faq-scapular", question: "What is a scapular?", answer: "A scapular is a devotional sign that expresses belonging to Christ and trust in Mary's care. Some scapulars involve enrollment or specific customs.", category: "items", sortOrder: 90 },
+  { id: "faq-benedict", question: "What is the Saint Benedict Medal?", answer: "It is a Catholic medal associated with prayer, faith, and Christ-centered spiritual protection. It should never be used superstitiously.", category: "items", sortOrder: 100 },
+  { id: "faq-buy-online", question: "Can I buy sacramentals online?", answer: "Yes, but buy thoughtfully. Choose reputable Catholic sources, avoid gimmicks, and use the item reverently.", category: "purchase", sortOrder: 110 },
+  { id: "faq-broken", question: "What should I do with broken blessed objects?", answer: "Dispose of them respectfully by burying them, burning them safely when appropriate, repairing them, or asking a parish for guidance.", category: "care", sortOrder: 120 },
+  { id: "faq-throw-away", question: "Can I throw away a blessed rosary or medal?", answer: "Not casually. Blessed objects should be treated reverently and disposed of respectfully when unusable.", category: "care", sortOrder: 130 },
+  { id: "faq-relics", question: "Are relics sacramentals?", answer: "Relics are honored devotional objects connected with the saints. They should be treated reverently and never traded unlawfully.", category: "items", sortOrder: 140 },
+  { id: "faq-many", question: "Is it wrong to have many sacramentals?", answer: "Not necessarily, but quantity is not the point. Choose sacramentals that genuinely help you pray and follow Christ.", category: "basics", sortOrder: 150 },
+  { id: "faq-superstition", question: "How do I avoid superstition?", answer: "Keep Christ at the center, remain close to Mass and confession, pray with faith, and do not treat objects as if they force God's action.", category: "superstition", sortOrder: 160 },
+  { id: "faq-priest-unsure", question: "Should I ask a priest if I am unsure?", answer: "Yes. A priest or deacon can help you use sacramentals in a faithful, peaceful, and Christ-centered way.", category: "pastoral", sortOrder: 170 },
+];

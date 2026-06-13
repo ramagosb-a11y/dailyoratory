@@ -1,0 +1,19 @@
+import type { CouncilFAQ } from "@/types/councils";
+
+export const councilFaqs: CouncilFAQ[] = [
+  { id: "faq-new-teachings", question: "Do councils invent new teachings?", answer: "No. Councils clarify, defend, and apply the faith handed on from Christ and the apostles.", category: "basics", sortOrder: 10 },
+  { id: "faq-ecumenical", question: "What is an ecumenical council?", answer: "An ecumenical council is a universal council of bishops recognized by the Church and received in communion with the Pope.", category: "basics", sortOrder: 20 },
+  { id: "faq-why-21", question: "Why are there 21 ecumenical councils?", answer: "Catholics count 21 councils across history that the Church recognizes as ecumenical.", category: "history", sortOrder: 30 },
+  { id: "faq-technical-words", question: "Why do councils use technical words?", answer: "Because sometimes clear words are needed to protect the truth of the faith from confusion or error.", category: "language", sortOrder: 40 },
+  { id: "faq-early-focus", question: "Why did the early councils focus so much on Jesus and the Trinity?", answer: "Because the Church had to answer fundamental questions about who Jesus is and how Christians speak about Father, Son, and Holy Spirit.", category: "early", sortOrder: 50 },
+  { id: "faq-heresy", question: "What is heresy?", answer: "Heresy is a serious distortion or denial of revealed truth that harms the faith of the Church.", category: "language", sortOrder: 60 },
+  { id: "faq-doctrine-discipline", question: "What is the difference between doctrine and discipline?", answer: "Doctrine concerns what the Church teaches as true. Discipline concerns practical rules or structures that can sometimes change.", category: "basics", sortOrder: 70 },
+  { id: "faq-vatican-ii-change", question: "Did Vatican II change Catholic doctrine?", answer: "Vatican II called for renewal and deeper presentation of the faith, but it did not create a new Gospel or abandon Catholic doctrine.", category: "vatican-ii", sortOrder: 80 },
+  { id: "faq-vatican-ii-misunderstood", question: "Why is Vatican II sometimes misunderstood?", answer: "Because people often mix the council itself with later debates, local experiments, or culture-war arguments. Beginners should start with the council's actual documents.", category: "vatican-ii", sortOrder: 90 },
+  { id: "faq-papal-infallibility", question: "What is papal infallibility?", answer: "It is a specific charism protecting certain solemn papal teachings on faith and morals. It does not mean the Pope is sinless or correct about everything.", category: "papacy", sortOrder: 100 },
+  { id: "faq-equal-documents", question: "Are all council documents equally important?", answer: "No. Different documents have different purposes, genres, and levels of weight.", category: "reading", sortOrder: 110 },
+  { id: "faq-how-read", question: "How should beginners read council documents?", answer: "Start with short summaries, know the historical question being addressed, and use official Church sources rather than headlines alone.", category: "reading", sortOrder: 120 },
+  { id: "faq-scripture", question: "How do councils relate to Scripture?", answer: "Councils use Scripture constantly. They help the Church interpret and defend the apostolic faith found in God's Word.", category: "scripture", sortOrder: 130 },
+  { id: "faq-tradition", question: "How do councils relate to Tradition?", answer: "Councils are one way the Church lives and clarifies Sacred Tradition under the guidance of the Holy Spirit.", category: "tradition", sortOrder: 140 },
+  { id: "faq-exploring", question: "How do councils help someone exploring Catholicism?", answer: "They help answer basic questions about Jesus, the Church, worship, sacraments, and how doctrine develops without changing the Gospel.", category: "exploring", sortOrder: 150 },
+];

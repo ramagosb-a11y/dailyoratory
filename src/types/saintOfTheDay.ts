@@ -1,0 +1,31 @@
+export type SaintOfTheDayStatus = "approved" | "draft" | "review" | "hidden";
+
+export type SaintOfTheDayEntry = {
+  id: string;
+  month: number;
+  day: number;
+  dateKey: string;
+  name: string;
+  slug: string;
+  title: string;
+  shortDescription: string;
+  dailyOratorySummary: string;
+  virtue?: string;
+  patronage?: string;
+  lifeDates?: string;
+  feastNote?: string;
+  prayerPrompt?: string;
+  reflectionQuestion?: string;
+  practicalAction?: string;
+  scriptureReference?: string;
+  relatedDailyOratoryLinks: { label: string; href: string }[];
+  franciscanMediaUrl: string;
+  vaticanNewsUrl: string;
+  catholicOnlineUrl: string;
+  imageUrl?: string;
+  imageAlt?: string;
+  sourceNotes?: string;
+  copyrightNotes?: string;
+  status: SaintOfTheDayStatus;
+  sortOrder: number;
+};

@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/sync-mass-readings",
+      "schedule": "10 6 * * *"
+    }
+  ]
+}

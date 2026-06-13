@@ -1,0 +1,22 @@
+.git
+.next
+node_modules
+
+# Local browser/testing artifacts can contain locked files on Windows.
+.tmp-edge-profile
+.playwright-cli
+qa
+
+# Local logs and preview output.
+dev-server.log
+dev-server.err.log
+prod-check.log
+prod-check.err.log
+prod-preview.log
+prod-preview.err.log
+
+# Local workspace/admin helpers that are not needed for the Next.js build.
+google-workspace
+
+# Local environment files should come from Vercel project settings.
+.env*

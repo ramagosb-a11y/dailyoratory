@@ -1,0 +1,120 @@
+import type { SacramentNeedRecommendation, SacramentalJourneyPrompt } from "@/types/sacraments";
+
+export const sacramentLearningNeeds: SacramentNeedRecommendation[] = [
+  {
+    id: "need-becoming-catholic",
+    title: "I am exploring becoming Catholic",
+    slug: "becoming-catholic",
+    description: "Start with OCIA and the sacraments of initiation.",
+    suggestedSacramentIds: ["baptism", "confirmation", "eucharist"],
+    relatedLinks: [{ label: "OCIA", href: "/sacraments/ocia" }, { label: "Pathways", href: "/pathways" }],
+  },
+  {
+    id: "need-baptism-child",
+    title: "I am preparing a child for Baptism",
+    slug: "baptism-child",
+    description: "Learn Baptism and the responsibilities of parents and godparents.",
+    suggestedSacramentIds: ["baptism"],
+    relatedLinks: [{ label: "Sponsor and Godparent Guide", href: "/sacraments/sponsor-godparent" }],
+  },
+  {
+    id: "need-first-communion",
+    title: "I am preparing for First Communion",
+    slug: "first-communion",
+    description: "Learn the Eucharist and open the First Communion companion.",
+    suggestedSacramentIds: ["eucharist", "reconciliation"],
+    relatedLinks: [{ label: "First Communion Companion", href: "/sacraments/first-communion" }],
+  },
+  {
+    id: "need-confirmation",
+    title: "I am preparing for Confirmation",
+    slug: "confirmation",
+    description: "Focus on Confirmation, the Holy Spirit, and sponsor support.",
+    suggestedSacramentIds: ["confirmation"],
+    relatedLinks: [{ label: "Saint Companion Finder", href: "/saints/finder" }],
+  },
+  {
+    id: "need-confession",
+    title: "I want to return to Confession",
+    slug: "return-confession",
+    description: "Begin with Reconciliation and the confession tools.",
+    suggestedSacramentIds: ["reconciliation"],
+    relatedLinks: [{ label: "Confession Guide", href: "/confession" }, { label: "Guided Examination", href: "/confession/examination" }],
+  },
+  {
+    id: "need-engaged",
+    title: "I am engaged",
+    slug: "engaged",
+    description: "Start with Matrimony and contact your parish early.",
+    suggestedSacramentIds: ["matrimony"],
+    relatedLinks: [{ label: "Prayer Intentions", href: "/prayer-intentions" }],
+  },
+  {
+    id: "need-sick",
+    title: "I or someone I love is seriously ill",
+    slug: "seriously-ill",
+    description: "Learn about Anointing of the Sick and pastoral care.",
+    suggestedSacramentIds: ["anointing"],
+    relatedLinks: [{ label: "Ask for Prayer", href: "/ask-for-prayer/submit" }, { label: "Adoration", href: "/adoration" }],
+  },
+  {
+    id: "need-vocation",
+    title: "I am discerning priesthood or diaconate",
+    slug: "holy-orders",
+    description: "Read about Holy Orders and begin discernment prayerfully.",
+    suggestedSacramentIds: ["holy-orders"],
+    relatedLinks: [{ label: "Church Fathers", href: "/church-fathers" }],
+  },
+  {
+    id: "need-sponsor",
+    title: "I am serving as sponsor or godparent",
+    slug: "sponsor-godparent",
+    description: "Use the sponsor and godparent guide with the relevant sacrament.",
+    suggestedSacramentIds: ["baptism", "confirmation"],
+    relatedLinks: [{ label: "Sponsor and Godparent Guide", href: "/sacraments/sponsor-godparent" }],
+  },
+  {
+    id: "need-returning-church",
+    title: "I am returning to the Church",
+    slug: "returning-church",
+    description: "Start with Reconciliation, Eucharist, and your parish.",
+    suggestedSacramentIds: ["reconciliation", "eucharist"],
+    relatedLinks: [{ label: "Returning Catholic Companion", href: "/sacraments/returning-catholic" }],
+  },
+];
+
+export const sacramentalJourneyPrompts: SacramentalJourneyPrompt[] = [
+  {
+    id: "journey-baptized",
+    question: "Are you baptized?",
+    options: [
+      { id: "baptized-yes", label: "Yes", recommendedSacramentIds: ["eucharist", "confirmation"], recommendedLinks: [] },
+      { id: "baptized-no", label: "No or not sure", recommendedSacramentIds: ["baptism"], recommendedLinks: [{ label: "OCIA", href: "/sacraments/ocia" }] },
+    ],
+    recommendedSacramentIds: ["baptism"],
+    recommendedLinks: [{ label: "Baptism", href: "/sacraments/baptism" }],
+    sortOrder: 10,
+  },
+  {
+    id: "journey-first-communion",
+    question: "Have you received First Communion?",
+    options: [
+      { id: "communion-yes", label: "Yes", recommendedSacramentIds: ["reconciliation", "confirmation"], recommendedLinks: [] },
+      { id: "communion-no", label: "No", recommendedSacramentIds: ["eucharist"], recommendedLinks: [{ label: "First Communion Companion", href: "/sacraments/first-communion" }] },
+    ],
+    recommendedSacramentIds: ["eucharist"],
+    recommendedLinks: [{ label: "Eucharist", href: "/sacraments/eucharist" }],
+    sortOrder: 20,
+  },
+  {
+    id: "journey-confirmed",
+    question: "Have you been confirmed?",
+    options: [
+      { id: "confirmed-yes", label: "Yes", recommendedSacramentIds: [], recommendedLinks: [{ label: "Rule of Life", href: "/rule-of-life" }] },
+      { id: "confirmed-no", label: "No", recommendedSacramentIds: ["confirmation"], recommendedLinks: [{ label: "Confirmation", href: "/sacraments/confirmation" }] },
+    ],
+    recommendedSacramentIds: ["confirmation"],
+    recommendedLinks: [{ label: "Confirmation", href: "/sacraments/confirmation" }],
+    sortOrder: 30,
+  },
+];

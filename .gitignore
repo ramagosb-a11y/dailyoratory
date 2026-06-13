@@ -12,6 +12,8 @@
 
 # testing
 /coverage
+/.playwright-cli/
+/qa/
 
 # next.js
 /.next/
@@ -29,6 +31,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+dev-server*.log
+prod-check*.log
+prod-preview*.log
 
 # env files (can opt-in for committing if needed)
 .env*
@@ -39,3 +44,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+
+# local browser profiles
+/.tmp-edge-profile/
+
+# local helper dependencies
+/google-workspace/**/node_modules/
+/google-workspace/**/output/

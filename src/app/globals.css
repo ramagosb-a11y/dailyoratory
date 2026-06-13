@@ -1,26 +1,1368 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Core sacred palette */
+  --background: #fbf7ee;
+  --foreground: #172033;
+  --ivory: #fffdf7;
+  --parchment: #f3ead8;
+  --parchment-deep: #eadfc8;
+  --navy: #0d2038;
+  --navy-soft: #183555;
+  --gold: #bd8a2f;
+  --gold-soft: #ead6a7;
+  --gold-muted: #d3ad62;
+  --burgundy: #7a2533;
+  --burgundy-soft: #9b4450;
+  --stone: #d8cdb9;
+  --stone-soft: #ece3d3;
+  --muted: #4b443a;
+  --success: #31523b;
+
+  /* Liturgical colors */
+  --season-advent: #584180;
+  --season-christmas: #f8f1de;
+  --season-lent: #6b4478;
+  --season-easter: #fff7d8;
+  --season-pentecost: #a52e2e;
+  --season-ordinary: #31523b;
+  --season-marian: #3f6f9f;
+  --season-all-year: #bd8a2f;
+
+  /* Site-wide liturgical accent defaults */
+  --liturgical-primary: #c9922e;
+  --liturgical-primary-dark: #8a5e13;
+  --liturgical-primary-soft: #f5e7c8;
+  --liturgical-primary-muted: #d8b56a;
+  --liturgical-foreground: #071a2d;
+  --liturgical-border: #e3c98a;
+  --liturgical-glow: rgba(201, 146, 46, 0.18);
+  --liturgical-gradient-from: rgba(245, 231, 200, 0.84);
+  --liturgical-gradient-to: rgba(255, 253, 247, 0.16);
+  --liturgical-badge-bg: #f5e7c8;
+  --liturgical-badge-text: #8a5e13;
+  --liturgical-button-bg: #c9922e;
+  --liturgical-button-text: #071a2d;
+  --liturgical-ring: rgba(201, 146, 46, 0.18);
+
+  /* Typography */
+  --font-body: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  --font-heading: var(--font-cormorant), "Cormorant Garamond", "Times New Roman", serif;
+  --font-code: var(--font-geist-mono), Consolas, ui-monospace, monospace;
+  --leading-prayer: 1.85;
+  --leading-content: 1.8;
+  --do-readable-scale: 1;
+  --do-body-size: 21px;
+  --do-card-size: 20px;
+  --do-prayer-size: 21px;
+  --do-question-size: 20px;
+  --do-button-size: 17px;
+  --do-input-size: 18px;
+
+  /* Spacing */
+  --space-gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --space-section-xs: clamp(2rem, 5vw, 3.25rem);
+  --space-section-sm: clamp(3rem, 7vw, 4.75rem);
+  --space-section: clamp(4rem, 9vw, 6.5rem);
+  --space-section-lg: clamp(5rem, 12vw, 8rem);
+
+  /* Shape and elevation */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --shadow-hairline: 0 1px 0 rgba(13, 32, 56, 0.08);
+  --shadow-oratory: 0 14px 36px rgba(13, 32, 56, 0.08);
+  --shadow-lifted: 0 22px 60px rgba(13, 32, 56, 0.14);
+  --shadow-inset: inset 0 1px 0 rgba(255, 253, 247, 0.72);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-parchment: var(--parchment);
+  --color-parchment-deep: var(--parchment-deep);
+  --color-ivory: var(--ivory);
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-muted: var(--gold-muted);
+  --color-burgundy: var(--burgundy);
+  --color-burgundy-soft: var(--burgundy-soft);
+  --color-stone: var(--stone);
+  --color-stone-soft: var(--stone-soft);
+  --color-muted: var(--muted);
+  --color-success: var(--success);
+  --color-advent: var(--season-advent);
+  --color-christmas: var(--season-christmas);
+  --color-lent: var(--season-lent);
+  --color-easter: var(--season-easter);
+  --color-pentecost: var(--season-pentecost);
+  --color-ordinary: var(--season-ordinary);
+  --color-marian: var(--season-marian);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+  --font-mono: var(--font-code);
+  --shadow-hairline: 0 1px 0 rgba(13, 32, 56, 0.08);
+  --shadow-oratory: 0 14px 36px rgba(13, 32, 56, 0.08);
+  --shadow-lifted: 0 22px 60px rgba(13, 32, 56, 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
+  min-width: 320px;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(189, 138, 47, 0.08), transparent 22rem),
+    linear-gradient(180deg, var(--ivory) 0%, var(--background) 48%, var(--parchment) 100%);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.78;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+p,
+li {
+  line-height: 1.8;
+}
+
+::selection {
+  background: var(--liturgical-glow);
+  color: var(--navy);
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-prayer {
+    font-family: var(--font-heading);
+  }
+
+  .focus-ring {
+    outline: 2px solid transparent;
+    outline-offset: 3px;
+  }
+
+  .focus-ring:focus-visible {
+    outline-color: var(--liturgical-primary);
+    box-shadow: 0 0 0 5px var(--liturgical-ring);
+  }
+
+  .sacred-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--liturgical-primary-muted), transparent);
+  }
+
+  .paper-texture {
+    background:
+      radial-gradient(circle at 20% 15%, rgba(189, 138, 47, 0.08), transparent 22rem),
+      radial-gradient(circle at 84% 6%, rgba(122, 37, 51, 0.055), transparent 18rem),
+      linear-gradient(180deg, var(--ivory) 0%, var(--background) 48%, var(--parchment) 100%);
+  }
+
+  .stone-rule {
+    border-color: var(--stone);
+  }
+
+  .liturgical-accent-text {
+    color: var(--liturgical-primary-dark);
+  }
+
+  .liturgical-accent-bg {
+    background-color: var(--liturgical-primary);
+    color: var(--liturgical-foreground);
+  }
+
+  .liturgical-accent-border {
+    border-color: var(--liturgical-primary);
+  }
+
+  .liturgical-accent-soft {
+    background: linear-gradient(135deg, var(--liturgical-gradient-from), var(--liturgical-gradient-to));
+  }
+
+  .liturgical-accent-ring {
+    box-shadow: 0 0 0 4px var(--liturgical-ring);
+  }
+
+  .liturgical-gradient-soft {
+    background: linear-gradient(135deg, var(--liturgical-gradient-from), var(--liturgical-gradient-to));
+  }
+
+  .liturgical-section-eyebrow {
+    color: var(--liturgical-primary-dark);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .liturgical-badge {
+    border-color: var(--liturgical-border);
+    background: var(--liturgical-badge-bg);
+    color: var(--liturgical-badge-text);
+  }
+
+  .liturgical-page-eyebrow {
+    color: var(--liturgical-primary-dark);
+  }
+
+  .liturgical-label {
+    color: var(--liturgical-primary-dark);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .liturgical-breadcrumb-link:hover,
+  .liturgical-breadcrumb-current,
+  .liturgical-breadcrumb-divider {
+    color: var(--liturgical-primary-dark);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .daily-readable {
+    color: var(--navy);
+    font-size: calc(var(--do-body-size) * var(--do-readable-scale));
+    line-height: 1.8;
+  }
+
+  .daily-readable-muted {
+    color: #3f3a34;
+    font-size: calc(var(--do-body-size) * var(--do-readable-scale));
+    line-height: 1.8;
+  }
+
+  .daily-card-readable {
+    color: #3f3a34;
+    font-size: calc(var(--do-card-size) * var(--do-readable-scale));
+    line-height: 1.75;
+  }
+
+  .daily-prayer-readable {
+    white-space: pre-line;
+    color: var(--navy);
+    font-size: calc(var(--do-prayer-size) * var(--do-readable-scale));
+    line-height: 1.85;
+  }
+
+  .daily-question-readable {
+    color: #3f3a34;
+    font-size: calc(var(--do-question-size) * var(--do-readable-scale));
+    line-height: 1.75;
+  }
+
+  .daily-button-readable {
+    font-size: calc(var(--do-button-size) * var(--do-readable-scale));
+  }
+
+  .daily-input-readable {
+    font-size: calc(var(--do-input-size) * var(--do-readable-scale));
+  }
+
+}
+
+@layer components {
+  .section-shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: var(--space-gutter);
+  }
+
+  .page-shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: var(--space-gutter);
+  }
+
+  .liturgical-interior-shell {
+    position: relative;
+    min-height: 100%;
+  }
+
+  .liturgical-day-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 40%, var(--stone));
+    border-left: 3px solid var(--liturgical-primary);
+    border-radius: var(--radius-md);
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--liturgical-primary-soft) 42%, white), rgba(255, 253, 247, 0.96));
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+    padding: 0.8rem 1rem;
+  }
+
+  .liturgical-day-banner-label {
+    color: var(--liturgical-primary-dark);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .liturgical-day-banner-copy {
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.55;
+    margin-top: 0.18rem;
+  }
+
+  .liturgical-interior-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 22rem;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at top left, color-mix(in srgb, var(--liturgical-glow) 140%, transparent), transparent 26rem),
+      radial-gradient(circle at top right, color-mix(in srgb, var(--liturgical-primary-soft) 24%, transparent), transparent 18rem),
+      linear-gradient(180deg, color-mix(in srgb, var(--liturgical-gradient-from) 82%, white) 0%, transparent 100%);
+    opacity: 0.88;
+    z-index: 0;
+  }
+
+  .liturgical-interior-shell > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .liturgical-interior-shell .paper-texture {
+    background:
+      radial-gradient(circle at 12% 2%, color-mix(in srgb, var(--liturgical-glow) 120%, transparent), transparent 24rem),
+      radial-gradient(circle at 88% 0%, color-mix(in srgb, var(--liturgical-primary-soft) 56%, transparent), transparent 18rem),
+      linear-gradient(180deg, rgba(255, 253, 247, 0.98) 0%, var(--background) 48%, var(--parchment) 100%);
+  }
+
+  .liturgical-page-hero {
+    position: relative;
+    border-top-width: 4px;
+    border-top-color: var(--liturgical-primary);
+    background-image:
+      linear-gradient(135deg, color-mix(in srgb, var(--liturgical-primary-soft) 56%, transparent), transparent 60%);
+  }
+
+  .liturgical-page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 7rem;
+    height: 0.3rem;
+    border-radius: 999px;
+    background: var(--liturgical-primary);
+    opacity: 0.9;
+  }
+
+  .liturgical-page-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 1.25rem 1.1rem auto;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 999px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--liturgical-glow) 110%, transparent) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  .liturgical-dark-hero {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--navy);
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary) 34%, rgba(255, 255, 255, 0.14));
+    border-top: 4px solid var(--liturgical-primary);
+    background:
+      radial-gradient(circle at top right, color-mix(in srgb, var(--liturgical-glow) 115%, transparent), transparent 16rem),
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--liturgical-primary-dark) 20%, var(--navy)) 0%,
+        var(--navy) 54%,
+        color-mix(in srgb, var(--liturgical-primary) 15%, var(--navy-soft)) 100%
+      );
+  }
+
+  .liturgical-dark-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 247, 0.04), rgba(7, 26, 45, 0.14) 38%, rgba(7, 26, 45, 0.2) 100%),
+      linear-gradient(90deg, color-mix(in srgb, var(--liturgical-primary-soft) 18%, transparent), transparent 18rem);
+    pointer-events: none;
+  }
+
+  .liturgical-home-shell {
+    position: relative;
+  }
+
+  .liturgical-home-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 18rem;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--liturgical-glow) 105%, transparent), transparent 21rem),
+      linear-gradient(180deg, color-mix(in srgb, var(--liturgical-gradient-from) 35%, transparent) 0%, transparent 100%);
+    opacity: 0.68;
+    z-index: 0;
+  }
+
+  .liturgical-home-shell > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .liturgical-home-hero {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liturgical-home-hero::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--liturgical-primary) 18%, transparent) 0%,
+      var(--liturgical-primary) 16%,
+      color-mix(in srgb, var(--liturgical-primary-soft) 72%, transparent) 58%,
+      transparent 100%
+    );
+  }
+
+  .liturgical-home-marker {
+    background: linear-gradient(180deg, var(--liturgical-primary), color-mix(in srgb, var(--liturgical-primary-soft) 58%, white));
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--liturgical-glow) 58%, transparent);
+  }
+
+  .liturgical-home-eyebrow {
+    color: color-mix(in srgb, var(--liturgical-primary-soft) 86%, white);
+  }
+
+  .liturgical-home-section {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 34%, var(--stone));
+    border-top: 4px solid var(--liturgical-primary);
+    border-radius: 1.5rem;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--liturgical-primary-soft) 16%, white), rgba(255, 253, 247, 0.98));
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+  }
+
+  .liturgical-home-section-muted {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 28%, var(--stone));
+    border-top: 3px solid color-mix(in srgb, var(--liturgical-primary) 72%, var(--liturgical-border));
+    border-radius: 1.5rem;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--liturgical-primary-soft) 10%, white), rgba(243, 234, 216, 0.9));
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+  }
+
+  .liturgical-home-card {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 34%, var(--stone));
+    border-top: 3px solid var(--liturgical-primary);
+    border-radius: 1.35rem;
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--liturgical-primary-soft) 14%, white), rgba(255, 253, 247, 0.96));
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .liturgical-home-card:hover {
+    border-color: var(--liturgical-primary);
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+    transform: translateY(-2px);
+  }
+
+  .liturgical-home-chip {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 44%, var(--stone));
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 28%, white);
+    color: var(--liturgical-primary-dark);
+    box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--liturgical-primary) 22%, transparent);
+  }
+
+  .liturgical-home-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--liturgical-primary) 56%, var(--liturgical-border)), transparent);
+  }
+
+  .liturgical-home-closing {
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid color-mix(in srgb, var(--liturgical-primary) 78%, var(--liturgical-border));
+    background:
+      radial-gradient(circle at top right, color-mix(in srgb, var(--liturgical-glow) 88%, transparent), transparent 20rem),
+      radial-gradient(circle at 12% 18%, color-mix(in srgb, var(--liturgical-primary) 18%, transparent), transparent 18rem),
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--liturgical-primary-dark) 74%, var(--navy)) 0%,
+        color-mix(in srgb, var(--liturgical-primary) 14%, var(--navy)) 44%,
+        color-mix(in srgb, var(--liturgical-primary-dark) 58%, var(--navy-soft)) 100%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 253, 247, 0.06),
+      inset 0 0 0 1px rgba(255, 253, 247, 0.04);
+  }
+
+  .liturgical-home-closing::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 247, 0.04), rgba(7, 26, 45, 0.12) 48%, rgba(7, 26, 45, 0.18) 100%),
+      linear-gradient(90deg, color-mix(in srgb, var(--liturgical-primary-soft) 10%, transparent), transparent 18rem);
+    pointer-events: none;
+  }
+
+  .liturgical-home-closing > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .liturgical-home-closing-panel {
+    border: 1px solid rgba(255, 253, 247, 0.08);
+    border-top: 2px solid color-mix(in srgb, var(--liturgical-primary) 56%, rgba(255, 253, 247, 0.18));
+    border-radius: 1.5rem;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 247, 0.05), rgba(255, 253, 247, 0.02));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 253, 247, 0.05),
+      0 18px 48px rgba(7, 26, 45, 0.22);
+    backdrop-filter: blur(2px);
+  }
+
+  .liturgical-home-toolspotlight {
+    position: relative;
+    border-top: 4px solid color-mix(in srgb, var(--liturgical-primary) 82%, rgba(255, 253, 247, 0.22));
+    background:
+      radial-gradient(circle at top right, color-mix(in srgb, var(--liturgical-glow) 96%, transparent), transparent 20rem),
+      radial-gradient(circle at 16% 18%, color-mix(in srgb, var(--liturgical-primary) 20%, transparent), transparent 18rem),
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--liturgical-primary-dark) 76%, var(--navy)) 0%,
+        color-mix(in srgb, var(--liturgical-primary) 18%, var(--navy)) 48%,
+        color-mix(in srgb, var(--liturgical-primary-dark) 60%, var(--navy-soft)) 100%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 253, 247, 0.06),
+      0 18px 54px rgba(7, 26, 45, 0.16);
+  }
+
+  .liturgical-home-toolspotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(255, 253, 247, 0.03), rgba(7, 26, 45, 0.12) 50%, rgba(7, 26, 45, 0.18) 100%),
+      linear-gradient(90deg, color-mix(in srgb, var(--liturgical-primary-soft) 10%, transparent), transparent 20rem);
+    pointer-events: none;
+  }
+
+  .liturgical-home-toolspotlight > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .liturgical-home-toolspotlight-panel {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 253, 247, 0.06),
+      0 12px 32px rgba(7, 26, 45, 0.14);
+    backdrop-filter: blur(2px);
+  }
+
+  .liturgical-home-companion {
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid color-mix(in srgb, var(--liturgical-primary) 76%, var(--liturgical-border));
+    background:
+      radial-gradient(circle at 12% 22%, color-mix(in srgb, var(--liturgical-glow) 72%, transparent), transparent 16rem),
+      radial-gradient(circle at 88% 0%, color-mix(in srgb, var(--liturgical-primary-soft) 48%, transparent), transparent 18rem),
+      linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--liturgical-primary-soft) 42%, white) 0%,
+        rgba(255, 253, 247, 0.98) 46%,
+        color-mix(in srgb, var(--liturgical-primary-soft) 24%, var(--parchment)) 100%
+      );
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+  }
+
+  .liturgical-home-companion::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(120deg, rgba(255, 253, 247, 0.62), transparent 34%),
+      linear-gradient(180deg, rgba(255, 253, 247, 0.2), rgba(255, 253, 247, 0));
+    pointer-events: none;
+  }
+
+  .liturgical-home-companion > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .liturgical-home-companion-panel {
+    border-color: color-mix(in srgb, var(--liturgical-primary-muted) 34%, var(--stone));
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--liturgical-primary-soft) 18%, white), rgba(255, 253, 247, 0.86));
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+  }
+
+  .liturgical-home-companion-chip {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 44%, var(--stone));
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 52%, white);
+    color: var(--liturgical-primary-dark);
+    box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--liturgical-primary) 16%, transparent);
+  }
+
+  .liturgical-interior-shell .card,
+  .liturgical-interior-shell .card-parchment,
+  .liturgical-interior-shell .dashboard-card,
+  .liturgical-interior-shell .content-card,
+  .liturgical-interior-shell .prayer-card,
+  .liturgical-themed-card {
+    border-top-color: var(--liturgical-primary);
+    box-shadow:
+      var(--shadow-hairline),
+      var(--shadow-inset),
+      0 12px 30px rgba(13, 32, 56, 0.05);
+  }
+
+  .liturgical-interior-shell .dashboard-card,
+  .liturgical-interior-shell .content-card {
+    background-image: linear-gradient(180deg, color-mix(in srgb, var(--liturgical-primary-soft) 18%, transparent), transparent 22rem);
+  }
+
+  .liturgical-interior-shell .btn-secondary {
+    border-color: color-mix(in srgb, var(--liturgical-primary-muted) 65%, var(--stone));
+  }
+
+  .liturgical-interior-shell .btn-secondary:hover {
+    border-color: var(--liturgical-primary);
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 58%, var(--ivory));
+    color: var(--liturgical-primary-dark);
+  }
+
+  .liturgical-interior-shell .btn-outline-inverse:hover {
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 18%, white);
+  }
+
+  .liturgical-interior-shell .season-pill,
+  .liturgical-interior-shell .liturgical-badge {
+    box-shadow: inset 0 -1px 0 color-mix(in srgb, var(--liturgical-primary) 28%, transparent);
+  }
+
+  .liturgical-chip {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 56%, var(--stone));
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 26%, white);
+    color: var(--navy);
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .liturgical-chip:hover {
+    border-color: var(--liturgical-primary);
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 62%, white);
+    color: var(--liturgical-primary-dark);
+    transform: translateY(-1px);
+  }
+
+  .liturgical-chip-active {
+    border-color: var(--liturgical-primary);
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 76%, white);
+    color: var(--liturgical-primary-dark);
+    box-shadow:
+      inset 0 -2px 0 var(--liturgical-primary),
+      0 0 0 1px color-mix(in srgb, var(--liturgical-primary) 10%, transparent);
+  }
+
+  .liturgical-panel {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 42%, var(--stone));
+    border-top: 3px solid var(--liturgical-primary);
+    border-radius: var(--radius-md);
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--liturgical-primary-soft) 18%, white), rgba(255, 253, 247, 0.96));
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+  }
+
+  .liturgical-inline-panel {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 38%, var(--stone));
+    border-left: 3px solid var(--liturgical-primary);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 26%, white);
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+  }
+
+  .liturgical-callout {
+    border: 1px solid color-mix(in srgb, var(--liturgical-primary-muted) 55%, var(--stone));
+    border-left: 4px solid var(--liturgical-primary);
+    border-radius: var(--radius-md);
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--liturgical-primary-soft) 48%, white), rgba(255, 253, 247, 0.94));
+    padding: 1.25rem;
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+  }
+
+  .liturgical-callout-pastoral {
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--liturgical-primary-soft) 54%, white), rgba(255, 253, 247, 0.96));
+  }
+
+  .liturgical-callout-warning {
+    border-left-color: color-mix(in srgb, var(--liturgical-primary) 55%, var(--burgundy));
+  }
+
+  .liturgical-callout-prayer {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--liturgical-primary-soft) 40%, white), rgba(243, 234, 216, 0.78));
+  }
+
+  .section-space {
+    padding-block: var(--space-section);
+  }
+
+  .section-space-sm {
+    padding-block: var(--space-section-sm);
+  }
+
+  .card {
+    border: 1px solid var(--stone);
+    border-top: 3px solid var(--liturgical-border);
+    border-radius: var(--radius-md);
+    background: var(--ivory);
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+  }
+
+  .card-parchment {
+    border: 1px solid var(--stone);
+    border-top: 3px solid var(--liturgical-border);
+    border-radius: var(--radius-md);
+    background: var(--parchment);
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+  }
+
+  .card-lift {
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+  }
+
+  .dashboard-card {
+    border: 1px solid var(--stone);
+    border-top: 3px solid var(--liturgical-border);
+    border-radius: var(--radius-md);
+    background: rgba(255, 253, 247, 0.94);
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+  }
+
+  .resource-card {
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .resource-card:hover {
+    border-color: var(--liturgical-primary);
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+    transform: translateY(-2px);
+  }
+
+  .prayer-card {
+    border: 1px solid var(--liturgical-border);
+    border-top: 3px solid var(--liturgical-primary);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(180deg, rgba(255, 253, 247, 0.96), rgba(243, 234, 216, 0.72)),
+      var(--ivory);
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+  }
+
+  .content-card {
+    border: 1px solid var(--stone);
+    border-top: 3px solid var(--liturgical-border);
+    border-radius: var(--radius-md);
+    background: rgba(255, 253, 247, 0.98);
+    box-shadow: var(--shadow-hairline), var(--shadow-inset);
+  }
+
+  .liturgical-card-accent {
+    position: relative;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .liturgical-card-accent:hover {
+    border-color: var(--liturgical-primary);
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+    transform: translateY(-2px);
+  }
+
+  .btn {
+    display: inline-flex;
+    min-height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1.25rem;
+    font-size: calc(var(--do-button-size) * var(--do-readable-scale));
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    border: 1px solid var(--navy);
+    background: linear-gradient(
+      135deg,
+      var(--navy) 0%,
+      var(--navy) 82%,
+      color-mix(in srgb, var(--liturgical-primary-dark) 30%, var(--navy)) 100%
+    );
+    color: var(--ivory);
+    box-shadow: var(--shadow-hairline);
+  }
+
+  .btn-primary:hover {
+    background: var(--navy-soft);
+    border-color: color-mix(in srgb, var(--liturgical-primary) 36%, var(--navy));
+  }
+
+  .btn-gold {
+    border: 1px solid var(--gold);
+    background: var(--gold);
+    color: var(--navy);
+    box-shadow: var(--shadow-hairline);
+  }
+
+  .btn-gold:hover {
+    background: var(--gold-soft);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--stone);
+    background: var(--ivory);
+    color: var(--navy);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--liturgical-primary);
+    background: var(--parchment);
+  }
+
+  .btn-liturgical {
+    border: 1px solid var(--liturgical-primary);
+    background: var(--liturgical-button-bg);
+    color: var(--liturgical-button-text);
+    box-shadow: var(--shadow-hairline);
+  }
+
+  .btn-liturgical:hover {
+    background: var(--liturgical-primary-dark);
+    color: var(--ivory);
+  }
+
+  .btn-liturgical-outline {
+    border: 1px solid var(--liturgical-primary);
+    background: var(--ivory);
+    color: var(--liturgical-primary-dark);
+  }
+
+  .btn-liturgical-outline:hover {
+    background: var(--liturgical-primary-soft);
+  }
+
+  .btn-liturgical-soft {
+    border: 1px solid var(--liturgical-border);
+    background: var(--liturgical-primary-soft);
+    color: var(--liturgical-primary-dark);
+  }
+
+  .btn-liturgical-soft:hover {
+    border-color: var(--liturgical-primary);
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 72%, white);
+  }
+
+  .btn-outline-inverse {
+    border: 1px solid var(--gold-soft);
+    background: transparent;
+    color: var(--ivory);
+  }
+
+  .btn-outline-inverse:hover {
+    background: rgba(255, 253, 247, 0.12);
+  }
+
+  .text-link {
+    border-radius: var(--radius-sm);
+    color: var(--navy);
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .text-link:hover {
+    color: var(--liturgical-primary-dark);
+    text-decoration: underline;
+  }
+
+  .form-shell {
+    border: 1px solid var(--stone);
+    border-top: 3px solid var(--liturgical-border);
+    border-radius: var(--radius-md);
+    background: rgba(255, 253, 247, 0.96);
+    box-shadow: var(--shadow-oratory), var(--shadow-inset);
+  }
+
+  .form-label {
+    display: block;
+    color: var(--navy);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .form-field {
+    min-height: 3.25rem;
+    width: 100%;
+    border: 1px solid var(--stone);
+    border-radius: var(--radius-md);
+    background: var(--background);
+    padding-inline: 1rem;
+    color: var(--navy);
+    font-size: calc(var(--do-input-size) * var(--do-readable-scale));
+    line-height: 1.6;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease;
+  }
+
+  .form-field::placeholder {
+    color: var(--muted);
+  }
+
+  .form-field:hover {
+    border-color: var(--liturgical-primary-muted);
+    background: var(--ivory);
+  }
+
+  .form-field:focus-visible {
+    border-color: var(--liturgical-primary);
+  }
+
+  .textarea-field {
+    min-height: 9rem;
+    padding-block: 0.85rem;
+    resize: vertical;
+  }
+
+  .form-helper {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .prayer-page {
+    background:
+      radial-gradient(circle at top left, rgba(189, 138, 47, 0.11), transparent 22rem),
+      var(--background);
+  }
+
+  .prayer-text {
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 5vw, 1.85rem);
+    line-height: var(--leading-prayer);
+  }
+
+  .prayer-response {
+    border-left: 3px solid var(--liturgical-primary);
+    color: var(--burgundy);
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+    line-height: 1.7;
+    padding-left: 1rem;
+  }
+
+  .content-page {
+    max-width: 72ch;
+    color: #34302a;
+  }
+
+  .content-prose,
+  .resource-markdown {
+    color: #34302a;
+  }
+
+  .content-prose h2,
+  .resource-markdown h2 {
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: clamp(1.85rem, 4vw, 2.65rem);
+    font-weight: 650;
+    line-height: 1.05;
+    margin-top: 2.25rem;
+  }
+
+  .content-prose h3,
+  .resource-markdown h3 {
+    color: var(--burgundy);
+    font-weight: 800;
+    margin-top: 1.75rem;
+  }
+
+  .content-prose p,
+  .content-prose li,
+  .resource-markdown p,
+  .resource-markdown li {
+    color: #34302a;
+    font-size: calc(1.1875rem * var(--do-readable-scale));
+    line-height: var(--leading-content);
+  }
+
+  .content-prose ul,
+  .content-prose ol,
+  .resource-markdown ul,
+  .resource-markdown ol {
+    margin-left: 1.25rem;
+  }
+
+  .content-prose blockquote,
+  .resource-markdown blockquote {
+    border-left: 3px solid var(--liturgical-primary);
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2vw, 1.65rem);
+    line-height: 1.5;
+    margin: 1.75rem 0;
+    padding-left: 1rem;
+  }
+
+  .season-pill {
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--liturgical-border);
+    background: var(--ivory);
+    padding: 0.25rem 0.625rem;
+    color: var(--liturgical-primary-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+
+  .liturgical-nav-active {
+    background: var(--liturgical-primary-soft);
+    color: var(--liturgical-primary-dark);
+    box-shadow: inset 0 -2px 0 var(--liturgical-primary);
+  }
+
+  .liturgical-nav-link:hover {
+    background: color-mix(in srgb, var(--liturgical-primary-soft) 68%, white);
+  }
+
+  .liturgical-footer-accent {
+    border-top: 2px solid var(--liturgical-border);
+    box-shadow: inset 0 2px 0 0 var(--liturgical-primary-soft);
+  }
+
+  .season-advent {
+    border-color: rgba(88, 65, 128, 0.35);
+    color: var(--season-advent);
+  }
+
+  .season-christmas {
+    border-color: rgba(189, 138, 47, 0.35);
+    color: var(--gold);
+  }
+
+  .season-lent {
+    border-color: rgba(107, 68, 120, 0.35);
+    color: var(--season-lent);
+  }
+
+  .season-easter {
+    border-color: rgba(189, 138, 47, 0.45);
+    color: var(--gold);
+  }
+
+  .season-pentecost {
+    border-color: rgba(165, 46, 46, 0.35);
+    color: var(--season-pentecost);
+  }
+
+  .season-ordinary {
+    border-color: rgba(49, 82, 59, 0.35);
+    color: var(--season-ordinary);
+  }
+
+  .season-marian {
+    border-color: rgba(63, 111, 159, 0.35);
+    color: var(--season-marian);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .resource-card,
+  .liturgical-card-accent,
+  .btn {
+    transition: none;
+  }
+
+  .resource-card:hover,
+  .liturgical-card-accent:hover,
+  .btn:hover,
+  .btn:active {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .liturgical-day-banner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .liturgical-day-banner-copy {
+    font-size: 0.92rem;
+  }
+
+  .daily-readable,
+  .daily-readable-muted {
+    font-size: 21px;
+  }
+
+  .daily-card-readable,
+  .daily-question-readable {
+    font-size: 20px;
+  }
+
+  .daily-prayer-readable {
+    font-size: 21px;
+  }
+
+  .btn {
+    min-height: 3.25rem;
+    width: 100%;
+    white-space: normal;
+  }
+
+  .content-prose p,
+  .content-prose li,
+  .resource-markdown p,
+  .resource-markdown li {
+    font-size: calc(1.3125rem * var(--do-readable-scale));
+  }
+}
+
+@media (min-width: 768px) {
+  .daily-readable,
+  .daily-readable-muted {
+    font-size: calc(20px * var(--do-readable-scale));
+  }
+
+  .daily-card-readable,
+  .daily-question-readable {
+    font-size: calc(18px * var(--do-readable-scale));
+  }
+
+  .daily-prayer-readable {
+    font-size: calc(22px * var(--do-readable-scale));
+  }
+
+  .btn {
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .daily-readable,
+  .daily-readable-muted {
+    font-size: calc(19px * var(--do-readable-scale));
+  }
+
+  .daily-card-readable,
+  .daily-question-readable {
+    font-size: calc(18px * var(--do-readable-scale));
+  }
+
+  .content-prose p,
+  .content-prose li,
+  .resource-markdown p,
+  .resource-markdown li {
+    font-size: calc(1.125rem * var(--do-readable-scale));
+  }
+}
+
+@media print {
+  @page {
+    margin: 0.75in;
+  }
+
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #111 !important;
+    text-shadow: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.55;
+  }
+
+  header,
+  footer,
+  nav,
+  form,
+  .no-print,
+  .confession-print-room-chrome,
+  .confession-print-room-actions {
+    display: none !important;
+  }
+
+  main,
+  article,
+  section {
+    display: block !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+  }
+
+  h1,
+  h2,
+  h3,
+  blockquote {
+    break-after: avoid;
+  }
+
+  p,
+  li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .confession-print-room-report {
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  .confession-print-room-report h1,
+  .confession-print-room-report h2,
+  .confession-print-room-report h3,
+  .confession-print-room-report p,
+  .confession-print-room-report li {
+    color: #111 !important;
+  }
+
+  .confession-print-room-report section,
+  .confession-print-room-report div,
+  .confession-print-room-report ul,
+  .confession-print-room-report li {
+    border-color: #ccc !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .confession-print-room-report a[href]::after {
+    content: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

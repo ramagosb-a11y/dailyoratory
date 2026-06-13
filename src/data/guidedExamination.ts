@@ -1,0 +1,1033 @@
+import type {
+  GuidedExaminationPath,
+  GuidedExaminationPathId,
+  GuidedExaminationSection,
+  GuidedPrompt,
+  StateOfLifeCategory,
+} from "@/types/guidedExamination";
+
+export const openingPrayer =
+  "Come, Holy Spirit, enlighten my mind that I may know my sins. Move my heart that I may be truly sorry for them. Help me to make a good confession and amend my life, through Jesus Christ our Lord. Amen.";
+
+export const actOfContrition =
+  "O my God, I am heartily sorry for having offended You. I detest all my sins because I dread the loss of Heaven and the pains of Hell; but most of all because they offend You, my God, who are all-good and deserving of all my love. I firmly resolve, with the help of Your grace, to confess my sins, to do penance, and to amend my life. Amen.";
+
+function prompts(path: GuidedExaminationPathId, sectionId: string, items: string[]): GuidedPrompt[] {
+  return items.map((text, index) => ({
+    id: `${path}-${sectionId}-${index + 1}`,
+    text,
+  }));
+}
+
+const tenCommandmentsSections: GuidedExaminationSection[] = [
+  {
+    id: "first-commandment",
+    title: "1. I am the Lord your God. You shall not have strange gods before Me.",
+    reflection: "The first commandment invites the heart to worship, trust, and love God above every created thing.",
+    prompts: prompts("ten-commandments", "first-commandment", [
+      "Have I put anything or anyone above God?",
+      "Have I neglected prayer?",
+      "Have I practiced superstition, occultism, horoscopes, or fortune-telling?",
+    ]),
+  },
+  {
+    id: "second-commandment",
+    title: "2. You shall not take the name of the Lord your God in vain.",
+    reflection: "God's name and holy things are to be received with reverence, love, and truth.",
+    prompts: prompts("ten-commandments", "second-commandment", [
+      "Have I used God's name disrespectfully?",
+      "Have I spoken irreverently about holy things?",
+    ]),
+  },
+  {
+    id: "third-commandment",
+    title: "3. Remember to keep holy the Lord's Day.",
+    reflection: "Sunday worship, rest, and family life help the Christian receive the day as a gift from God.",
+    prompts: prompts("ten-commandments", "third-commandment", [
+      "Have I deliberately missed Mass on Sundays or Holy Days of Obligation?",
+      "Have I kept Sunday as a day of prayer, rest, and family?",
+    ]),
+  },
+  {
+    id: "fourth-commandment",
+    title: "4. Honor your father and your mother.",
+    reflection: "The fourth commandment calls us to reverence, gratitude, peace, and responsibility within family and authority.",
+    prompts: prompts("ten-commandments", "fourth-commandment", [
+      "Have I disrespected parents or lawful authorities?",
+      "Have I failed to foster peace in my family?",
+    ]),
+  },
+  {
+    id: "fifth-commandment",
+    title: "5. You shall not kill.",
+    reflection: "Human life and dignity are sacred, including the dignity wounded by hatred, gossip, resentment, and refusal to forgive.",
+    prompts: prompts("ten-commandments", "fifth-commandment", [
+      "Have I harmed others physically, emotionally, or through hatred?",
+      "Have I gossiped, resented, or refused to forgive?",
+    ]),
+  },
+  {
+    id: "sixth-commandment",
+    title: "6. You shall not commit adultery.",
+    reflection: "Purity and chastity protect the dignity of the body, marriage, and the person made in God's image.",
+    prompts: prompts("ten-commandments", "sixth-commandment", [
+      "Have I engaged in impure thoughts, words, or actions?",
+      "Have I respected marriage and the dignity of the body?",
+    ]),
+  },
+  {
+    id: "seventh-commandment",
+    title: "7. You shall not steal.",
+    reflection: "Justice calls us to honesty, stewardship, and respect for what belongs to others.",
+    prompts: prompts("ten-commandments", "seventh-commandment", [
+      "Have I taken what is not mine?",
+      "Have I been dishonest or unjust in work or dealings?",
+    ]),
+  },
+  {
+    id: "eighth-commandment",
+    title: "8. You shall not bear false witness.",
+    reflection: "Truthfulness protects charity, reputation, justice, and peace.",
+    prompts: prompts("ten-commandments", "eighth-commandment", [
+      "Have I lied, gossiped, or damaged another's reputation?",
+      "Have I failed to defend the truth?",
+    ]),
+  },
+  {
+    id: "ninth-commandment",
+    title: "9. You shall not covet your neighbor's wife.",
+    reflection: "The Lord asks for purity not only in action, but in desire, imagination, and attention.",
+    prompts: prompts("ten-commandments", "ninth-commandment", [
+      "Have I looked at others with lust?",
+      "Have I encouraged impure fantasies or consumed inappropriate media?",
+    ]),
+  },
+  {
+    id: "tenth-commandment",
+    title: "10. You shall not covet your neighbor's goods.",
+    reflection: "Gratitude and detachment free the heart from envy, comparison, and disordered desire.",
+    prompts: prompts("ten-commandments", "tenth-commandment", [
+      "Have I been envious of others' possessions, talents, or blessings?",
+      "Have I practiced gratitude and detachment?",
+    ]),
+  },
+  {
+    id: "precepts-of-the-church",
+    title: "Precepts of the Church",
+    reflection: "The precepts help Catholics remain faithful to worship, confession, Communion, penance, and support of the Church.",
+    prompts: prompts("ten-commandments", "precepts-of-the-church", [
+      "Have I attended Mass on Sundays and Holy Days?",
+      "Have I confessed serious sins at least once a year?",
+      "Have I received Communion during the Easter season?",
+      "Have I observed days of fasting and abstinence?",
+      "Have I supported the Church materially and spiritually?",
+    ]),
+  },
+  {
+    id: "interior-dispositions",
+    title: "Interior dispositions",
+    reflection: "A good confession is made with trust in mercy, sorrow for sin, and a real desire to change.",
+    prompts: prompts("ten-commandments", "interior-dispositions", [
+      "Do I trust God's mercy?",
+      "Am I truly sorry for my sins?",
+      "Am I resolved to change and avoid near occasions of sin?",
+    ]),
+  },
+];
+
+const beatitudesSections: GuidedExaminationSection[] = [
+  {
+    id: "poor-in-spirit",
+    title: "Blessed are the poor in spirit",
+    scripture: "Blessed are the poor in spirit, for theirs is the kingdom of heaven.",
+    reflection: "Poverty of spirit means humility, dependence upon God, and freedom from pride and self-sufficiency.",
+    prompts: prompts("beatitudes", "poor-in-spirit", [
+      "Have I relied more on myself than on God?",
+      "Have I been prideful or spiritually arrogant?",
+      "Have I resisted correction or advice?",
+      "Have I neglected prayer or dependence on grace?",
+      "Have I become attached to status, success, or recognition?",
+    ]),
+  },
+  {
+    id: "they-who-mourn",
+    title: "Blessed are they who mourn",
+    scripture: "Blessed are they who mourn, for they shall be comforted.",
+    reflection: "Holy mourning includes sorrow for sin, compassion for suffering, and a heart sensitive to evil and injustice.",
+    prompts: prompts("beatitudes", "they-who-mourn", [
+      "Have I become indifferent to sin?",
+      "Have I avoided repentance?",
+      "Have I failed to show compassion toward suffering people?",
+      "Have I ignored opportunities to comfort others?",
+      "Have I hardened my heart?",
+    ]),
+  },
+  {
+    id: "the-meek",
+    title: "Blessed are the meek",
+    scripture: "Blessed are the meek, for they shall possess the land.",
+    reflection: "Meekness is strength under control, patience, gentleness, and trust in God rather than anger or domination.",
+    prompts: prompts("beatitudes", "the-meek", [
+      "Have I acted out of anger or impatience?",
+      "Have I insulted or humiliated others?",
+      "Have I sought control or domination?",
+      "Have I been harsh in speech or online interactions?",
+      "Have I lacked gentleness with family members or coworkers?",
+    ]),
+  },
+  {
+    id: "hunger-and-thirst",
+    title: "Blessed are they who hunger and thirst for justice",
+    scripture: "Blessed are they who hunger and thirst for justice, for they shall be satisfied.",
+    reflection: "This Beatitude calls us to desire holiness, righteousness, and the will of God above comfort or convenience.",
+    prompts: prompts("beatitudes", "hunger-and-thirst", [
+      "Have I become spiritually lazy?",
+      "Have I neglected the pursuit of holiness?",
+      "Have I ignored injustice or failed to defend the vulnerable?",
+      "Have I compromised moral truth for comfort or approval?",
+      "Have I desired worldly pleasures more than virtue?",
+    ]),
+  },
+  {
+    id: "the-merciful",
+    title: "Blessed are the merciful",
+    scripture: "Blessed are the merciful, for they shall obtain mercy.",
+    reflection: "Mercy reflects the Heart of Christ through forgiveness, compassion, patience, and love toward others.",
+    prompts: prompts("beatitudes", "the-merciful", [
+      "Have I refused to forgive?",
+      "Have I held grudges or resentment?",
+      "Have I judged others harshly?",
+      "Have I failed to help those in need?",
+      "Have I been impatient or lacking compassion?",
+    ]),
+  },
+  {
+    id: "clean-of-heart",
+    title: "Blessed are the clean of heart",
+    scripture: "Blessed are the clean of heart, for they shall see God.",
+    reflection: "Purity of heart calls us to integrity, chastity, sincerity, and freedom from impurity and hypocrisy.",
+    prompts: prompts("beatitudes", "clean-of-heart", [
+      "Have I entertained impure thoughts?",
+      "Have I consumed immoral or degrading media?",
+      "Have I acted hypocritically?",
+      "Have my intentions been selfish or manipulative?",
+      "Have I treated others as objects rather than persons made in God's image?",
+    ]),
+  },
+  {
+    id: "peacemakers",
+    title: "Blessed are the peacemakers",
+    scripture: "Blessed are the peacemakers, for they shall be called children of God.",
+    reflection: "Peacemaking requires reconciliation, charity, truthfulness, and a willingness to heal division.",
+    prompts: prompts("beatitudes", "peacemakers", [
+      "Have I caused division or conflict?",
+      "Have I spread gossip or negativity?",
+      "Have I failed to reconcile with others?",
+      "Have I encouraged hostility online or in person?",
+      "Have I avoided making peace when I could?",
+    ]),
+  },
+  {
+    id: "persecuted-for-justice",
+    title: "Blessed are they who suffer persecution for justice' sake",
+    scripture: "Blessed are they who suffer persecution for justice' sake, for theirs is the kingdom of heaven.",
+    reflection: "Faithfulness to Christ sometimes requires courage, perseverance, and willingness to endure misunderstanding or rejection.",
+    prompts: prompts("beatitudes", "persecuted-for-justice", [
+      "Have I hidden my faith out of fear?",
+      "Have I compromised Catholic teaching to fit in?",
+      "Have I failed to defend truth charitably?",
+      "Have I avoided sacrifice for the Gospel?",
+      "Have I chosen comfort over fidelity to Christ?",
+    ]),
+  },
+];
+
+export const stateOfLifeCategories: StateOfLifeCategory[] = [
+  {
+    id: "general-christian-duties",
+    title: "General Christian Duties",
+    reflection: "Every Christian is called to holiness through love of God and neighbor, fidelity to prayer, obedience to God's commandments, and charity in daily life.",
+    prompts: prompts("state-of-life", "general-christian-duties", [
+      "Have I neglected daily prayer or treated God as secondary?",
+      "Have I failed to love my neighbor with patience and charity?",
+      "Have I ignored opportunities to serve, forgive, or encourage others?",
+      "Have I lived differently in public than I claim to believe in faith?",
+      "Have I failed to seek holiness in ordinary daily duties?",
+    ]),
+  },
+  {
+    id: "married-life",
+    title: "Married Life",
+    reflection: "Marriage is a covenant of faithful, fruitful, and self-giving love. Spouses are called to image Christ's love through fidelity, sacrifice, forgiveness, and tenderness.",
+    prompts: prompts("state-of-life", "married-life", [
+      "Have I failed to love my spouse with patience, respect, and generosity?",
+      "Have I spoken harshly, contemptuously, or manipulatively?",
+      "Have I withheld forgiveness or affection as punishment?",
+      "Have I neglected communication, prayer, or spiritual unity with my spouse?",
+      "Have I been unfaithful in thought, word, action, or online behavior?",
+      "Have I placed work, entertainment, friends, or devices above my spouse?",
+    ]),
+  },
+  {
+    id: "parenthood",
+    title: "Parenthood",
+    reflection: "Parents are entrusted with the spiritual, moral, emotional, and physical formation of their children.",
+    prompts: prompts("state-of-life", "parenthood", [
+      "Have I failed to teach my children the faith by word and example?",
+      "Have I neglected prayer, Mass, or sacramental life with my family?",
+      "Have I been impatient, harsh, inconsistent, or unjust in discipline?",
+      "Have I failed to listen to my children with love and attention?",
+      "Have I allowed harmful media, habits, or influences without guidance?",
+      "Have I prioritized comfort or success over my children's holiness?",
+    ]),
+  },
+  {
+    id: "children-and-teens",
+    title: "Children and Teens",
+    reflection: "Children are called to honor their parents, grow in virtue, tell the truth, and respond generously to God's grace.",
+    prompts: prompts("state-of-life", "children-and-teens", [
+      "Have I disrespected or disobeyed my parents or guardians?",
+      "Have I lied, hidden serious matters, or broken trust?",
+      "Have I been unkind to siblings, classmates, teachers, or friends?",
+      "Have I used technology, games, or social media in sinful or harmful ways?",
+      "Have I neglected prayer, Mass, or gratitude to God?",
+      "Have I given in to peer pressure against my conscience?",
+    ]),
+  },
+  {
+    id: "single-life",
+    title: "Single Life",
+    reflection: "The single state can be a place of generous service, chastity, friendship, prayer, and preparation for God's will.",
+    prompts: prompts("state-of-life", "single-life", [
+      "Have I used my freedom selfishly rather than for love and service?",
+      "Have I neglected chastity in thoughts, words, actions, or media use?",
+      "Have I isolated myself from community, parish life, or works of charity?",
+      "Have I become resentful, envious, or discouraged about my state in life?",
+      "Have I failed to discern God's will with prayer and trust?",
+      "Have I used relationships for attention, comfort, or validation?",
+    ]),
+  },
+  {
+    id: "work-and-professional-life",
+    title: "Work and Professional Life",
+    reflection: "Work is a place to serve God and neighbor through honesty, diligence, justice, and stewardship.",
+    prompts: prompts("state-of-life", "work-and-professional-life", [
+      "Have I been dishonest, lazy, careless, or unjust at work?",
+      "Have I gossiped, undermined others, or treated coworkers poorly?",
+      "Have I stolen time, money, resources, credit, or opportunities?",
+      "Have I placed ambition, money, or success above God and family?",
+      "Have I failed to treat employees, customers, or coworkers with dignity?",
+      "Have I compromised moral truth for advancement or approval?",
+    ]),
+  },
+  {
+    id: "student-life",
+    title: "Student Life",
+    reflection: "Study is a duty of formation, discipline, gratitude, and preparation for future service.",
+    prompts: prompts("state-of-life", "student-life", [
+      "Have I been lazy, dishonest, or careless in my studies?",
+      "Have I cheated, plagiarized, or taken unfair credit?",
+      "Have I disrespected teachers, classmates, or school authorities?",
+      "Have I used study time irresponsibly through distraction or procrastination?",
+      "Have I allowed peer pressure to lead me into sin?",
+      "Have I failed to use my gifts for God's glory and the good of others?",
+    ]),
+  },
+  {
+    id: "caregiving",
+    title: "Caregiving",
+    reflection: "Those who care for the sick, elderly, children, or vulnerable are called to patience, mercy, tenderness, and perseverance.",
+    prompts: prompts("state-of-life", "caregiving", [
+      "Have I served with resentment rather than love?",
+      "Have I been impatient, neglectful, or harsh toward someone entrusted to me?",
+      "Have I failed to respect the dignity of the vulnerable?",
+      "Have I neglected necessary rest, prayer, or help in a way that harms charity?",
+      "Have I complained excessively or refused to ask for support?",
+      "Have I failed to see Christ in the suffering person?",
+    ]),
+  },
+  {
+    id: "clergy-and-religious-life",
+    title: "Clergy and Religious Life",
+    reflection: "Those consecrated to God are called to fidelity, obedience, prayer, chastity, humility, and service to the People of God.",
+    prompts: prompts("state-of-life", "clergy-and-religious-life", [
+      "Have I neglected prayer, spiritual reading, or the duties of my vocation?",
+      "Have I failed in obedience, humility, or charity toward superiors or community?",
+      "Have I treated ministry as routine rather than service to Christ?",
+      "Have I been careless with chastity, boundaries, or pastoral responsibility?",
+      "Have I sought comfort, praise, control, or status over holiness?",
+      "Have I failed to care for the souls entrusted to me?",
+    ]),
+  },
+  {
+    id: "civic-and-parish-responsibilities",
+    title: "Civic and Parish Responsibilities",
+    reflection: "Catholics are called to serve the common good, build up the Church, and act with justice, honesty, and charity in society.",
+    prompts: prompts("state-of-life", "civic-and-parish-responsibilities", [
+      "Have I failed to contribute to my parish according to my gifts and ability?",
+      "Have I criticized the Church or parish leaders without charity or truth?",
+      "Have I neglected the poor, vulnerable, lonely, or forgotten?",
+      "Have I failed to act honestly and justly in civic life?",
+      "Have I spread division, contempt, or falsehood in political or social matters?",
+      "Have I failed to pray for the Church, leaders, neighbors, and enemies?",
+    ]),
+  },
+];
+
+const virtuesAndVicesSections: GuidedExaminationSection[] = [
+  {
+    id: "pride-humility",
+    title: "Pride and Humility",
+    reflection: "Vice to renounce: pride. Virtue to practice: humility. Pride places the self above God and neighbor. Humility receives life as a gift, accepts truth, and depends upon grace.",
+    prompts: prompts("virtues", "pride-humility", [
+      "Have I sought praise, attention, or superiority over others?",
+      "Have I refused correction or become defensive when challenged?",
+      "Have I judged others harshly or looked down on them?",
+      "Have I hidden my faults instead of confessing them honestly?",
+      "Have I relied on myself more than on God?",
+      "Have I failed to thank God for my gifts and blessings?",
+    ]),
+  },
+  {
+    id: "envy-charity",
+    title: "Envy and Charity",
+    reflection: "Vice to renounce: envy. Virtue to practice: charity. Envy grieves over another's good. Charity rejoices in the gifts God gives to others and seeks their true good.",
+    prompts: prompts("virtues", "envy-charity", [
+      "Have I resented another person's success, gifts, beauty, holiness, or happiness?",
+      "Have I compared myself bitterly with others?",
+      "Have I spoken poorly of someone because I felt threatened by them?",
+      "Have I failed to rejoice in another's blessing?",
+      "Have I secretly wished someone would fail?",
+      "Have I neglected gratitude for my own blessings?",
+    ]),
+  },
+  {
+    id: "anger-meekness",
+    title: "Anger and Meekness",
+    reflection: "Vice to renounce: anger. Virtue to practice: meekness. Sinful anger wounds charity. Meekness is not weakness, but strength governed by patience, justice, and love.",
+    prompts: prompts("virtues", "anger-meekness", [
+      "Have I lost my temper or spoken harshly?",
+      "Have I insulted, mocked, threatened, or humiliated anyone?",
+      "Have I held resentment or refused forgiveness?",
+      "Have I punished others with silence, coldness, or contempt?",
+      "Have I allowed anger to control my words, actions, driving, or online behavior?",
+      "Have I failed to seek peace when reconciliation was possible?",
+    ]),
+  },
+  {
+    id: "sloth-diligence",
+    title: "Sloth and Diligence",
+    reflection: "Vice to renounce: sloth. Virtue to practice: diligence. Sloth resists the effort required for love, prayer, duty, and holiness. Diligence responds faithfully to God's will.",
+    prompts: prompts("virtues", "sloth-diligence", [
+      "Have I neglected prayer, Mass, Scripture, or spiritual duties out of laziness?",
+      "Have I avoided responsibilities at home, work, school, or parish?",
+      "Have I wasted excessive time on entertainment, scrolling, or distractions?",
+      "Have I procrastinated duties I knew I should do?",
+      "Have I resisted God's call to conversion because it felt difficult?",
+      "Have I failed to use my gifts for God and neighbor?",
+    ]),
+  },
+  {
+    id: "greed-generosity",
+    title: "Greed and Generosity",
+    reflection: "Vice to renounce: greed. Virtue to practice: generosity. Greed clings to possessions, comfort, money, or security. Generosity trusts God and uses created goods in love.",
+    prompts: prompts("virtues", "greed-generosity", [
+      "Have I placed money, possessions, success, or comfort above God?",
+      "Have I been selfish with my time, talents, or resources?",
+      "Have I failed to help the poor or those in need when I could?",
+      "Have I been dishonest in financial matters?",
+      "Have I bought, kept, or desired more than I reasonably need?",
+      "Have I failed to practice gratitude, simplicity, or stewardship?",
+    ]),
+  },
+  {
+    id: "lust-chastity",
+    title: "Lust and Chastity",
+    reflection: "Vice to renounce: lust. Virtue to practice: chastity. Lust uses the body or another person for selfish pleasure. Chastity honors the dignity of the person and orders love according to God's plan.",
+    prompts: prompts("virtues", "lust-chastity", [
+      "Have I entertained impure thoughts or fantasies?",
+      "Have I looked at another person lustfully?",
+      "Have I consumed pornography or sexually explicit content?",
+      "Have I used media, messages, or relationships in an impure way?",
+      "Have I treated my body or another person's body as an object?",
+      "Have I failed to guard my eyes, imagination, conversations, or online habits?",
+      "Have I placed myself in near occasions of impurity?",
+    ]),
+  },
+  {
+    id: "gluttony-temperance",
+    title: "Gluttony and Temperance",
+    reflection: "Vice to renounce: gluttony. Virtue to practice: temperance. Gluttony seeks comfort through excess or disorder. Temperance brings desires into harmony with reason, gratitude, and holiness.",
+    prompts: prompts("virtues", "gluttony-temperance", [
+      "Have I eaten or drunk to excess?",
+      "Have I used food, drink, entertainment, or comfort to avoid God or my duties?",
+      "Have I lacked discipline in sleep, habits, spending, or media use?",
+      "Have I been ungrateful, wasteful, or demanding?",
+      "Have I failed to fast, abstain, or practice self-denial when required or beneficial?",
+      "Have I allowed bodily desires to rule my soul?",
+    ]),
+  },
+  {
+    id: "growth-in-virtue",
+    title: "Growth in Virtue",
+    reflection: "The Christian life is not only avoiding sin but growing in holiness, love, and union with Christ.",
+    prompts: prompts("virtues", "growth-in-virtue", [
+      "Have I asked God daily for the grace to grow in virtue?",
+      "Have I cooperated with grace through prayer, sacrifice, and the sacraments?",
+      "Have I examined my conscience regularly?",
+      "Have I avoided near occasions of sin?",
+      "Have I sought spiritual guidance, accountability, or Confession when needed?",
+    ]),
+  },
+];
+
+const relationshipsDutiesSections: GuidedExaminationSection[] = [
+  {
+    id: "family-relationships",
+    title: "Family Relationships",
+    reflection: "Relationship to examine: family. The home is a school of charity where patience, forgiveness, respect, and self-giving love are practiced daily.",
+    prompts: prompts("relationships-duties", "family-relationships", [
+      "Have I failed to love my family with patience and kindness?",
+      "Have I spoken harshly, sarcastically, or disrespectfully at home?",
+      "Have I refused to forgive a family member?",
+      "Have I neglected duties toward spouse, children, parents, siblings, or relatives?",
+      "Have I caused division, coldness, or resentment in the home?",
+      "Have I failed to pray for or with my family?",
+    ]),
+  },
+  {
+    id: "friendships",
+    title: "Friendships",
+    reflection: "Relationship to examine: friendship. Christian friendship should lead both persons closer to truth, virtue, holiness, and charity.",
+    prompts: prompts("relationships-duties", "friendships", [
+      "Have I used friendships for attention, comfort, status, or selfish gain?",
+      "Have I encouraged others toward sin?",
+      "Have I failed to correct a friend charitably when needed?",
+      "Have I betrayed trust or shared private information?",
+      "Have I neglected a friend in need?",
+      "Have I been possessive, jealous, manipulative, or dishonest in friendship?",
+    ]),
+  },
+  {
+    id: "work-school-duties",
+    title: "Work, School, and Daily Responsibilities",
+    reflection: "Duties before God: ordinary responsibilities. Ordinary duties are a place of sanctification. Faithfulness in small things is an offering to God.",
+    prompts: prompts("relationships-duties", "work-school-duties", [
+      "Have I been lazy, careless, or dishonest in my duties?",
+      "Have I wasted time that belonged to work, study, family, or prayer?",
+      "Have I failed to complete responsibilities I freely accepted?",
+      "Have I blamed others for my negligence?",
+      "Have I treated coworkers, classmates, employees, or supervisors without respect?",
+      "Have I sought praise while avoiding sacrifice?",
+    ]),
+  },
+  {
+    id: "promises-commitments-integrity",
+    title: "Promises, Commitments, and Integrity",
+    reflection: "Duties before God: integrity. A Christian is called to truthfulness, fidelity, and reliability in words and actions.",
+    prompts: prompts("relationships-duties", "promises-commitments-integrity", [
+      "Have I broken promises without serious reason?",
+      "Have I failed to keep commitments to God, family, parish, work, or others?",
+      "Have I made commitments carelessly or dishonestly?",
+      "Have I exaggerated, manipulated, or concealed the truth?",
+      "Have I failed to repair harm caused by broken trust?",
+      "Have my actions contradicted my words?",
+    ]),
+  },
+  {
+    id: "justice-fairness",
+    title: "Justice and Fairness",
+    reflection: "Charity in action: justice. Justice gives God and neighbor what is due. It includes honesty, restitution, fairness, and concern for the vulnerable.",
+    prompts: prompts("relationships-duties", "justice-fairness", [
+      "Have I taken what was not mine?",
+      "Have I failed to return borrowed items, money, or property?",
+      "Have I cheated, overcharged, underpaid, or acted unfairly?",
+      "Have I failed to make restitution where possible?",
+      "Have I ignored the poor, vulnerable, lonely, or suffering?",
+      "Have I benefited from injustice without concern for those harmed?",
+    ]),
+  },
+  {
+    id: "speech-communication",
+    title: "Speech and Communication",
+    reflection: "Charity in action: speech. Words can bless or wound. Christian speech should be truthful, charitable, pure, and peace-giving.",
+    prompts: prompts("relationships-duties", "speech-communication", [
+      "Have I lied or intentionally misled someone?",
+      "Have I gossiped, slandered, or damaged another's reputation?",
+      "Have I spoken with cruelty, mockery, contempt, or unnecessary criticism?",
+      "Have I used vulgar, impure, or blasphemous language?",
+      "Have I spread rumors, negativity, or division online or in person?",
+      "Have I failed to speak the truth when charity required it?",
+    ]),
+  },
+  {
+    id: "conflict-forgiveness",
+    title: "Conflict and Forgiveness",
+    reflection: "Charity in action: reconciliation. Christ calls His disciples to forgive, seek peace, and overcome evil with good.",
+    prompts: prompts("relationships-duties", "conflict-forgiveness", [
+      "Have I refused to forgive someone?",
+      "Have I held grudges, resentment, or bitterness?",
+      "Have I avoided reconciliation when it was possible and appropriate?",
+      "Have I sought revenge or wanted another person to suffer?",
+      "Have I replayed injuries in my mind instead of surrendering them to God?",
+      "Have I failed to ask forgiveness when I wounded someone?",
+    ]),
+  },
+  {
+    id: "authority-obedience",
+    title: "Authority and Obedience",
+    reflection: "Duties before God: authority. Legitimate authority should be respected, and those in authority must serve with justice, humility, and charity.",
+    prompts: prompts("relationships-duties", "authority-obedience", [
+      "Have I disrespected parents, teachers, employers, clergy, civil authorities, or lawful superiors?",
+      "Have I obeyed only outwardly while harboring contempt or rebellion?",
+      "Have I abused authority, power, age, position, or knowledge over another?",
+      "Have I failed to protect or serve those entrusted to me?",
+      "Have I used authority for control, praise, comfort, or personal advantage?",
+      "Have I failed to pray for those in authority?",
+    ]),
+  },
+  {
+    id: "digital-life-online-conduct",
+    title: "Digital Life and Online Conduct",
+    reflection: "Charity in action: online life. Charity, purity, truth, and justice must govern online life as much as face-to-face life.",
+    prompts: prompts("relationships-duties", "digital-life-online-conduct", [
+      "Have I used technology in ways that led me or others into sin?",
+      "Have I wasted excessive time online?",
+      "Have I posted, shared, or liked content that was uncharitable, false, impure, or divisive?",
+      "Have I hidden sinful online behavior?",
+      "Have I compared myself bitterly with others online?",
+      "Have I neglected real duties or relationships because of devices?",
+    ]),
+  },
+  {
+    id: "church-community-duties",
+    title: "Duties Toward the Church and Community",
+    reflection: "Charity in action: Church and community. Each Catholic is called to build up the Body of Christ and serve the common good.",
+    prompts: prompts("relationships-duties", "church-community-duties", [
+      "Have I neglected Sunday Mass or parish life without serious reason?",
+      "Have I failed to support the Church according to my ability?",
+      "Have I criticized priests, parish leaders, or fellow Catholics without charity?",
+      "Have I refused to use my gifts in service when reasonably able?",
+      "Have I neglected works of mercy in my community?",
+      "Have I failed to pray for the Church, the Pope, bishops, priests, and those in need?",
+    ]),
+  },
+];
+
+const prayerSacramentalLifeSections: GuidedExaminationSection[] = [
+  {
+    id: "daily-prayer",
+    title: "Daily Prayer",
+    reflection: "Life of prayer. Prayer is a living relationship with God. Through prayer, the soul receives grace, light, strength, and friendship with Christ.",
+    prompts: prompts("prayer-sacramental-life", "daily-prayer", [
+      "Have I neglected daily prayer?",
+      "Have I prayed only when I needed something?",
+      "Have I rushed prayer without reverence or attention?",
+      "Have I failed to thank God for His blessings?",
+      "Have I avoided silence because I did not want to hear God's voice?",
+      "Have I trusted myself more than God's grace?",
+    ]),
+  },
+  {
+    id: "sunday-mass-holy-days",
+    title: "Sunday Mass and Holy Days",
+    reflection: "Sacramental faithfulness. The Eucharistic sacrifice is the source and summit of the Christian life. Catholics are called to worship God at Mass on Sundays and Holy Days of Obligation.",
+    prompts: prompts("prayer-sacramental-life", "sunday-mass-holy-days", [
+      "Have I deliberately missed Mass on Sunday or a Holy Day of Obligation without serious reason?",
+      "Have I arrived late or left early through my own fault?",
+      "Have I been distracted, careless, or irreverent during Mass?",
+      "Have I failed to prepare my heart before Mass?",
+      "Have I treated Mass as routine rather than worship of God?",
+      "Have I failed to keep Sunday as a day of prayer, rest, and family?",
+    ]),
+  },
+  {
+    id: "holy-eucharist",
+    title: "The Holy Eucharist",
+    reflection: "Sacramental faithfulness. Jesus Christ is truly present in the Eucharist: Body, Blood, Soul, and Divinity. Holy Communion should be received with faith, reverence, and a properly disposed soul.",
+    prompts: prompts("prayer-sacramental-life", "holy-eucharist", [
+      "Have I received Holy Communion while conscious of serious sin without first going to Confession?",
+      "Have I received the Eucharist carelessly or without devotion?",
+      "Have I failed to make an act of thanksgiving after Communion?",
+      "Have I doubted or ignored the Real Presence of Christ in the Eucharist?",
+      "Have I shown irreverence in church or before the tabernacle?",
+      "Have I failed to make time for Eucharistic adoration or prayer before the Blessed Sacrament when able?",
+    ]),
+  },
+  {
+    id: "confession-repentance",
+    title: "Confession and Repentance",
+    reflection: "Sacramental faithfulness. In the Sacrament of Reconciliation, Christ forgives sins through the ministry of the priest and restores the soul to grace.",
+    prompts: prompts("prayer-sacramental-life", "confession-repentance", [
+      "Have I avoided Confession out of fear, pride, shame, or laziness?",
+      "Have I knowingly concealed a sin in Confession?",
+      "Have I confessed without true sorrow or without a desire to amend my life?",
+      "Have I failed to do my assigned penance?",
+      "Have I delayed repentance after recognizing sin?",
+      "Have I neglected regular examination of conscience?",
+    ]),
+  },
+  {
+    id: "baptismal-promises",
+    title: "Baptismal Promises and Christian Identity",
+    reflection: "Sacramental faithfulness. Through Baptism, we belong to Christ, renounce sin, and are called to live as children of God.",
+    prompts: prompts("prayer-sacramental-life", "baptismal-promises", [
+      "Have I lived as though my faith were only private or unimportant?",
+      "Have I failed to reject sin, evil, or the empty promises of the world?",
+      "Have I been ashamed of being Catholic?",
+      "Have I failed to witness to Christ by my words and actions?",
+      "Have I neglected my duty to grow in faith and holiness?",
+      "Have I forgotten that I am called to become a saint?",
+    ]),
+  },
+  {
+    id: "confirmation-gifts-holy-spirit",
+    title: "Confirmation and Gifts of the Holy Spirit",
+    reflection: "Sacramental faithfulness. Confirmation strengthens the Christian with the gifts of the Holy Spirit for witness, courage, and fidelity.",
+    prompts: prompts("prayer-sacramental-life", "confirmation-gifts-holy-spirit", [
+      "Have I ignored the promptings of the Holy Spirit?",
+      "Have I failed to defend the faith with charity and courage?",
+      "Have I remained silent when truth required a loving witness?",
+      "Have I neglected the gifts God has given me for service?",
+      "Have I failed to ask the Holy Spirit for wisdom, strength, and guidance?",
+      "Have I chosen comfort over fidelity to Christ?",
+    ]),
+  },
+  {
+    id: "vocation-fidelity",
+    title: "Marriage, Holy Orders, and Vocational Fidelity",
+    reflection: "Sacramental faithfulness. Every vocation is a path to holiness. God calls each person to love faithfully through his or her state in life.",
+    prompts: prompts("prayer-sacramental-life", "vocation-fidelity", [
+      "Have I neglected the duties of my vocation?",
+      "Have I failed to pray for fidelity to my state in life?",
+      "Have I treated my vocation as a burden rather than a path to holiness?",
+      "Have I failed to support priests, religious, married couples, families, or those discerning God's call?",
+      "Have I discouraged another person from following God's will?",
+      "Have I sought my own comfort over sacrificial love?",
+    ]),
+  },
+  {
+    id: "reverence-sacred-things",
+    title: "Reverence for Sacred Things",
+    reflection: "Reverence before God. Sacred places, names, objects, and rites should be treated with reverence because they are set apart for God.",
+    prompts: prompts("prayer-sacramental-life", "reverence-sacred-things", [
+      "Have I used God's name, Jesus' name, Mary's name, or the saints' names carelessly or disrespectfully?",
+      "Have I spoken irreverently about the Church, the sacraments, or holy things?",
+      "Have I treated blessed objects carelessly?",
+      "Have I dressed or behaved immodestly or carelessly in sacred spaces?",
+      "Have I distracted others during prayer or worship?",
+      "Have I failed to maintain reverence in church?",
+    ]),
+  },
+  {
+    id: "devotional-life",
+    title: "Devotional Life",
+    reflection: "Life of prayer. Devotions such as the Rosary, Stations of the Cross, Divine Mercy, Scripture reading, and Eucharistic adoration help dispose the soul to grace and deepen love for Christ.",
+    prompts: prompts("prayer-sacramental-life", "devotional-life", [
+      "Have I neglected spiritual practices that help me grow in holiness?",
+      "Have I treated devotions as empty routine rather than acts of love?",
+      "Have I failed to meditate on Scripture or the mysteries of Christ's life?",
+      "Have I ignored Mary's maternal help and intercession?",
+      "Have I neglected prayer for the dead, the suffering, or those in need?",
+      "Have I allowed distractions to crowd out devotion to God?",
+    ]),
+  },
+  {
+    id: "trust-gods-mercy",
+    title: "Trust in God's Mercy",
+    reflection: "Life of prayer. God's mercy is greater than sin. The Christian life requires repentance, confidence, perseverance, and hope.",
+    prompts: prompts("prayer-sacramental-life", "trust-gods-mercy", [
+      "Have I despaired of God's mercy?",
+      "Have I presumed on God's mercy while refusing conversion?",
+      "Have I allowed shame to keep me from prayer or Confession?",
+      "Have I doubted that God desires my salvation?",
+      "Have I failed to forgive myself after sincerely repenting?",
+      "Have I resisted beginning again after falling into sin?",
+    ]),
+  },
+];
+
+const worksOfMercySections: GuidedExaminationSection[] = [
+  {
+    id: "works-of-mercy-intro",
+    title: "The Works of Mercy",
+    reflection: "The Works of Mercy are concrete expressions of Christian charity. In serving others with love, compassion, truth, and sacrifice, we serve Christ Himself.",
+    prompts: [],
+  },
+  {
+    id: "feed-the-hungry",
+    title: "Corporal Work: Feed the Hungry",
+    reflection: "Christ calls His disciples to care for those lacking food, dignity, and basic necessities.",
+    prompts: prompts("works-of-mercy", "feed-the-hungry", [
+      "Have I ignored people in need when I could reasonably help?",
+      "Have I wasted food or resources while others lacked necessities?",
+      "Have I failed to practice generosity toward the poor?",
+      "Have I become indifferent to suffering or poverty?",
+      "Have I refused hospitality or charity out of selfishness?",
+      "Have I failed to thank God for the blessings I possess?",
+    ]),
+  },
+  {
+    id: "give-drink-thirsty",
+    title: "Corporal Work: Give Drink to the Thirsty",
+    reflection: "The Christian heart responds compassionately to physical and spiritual thirst.",
+    prompts: prompts("works-of-mercy", "give-drink-thirsty", [
+      "Have I neglected opportunities to help those lacking basic necessities?",
+      "Have I taken clean water, health, or comfort for granted?",
+      "Have I consumed excessively while others lacked essentials?",
+      "Have I failed to support charitable works when reasonably able?",
+      "Have I ignored those physically or emotionally exhausted and in need of care?",
+    ]),
+  },
+  {
+    id: "clothe-the-naked",
+    title: "Corporal Work: Clothe the Naked",
+    reflection: "Every human being possesses God-given dignity deserving respect, modesty, and care.",
+    prompts: prompts("works-of-mercy", "clothe-the-naked", [
+      "Have I failed to help those lacking clothing or necessities?",
+      "Have I encouraged vanity, materialism, or immodesty?",
+      "Have I judged others based on appearance or possessions?",
+      "Have I wasted money selfishly while neglecting generosity?",
+      "Have I failed to respect the dignity of vulnerable people?",
+    ]),
+  },
+  {
+    id: "shelter-the-homeless",
+    title: "Corporal Work: Shelter the Homeless",
+    reflection: "Christ Himself had nowhere to lay His head. Christians are called to welcome and protect the vulnerable.",
+    prompts: prompts("works-of-mercy", "shelter-the-homeless", [
+      "Have I ignored people who lacked safety, welcome, or belonging?",
+      "Have I treated strangers, immigrants, or vulnerable persons without compassion?",
+      "Have I refused hospitality when reasonably able to help?",
+      "Have I failed to support those suffering loneliness or abandonment?",
+      "Have I hardened my heart toward those living in difficult conditions?",
+    ]),
+  },
+  {
+    id: "visit-the-sick",
+    title: "Corporal Work: Visit the Sick",
+    reflection: "To care for the sick is to encounter Christ in suffering.",
+    prompts: prompts("works-of-mercy", "visit-the-sick", [
+      "Have I neglected sick, elderly, suffering, or isolated persons?",
+      "Have I avoided people because their suffering made me uncomfortable?",
+      "Have I failed to offer encouragement, prayer, or presence to those in pain?",
+      "Have I become impatient with the weak or vulnerable?",
+      "Have I failed to pray for the suffering?",
+    ]),
+  },
+  {
+    id: "visit-the-imprisoned",
+    title: "Corporal Work: Visit the Imprisoned",
+    reflection: "Mercy reaches even those who are forgotten, rejected, or suffering consequences for sin.",
+    prompts: prompts("works-of-mercy", "visit-the-imprisoned", [
+      "Have I written people off as hopeless or beyond redemption?",
+      "Have I failed to pray for prisoners, the addicted, or those trapped in sin?",
+      "Have I treated others only according to their worst mistakes?",
+      "Have I refused compassion toward people seeking conversion?",
+      "Have I failed to believe in God's power to heal and restore souls?",
+    ]),
+  },
+  {
+    id: "bury-the-dead",
+    title: "Corporal Work: Bury the Dead",
+    reflection: "Respect for the dead reflects faith in the dignity of the body and the hope of resurrection.",
+    prompts: prompts("works-of-mercy", "bury-the-dead", [
+      "Have I neglected prayer for the dead?",
+      "Have I failed to comfort those who mourn?",
+      "Have I treated death carelessly, mockingly, or without reverence?",
+      "Have I avoided supporting grieving people?",
+      "Have I forgotten the Christian hope of eternal life?",
+    ]),
+  },
+  {
+    id: "instruct-the-ignorant",
+    title: "Spiritual Work: Instruct the Ignorant",
+    reflection: "Christ calls His followers to share truth with charity, patience, and humility.",
+    prompts: prompts("works-of-mercy", "instruct-the-ignorant", [
+      "Have I neglected opportunities to share or explain the faith?",
+      "Have I remained ignorant of the teachings of Christ through laziness?",
+      "Have I mocked or dismissed sincere questions about faith?",
+      "Have I failed to form my conscience according to Catholic teaching?",
+      "Have I spread confusion or falsehood about the faith?",
+    ]),
+  },
+  {
+    id: "counsel-the-doubtful",
+    title: "Spiritual Work: Counsel the Doubtful",
+    reflection: "Mercy listens patiently and guides others toward truth, hope, and trust in God.",
+    prompts: prompts("works-of-mercy", "counsel-the-doubtful", [
+      "Have I ignored people who needed guidance or encouragement?",
+      "Have I discouraged someone from seeking God or the truth?",
+      "Have I responded harshly to those struggling spiritually?",
+      "Have I failed to pray for wisdom before giving advice?",
+      "Have I led others toward sin through bad counsel?",
+    ]),
+  },
+  {
+    id: "admonish-the-sinner",
+    title: "Spiritual Work: Admonish the Sinner",
+    reflection: "True charity desires the salvation of souls and speaks truth with humility and love.",
+    prompts: prompts("works-of-mercy", "admonish-the-sinner", [
+      "Have I remained silent when loving correction was needed?",
+      "Have I corrected others harshly, proudly, or hypocritically?",
+      "Have I encouraged others in sinful behavior?",
+      "Have I feared human approval more than truth?",
+      "Have I failed to examine my own sins before correcting others?",
+    ]),
+  },
+  {
+    id: "bear-wrongs-patiently",
+    title: "Spiritual Work: Bear Wrongs Patiently",
+    reflection: "Patience unites suffering with Christ and resists resentment, revenge, and bitterness.",
+    prompts: prompts("works-of-mercy", "bear-wrongs-patiently", [
+      "Have I become resentful or bitter toward others?",
+      "Have I overreacted to small offenses or inconveniences?",
+      "Have I demanded perfection from others while excusing myself?",
+      "Have I failed to unite suffering patiently with Christ?",
+      "Have I refused forgiveness or nurtured grudges?",
+    ]),
+  },
+  {
+    id: "forgive-offenses-willingly",
+    title: "Spiritual Work: Forgive Offenses Willingly",
+    reflection: "Christ commands His disciples to forgive as they themselves have been forgiven.",
+    prompts: prompts("works-of-mercy", "forgive-offenses-willingly", [
+      "Have I refused to forgive someone?",
+      "Have I replayed injuries or nourished resentment?",
+      "Have I desired revenge or humiliation for another person?",
+      "Have I withheld reconciliation out of pride?",
+      "Have I failed to pray for people who hurt me?",
+    ]),
+  },
+  {
+    id: "comfort-the-afflicted",
+    title: "Spiritual Work: Comfort the Afflicted",
+    reflection: "Christ draws near to the sorrowful, and His disciples are called to do the same.",
+    prompts: prompts("works-of-mercy", "comfort-the-afflicted", [
+      "Have I ignored people who were grieving, anxious, lonely, or discouraged?",
+      "Have I failed to listen compassionately?",
+      "Have I become impatient with emotionally struggling people?",
+      "Have I avoided helping others because it was inconvenient?",
+      "Have I failed to bring hope, encouragement, or prayer to the suffering?",
+    ]),
+  },
+  {
+    id: "pray-living-dead",
+    title: "Spiritual Work: Pray for the Living and the Dead",
+    reflection: "Prayer is a work of mercy that entrusts souls to God's grace and love.",
+    prompts: prompts("works-of-mercy", "pray-living-dead", [
+      "Have I neglected praying for others?",
+      "Have I prayed only for myself and my own concerns?",
+      "Have I forgotten the souls in purgatory?",
+      "Have I failed to pray for enemies, leaders, the Church, or those suffering?",
+      "Have I neglected family prayer or intercessory prayer?",
+    ]),
+  },
+];
+
+function simplePath(
+  id: GuidedExaminationPathId,
+  title: string,
+  description: string,
+  sections: GuidedExaminationSection[],
+  storageKey = "daily-oratory-confession-examen",
+): GuidedExaminationPath {
+  return {
+    id,
+    title,
+    shortTitle: title,
+    description,
+    href: `/confession/examination/${id}`,
+    storageKey,
+    openingPrayer,
+    reviewEncouragement:
+      "Do not be afraid to bring your sins honestly before Christ in the Sacrament of Reconciliation. God's mercy is greater than every sin.",
+    sections,
+    actOfContrition,
+  };
+}
+
+export const guidedExaminationPaths: GuidedExaminationPath[] = [
+  simplePath(
+    "ten-commandments",
+    "Ten Commandments",
+    "Review love of God and neighbor through the commandments, precepts of the Church, and interior dispositions.",
+    tenCommandmentsSections,
+  ),
+  simplePath(
+    "beatitudes",
+    "Beatitudes",
+    "A Gospel examination through humility, mercy, purity, peace, courage, and hunger for holiness.",
+    beatitudesSections,
+    "daily-oratory-beatitudes-examen",
+  ),
+  {
+    id: "state-of-life",
+    title: "State of Life",
+    shortTitle: "State of life",
+    description: "Examine your vocation, duties, relationships, and present season of life.",
+    href: "/confession/examination/state-of-life",
+    storageKey: "daily-oratory-state-of-life-examen",
+    openingPrayer,
+    reviewEncouragement:
+      "Bring your state of life before Christ with honesty and hope. The Lord desires not your shame, but your conversion, healing, and holiness.",
+    sections: stateOfLifeCategories,
+    actOfContrition,
+  },
+  {
+    id: "virtues",
+    title: "Virtues and Vices",
+    shortTitle: "Virtues and vices",
+    description: "Review the seven deadly sins, opposing virtues, patterns of temptation, and growth in grace.",
+    href: "/confession/examination/virtues",
+    storageKey: "daily-oratory-virtues-vices-examen",
+    openingPrayer,
+    reviewEncouragement:
+      "Bring these patterns before Christ with courage. The Lord does not reveal sin to crush you, but to heal you, free you, and make you holy.",
+    sections: virtuesAndVicesSections,
+    actOfContrition,
+  },
+  {
+    id: "relationships-duties",
+    title: "Relationships and Duties",
+    shortTitle: "Relationships and duties",
+    description: "Review family, friendship, duties, promises, justice, speech, conflict, authority, digital life, and community.",
+    href: "/confession/examination/relationships-duties",
+    storageKey: "daily-oratory-relationships-duties-examen",
+    openingPrayer,
+    reviewEncouragement:
+      "Christ meets you in the truth. Bring your relationships, duties, wounds, and failures before Him with confidence. His mercy restores charity and strengthens you to begin again.",
+    sections: relationshipsDutiesSections,
+    actOfContrition,
+  },
+  {
+    id: "prayer-sacramental-life",
+    title: "Prayer and Sacramental Life",
+    shortTitle: "Prayer and sacramental life",
+    description: "Review prayer, Sunday Mass, Eucharist, Confession, sacramental identity, reverence, devotions, and trust.",
+    href: "/confession/examination/prayer-sacramental-life",
+    storageKey: "daily-oratory-prayer-sacramental-life-examen",
+    openingPrayer,
+    reviewEncouragement:
+      "Return to the Lord with confidence. Christ meets you in prayer, forgives you in Confession, nourishes you in the Eucharist, and strengthens you through His Church.",
+    sections: prayerSacramentalLifeSections,
+    actOfContrition,
+  },
+  {
+    id: "works-of-mercy",
+    title: "Works of Mercy",
+    shortTitle: "Works of Mercy",
+    description: "Review the Corporal and Spiritual Works of Mercy as concrete expressions of Christian charity.",
+    href: "/confession/examination/works-of-mercy",
+    storageKey: "daily-oratory-works-of-mercy-examen",
+    openingPrayer,
+    reviewEncouragement:
+      "The Lord identifies Himself with the hungry, the suffering, the forgotten, and the sinner. Bring your failures in charity before Christ with confidence, and ask Him to form your heart in mercy.",
+    sections: worksOfMercySections,
+    actOfContrition,
+  },
+];
+
+export function getGuidedExaminationPath(id: GuidedExaminationPathId) {
+  return guidedExaminationPaths.find((path) => path.id === id);
+}

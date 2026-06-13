@@ -1,0 +1,48 @@
+import type { VaticanVirtualTour } from "@/types/vatican";
+
+export const vaticanVirtualTours: VaticanVirtualTour[] = [
+  {
+    id: "st-peters-digital-experience-tour",
+    title: "Saint Peter's Basilica Digital Experience",
+    slug: "st-peters-basilica-digital-experience",
+    url: "https://virtual.basilicasanpietro.va/en",
+    sourceName: "Saint Peter's Basilica",
+    description: "Explore Saint Peter's Basilica through an official digital experience.",
+    official: true,
+    category: "basilica",
+    sortOrder: 10,
+  },
+  {
+    id: "st-peters-vr-tour",
+    title: "Official Saint Peter's Basilica VR Tour",
+    slug: "official-st-peters-basilica-vr-tour",
+    url: "https://www.vatican.va/various/basiliche/san_pietro/vr_tour/index-en.html",
+    sourceName: "Vatican.va",
+    description: "Official Vatican virtual tour of Saint Peter's Basilica and surrounding sacred spaces.",
+    official: true,
+    category: "basilica",
+    sortOrder: 20,
+  },
+  {
+    id: "vatican-museums-virtual-tour",
+    title: "Vatican Museums Virtual Tours",
+    slug: "vatican-museums-virtual-tours",
+    url: "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/tour-virtuali-elenco.html",
+    sourceName: "Vatican Museums",
+    description: "Official virtual tours from the Vatican Museums.",
+    official: true,
+    category: "museum",
+    sortOrder: 30,
+  },
+  {
+    id: "sistine-chapel-virtual-tour",
+    title: "Sistine Chapel Virtual Tour",
+    slug: "sistine-chapel-virtual-tour",
+    url: "https://www.museivaticani.va/content/museivaticani/en/collezioni/musei/cappella-sistina/tour-virtuale.html",
+    sourceName: "Vatican Museums",
+    description: "Explore the Sistine Chapel through the official Vatican Museums virtual tour.",
+    official: true,
+    category: "sistine-chapel",
+    sortOrder: 40,
+  },
+];

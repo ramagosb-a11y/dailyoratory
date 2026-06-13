@@ -1,0 +1,88 @@
+import type { TraditionFAQ } from "@/types/tradition";
+
+export const traditionFaqs: TraditionFAQ[] = [
+  {
+    id: "faq-ignore-bible",
+    question: "Does Tradition mean Catholics ignore the Bible?",
+    answer: "No. Catholics believe Scripture is the inspired Word of God and central to the life of the Church. Tradition helps the Church receive and read Scripture faithfully.",
+    category: "scripture",
+    sortOrder: 10,
+  },
+  {
+    id: "faq-human-opinion",
+    question: "Is Tradition just human opinion?",
+    answer: "No. Sacred Tradition refers to the living handing-on of the apostolic faith, not merely ideas people happened to like.",
+    category: "basics",
+    sortOrder: 20,
+  },
+  {
+    id: "faq-all-customs",
+    question: "Are all Catholic customs Sacred Tradition?",
+    answer: "No. Many customs, devotions, and cultural practices are helpful, but they are not the same as Sacred Tradition.",
+    category: "customs",
+    sortOrder: 30,
+  },
+  {
+    id: "faq-traditions-change",
+    question: "Can traditions change?",
+    answer: 'Small "t" traditions, disciplines, and customs can change. Sacred Tradition as apostolic faith is not invented or replaced.',
+    category: "customs",
+    sortOrder: 40,
+  },
+  {
+    id: "faq-doctrine-discipline",
+    question: "What is the difference between doctrine and discipline?",
+    answer: "Doctrine is what the Church teaches as true. Discipline is a Church rule or practice that can sometimes vary or change.",
+    category: "categories",
+    sortOrder: 50,
+  },
+  {
+    id: "faq-not-explicitly-worded",
+    question: "Why do Catholics have things that are not explicitly worded in the Bible?",
+    answer: "Catholics believe the same apostolic faith was handed on in Scripture and in the living life of the Church, not only in isolated proof texts.",
+    category: "scripture",
+    sortOrder: 60,
+  },
+  {
+    id: "faq-apostolic-succession",
+    question: "What is apostolic succession?",
+    answer: "It is the continuity of the Church's bishops with the apostles through the laying on of hands and the handing on of apostolic ministry and teaching.",
+    category: "church",
+    sortOrder: 70,
+  },
+  {
+    id: "faq-fathers-matter",
+    question: "Why do the Church Fathers matter?",
+    answer: "They help us see how early Christians understood Scripture, worship, sacraments, and doctrine close to the apostolic age.",
+    category: "fathers",
+    sortOrder: 80,
+  },
+  {
+    id: "faq-development-of-doctrine",
+    question: 'What does "development of doctrine" mean?',
+    answer: "It means the Church can grow in clarity and understanding over time without inventing a new revelation.",
+    category: "doctrine",
+    sortOrder: 90,
+  },
+  {
+    id: "faq-devotion-helpful",
+    question: "Can a devotion be helpful without being required?",
+    answer: "Yes. Many devotions are spiritually fruitful, but Catholics are not required to practice every devotion.",
+    category: "devotion",
+    sortOrder: 100,
+  },
+  {
+    id: "faq-magisterium-above-scripture",
+    question: "Does the Magisterium stand above Scripture?",
+    answer: "No. The Magisterium serves the Word of God by guarding and authentically interpreting Scripture and Tradition.",
+    category: "magisterium",
+    sortOrder: 110,
+  },
+  {
+    id: "faq-begin-learning",
+    question: "How can someone exploring Catholicism begin learning about Tradition?",
+    answer: "Start with Scripture, the Mass, the sacraments, the Church Fathers, and the Catechism, then ask questions in OCIA or at a parish.",
+    category: "explorers",
+    sortOrder: 120,
+  },
+];

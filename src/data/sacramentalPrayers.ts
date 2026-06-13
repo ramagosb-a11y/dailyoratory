@@ -1,0 +1,48 @@
+import type { SacramentalPrayer } from "@/types/sacramentals";
+
+export const sacramentalPrayers: SacramentalPrayer[] = [
+  {
+    id: "sacramental-prayer-before-using",
+    title: "Prayer Before Using a Sacramental",
+    slug: "before-using-a-sacramental",
+    body: `Lord Jesus,\nlet this holy sign lead my heart to You.\n\nMay it remind me of Your love,\nstrengthen my faith,\nprotect me from sin,\nand help me live in grace.\n\nLet every blessing,\nevery prayer,\nand every holy object\ndraw me closer to Your Sacred Heart.\n\nAmen.`,
+    category: "general",
+    whenToPray: "Before using a blessed object or beginning devotional prayer.",
+    sourceType: "daily-oratory",
+    copyrightStatus: "original",
+    sortOrder: 10,
+  },
+  {
+    id: "sacramental-prayer-holy-water",
+    title: "Prayer When Using Holy Water",
+    slug: "when-using-holy-water",
+    body: `Lord Jesus,\nby this holy water,\nremind me of my Baptism.\n\nCleanse my heart,\nprotect me from evil,\nand help me walk today\nas a child of God.\n\nAmen.`,
+    category: "holy-water",
+    whenToPray: "When blessing yourself or your home with holy water.",
+    sourceType: "daily-oratory",
+    copyrightStatus: "original",
+    sortOrder: 20,
+  },
+  {
+    id: "sacramental-prayer-crucifix",
+    title: "Prayer Before a Crucifix",
+    slug: "before-a-crucifix",
+    body: `Jesus Crucified,\nI adore You and thank You\nfor the love You poured out on the Cross.\n\nTeach me repentance,\npatience,\nforgiveness,\nand trust.\n\nMay Your Cross be my hope.\n\nAmen.`,
+    category: "crucifix",
+    whenToPray: "Before a crucifix in the home, church, or prayer corner.",
+    sourceType: "daily-oratory",
+    copyrightStatus: "original",
+    sortOrder: 30,
+  },
+  {
+    id: "sacramental-prayer-purchase",
+    title: "Prayer Before Purchasing a Sacramental",
+    slug: "before-purchasing-a-sacramental",
+    body: `Holy Spirit,\nguide me to choose wisely and reverently.\n\nLet me seek holy things\nnot from fear or curiosity,\nbut from love for Jesus Christ\nand a desire to pray more faithfully.\n\nAmen.`,
+    category: "general",
+    whenToPray: "Before buying a rosary, medal, crucifix, holy image, or other devotional item.",
+    sourceType: "daily-oratory",
+    copyrightStatus: "original",
+    sortOrder: 40,
+  },
+];

@@ -1,0 +1,136 @@
+import { BibleResourceSourceType, type BibleResource } from "@/types/bible";
+
+export const bibleResources: BibleResource[] = [
+  {
+    id: "bible-resource-usccb-home",
+    title: "USCCB Bible / Daily Readings",
+    url: "https://bible.usccb.org/",
+    sourceName: "United States Conference of Catholic Bishops",
+    sourceType: BibleResourceSourceType.USCCB,
+    badge: "Official Church source",
+    description:
+      "The U.S. bishops' official Bible and readings site with daily readings, audio, video, and Catholic Bible tools.",
+    official: true,
+    sortOrder: 10,
+  },
+  {
+    id: "bible-resource-usccb-daily-reading",
+    title: "USCCB Daily Bible Reading",
+    url: "https://bible.usccb.org/daily-bible-reading",
+    sourceName: "United States Conference of Catholic Bishops",
+    sourceType: BibleResourceSourceType.USCCB,
+    badge: "Official daily readings",
+    description:
+      "The direct daily readings page for today's Mass readings and liturgical day.",
+    official: true,
+    sortOrder: 20,
+  },
+  {
+    id: "bible-resource-usccb-audio",
+    title: "USCCB Daily Readings Audio",
+    url: "https://bible.usccb.org/podcasts/audio",
+    sourceName: "United States Conference of Catholic Bishops",
+    sourceType: BibleResourceSourceType.USCCB,
+    badge: "Official audio",
+    description:
+      "Audio readings from the USCCB to help you hear the daily readings prayerfully.",
+    official: true,
+    sortOrder: 30,
+  },
+  {
+    id: "bible-resource-usccb-translations",
+    title: "USCCB Approved Translations of the Bible",
+    url: "https://www.usccb.org/offices/new-american-bible/approved-translations-bible",
+    sourceName: "United States Conference of Catholic Bishops",
+    sourceType: BibleResourceSourceType.USCCB,
+    badge: "Approved translations",
+    description:
+      "The U.S. bishops' list of Scripture translations approved since 1983 for Catholic use in the United States.",
+    official: true,
+    sortOrder: 40,
+  },
+  {
+    id: "bible-resource-usccb-understanding",
+    title: "USCCB Understanding the Bible",
+    url: "https://www.usccb.org/bible/understanding-the-bible",
+    sourceName: "United States Conference of Catholic Bishops",
+    sourceType: BibleResourceSourceType.USCCB,
+    badge: "Beginner help",
+    description:
+      "A Catholic introduction to reading Scripture fruitfully, prayerfully, and in context.",
+    official: true,
+    sortOrder: 50,
+  },
+  {
+    id: "bible-resource-usccb-books",
+    title: "USCCB Books of the Bible",
+    url: "https://www.usccb.org/bible/books-of-the-bible",
+    sourceName: "United States Conference of Catholic Bishops",
+    sourceType: BibleResourceSourceType.USCCB,
+    badge: "Books overview",
+    description:
+      "A browsable list of the books of the Bible in canonical order from the USCCB Bible site.",
+    official: true,
+    sortOrder: 60,
+  },
+  {
+    id: "bible-resource-usccb-faq",
+    title: "USCCB Bible FAQ",
+    url: "https://www.usccb.org/faq",
+    sourceName: "United States Conference of Catholic Bishops",
+    sourceType: BibleResourceSourceType.USCCB,
+    badge: "FAQ",
+    description:
+      "Common Catholic questions about the Bible, the Lectionary, editions, and related reading issues.",
+    official: true,
+    sortOrder: 70,
+  },
+  {
+    id: "bible-resource-dei-verbum",
+    title: "Vatican: Dei Verbum",
+    url: "https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_const_19651118_dei-verbum_en.html",
+    sourceName: "The Holy See",
+    sourceType: BibleResourceSourceType.Vatican,
+    badge: "Vatican II",
+    description:
+      "The Second Vatican Council's Dogmatic Constitution on Divine Revelation, a key Catholic text for Scripture and Tradition.",
+    official: true,
+    sortOrder: 80,
+  },
+  {
+    id: "bible-resource-catechism",
+    title: "Vatican Catechism of the Catholic Church",
+    url: "https://www.vatican.va/archive/ENG0015/_INDEX.HTM",
+    sourceName: "The Holy See",
+    sourceType: BibleResourceSourceType.Vatican,
+    badge: "Official catechism",
+    description:
+      "The official Vatican edition of the Catechism, a trusted guide for reading Scripture with the Church.",
+    official: true,
+    sortOrder: 90,
+  },
+  {
+    id: "bible-resource-do-reflections",
+    title: "Daily Oratory Mass Readings Reflections",
+    url: "/reflections/mass-readings",
+    sourceName: "Daily Oratory",
+    sourceType: BibleResourceSourceType.DailyOratory,
+    badge: "Daily Oratory",
+    description:
+      "Original Daily Oratory reflections to help you pray with the Church's daily and Sunday readings.",
+    official: false,
+    sortOrder: 100,
+  },
+  {
+    id: "bible-resource-do-scripture-prayer",
+    title: "Daily Oratory Scripture Prayer",
+    url: "/library/scripture-prayer",
+    sourceName: "Daily Oratory",
+    sourceType: BibleResourceSourceType.DailyOratory,
+    badge: "Daily Oratory",
+    description:
+      "A Daily Oratory guide to praying with the Word of God through Lectio Divina, Mass readings, and reflection.",
+    official: false,
+    sortOrder: 110,
+  },
+];
