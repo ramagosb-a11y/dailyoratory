@@ -39,8 +39,15 @@ Add the Sacred Heart of Jesus Seven Senses Deep Meditation Journey as a dedicate
 
 ### Deployment Plan
 
-- Commit the content update so the repo remains clean.
-- Deploy a Vercel preview and inspect the preview URL.
+- Commit the content update so the repo remains clean - completed as `d48637d Add Sacred Heart meditation page`.
+- Deploy a Vercel preview and inspect the preview URL - completed.
+- Preview deployment:
+  - URL: `https://daily-oratory-cbfh74h90-ramagosb-6300s-projects.vercel.app`
+  - Inspect URL: `https://vercel.com/ramagosb-6300s-projects/daily-oratory/4zsst6d1Yrx6s5vtxDRZpqRF1baF`
+  - Deployment ID: `dpl_4zsst6d1Yrx6s5vtxDRZpqRF1baF`
+  - Status: Ready.
+  - Direct route smoke returned 401 because preview deployment protection is enabled. Vercel connector bypass could not be generated because the connector token is expired.
+- Production deployment URL: `https://dailyoratory.faith`
 - Deploy production only after preview creation succeeds.
 
 ### Rollback Recommendation
