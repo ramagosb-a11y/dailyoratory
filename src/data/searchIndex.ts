@@ -745,6 +745,23 @@ export const staticSearchIndex: SearchItem[] = [
     status: "approved",
   },
   {
+    id: "search-sacred-heart-seven-senses-meditation",
+    title: "Sacred Heart of Jesus Seven Senses Meditation",
+    slug: "sacred-heart-seven-senses-meditation",
+    href: "/devotions/sacred-heart-of-jesus/seven-senses-meditation",
+    description:
+      "Pray a 20-minute Sacred Heart of Jesus meditation through Calvary, the pierced Heart of Christ, and personal surrender.",
+    content:
+      "Sacred Heart of Jesus meditation seven senses Calvary Good Friday pierced Heart blood and water I thirst reparation mercy surrender Saint Margaret Mary Alacoque Catholic prayer",
+    category: "Pray",
+    type: "devotion",
+    tags: ["Sacred Heart", "Meditation", "Calvary", "Reparation", "Catholic prayer"],
+    audience: ["Catholics", "Returning Catholics", "Explorers"],
+    section: "Pray",
+    priority: 106,
+    status: "approved",
+  },
+  {
     id: "search-psalm-23-guide",
     title: "Psalm 23 Guide",
     slug: "psalm-23-guide",

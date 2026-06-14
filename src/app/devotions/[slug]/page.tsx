@@ -7,12 +7,12 @@ import { DevotionPrayerGuide } from "@/components/devotions/DevotionPrayerGuide"
 import { DevotionSourceNotes } from "@/components/devotions/DevotionSourceNotes";
 import { RelatedDevotionTools } from "@/components/devotions/RelatedDevotionTools";
 import { RelatedDevotions } from "@/components/devotions/RelatedDevotions";
+import { SacredHeartMeditationFeature } from "@/components/devotions/SacredHeartMeditationFeature";
 import { TrustedDevotionLinks } from "@/components/devotions/TrustedDevotionLinks";
 import { createPageMetadata } from "@/lib/metadata";
-import { getDevotionBySlug, getRelatedDevotions, getTrustedLinksForDevotion } from "@/lib/devotions";
+import { getApprovedDevotions, getDevotionBySlug, getRelatedDevotions, getTrustedLinksForDevotion } from "@/lib/devotions";
 
 export function generateStaticParams() {
-  const { getApprovedDevotions } = require("@/lib/devotions");
   return getApprovedDevotions().map((devotion: { slug: string }) => ({ slug: devotion.slug }));
 }
 
@@ -48,6 +48,12 @@ export default async function DevotionDetailPage({
     <div className="paper-texture">
       <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
         <DevotionDetailHero devotion={devotion} />
+
+        {devotion.slug === "sacred-heart-of-jesus" ? (
+          <div className="mt-8">
+            <SacredHeartMeditationFeature />
+          </div>
+        ) : null}
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <DevotionDetailSection

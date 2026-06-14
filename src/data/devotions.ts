@@ -185,6 +185,7 @@ export const devotions: Devotion[] = [
     liturgicalSeason: ["All Year", "Ordinary Time", "Lent"],
     relatedSacraments: ["Eucharist", "Confession"],
     relatedDailyOratoryLinks: [
+      { label: "Seven Senses Meditation", href: "/devotions/sacred-heart-of-jesus/seven-senses-meditation" },
       { label: "Indulgences Guide", href: "/indulgences" },
       { label: "Confession Guide", href: "/confession" },
       { label: "Adoration", href: "/adoration" },

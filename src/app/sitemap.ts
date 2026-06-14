@@ -220,7 +220,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Prayers and Devotions with Indulgences", href: "/indulgences/prayers-and-devotions" },
   ];
   const studyPages = [{ label: "Church Fathers Library", href: "/church-fathers" }];
-  const devotionPages = [{ label: "Catholic Devotions Library", href: "/devotions" }];
+  const devotionPages = [
+    { label: "Catholic Devotions Library", href: "/devotions" },
+    { label: "Sacred Heart Seven Senses Meditation", href: "/devotions/sacred-heart-of-jesus/seven-senses-meditation" },
+  ];
   const sacramentalPages = [{ label: "Catholic Sacramentals", href: "/sacramentals" }];
   const relicPages = [{ label: "Catholic Relics", href: "/relics" }];
   const newsPages = [{ label: "Catholic News", href: "/news" }];
