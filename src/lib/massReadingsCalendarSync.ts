@@ -88,8 +88,17 @@ export async function syncScheduledMassReadingsCalendar(): Promise<GoogleCalenda
       continue;
     }
 
-    await createCalendarEvent(calendarId, accessToken, eventId, reflection);
-    createdCount += 1;
+    try {
+      await createCalendarEvent(calendarId, accessToken, eventId, reflection);
+      createdCount += 1;
+    } catch (error) {
+      if (!isDuplicateGoogleCalendarEventError(error)) {
+        throw error;
+      }
+
+      await updateCalendarEvent(calendarId, accessToken, eventId, reflection);
+      updatedCount += 1;
+    }
   }
 
   const eligibleSlugs = new Set(eligibleReflections.map((reflection) => reflection.slug));
@@ -341,6 +350,10 @@ async function calendarRequest<T = unknown>(url: string, accessToken: string, in
   }
 
   return (await response.json()) as T;
+}
+
+function isDuplicateGoogleCalendarEventError(error: unknown) {
+  return error instanceof Error && error.message.includes("Google Calendar request failed: 409");
 }
 
 function getGoogleServiceAccountCredentials() {
