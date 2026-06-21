@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { MassReadingsReflectionHero } from "@/components/reflections/MassReadingsReflectionHero";
 import { MassReadingsGoogleCalendarEmbed } from "@/components/reflections/MassReadingsGoogleCalendarEmbed";
 import { TodayMassReflectionCard } from "@/components/reflections/TodayMassReflectionCard";
 import { TodayMassReflectionFull } from "@/components/reflections/TodayMassReflectionFull";
-import { MassReflectionFilters } from "@/components/reflections/MassReflectionFilters";
+import { MassReadingsFilteredResultsClient } from "@/components/reflections/MassReadingsFilteredResultsClient";
 import { UpcomingMassReflections } from "@/components/reflections/UpcomingMassReflections";
 import { SundayMassReflectionsSection } from "@/components/reflections/SundayMassReflectionsSection";
 import { DailyMassReflectionsSection } from "@/components/reflections/DailyMassReflectionsSection";
@@ -12,17 +13,19 @@ import { MassReflectionPostCard } from "@/components/reflections/MassReflectionP
 import { ExternalReflectionResources } from "@/components/reflections/ExternalReflectionResources";
 import { DailyReturnPrompt } from "@/components/retention/DailyReturnPrompt";
 import { SectionHeader } from "@/components/section-header";
+import { filterMassReadingsReflections } from "@/lib/massReadingsFilters";
 import {
-  filterMassReadingsReflectionsData,
   getDailyMassReflectionsData,
   getMassReadingsFacetOptionsData,
+  getMassReadingsReflectionsData,
   getPublishedMassReadingsReflectionsData,
   getScheduledMassReadingsReflectionsData,
   getSundayMassReflectionsData,
   getTodayMassReadingsReflectionData,
-  parseMassReadingsSearchParams,
 } from "@/lib/massReadingsReflections";
 import { createPageMetadata } from "@/lib/metadata";
+
+export const revalidate = 900;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Mass Readings Reflections",
@@ -31,31 +34,17 @@ export const metadata: Metadata = createPageMetadata({
   path: "/reflections/mass-readings",
 });
 
-export default async function MassReadingsReflectionsPage({
-  searchParams,
-}: {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}) {
-  const params = await searchParams;
-  const state = parseMassReadingsSearchParams(params);
+export default async function MassReadingsReflectionsPage() {
   const today = await getTodayMassReadingsReflectionData();
-  const [published, scheduled, sunday, daily, facets, filtered] = await Promise.all([
+  const [published, scheduled, sunday, daily, facets, allReflections] = await Promise.all([
     getPublishedMassReadingsReflectionsData(),
     getScheduledMassReadingsReflectionsData(),
     getSundayMassReflectionsData(),
     getDailyMassReflectionsData(),
     getMassReadingsFacetOptionsData(),
-    filterMassReadingsReflectionsData(state, { includeScheduled: true }),
+    getMassReadingsReflectionsData(),
   ]);
-  const hasFilters = Boolean(
-    state.q ||
-      state.type ||
-      state.season ||
-      state.cycleYear ||
-      state.weekdayCycle ||
-      state.lectionaryNumber ||
-      state.scriptureReference,
-  );
+  const filterableReflections = filterMassReadingsReflections({}, { includeScheduled: true }, allReflections);
 
   return (
     <div className="paper-texture">
@@ -155,31 +144,13 @@ export default async function MassReadingsReflectionsPage({
             title="Find a Mass reading reflection"
             summary="Browse by daily Mass, Sunday Mass, solemnity, feast day, liturgical season, year cycle, lectionary number, or reading reference."
           />
-          <div className="mt-7">
-            <MassReflectionFilters state={state} facets={facets} action="/reflections/mass-readings" />
-          </div>
-          {hasFilters ? (
-            <div className="mt-8">
-              <SectionHeader
-                eyebrow="Filtered results"
-                title={`${filtered.length} reflection${filtered.length === 1 ? "" : "s"} found`}
-              />
-              {filtered.length > 0 ? (
-                <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-                  {filtered.map((reflection) => (
-                    <MassReflectionPostCard key={reflection.id} reflection={reflection} />
-                  ))}
-                </div>
-              ) : (
-                <div className="card-parchment mt-7 p-6">
-                  <h2 className="font-display text-3xl font-semibold text-navy">No reflections found</h2>
-                  <p className="mt-3 text-sm leading-7 text-muted">
-                    Try another combination of type, season, cycle, or reading reference.
-                  </p>
-                </div>
-              )}
-            </div>
-          ) : null}
+          <Suspense fallback={<div className="dashboard-card mt-7 min-h-48 p-5" />}>
+            <MassReadingsFilteredResultsClient
+              reflections={filterableReflections}
+              facets={facets}
+              action="/reflections/mass-readings"
+            />
+          </Suspense>
         </section>
       </main>
     </div>

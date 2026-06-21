@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import type { LibrarySearchState } from "@/lib/search";
+import type { LibrarySearchState } from "@/lib/librarySearch";
 
 export type LibraryFacetOptions = {
   categories: readonly string[];

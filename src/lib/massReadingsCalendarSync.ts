@@ -1,5 +1,5 @@
 import { createHash, createSign } from "node:crypto";
-import { googleCalendars } from "@/config/googleCalendars";
+import { getMassReadingsGoogleCalendarId } from "@/config/googleCalendars";
 import { getMassReadingsReflectionsSource } from "@/lib/massReadingsGoogleSheets";
 import { absoluteUrl } from "@/lib/url";
 import type { MassReadingsReflection } from "@/types/massReadingsReflections";
@@ -44,7 +44,7 @@ type GoogleTokenResponse = {
 
 export async function syncScheduledMassReadingsCalendar(): Promise<GoogleCalendarSyncResult> {
   const credentials = getGoogleServiceAccountCredentials();
-  const calendarId = process.env.MASS_READINGS_GOOGLE_CALENDAR_ID?.trim() || googleCalendars.massReadings;
+  const calendarId = getMassReadingsGoogleCalendarId();
 
   if (!credentials) {
     logMissingCalendarSyncCredentials();
@@ -57,13 +57,12 @@ export async function syncScheduledMassReadingsCalendar(): Promise<GoogleCalenda
   }
 
   const source = await getMassReadingsReflectionsSource();
-  const referenceDate = getCurrentChicagoIsoDate();
   const eligibleReflections = source.reflections
-    .filter((reflection) => reflection.status === "scheduled" && reflection.reflectionDate > referenceDate)
+    .filter((reflection) => reflection.status === "published" || reflection.status === "scheduled")
     .sort((a, b) => a.reflectionDate.localeCompare(b.reflectionDate) || a.title.localeCompare(b.title));
 
   const accessToken = await getGoogleAccessToken(credentials.clientEmail, credentials.privateKey);
-  const managedEvents = await listManagedEvents(calendarId, accessToken, referenceDate);
+  const managedEvents = await listManagedEvents(calendarId, accessToken);
   const managedEventsBySlug = new Map<string, ManagedCalendarEvent>();
 
   for (const event of managedEvents) {
@@ -116,9 +115,9 @@ export async function syncScheduledMassReadingsCalendar(): Promise<GoogleCalenda
   };
 }
 
-async function listManagedEvents(calendarId: string, accessToken: string, referenceDate: string) {
-  const timeMin = new Date(`${referenceDate}T00:00:00-05:00`).toISOString();
-  const timeMax = new Date(getChicagoDateOneYearOut(referenceDate)).toISOString();
+async function listManagedEvents(calendarId: string, accessToken: string) {
+  const timeMin = new Date(getChicagoDateOneYearBack(getCurrentChicagoIsoDate())).toISOString();
+  const timeMax = new Date(getChicagoDateOneYearOut(getCurrentChicagoIsoDate())).toISOString();
 
   const response = await calendarRequest<{
     items?: ManagedCalendarEvent[];
@@ -387,5 +386,11 @@ function getNextIsoDate(value: string) {
 function getChicagoDateOneYearOut(value: string) {
   const date = new Date(`${value}T00:00:00Z`);
   date.setUTCFullYear(date.getUTCFullYear() + 1);
+  return date.toISOString();
+}
+
+function getChicagoDateOneYearBack(value: string) {
+  const date = new Date(`${value}T00:00:00Z`);
+  date.setUTCFullYear(date.getUTCFullYear() - 1);
   return date.toISOString();
 }

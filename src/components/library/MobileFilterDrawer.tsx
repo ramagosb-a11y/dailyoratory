@@ -1,5 +1,5 @@
 import { LibraryFilters, type LibraryFacetOptions } from "@/components/library/LibraryFilters";
-import type { LibrarySearchState } from "@/lib/search";
+import type { LibrarySearchState } from "@/lib/librarySearch";
 
 export function MobileFilterDrawer({ state, facets }: { state: LibrarySearchState; facets: LibraryFacetOptions }) {
   return (

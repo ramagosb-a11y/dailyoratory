@@ -3,7 +3,14 @@ import { legacyRedirects } from "./src/data/redirects";
 
 const nextConfig: NextConfig = {
   async redirects() {
-    return legacyRedirects.map((redirect) => ({ ...redirect }));
+    return [
+      {
+        source: "/reflections",
+        destination: "/reflections/mass-readings",
+        permanent: true,
+      },
+      ...legacyRedirects.map((redirect) => ({ ...redirect })),
+    ];
   },
 };
 

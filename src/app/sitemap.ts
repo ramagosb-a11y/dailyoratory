@@ -13,6 +13,8 @@ import { getPublishedSacramentCompanions } from "@/lib/sacraments";
 import { getPublishedSaints } from "@/lib/saints";
 import { absoluteUrl, hasMalformedUrlPattern, isInternalHref, normalizeInternalHref, validateSingleUrl } from "@/lib/url";
 
+export const revalidate = 3600;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const liturgicalLivingPages = [
     { label: "Today", href: "/today" },

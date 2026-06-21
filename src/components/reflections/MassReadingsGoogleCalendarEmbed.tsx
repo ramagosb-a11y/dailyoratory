@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { googleCalendars } from "@/config/googleCalendars";
+import { getMassReadingsGoogleCalendarId, googleCalendars } from "@/config/googleCalendars";
 
 function buildEmbedUrl() {
+  const calendarId = getMassReadingsGoogleCalendarId();
   const params = new URLSearchParams({
-    src: googleCalendars.massReadings,
+    src: calendarId,
     ctz: googleCalendars.massReadingsTimeZone,
     mode: "MONTH",
     showTitle: "0",
@@ -19,8 +20,9 @@ function buildEmbedUrl() {
 }
 
 function buildOpenUrl() {
+  const calendarId = getMassReadingsGoogleCalendarId();
   const params = new URLSearchParams({
-    cid: googleCalendars.massReadings,
+    cid: calendarId,
   });
 
   return `https://calendar.google.com/calendar/u/0/r?${params.toString()}`;

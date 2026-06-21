@@ -1,6 +1,6 @@
 import Link from "next/link";
-import type { LibrarySearchState } from "@/lib/search";
-import { buildLibraryHref, librarySortOptions, removeTag } from "@/lib/search";
+import type { LibrarySearchState } from "@/lib/librarySearch";
+import { buildLibraryHref, librarySortOptions, removeTag } from "@/lib/librarySearch";
 
 export function ActiveFilters({ state }: { state: LibrarySearchState }) {
   const activeFilters = [

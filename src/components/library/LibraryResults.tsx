@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { LibraryResultCard } from "@/components/library/LibraryResultCard";
-import type { LibrarySearchResult } from "@/lib/search";
+import type { LibrarySearchResult } from "@/lib/librarySearch";
 
 export function LibraryResults({ results }: { results: LibrarySearchResult[] }) {
   if (results.length === 0) {

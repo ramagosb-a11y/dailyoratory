@@ -2,6 +2,15 @@
 
 Use this checklist before promoting any Daily Oratory change to production.
 
+Canonical process: see `SOURCE_OF_TRUTH.md` at the repo root first.
+
+## Source of Truth
+
+- Deploy only from `C:\Users\brent\OneDrive\Documents\Codex\Ascension\brotherhood-of-ascension`.
+- Do not deploy from `C:\Users\brent\OneDrive\Documents\Codex\Ascension\brotherhood-of-ascension-deploy`; it is a legacy copy and is intentionally blocked by `.do-not-deploy-from-this-folder`.
+- If production contains a hotfix made outside the Git repo, merge that hotfix back into the Git repo before the next deploy.
+- Before removing the legacy folder, confirm every production-only change has been merged or intentionally discarded.
+
 ## Git Hygiene
 
 - Work on a feature branch instead of deploying directly from a dirty working tree.
@@ -12,8 +21,10 @@ Use this checklist before promoting any Daily Oratory change to production.
 
 ## Required Local Checks
 
+- `npm run audit:client-stores`
 - `npm run lint`
 - `npm run build`
+- Confirm `npm run build` also passes the postbuild rendering strategy audit.
 - `npm run validate:urls`
 - `npm run seo:preflight`
 

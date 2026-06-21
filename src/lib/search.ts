@@ -1,3 +1,4 @@
+import { cache } from "react";
 import type { DailyOratoryContentRecord } from "@/lib/content";
 import { getContentSeason, getLibraryContentRecords } from "@/lib/content";
 import { catholicGlossary } from "@/data/catholicGlossary";
@@ -127,6 +128,18 @@ export async function searchLibraryContent(state: LibrarySearchState): Promise<L
   return sortLibraryResults(results, state.sort);
 }
 
+export async function getLibrarySearchResults(): Promise<LibrarySearchResult[]> {
+  const records = await getSearchLibraryRecords();
+
+  return records.map((record) => ({
+    record,
+    excerpt: getContentExcerpt(record),
+    typeLabel: getContentTypeLabel(record),
+    season: getContentSeason(record),
+    score: getRecommendedWeight(record),
+  }));
+}
+
 export async function getLibraryFacetOptions(records?: DailyOratoryContentRecord[]) {
   const resolvedRecords = records ?? (await getSearchLibraryRecords());
   const results = resolvedRecords.map((record) => ({
@@ -150,7 +163,7 @@ export async function getLibraryFacetOptions(records?: DailyOratoryContentRecord
   };
 }
 
-async function getSearchLibraryRecords(): Promise<DailyOratoryContentRecord[]> {
+const getSearchLibraryRecords = cache(async (): Promise<DailyOratoryContentRecord[]> => {
   const baseRecords = getLibraryContentRecords();
   const [mediaItems, massReadingsReflections] = await Promise.all([
     getApprovedMediaItems(),
@@ -161,7 +174,7 @@ async function getSearchLibraryRecords(): Promise<DailyOratoryContentRecord[]> {
   const synthesizedMassReadings = massReadingsReflections.map(mapMassReflectionToLibraryRecord);
 
   return [...baseRecords, ...synthesizedMedia, ...synthesizedMassReadings];
-}
+});
 
 function mapMediaItemToLibraryRecord(item: Awaited<ReturnType<typeof getApprovedMediaItems>>[number]): ResourceRecord {
   const mediaTypeLabel = titleCase(item.mediaType);
@@ -678,7 +691,7 @@ export function getGlossarySearchItems(): SearchItem[] {
   }));
 }
 
-export async function getAllSearchItems(): Promise<SearchItem[]> {
+export const getAllSearchItems = cache(async (): Promise<SearchItem[]> => {
   const [reflections, media, saints, devotions] = await Promise.all([
     getReflectionSearchItems(),
     getMediaSearchItems(),
@@ -697,7 +710,7 @@ export async function getAllSearchItems(): Promise<SearchItem[]> {
   ].filter((item) => item.status === "approved");
 
   return dedupeSearchItems(sanitizeSearchItems(combined));
-}
+});
 
 export async function searchSite(query: string, options: SearchOptions = {}) {
   const items = await getAllSearchItems();

@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 900;
 
 const relatedLinks = [
   { label: "The Bible", href: "/bible" },

@@ -3,7 +3,7 @@ import { LiturgicalDashboard } from "@/components/liturgical-living/LiturgicalDa
 import { getLiturgicalDashboardModelWithGoogleCalendar } from "@/lib/liturgicalLiving";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 900;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Liturgical Living",

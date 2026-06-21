@@ -40,5 +40,12 @@ export const massIntentionLinks: MassIntentionLink[] = [
     location: "Online",
     note: "External donation, stipend, and receipt handling belongs to Franciscan Missions.",
   },
+  {
+    id: "st-jude-shrine-mass-intentions",
+    name: "St. Jude Shrine Mass Intentions",
+    href: "https://stjudeshrine.org/mass-intentions-at-st-jude-shrine/",
+    description: "Request Mass intentions through the St. Jude Shrine for the living or the departed.",
+    location: "St. Jude Shrine",
+    note: "Mass scheduling, offerings, and intention policies are managed directly by the shrine.",
+  },
 ];
-

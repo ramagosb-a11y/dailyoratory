@@ -32,5 +32,12 @@ export const candleIntentionLinks: CandleIntentionLink[] = [
     location: "Rosary Shrine of Saint Jude",
     note: "Candle offerings and intention handling belong to the shrine.",
   },
+  {
+    id: "st-jude-shrine-vigil-candle",
+    name: "St. Jude Shrine Vigil Candle",
+    href: "https://stjudeshrine.org/light_a_vigil_candle/",
+    description: "Light a vigil candle through the St. Jude Shrine and place an intention before God in prayer.",
+    location: "St. Jude Shrine",
+    note: "Vigil candle offerings, prayer handling, and availability are managed by the shrine.",
+  },
 ];
-

@@ -78,4 +78,15 @@ export const saintResources: SaintResource[] = [
     official: false,
     sortOrder: 70,
   },
+  {
+    id: "saint-resource-st-jude-league",
+    saintId: "saint-jude",
+    title: "League of St. Jude",
+    url: "https://stjudeshrine.org/league-of-st-jude/",
+    sourceName: "St. Jude Shrine",
+    sourceType: "trusted-catholic-source",
+    description: "A St. Jude devotional community for those seeking ongoing prayer and spiritual support through the shrine.",
+    official: false,
+    sortOrder: 80,
+  },
 ];

@@ -1,5 +1,5 @@
-import type { LibrarySearchState } from "@/lib/search";
-import { librarySortOptions } from "@/lib/search";
+import type { LibrarySearchState } from "@/lib/librarySearch";
+import { librarySortOptions } from "@/lib/librarySearch";
 
 export function LibrarySearchBar({ state, resultCount }: { state: LibrarySearchState; resultCount: number }) {
   return (

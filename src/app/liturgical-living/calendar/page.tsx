@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LiturgicalCalendarView } from "@/components/liturgical-living/LiturgicalCalendarView";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Liturgical Calendar",

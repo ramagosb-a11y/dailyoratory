@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node --experimental-strip-types scripts/assert-deploy-source.ts && node --experimental-strip-types scripts/audit-client-stores.ts",
     "build": "next build",
+    "postbuild": "node --experimental-strip-types scripts/audit-rendering-strategy.ts",
     "start": "next start",
     "lint": "eslint",
+    "audit:client-stores": "node --experimental-strip-types scripts/audit-client-stores.ts",
+    "audit:rendering": "node --experimental-strip-types scripts/audit-rendering-strategy.ts",
     "indexnow": "node --experimental-strip-types scripts/submit-indexnow.ts",
     "audit:citations": "node --experimental-strip-types scripts/audit-citations.ts",
     "validate:urls": "node --experimental-strip-types scripts/validate-urls.ts",

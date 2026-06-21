@@ -1,10 +1,10 @@
 import Link from "next/link";
-import type { LibrarySearchResult } from "@/lib/search";
-import { getContentHref } from "@/lib/content";
+import type { LibrarySearchResult } from "@/lib/librarySearch";
+import { getLibraryResultHref } from "@/lib/librarySearch";
 
 export function LibraryResultCard({ result }: { result: LibrarySearchResult }) {
   const { record, excerpt, typeLabel, season } = result;
-  const href = getContentHref(record);
+  const href = getLibraryResultHref(record);
 
   return (
     <article className="card resource-card relative flex h-full min-w-0 flex-col p-5">

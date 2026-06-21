@@ -559,64 +559,9 @@ async function hydrateMediaThumbnails(items: MediaItem[]) {
         };
       }
 
-      if (item.mediaType === "youtube-playlist") {
-        const thumbnailUrl = await resolvePlaylistThumbnailUrl(item);
-        if (!thumbnailUrl) return item;
-        return {
-          ...item,
-          thumbnailUrl,
-        };
-      }
-
       return item;
     }),
   );
-}
-
-async function resolvePlaylistThumbnailUrl(item: MediaItem) {
-  const playlistId = item.youtubePlaylistId ?? extractYouTubePlaylistId(item.youtubeUrl);
-  if (!playlistId) return undefined;
-
-  const playlistUrl = item.youtubeUrl || `https://www.youtube.com/playlist?list=${playlistId}`;
-
-  try {
-    const response = await fetch(playlistUrl, {
-      cache: "no-store",
-      headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; DailyOratoryBot/1.0; +https://dailyoratory.faith)",
-      },
-    });
-
-    if (!response.ok) {
-      return undefined;
-    }
-
-    const html = await response.text();
-    const firstVideoId = extractFirstPlaylistVideoId(html);
-    if (firstVideoId) {
-      return `https://i.ytimg.com/vi/${firstVideoId}/hqdefault.jpg`;
-    }
-
-    const ogImageMatch = html.match(/<meta\s+property="og:image"\s+content="([^"]+)"/i);
-    const ogImage = decodeHtmlEntities(ogImageMatch?.[1]?.trim() ?? "");
-    return ogImage || undefined;
-  } catch {
-    return undefined;
-  }
-}
-
-function extractFirstPlaylistVideoId(html: string) {
-  const match = html.match(/"videoId":"([A-Za-z0-9_-]{6,64})"/);
-  return match?.[1];
-}
-
-function decodeHtmlEntities(value: string) {
-  return value
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, "\"")
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
 }
 
 function buildMediaLinks(value: string): MediaLink[] {

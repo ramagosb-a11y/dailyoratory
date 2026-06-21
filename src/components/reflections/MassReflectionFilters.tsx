@@ -2,7 +2,7 @@ import Link from "next/link";
 import {
   buildMassReadingsHref,
   getReflectionTypeLabel,
-} from "@/lib/massReadingsReflections";
+} from "@/lib/massReadingsFilters";
 import type {
   MassReadingsFacetOptions,
   MassReadingsReflectionSearchState,

@@ -17,6 +17,17 @@ export const emptyGuidedExamenStore: GuidedExamenStore = {
 
 const storeSnapshotCache = new Map<string, { raw: string | null; snapshot: GuidedExamenStore }>();
 let reportSnapshotCache: { raw: string; snapshot: GuidedExaminationReport } | null = null;
+const emptyGuidedExaminationReportSnapshot: GuidedExaminationReport = {
+  hasReportData: false,
+  lastConfessionDate: "",
+  lastConfessionSummary: "No date saved yet.",
+  currentStateOfLife: [],
+  openingLine: "Forgive me, Father, for I have sinned. It has been ______ since my last Confession.",
+  pastoralNote:
+    "Bring what is clear to Confession. If you are unsure how to confess something, ask the priest for help.",
+  actOfContrition,
+  paths: [],
+};
 
 export type GuidedExaminationReportPrompt = {
   id: string;
@@ -359,17 +370,7 @@ function subscribeGuidedExamination(onStoreChange: () => void) {
 }
 
 function getEmptyReportSnapshot(): GuidedExaminationReport {
-  return {
-    hasReportData: false,
-    lastConfessionDate: "",
-    lastConfessionSummary: getLastConfessionDateState("").summary,
-    currentStateOfLife: [],
-    openingLine: "Forgive me, Father, for I have sinned. It has been ______ since my last Confession.",
-    pastoralNote:
-      "Bring what is clear to Confession. If you are unsure how to confess something, ask the priest for help.",
-    actOfContrition,
-    paths: [],
-  };
+  return emptyGuidedExaminationReportSnapshot;
 }
 
 function createFreshStore() {
