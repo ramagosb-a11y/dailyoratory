@@ -1,3 +1,5 @@
+import { penitentialPsalms } from "@/data/sevenPenitentialPsalms";
+
 export function WhatArePenitentialPsalms() {
   return (
     <section className="card-parchment p-6 sm:p-8">
@@ -7,13 +9,18 @@ export function WhatArePenitentialPsalms() {
         repentance, sorrow for sin, trust in God&apos;s mercy, and longing for spiritual renewal. They are:
       </p>
       <ul className="daily-card-readable mt-5 list-disc space-y-2 pl-5 text-base leading-7 text-muted">
-        <li>Psalm 6</li>
-        <li>Psalm 32</li>
-        <li>Psalm 38</li>
-        <li>Psalm 51</li>
-        <li>Psalm 102</li>
-        <li>Psalm 130</li>
-        <li>Psalm 143</li>
+        {penitentialPsalms.map((psalm) => (
+          <li key={psalm.id}>
+            <a
+              href={psalm.usccbUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring font-semibold text-navy underline decoration-gold underline-offset-4 hover:text-burgundy"
+            >
+              Psalm {psalm.psalmNumber}
+            </a>
+          </li>
+        ))}
       </ul>
       <p className="daily-readable mt-5 text-base leading-8 text-muted">
         They give words to the soul when it wants to return to God, seek forgiveness, and begin again in grace.

@@ -72,6 +72,16 @@ Let me choose You above all things.
 Amen.`,
   },
   {
+    title: "Fasting Prayer",
+    body: `Lord Jesus, I offer this fast to You.
+Give me strength to endure, guard me from temptation,
+and keep my heart fixed on You alone.
+May this sacrifice purify my soul, draw me closer to Your Sacred Heart,
+and glorify the Father.
+Have mercy on me, a sinner.
+Amen.`,
+  },
+  {
     title: "Act of Contrition",
     body: `O my God, I repent with my whole heart of all my sins, and I detest them, because I have deserved the loss of heaven and the pains of hell, but most of all because I have offended you, infinite Goodness. I firmly purpose with the help of your grace, which I pray you to grant me now and always, to do penance and rather to die than offend you again. I purpose also to receive the holy Sacraments during my life and at my death.`,
   },
@@ -146,7 +156,25 @@ export default function BeginInPrayerPage() {
 
         <Breadcrumbs items={[{ label: "Pray", href: "/pray" }, { label: "Begin in Prayer" }]} />
 
-        <header className="liturgical-page-hero mt-8 card-parchment p-6 sm:p-8">
+        <section className="mt-8 card-parchment p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Pray first</p>
+          <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Begin with these first prayers</h2>
+          <p className="daily-readable-muted mt-4 max-w-4xl text-base leading-8 text-muted">
+            If you do not know where to begin, start here slowly. These prayers are meant to be prayed right away, without searching or filtering.
+          </p>
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            {openingPrayers.map((prayer) => (
+              <article key={prayer.title} className="rounded-3xl border border-stone bg-ivory/80 p-5">
+                <h3 className="font-display text-2xl font-semibold text-navy">{prayer.title}</h3>
+                <div className="mt-4 rounded-[1.5rem] border border-stone/70 bg-white/70 p-4">
+                  <p className="daily-readable whitespace-pre-line text-sm leading-7 text-navy">{prayer.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <header className="liturgical-page-hero mt-10 card-parchment p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Start Here</p>
           <h1 className="font-display mt-3 text-4xl font-semibold leading-tight text-navy sm:text-5xl lg:text-6xl">
             Begin in Prayer
@@ -167,24 +195,6 @@ export default function BeginInPrayerPage() {
             </Link>
           </div>
         </header>
-
-        <section className="mt-10 card-parchment p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Pray first</p>
-          <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Begin with these first prayers</h2>
-          <p className="daily-readable-muted mt-4 max-w-4xl text-base leading-8 text-muted">
-            If you do not know where to begin, start here slowly. These prayers are meant to be prayed right away, without searching or filtering.
-          </p>
-          <div className="mt-8 grid gap-5 lg:grid-cols-2">
-            {openingPrayers.map((prayer) => (
-              <article key={prayer.title} className="rounded-3xl border border-stone bg-ivory/80 p-5">
-                <h3 className="font-display text-2xl font-semibold text-navy">{prayer.title}</h3>
-                <div className="mt-4 rounded-[1.5rem] border border-stone/70 bg-white/70 p-4">
-                  <p className="daily-readable whitespace-pre-line text-sm leading-7 text-navy">{prayer.body}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
 
         <section className="mt-10 card-parchment p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">How to use this page</p>
