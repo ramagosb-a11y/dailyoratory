@@ -45,77 +45,54 @@ Every production deploy must satisfy these invariants:
 - High-traffic public routes must remain prerendered or ISR to protect Vercel Hobby Fluid Active CPU.
 - `/confession/examination` and its guided path must be browser-verified after any related deploy.
 
-## Required Pre-Deploy Commands
+## Single Working Release Workflow
 
-Run these from `brotherhood-of-ascension`:
+Use this one sequence for normal Daily Oratory work:
 
 ```powershell
-git status --short
-npm run audit:client-stores
+cd "C:\Users\brent\OneDrive\Documents\Codex\Ascension\brotherhood-of-ascension"
+git status --short --branch
+git pull origin main
+
+# make the change
+
 npm run build
 npm run validate:urls
-npm run seo:preflight
+
+git add .
+git commit -m "Describe the completed change"
+git push origin main
+
+vercel ls daily-oratory
 ```
 
-`npm run build` runs:
+That is the full working path.
 
-- `prebuild`: deploy-source guard and client-store audit.
-- `next build`: production build.
-- `postbuild`: rendering-strategy audit.
+## What Each Step Means
 
-If any command fails, do not deploy.
+1. Go to the canonical source folder.
+2. Check that you are on the right branch and pull the latest `main`.
+3. Make the requested code or content change.
+4. Run `npm run build`.
+5. Run `npm run validate:urls`.
+6. Commit the completed change.
+7. Push to GitHub `main`.
+8. Check `vercel ls daily-oratory` and wait for the newest Production deployment to show `Ready`.
 
-## Git Review Before Deploy
+## Important Release Rule
 
-Before deploying, inspect changed files:
+- `Building` means the new production deploy is not live yet.
+- `Ready` means the production deploy has finished.
+- A `200` from `https://dailyoratory.faith` only proves the site is up. It does not prove the newest change is live.
 
-```powershell
-git status --short
-git diff --stat
-git diff -- docs package.json scripts src
-```
+## Manual Production Deploy
 
-Do not deploy if unrelated or unclear local changes are mixed with release changes.
+Do not use `vercel deploy --prod` for normal releases.
 
-Preferred commit grouping:
-
-- One commit for guardrails or deployment process changes.
-- One commit for route rendering or Vercel CPU fixes.
-- One commit for feature/content changes.
-
-## Production Deploy Command
-
-Deploy only after all required checks pass:
-
-```powershell
-vercel deploy --prod
-```
-
-Run it from:
+Use it only for emergency recovery, and only from:
 
 ```text
 C:\Users\brent\OneDrive\Documents\Codex\Ascension\brotherhood-of-ascension
-```
-
-## Post-Deploy Verification
-
-After deployment, verify these routes:
-
-```text
-/
-/confession/examination
-/confession/examination/ten-commandments
-/library
-/search
-/today
-/sitemap.xml
-/robots.txt
-```
-
-Also verify:
-
-```powershell
-vercel logs --level error --since 1h --environment production --no-follow
 ```
 
 ## If Production Is Broken

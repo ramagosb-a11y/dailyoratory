@@ -11,8 +11,13 @@ export function generateStaticParams() {
   return prayerGuidePages.map((guide) => ({ slug: guide.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const guide = getPrayerGuidePage(params.slug);
+type PrayerGuidePageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export async function generateMetadata({ params }: PrayerGuidePageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const guide = getPrayerGuidePage(slug);
 
   if (!guide) {
     return {};
@@ -40,8 +45,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function PrayerGuideDynamicPage({ params }: { params: { slug: string } }) {
-  const guide = getPrayerGuidePage(params.slug);
+export default async function PrayerGuideDynamicPage({ params }: PrayerGuidePageProps) {
+  const { slug } = await params;
+  const guide = getPrayerGuidePage(slug);
 
   if (!guide) {
     notFound();
