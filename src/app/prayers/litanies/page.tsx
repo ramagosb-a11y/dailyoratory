@@ -5,6 +5,19 @@ import { StructuredDataScript } from "@/components/seo/StructuredDataScript";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildArticleStructuredData, buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structuredData";
 
+type LitanyLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+type LitanyCard = {
+  title: string;
+  category: string;
+  summary: string;
+  links?: LitanyLink[];
+};
+
 const pageMetadata = createPageMetadata({
   title: "Catholic Litanies | How to Pray a Litany | Daily Oratory",
   description:
@@ -62,17 +75,21 @@ const whenToPray = [
   "When asking for humility, mercy, or protection",
 ];
 
-const commonLitanies = [
+const commonLitanies: LitanyCard[] = [
   {
     title: "Litany of the Sacred Heart of Jesus",
     category: "Jesus / Mercy / Reparation",
     summary: "A traditional litany honoring the merciful Heart of Jesus and asking to be formed by His love.",
-    href: "/prayers/novena-to-the-sacred-heart-of-jesus",
+    links: [
+      { label: "Daily Oratory Guide", href: "/prayers/novena-to-the-sacred-heart-of-jesus" },
+      { label: "Official USCCB Text", href: "https://www.usccb.org/prayers/litany-sacred-heart-jesus", external: true },
+    ],
   },
   {
     title: "Litany of the Holy Name of Jesus",
     category: "Jesus / Holy Name",
     summary: "A litany invoking the Holy Name of Jesus with reverence, trust, and love.",
+    links: [{ label: "Official USCCB Text", href: "https://www.usccb.org/prayers/litany-holy-name-jesus", external: true }],
   },
   {
     title: "Litany of the Precious Blood",
@@ -88,6 +105,7 @@ const commonLitanies = [
     title: "Litany of St. Joseph",
     category: "Saints / Family / Work / Protection",
     summary: "A litany asking the intercession of St. Joseph, guardian of Jesus and Mary.",
+    links: [{ label: "Official USCCB Text", href: "https://www.usccb.org/prayers/litany-saint-joseph", external: true }],
   },
   {
     title: "Litany of the Saints",
@@ -361,7 +379,7 @@ export default function LitaniesPage() {
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Common prayer guides</p>
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Common Catholic Litanies</h2>
             <p className="daily-readable-muted mt-4 max-w-4xl text-base leading-8 text-muted">
-              Daily Oratory keeps long litany texts on dedicated pages when appropriate and otherwise offers guide summaries here so the page remains reverent, readable, and copyright-safe.
+              Daily Oratory keeps long litany texts on dedicated pages when appropriate and otherwise offers guide summaries here so the page remains reverent, readable, and copyright-safe. When an official public text is verified, it is linked below.
             </p>
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {commonLitanies.map((litany) => (
@@ -369,13 +387,30 @@ export default function LitaniesPage() {
                   <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">{litany.category}</p>
                   <h3 className="font-display mt-3 text-2xl font-semibold text-navy">{litany.title}</h3>
                   <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{litany.summary}</p>
-                  {litany.href ? (
-                    <Link
-                      href={litany.href}
-                      className="focus-ring mt-5 inline-flex rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
-                    >
-                      Sacred Heart Novena
-                    </Link>
+                  {litany.links?.length ? (
+                    <div className="mt-5 flex flex-wrap gap-3">
+                      {litany.links.map((link) =>
+                        link.external ? (
+                          <a
+                            key={`${litany.title}-${link.href}`}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="focus-ring inline-flex rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
+                          >
+                            {link.label}
+                          </a>
+                        ) : (
+                          <Link
+                            key={`${litany.title}-${link.href}`}
+                            href={link.href}
+                            className="focus-ring inline-flex rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
+                          >
+                            {link.label}
+                          </Link>
+                        ),
+                      )}
+                    </div>
                   ) : null}
                 </article>
               ))}
