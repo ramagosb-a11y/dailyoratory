@@ -95,11 +95,13 @@ const commonLitanies: LitanyCard[] = [
     title: "Litany of the Precious Blood",
     category: "Jesus / Passion / Redemption",
     summary: "A litany honoring the Precious Blood of Christ and His saving Passion.",
+    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-the-precious-blood" }],
   },
   {
     title: "Litany of Loreto",
     category: "Mary / Marian Prayer",
     summary: "A beloved Marian litany invoking Mary under many titles and asking for her intercession.",
+    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-loreto" }],
   },
   {
     title: "Litany of St. Joseph",
@@ -111,26 +113,37 @@ const commonLitanies: LitanyCard[] = [
     title: "Litany of the Saints",
     category: "Saints / Church / Intercession",
     summary: "A solemn litany invoking the saints and asking God for mercy, often used in major liturgies.",
+    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-the-saints" }],
   },
   {
     title: "Litany of Humility",
     category: "Repentance / Humility / Lent",
     summary: "A searching prayer asking Jesus for freedom from pride, fear, comparison, and the desire to be praised.",
+    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-humility" }],
   },
   {
     title: "Litany for the Dying",
     category: "Death / Mercy / Sacramental Emergency",
     summary: "A prayerful litany for accompanying someone near death with trust in Christ's mercy.",
+    links: [
+      { label: "Daily Oratory Guide", href: "/prayers/litany-for-the-dying" },
+      { label: "Sacramental Emergency", href: "/sacramental-emergency" },
+    ],
   },
   {
     title: "Litany of the Holy Spirit",
     category: "Holy Spirit / Pentecost / Discernment",
     summary: "A prayer asking the Holy Spirit for light, wisdom, courage, consolation, and renewal.",
+    links: [
+      { label: "Daily Oratory Guide", href: "/prayers/litany-of-the-holy-spirit" },
+      { label: "Come, Holy Spirit", href: "/prayers/come-holy-spirit" },
+    ],
   },
   {
     title: "Litany of Trust",
     category: "Trust / Anxiety / Surrender",
     summary: "A devotional litany asking Jesus for deeper trust; because modern versions may be copyrighted, Daily Oratory treats it as a guide rather than reproducing full text here.",
+    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-trust" }],
   },
 ];
 

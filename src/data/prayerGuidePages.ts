@@ -883,6 +883,296 @@ const guidePages: PrayerGuidePageData[] = [
     ],
   },
   {
+    slug: "litany-of-the-precious-blood",
+    title: "Litany of the Most Precious Blood Guide",
+    metadataTitle: "Litany of the Most Precious Blood | Prayer Guide | Daily Oratory",
+    description:
+      "Learn what the Litany of the Most Precious Blood is, when Catholics pray it, and how this Christ-centered litany helps the soul ask for mercy, purification, and redemption.",
+    eyebrow: "Christ-Centered Litany",
+    subtitle: "A guide to the litany that honors the saving Blood of Jesus Christ and His redeeming Passion.",
+    intro:
+      "The Litany of the Most Precious Blood turns the heart toward the saving sacrifice of Jesus. Catholics often pray it as a litany of mercy, purification, reparation, and gratitude for the redemption won by Christ.",
+    keywords: ["Litany of the Precious Blood", "Most Precious Blood", "Catholic litany", "Passion of Christ", "mercy prayer"],
+    cta: { label: "Open Catholic Litanies", href: "/prayers/litanies" },
+    sections: [
+      {
+        eyebrow: "What it is",
+        title: "Why Catholics Pray This Litany",
+        paragraphs: [
+          "This litany honors the Precious Blood of Christ as the price of our redemption and the sign of His total self-giving love.",
+          "Its repeated invocations lead the soul into repentance, gratitude, and confidence in the mercy flowing from the Passion.",
+          "It belongs naturally to prayer about sin, healing, sacrifice, and hope.",
+        ],
+      },
+      {
+        eyebrow: "When to pray it",
+        title: "Especially Fitting Times",
+        bullets: [
+          "During Lent and on Fridays.",
+          "When praying about repentance and mercy.",
+          "During Eucharistic Adoration or after Confession.",
+          "When meditating on the Passion of Christ.",
+        ],
+      },
+      {
+        eyebrow: "How to use it",
+        title: "A Simple Way to Begin",
+        bullets: [
+          "Pray it slowly rather than treating it as a list to finish.",
+          "Pause at one invocation that stirs sorrow, gratitude, or trust.",
+          "Let it lead into a short act of reparation or thanksgiving to Jesus.",
+        ],
+      },
+      {
+        eyebrow: "Text note",
+        title: "Why This Page Is a Guide",
+        paragraphs: [
+          "Daily Oratory treats this as a guide page so the prayer can be approached reverently and connected to the wider life of repentance and devotion.",
+          "For long official texts, external Church sources or dedicated litany resources may sometimes be the best place to pray the full version.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: "Catholic Litanies", href: "/prayers/litanies" },
+      { label: "Confession Guide", href: "/confession" },
+      { label: "Lent Guide", href: "/liturgical-living/lent" },
+      { label: "Seven Penitential Psalms", href: "/prayers/seven-penitential-psalms" },
+      { label: "Prayer Library", href: "/prayers" },
+    ],
+  },
+  {
+    slug: "litany-of-the-saints",
+    title: "Litany of the Saints Guide",
+    metadataTitle: "Litany of the Saints | Prayer Guide | Daily Oratory",
+    description:
+      "Learn what the Litany of the Saints is, when Catholics pray it, and how this solemn litany joins personal prayer to the communion of saints and the wider prayer of the Church.",
+    eyebrow: "Solemn Litany",
+    subtitle: "A guide to the Church's great litany of intercession through Mary, the angels, and the saints.",
+    intro:
+      "The Litany of the Saints is one of the Church's most solemn forms of intercessory prayer. Catholics encounter it in major liturgies, but it can also teach the heart to pray with the communion of saints in humility and hope.",
+    keywords: ["Litany of the Saints", "communion of saints", "Catholic litany", "intercession", "saints prayer"],
+    cta: { label: "Open Catholic Litanies", href: "/prayers/litanies" },
+    sections: [
+      {
+        eyebrow: "What it is",
+        title: "A Litany of Intercession and Mercy",
+        paragraphs: [
+          "This litany invokes Mary, the angels, and the saints, then turns in repeated petitions to God for mercy and help.",
+          "It expresses the Church's confidence that we do not pray alone, but within the communion of saints.",
+          "Its tone is solemn, trusting, and especially fitting when asking grace for the whole Church or for important moments in life.",
+        ],
+      },
+      {
+        eyebrow: "When to pray it",
+        title: "Where Catholics Commonly Encounter It",
+        bullets: [
+          "At the Easter Vigil.",
+          "In ordinations and other major liturgical rites.",
+          "When asking the saints' help in serious need.",
+          "During retreats, vigils, or times of communal intercession.",
+        ],
+      },
+      {
+        eyebrow: "How to approach it",
+        title: "A Beginner-Friendly Way to Pray",
+        bullets: [
+          "Do not rush past the names of the saints.",
+          "Notice one or two saints whose witness encourages you.",
+          "Let the repeated responses steady the heart rather than overwhelm it.",
+        ],
+      },
+      {
+        eyebrow: "Pastoral note",
+        title: "Why This Litany Feels More Solemn",
+        paragraphs: [
+          "The Litany of the Saints is closely tied to public worship and major rites of the Church, so Daily Oratory treats it carefully as a guide page.",
+          "That helps keep its meaning connected to the Church's liturgical life rather than reducing it to a loose list of names.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: "Catholic Litanies", href: "/prayers/litanies" },
+      { label: "Saints", href: "/saints" },
+      { label: "Saint of the Day", href: "/saints/saint-of-the-day" },
+      { label: "Prayer Library", href: "/prayers" },
+      { label: "Explore Mary and Saints", href: "/explore/mary-and-saints" },
+    ],
+  },
+  {
+    slug: "litany-for-the-dying",
+    title: "Litany for the Dying Guide",
+    metadataTitle: "Litany for the Dying | Catholic Prayer Guide | Daily Oratory",
+    description:
+      "Learn how Catholics use a litany for the dying, when to keep prayer simple at the bedside, and how to stay close to Christ's mercy when someone is near death.",
+    eyebrow: "Prayer at the End of Life",
+    subtitle: "A guide to praying calmly and faithfully when someone is close to death.",
+    intro:
+      "When someone is dying, prayer should become simple, faithful, and full of mercy. A litany for the dying helps those present stay steady, call upon Jesus and the saints, and entrust the dying person to God's care.",
+    keywords: ["Litany for the Dying", "Catholic prayer for the dying", "end of life prayer", "mercy", "sacramental emergency"],
+    cta: { label: "Sacramental Emergency", href: "/sacramental-emergency" },
+    sections: [
+      {
+        eyebrow: "Why it helps",
+        title: "Why a Litany Is Fitting at the Bedside",
+        paragraphs: [
+          "Short repeated petitions are often easier to pray than long prayers when fear, grief, or exhaustion are present.",
+          "A litany keeps the focus on Christ's mercy, the help of Mary and the saints, and the hope of a holy death.",
+          "It is a prayer of accompaniment as much as a prayer of petition.",
+        ],
+      },
+      {
+        eyebrow: "When to use it",
+        title: "What to Do When Death Seems Near",
+        bullets: [
+          "Contact a priest early for Confession, Anointing, and Viaticum if possible.",
+          "Pray calmly instead of filling the room with anxious words.",
+          "Repeat short prayers of mercy when the dying person is weak or unable to respond.",
+          "Stay close and keep the atmosphere reverent and peaceful.",
+        ],
+      },
+      {
+        eyebrow: "How to pray it",
+        title: "A Gentle Way to Begin",
+        bullets: [
+          "Use short invocations to Jesus, Mary, Saint Joseph, and the holy angels.",
+          "Pray slowly enough that the dying person can rest in the words.",
+          "Pair the litany with Eternal Rest or other short prayers if needed.",
+        ],
+      },
+      {
+        eyebrow: "Pastoral note",
+        title: "Keep Prayer Simple and Merciful",
+        paragraphs: [
+          "At the bedside, simplicity is not weakness. It is often the most charitable way to pray.",
+          "The goal is not to say everything, but to remain faithfully present and entrust the soul to Christ.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: "Sacramental Emergency", href: "/sacramental-emergency" },
+      { label: "Prayers for the Dead", href: "/formation/catholic-burial/prayers-for-the-dead" },
+      { label: "Catholic Burial", href: "/formation/catholic-burial" },
+      { label: "Catholic Litanies", href: "/prayers/litanies" },
+      { label: "Prayer Library", href: "/prayers" },
+    ],
+  },
+  {
+    slug: "litany-of-the-holy-spirit",
+    title: "Litany of the Holy Spirit Guide",
+    metadataTitle: "Litany of the Holy Spirit | Prayer Guide | Daily Oratory",
+    description:
+      "Learn what a litany of the Holy Spirit is, when Catholics pray it, and how repeated invocation can help with discernment, courage, wisdom, and renewal.",
+    eyebrow: "Holy Spirit Litany",
+    subtitle: "A guide to praying for light, wisdom, courage, and renewal through the Holy Spirit.",
+    intro:
+      "A litany of the Holy Spirit asks the Third Person of the Blessed Trinity for guidance, purification, courage, and deeper union with God. Catholics often turn to this form of prayer when they need discernment or renewal.",
+    keywords: ["Litany of the Holy Spirit", "Holy Spirit prayer", "discernment", "Pentecost", "Catholic litany"],
+    cta: { label: "Come, Holy Spirit", href: "/prayers/come-holy-spirit" },
+    sections: [
+      {
+        eyebrow: "What it is",
+        title: "Why Catholics Pray This Litany",
+        paragraphs: [
+          "The Holy Spirit is invoked as giver of wisdom, counsel, fortitude, healing, and sanctifying grace.",
+          "A litany form helps the heart ask repeatedly for what it cannot produce by its own strength.",
+          "It is especially fitting when the soul feels uncertain, tired, dry, or in need of holy direction.",
+        ],
+      },
+      {
+        eyebrow: "When to pray it",
+        title: "Especially Fitting Moments",
+        bullets: [
+          "During Pentecost and the days around it.",
+          "Before decisions, study, ministry, or difficult conversations.",
+          "When asking for discernment, courage, or purification.",
+          "At the start of a retreat or examination of conscience.",
+        ],
+      },
+      {
+        eyebrow: "How to begin",
+        title: "A Simple Practice",
+        bullets: [
+          "Begin with the short invocation, 'Come, Holy Spirit.'",
+          "Ask for one specific grace such as wisdom, patience, or courage.",
+          "Let the repeated responses train the heart in receptivity rather than self-reliance.",
+        ],
+      },
+      {
+        eyebrow: "Companion prayer",
+        title: "A Good First Step",
+        paragraphs: [
+          "If a full litany feels unfamiliar, begin with the simpler prayer Come, Holy Spirit.",
+          "That shorter prayer makes an excellent doorway into deeper devotion to the Holy Spirit.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: "Come, Holy Spirit", href: "/prayers/come-holy-spirit" },
+      { label: "Catholic Litanies", href: "/prayers/litanies" },
+      { label: "Grace", href: "/formation/grace" },
+      { label: "Prayer Library", href: "/prayers" },
+      { label: "Holy Rosary", href: "/devotions/holy-rosary" },
+    ],
+  },
+  {
+    slug: "litany-of-trust",
+    title: "Litany of Trust Guide",
+    metadataTitle: "Litany of Trust | Prayer Guide | Daily Oratory",
+    description:
+      "Learn how Catholics can use a Litany of Trust as a guide into surrender, peace, and confidence in Jesus while respecting modern text and copyright limitations.",
+    eyebrow: "Trust and Surrender",
+    subtitle: "A guide to praying for deeper trust in Jesus when fear, control, or anxiety weigh on the heart.",
+    intro:
+      "A Litany of Trust helps the soul bring fear, control, anxiety, and self-protection into the light of Jesus. Catholics are often drawn to this prayer when they need to surrender outcomes, rest in God's care, and begin again in peace.",
+    keywords: ["Litany of Trust", "trust in Jesus", "Catholic surrender prayer", "anxiety prayer", "mercy and trust"],
+    cta: { label: "Prayer Library", href: "/prayers" },
+    sections: [
+      {
+        eyebrow: "What it is",
+        title: "Why People Turn to This Prayer",
+        paragraphs: [
+          "This devotional litany asks Jesus to free the heart from fear and to deepen trust in His love and providence.",
+          "Its repeated petitions are especially helpful when the soul feels restless, controlling, discouraged, or overwhelmed.",
+          "The goal is not emotional perfection. The goal is surrender in Christ.",
+        ],
+      },
+      {
+        eyebrow: "When to pray it",
+        title: "Good Times to Use It",
+        bullets: [
+          "When anxiety or uncertainty is strong.",
+          "When you are trying to let go of control.",
+          "During Adoration or at the end of the day.",
+          "When returning to God after discouragement or failure.",
+        ],
+      },
+      {
+        eyebrow: "How to pray it",
+        title: "A Gentle Way to Begin",
+        bullets: [
+          "Pray one or two lines slowly rather than trying to force an emotional result.",
+          "Name one fear honestly before Jesus.",
+          "Pair the litany with a short aspiration such as 'Jesus, I trust in You.'",
+        ],
+      },
+      {
+        eyebrow: "Text note",
+        title: "Why This Page Is a Guide",
+        paragraphs: [
+          "Because modern versions of the Litany of Trust may be copyrighted, Daily Oratory treats it as a guide page rather than reproducing a full text here.",
+          "That lets the site honor the devotion while staying careful about permissions and faithful use.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: "Prayer Library", href: "/prayers" },
+      { label: "Daily Examen", href: "/daily-examen" },
+      { label: "Come, Holy Spirit", href: "/prayers/come-holy-spirit" },
+      { label: "Catholic Litanies", href: "/prayers/litanies" },
+      { label: "Rosary", href: "/rosary" },
+    ],
+  },
+  {
     slug: "prayer-for-wife",
     title: "Prayer for My Wife",
     metadataTitle: "Prayer for My Wife | Catholic Marriage Prayer | Daily Oratory",
