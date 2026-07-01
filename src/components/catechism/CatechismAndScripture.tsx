@@ -20,10 +20,10 @@ export function CatechismAndScripture() {
           deeply.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
-          <Link href="/library/scripture-prayer" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/library/scripture-prayer" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Scripture Prayer
           </Link>
-          <Link href="/reflections/mass-readings" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/reflections/mass-readings" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Mass Readings Reflections
           </Link>
           <TrackedLink

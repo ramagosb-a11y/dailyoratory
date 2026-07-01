@@ -169,7 +169,7 @@ export default function HolyRosaryPage() {
               Scripture, grace, family life, and hope.
             </p>
             <div className="mt-6">
-              <Link href="/catholic-life" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/catholic-life" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Open the Catholic Life Roadmap
               </Link>
             </div>
@@ -182,7 +182,7 @@ export default function HolyRosaryPage() {
                 { label: "Lent and Fasting Guide", href: "/liturgical-living/lent" },
                 { label: "Catholic Q&A", href: "/catholic-answers" },
               ].map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"

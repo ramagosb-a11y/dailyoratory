@@ -44,10 +44,10 @@ export function OciaSponsorGuide() {
             Give them patience, courage, honesty, and joy in the Holy Spirit. Amen.
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
-            <Link href="/sacraments/sponsor-godparent" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+            <Link prefetch={false} href="/sacraments/sponsor-godparent" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
               Sponsor and Godparent Guide
             </Link>
-            <Link href="/saints/finder" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+            <Link prefetch={false} href="/saints/finder" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
               Saint Companion Finder
             </Link>
           </div>

@@ -71,10 +71,10 @@ export function SaintOfTheDayCard({ date = new Date() }: { date?: Date }) {
             anchorId="prayer"
           />
           <div className="mt-5 flex flex-col gap-3">
-            <Link href={`/saints/${saint.slug}`} className="btn liturgical-button focus-ring justify-center">
+            <Link prefetch={false} href={`/saints/${saint.slug}`} className="btn liturgical-button focus-ring justify-center">
               Learn More
             </Link>
-            <Link href="/saints/saint-of-the-day" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/saints/saint-of-the-day" className="btn btn-secondary focus-ring justify-center">
               Saint of the Day Page
             </Link>
           </div>

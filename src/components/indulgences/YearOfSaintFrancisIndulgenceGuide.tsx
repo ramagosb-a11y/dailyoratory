@@ -56,10 +56,10 @@ export function YearOfSaintFrancisIndulgenceGuide() {
             >
               Read Official 2026 Vatican Decree
             </a>
-            <Link href="#indulgence-builder" className="btn btn-primary focus-ring justify-center">
+            <Link prefetch={false} href="#indulgence-builder" className="btn btn-primary focus-ring justify-center">
               Build Today&apos;s Indulgence Plan
             </Link>
-            <Link href="/saints/saint-francis-assisi" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/saints/saint-francis-assisi" className="btn btn-secondary focus-ring justify-center">
               Pray for Peace
             </Link>
           </div>

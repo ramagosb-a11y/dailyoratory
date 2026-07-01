@@ -65,7 +65,7 @@ export function BodySoulSpiritLinkPills({ links }: { links: BodySoulSpiritLink[]
   return (
     <div className="flex flex-wrap gap-2">
       {links.map((link) => (
-        <Link
+        <Link prefetch={false}
           key={`${link.href}-${link.label}`}
           href={link.href}
           className="rounded-full border border-stone bg-ivory px-3 py-2 text-sm font-semibold text-navy transition hover:border-gold hover:text-navy"

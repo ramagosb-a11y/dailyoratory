@@ -18,10 +18,10 @@ export function OAntiphonsHero() {
             help the heart move from Advent expectation into Christmas joy.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="#today-o-antiphon" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#today-o-antiphon" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Pray Today&apos;s O Antiphon
             </Link>
-            <Link href="/liturgical-living/christmas" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/liturgical-living/christmas" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Prepare for Christmas
             </Link>
           </div>

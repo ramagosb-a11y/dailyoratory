@@ -18,7 +18,7 @@ export function SacramentalsHero() {
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         {sacramentalsHeroLinks.map((link, index) => (
-          <Link
+          <Link prefetch={false}
             key={link.href}
             href={link.href}
             className={index === 0 ? "btn liturgical-button focus-ring justify-center" : "btn btn-secondary focus-ring justify-center"}

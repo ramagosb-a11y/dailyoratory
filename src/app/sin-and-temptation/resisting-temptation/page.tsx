@@ -81,7 +81,7 @@ export default function ResistingTemptationPage() {
           Actual grace helps the soul reject temptation and choose God in concrete moments.
         </p>
         <div className="mt-6">
-          <Link href="/formation/grace/actual-grace" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/formation/grace/actual-grace" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
             Learn About Actual Grace
           </Link>
         </div>
@@ -95,7 +95,7 @@ export default function ResistingTemptationPage() {
           temptation appears.
         </p>
         <div className="mt-6">
-          <Link
+          <Link prefetch={false}
             href="/indulgences/detachment-from-sin#prayer-for-detachment"
             className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center"
           >
@@ -127,7 +127,7 @@ export default function ResistingTemptationPage() {
         <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Short references to keep close</h2>
         <div className="mt-6 flex flex-wrap gap-3">
           {temptationScriptureLinks.map((link) => (
-            <Link key={link.label} href={link.href} className="season-pill bg-ivory px-3 py-2 text-navy">
+            <Link prefetch={false} key={link.label} href={link.href} className="season-pill bg-ivory px-3 py-2 text-navy">
               {link.label}
             </Link>
           ))}

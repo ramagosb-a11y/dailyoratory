@@ -27,13 +27,13 @@ export function ApostolicSuccession() {
           ))}
         </ul>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/sacraments/holy-orders" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/sacraments/holy-orders" className="btn btn-secondary focus-ring">
             Holy Orders
           </Link>
-          <Link href="/church-fathers" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring">
             Church Fathers
           </Link>
-          <Link href="/catechism" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring">
             Catechism
           </Link>
         </div>

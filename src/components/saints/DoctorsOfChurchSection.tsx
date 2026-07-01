@@ -34,10 +34,10 @@ export function DoctorsOfChurchSection() {
         ))}
       </div>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Link href="/church-fathers" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring justify-center">
           Church Fathers
         </Link>
-        <Link href="/formation" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/formation" className="btn btn-secondary focus-ring justify-center">
           Formation
         </Link>
       </div>

@@ -17,13 +17,13 @@ export function EschatologyHero() {
         resurrection and eternal life promised in Jesus Christ.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="#last-things" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="#last-things" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
           Explore the Last Things
         </Link>
-        <Link href="#eternity-prayer" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="#eternity-prayer" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Prepare with Prayer
         </Link>
-        <Link href="/prophecy-series" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/prophecy-series" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Watch the Prophecy Series
         </Link>
       </div>

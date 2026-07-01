@@ -22,13 +22,13 @@ export function HolySoulsIndulgenceSection() {
             These souls can no longer merit for themselves, but the Church encourages the faithful to
             pray for the dead and assist them through Christ&apos;s mercy.
           </p>
-          <Link href="#indulgence-builder" className="btn btn-primary focus-ring mt-6 justify-center">
+          <Link prefetch={false} href="#indulgence-builder" className="btn btn-primary focus-ring mt-6 justify-center">
             Offer Today for a Soul in Purgatory
           </Link>
         </article>
         <div className="grid gap-3">
           {relatedLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="card resource-card focus-ring p-4">
+            <Link prefetch={false} key={link.href} href={link.href} className="card resource-card focus-ring p-4">
               <span className="font-semibold text-navy">{link.label}</span>
             </Link>
           ))}

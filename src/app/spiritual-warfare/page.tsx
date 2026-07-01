@@ -127,10 +127,10 @@ export default function SpiritualWarfarePage() {
             do not treat alarming online material as a substitute for calm pastoral guidance.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="#ordinary-means" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#ordinary-means" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Begin with ordinary means of grace
             </Link>
-            <Link href="#seek-help" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#seek-help" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Learn when to seek help
             </Link>
           </div>
@@ -244,7 +244,7 @@ export default function SpiritualWarfarePage() {
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {relatedLinks.map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={link.href}
                 href={link.href}
                 className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 transition hover:border-gold"

@@ -34,7 +34,7 @@ export function ThreePillarsOfLent() {
             <h3 className="font-display text-3xl font-semibold text-navy">{pillar.title}</h3>
             <p className="daily-card-readable mt-4 text-base leading-7 text-muted">{pillar.description}</p>
             <div className="mt-6">
-              <Link href={pillar.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href={pillar.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 {pillar.button}
               </Link>
             </div>

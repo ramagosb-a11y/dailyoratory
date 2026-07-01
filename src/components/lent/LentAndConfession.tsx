@@ -17,7 +17,7 @@ export function LentAndConfession() {
       </p>
       <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className="dashboard-card p-4 text-sm font-semibold text-navy transition hover:border-gold">
+          <Link prefetch={false} key={link.href} href={link.href} className="dashboard-card p-4 text-sm font-semibold text-navy transition hover:border-gold">
             {link.label}
           </Link>
         ))}

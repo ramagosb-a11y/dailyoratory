@@ -60,7 +60,7 @@ export function SacramentDetailPageView({
               <h2 className="font-display text-4xl font-semibold text-navy">Related sacraments</h2>
               <div className="mt-6 flex flex-wrap gap-3">
                 {relatedSacraments.map((item) => (
-                  <Link key={item.id} href={`/sacraments/${item.slug}`} className="season-pill bg-ivory px-3 py-2 text-navy">
+                  <Link prefetch={false} key={item.id} href={`/sacraments/${item.slug}`} className="season-pill bg-ivory px-3 py-2 text-navy">
                     {item.name}
                   </Link>
                 ))}

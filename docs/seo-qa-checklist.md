@@ -28,6 +28,8 @@ Use this checklist for every public page and every migration batch.
 - Sitemap entries have reasonable `lastModified`, `changeFrequency`, and `priority`.
 - `/robots.txt` links to the sitemap.
 - Robots discourages duplicate query crawls and private/admin surfaces.
+- Static export writes sitemap and robots outputs into `out/` for Cloudflare Pages.
+- Legacy redirects are generated into `public/_redirects` before build and copied into `out/_redirects`.
 
 ## Slugs And URLs
 
@@ -60,6 +62,7 @@ Use this checklist for every public page and every migration batch.
 
 - Run `npm run lint`.
 - Run `npm run build`.
+- Confirm `out/_redirects`, `out/sitemap.xml`, and `out/robots.txt` exist.
 - Open `/sitemap.xml`.
 - Open `/robots.txt`.
 - Inspect metadata for `/`, `/rosary`, `/confession`, `/reflections`, `/library`, and one dynamic detail page.

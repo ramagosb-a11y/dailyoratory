@@ -22,13 +22,13 @@ export function HomeExaminationSpotlight() {
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link
+            <Link prefetch={false}
               href="/confession/examination"
               className={`focus-ring inline-flex min-h-12 items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.primaryButtonClassName}`}
             >
               Open Examination Tool
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/confession"
               className={`focus-ring inline-flex min-h-12 items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.secondaryButtonClassName}`}
             >

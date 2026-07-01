@@ -48,7 +48,7 @@ export default function LocalFaithGroupsPage() {
           <p className="text-sm leading-7 text-muted">
             Need to add or update a group? Send a note so the listing can be reviewed before appearing publicly.
           </p>
-          <Link href="/community/contact" className="btn btn-primary focus-ring">
+          <Link prefetch={false} href="/community/contact" className="btn btn-primary focus-ring">
             Contact Daily Oratory
           </Link>
         </div>

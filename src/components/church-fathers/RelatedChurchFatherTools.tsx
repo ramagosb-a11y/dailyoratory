@@ -43,7 +43,7 @@ export function RelatedChurchFatherTools() {
           <article key={tool.href} className="card p-5">
             <h3 className="font-display text-3xl font-semibold text-navy">{tool.label}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{tool.description}</p>
-            <Link href={tool.href} className="btn btn-secondary focus-ring mt-5">
+            <Link prefetch={false} href={tool.href} className="btn btn-secondary focus-ring mt-5">
               Open
             </Link>
           </article>

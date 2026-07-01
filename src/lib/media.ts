@@ -8,8 +8,6 @@ const DEFAULT_MEDIA_LIBRARY_SHEET_ID = "1NW-77lyZvbM7TmZT9xuR65b5HvPMLpK5Y-a-q8n
 const MEDIA_ITEMS_SHEET = "Media_Items";
 const MEDIA_CATEGORIES_SHEET = "Media_Categories";
 const FEATURED_COLLECTIONS_SHEET = "Featured_Collections";
-const CACHE_TAG = "media-library-google-sheet";
-const REVALIDATE_SECONDS = 60 * 60 * 24;
 
 type SheetRow = Record<string, string>;
 
@@ -330,9 +328,7 @@ async function fetchMediaCollectionRows(sheetId: string) {
 
 async function fetchGoogleSheetRows(sheetId: string, sheetName: string): Promise<SheetRow[]> {
   const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
-  const response = await fetch(url, {
-    next: { revalidate: REVALIDATE_SECONDS, tags: [CACHE_TAG] },
-  });
+  const response = await fetch(url);
 
   if (!response.ok) return [];
 

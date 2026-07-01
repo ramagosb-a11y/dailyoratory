@@ -28,10 +28,10 @@ export function BibleHero() {
             >
               Read Today&apos;s Mass Readings
             </TrackedLink>
-            <Link href="#catholic-view" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="#catholic-view" className="btn btn-secondary focus-ring justify-center">
               How Catholics Read the Bible
             </Link>
-            <Link href="#translations" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="#translations" className="btn btn-secondary focus-ring justify-center">
               Choose a Catholic Bible
             </Link>
           </div>

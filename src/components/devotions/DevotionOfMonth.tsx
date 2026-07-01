@@ -22,7 +22,7 @@ export function DevotionOfMonth({ devotion }: { devotion?: Devotion }) {
           <p className="text-xs font-bold uppercase text-gold">Related</p>
           <div className="mt-2 flex flex-wrap gap-2">
             {devotion.relatedDailyOratoryLinks.slice(0, 3).map((link) => (
-              <Link key={link.href} href={link.href} className="focus-ring season-pill bg-white/10 text-ivory">
+              <Link prefetch={false} key={link.href} href={link.href} className="focus-ring season-pill bg-white/10 text-ivory">
                 {link.label}
               </Link>
             ))}

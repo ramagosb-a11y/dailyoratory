@@ -19,7 +19,7 @@ export function PathwayCard({
         </div>
       </div>
       <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">
-        <Link href={getPathwayHref(pathway)} className="focus-ring rounded-sm hover:text-burgundy">
+        <Link prefetch={false} href={getPathwayHref(pathway)} className="focus-ring rounded-sm hover:text-burgundy">
           {pathway.title}
         </Link>
       </h2>
@@ -35,7 +35,7 @@ export function PathwayCard({
           </span>
         ))}
       </div>
-      <Link href={getPathwayHref(pathway)} className="btn btn-secondary focus-ring mt-5">
+      <Link prefetch={false} href={getPathwayHref(pathway)} className="btn btn-secondary focus-ring mt-5">
         {actionLabel}
       </Link>
     </article>

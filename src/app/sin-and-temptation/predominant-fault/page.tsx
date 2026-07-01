@@ -78,7 +78,7 @@ export default function PredominantFaultPage() {
           needed.
         </p>
         <div className="mt-6">
-          <Link
+          <Link prefetch={false}
             href="/indulgences/detachment-from-sin#detachment-builder"
             className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center"
           >

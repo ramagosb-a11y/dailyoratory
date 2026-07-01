@@ -12,17 +12,17 @@ export function ConfessionReportCta({ className = "" }: { className?: string }) 
         confess something, bring it simply and honestly to a priest.
       </p>
       <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <Link
+        <Link prefetch={false}
           href="/confession/examination#report"
           className="btn btn-gold focus-ring min-h-12 justify-center"
           aria-label="Review saved examination report on the guided examination page"
         >
           Review report
         </Link>
-        <Link href="/confession/examination/start" className="btn btn-secondary focus-ring min-h-12 justify-center">
+        <Link prefetch={false} href="/confession/examination/start" className="btn btn-secondary focus-ring min-h-12 justify-center">
           Continue examination
         </Link>
-        <Link href="/confession/examination/print" className="btn btn-secondary focus-ring min-h-12 justify-center">
+        <Link prefetch={false} href="/confession/examination/print" className="btn btn-secondary focus-ring min-h-12 justify-center">
           Open print-safe page
         </Link>
       </div>

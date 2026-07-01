@@ -316,10 +316,10 @@ export default function LitaniesPage() {
             A litany is a prayer of repeated petitions, invocations, and responses. It helps the heart pray steadily when words are hard to find, and it teaches us to ask for mercy, intercession, protection, healing, humility, and hope.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="#common-litanies" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#common-litanies" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Explore Common Litanies
             </Link>
-            <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Prayer Library
             </Link>
           </div>
@@ -414,7 +414,7 @@ export default function LitaniesPage() {
                             {link.label}
                           </a>
                         ) : (
-                          <Link
+                          <Link prefetch={false}
                             key={`${litany.title}-${link.href}`}
                             href={link.href}
                             className="focus-ring inline-flex rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
@@ -441,7 +441,7 @@ export default function LitaniesPage() {
                   <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.note}</p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     {card.links.map((link) => (
-                      <Link
+                      <Link prefetch={false}
                         key={`${card.title}-${link.href}`}
                         href={link.href}
                         className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
@@ -486,7 +486,7 @@ export default function LitaniesPage() {
                 { label: "Prayer Library", href: "/prayers" },
                 { label: "Prayers for the Dead", href: "/formation/catholic-burial/prayers-for-the-dead" },
               ].map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
@@ -515,7 +515,7 @@ export default function LitaniesPage() {
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Continue in Prayer</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {relatedLinks.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

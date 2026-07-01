@@ -58,7 +58,7 @@ export function SaintExternalSources({
             <p className="text-xs font-bold uppercase tracking-[0.12em] text-burgundy">Daily Oratory</p>
             <h3 className="mt-2 font-display text-2xl font-semibold text-navy">Saints Library</h3>
             <p className="mt-3 text-sm leading-7 text-muted">Browse more saint profiles, feast days, virtues, and related prayer resources.</p>
-            <Link
+            <Link prefetch={false}
               href="/saints"
               onClick={() =>
                 trackEvent("saint_of_day_related_click", {

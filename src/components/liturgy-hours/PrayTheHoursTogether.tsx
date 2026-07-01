@@ -21,7 +21,7 @@ export function PrayTheHoursTogether() {
       </p>
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         {roomLinks.map((room) => (
-          <Link key={room.label} href={room.href} className="card flex flex-col p-5 transition hover:border-gold">
+          <Link prefetch={false} key={room.label} href={room.href} className="card flex flex-col p-5 transition hover:border-gold">
             <span className="text-xs font-bold uppercase text-burgundy">{room.note}</span>
             <span className="font-display mt-2 text-3xl font-semibold text-navy">{room.label}</span>
           </Link>

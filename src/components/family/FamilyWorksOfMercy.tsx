@@ -17,7 +17,7 @@ export function FamilyWorksOfMercy() {
           </article>
         ))}
       </div>
-      <Link href="/pathways/works-of-mercy-and-service" className="btn btn-secondary focus-ring mt-6 justify-center">
+      <Link prefetch={false} href="/pathways/works-of-mercy-and-service" className="btn btn-secondary focus-ring mt-6 justify-center">
         Explore Works of Mercy
       </Link>
     </section>

@@ -28,8 +28,6 @@ import { getMediaItemBySlug } from "@/lib/media";
 import { createPageMetadata } from "@/lib/metadata";
 import { getTopPrayers } from "@/lib/prayer";
 
-export const revalidate = 86400;
-
 export const metadata: Metadata = createPageMetadata({
   title: "Catholic Prayer",
   description:
@@ -126,7 +124,7 @@ export default async function PrayPage() {
               in one steady Catholic rhythm.
             </p>
             <div className="mt-6">
-              <Link href="/catholic-life#weekly-rhythm" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/catholic-life#weekly-rhythm" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 See the Weekly Rhythm
               </Link>
             </div>
@@ -142,7 +140,7 @@ export default async function PrayPage() {
               Confession, and renewed conversion.
             </p>
             <div className="mt-6">
-              <Link href="/prayers/seven-penitential-psalms" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/prayers/seven-penitential-psalms" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 The Seven Penitential Psalms
               </Link>
             </div>
@@ -157,7 +155,7 @@ export default async function PrayPage() {
               Pray for deceased loved ones, souls in Purgatory, cemetery visits, anniversaries of death, and the hope of resurrection in Christ.
             </p>
             <div className="mt-6">
-              <Link href="/formation/catholic-burial/prayers-for-the-dead" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation/catholic-burial/prayers-for-the-dead" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Prayers for the Dead
               </Link>
             </div>

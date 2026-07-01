@@ -11,7 +11,7 @@ export function LibraryResults({ results }: { results: LibrarySearchResult[] }) 
         <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-muted">
           Remove one filter, try a broader word like prayer or saints, or return to the full Daily Oratory library.
         </p>
-        <Link href="/library" className="btn btn-primary focus-ring mt-6">
+        <Link prefetch={false} href="/library" className="btn btn-primary focus-ring mt-6">
           Clear filters
         </Link>
       </div>

@@ -67,7 +67,7 @@ export function MediaCard({
           {item.creator} {" • "} {item.sourceName}
         </p>
         <div className="mt-5">
-          <Link href={`/media/${item.slug}`} className="text-link focus-ring text-sm">
+          <Link prefetch={false} href={`/media/${item.slug}`} className="text-link focus-ring text-sm">
             {actionLabel ?? getDefaultActionLabel(item)}
           </Link>
         </div>

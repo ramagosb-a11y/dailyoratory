@@ -17,7 +17,7 @@ export function ApostolicPardonExplainer() {
         <li>If a priest cannot arrive, do not despair; entrust the person to God&apos;s mercy.</li>
       </ul>
       <div className="mt-6">
-        <Link href="/formation/eschatology/death" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/formation/eschatology/death" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Learn More in Death and Christian Hope
         </Link>
       </div>

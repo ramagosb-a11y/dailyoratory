@@ -25,6 +25,7 @@ export function Footer() {
                   <li key={`${group.title}-${item.href}-${item.label}`}>
                     <Link
                       href={item.href}
+                      prefetch={false}
                       className="focus-ring rounded-md py-1 text-sm font-semibold text-navy transition hover:text-[var(--liturgical-primary-dark)]"
                     >
                       {item.label}

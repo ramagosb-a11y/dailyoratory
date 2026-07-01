@@ -44,10 +44,10 @@ export function ConfirmationSaintHelper() {
             <li>5. Ask that saint’s intercession before Confirmation and after it.</li>
           </ol>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-            <Link href="/saints/finder" className="btn liturgical-button focus-ring justify-center">
+            <Link prefetch={false} href="/saints/finder" className="btn liturgical-button focus-ring justify-center">
               Use Saint Companion Finder
             </Link>
-            <Link href="/sacraments/confirmation" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/sacraments/confirmation" className="btn btn-secondary focus-ring justify-center">
               Confirmation Guide
             </Link>
           </div>

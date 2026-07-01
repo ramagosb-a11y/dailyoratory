@@ -37,7 +37,7 @@ export function RosaryRelatedLinks({ links }: { links?: RosaryLink[] }) {
           <article key={link.href} className="card-parchment flex h-full flex-col p-5">
             <h3 className="font-display text-2xl font-semibold text-navy">{link.title}</h3>
             <p className="mt-3 flex-1 text-sm leading-7 text-muted">{link.description}</p>
-            <Link href={link.href} className="btn btn-secondary focus-ring mt-5 justify-center">
+            <Link prefetch={false} href={link.href} className="btn btn-secondary focus-ring mt-5 justify-center">
               {link.cta}
             </Link>
           </article>

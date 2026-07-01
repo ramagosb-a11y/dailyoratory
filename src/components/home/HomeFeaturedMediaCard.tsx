@@ -106,7 +106,7 @@ export function HomeFeaturedMediaCard({ item }: { item: HomeFeaturedMediaCardIte
   }
 
   return (
-    <Link
+    <Link prefetch={false}
       href={item.href}
       className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ivory sm:card sm:flex sm:h-full sm:flex-col sm:overflow-hidden"
       onClick={handleClick}

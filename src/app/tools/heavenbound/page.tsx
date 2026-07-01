@@ -81,7 +81,7 @@ export default function HeavenboundPage() {
           </div>
           <div className="mt-7 grid gap-4 md:grid-cols-4">
             {relatedTools.map((tool) => (
-              <Link key={tool.href} href={tool.href} className="card resource-card focus-ring p-5">
+              <Link prefetch={false} key={tool.href} href={tool.href} className="card resource-card focus-ring p-5">
                 <h3 className="font-display text-2xl font-semibold leading-tight text-navy">{tool.label}</h3>
                 <p className="mt-3 text-sm leading-7 text-muted">{tool.description}</p>
               </Link>

@@ -292,10 +292,10 @@ export default function SacredHeartNovenaPage() {
             >
               Pray the USCCB Novena
             </a>
-            <Link href="#nine-themes" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#nine-themes" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               See the Nine Themes
             </Link>
-            <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Prayer Library
             </Link>
           </div>
@@ -440,7 +440,7 @@ export default function SacredHeartNovenaPage() {
                 { label: "Prayer Before the Blessed Sacrament", href: "/prayers" },
                 { label: "Adoration", href: "/adoration" },
               ].map((link) => (
-                <Link key={link.label} href={link.href} className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold">
+                <Link prefetch={false} key={link.label} href={link.href} className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold">
                   {link.label}
                 </Link>
               ))}
@@ -466,7 +466,7 @@ export default function SacredHeartNovenaPage() {
                 { label: "Sin and Temptation", href: "/sin-and-temptation" },
                 { label: "Prayers and Devotions with Indulgences", href: "/indulgences/prayers-and-devotions" },
               ].map((link) => (
-                <Link key={link.label} href={link.href} className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold">
+                <Link prefetch={false} key={link.label} href={link.href} className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold">
                   {link.label}
                 </Link>
               ))}
@@ -541,7 +541,7 @@ export default function SacredHeartNovenaPage() {
                 <h3 className="font-display text-3xl font-semibold text-navy">Daily Oratory guides</h3>
                 <div className="mt-5 grid gap-4">
                   {internalResourceLinks.map((link) => (
-                    <Link
+                    <Link prefetch={false}
                       key={`${link.label}-${link.href}`}
                       href={link.href}
                       className="focus-ring rounded-3xl border border-stone bg-ivory/80 p-5 transition hover:border-gold"

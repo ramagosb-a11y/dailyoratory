@@ -12,7 +12,7 @@ export function RelatedLiturgicalTools() {
       />
       <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {relatedLiturgicalTools.map((tool) => (
-          <Link key={tool.id} href={tool.href} className="dashboard-card focus-ring block p-5">
+          <Link prefetch={false} key={tool.id} href={tool.href} className="dashboard-card focus-ring block p-5">
             <h3 className="text-lg font-semibold text-navy">{tool.title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{tool.description}</p>
           </Link>

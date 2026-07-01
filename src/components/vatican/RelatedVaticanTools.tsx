@@ -18,7 +18,7 @@ export function RelatedVaticanTools() {
             <h3 className="font-display text-2xl font-semibold text-navy">{tool.title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{tool.description}</p>
             <div className="mt-6">
-              <Link href={tool.href} className="btn btn-secondary focus-ring justify-center">
+              <Link prefetch={false} href={tool.href} className="btn btn-secondary focus-ring justify-center">
                 {tool.cta}
               </Link>
             </div>

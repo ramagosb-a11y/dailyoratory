@@ -20,13 +20,13 @@ export function PopeForExplorers() {
           ))}
         </ol>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/ocia" className="btn liturgical-button focus-ring">
+          <Link prefetch={false} href="/ocia" className="btn liturgical-button focus-ring">
             Explore OCIA
           </Link>
-          <Link href="/catechism" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring">
             Read the Catechism
           </Link>
-          <Link href="/church-fathers" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring">
             Church Fathers
           </Link>
         </div>

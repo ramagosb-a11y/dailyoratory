@@ -17,10 +17,10 @@ export function LentHero() {
         <a href="#lenten-plan-builder" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
           Build a Lenten Plan
         </a>
-        <Link href="/liturgical-living/lent/fasting-and-abstinence" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/liturgical-living/lent/fasting-and-abstinence" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Fasting and Abstinence
         </Link>
-        <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Go to Confession Guide
         </Link>
       </div>

@@ -30,7 +30,7 @@ export function ProphecySeriesPageContent() {
             Keep prophecy grounded in Catholic discernment, humility, obedience, and the good of the Church.
           </p>
           <div className="mt-6">
-            <Link href="/formation/grace/charisms" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/formation/grace/charisms" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Learn About Charisms
             </Link>
           </div>
@@ -43,7 +43,7 @@ export function ProphecySeriesPageContent() {
             Explore Catholic eschatology as the doctrinal foundation for thinking about final things with peace and faith.
           </p>
           <div className="mt-6">
-            <Link href="/formation/eschatology" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/formation/eschatology" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Learn Catholic Eschatology
             </Link>
           </div>
@@ -61,7 +61,7 @@ export function ProphecySeriesPageContent() {
               { label: "Prayer Library", href: "/prayers" },
               { label: "What Should I Do?", href: "/what-should-i-do" },
             ].map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={link.href}
                 href={link.href}
                 className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"

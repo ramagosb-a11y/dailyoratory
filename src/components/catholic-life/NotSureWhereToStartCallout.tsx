@@ -9,7 +9,7 @@ export function NotSureWhereToStartCallout() {
         Choose your current situation and let Daily Oratory point you to one simple next step.
       </p>
       <div className="mt-6">
-        <Link href="/explore" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/explore" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
           Open Explore the Catholic Faith
         </Link>
       </div>

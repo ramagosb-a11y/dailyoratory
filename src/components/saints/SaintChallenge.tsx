@@ -55,7 +55,7 @@ export function SaintChallenge() {
           <button type="button" onClick={() => window.print()} className="btn btn-secondary focus-ring justify-center">
             Print Challenge
           </button>
-          <Link href="/saints/finder" className="btn btn-secondary focus-ring justify-center">
+          <Link prefetch={false} href="/saints/finder" className="btn btn-secondary focus-ring justify-center">
             Start with Saint Companion Finder
           </Link>
         </div>

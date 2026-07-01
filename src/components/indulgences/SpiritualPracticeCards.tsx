@@ -18,7 +18,7 @@ export function SpiritualPracticeCards() {
             <h3 className="font-display text-2xl font-semibold text-navy">{card.title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{card.description}</p>
             {card.relatedLink ? (
-              <Link href={card.relatedLink} className="text-link focus-ring mt-4 inline-flex text-sm font-semibold">
+              <Link prefetch={false} href={card.relatedLink} className="text-link focus-ring mt-4 inline-flex text-sm font-semibold">
                 Open related page
               </Link>
             ) : null}

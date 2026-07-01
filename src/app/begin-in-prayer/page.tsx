@@ -187,10 +187,10 @@ export default function BeginInPrayerPage() {
             the Prayer Library is still there for you.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="#prayer-sections" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#prayer-sections" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Start Here
             </Link>
-            <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Open Prayer Library
             </Link>
           </div>
@@ -229,12 +229,12 @@ export default function BeginInPrayerPage() {
                       ) : null}
                       <div className="mt-5 flex flex-wrap gap-3">
                         {prayer!.href ? (
-                          <Link href={prayer!.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                          <Link prefetch={false} href={prayer!.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                             Open Guide
                           </Link>
                         ) : null}
                         {prayer!.relatedLinks?.[0] ? (
-                          <Link
+                          <Link prefetch={false}
                             href={prayer!.relatedLinks[0].href}
                             className="rounded-full border border-stone/70 px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
                           >
@@ -258,7 +258,7 @@ export default function BeginInPrayerPage() {
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {quickLinks.map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={link.href}
                 href={link.href}
                 className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

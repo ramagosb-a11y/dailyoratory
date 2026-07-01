@@ -23,10 +23,10 @@ export function MyPathwaysView() {
           Start a pathway and Daily Oratory will remember your progress on this device only. No account is required.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Link href="/pathways/start" className="btn btn-primary focus-ring">
+          <Link prefetch={false} href="/pathways/start" className="btn btn-primary focus-ring">
             Start a pathway
           </Link>
-          <Link href="/pathways/recommended" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/pathways/recommended" className="btn btn-secondary focus-ring">
             View recommendations
           </Link>
         </div>
@@ -56,7 +56,7 @@ export function MyPathwaysView() {
                 <div>
                   <p className="text-xs font-bold uppercase text-burgundy">{pathway.estimatedDuration}</p>
                   <h2 className="font-display mt-2 text-4xl font-semibold leading-tight text-navy">
-                    <Link href={getPathwayHref(pathway)} className="focus-ring rounded-sm hover:text-burgundy">
+                    <Link prefetch={false} href={getPathwayHref(pathway)} className="focus-ring rounded-sm hover:text-burgundy">
                       {pathway.title}
                     </Link>
                   </h2>
@@ -69,11 +69,11 @@ export function MyPathwaysView() {
               <p className="mt-4 text-sm leading-7 text-muted">{pathway.spiritualGoal}</p>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                 {currentStep ? (
-                  <Link href={getPathwayStepHref(pathway, currentStep)} className="btn btn-primary focus-ring">
+                  <Link prefetch={false} href={getPathwayStepHref(pathway, currentStep)} className="btn btn-primary focus-ring">
                     Continue
                   </Link>
                 ) : null}
-                <Link href={getPathwayHref(pathway)} className="btn btn-secondary focus-ring">
+                <Link prefetch={false} href={getPathwayHref(pathway)} className="btn btn-secondary focus-ring">
                   View pathway
                 </Link>
                 <button type="button" onClick={() => resetPathwayProgress(pathway.slug)} className="btn btn-secondary focus-ring">

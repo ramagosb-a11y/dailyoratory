@@ -22,16 +22,16 @@ export function VaticanForExplorers() {
           ))}
         </ol>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/pope" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/pope" className="btn btn-secondary focus-ring">
             Learn About the Pope
           </Link>
-          <Link href="/mass" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/mass" className="btn btn-secondary focus-ring">
             Understand the Mass
           </Link>
-          <Link href="/catechism" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring">
             Open the Catechism
           </Link>
-          <Link href="/ocia" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/ocia" className="btn btn-secondary focus-ring">
             Explore OCIA
           </Link>
         </div>

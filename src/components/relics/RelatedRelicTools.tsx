@@ -17,7 +17,7 @@ export function RelatedRelicTools() {
       <SectionHeader eyebrow="Related tools" title="Related Daily Oratory Tools" />
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {tools.map((tool) => (
-          <Link
+          <Link prefetch={false}
             key={tool.href}
             href={tool.href}
             onClick={() => handleClick(tool.title.toLowerCase().replaceAll(" ", "-"), tool.href)}

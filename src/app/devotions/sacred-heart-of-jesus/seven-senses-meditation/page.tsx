@@ -320,10 +320,10 @@ export default function SacredHeartSevenSensesMeditationPage() {
                 <span className="rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-semibold text-white">Calvary</span>
               </div>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link href="#prepare" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+                <Link prefetch={false} href="#prepare" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                   Begin in Silence
                 </Link>
-                <Link href="/devotions/sacred-heart-of-jesus" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                <Link prefetch={false} href="/devotions/sacred-heart-of-jesus" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                   Back to Sacred Heart
                 </Link>
               </div>
@@ -414,7 +414,7 @@ export default function SacredHeartSevenSensesMeditationPage() {
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Related Sacred Heart Resources</h2>
             <div className="mt-5 flex flex-wrap gap-2">
               {relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="focus-ring season-pill">
+                <Link prefetch={false} key={link.href} href={link.href} className="focus-ring season-pill">
                   {link.label}
                 </Link>
               ))}

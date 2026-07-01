@@ -80,7 +80,7 @@ export default function OAntiphonsPage() {
               revealed to the nations.
             </p>
             <div className="mt-6">
-              <Link
+              <Link prefetch={false}
                 href="/liturgical-living/christmas/epiphany"
                 className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center"
               >

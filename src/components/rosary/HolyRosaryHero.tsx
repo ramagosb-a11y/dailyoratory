@@ -18,10 +18,10 @@ export function HolyRosaryHero() {
             Gospel, and ask for the grace to follow Jesus more faithfully.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="/rosary" className="btn btn-gold focus-ring justify-center">
+            <Link prefetch={false} href="/rosary" className="btn btn-gold focus-ring justify-center">
               Pray the Rosary Live
             </Link>
-            <Link href="#mysteries-of-the-rosary" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="#mysteries-of-the-rosary" className="btn btn-secondary focus-ring justify-center">
               Explore the Mysteries
             </Link>
           </div>

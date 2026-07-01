@@ -21,9 +21,9 @@ export function AdorationForFamilies() {
           ))}
         </ul>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Link href="/family" className="btn liturgical-button focus-ring justify-center">Family and Domestic Church</Link>
-          <Link href="/pray" className="btn btn-secondary focus-ring justify-center">Pray</Link>
-          <Link href="/saints" className="btn btn-secondary focus-ring justify-center">Saints</Link>
+          <Link prefetch={false} href="/family" className="btn liturgical-button focus-ring justify-center">Family and Domestic Church</Link>
+          <Link prefetch={false} href="/pray" className="btn btn-secondary focus-ring justify-center">Pray</Link>
+          <Link prefetch={false} href="/saints" className="btn btn-secondary focus-ring justify-center">Saints</Link>
         </div>
       </div>
     </section>

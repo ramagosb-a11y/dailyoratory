@@ -17,7 +17,7 @@ export function OAntiphonsRelatedLinks() {
       <h2 className="font-display text-4xl font-semibold text-navy">Prepare for Christmas</h2>
       <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {relatedLinks.map((link) => (
-          <Link key={link.href} href={link.href} className="focus-ring rounded-2xl border border-stone bg-ivory/80 p-4 transition hover:border-gold">
+          <Link prefetch={false} key={link.href} href={link.href} className="focus-ring rounded-2xl border border-stone bg-ivory/80 p-4 transition hover:border-gold">
             <span className="block font-display text-2xl font-semibold text-navy">{link.title}</span>
             <span className="daily-card-readable mt-2 block text-sm leading-7 text-muted">{link.description}</span>
           </Link>

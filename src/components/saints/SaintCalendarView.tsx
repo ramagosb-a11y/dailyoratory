@@ -56,7 +56,7 @@ export async function SaintCalendarView() {
                 cell.kind === "blank" ? (
                   <div key={cell.key} className="min-h-32 border-b border-r border-stone bg-parchment/40" />
                 ) : (
-                  <Link
+                  <Link prefetch={false}
                     key={cell.key}
                     href={cell.href}
                     className={`focus-ring min-h-32 border-b border-r border-stone p-3 transition hover:bg-parchment/70 ${
@@ -89,7 +89,7 @@ export async function SaintCalendarView() {
 
           <div className="mt-5 grid gap-3 sm:hidden">
             {month.saints.map((entry) => (
-              <Link
+              <Link prefetch={false}
                 key={entry.id}
                 href={`/saints/saint-of-the-day?date=${entry.dateKey}`}
                 className={`card focus-ring block p-4 hover:border-gold ${entry.dateKey === todayDateKey ? "border-gold bg-gold-soft/30" : ""}`}

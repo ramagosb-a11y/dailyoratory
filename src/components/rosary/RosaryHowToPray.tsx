@@ -51,7 +51,7 @@ export function RosaryHowToPray() {
             description="If you want a gentle place to start, enter the Daily Oratory Rosary Prayer Room and pray with others."
             accent="sorrowful"
           >
-            <Link href="/rosary" className="btn btn-secondary focus-ring mt-5 justify-center">
+            <Link prefetch={false} href="/rosary" className="btn btn-secondary focus-ring mt-5 justify-center">
               Open Live Rosary Prayer Room
             </Link>
           </RosaryCard>

@@ -32,8 +32,6 @@ import { WhatIsIndulgenceSection } from "@/components/indulgences/WhatIsIndulgen
 import { YearOfSaintFrancisIndulgenceGuide } from "@/components/indulgences/YearOfSaintFrancisIndulgenceGuide";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const revalidate = 86400;
-
 const pageMetadata = createPageMetadata({
   title: "Catholic Indulgences Guide",
   description:
@@ -99,7 +97,7 @@ export default function IndulgencesPage() {
                 peace and trust.
               </p>
               <div className="mt-6">
-                <Link
+                <Link prefetch={false}
                   href="/indulgences/detachment-from-sin"
                   className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center"
                 >
@@ -115,7 +113,7 @@ export default function IndulgencesPage() {
                 Stations of the Cross, Eucharistic Adoration, Scripture reading, and prayers for the dead.
               </p>
               <div className="mt-6">
-                <Link
+                <Link prefetch={false}
                   href="/indulgences/prayers-and-devotions"
                   className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center"
                 >
@@ -131,7 +129,7 @@ export default function IndulgencesPage() {
                 Purgatory, purification, prayer, and mercy gives deeper meaning to indulgenced works.
               </p>
               <div className="mt-6">
-                <Link
+                <Link prefetch={false}
                   href="/formation/eschatology/purgatory"
                   className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center"
                 >
@@ -146,7 +144,7 @@ export default function IndulgencesPage() {
                 Learn how Catholic burial, prayer for the dead, and reverent interment express hope in mercy, purification, and resurrection.
               </p>
               <div className="mt-6">
-                <Link
+                <Link prefetch={false}
                   href="/formation/catholic-burial/prayers-for-the-dead"
                   className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center"
                 >

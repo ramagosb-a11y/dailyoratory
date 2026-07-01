@@ -26,10 +26,10 @@ export default function MassIntentionsPage() {
               in the Church.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/formation/catholic-burial/prayers-for-the-dead" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/formation/catholic-burial/prayers-for-the-dead" className="btn btn-primary focus-ring">
                 Pray for the dead
               </Link>
-              <Link href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring">
                 Plan a Catholic funeral
               </Link>
             </div>
@@ -101,21 +101,21 @@ export default function MassIntentionsPage() {
         </section>
 
         <section className="mt-14 grid gap-5 lg:grid-cols-3">
-          <Link href="/formation/catholic-burial/prayers-for-the-dead" className="card-parchment p-6 sm:p-8 transition hover:border-gold">
+          <Link prefetch={false} href="/formation/catholic-burial/prayers-for-the-dead" className="card-parchment p-6 sm:p-8 transition hover:border-gold">
             <p className="text-xs font-bold uppercase text-burgundy">Prayer</p>
             <h2 className="font-display mt-3 text-3xl font-semibold text-navy">Prayers for the Dead</h2>
             <p className="mt-4 text-base leading-7 text-muted">
               Continue praying for deceased loved ones, souls in Purgatory, and anniversaries of death.
             </p>
           </Link>
-          <Link href="/formation/catholic-burial" className="card-parchment p-6 sm:p-8 transition hover:border-gold">
+          <Link prefetch={false} href="/formation/catholic-burial" className="card-parchment p-6 sm:p-8 transition hover:border-gold">
             <p className="text-xs font-bold uppercase text-burgundy">Formation</p>
             <h2 className="font-display mt-3 text-3xl font-semibold text-navy">Catholic Burial and Funeral Rites</h2>
             <p className="mt-4 text-base leading-7 text-muted">
               Learn how burial, cremation, funeral rites, and prayer for the dead fit together in Catholic hope.
             </p>
           </Link>
-          <Link href="/indulgences" className="card-parchment p-6 sm:p-8 transition hover:border-gold">
+          <Link prefetch={false} href="/indulgences" className="card-parchment p-6 sm:p-8 transition hover:border-gold">
             <p className="text-xs font-bold uppercase text-burgundy">Mercy</p>
             <h2 className="font-display mt-3 text-3xl font-semibold text-navy">Indulgences and the Faithful Departed</h2>
             <p className="mt-4 text-base leading-7 text-muted">

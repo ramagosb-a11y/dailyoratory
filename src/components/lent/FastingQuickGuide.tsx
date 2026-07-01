@@ -22,7 +22,7 @@ export function FastingQuickGuide() {
         ))}
       </ul>
       <div className="mt-6">
-        <Link href="/liturgical-living/lent/fasting-and-abstinence" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/liturgical-living/lent/fasting-and-abstinence" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Read the Full Fasting Guide
         </Link>
       </div>

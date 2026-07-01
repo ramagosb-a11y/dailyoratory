@@ -46,13 +46,13 @@ export default function RuleOfLifePage() {
               >
                 Build my rule
               </TrackedLink>
-              <Link href="/rule-of-life/templates" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/rule-of-life/templates" className="btn btn-secondary focus-ring">
                 Browse templates
               </Link>
-              <Link href="/body-soul-spirit" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/body-soul-spirit" className="btn btn-secondary focus-ring">
                 Interior temple
               </Link>
-              <Link href="/daily-examen" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/daily-examen" className="btn btn-secondary focus-ring">
                 Daily Examen
               </Link>
             </div>

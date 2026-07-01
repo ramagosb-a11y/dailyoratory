@@ -11,7 +11,7 @@ export function IndulgencesPageNav() {
         </summary>
         <div className="mt-4 grid gap-2">
           {indulgenceAnchors.map((item) => (
-            <Link
+            <Link prefetch={false}
               key={item.id}
               href={`#${item.id}`}
               className="focus-ring rounded-2xl border border-stone bg-ivory px-4 py-3 text-sm font-semibold text-navy transition hover:border-gold hover:text-burgundy"
@@ -26,7 +26,7 @@ export function IndulgencesPageNav() {
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">On this page</p>
         <div className="mt-4 space-y-2">
           {indulgenceAnchors.map((item) => (
-            <Link
+            <Link prefetch={false}
               key={item.id}
               href={`#${item.id}`}
               className="season-pill focus-ring block bg-ivory px-3 py-2 text-sm font-semibold text-navy hover:border-gold hover:text-burgundy"

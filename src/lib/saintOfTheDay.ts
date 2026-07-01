@@ -8,8 +8,6 @@ const FRANCISCAN_CALENDAR_URL = "https://www.franciscanmedia.org/saint-of-the-da
 const FRANCISCAN_DAY_URL = "https://www.franciscanmedia.org/saint-of-the-day/";
 const VATICAN_NEWS_SAINTS_URL = "https://www.vaticannews.va/en/saints.html";
 const CATHOLIC_ONLINE_SAINTS_URL = "https://www.catholic.org/saints/sofd.php";
-const CACHE_TAG = "saint-of-the-day-google-sheet";
-const REVALIDATE_SECONDS = 60 * 60 * 24;
 const SITE_TIME_ZONE = process.env.DAILY_ORATORY_SITE_TIME_ZONE || "America/Chicago";
 
 type SheetRow = Record<string, string>;
@@ -236,9 +234,7 @@ async function fetchSaintOfTheDayRows(sheetId: string) {
 
 async function fetchGoogleSheetRows(sheetId: string, sheetName: string): Promise<SheetRow[]> {
   const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
-  const response = await fetch(url, {
-    next: { revalidate: REVALIDATE_SECONDS, tags: [CACHE_TAG] },
-  });
+  const response = await fetch(url);
 
   if (!response.ok) return [];
 

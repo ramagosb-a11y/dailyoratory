@@ -27,7 +27,7 @@ export function FormationAndSacraments() {
           </article>
         ))}
       </div>
-      <Link href="/sacraments" className="btn btn-primary focus-ring mt-6 justify-center">
+      <Link prefetch={false} href="/sacraments" className="btn btn-primary focus-ring mt-6 justify-center">
         Explore the Sacraments
       </Link>
     </section>

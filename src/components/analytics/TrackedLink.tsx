@@ -44,7 +44,7 @@ export function TrackedLink(props: InternalTrackedLinkProps | ExternalTrackedLin
   }
 
   return (
-    <Link href={props.href} className={className} onClick={handleClick}>
+    <Link prefetch={false} href={props.href} className={className} onClick={handleClick}>
       {children}
     </Link>
   );

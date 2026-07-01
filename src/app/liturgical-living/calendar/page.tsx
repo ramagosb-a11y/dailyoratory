@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { LiturgicalCalendarView } from "@/components/liturgical-living/LiturgicalCalendarView";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const revalidate = 86400;
-
 export const metadata: Metadata = createPageMetadata({
   title: "Liturgical Calendar",
   description: "Daily Oratory's embedded liturgical Google Calendar, with PDF-derived liturgical days, colors, feasts, and official readings links.",

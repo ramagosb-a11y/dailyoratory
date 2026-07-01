@@ -40,7 +40,7 @@ export function LiturgicalYearSection() {
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
           {livingPaths.map((item) => (
-            <Link key={item.href} href={item.href} className="card-parchment resource-card focus-ring p-5">
+            <Link prefetch={false} key={item.href} href={item.href} className="card-parchment resource-card focus-ring p-5">
               <h3 className="font-display text-2xl font-semibold leading-tight text-navy">{item.title}</h3>
               <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
             </Link>

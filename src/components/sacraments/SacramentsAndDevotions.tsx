@@ -16,7 +16,7 @@ export function SacramentsAndDevotions() {
       <h2 className="font-display mt-2 text-4xl font-semibold text-navy">Devotions should lead us deeper into sacramental life</h2>
       <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {devotions.map((devotion) => (
-          <Link key={devotion.title} href={devotion.href} className="rounded-3xl border border-stone-200 bg-ivory/70 p-4 transition hover:border-gold">
+          <Link prefetch={false} key={devotion.title} href={devotion.href} className="rounded-3xl border border-stone-200 bg-ivory/70 p-4 transition hover:border-gold">
             <h3 className="font-semibold text-navy">{devotion.title}</h3>
             <p className="mt-2 text-sm leading-7 text-muted">{devotion.note}</p>
           </Link>

@@ -11,7 +11,7 @@ export function BurialDispositionCards() {
           <p className="daily-readable-muted mt-4 text-sm leading-7 text-muted">{option.catholicGuidance}</p>
           {option.href ? (
             <div className="mt-6">
-              <Link href={option.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href={option.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Learn More
               </Link>
             </div>

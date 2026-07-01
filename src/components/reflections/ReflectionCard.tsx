@@ -28,7 +28,7 @@ export function ReflectionCard({
         <span className="season-pill">{reflection.season}</span>
       </div>
       <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">
-        <Link href={`/reflections/${reflection.slug}`} className="focus-ring rounded-sm">
+        <Link prefetch={false} href={`/reflections/${reflection.slug}`} className="focus-ring rounded-sm">
           <span className="absolute inset-0" aria-hidden="true" />
           {reflection.title}
         </Link>

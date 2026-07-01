@@ -100,10 +100,10 @@ export default function ReginaCaeliPage() {
             and it is traditionally prayed from Easter through Pentecost instead of the Angelus.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="#regina-caeli-text" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#regina-caeli-text" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Pray the Regina Caeli
             </Link>
-            <Link href="/prayers/angelus" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers/angelus" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Outside Easter: The Angelus
             </Link>
           </div>
@@ -181,7 +181,7 @@ export default function ReginaCaeliPage() {
               Outside the Easter season, Catholics traditionally return to the Angelus, which honors the Annunciation and Incarnation of Christ.
             </p>
             <div className="mt-6">
-              <Link href="/prayers/angelus" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/prayers/angelus" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 The Angelus
               </Link>
             </div>
@@ -192,7 +192,7 @@ export default function ReginaCaeliPage() {
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Continue in Easter Prayer</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
               {relatedLinks.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

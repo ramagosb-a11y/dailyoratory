@@ -21,7 +21,7 @@ export function NewsToPrayerActions() {
             {prompt.relatedLinks.length > 0 ? (
               <div className="mt-4 flex flex-wrap gap-2">
                 {prompt.relatedLinks.map((link) => (
-                  <Link
+                  <Link prefetch={false}
                     key={`${prompt.id}-${link.href}`}
                     href={link.href}
                     className="focus-ring rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-navy hover:border-burgundy hover:text-burgundy"

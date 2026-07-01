@@ -26,7 +26,7 @@ export function FormationAndDevotions() {
           </article>
         ))}
       </div>
-      <Link href="/devotions" className="btn btn-secondary focus-ring mt-6 justify-center">
+      <Link prefetch={false} href="/devotions" className="btn btn-secondary focus-ring mt-6 justify-center">
         Explore Devotions
       </Link>
     </section>

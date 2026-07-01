@@ -45,7 +45,7 @@ export function LiturgicalCalendarView() {
               >
                 Open in Google Calendar
               </a>
-              <Link href={liturgicalCalendarImportHref} className="btn btn-primary focus-ring justify-center">
+              <Link prefetch={false} href={liturgicalCalendarImportHref} className="btn btn-primary focus-ring justify-center">
                 Download import file
               </Link>
             </div>
@@ -123,7 +123,7 @@ export function LiturgicalCalendarView() {
           <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">
             Daily Oratory stores reading references and links to the official readings source rather than copying daily reading text.
           </p>
-          <Link href="https://bible.usccb.org/" className="btn btn-primary focus-ring mt-5" target="_blank" rel="noreferrer">
+          <Link prefetch={false} href="https://bible.usccb.org/" className="btn btn-primary focus-ring mt-5" target="_blank" rel="noreferrer">
             Open official daily readings
           </Link>
         </div>

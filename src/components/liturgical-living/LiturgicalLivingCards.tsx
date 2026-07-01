@@ -50,7 +50,7 @@ export function ActionCard({ eyebrow, action }: { eyebrow: string; action?: Litu
       <h2 className="font-display mt-2 text-3xl font-semibold leading-tight text-navy">{action.title}</h2>
       <p className="mt-3 text-sm leading-7 text-muted">{action.description}</p>
       {href ? (
-        <Link href={href} className="text-link focus-ring mt-4 inline-flex text-sm">
+        <Link prefetch={false} href={href} className="text-link focus-ring mt-4 inline-flex text-sm">
           Open resource
         </Link>
       ) : null}
@@ -86,7 +86,7 @@ export function HolyDayList({ holyDays }: { holyDays: LiturgicalHolyDayRecord[] 
 
 export function DashboardResourceCard({ record }: { record: DailyOratoryContentRecord }) {
   return (
-    <Link href={`/library/${record.slug}`} className="card resource-card focus-ring block p-5">
+    <Link prefetch={false} href={`/library/${record.slug}`} className="card resource-card focus-ring block p-5">
       <p className="text-xs font-bold uppercase text-burgundy">{record.category}</p>
       <h3 className="font-display mt-2 text-2xl font-semibold leading-tight text-navy">{record.title}</h3>
       <p className="mt-2 text-sm leading-6 text-muted">{record.description}</p>

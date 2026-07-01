@@ -18,7 +18,7 @@ export function SaintsLiturgicalYear() {
           ["Month-by-month highlights", "/today"],
           ["Seasons and feast connections", "/liturgical-living/seasons"],
         ].map(([title, href]) => (
-          <Link key={title} href={href} className="card-parchment liturgical-card-accent block p-5">
+          <Link prefetch={false} key={title} href={href} className="card-parchment liturgical-card-accent block p-5">
             <h3 className="font-display text-2xl font-semibold text-navy">{title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">
               Feast days and liturgical ranks can vary by country, diocese, parish, and religious calendar.
@@ -53,7 +53,7 @@ export function SaintsAndSacraments() {
       </p>
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {cards.map(([title, href]) => (
-          <Link key={title} href={href} className="card-parchment p-5">
+          <Link prefetch={false} key={title} href={href} className="card-parchment p-5">
             <h3 className="font-display text-2xl font-semibold text-navy">{title}</h3>
           </Link>
         ))}

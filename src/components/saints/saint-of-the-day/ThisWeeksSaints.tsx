@@ -9,7 +9,7 @@ export function ThisWeeksSaints({ entries }: { entries: SaintOfTheDayEntry[] }) 
       {entries.length ? (
         <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {entries.map((entry) => (
-            <Link key={entry.id} href={`/saints/saint-of-the-day?date=${entry.dateKey}`} className="card-parchment block p-5">
+            <Link prefetch={false} key={entry.id} href={`/saints/saint-of-the-day?date=${entry.dateKey}`} className="card-parchment block p-5">
               <p className="text-xs font-bold uppercase tracking-[0.12em] text-burgundy">{entry.dateKey}</p>
               <h3 className="mt-2 font-display text-2xl font-semibold text-navy">{entry.name}</h3>
               <p className="mt-3 text-sm leading-7 text-muted">{entry.shortDescription}</p>
@@ -27,10 +27,10 @@ export function ThisWeeksSaints({ entries }: { entries: SaintOfTheDayEntry[] }) 
         </div>
       )}
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/saints/calendar" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/saints/calendar" className="btn btn-secondary focus-ring justify-center">
           Saint Calendar
         </Link>
-        <Link href="/saints" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/saints" className="btn btn-secondary focus-ring justify-center">
           Saints Library
         </Link>
       </div>

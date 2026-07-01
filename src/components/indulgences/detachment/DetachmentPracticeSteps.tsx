@@ -29,7 +29,7 @@ export function DetachmentPracticeSteps() {
               <p className="daily-readable mt-4 text-base leading-8 text-muted">{step.description}</p>
               {href ? (
                 <div className="mt-5">
-                  <Link href={href} className="text-link focus-ring inline-flex text-sm font-semibold">
+                  <Link prefetch={false} href={href} className="text-link focus-ring inline-flex text-sm font-semibold">
                     Open related Daily Oratory help
                   </Link>
                 </div>

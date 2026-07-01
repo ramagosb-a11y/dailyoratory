@@ -26,10 +26,10 @@ export function CouncilsForExplorers() {
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/ocia" className="btn btn-secondary focus-ring justify-center">OCIA</Link>
-        <Link href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
-        <Link href="/tradition" className="btn btn-secondary focus-ring justify-center">Tradition</Link>
-        <Link href="/mass" className="btn btn-secondary focus-ring justify-center">Mass</Link>
+        <Link prefetch={false} href="/ocia" className="btn btn-secondary focus-ring justify-center">OCIA</Link>
+        <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
+        <Link prefetch={false} href="/tradition" className="btn btn-secondary focus-ring justify-center">Tradition</Link>
+        <Link prefetch={false} href="/mass" className="btn btn-secondary focus-ring justify-center">Mass</Link>
       </div>
     </section>
   );

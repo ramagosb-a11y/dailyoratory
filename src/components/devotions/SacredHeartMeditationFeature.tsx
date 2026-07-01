@@ -32,10 +32,10 @@ export function SacredHeartMeditationFeature() {
             <span className="season-pill">Sacred Heart</span>
           </div>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href={meditationHref} className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href={meditationHref} className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Begin the Meditation
             </Link>
-            <Link href="/prayers/novena-to-the-sacred-heart-of-jesus" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers/novena-to-the-sacred-heart-of-jesus" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Sacred Heart Novena
             </Link>
           </div>

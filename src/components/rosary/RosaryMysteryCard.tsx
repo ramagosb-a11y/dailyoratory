@@ -32,7 +32,7 @@ export function RosaryMysteryCard({ mystery }: { mystery: RosaryMystery | Rosary
           </p>
         </div>
         {detailLink ? (
-          <Link href={detailLink} className="btn btn-secondary focus-ring mt-5 justify-center">
+          <Link prefetch={false} href={detailLink} className="btn btn-secondary focus-ring mt-5 justify-center">
             Open mystery guide
           </Link>
         ) : null}
@@ -66,7 +66,7 @@ export function RosaryMysteryCard({ mystery }: { mystery: RosaryMystery | Rosary
       >
         Meditate on This Mystery
       </TrackedLink>
-      <Link href="/rosary" className="mt-3 text-center text-sm font-semibold text-burgundy underline-offset-4 hover:underline">
+      <Link prefetch={false} href="/rosary" className="mt-3 text-center text-sm font-semibold text-burgundy underline-offset-4 hover:underline">
         Pray live in the Rosary Prayer Room
       </Link>
     </article>

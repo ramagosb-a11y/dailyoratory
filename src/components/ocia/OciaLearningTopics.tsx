@@ -19,7 +19,7 @@ export function OciaLearningTopics() {
             <p className="mt-3 text-sm leading-7 text-muted">{topic.description}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {topic.relatedLinks.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={`${topic.id}-${link.href}`}
                   href={link.href}
                   className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy"

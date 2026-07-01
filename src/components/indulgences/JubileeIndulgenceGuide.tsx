@@ -53,7 +53,7 @@ export function JubileeIndulgenceGuide() {
             >
               View Jubilee 2025 Site
             </a>
-            <Link href="#indulgence-builder" className="btn btn-primary focus-ring justify-center">
+            <Link prefetch={false} href="#indulgence-builder" className="btn btn-primary focus-ring justify-center">
               Build Today&apos;s Indulgence Plan
             </Link>
           </div>

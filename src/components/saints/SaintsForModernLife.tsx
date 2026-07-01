@@ -22,7 +22,7 @@ export function SaintsForModernLife() {
           </article>
         ))}
       </div>
-      <Link href="/saints?modern=true" className="mt-6 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+      <Link prefetch={false} href="/saints?modern=true" className="mt-6 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
         Browse modern saints
       </Link>
     </section>

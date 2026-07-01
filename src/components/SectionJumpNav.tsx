@@ -29,7 +29,7 @@ export function SectionJumpNav({
         </summary>
         <div className="mt-4 grid gap-2">
           {items.map((item) => (
-            <Link
+            <Link prefetch={false}
               key={item.href}
               href={item.href}
               className="focus-ring liturgical-chip rounded-2xl px-4 py-3 text-sm font-semibold"
@@ -45,7 +45,7 @@ export function SectionJumpNav({
           <p className="liturgical-label w-full text-xs font-bold tracking-[0.16em]">{desktopEyebrow}</p>
         ) : null}
         {items.map((item) => (
-          <Link
+          <Link prefetch={false}
             key={item.href}
             href={item.href}
             className="season-pill liturgical-chip focus-ring px-3 py-2"

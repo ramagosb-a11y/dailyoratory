@@ -55,7 +55,7 @@ export function ChooseDevotionByNeed() {
             <p className="text-xs font-bold uppercase text-burgundy">Related Daily Oratory links</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {recommendation.need?.relatedLinks.map((link) => (
-                <Link key={`${link.href}-${link.label}`} href={link.href} className="focus-ring season-pill">
+                <Link prefetch={false} key={`${link.href}-${link.label}`} href={link.href} className="focus-ring season-pill">
                   {link.label}
                 </Link>
               ))}

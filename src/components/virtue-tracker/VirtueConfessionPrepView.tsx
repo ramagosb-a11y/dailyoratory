@@ -16,7 +16,7 @@ export function VirtueConfessionPrepView() {
         <p className="mt-3 text-sm leading-7 text-muted">
           This page gathers only check-ins you marked. It does not decide mortal or venial sin. If unsure, ask the priest.
         </p>
-        <Link href="/confession/examination" className="btn btn-primary focus-ring mt-5">
+        <Link prefetch={false} href="/confession/examination" className="btn btn-primary focus-ring mt-5">
           Open guided examination
         </Link>
       </aside>

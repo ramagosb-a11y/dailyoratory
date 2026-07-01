@@ -30,10 +30,10 @@ export function LectioDivinaGuide() {
         ))}
       </div>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Link href="/tools/heavenbound" className="btn btn-primary focus-ring justify-center">
+        <Link prefetch={false} href="/tools/heavenbound" className="btn btn-primary focus-ring justify-center">
           Start Lectio Divina
         </Link>
-        <Link href="/rule-of-life" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/rule-of-life" className="btn btn-secondary focus-ring justify-center">
           Add It to a Rule of Life
         </Link>
       </div>

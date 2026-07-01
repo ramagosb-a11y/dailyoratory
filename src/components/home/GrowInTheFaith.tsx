@@ -38,13 +38,13 @@ export function GrowInTheFaith() {
           title="Formation for conversion, devotion, and steady Catholic life."
           summary="Choose the next faithful step: learn the sacraments, walk with the saints, examine conscience, and grow in virtue."
         />
-        <Link href="/learn" className="btn btn-primary focus-ring md:mb-1">
+        <Link prefetch={false} href="/learn" className="btn btn-primary focus-ring md:mb-1">
           Explore Learn
         </Link>
       </div>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {formationPaths.map((item) => (
-          <Link key={item.href} href={item.href} className="card resource-card focus-ring p-5">
+          <Link prefetch={false} key={item.href} href={item.href} className="card resource-card focus-ring p-5">
             <h3 className="font-display text-2xl font-semibold leading-tight text-navy">{item.title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
           </Link>

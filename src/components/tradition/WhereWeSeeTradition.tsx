@@ -19,7 +19,7 @@ export function WhereWeSeeTradition() {
             <p className="mt-3 text-sm leading-7 text-muted">{concept.description}</p>
             {concept.relatedLinks[0] ? (
               <div className="mt-5">
-                <Link href={concept.relatedLinks[0].href} className="btn btn-secondary focus-ring justify-center">
+                <Link prefetch={false} href={concept.relatedLinks[0].href} className="btn btn-secondary focus-ring justify-center">
                   {concept.relatedLinks[0].label}
                 </Link>
               </div>

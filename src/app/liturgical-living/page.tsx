@@ -3,8 +3,6 @@ import { LiturgicalDashboard } from "@/components/liturgical-living/LiturgicalDa
 import { getLiturgicalDashboardModelWithGoogleCalendar } from "@/lib/liturgicalLiving";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const revalidate = 86400;
-
 export const metadata: Metadata = createPageMetadata({
   title: "Liturgical Living",
   description: "Pray with the Church through today's liturgical day, season, readings references, devotions, and family practices.",

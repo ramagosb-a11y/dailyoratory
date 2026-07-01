@@ -21,10 +21,10 @@ export function IndulgencesHero() {
         spiritual transaction.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-        <Link href="#indulgence-builder" className="btn btn-gold focus-ring justify-center">
+        <Link prefetch={false} href="#indulgence-builder" className="btn btn-gold focus-ring justify-center">
           Build Today&apos;s Indulgence Plan
         </Link>
-        <Link href="#official-sources" className="btn btn-outline-inverse focus-ring justify-center">
+        <Link prefetch={false} href="#official-sources" className="btn btn-outline-inverse focus-ring justify-center">
           Official Church Sources
         </Link>
       </div>

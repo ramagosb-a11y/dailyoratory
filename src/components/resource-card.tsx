@@ -11,7 +11,7 @@ export function ResourceCard({ resource }: { resource: Resource }) {
         </span>
       </div>
       <h3 className="font-display mt-4 text-2xl font-semibold leading-tight text-navy">
-        <Link href={`/library/${resource.slug}`} className="focus-ring rounded-sm">
+        <Link prefetch={false} href={`/library/${resource.slug}`} className="focus-ring rounded-sm">
           <span className="absolute inset-0" aria-hidden="true" />
           {resource.title}
         </Link>

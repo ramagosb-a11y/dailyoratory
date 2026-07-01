@@ -26,7 +26,7 @@ export function FormationByLiturgicalSeason() {
           </article>
         ))}
       </div>
-      <Link href="/liturgical-living/seasons" className="btn btn-secondary focus-ring mt-6 justify-center">
+      <Link prefetch={false} href="/liturgical-living/seasons" className="btn btn-secondary focus-ring mt-6 justify-center">
         Explore Liturgical Seasons
       </Link>
     </section>

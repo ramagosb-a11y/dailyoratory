@@ -14,10 +14,10 @@ export function BeforeMassGuide({ parts }: { parts: MassPart[] }) {
       <article className="card p-6">
         <h3 className="font-display text-3xl font-semibold text-navy">Helpful next steps</h3>
         <div className="mt-4 flex flex-wrap gap-3">
-          <Link href="/confession" className="btn btn-secondary focus-ring justify-center">Confession</Link>
-          <Link href="/indulgences" className="btn btn-secondary focus-ring justify-center">Indulgences</Link>
-          <Link href="/library/scripture-prayer" className="btn btn-secondary focus-ring justify-center">Scripture Prayer</Link>
-          <Link href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
+          <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring justify-center">Confession</Link>
+          <Link prefetch={false} href="/indulgences" className="btn btn-secondary focus-ring justify-center">Indulgences</Link>
+          <Link prefetch={false} href="/library/scripture-prayer" className="btn btn-secondary focus-ring justify-center">Scripture Prayer</Link>
+          <Link prefetch={false} href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
         </div>
       </article>
     </div>

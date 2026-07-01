@@ -15,7 +15,7 @@ export function SaintCard({ saint, reason }: { saint: SaintRecord; reason?: stri
         </span>
       </div>
       <h3 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">
-        <Link href={`/saints/${saint.slug}`} className="focus-ring rounded-sm">
+        <Link prefetch={false} href={`/saints/${saint.slug}`} className="focus-ring rounded-sm">
           <span className="absolute inset-0" aria-hidden="true" />
           {saint.name}
         </Link>
@@ -37,7 +37,7 @@ export function SaintCard({ saint, reason }: { saint: SaintRecord; reason?: stri
         </p>
       </div>
       <div className="relative z-10 mt-5 flex flex-col gap-3 sm:flex-row">
-        <Link href={`/saints/${saint.slug}`} className="btn btn-primary focus-ring justify-center">
+        <Link prefetch={false} href={`/saints/${saint.slug}`} className="btn btn-primary focus-ring justify-center">
           Learn More
         </Link>
         <SaintSaveButton saintId={saint.id} />

@@ -32,10 +32,10 @@ export default function PathwaysPage() {
               family prayer, works of mercy, or missionary discipleship.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/pathways/start" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/pathways/start" className="btn btn-primary focus-ring">
                 Find my starting point
               </Link>
-              <Link href="/pathways/my-pathways" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/pathways/my-pathways" className="btn btn-secondary focus-ring">
                 My pathways
               </Link>
             </div>
@@ -78,7 +78,7 @@ export default function PathwaysPage() {
           />
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {pathways.map((pathway) => (
-              <Link key={pathway.slug} href={`/pathways/${pathway.slug}`} className="card resource-card focus-ring p-5">
+              <Link prefetch={false} key={pathway.slug} href={`/pathways/${pathway.slug}`} className="card resource-card focus-ring p-5">
                 <p className="text-xs font-bold uppercase text-burgundy">{pathway.estimatedDuration}</p>
                 <h2 className="font-display mt-2 text-3xl font-semibold leading-tight text-navy">{pathway.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-muted">{pathway.description}</p>

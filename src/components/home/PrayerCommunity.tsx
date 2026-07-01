@@ -15,7 +15,7 @@ export function PrayerCommunity() {
             Local faith groups, events, and discussion prompts for parish and home communities.
           </p>
         </div>
-        <Link href="/community/events" className="text-link focus-ring text-sm">
+        <Link prefetch={false} href="/community/events" className="text-link focus-ring text-sm">
           View events
         </Link>
       </div>

@@ -27,7 +27,7 @@ export function SacredSpaceCard({ space }: { space: SacredSpace }) {
       {space.relatedLinks.length ? (
         <div className="mt-5 flex flex-wrap gap-3">
           {space.relatedLinks.map((link) => (
-            <Link
+            <Link prefetch={false}
               key={`${space.id}-${link.href}`}
               href={link.href}
               className="rounded-full border border-gold/25 px-4 py-2 text-sm font-semibold text-navy transition hover:border-burgundy hover:text-burgundy"

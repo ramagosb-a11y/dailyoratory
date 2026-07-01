@@ -155,7 +155,7 @@ export function MassReflectionPostLayout({
           <div className="card p-5">
             <p className="text-xs font-bold uppercase text-burgundy">Previous reflection</p>
             {previousReflection ? (
-              <Link
+              <Link prefetch={false}
                 href={`/reflections/mass-readings/${previousReflection.slug}`}
                 className="focus-ring mt-3 inline-flex rounded-sm font-display text-2xl font-semibold text-navy hover:text-burgundy"
               >
@@ -168,7 +168,7 @@ export function MassReflectionPostLayout({
           <div className="card p-5">
             <p className="text-xs font-bold uppercase text-burgundy">Next reflection</p>
             {nextReflection ? (
-              <Link
+              <Link prefetch={false}
                 href={`/reflections/mass-readings/${nextReflection.slug}`}
                 className="focus-ring mt-3 inline-flex rounded-sm font-display text-2xl font-semibold text-navy hover:text-burgundy"
               >

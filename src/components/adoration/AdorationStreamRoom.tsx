@@ -31,10 +31,10 @@ export function AdorationStreamRoom() {
           </p>
           <p className="mt-2 text-sm font-semibold text-navy">{getAdorationLocationLabel(featuredStream)}</p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href={getAdorationStreamHref(featuredStream)} className="btn liturgical-button focus-ring justify-center">
+            <Link prefetch={false} href={getAdorationStreamHref(featuredStream)} className="btn liturgical-button focus-ring justify-center">
               Open Featured Stream
             </Link>
-            <Link href="/adoration/live" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/adoration/live" className="btn btn-secondary focus-ring justify-center">
               Browse Live Adoration
             </Link>
           </div>
@@ -48,7 +48,7 @@ export function AdorationStreamRoom() {
         </p>
         <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="btn liturgical-button focus-ring justify-center">
+            <Link prefetch={false} key={link.href} href={link.href} className="btn liturgical-button focus-ring justify-center">
               {link.label}
             </Link>
           ))}

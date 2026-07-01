@@ -238,7 +238,7 @@ function SaintSuggestionCard({
         <span className="font-semibold text-navy">Virtue:</span> {virtue}
       </p>
       <p className="mt-3 line-clamp-4 text-sm leading-7 text-muted">{prayer}</p>
-      <Link href={href} className="mt-5 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+      <Link prefetch={false} href={href} className="mt-5 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
         Learn more
       </Link>
     </article>

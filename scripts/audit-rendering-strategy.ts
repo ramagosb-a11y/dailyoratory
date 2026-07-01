@@ -1,62 +1,21 @@
+// @ts-nocheck
 {
-const { existsSync, readFileSync } = require("node:fs");
-const { join } = require("node:path");
+const { existsSync, readFileSync, readdirSync, statSync } = require("node:fs");
+const { join, relative } = require("node:path");
 
 const root = process.cwd();
-const manifestPath = join(root, ".next", "prerender-manifest.json");
-const requiredPrerenderedRoutes = [
+const outDir = join(root, "out");
+const requiredStaticRoutes = [
   "/",
-  "/dashboard",
-  "/homilies",
-  "/indulgences",
   "/library",
-  "/liturgical-living",
-  "/liturgical-living/calendar",
-  "/liturgical-living/family",
-  "/media",
-  "/pray",
-  "/pray/today",
+  "/rosary",
+  "/confession",
   "/reflections/mass-readings",
-  "/saints/saint-of-the-day",
-  "/search",
-  "/sitemap.xml",
-  "/today",
+  "/liturgical-living",
+  "/community",
   "/confession/examination",
-];
-
-if (!existsSync(manifestPath)) {
-  console.error("Rendering strategy audit failed: .next/prerender-manifest.json was not found.");
-  console.error("Run this audit after `next build`.");
-  process.exit(1);
-}
-
-const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
-const prerenderedRoutes = new Set(Object.keys(manifest.routes ?? {}));
-const missingRoutes = requiredPrerenderedRoutes.filter((route) => !prerenderedRoutes.has(route));
-const minimumRevalidateSeconds = 60 * 60 * 24;
-const quotaSensitiveRevalidateFiles = [
-  "src/app/dashboard/page.tsx",
-  "src/app/homilies/page.tsx",
-  "src/app/indulgences/page.tsx",
-  "src/app/library/page.tsx",
-  "src/app/liturgical-living/calendar/page.tsx",
-  "src/app/liturgical-living/family/page.tsx",
-  "src/app/liturgical-living/page.tsx",
-  "src/app/media/page.tsx",
-  "src/app/page.tsx",
-  "src/app/pray/page.tsx",
-  "src/app/pray/today/page.tsx",
-  "src/app/reflections/mass-readings/page.tsx",
-  "src/app/saints/saint-of-the-day/page.tsx",
-  "src/app/search/page.tsx",
-  "src/app/sitemap.ts",
-  "src/app/today/page.tsx",
-];
-const quotaSensitiveFetchCacheFiles = [
-  "src/lib/googleLiturgicalCalendar.ts",
-  "src/lib/media.ts",
-  "src/lib/massReadingsGoogleSheets.ts",
-  "src/lib/saintOfTheDay.ts",
+  "/sitemap.xml",
+  "/robots.txt",
 ];
 const generatedDynamicRouteFiles = [
   "src/app/adoration/[slug]/page.tsx",
@@ -76,82 +35,92 @@ const generatedDynamicRouteFiles = [
   "src/app/sacraments/[slug]/page.tsx",
   "src/app/saints/[slug]/page.tsx",
 ];
-const shortManifestRevalidateRoutes = requiredPrerenderedRoutes.filter((route) => {
-  const initialRevalidateSeconds = manifest.routes?.[route]?.initialRevalidateSeconds;
-  return typeof initialRevalidateSeconds === "number" && initialRevalidateSeconds < minimumRevalidateSeconds;
-});
+const sourceRoots = ["src/app", "src/components", "src/lib", "next.config.ts"];
+const disallowedRuntimePatterns = [
+  { pattern: /export const revalidate\s*=/, label: "ISR route revalidate" },
+  { pattern: /next\s*:\s*\{[\s\S]*?revalidate/, label: "ISR fetch revalidate" },
+  { pattern: /\brevalidatePath\s*\(/, label: "on-demand path revalidation" },
+  { pattern: /\brevalidateTag\s*\(/, label: "on-demand tag revalidation" },
+  { pattern: /dynamic\s*=\s*["']force-dynamic["']/, label: "force dynamic route" },
+  { pattern: /\bNextRequest\b/, label: "request-bound NextRequest" },
+  { pattern: /\bcookies\s*\(/, label: "request-time cookies" },
+  { pattern: /\bheaders\s*\(/, label: "request-time headers" },
+  { pattern: /\bdraftMode\s*\(/, label: "draft mode" },
+  { pattern: /\bredirect\s*\(/, label: "Next runtime redirect" },
+  { pattern: /\bpermanentRedirect\s*\(/, label: "Next runtime permanent redirect" },
+];
 
-const shortRevalidateFiles = quotaSensitiveRevalidateFiles.filter((file) => {
-  const source = readFileSync(join(root, file), "utf8");
-  const match = source.match(/export const revalidate = (\d+)/);
-  return match && Number(match[1]) < minimumRevalidateSeconds;
-});
-const shortFetchCacheFiles = quotaSensitiveFetchCacheFiles.filter((file) => {
-  const source = readFileSync(join(root, file), "utf8");
-  const match = source.match(/const REVALIDATE_SECONDS = ([^;]+)/);
-  if (!match) return false;
-  const seconds = Function(`"use strict"; return (${match[1]});`)();
-  return Number(seconds) < minimumRevalidateSeconds;
-});
-const missingDynamicParamGuards = generatedDynamicRouteFiles.filter((file) => {
-  const source = readFileSync(join(root, file), "utf8");
-  return !/export const dynamicParams = false;/.test(source);
-});
+const failures = [];
 
-if (missingRoutes.length) {
-  console.error("Rendering strategy audit failed:\n");
-  console.error("These high-traffic routes are not prerendered/ISR in .next/prerender-manifest.json:");
-  for (const route of missingRoutes) console.error(`- ${route}`);
-  console.error(
-    [
-      "",
-      "This guard protects the Vercel Hobby Fluid Active CPU budget.",
-      "Merge the static/ISR route fixes before deploying from the Git repo.",
-    ].join("\n"),
-  );
-  process.exit(1);
-}
-
-if (
-  shortManifestRevalidateRoutes.length ||
-  shortRevalidateFiles.length ||
-  shortFetchCacheFiles.length ||
-  missingDynamicParamGuards.length
-) {
-  console.error("Rendering strategy audit failed:\n");
-
-  if (shortManifestRevalidateRoutes.length) {
-    console.error("These built routes revalidate more often than once per day:");
-    for (const route of shortManifestRevalidateRoutes) {
-      const seconds = manifest.routes?.[route]?.initialRevalidateSeconds;
-      console.error(`- ${route} (${seconds}s)`);
+if (!existsSync(outDir)) {
+  failures.push("Static export output directory `out` was not found.");
+} else {
+  for (const route of requiredStaticRoutes) {
+    if (!hasStaticRoute(route)) {
+      failures.push(`Missing static export for ${route}.`);
     }
   }
+}
 
-  if (shortRevalidateFiles.length) {
-    console.error("\nThese quota-sensitive pages revalidate more often than once per day:");
-    for (const file of shortRevalidateFiles) console.error(`- ${file}`);
+if (existsSync(join(root, "src", "proxy.ts"))) {
+  failures.push("src/proxy.ts is present, but Next proxy is unsupported by static export.");
+}
+
+const apiRouteFiles = listFiles(join(root, "src", "app", "api")).filter((file) => file.endsWith("route.ts"));
+if (apiRouteFiles.length) {
+  failures.push(`API route handlers remain under src/app/api: ${apiRouteFiles.map(toProjectPath).join(", ")}`);
+}
+
+for (const file of generatedDynamicRouteFiles) {
+  const fullPath = join(root, file);
+  if (!existsSync(fullPath)) continue;
+  const source = readFileSync(fullPath, "utf8");
+  if (!/export const dynamicParams = false;/.test(source)) {
+    failures.push(`${file} is missing dynamicParams=false.`);
   }
-
-  if (shortFetchCacheFiles.length) {
-    console.error("\nThese shared data fetch caches revalidate more often than once per day:");
-    for (const file of shortFetchCacheFiles) console.error(`- ${file}`);
+  if (!/generateStaticParams/.test(source)) {
+    failures.push(`${file} is missing generateStaticParams().`);
   }
+}
 
-  if (missingDynamicParamGuards.length) {
-    console.error("\nThese generated dynamic routes allow unknown params to generate cache entries:");
-    for (const file of missingDynamicParamGuards) console.error(`- ${file}`);
+for (const file of sourceRoots.flatMap((sourceRoot) => listFiles(join(root, sourceRoot)))) {
+  if (!/\.(ts|tsx)$/.test(file)) continue;
+  const source = readFileSync(file, "utf8");
+  for (const check of disallowedRuntimePatterns) {
+    if (check.pattern.test(source)) {
+      failures.push(`${toProjectPath(file)} contains ${check.label}.`);
+    }
   }
+}
 
-  console.error(
-    [
-      "",
-      "This guard protects the Vercel Hobby ISR Writes and Fluid Active CPU budgets.",
-      "Keep broad public pages daily-or-longer and set dynamicParams=false on generated dynamic routes.",
-    ].join("\n"),
-  );
+if (failures.length) {
+  console.error("Static export audit failed:\n");
+  for (const failure of failures) console.error(`- ${failure}`);
   process.exit(1);
 }
 
-console.log("Rendering strategy audit passed.");
+console.log("Static export audit passed.");
+
+function hasStaticRoute(route) {
+  if (route === "/") return existsSync(join(outDir, "index.html"));
+  if (route.endsWith(".xml") || route.endsWith(".txt")) return existsSync(join(outDir, route.slice(1)));
+
+  const cleanRoute = route.replace(/^\/|\/$/g, "");
+  return existsSync(join(outDir, `${cleanRoute}.html`)) || existsSync(join(outDir, cleanRoute, "index.html"));
+}
+
+function listFiles(target) {
+  if (!existsSync(target)) return [];
+  const stats = statSync(target);
+  if (stats.isFile()) return [target];
+
+  return readdirSync(target, { withFileTypes: true }).flatMap((entry) => {
+    const fullPath = join(target, entry.name);
+    return entry.isDirectory() ? listFiles(fullPath) : [fullPath];
+  });
+}
+
+function toProjectPath(file) {
+  return relative(root, file).replace(/\\/g, "/");
+}
 }

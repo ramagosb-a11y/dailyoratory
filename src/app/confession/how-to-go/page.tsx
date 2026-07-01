@@ -55,10 +55,10 @@ export default function HowToGoToConfessionPage() {
             />
             <ExaminationNotices compact />
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/confession/examination/start" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/confession/examination/start" className="btn btn-primary focus-ring">
                 Start examination
               </Link>
-              <Link href="/confession/prayers" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/confession/prayers" className="btn btn-secondary focus-ring">
                 Confession prayers
               </Link>
             </div>

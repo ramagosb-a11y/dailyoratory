@@ -96,11 +96,11 @@ export function EventDetail({ event }: { event: EventRecord }) {
                 ) : null}
               </dl>
               {event.registrationUrl ? (
-                <Link href={event.registrationUrl} className="btn btn-primary focus-ring mt-5 w-full">
+                <Link prefetch={false} href={event.registrationUrl} className="btn btn-primary focus-ring mt-5 w-full">
                   Join or register
                 </Link>
               ) : (
-                <Link href="/community/contact" className="btn btn-secondary focus-ring mt-5 w-full">
+                <Link prefetch={false} href="/community/contact" className="btn btn-secondary focus-ring mt-5 w-full">
                   Ask about this event
                 </Link>
               )}

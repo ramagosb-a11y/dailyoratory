@@ -125,10 +125,10 @@ export default function IndulgencePrayersAndDevotionsPage() {
             Indulgences are not magic or shortcuts. They belong to a life of grace, repentance, Confession, Holy Communion, prayer, and detachment from sin.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="#official-documents" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#official-documents" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Official Documents
             </Link>
-            <Link href="#prayer-groups" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#prayer-groups" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Browse Prayers and Devotions
             </Link>
           </div>
@@ -167,10 +167,10 @@ export default function IndulgencePrayersAndDevotionsPage() {
               <li>They should lead to humility, mercy, prayer, and conversion.</li>
             </ul>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link href="/indulgences" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/indulgences" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 What Is an Indulgence?
               </Link>
-              <Link href="/indulgences/detachment-from-sin" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/indulgences/detachment-from-sin" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Detachment from Sin
               </Link>
             </div>
@@ -195,10 +195,10 @@ export default function IndulgencePrayersAndDevotionsPage() {
               </p>
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link href="/confession" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/confession" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Confession Guide
               </Link>
-              <Link href="/indulgences/detachment-from-sin" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/indulgences/detachment-from-sin" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Detachment from Sin
               </Link>
             </div>
@@ -252,7 +252,7 @@ export default function IndulgencePrayersAndDevotionsPage() {
                         ))}
                       </div>
                       <div className="mt-5">
-                        <Link href={item.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                        <Link prefetch={false} href={item.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                           Open guide
                         </Link>
                       </div>
@@ -296,13 +296,13 @@ export default function IndulgencePrayersAndDevotionsPage() {
               <p className="whitespace-pre-line text-base leading-8 text-navy">{eternalRestPrayer}</p>
             </div>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link href="/formation/eschatology/purgatory" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation/eschatology/purgatory" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Purgatory
               </Link>
-              <Link href="/formation/catholic-burial" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation/catholic-burial" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Catholic Burial
               </Link>
-              <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Prayer Library
               </Link>
             </div>
@@ -315,10 +315,10 @@ export default function IndulgencePrayersAndDevotionsPage() {
               Indulgences should lead to peace, mercy, and conversion. If you become anxious, compulsive, or fearful about indulgences, speak with a trusted priest or confessor and choose simple practices.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link href="/confession" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/confession" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Confession Guide
               </Link>
-              <Link href="/indulgences/detachment-from-sin" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/indulgences/detachment-from-sin" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Detachment from Sin
               </Link>
             </div>
@@ -329,7 +329,7 @@ export default function IndulgencePrayersAndDevotionsPage() {
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Continue with Daily Oratory</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {relatedGuides.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

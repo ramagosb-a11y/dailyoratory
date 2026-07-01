@@ -27,10 +27,10 @@ export function FormationAndScripture() {
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/library/scripture-prayer" className="btn btn-primary focus-ring justify-center">
+        <Link prefetch={false} href="/library/scripture-prayer" className="btn btn-primary focus-ring justify-center">
           Scripture Prayer
         </Link>
-        <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
           Mass Readings Reflections
         </Link>
       </div>

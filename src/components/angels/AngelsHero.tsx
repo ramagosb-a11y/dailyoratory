@@ -18,13 +18,13 @@ export function AngelsHero() {
             Church's worship in the Mass.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="#what-are-angels" className="btn liturgical-button focus-ring justify-center">
+            <Link prefetch={false} href="#what-are-angels" className="btn liturgical-button focus-ring justify-center">
               Learn What Angels Are
             </Link>
-            <Link href="#guardian-angels" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="#guardian-angels" className="btn btn-secondary focus-ring justify-center">
               Guardian Angels
             </Link>
-            <Link href="#angels-in-the-mass" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="#angels-in-the-mass" className="btn btn-secondary focus-ring justify-center">
               Angels in the Mass
             </Link>
           </div>

@@ -22,7 +22,7 @@ export function HomilyCollections({ collections }: { collections: HomilyCollecti
               {collection.homilyIds.length + collection.playlistIds.length} linked items
             </p>
             <div className="mt-5">
-              <Link href={`/homilies?collection=${collection.slug}`} className="text-link focus-ring text-sm font-semibold">
+              <Link prefetch={false} href={`/homilies?collection=${collection.slug}`} className="text-link focus-ring text-sm font-semibold">
                 Open Collection
               </Link>
             </div>

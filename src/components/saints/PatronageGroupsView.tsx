@@ -11,7 +11,7 @@ export function PatronageGroupsView() {
           <p className="mt-2 text-sm leading-6 text-muted">{group.description}</p>
           <div className="mt-4 grid gap-2">
             {group.saints.map((saint) => (
-              <Link key={saint.id} href={`/saints/${saint.slug}`} className="focus-ring rounded-md border border-stone bg-ivory px-3 py-2 text-sm font-bold text-navy hover:border-gold">
+              <Link prefetch={false} key={saint.id} href={`/saints/${saint.slug}`} className="focus-ring rounded-md border border-stone bg-ivory px-3 py-2 text-sm font-bold text-navy hover:border-gold">
                 {saint.name}
               </Link>
             ))}

@@ -99,16 +99,16 @@ export default function ConfessionPage() {
             of Reconciliation is central to Catholic life.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="/confession/examination/start" className="btn btn-primary focus-ring">
+            <Link prefetch={false} href="/confession/examination/start" className="btn btn-primary focus-ring">
               Start examination
             </Link>
-            <Link href="/confession/how-to-go" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/confession/how-to-go" className="btn btn-secondary focus-ring">
               How to go
             </Link>
-            <Link href="/body-soul-spirit" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/body-soul-spirit" className="btn btn-secondary focus-ring">
               Interior temple
             </Link>
-            <Link href="/daily-examen" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/daily-examen" className="btn btn-secondary focus-ring">
               Daily Examen
             </Link>
           </div>
@@ -127,7 +127,7 @@ export default function ConfessionPage() {
               Scripture, and steady Catholic life one faithful step at a time.
             </p>
             <div className="mt-6">
-              <Link href="/catholic-life" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/catholic-life" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Open the Catholic Life Roadmap
               </Link>
             </div>
@@ -143,7 +143,7 @@ export default function ConfessionPage() {
               through Christ’s mercy.
             </p>
             <div className="mt-6">
-              <Link href="/formation/grace/sanctifying-grace" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation/grace/sanctifying-grace" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Learn About Sanctifying Grace
               </Link>
             </div>
@@ -159,7 +159,7 @@ export default function ConfessionPage() {
               The goal is not fear, but mercy, truth, and readiness to meet the Lord.
             </p>
             <div className="mt-6">
-              <Link href="/formation/eschatology/judgment" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation/eschatology/judgment" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Learn About Judgment and Mercy
               </Link>
             </div>
@@ -175,7 +175,7 @@ export default function ConfessionPage() {
               complete detachment from sin relates to conversion, indulgences, prayer, and the sacramental life.
             </p>
             <div className="mt-6">
-              <Link href="/indulgences/detachment-from-sin" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/indulgences/detachment-from-sin" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Learn About Detachment from Sin
               </Link>
             </div>
@@ -191,7 +191,7 @@ export default function ConfessionPage() {
               before and after the Sacrament of Reconciliation.
             </p>
             <div className="mt-6">
-              <Link href="/prayers/seven-penitential-psalms#before-confession" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/prayers/seven-penitential-psalms#before-confession" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Pray Before Confession
               </Link>
             </div>
@@ -207,7 +207,7 @@ export default function ConfessionPage() {
               and use the emergency guide for simple next steps.
             </p>
             <div className="mt-6">
-              <Link href="/sacramental-emergency#urgent-confession" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/sacramental-emergency#urgent-confession" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Urgent Confession Steps
               </Link>
             </div>
@@ -229,7 +229,7 @@ export default function ConfessionPage() {
                 { label: "What Should I Do?", href: "/what-should-i-do" },
                 { label: "Sacred Heart Novena", href: "/prayers/novena-to-the-sacred-heart-of-jesus" },
               ].map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"

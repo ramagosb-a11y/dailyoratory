@@ -5,7 +5,7 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
     <nav aria-label="Breadcrumb" className="liturgical-breadcrumbs text-sm text-muted">
       <ol className="flex flex-wrap items-center gap-2">
         <li>
-          <Link href="/" className="focus-ring liturgical-breadcrumb-link rounded-sm font-semibold text-navy hover:text-burgundy">
+          <Link prefetch={false} href="/" className="focus-ring liturgical-breadcrumb-link rounded-sm font-semibold text-navy hover:text-burgundy">
             Home
           </Link>
         </li>
@@ -13,7 +13,7 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
           <li key={item.label} className="flex items-center gap-2">
             <span aria-hidden="true" className="liturgical-breadcrumb-divider">/</span>
             {item.href ? (
-              <Link
+              <Link prefetch={false}
                 href={item.href}
                 className="focus-ring liturgical-breadcrumb-link rounded-sm font-semibold text-navy hover:text-burgundy"
               >

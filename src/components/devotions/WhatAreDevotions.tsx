@@ -29,7 +29,7 @@ export function WhatAreDevotions() {
             </p>
             <p>
             The Church also teaches about{" "}
-            <Link href="/angels" className="font-semibold text-navy underline-offset-4 hover:underline">
+            <Link prefetch={false} href="/angels" className="font-semibold text-navy underline-offset-4 hover:underline">
               angels and the invisible world
             </Link>
             , which helps keep devotion rooted in worship, reverence, and trust in God rather than superstition.

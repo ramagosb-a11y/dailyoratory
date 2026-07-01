@@ -92,13 +92,13 @@ export default function PrayersPage() {
             Prayer does not need to be complicated. Begin with one honest sentence to God, then let the Church&apos;s prayers carry you when words are hard to find.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="#prayer-search" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#prayer-search" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Search Prayers
             </Link>
-            <Link href="/devotions/holy-rosary" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/devotions/holy-rosary" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Holy Rosary
             </Link>
-            <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Confession Guide
             </Link>
           </div>
@@ -175,7 +175,7 @@ export default function PrayersPage() {
               { label: "Grace", href: "/formation/grace" },
               { label: "Sacramental Emergency", href: "/sacramental-emergency" },
             ].map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={link.href}
                 href={link.href}
                 className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

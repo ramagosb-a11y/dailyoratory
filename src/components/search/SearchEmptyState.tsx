@@ -13,7 +13,7 @@ export function SearchEmptyState() {
         <SearchQuickLinks />
       </div>
       <div className="mt-6">
-        <Link href="/contact" className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href="/contact" className="btn btn-secondary focus-ring">
           Contact Daily Oratory
         </Link>
       </div>

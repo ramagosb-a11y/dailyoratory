@@ -17,7 +17,7 @@ export function MassReflectionCalendar({
           <h2 className="font-display text-3xl font-semibold text-navy">{group.month}</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {group.reflections.map((reflection) => (
-              <Link
+              <Link prefetch={false}
                 key={reflection.id}
                 href={`/reflections/mass-readings/${reflection.slug}`}
                 className="focus-ring rounded-md border border-stone bg-ivory p-4 hover:border-gold"

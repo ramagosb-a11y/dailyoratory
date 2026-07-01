@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 
 export default function MarriageAliasPage() {
-  redirect("/sacraments/matrimony");
+  return <StaticMovedPage title="Marriage" destination="/sacraments/matrimony" destinationLabel="Matrimony" />;
 }

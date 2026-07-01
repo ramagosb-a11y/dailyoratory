@@ -3,7 +3,7 @@ import { brand } from "@/config/brand";
 
 export function BrandMark() {
   return (
-    <Link href="/" className="focus-ring flex shrink-0 items-center gap-3 rounded-md">
+    <Link prefetch={false} href="/" className="focus-ring flex shrink-0 items-center gap-3 rounded-md">
       <span
         aria-hidden="true"
         className="grid h-11 w-11 place-items-center rounded-md border border-gold/50 bg-navy text-gold shadow-sm"

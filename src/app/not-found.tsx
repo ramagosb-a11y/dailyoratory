@@ -12,7 +12,7 @@ export default function NotFound() {
           <p className="mt-4 text-sm leading-7 text-muted">
             The resource may have moved during migration. Try the searchable library.
           </p>
-          <Link
+          <Link prefetch={false}
             href="/library"
             className="focus-ring mt-8 inline-flex rounded-md bg-navy px-5 py-3 text-sm font-bold text-ivory hover:bg-navy-soft"
           >

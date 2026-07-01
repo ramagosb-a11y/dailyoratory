@@ -30,8 +30,8 @@ export function AmboGuide() {
         <article className="card-parchment p-6">
           <h3 className="font-display text-3xl font-semibold text-navy">Pray with the Word</h3>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link href="/library/scripture-prayer" className="btn btn-secondary focus-ring justify-center">Scripture Prayer</Link>
-            <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">Mass Readings Reflections</Link>
+            <Link prefetch={false} href="/library/scripture-prayer" className="btn btn-secondary focus-ring justify-center">Scripture Prayer</Link>
+            <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">Mass Readings Reflections</Link>
           </div>
         </article>
       </div>

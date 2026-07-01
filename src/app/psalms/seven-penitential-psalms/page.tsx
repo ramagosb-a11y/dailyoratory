@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 
 export default function SevenPenitentialPsalmsRedirectPage() {
-  redirect("/prayers/seven-penitential-psalms");
+  return <StaticMovedPage title="Seven Penitential Psalms" destination="/prayers/seven-penitential-psalms" destinationLabel="Seven Penitential Psalms" />;
 }

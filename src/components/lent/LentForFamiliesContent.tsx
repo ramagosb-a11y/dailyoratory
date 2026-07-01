@@ -90,13 +90,13 @@ export function LentForFamiliesContent() {
       <section className="card-parchment p-6 sm:p-8">
         <h2 className="font-display text-4xl font-semibold text-navy">Related links</h2>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link href="/liturgical-living/lent" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/liturgical-living/lent" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Back to Lent
           </Link>
-          <Link href="/liturgical-living/lent/stations-of-the-cross" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/liturgical-living/lent/stations-of-the-cross" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Stations of the Cross
           </Link>
-          <Link href="/family" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/family" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Family and Domestic Church
           </Link>
         </div>

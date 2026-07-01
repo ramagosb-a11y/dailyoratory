@@ -13,7 +13,7 @@ export function RelatedSacramentalTools() {
           <article key={tool.href} className="card-parchment p-5">
             <h3 className="font-display text-2xl font-semibold text-navy">{tool.title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{tool.description}</p>
-            <Link href={tool.href} className="btn btn-secondary focus-ring mt-5 justify-center">
+            <Link prefetch={false} href={tool.href} className="btn btn-secondary focus-ring mt-5 justify-center">
               {tool.cta}
             </Link>
           </article>

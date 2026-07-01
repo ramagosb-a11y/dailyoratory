@@ -30,7 +30,7 @@ export function MediaCollections({ collections, items }: { collections: MediaCol
                 {collectionItems.length} approved item{collectionItems.length === 1 ? "" : "s"}
               </p>
               <div className="mt-5">
-                <Link href="#media-browser" className="text-link focus-ring text-sm">
+                <Link prefetch={false} href="#media-browser" className="text-link focus-ring text-sm">
                   Browse Collection
                 </Link>
               </div>

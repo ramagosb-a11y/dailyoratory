@@ -41,7 +41,7 @@ export function TodayMassReflectionFull({ reflection }: { reflection: MassReadin
           >
             Read official Mass readings
           </a>
-          <Link
+          <Link prefetch={false}
             href={`/reflections/mass-readings/${reflection.slug}`}
             className="btn btn-secondary focus-ring justify-center"
           >

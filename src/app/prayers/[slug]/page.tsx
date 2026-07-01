@@ -88,11 +88,11 @@ export default async function PrayerGuideDynamicPage({ params }: PrayerGuidePage
           <p className="daily-readable mt-4 max-w-4xl text-base leading-8 text-muted">{guide.intro}</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             {guide.cta ? (
-              <Link href={guide.cta.href} className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href={guide.cta.href} className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 {guide.cta.label}
               </Link>
             ) : null}
-            <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Prayer Library
             </Link>
           </div>
@@ -129,7 +129,7 @@ export default async function PrayerGuideDynamicPage({ params }: PrayerGuidePage
                       <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.summary}</p>
                       {card.href ? (
                         <div className="mt-5">
-                          <Link href={card.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                          <Link prefetch={false} href={card.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                             Open Guide
                           </Link>
                         </div>
@@ -146,7 +146,7 @@ export default async function PrayerGuideDynamicPage({ params }: PrayerGuidePage
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Continue in Prayer</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {guide.relatedLinks.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={`${guide.slug}-${link.href}`}
                   href={link.href}
                   className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

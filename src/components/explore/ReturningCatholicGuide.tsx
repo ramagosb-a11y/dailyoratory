@@ -162,7 +162,7 @@ export function ReturningCatholicGuide() {
               <p className="mt-3 text-sm leading-7 text-muted">{step.body}</p>
               <div className="mt-5 flex flex-wrap gap-3">
                 {step.links.map((link) => (
-                  <Link key={link.href} href={link.href} className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold">
+                  <Link prefetch={false} key={link.href} href={link.href} className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold">
                     {link.label}
                   </Link>
                 ))}
@@ -183,7 +183,7 @@ export function ReturningCatholicGuide() {
         <SectionHeader eyebrow="Keep going" title="Related guides for returning Catholics" />
         <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {relatedLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="card dashboard-card focus-ring flex min-h-24 items-center p-5 transition hover:-translate-y-0.5 hover:border-gold">
+            <Link prefetch={false} key={link.href} href={link.href} className="card dashboard-card focus-ring flex min-h-24 items-center p-5 transition hover:-translate-y-0.5 hover:border-gold">
               <span className="font-display text-2xl font-semibold leading-tight text-navy">{link.label}</span>
             </Link>
           ))}
@@ -191,10 +191,10 @@ export function ReturningCatholicGuide() {
       </section>
 
       <section className="flex flex-wrap gap-3">
-        <Link href="/confession" className="btn liturgical-button focus-ring justify-center">Confession Guide</Link>
-        <Link href="/mass" className="btn btn-secondary focus-ring justify-center">The Holy Mass</Link>
-        <Link href="/ocia" className="btn btn-secondary focus-ring justify-center">OCIA</Link>
-        <Link href="/sacraments" className="btn btn-secondary focus-ring justify-center">Sacraments</Link>
+        <Link prefetch={false} href="/confession" className="btn liturgical-button focus-ring justify-center">Confession Guide</Link>
+        <Link prefetch={false} href="/mass" className="btn btn-secondary focus-ring justify-center">The Holy Mass</Link>
+        <Link prefetch={false} href="/ocia" className="btn btn-secondary focus-ring justify-center">OCIA</Link>
+        <Link prefetch={false} href="/sacraments" className="btn btn-secondary focus-ring justify-center">Sacraments</Link>
       </section>
     </div>
   );

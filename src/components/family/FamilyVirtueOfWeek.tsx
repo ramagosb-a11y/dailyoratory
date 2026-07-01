@@ -60,7 +60,7 @@ export function FamilyVirtueOfWeek() {
           <p className="mt-4 text-sm leading-7 text-muted">Related saint: {virtue.relatedSaint}</p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
             {virtue.relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
+              <Link prefetch={false} key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
                 {link.label}
               </Link>
             ))}

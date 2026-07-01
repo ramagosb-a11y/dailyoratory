@@ -80,7 +80,7 @@ export default function CatholicFuneralRitesPage() {
                 Ask the parish about the funeral liturgy, readings, music, cremation norms, committal, and any local cemetery or diocesan requirements before finalizing arrangements.
               </p>
               <div className="mt-6">
-                <Link href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                <Link prefetch={false} href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                   Open Planning Guide
                 </Link>
               </div>

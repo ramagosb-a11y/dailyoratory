@@ -59,7 +59,7 @@ export function FathersAndMassSection() {
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
         {relatedLinks.map((link) => (
-          <Link key={link.href} href={link.href} className="btn btn-secondary focus-ring">
+          <Link prefetch={false} key={link.href} href={link.href} className="btn btn-secondary focus-ring">
             {link.label}
           </Link>
         ))}

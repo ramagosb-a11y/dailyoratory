@@ -106,7 +106,7 @@ function SeasonGuideContent({
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Daily Oratory connections</p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {guide.relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="card-parchment focus-ring block px-4 py-4">
+              <Link prefetch={false} key={link.href} href={link.href} className="card-parchment focus-ring block px-4 py-4">
                 <span className="text-sm font-semibold text-navy">{link.label}</span>
               </Link>
             ))}

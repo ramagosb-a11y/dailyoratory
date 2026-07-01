@@ -25,10 +25,10 @@ export default function SponsorGodparentPage() {
               Catholic life through presence, prayer, and faithful example.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/sacraments/prepare" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/sacraments/prepare" className="btn btn-primary focus-ring">
                 Open Sponsor/Godparent Companion
               </Link>
-              <Link href="/saints/finder" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/saints/finder" className="btn btn-secondary focus-ring">
                 Find a saint companion
               </Link>
             </div>

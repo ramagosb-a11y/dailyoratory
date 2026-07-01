@@ -28,7 +28,7 @@ export function SpecialMassesAndCustoms() {
             <p className="mt-3 text-sm leading-7 text-muted">
               <span className="font-semibold text-navy">How to participate:</span> {card.howToParticipate}
             </p>
-            <Link href={card.relatedLink.href} className="text-link focus-ring mt-4 inline-flex text-sm">
+            <Link prefetch={false} href={card.relatedLink.href} className="text-link focus-ring mt-4 inline-flex text-sm">
               {card.relatedLink.label}
             </Link>
           </article>

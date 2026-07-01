@@ -27,7 +27,7 @@ export function HomiliesForExplorers() {
         </ol>
         <div className="mt-5 flex flex-wrap gap-2">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className="focus-ring season-pill transition hover:border-gold hover:text-navy">
+            <Link prefetch={false} key={link.href} href={link.href} className="focus-ring season-pill transition hover:border-gold hover:text-navy">
               {link.label}
             </Link>
           ))}

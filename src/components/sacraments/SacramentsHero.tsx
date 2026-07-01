@@ -22,10 +22,10 @@ export function SacramentsHero() {
           entering the Church, contact a local Catholic parish.
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <Link href="#explore-sacraments" className="btn btn-primary focus-ring">
+          <Link prefetch={false} href="#explore-sacraments" className="btn btn-primary focus-ring">
             Explore the sacraments
           </Link>
-          <Link href="/sacraments/prepare" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/sacraments/prepare" className="btn btn-secondary focus-ring">
             Start preparation companion
           </Link>
         </div>

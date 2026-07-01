@@ -32,7 +32,7 @@ export function RelatedSaintsTools() {
       </h2>
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {links.map(([title, href]) => (
-          <Link key={href} href={href} className="card-parchment p-5">
+          <Link prefetch={false} key={href} href={href} className="card-parchment p-5">
             <h3 className="font-display text-2xl font-semibold text-navy">{title}</h3>
           </Link>
         ))}

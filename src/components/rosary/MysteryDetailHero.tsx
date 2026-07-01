@@ -45,7 +45,7 @@ export function MysteryDetailHero({
             >
               Pray this decade
             </TrackedLink>
-            <Link href={`/devotions/holy-rosary/${group.slug}`} className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href={`/devotions/holy-rosary/${group.slug}`} className="btn btn-secondary focus-ring justify-center">
               Back to mysteries
             </Link>
           </div>

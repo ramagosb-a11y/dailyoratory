@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 
 export default function OldPrayerPage() {
-  redirect("/pray");
+  return <StaticMovedPage title="Prayer" destination="/pray" destinationLabel="Pray" />;
 }

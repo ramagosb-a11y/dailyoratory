@@ -64,10 +64,10 @@ export function VaticanIISection() {
         </TrackedLink>
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/mass" className="btn btn-secondary focus-ring justify-center">Mass</Link>
-        <Link href="/tradition" className="btn btn-secondary focus-ring justify-center">Tradition</Link>
-        <Link href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
-        <Link href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
+        <Link prefetch={false} href="/mass" className="btn btn-secondary focus-ring justify-center">Mass</Link>
+        <Link prefetch={false} href="/tradition" className="btn btn-secondary focus-ring justify-center">Tradition</Link>
+        <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
+        <Link prefetch={false} href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
       </div>
     </section>
   );

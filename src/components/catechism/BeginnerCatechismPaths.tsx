@@ -31,7 +31,7 @@ export function BeginnerCatechismPaths() {
             <p className="mt-5 text-sm leading-7 text-muted">{path.reflectionPrompt}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {path.relatedLinks.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={`${path.id}-${link.href}`}
                   href={link.href}
                   className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy"

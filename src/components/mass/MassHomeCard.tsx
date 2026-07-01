@@ -12,7 +12,7 @@ export function MassHomeCard() {
             Eucharistic sacrifice, Real Presence, and how to participate more prayerfully.
           </p>
         </div>
-        <Link href="/mass" className="btn btn-primary focus-ring w-full justify-center sm:w-auto">
+        <Link prefetch={false} href="/mass" className="btn btn-primary focus-ring w-full justify-center sm:w-auto">
           Understand the Mass
         </Link>
       </div>

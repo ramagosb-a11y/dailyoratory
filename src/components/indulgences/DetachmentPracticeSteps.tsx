@@ -18,7 +18,7 @@ export function DetachmentPracticeSteps() {
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-burgundy">{index + 1}. {step.title}</p>
             <p className="mt-3 text-sm leading-7 text-muted">{step.description}</p>
             {step.relatedLink ? (
-              <Link href={step.relatedLink} className="text-link focus-ring mt-4 inline-flex text-sm font-semibold">
+              <Link prefetch={false} href={step.relatedLink} className="text-link focus-ring mt-4 inline-flex text-sm font-semibold">
                 Open related Daily Oratory tool
               </Link>
             ) : null}

@@ -14,7 +14,7 @@ export function RelatedFormationTools() {
       </div>
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {tools.map((tool) => (
-          <Link key={tool.href} href={tool.href} className="card p-5 transition hover:border-gold">
+          <Link prefetch={false} key={tool.href} href={tool.href} className="card p-5 transition hover:border-gold">
             <span className="font-display text-3xl font-semibold text-navy">{tool.label}</span>
           </Link>
         ))}

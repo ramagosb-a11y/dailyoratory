@@ -26,13 +26,13 @@ export function TraditionAndMass() {
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/mass" className="btn liturgical-button focus-ring">
+        <Link prefetch={false} href="/mass" className="btn liturgical-button focus-ring">
           The Holy Mass
         </Link>
-        <Link href="/sacraments/eucharist" className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href="/sacraments/eucharist" className="btn btn-secondary focus-ring">
           Eucharist
         </Link>
-        <Link href="/adoration" className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href="/adoration" className="btn btn-secondary focus-ring">
           Adoration
         </Link>
       </div>

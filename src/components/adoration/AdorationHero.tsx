@@ -16,8 +16,8 @@ export function AdorationHero() {
         deeper communion with Christ.
       </p>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Link href="/adoration/live" className="btn btn-primary focus-ring justify-center">Browse Live Adoration</Link>
-        <Link href="/adoration/holy-hour" className="btn btn-secondary focus-ring justify-center">How to Make a Holy Hour</Link>
+        <Link prefetch={false} href="/adoration/live" className="btn btn-primary focus-ring justify-center">Browse Live Adoration</Link>
+        <Link prefetch={false} href="/adoration/holy-hour" className="btn btn-secondary focus-ring justify-center">How to Make a Holy Hour</Link>
       </div>
     </section>
   );

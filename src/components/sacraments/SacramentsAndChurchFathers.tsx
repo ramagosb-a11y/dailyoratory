@@ -18,7 +18,7 @@ export function SacramentsAndChurchFathers() {
       </p>
       <div className="mt-6 grid gap-4 md:grid-cols-3">
         {links.map((link) => (
-          <Link key={link.label} href={link.href} className="rounded-3xl border border-stone-200 bg-ivory/70 p-4 transition hover:border-gold">
+          <Link prefetch={false} key={link.label} href={link.href} className="rounded-3xl border border-stone-200 bg-ivory/70 p-4 transition hover:border-gold">
             <h3 className="font-semibold text-navy">{link.label}</h3>
             <p className="mt-2 text-sm leading-7 text-muted">{link.description}</p>
           </Link>

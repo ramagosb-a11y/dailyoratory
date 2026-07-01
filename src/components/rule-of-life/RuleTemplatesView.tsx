@@ -51,7 +51,7 @@ export function RuleTemplatesView() {
               <button type="button" onClick={() => applyTemplate(template.id)} className="btn btn-primary focus-ring">
                 Use this template
               </button>
-              <Link href="/rule-of-life/builder" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/rule-of-life/builder" className="btn btn-secondary focus-ring">
                 Customize in builder
               </Link>
             </div>

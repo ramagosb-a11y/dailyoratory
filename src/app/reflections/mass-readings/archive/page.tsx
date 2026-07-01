@@ -32,10 +32,10 @@ export default async function MassReadingsArchivePage() {
             summary="Browse past reflections by month, liturgical season, and date."
           />
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring">
               Main view
             </Link>
-            <Link href="/reflections/mass-readings/calendar" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/reflections/mass-readings/calendar" className="btn btn-secondary focus-ring">
               Calendar view
             </Link>
           </div>

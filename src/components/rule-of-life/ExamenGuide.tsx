@@ -10,7 +10,7 @@ export function ExamenGuide() {
         <p className="mt-3 text-sm leading-7 text-muted">
           The examen is not a trial. It is a prayerful review of the day with the Lord who loves you.
         </p>
-        <Link href="/rule-of-life/builder" className="btn btn-primary focus-ring mt-6">
+        <Link prefetch={false} href="/rule-of-life/builder" className="btn btn-primary focus-ring mt-6">
           Add examen to my rule
         </Link>
       </aside>

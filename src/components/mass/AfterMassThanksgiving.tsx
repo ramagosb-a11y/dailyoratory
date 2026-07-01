@@ -14,10 +14,10 @@ export function AfterMassThanksgiving({ parts }: { parts: MassPart[] }) {
       <article className="card p-6">
         <h3 className="font-display text-3xl font-semibold text-navy">Keep the grace moving</h3>
         <div className="mt-4 flex flex-wrap gap-3">
-          <Link href="/rule-of-life" className="btn btn-secondary focus-ring justify-center">Rule of Life</Link>
-          <Link href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
-          <Link href="/adoration" className="btn btn-secondary focus-ring justify-center">Adoration</Link>
-          <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">Mass Readings Reflections</Link>
+          <Link prefetch={false} href="/rule-of-life" className="btn btn-secondary focus-ring justify-center">Rule of Life</Link>
+          <Link prefetch={false} href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
+          <Link prefetch={false} href="/adoration" className="btn btn-secondary focus-ring justify-center">Adoration</Link>
+          <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">Mass Readings Reflections</Link>
         </div>
       </article>
     </div>

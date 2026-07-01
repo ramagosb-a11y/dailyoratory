@@ -31,7 +31,7 @@ export function VirtueFormationSection({ virtues }: { virtues: VirtueFormationIt
             <p className="mt-1 text-sm leading-7 text-muted">{virtue.prayerPrompt}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {virtue.relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="season-pill">
+                <Link prefetch={false} key={link.href} href={link.href} className="season-pill">
                   {link.label}
                 </Link>
               ))}
@@ -40,7 +40,7 @@ export function VirtueFormationSection({ virtues }: { virtues: VirtueFormationIt
         ))}
       </div>
       <div className="mt-6">
-        <Link href="/virtue-tracker" className="btn btn-primary focus-ring justify-center">
+        <Link prefetch={false} href="/virtue-tracker" className="btn btn-primary focus-ring justify-center">
           Open Virtue and Vice Tracker
         </Link>
       </div>

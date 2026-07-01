@@ -36,7 +36,7 @@ export function PathwayStartControls({ pathway }: { pathway: SpiritualGrowthPath
           {progress ? "Keep this pathway" : "Start pathway"}
         </button>
         {currentStep ? (
-          <Link href={`/pathways/${pathway.slug}/steps/${currentStep.slug}`} className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href={`/pathways/${pathway.slug}/steps/${currentStep.slug}`} className="btn btn-secondary focus-ring">
             {progress ? "Continue" : "Begin step one"}
           </Link>
         ) : null}
@@ -85,11 +85,11 @@ export function PathwayStepControls({
           {completed ? "Mark incomplete" : "Mark complete"}
         </button>
         {nextStep ? (
-          <Link href={`/pathways/${pathway.slug}/steps/${nextStep.slug}`} className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href={`/pathways/${pathway.slug}/steps/${nextStep.slug}`} className="btn btn-secondary focus-ring">
             Next step
           </Link>
         ) : (
-          <Link href={`/pathways/${pathway.slug}`} className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href={`/pathways/${pathway.slug}`} className="btn btn-secondary focus-ring">
             Return to pathway
           </Link>
         )}

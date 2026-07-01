@@ -65,7 +65,7 @@ export function LibraryFilters({
         <button type="submit" className="btn btn-primary focus-ring">
           Apply filters
         </button>
-        <Link href="/library" className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href="/library" className="btn btn-secondary focus-ring">
           Clear all
         </Link>
       </div>

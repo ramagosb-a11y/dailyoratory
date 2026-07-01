@@ -155,10 +155,10 @@ export default function LentPage() {
             simplify the heart, receive mercy, pray more faithfully, and prepare for Easter.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link href="/liturgical-living/lent/fasting-and-abstinence" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/liturgical-living/lent/fasting-and-abstinence" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Learn About Fasting
             </Link>
-            <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Return to Confession
             </Link>
           </div>
@@ -183,7 +183,7 @@ export default function LentPage() {
                 <p className="daily-card-readable mt-4 text-base leading-8 text-muted">{pillar.summary}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   {pillar.links.map((link) => (
-                    <Link key={link.href} href={link.href} className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold">
+                    <Link prefetch={false} key={link.href} href={link.href} className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold">
                       {link.label}
                     </Link>
                   ))}
@@ -209,7 +209,7 @@ export default function LentPage() {
           <SectionHeading title="Lenten Practices" />
           <div className="mt-5 grid gap-4 md:grid-cols-2">
             {practices.map((practice) => (
-              <Link key={practice.label} href={practice.href} className="card dashboard-card focus-ring block p-5 transition hover:-translate-y-0.5 hover:border-gold">
+              <Link prefetch={false} key={practice.label} href={practice.href} className="card dashboard-card focus-ring block p-5 transition hover:-translate-y-0.5 hover:border-gold">
                 <p className="daily-card-readable text-base leading-8 text-navy">{practice.label}</p>
               </Link>
             ))}
@@ -247,7 +247,7 @@ export default function LentPage() {
               follow the guidance of a trusted priest or spiritual director.
             </p>
             <div className="mt-6">
-              <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Open the Confession Guide
               </Link>
             </div>
@@ -258,7 +258,7 @@ export default function LentPage() {
           <SectionHeading title="Go Deeper This Lent" />
           <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {deeperLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="card dashboard-card focus-ring flex min-h-28 items-center p-5 transition hover:-translate-y-0.5 hover:border-gold">
+              <Link prefetch={false} key={link.href} href={link.href} className="card dashboard-card focus-ring flex min-h-28 items-center p-5 transition hover:-translate-y-0.5 hover:border-gold">
                 <span className="font-display text-2xl font-semibold leading-tight text-navy">{link.label}</span>
               </Link>
             ))}

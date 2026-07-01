@@ -60,7 +60,7 @@ export function SearchPageClient({ items, categories, popular }: SearchPageClien
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Popular searches</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {popular.map((item) => (
-                  <Link
+                  <Link prefetch={false}
                     key={item}
                     href={`/search?q=${encodeURIComponent(item)}`}
                     className="focus-ring season-pill transition hover:border-gold hover:text-navy"
@@ -90,7 +90,7 @@ export function SearchPageClient({ items, categories, popular }: SearchPageClien
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Browse by category</p>
               <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
                 {categories.map((item) => (
-                  <Link
+                  <Link prefetch={false}
                     key={item.id}
                     href={`/search?category=${encodeURIComponent(item.title)}`}
                     className="focus-ring rounded-2xl border border-stone bg-parchment/40 p-4 transition hover:border-gold hover:bg-parchment"
@@ -154,7 +154,7 @@ function searchItems(
 
 function FeatureLink({ href, title }: { href: string; title: string }) {
   return (
-    <Link
+    <Link prefetch={false}
       href={href}
       className="focus-ring rounded-2xl border border-stone bg-parchment/40 p-4 text-sm font-semibold text-navy transition hover:border-gold hover:bg-parchment"
     >

@@ -30,7 +30,7 @@ export function FormationLibraryGrid() {
       </div>
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {cards.map((card) => (
-          <Link key={card.title} href={card.href} className="card p-5 transition hover:border-gold">
+          <Link prefetch={false} key={card.title} href={card.href} className="card p-5 transition hover:border-gold">
             <span className="font-display text-3xl font-semibold text-navy">{card.title}</span>
           </Link>
         ))}

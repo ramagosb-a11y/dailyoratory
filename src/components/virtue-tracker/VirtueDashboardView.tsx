@@ -17,7 +17,7 @@ export function VirtueDashboardView() {
         <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-muted">
           The tracker saves privately on this device. Start with grace, name one struggle if needed, and choose one next step.
         </p>
-        <Link href="/virtue-tracker/check-in" className="btn btn-primary focus-ring mt-6">
+        <Link prefetch={false} href="/virtue-tracker/check-in" className="btn btn-primary focus-ring mt-6">
           Start check-in
         </Link>
       </div>
@@ -39,7 +39,7 @@ export function VirtueDashboardView() {
               <p className="text-xs font-bold uppercase text-burgundy">Recent reflections</p>
               <h2 className="font-display mt-2 text-4xl font-semibold text-navy">What you have noticed lately</h2>
             </div>
-            <Link href="/virtue-tracker/check-in" className="btn btn-primary focus-ring">
+            <Link prefetch={false} href="/virtue-tracker/check-in" className="btn btn-primary focus-ring">
               New check-in
             </Link>
           </div>
@@ -72,13 +72,13 @@ export function VirtueDashboardView() {
       <aside className="dashboard-card p-5 lg:sticky lg:top-24">
         <p className="text-xs font-bold uppercase text-burgundy">Private actions</p>
         <div className="mt-4 grid gap-3">
-          <Link href="/virtue-tracker/patterns" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/virtue-tracker/patterns" className="btn btn-secondary focus-ring">
             View patterns
           </Link>
-          <Link href="/virtue-tracker/confession-prep" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/virtue-tracker/confession-prep" className="btn btn-secondary focus-ring">
             Confession prep
           </Link>
-          <Link href="/virtue-tracker/settings" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/virtue-tracker/settings" className="btn btn-secondary focus-ring">
             Export/delete data
           </Link>
         </div>

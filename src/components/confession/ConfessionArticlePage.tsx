@@ -35,7 +35,7 @@ export function ConfessionArticlePage({ topic }: { topic: ConfessionGuideTopicRe
                     { title: "Confession Guide", href: "/confession", description: "Return to the sacrament of mercy with confidence." },
                     { title: "Guided Examination", href: "/confession/examination", description: "Prepare honestly in a private local-only flow." },
                   ].map((link) => (
-                    <Link key={link.href} href={link.href} className="focus-ring rounded-2xl border border-stone bg-ivory p-4 hover:border-gold">
+                    <Link prefetch={false} key={link.href} href={link.href} className="focus-ring rounded-2xl border border-stone bg-ivory p-4 hover:border-gold">
                       <span className="block font-display text-2xl font-semibold text-navy">{link.title}</span>
                       <span className="mt-2 block text-sm leading-6 text-muted">{link.description}</span>
                     </Link>
@@ -77,7 +77,7 @@ export function ConfessionArticlePage({ topic }: { topic: ConfessionGuideTopicRe
               <p className="text-xs font-bold uppercase text-burgundy">Next faithful steps</p>
               <div className="mt-4 grid gap-3">
                 {topic.practices.map((practice) => (
-                  <Link key={practice.href} href={practice.href} className="focus-ring rounded-md border border-stone bg-ivory p-3 hover:border-gold">
+                  <Link prefetch={false} key={practice.href} href={practice.href} className="focus-ring rounded-md border border-stone bg-ivory p-3 hover:border-gold">
                     <span className="block font-display text-2xl font-semibold text-navy">{practice.title}</span>
                     <span className="mt-1 block text-sm leading-6 text-muted">{practice.description}</span>
                   </Link>
@@ -88,7 +88,7 @@ export function ConfessionArticlePage({ topic }: { topic: ConfessionGuideTopicRe
               <p className="text-xs font-bold uppercase text-burgundy">Related resources</p>
               <div className="mt-4 grid gap-3">
                 {topic.relatedLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="focus-ring rounded-sm text-sm font-semibold leading-6 text-navy hover:text-burgundy">
+                  <Link prefetch={false} key={link.href} href={link.href} className="focus-ring rounded-sm text-sm font-semibold leading-6 text-navy hover:text-burgundy">
                     {link.title}
                     <span className="block font-normal text-muted">{link.description}</span>
                   </Link>

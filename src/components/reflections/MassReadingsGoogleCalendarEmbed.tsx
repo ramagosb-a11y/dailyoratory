@@ -43,7 +43,7 @@ export function MassReadingsGoogleCalendarEmbed() {
             shareable in Google Calendar settings.
           </p>
         </div>
-        <Link
+        <Link prefetch={false}
           href={buildOpenUrl()}
           target="_blank"
           rel="noreferrer"

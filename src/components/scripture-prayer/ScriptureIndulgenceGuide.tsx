@@ -41,7 +41,7 @@ export function ScriptureIndulgenceGuide() {
         <a href="https://holyjoe.org/indulgences/Indulgences_1999.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-secondary focus-ring justify-center">
           Pray for the Holy Father&apos;s Intentions
         </a>
-        <Link href="/indulgences" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/indulgences" className="btn btn-secondary focus-ring justify-center">
           Learn More About Indulgences
         </Link>
       </div>

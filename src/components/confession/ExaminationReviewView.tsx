@@ -21,10 +21,10 @@ export function ExaminationReviewView() {
           Review only what helps you confess clearly. This page does not grade sins or decide gravity.
         </p>
         <div className="mt-5 grid gap-3">
-          <Link href="/confession/examination/print" className="btn btn-primary focus-ring">
+          <Link prefetch={false} href="/confession/examination/print" className="btn btn-primary focus-ring">
             Open print-safe page
           </Link>
-          <Link href="/confession/how-to-go" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/confession/how-to-go" className="btn btn-secondary focus-ring">
             How to go
           </Link>
           <button type="button" onClick={clearExaminationSession} className="btn btn-secondary focus-ring">

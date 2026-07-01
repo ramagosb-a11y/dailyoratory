@@ -15,7 +15,7 @@ export function AdorationNav() {
               thanksgiving, mercy, Scripture, intercession, and surrender.
             </p>
           </div>
-          <Link href="/adoration#holy-hour-guide" className="btn btn-secondary focus-ring shrink-0 justify-center">
+          <Link prefetch={false} href="/adoration#holy-hour-guide" className="btn btn-secondary focus-ring shrink-0 justify-center">
             Open Holy Hour Guide
           </Link>
         </div>

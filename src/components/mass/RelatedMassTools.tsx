@@ -15,7 +15,7 @@ export function RelatedMassTools() {
           <article key={tool.href} className="card p-6">
             <h3 className="font-display text-3xl font-semibold text-navy">{tool.label}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{tool.description}</p>
-            <Link href={tool.href} className="mt-4 inline-flex text-sm font-semibold text-navy underline-offset-4 hover:underline">
+            <Link prefetch={false} href={tool.href} className="mt-4 inline-flex text-sm font-semibold text-navy underline-offset-4 hover:underline">
               Open {tool.label}
             </Link>
           </article>

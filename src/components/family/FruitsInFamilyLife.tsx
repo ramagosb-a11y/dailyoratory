@@ -18,7 +18,7 @@ export function FruitsInFamilyLife() {
           </article>
         ))}
       </div>
-      <Link href="/virtue-tracker" className="btn liturgical-button focus-ring mt-6 justify-center">
+      <Link prefetch={false} href="/virtue-tracker" className="btn liturgical-button focus-ring mt-6 justify-center">
         Practice a Family Virtue This Week
       </Link>
     </section>

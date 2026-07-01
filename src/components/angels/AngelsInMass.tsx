@@ -39,7 +39,7 @@ export function AngelsInMass() {
               { label: "Liturgy of the Hours", href: "/liturgy-of-the-hours" },
               { label: "Adoration", href: "/adoration" },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="season-pill focus-ring hover:border-gold hover:text-navy">
+              <Link prefetch={false} key={link.href} href={link.href} className="season-pill focus-ring hover:border-gold hover:text-navy">
                 {link.label}
               </Link>
             ))}

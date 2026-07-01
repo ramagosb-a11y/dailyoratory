@@ -46,7 +46,7 @@ export function DetachmentSacramentsSection() {
       </div>
       <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {sacramentCards.map((card) => (
-          <Link key={card.title} href={card.href} className="card resource-card focus-ring block p-5">
+          <Link prefetch={false} key={card.title} href={card.href} className="card resource-card focus-ring block p-5">
             <h3 className="font-display text-2xl font-semibold text-navy">{card.title}</h3>
             <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.description}</p>
           </Link>
@@ -60,7 +60,7 @@ export function DetachmentSacramentsSection() {
           { label: "Mass", href: "/mass" },
           { label: "Adoration", href: "/adoration" },
         ].map((link) => (
-          <Link key={link.href} href={link.href} className="season-pill bg-ivory px-3 py-2 text-navy">
+          <Link prefetch={false} key={link.href} href={link.href} className="season-pill bg-ivory px-3 py-2 text-navy">
             {link.label}
           </Link>
         ))}

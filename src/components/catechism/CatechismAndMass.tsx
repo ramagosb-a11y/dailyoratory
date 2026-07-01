@@ -16,16 +16,16 @@ export function CatechismAndMass() {
           Eucharist.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
-          <Link href="/mass" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/mass" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             The Holy Mass
           </Link>
-          <Link href="/sacraments/eucharist" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/sacraments/eucharist" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Eucharist
           </Link>
-          <Link href="/adoration" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/adoration" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Adoration
           </Link>
-          <Link href="/church-fathers" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/church-fathers" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Church Fathers
           </Link>
         </div>

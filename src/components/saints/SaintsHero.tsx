@@ -18,13 +18,13 @@ export function SaintsHero() {
           communion of saints and how saintly lives point us toward Christ rather than away from Him.
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link href="/saints/finder" className="btn liturgical-button focus-ring justify-center">
+          <Link prefetch={false} href="/saints/finder" className="btn liturgical-button focus-ring justify-center">
             Find a Saint Companion
           </Link>
-          <Link href="#featured-saints" className="btn btn-secondary focus-ring justify-center">
+          <Link prefetch={false} href="#featured-saints" className="btn btn-secondary focus-ring justify-center">
             Explore the Saints
           </Link>
-          <Link href="/saints/saint-of-the-day" className="btn btn-secondary focus-ring justify-center">
+          <Link prefetch={false} href="/saints/saint-of-the-day" className="btn btn-secondary focus-ring justify-center">
             Saint of the Day
           </Link>
         </div>
@@ -124,7 +124,7 @@ export function WhyAskSaintsToPray() {
         ))}
       </div>
       <div className="mt-6">
-        <Link href="#saints-faq" className="text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+        <Link prefetch={false} href="#saints-faq" className="text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
           Learn more in Common Questions About Saints
         </Link>
       </div>

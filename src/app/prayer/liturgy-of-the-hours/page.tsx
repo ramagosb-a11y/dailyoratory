@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 
 export default function PrayerLiturgyOfTheHoursAliasPage() {
-  redirect("/liturgy-of-the-hours");
+  return <StaticMovedPage title="Liturgy of the Hours" destination="/liturgy-of-the-hours" destinationLabel="Liturgy of the Hours" />;
 }

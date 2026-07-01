@@ -17,7 +17,7 @@ export function RelicLinkRow({ links }: { links: { label: string; href: string }
   return (
     <div className="mt-5 flex flex-wrap gap-3">
       {links.map((link) => (
-        <Link key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
           {link.label}
         </Link>
       ))}

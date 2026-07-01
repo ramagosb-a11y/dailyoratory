@@ -30,7 +30,7 @@ export function FeaturedResources() {
               Search
             </button>
           </form>
-          <Link href="/library" className="text-link focus-ring mt-5 inline-flex text-sm">
+          <Link prefetch={false} href="/library" className="text-link focus-ring mt-5 inline-flex text-sm">
             Browse all resources
           </Link>
         </div>

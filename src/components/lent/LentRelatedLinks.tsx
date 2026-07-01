@@ -19,7 +19,7 @@ export function LentRelatedLinks() {
       <h2 className="font-display text-4xl font-semibold text-navy">Continue the Lenten Journey</h2>
       <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {relatedLinks.map((link) => (
-          <Link key={link.href + link.title} href={link.href} className="card-parchment p-6 sm:p-8 transition hover:border-gold">
+          <Link prefetch={false} key={link.href + link.title} href={link.href} className="card-parchment p-6 sm:p-8 transition hover:border-gold">
             <h3 className="font-display text-3xl font-semibold text-navy">{link.title}</h3>
             <p className="daily-card-readable mt-4 text-base leading-7 text-muted">{link.description}</p>
           </Link>

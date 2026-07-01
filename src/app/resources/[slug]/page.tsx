@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 import { publishedResources } from "@/lib/resources";
 
 export const dynamicParams = false;
@@ -13,5 +13,5 @@ export default async function OldResourceDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  redirect(`/library/${slug}`);
+  return <StaticMovedPage title="Resource Moved" destination={`/library/${slug}`} destinationLabel="Library Resource" />;
 }

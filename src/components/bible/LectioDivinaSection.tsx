@@ -16,7 +16,7 @@ export function LectioDivinaSection() {
         ))}
       </BibleCardGrid>
       <div className="mt-6">
-        <Link href="/library/scripture-prayer" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/library/scripture-prayer" className="btn btn-secondary focus-ring justify-center">
           Scripture Prayer
         </Link>
       </div>

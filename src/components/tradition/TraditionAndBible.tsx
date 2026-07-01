@@ -27,13 +27,13 @@ export function TraditionAndBible() {
           ))}
         </ul>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/library/scripture-prayer" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/library/scripture-prayer" className="btn btn-secondary focus-ring">
             Scripture Prayer
           </Link>
-          <Link href="/catechism" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring">
             Catechism
           </Link>
-          <Link href="/church-fathers" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring">
             Church Fathers
           </Link>
         </div>

@@ -33,7 +33,7 @@ export function CouncilCard({
           <p className="mt-3 text-sm leading-7 text-muted">{council.whyItMattersToday}</p>
           <div className="mt-4 flex flex-wrap gap-2">
             {council.relatedDailyOratoryLinks.map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={link.href}
                 href={link.href}
                 className="rounded-full border border-stone bg-parchment px-3 py-1 text-xs font-semibold text-navy"

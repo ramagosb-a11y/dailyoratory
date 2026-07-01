@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 
 export default function PrayerIntentionWallPage() {
-  redirect("/prayer-intentions");
+  return <StaticMovedPage title="Prayer Intention Wall" destination="/prayer-intentions" destinationLabel="Prayer Intentions" />;
 }

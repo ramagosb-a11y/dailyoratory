@@ -82,7 +82,7 @@ export function HomeFeaturedMediaSection({
             No featured media is available yet. Add approved featured items in the Media Library admin data.
           </p>
           <div className="mt-6">
-            <Link
+            <Link prefetch={false}
               href="/media"
               className="btn btn-liturgical focus-ring"
               onClick={() =>
@@ -114,7 +114,7 @@ export function HomeFeaturedMediaSection({
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link
+            <Link prefetch={false}
               href="/media"
               className="btn btn-liturgical focus-ring"
               onClick={() =>
@@ -127,7 +127,7 @@ export function HomeFeaturedMediaSection({
               Open Media Library
             </Link>
             {showHomiliesCta ? (
-              <Link href="/homilies" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/homilies" className="btn btn-secondary focus-ring">
                 View Homilies
               </Link>
             ) : null}

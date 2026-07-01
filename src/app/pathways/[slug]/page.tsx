@@ -54,11 +54,11 @@ export default async function PathwayDetailPage({ params }: { params: Promise<{ 
             <p className="mt-5 max-w-3xl text-base leading-8 text-muted">{pathway.overview}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               {pathway.modules[0] ? (
-                <Link href={`/pathways/${pathway.slug}/steps/${pathway.modules[0].slug}`} className="btn btn-primary focus-ring">
+                <Link prefetch={false} href={`/pathways/${pathway.slug}/steps/${pathway.modules[0].slug}`} className="btn btn-primary focus-ring">
                   Begin step one
                 </Link>
               ) : null}
-              <Link href="/pathways/my-pathways" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/pathways/my-pathways" className="btn btn-secondary focus-ring">
                 My pathways
               </Link>
             </div>

@@ -28,7 +28,7 @@ export default function LearnPage() {
             </p>
           </div>
           <div className="flex items-start lg:justify-end">
-            <Link href="/bible" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/bible" className="btn btn-secondary focus-ring">
               Learn the Bible
             </Link>
           </div>

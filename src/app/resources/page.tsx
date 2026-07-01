@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 
 export default function OldResourcesPage() {
-  redirect("/library");
+  return <StaticMovedPage title="Resources" destination="/library" destinationLabel="Library" />;
 }

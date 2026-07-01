@@ -28,10 +28,10 @@ export function Hero() {
             Daily Oratory is a sanctuary for prayer, Scripture, liturgy, silence, and spiritual formation.
           </p>
           <div className="mt-8 flex w-full max-w-[22rem] flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row">
-            <Link href="/begin-in-prayer" className="btn btn-gold focus-ring w-full sm:w-auto">
+            <Link prefetch={false} href="/begin-in-prayer" className="btn btn-gold focus-ring w-full sm:w-auto">
               Begin in Prayer
             </Link>
-            <Link href="/daily-examen" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
+            <Link prefetch={false} href="/daily-examen" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
               End in Prayer
             </Link>
           </div>

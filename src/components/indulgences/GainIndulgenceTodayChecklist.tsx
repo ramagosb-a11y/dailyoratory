@@ -20,7 +20,7 @@ export function GainIndulgenceTodayChecklist() {
               </li>
             ))}
           </ul>
-          <Link href="#daily-indulgence-routine" className="btn btn-primary focus-ring mt-6 justify-center">
+          <Link prefetch={false} href="#daily-indulgence-routine" className="btn btn-primary focus-ring mt-6 justify-center">
             Pray the Daily Indulgence Routine
           </Link>
         </article>

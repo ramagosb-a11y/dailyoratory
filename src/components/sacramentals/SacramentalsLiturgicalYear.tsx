@@ -19,7 +19,7 @@ export function SacramentalsLiturgicalYear() {
           { label: "Family", href: "/family" },
           { label: "Devotions", href: "/devotions" },
         ].map((link) => (
-          <Link key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
+          <Link prefetch={false} key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
             {link.label}
           </Link>
         ))}

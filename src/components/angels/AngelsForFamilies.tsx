@@ -33,7 +33,7 @@ export function AngelsForFamilies() {
               { label: "Prayer", href: "/pray" },
               { label: "Saints", href: "/saints" },
             ].map((link) => (
-              <Link key={link.href} href={link.href} className="season-pill focus-ring hover:border-gold hover:text-navy">
+              <Link prefetch={false} key={link.href} href={link.href} className="season-pill focus-ring hover:border-gold hover:text-navy">
                 {link.label}
               </Link>
             ))}

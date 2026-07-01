@@ -57,7 +57,7 @@ export function ThirtyDayFormationChallenge({ challenge }: { challenge: Formatio
         <button type="button" onClick={() => window.print()} className="btn btn-secondary focus-ring justify-center">
           Print Challenge
         </button>
-        <Link href="/rule-of-life" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/rule-of-life" className="btn btn-secondary focus-ring justify-center">
           Start with Rule of Life
         </Link>
       </div>

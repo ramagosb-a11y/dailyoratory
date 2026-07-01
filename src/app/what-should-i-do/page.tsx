@@ -87,13 +87,13 @@ export default function WhatShouldIDoPage() {
             sounds closest to where you are, then take one simple next step.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="/prayers" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Start Praying
             </Link>
-            <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Go to Confession Guide
             </Link>
-            <Link href="/catholic-life" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/catholic-life" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Catholic Life Roadmap
             </Link>
           </div>
@@ -107,7 +107,7 @@ export default function WhatShouldIDoPage() {
             emergency services first. Then contact a priest, parish office, or hospital chaplain as soon as possible.
           </p>
           <div className="mt-6">
-            <Link href="/sacramental-emergency" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/sacramental-emergency" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Sacramental Emergency
             </Link>
           </div>
@@ -130,7 +130,7 @@ export default function WhatShouldIDoPage() {
                   </div>
                   <div className="mt-6 flex flex-wrap gap-3">
                     {card.links.map((link, index) => (
-                      <Link
+                      <Link prefetch={false}
                         key={`${card.id}-${link.href}`}
                         href={link.href}
                         className={

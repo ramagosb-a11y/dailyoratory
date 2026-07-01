@@ -355,7 +355,7 @@ export default function FastingAndAbstinencePage() {
           <SectionHeading title="Related Guides" />
           <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="card dashboard-card focus-ring flex min-h-24 items-center p-5 transition hover:-translate-y-0.5 hover:border-gold">
+              <Link prefetch={false} key={link.href} href={link.href} className="card dashboard-card focus-ring flex min-h-24 items-center p-5 transition hover:-translate-y-0.5 hover:border-gold">
                 <span className="font-display text-2xl font-semibold leading-tight text-navy">{link.label}</span>
               </Link>
             ))}

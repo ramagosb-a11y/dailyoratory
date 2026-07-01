@@ -12,7 +12,7 @@ export function RelatedDailyOratoryLinks({ links }: { links: MediaLink[] }) {
       />
       <div className="mt-6 flex flex-wrap gap-3">
         {links.map((link) => (
-          <Link
+          <Link prefetch={false}
             key={`${link.href}-${link.label}`}
             href={link.href}
             className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold hover:text-burgundy"

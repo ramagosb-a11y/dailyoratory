@@ -24,10 +24,10 @@ export function TodaysIndulgenceOpportunity() {
             <p className="mt-4 text-sm leading-7 text-muted">{opportunity.description}</p>
             <p className="mt-4 text-xs leading-6 text-muted">{opportunity.usualConditionsReminder}</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Link href={opportunity.relatedLink} className="btn btn-secondary focus-ring justify-center">
+              <Link prefetch={false} href={opportunity.relatedLink} className="btn btn-secondary focus-ring justify-center">
                 Open related Daily Oratory page
               </Link>
-              <Link href="#indulgence-builder" className="btn btn-primary focus-ring justify-center">
+              <Link prefetch={false} href="#indulgence-builder" className="btn btn-primary focus-ring justify-center">
                 Start Today's Plan
               </Link>
             </div>
@@ -37,7 +37,7 @@ export function TodaysIndulgenceOpportunity() {
               <article key={callout.id} className="card-parchment p-5">
                 <p className="text-xs font-bold uppercase tracking-[0.14em] text-burgundy">{callout.title}</p>
                 <p className="mt-3 text-sm leading-7 text-muted">{callout.description}</p>
-                <Link href={callout.href} className="text-link focus-ring mt-4 inline-flex text-sm font-semibold">
+                <Link prefetch={false} href={callout.href} className="text-link focus-ring mt-4 inline-flex text-sm font-semibold">
                   Read more
                 </Link>
               </article>

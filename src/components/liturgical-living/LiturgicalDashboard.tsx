@@ -106,7 +106,7 @@ export function LiturgicalDashboard({ model }: { model: LiturgicalDashboardModel
               <p className="text-xs font-bold uppercase text-burgundy">Featured resources</p>
               <h2 className="font-display mt-2 text-4xl font-semibold text-navy">Pray and live this day</h2>
             </div>
-            <Link href="/library?category=Liturgical%20Year" className="text-link focus-ring text-sm">
+            <Link prefetch={false} href="/library?category=Liturgical%20Year" className="text-link focus-ring text-sm">
               Explore seasonal resources
             </Link>
           </div>

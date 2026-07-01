@@ -20,7 +20,7 @@ export function ReflectionCollection({
       <div className="card-parchment p-6">
         <h2 className="font-display text-3xl font-semibold text-navy">{emptyTitle}</h2>
         <p className="mt-3 text-sm leading-7 text-muted">{emptyText}</p>
-        <Link href="/reflections" className="btn btn-secondary focus-ring mt-5">
+        <Link prefetch={false} href="/reflections" className="btn btn-secondary focus-ring mt-5">
           Return to reflections
         </Link>
       </div>

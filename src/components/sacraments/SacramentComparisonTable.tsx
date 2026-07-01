@@ -28,12 +28,12 @@ export function SacramentComparisonTable() {
                 <td className="px-4 py-4 text-muted">{sacrament.ordinaryMinister}</td>
                 <td className="px-4 py-4 text-muted">{sacrament.howToPrepare[0]}</td>
                 <td className="px-4 py-4">
-                  <Link href={sacrament.relatedDailyOratoryLinks[0]?.href ?? "/sacraments/prepare"} className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
+                  <Link prefetch={false} href={sacrament.relatedDailyOratoryLinks[0]?.href ?? "/sacraments/prepare"} className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
                     {sacrament.relatedDailyOratoryLinks[0]?.label ?? "Preparation companion"}
                   </Link>
                 </td>
                 <td className="px-4 py-4">
-                  <Link href={`/sacraments/${sacrament.slug}`} className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
+                  <Link prefetch={false} href={`/sacraments/${sacrament.slug}`} className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
                     Learn more
                   </Link>
                 </td>

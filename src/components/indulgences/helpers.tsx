@@ -88,7 +88,7 @@ export function RelatedLinkCard({
   description: string;
 }) {
   return (
-    <Link href={href} className="card resource-card focus-ring block p-5">
+    <Link prefetch={false} href={href} className="card resource-card focus-ring block p-5">
       <h3 className="font-display text-2xl font-semibold text-navy">{title}</h3>
       <p className="mt-3 text-sm leading-7 text-muted">{description}</p>
     </Link>

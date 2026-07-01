@@ -26,7 +26,7 @@ export function SpiritualGrowthSection({ practices }: { practices: SpiritualGrow
             <p className="mt-1 text-sm leading-7 text-muted">{practice.howToStart}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {practice.relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="season-pill">
+                <Link prefetch={false} key={link.href} href={link.href} className="season-pill">
                   {link.label}
                 </Link>
               ))}

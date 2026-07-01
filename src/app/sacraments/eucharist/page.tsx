@@ -278,10 +278,10 @@ export default function EucharistPage() {
                 is the source and summit of the Christian life because it is Christ Himself.
               </p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link href="/mass" className="btn btn-primary focus-ring daily-button-readable justify-center">
+                <Link prefetch={false} href="/mass" className="btn btn-primary focus-ring daily-button-readable justify-center">
                   See How It Fits in the Mass
                 </Link>
-                <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable justify-center">
+                <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable justify-center">
                   Confession Guide
                 </Link>
               </div>
@@ -381,7 +381,7 @@ export default function EucharistPage() {
                 <p className="mt-4 text-base font-semibold leading-8 text-navy">
                   The Mass does not repeat Calvary; it makes the one sacrifice present.
                 </p>
-                <Link href="/mass" className="mt-5 inline-flex text-sm font-semibold text-navy underline-offset-4 hover:underline">
+                <Link prefetch={false} href="/mass" className="mt-5 inline-flex text-sm font-semibold text-navy underline-offset-4 hover:underline">
                   Open the Mass guide
                 </Link>
               </div>
@@ -449,16 +449,16 @@ export default function EucharistPage() {
             </div>
             <CitationList items={["1 Corinthians 11:27-29", "CCC 1385", "CCC 1457"]} />
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/confession" className="btn btn-primary focus-ring daily-button-readable">
+              <Link prefetch={false} href="/confession" className="btn btn-primary focus-ring daily-button-readable">
                 Confession Guide
               </Link>
-              <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
+              <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
                 Act of Contrition
               </Link>
-              <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
+              <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
                 Prayer Before Mass
               </Link>
-              <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
+              <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
                 Prayer After Communion
               </Link>
             </div>
@@ -480,7 +480,7 @@ export default function EucharistPage() {
                 </p>
               </div>
               <div className="mt-6">
-                <Link href="/prayers" className="btn btn-primary focus-ring daily-button-readable">
+                <Link prefetch={false} href="/prayers" className="btn btn-primary focus-ring daily-button-readable">
                   Act of Spiritual Communion
                 </Link>
               </div>
@@ -505,10 +505,10 @@ export default function EucharistPage() {
                   Him. The point is not to perform perfectly, but to remain with Christ in faith and love.
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  <Link href="/adoration" className="btn btn-primary focus-ring daily-button-readable">
+                  <Link prefetch={false} href="/adoration" className="btn btn-primary focus-ring daily-button-readable">
                     Open Adoration
                   </Link>
-                  <Link href="/adoration/holy-hour" className="btn btn-secondary focus-ring daily-button-readable">
+                  <Link prefetch={false} href="/adoration/holy-hour" className="btn btn-secondary focus-ring daily-button-readable">
                     Holy Hour Guide
                   </Link>
                 </div>
@@ -523,13 +523,13 @@ export default function EucharistPage() {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
+              <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
                 Anima Christi
               </Link>
-              <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
+              <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
                 Act of Spiritual Communion
               </Link>
-              <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
+              <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable">
                 Prayer Before the Blessed Sacrament
               </Link>
             </div>
@@ -583,7 +583,7 @@ export default function EucharistPage() {
             </p>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {eucharisticPrayerLinks.map((item) => (
-                <Link
+                <Link prefetch={false}
                   key={`${item.label}-${item.href}`}
                   href={item.href}
                   className="focus-ring rounded-3xl border border-stone-200 bg-ivory/80 px-5 py-4 text-sm font-semibold leading-6 text-navy transition hover:border-gold"
@@ -612,7 +612,7 @@ export default function EucharistPage() {
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Related Guides</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {relatedGuides.map((item) => (
-                <Link
+                <Link prefetch={false}
                   key={`${item.label}-${item.href}`}
                   href={item.href}
                   className="focus-ring rounded-3xl border border-stone-200 bg-ivory/80 px-5 py-4 text-sm font-semibold leading-6 text-navy transition hover:border-gold"

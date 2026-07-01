@@ -11,7 +11,7 @@ export function RelatedDevotionTools({
       <h2 className="font-display mt-2 text-4xl font-semibold text-navy">Related Daily Oratory tools</h2>
       <div className="mt-4 flex flex-wrap gap-2">
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className="focus-ring season-pill">
+          <Link prefetch={false} key={link.href} href={link.href} className="focus-ring season-pill">
             {link.label}
           </Link>
         ))}

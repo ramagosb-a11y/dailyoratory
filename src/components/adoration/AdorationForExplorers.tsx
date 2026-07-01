@@ -30,10 +30,10 @@ export function AdorationForExplorers() {
         </div>
       </div>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="/ocia" className="btn liturgical-button focus-ring justify-center">OCIA / Becoming Catholic</Link>
-        <Link href="/mass" className="btn btn-secondary focus-ring justify-center">The Holy Mass</Link>
-        <Link href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
-        <Link href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
+        <Link prefetch={false} href="/ocia" className="btn liturgical-button focus-ring justify-center">OCIA / Becoming Catholic</Link>
+        <Link prefetch={false} href="/mass" className="btn btn-secondary focus-ring justify-center">The Holy Mass</Link>
+        <Link prefetch={false} href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
+        <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
       </div>
     </section>
   );

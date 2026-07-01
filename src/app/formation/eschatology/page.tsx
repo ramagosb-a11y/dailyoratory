@@ -82,7 +82,7 @@ export default function EschatologyPage() {
               Learn how Catholic burial, cremation, funeral rites, prayers for the dead, and reverent interment express hope in the resurrection and trust in Christ.
             </p>
             <div className="mt-6">
-              <Link href="/formation/catholic-burial" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation/catholic-burial" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Learn About Catholic Burial
               </Link>
             </div>
@@ -100,7 +100,7 @@ export default function EschatologyPage() {
                 { label: "Sacramental Emergency", href: "/sacramental-emergency" },
                 { label: "Prayer Library", href: "/prayers" },
               ].map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"

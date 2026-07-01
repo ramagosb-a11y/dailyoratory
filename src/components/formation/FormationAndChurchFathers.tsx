@@ -27,7 +27,7 @@ export function FormationAndChurchFathers() {
           </span>
         ))}
       </div>
-      <Link href="/church-fathers" className="btn btn-secondary focus-ring mt-6 justify-center">
+      <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring mt-6 justify-center">
         Explore the Church Fathers
       </Link>
     </section>

@@ -31,7 +31,7 @@ export function HomeSectionCard({
         simpleLinks ? (
           <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
             {card.links.map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={`${card.id}-${link.href}`}
                 href={link.href}
                 className="text-sm font-medium text-muted underline decoration-[var(--liturgical-border)] underline-offset-4 transition hover:text-[var(--liturgical-primary-dark)]"
@@ -43,7 +43,7 @@ export function HomeSectionCard({
         ) : (
           <div className="mt-5 flex flex-wrap gap-2">
             {card.links.map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={`${card.id}-${link.href}`}
                 href={link.href}
                 className="liturgical-home-chip rounded-full px-3 py-2 text-sm font-semibold text-navy transition hover:border-[var(--liturgical-primary)] hover:text-[var(--liturgical-primary-dark)]"
@@ -55,7 +55,7 @@ export function HomeSectionCard({
         )
       ) : null}
       <div className={`${simpleLinks ? "mt-5" : "mt-6"}`}>
-        <Link href={card.href} className="text-link focus-ring text-sm">
+        <Link prefetch={false} href={card.href} className="text-link focus-ring text-sm">
           {card.cta}
         </Link>
       </div>

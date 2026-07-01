@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 
 export default function SundayReflectionsPage() {
-  redirect("/reflections/mass-readings?type=sunday-mass");
+  return <StaticMovedPage title="Sunday Gospel Reflections" destination="/reflections/mass-readings?type=sunday-mass" destinationLabel="Sunday Mass Reflections" />;
 }

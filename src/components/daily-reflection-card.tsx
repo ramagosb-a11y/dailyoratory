@@ -13,7 +13,7 @@ export function DailyReflectionCard({ reflection }: { reflection: DailyReflectio
       <p className="mt-2 text-sm font-semibold text-gold">{formatDate(reflection.date)}</p>
       <p className="mt-4 text-sm leading-7 text-muted">{reflection.excerpt}</p>
       <p className="mt-3 text-sm italic text-navy">{getReflectionPrimaryScripture(reflection)}</p>
-      <Link
+      <Link prefetch={false}
         href={`/reflections/${reflection.slug}`}
         className="text-link focus-ring mt-6 inline-flex text-sm"
       >

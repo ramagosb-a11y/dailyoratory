@@ -25,7 +25,7 @@ export function LentForFamiliesCallout() {
         ))}
       </ul>
       <div className="mt-6">
-        <Link href="/liturgical-living/lent/lent-for-families" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/liturgical-living/lent/lent-for-families" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Lent for Families
         </Link>
       </div>

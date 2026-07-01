@@ -17,7 +17,7 @@ export function SectionPage({ section }: { section: SectionPageType }) {
             {section.hero}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-stone-soft">{section.description}</p>
-          <Link
+          <Link prefetch={false}
             href={section.primaryHref}
             className="btn btn-gold focus-ring mt-8"
           >

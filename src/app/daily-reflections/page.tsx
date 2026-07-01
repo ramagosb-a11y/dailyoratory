@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 
 export default function DailyReflectionsLegacyPage() {
-  redirect("/reflections/mass-readings");
+  return <StaticMovedPage title="Daily Reflections" destination="/reflections/mass-readings" destinationLabel="Mass Readings Reflections" />;
 }

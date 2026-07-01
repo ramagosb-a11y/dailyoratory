@@ -9,6 +9,8 @@ Daily Oratory should feel calm and fast, especially on mobile. Use this checklis
 - Use `generateStaticParams` for static content detail routes.
 - Keep mock/static data in local TypeScript files until a backend is required.
 - Avoid per-request server work for evergreen resources.
+- Keep public pages compatible with `output: "export"` and Cloudflare Pages static hosting.
+- Do not add ISR, route-level `revalidate`, runtime route handlers, proxy, server actions, cookies, headers, or draft mode to public pages.
 
 ## JavaScript
 
@@ -45,8 +47,9 @@ Daily Oratory should feel calm and fast, especially on mobile. Use this checklis
 
 - Run `npm run lint`.
 - Run `npm run build`.
+- Confirm `out/` is generated for Cloudflare Pages.
 - Review the build output for unexpected dynamic routes.
-- Confirm important routes are static or SSG where possible.
+- Confirm important routes are static export output.
 - Smoke test `/`, `/library`, `/rosary`, `/confession`, `/reflections`, `/liturgical-living`, `/community`, and one dynamic detail page.
 
 ## Browser Checks

@@ -24,7 +24,7 @@ export function DevotionCategoryCards({
               <p className="text-xs font-bold uppercase text-burgundy">{count} devotion{count === 1 ? "" : "s"}</p>
               <h3 className="font-display mt-3 text-3xl font-semibold text-navy">{category.title}</h3>
               <p className="mt-3 text-sm leading-7 text-muted">{category.description}</p>
-              <Link href={`/devotions?category=${category.slug}#devotions-library`} className="btn btn-secondary focus-ring mt-5">
+              <Link prefetch={false} href={`/devotions?category=${category.slug}#devotions-library`} className="btn btn-secondary focus-ring mt-5">
                 View category
               </Link>
             </article>

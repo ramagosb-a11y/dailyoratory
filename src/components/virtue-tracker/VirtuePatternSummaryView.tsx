@@ -17,7 +17,7 @@ export function VirtuePatternSummaryView() {
         <p className="mt-3 text-sm leading-7 text-muted">
           These summaries count what you chose to notice. They are invitations to prayer, not grades.
         </p>
-        <Link href="/virtue-tracker/check-in" className="btn btn-primary focus-ring mt-5">
+        <Link prefetch={false} href="/virtue-tracker/check-in" className="btn btn-primary focus-ring mt-5">
           Add check-in
         </Link>
       </aside>

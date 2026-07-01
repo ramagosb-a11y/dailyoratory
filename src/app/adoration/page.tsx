@@ -91,7 +91,7 @@ export default function AdorationPage() {
             prayer-focused path into live Adoration and the Holy Hour guide.
           </p>
           <div className="mt-6">
-            <Link href="/adoration/melbourne" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/adoration/melbourne" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Open Melbourne Adoration
             </Link>
           </div>

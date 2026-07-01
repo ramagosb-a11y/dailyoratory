@@ -23,7 +23,7 @@ export function EventCard({ event, compact = false }: { event: EventRecord; comp
       </div>
 
       <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">
-        <Link href={getEventHref(event)} className="focus-ring rounded-sm hover:text-burgundy">
+        <Link prefetch={false} href={getEventHref(event)} className="focus-ring rounded-sm hover:text-burgundy">
           <span className="absolute inset-0" aria-hidden="true" />
           {event.title}
         </Link>

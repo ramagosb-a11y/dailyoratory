@@ -19,13 +19,13 @@ export function BodySoulSpiritHero() {
             {bodySoulSpiritHero.copy}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="#interior-temple" className="btn btn-gold focus-ring justify-center">
+            <Link prefetch={false} href="#interior-temple" className="btn btn-gold focus-ring justify-center">
               Enter the Interior Temple
             </Link>
-            <Link href="/confession" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring justify-center">
               Cleanse the Temple through Confession
             </Link>
-            <Link href="/daily-examen" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/daily-examen" className="btn btn-secondary focus-ring justify-center">
               Pray the Daily Examen
             </Link>
           </div>

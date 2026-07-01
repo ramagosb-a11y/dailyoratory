@@ -43,8 +43,6 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 86400;
-
 const relatedLinks = [
   { label: "The Bible", href: "/bible" },
   { label: "Pray", href: "/pray" },

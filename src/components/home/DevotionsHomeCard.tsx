@@ -15,7 +15,7 @@ export function DevotionsHomeCard() {
             Discover Catholic devotions that help you pray, grow in holiness, honor Christ, love Mary,
             seek mercy, and live the faith each day.
           </p>
-          <Link href="/devotions" className="btn btn-primary focus-ring mt-5 w-full justify-center sm:w-auto">
+          <Link prefetch={false} href="/devotions" className="btn btn-primary focus-ring mt-5 w-full justify-center sm:w-auto">
             Explore Devotions
           </Link>
         </div>

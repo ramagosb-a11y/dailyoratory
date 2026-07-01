@@ -17,7 +17,7 @@ export function DetachmentIndulgenceConnection() {
             conversion, greater love for God, and freedom from anything that competes with Him.
           </p>
           <div className="mt-6">
-            <Link href="/indulgences" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/indulgences" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Main Indulgences Guide
             </Link>
           </div>

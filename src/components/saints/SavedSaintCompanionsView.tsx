@@ -22,7 +22,7 @@ export function SavedSaintCompanionsView() {
         <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-muted">
           Save saints you may want to pray with, learn from, or return to during this season.
         </p>
-        <Link href="/saints/finder" className="btn btn-primary focus-ring mt-6">
+        <Link prefetch={false} href="/saints/finder" className="btn btn-primary focus-ring mt-6">
           Open finder
         </Link>
       </div>
@@ -49,7 +49,7 @@ export function SavedSaintCompanionsView() {
             />
           </label>
           <div className="mt-5 flex flex-col gap-3">
-            <Link href={`/saints/${saint.slug}`} className="btn btn-primary focus-ring">
+            <Link prefetch={false} href={`/saints/${saint.slug}`} className="btn btn-primary focus-ring">
               View profile
             </Link>
             <button type="button" onClick={() => removeSaintCompanion(saint.id)} className="btn btn-secondary focus-ring">

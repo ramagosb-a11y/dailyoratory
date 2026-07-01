@@ -3,7 +3,7 @@ import Link from "next/link";
 export function HeaderSearchButton({ mobile = false }: { mobile?: boolean }) {
   if (mobile) {
     return (
-      <Link
+      <Link prefetch={false}
         href="/search"
         className="focus-ring flex items-center gap-2 rounded-full border border-stone bg-parchment/60 px-4 py-2 text-sm font-semibold text-navy"
       >
@@ -14,7 +14,7 @@ export function HeaderSearchButton({ mobile = false }: { mobile?: boolean }) {
   }
 
   return (
-    <Link
+    <Link prefetch={false}
       href="/search"
       className="focus-ring hidden items-center gap-2 rounded-full border border-stone bg-ivory px-3 py-2 text-sm font-semibold text-navy shadow-sm transition hover:bg-parchment lg:inline-flex"
       aria-label="Search Daily Oratory"

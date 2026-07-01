@@ -19,7 +19,7 @@ export function SacramentsVsSacramentals() {
             <li>- Central to Catholic life</li>
             <li>- Include Baptism, Eucharist, Confession, and the other sacraments</li>
           </ul>
-          <Link href="/sacraments" className="btn liturgical-button focus-ring mt-6 justify-center">
+          <Link prefetch={false} href="/sacraments" className="btn liturgical-button focus-ring mt-6 justify-center">
             Explore the Sacraments
           </Link>
         </article>

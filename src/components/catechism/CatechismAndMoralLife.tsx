@@ -15,16 +15,16 @@ export function CatechismAndMoralLife() {
           especially if you want help with virtue, conscience, freedom, and the Christian moral life.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
-          <Link href="/formation" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/formation" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Formation
           </Link>
-          <Link href="/virtue-tracker" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/virtue-tracker" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Virtue Tracker
           </Link>
-          <Link href="/confession" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/confession" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Confession
           </Link>
-          <Link href="/confession/examination" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/confession/examination" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Examination
           </Link>
         </div>

@@ -23,7 +23,7 @@ export function MassReflectionArchiveList({
                     <p className="text-xs font-bold uppercase text-burgundy">
                       {formatDate(reflection.reflectionDate)} • {getReflectionTypeLabel(reflection.reflectionType)}
                     </p>
-                    <Link href={`/reflections/mass-readings/${reflection.slug}`} className="focus-ring mt-2 inline-flex rounded-sm font-display text-2xl font-semibold text-navy hover:text-burgundy">
+                    <Link prefetch={false} href={`/reflections/mass-readings/${reflection.slug}`} className="focus-ring mt-2 inline-flex rounded-sm font-display text-2xl font-semibold text-navy hover:text-burgundy">
                       {reflection.title}
                     </Link>
                     <p className="mt-2 text-sm leading-7 text-muted">{reflection.shortDescription}</p>

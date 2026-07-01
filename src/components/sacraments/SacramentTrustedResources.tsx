@@ -17,7 +17,7 @@ export function SacramentTrustedResources({ sacramentId }: { sacramentId: string
               </p>
               <h3 className="mt-2 text-lg font-semibold text-navy">{resource.title}</h3>
               <p className="mt-2 text-sm leading-7 text-muted">{resource.description}</p>
-              <Link
+              <Link prefetch={false}
                 href={resource.url}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 className="mt-3 inline-flex text-sm font-semibold text-navy underline-offset-4 hover:underline"

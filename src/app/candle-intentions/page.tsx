@@ -24,10 +24,10 @@ export default function CandleIntentionsPage() {
               communities receive candle offerings or prayer requests through their own sites.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/prayer-intentions" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/prayer-intentions" className="btn btn-primary focus-ring">
                 Prayer intentions
               </Link>
-              <Link href="/mass-intentions" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/mass-intentions" className="btn btn-secondary focus-ring">
                 Mass intentions
               </Link>
             </div>

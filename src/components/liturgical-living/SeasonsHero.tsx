@@ -23,13 +23,13 @@ export function SeasonsHero() {
             and seekers find a prayerful rhythm.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="#season-quick-cards" className="btn btn-primary focus-ring justify-center">
+            <Link prefetch={false} href="#season-quick-cards" className="btn btn-primary focus-ring justify-center">
               Explore the Seasons
             </Link>
-            <Link href="/today" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/today" className="btn btn-secondary focus-ring justify-center">
               Today in the Church
             </Link>
-            <Link href="#family-liturgical-ideas" className="btn btn-secondary focus-ring hidden justify-center sm:inline-flex">
+            <Link prefetch={false} href="#family-liturgical-ideas" className="btn btn-secondary focus-ring hidden justify-center sm:inline-flex">
               Family Liturgical Ideas
             </Link>
           </div>
@@ -44,7 +44,7 @@ export function SeasonsHero() {
             ))}
           </div>
           <p className="mt-4 text-sm leading-7 text-muted">{suggestedSeason.mindset}</p>
-          <Link href={`#${suggestedSeason.slug}`} className="text-link focus-ring mt-4 inline-flex text-sm">
+          <Link prefetch={false} href={`#${suggestedSeason.slug}`} className="text-link focus-ring mt-4 inline-flex text-sm">
             Go to this season
           </Link>
         </aside>

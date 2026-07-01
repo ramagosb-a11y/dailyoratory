@@ -17,21 +17,21 @@ export function MysteryNavigation({
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
         <div className="grid gap-3">
           {previousMystery ? (
-            <Link href={previousMystery.fullSlug} className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href={previousMystery.fullSlug} className="btn btn-secondary focus-ring justify-center">
               Previous: {previousMystery.title}
             </Link>
           ) : null}
           {nextMystery ? (
-            <Link href={nextMystery.fullSlug} className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href={nextMystery.fullSlug} className="btn btn-secondary focus-ring justify-center">
               Next: {nextMystery.title}
             </Link>
           ) : null}
         </div>
         <div className="grid gap-3">
-          <Link href={`/devotions/holy-rosary/${group.slug}`} className="btn btn-secondary focus-ring justify-center">
+          <Link prefetch={false} href={`/devotions/holy-rosary/${group.slug}`} className="btn btn-secondary focus-ring justify-center">
             Back to {group.title}
           </Link>
-          <Link href="/devotions/holy-rosary" className="btn btn-secondary focus-ring justify-center">
+          <Link prefetch={false} href="/devotions/holy-rosary" className="btn btn-secondary focus-ring justify-center">
             Full Rosary Guide
           </Link>
           <TrackedLink

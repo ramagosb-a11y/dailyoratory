@@ -13,10 +13,10 @@ export function SacramentCompanionDetail({ companion }: { companion: SacramentCo
           <h1 className="font-display mt-3 text-4xl font-semibold leading-tight text-navy sm:text-5xl lg:text-6xl">{companion.title}</h1>
           <p className="mt-5 max-w-3xl text-base leading-8 text-muted">{companion.overview}</p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link href="/sacraments/prepare" className="btn btn-primary focus-ring">
+            <Link prefetch={false} href="/sacraments/prepare" className="btn btn-primary focus-ring">
               Prepare with guidance
             </Link>
-            <Link href="/sacraments/print" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/sacraments/print" className="btn btn-secondary focus-ring">
               Print/export plan
             </Link>
           </div>

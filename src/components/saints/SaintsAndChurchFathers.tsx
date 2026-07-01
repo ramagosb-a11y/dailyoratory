@@ -11,7 +11,7 @@ export function SaintsAndChurchFathers() {
         Many Church Fathers are also saints. Their writings help Catholics understand Scripture,
         sacraments, doctrine, prayer, and holiness.
       </p>
-      <Link href="/church-fathers" className="mt-6 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+      <Link prefetch={false} href="/church-fathers" className="mt-6 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
         Explore the Church Fathers
       </Link>
     </section>

@@ -14,7 +14,7 @@ export function HeavenboundHomeCard() {
           <p className="text-sm leading-7 text-muted">
             Choose a Catholic spiritual path for today and continue with a guided Heavenbound conversation.
           </p>
-          <Link href="/tools/heavenbound" className="btn btn-primary focus-ring mt-5 w-full justify-center sm:w-auto">
+          <Link prefetch={false} href="/tools/heavenbound" className="btn btn-primary focus-ring mt-5 w-full justify-center sm:w-auto">
             Open Companion
           </Link>
         </div>

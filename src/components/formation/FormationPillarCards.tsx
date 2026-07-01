@@ -18,12 +18,12 @@ export function FormationPillarCards({ pillars }: { pillars: FormationPillar[] }
             <p className="mt-4 text-sm leading-7 text-muted">{pillar.description}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               {pillar.relatedLinks.slice(0, 4).map((link) => (
-                <Link key={link.href} href={link.href} className="season-pill">
+                <Link prefetch={false} key={link.href} href={link.href} className="season-pill">
                   {link.label}
                 </Link>
               ))}
             </div>
-            <Link href={pillar.relatedLinks[pillar.relatedLinks.length - 1]?.href ?? "#"} className="btn btn-secondary focus-ring mt-5 justify-center">
+            <Link prefetch={false} href={pillar.relatedLinks[pillar.relatedLinks.length - 1]?.href ?? "#"} className="btn btn-secondary focus-ring mt-5 justify-center">
               {pillar.title === "Doctrine" ? "Explore Doctrine" : pillar.title === "Virtue" ? "Practice Virtue" : "Begin Spiritual Growth"}
             </Link>
           </article>

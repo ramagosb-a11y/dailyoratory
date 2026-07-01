@@ -109,7 +109,7 @@ export default async function PrayerIntentionDetailPage({
           <h2 className="font-display text-4xl font-semibold text-navy">Related resources</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((resource) => (
-              <Link key={resource.id} href={getContentHref(resource)} className="card resource-card focus-ring p-5">
+              <Link prefetch={false} key={resource.id} href={getContentHref(resource)} className="card resource-card focus-ring p-5">
                 <p className="text-xs font-bold uppercase text-burgundy">{resource.category}</p>
                 <h3 className="font-display mt-2 text-2xl font-semibold leading-tight text-navy">{resource.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-muted">{resource.description}</p>

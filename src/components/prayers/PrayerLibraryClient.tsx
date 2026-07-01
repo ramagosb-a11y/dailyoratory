@@ -125,7 +125,7 @@ export function PrayerLibraryClient({ prayers, categories, needCards }: PrayerLi
 
               {prayer.href ? (
                 <div className="mt-6">
-                  <Link href={prayer.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                  <Link prefetch={false} href={prayer.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                     Open Guide
                   </Link>
                 </div>
@@ -147,7 +147,7 @@ export function PrayerLibraryClient({ prayers, categories, needCards }: PrayerLi
               {prayer.relatedLinks?.length ? (
                 <div className="mt-6 flex flex-wrap gap-3">
                   {prayer.relatedLinks.map((link) => (
-                    <Link
+                    <Link prefetch={false}
                       key={`${prayer.id}-${link.href}`}
                       href={link.href}
                       className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"

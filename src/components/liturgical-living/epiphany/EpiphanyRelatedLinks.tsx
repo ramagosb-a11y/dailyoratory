@@ -15,7 +15,7 @@ export function EpiphanyRelatedLinks({ links }: { links: EpiphanyRelatedLink[] }
               <h3 className="font-display mt-3 text-2xl font-semibold text-navy">{link.title}</h3>
               <p className="daily-card-readable mt-4 text-base leading-7 text-muted">{link.description}</p>
               <div className="mt-5">
-                <Link href={link.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                <Link prefetch={false} href={link.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                   Open {link.title}
                 </Link>
               </div>

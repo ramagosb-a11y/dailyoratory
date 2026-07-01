@@ -21,7 +21,7 @@ export function CommonIndulgencedWorks() {
               <span className="font-semibold text-navy">How to do it prayerfully:</span> {work.howToDoPrayerfully}
             </p>
             <p className="mt-3 text-xs leading-6 text-muted">{work.officialSourceNote}</p>
-            <Link href={work.relatedDailyOratoryLink} className="btn btn-secondary focus-ring mt-5 justify-center">
+            <Link prefetch={false} href={work.relatedDailyOratoryLink} className="btn btn-secondary focus-ring mt-5 justify-center">
               Open related page
             </Link>
           </article>

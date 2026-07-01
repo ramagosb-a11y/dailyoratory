@@ -22,7 +22,7 @@ export function HomeSectionHeader({
         <div className="liturgical-home-rule mt-4 max-w-40" aria-hidden="true" />
       </div>
       {ctaLabel && ctaHref ? (
-        <Link href={ctaHref} className="btn btn-liturgical focus-ring md:mb-1">
+        <Link prefetch={false} href={ctaHref} className="btn btn-liturgical focus-ring md:mb-1">
           {ctaLabel}
         </Link>
       ) : null}

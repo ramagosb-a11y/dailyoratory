@@ -18,13 +18,13 @@ export function MediaLibraryHero() {
         </p>
       </div>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="#featured-media" className="btn liturgical-button focus-ring">
+        <Link prefetch={false} href="#featured-media" className="btn liturgical-button focus-ring">
           Browse Featured Media
         </Link>
-        <Link href="#media-browser" className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href="#media-browser" className="btn btn-secondary focus-ring">
           View Videos
         </Link>
-        <Link href="#media-browser" className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href="#media-browser" className="btn btn-secondary focus-ring">
           View Slides
         </Link>
       </div>

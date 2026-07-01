@@ -10,10 +10,10 @@ export function SacramentDetailHero({ sacrament, ctaLabel, ctaHref }: { sacramen
         <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">{sacrament.shortDescription}</p>
         <p className="mt-4 max-w-3xl text-base leading-8 text-muted">{sacrament.longDescription}</p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <Link href={ctaHref} className="btn btn-primary focus-ring">
+          <Link prefetch={false} href={ctaHref} className="btn btn-primary focus-ring">
             {ctaLabel}
           </Link>
-          <Link href="/sacraments/prepare" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/sacraments/prepare" className="btn btn-secondary focus-ring">
             Preparation companion
           </Link>
         </div>

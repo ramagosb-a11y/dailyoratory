@@ -25,7 +25,7 @@ export function DoctrineFormationSection({ topics }: { topics: FormationTopic[] 
             <p className="mt-1 text-sm leading-7 text-muted">{topic.catechismReferences}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {topic.relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="season-pill">
+                <Link prefetch={false} key={link.href} href={link.href} className="season-pill">
                   {link.label}
                 </Link>
               ))}

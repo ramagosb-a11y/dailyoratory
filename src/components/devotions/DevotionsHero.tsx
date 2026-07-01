@@ -19,10 +19,10 @@ export function DevotionsHero() {
         them rooted in the Mass, sacraments, Scripture, and charity.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-        <Link href="#devotions-library" className="btn btn-gold focus-ring justify-center">
+        <Link prefetch={false} href="#devotions-library" className="btn btn-gold focus-ring justify-center">
           Find a Devotion
         </Link>
-        <Link href="/rosary" className="btn btn-outline-inverse focus-ring justify-center">
+        <Link prefetch={false} href="/rosary" className="btn btn-outline-inverse focus-ring justify-center">
           Start with the Rosary
         </Link>
       </div>

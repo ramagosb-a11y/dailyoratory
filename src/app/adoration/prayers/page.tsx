@@ -25,7 +25,7 @@ export default function AdorationPrayersPage() {
           <AdorationPrayerPanel />
         </div>
         <div className="mt-8 text-center">
-          <Link href="/adoration/live" className="btn btn-primary focus-ring">
+          <Link prefetch={false} href="/adoration/live" className="btn btn-primary focus-ring">
             Enter Adoration
           </Link>
         </div>

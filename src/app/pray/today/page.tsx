@@ -5,8 +5,6 @@ import { DailyPrayerActions } from "@/components/pray/DailyPrayerActions";
 import { createPageMetadata } from "@/lib/metadata";
 import { getDailyPrayerModel } from "@/lib/dailyPrayer";
 
-export const revalidate = 86400;
-
 export const metadata: Metadata = createPageMetadata({
   title: "Today's Suggested Prayer",
   description:
@@ -63,13 +61,13 @@ export default function TodayPrayerPage() {
             <article className="card-parchment p-5">
               <h2 className="font-display text-3xl font-semibold text-navy">Keep praying with the Church</h2>
               <div className="mt-4 flex flex-col gap-3">
-                <Link href="https://bible.usccb.org/daily-bible-reading" className="btn liturgical-button focus-ring justify-center">
+                <Link prefetch={false} href="https://bible.usccb.org/daily-bible-reading" className="btn liturgical-button focus-ring justify-center">
                   Read Today's Readings
                 </Link>
-                <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
+                <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
                   Mass Readings Reflections
                 </Link>
-                <Link href="/pray" className="btn btn-secondary focus-ring justify-center">
+                <Link prefetch={false} href="/pray" className="btn btn-secondary focus-ring justify-center">
                   Prayer Library
                 </Link>
               </div>
@@ -102,7 +100,7 @@ export default function TodayPrayerPage() {
               <h2 className="font-display text-3xl font-semibold text-navy">Keep going</h2>
               <div className="mt-4 flex flex-col gap-3">
                 {prayer.relatedLinks.slice(1).map((link) => (
-                  <Link key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
+                  <Link prefetch={false} key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
                     {link.label}
                   </Link>
                 ))}

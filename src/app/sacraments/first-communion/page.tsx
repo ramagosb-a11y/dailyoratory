@@ -25,7 +25,7 @@ export default function FirstCommunionPage() {
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">First Communion</p>
           <p className="mt-3 text-sm leading-7 text-muted">
             First Communion preparation belongs within the wider mystery of the Eucharist. Use the companion
-            below, and also spend time with the full <Link href="/sacraments/eucharist" className="font-semibold text-navy underline-offset-4 hover:underline">Eucharist page</Link>.
+            below, and also spend time with the full <Link prefetch={false} href="/sacraments/eucharist" className="font-semibold text-navy underline-offset-4 hover:underline">Eucharist page</Link>.
           </p>
         </div>
         <div className="mt-8">

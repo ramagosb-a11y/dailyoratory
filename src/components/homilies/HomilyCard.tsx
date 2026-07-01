@@ -31,7 +31,7 @@ export function HomilyCard({
           {item.liturgicalSeason ? <span className="season-pill">{item.liturgicalSeason}</span> : null}
         </div>
         <h2 className={`${large ? "text-4xl" : "text-3xl"} font-display mt-4 font-semibold leading-tight text-navy`}>
-          <Link
+          <Link prefetch={false}
             href={href}
             className="focus-ring rounded-sm"
             onClick={() =>
@@ -56,7 +56,7 @@ export function HomilyCard({
           {item.liturgicalDay ? <span>{item.liturgicalDay}</span> : null}
         </div>
         <div className="mt-5">
-          <Link href={href} className="text-link focus-ring text-sm font-semibold">
+          <Link prefetch={false} href={href} className="text-link focus-ring text-sm font-semibold">
             {getHomilyActionLabel(item)}
           </Link>
         </div>

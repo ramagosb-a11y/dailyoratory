@@ -102,10 +102,10 @@ export default function MissionPage() {
             The Church&apos;s mission begins in worship and flows outward into witness, service, formation, and charity. Daily Oratory exists to help that mission take root in ordinary Catholic life through prayer, reverence, and steady fidelity.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="/begin-in-prayer" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/begin-in-prayer" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Begin in prayer
             </Link>
-            <Link href="/formation" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/formation" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Explore vocation and formation
             </Link>
           </div>
@@ -122,7 +122,7 @@ export default function MissionPage() {
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {prayerLinks.map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={link.href}
                 href={link.href}
                 className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"
@@ -148,10 +148,10 @@ export default function MissionPage() {
               Pray for priests, seminarians, religious, families, catechists, missionaries, and young people who are listening for God&apos;s will.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-              <Link href="/ocia" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/ocia" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Becoming Catholic
               </Link>
-              <Link href="/formation" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Catholic Formation
               </Link>
             </div>

@@ -20,13 +20,13 @@ export function PrayHero() {
         anyone who wants to learn how the Church prays and how the Holy Spirit leads souls toward God.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="#prayers-for-today" className="btn liturgical-button focus-ring justify-center">
+        <Link prefetch={false} href="#prayers-for-today" className="btn liturgical-button focus-ring justify-center">
           Pray Now
         </Link>
-        <Link href="#prayer-rhythm-builder" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="#prayer-rhythm-builder" className="btn btn-secondary focus-ring justify-center">
           Build a Prayer Rhythm
         </Link>
-        <Link href="#what-is-prayer" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="#what-is-prayer" className="btn btn-secondary focus-ring justify-center">
           Learn How to Pray
         </Link>
       </div>

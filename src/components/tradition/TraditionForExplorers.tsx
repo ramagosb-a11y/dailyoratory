@@ -28,16 +28,16 @@ export function TraditionForExplorers() {
           ))}
         </ol>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/ocia" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/ocia" className="btn btn-secondary focus-ring">
             OCIA
           </Link>
-          <Link href="/mass" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/mass" className="btn btn-secondary focus-ring">
             The Holy Mass
           </Link>
-          <Link href="/catechism" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring">
             Catechism
           </Link>
-          <Link href="/church-fathers" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring">
             Church Fathers
           </Link>
         </div>

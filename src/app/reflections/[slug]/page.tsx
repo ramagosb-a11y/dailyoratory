@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { StaticMovedPage } from "@/components/StaticMovedPage";
 import { getPublishedMassReadingsReflectionsData } from "@/lib/massReadingsReflections";
 
 export const dynamicParams = false;
@@ -13,5 +13,11 @@ export default async function ReflectionDetailRedirectPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  redirect(`/reflections/mass-readings/${slug}`);
+  return (
+    <StaticMovedPage
+      title="Reflection Moved"
+      destination={`/reflections/mass-readings/${slug}`}
+      destinationLabel="Mass Readings Reflection"
+    />
+  );
 }

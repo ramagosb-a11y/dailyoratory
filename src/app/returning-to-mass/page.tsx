@@ -85,10 +85,10 @@ export default function ReturningToMassPage() {
             humility, prayer, and trust that Christ meets people honestly and patiently.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link href="/mass" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/mass" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Learn the Mass
             </Link>
-            <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Return to Confession
             </Link>
           </div>
@@ -142,7 +142,7 @@ export default function ReturningToMassPage() {
           <h2 className="font-display text-4xl font-semibold text-navy">Related guides</h2>
           <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {relatedLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="card dashboard-card focus-ring flex min-h-24 items-center p-5 transition hover:-translate-y-0.5 hover:border-gold">
+              <Link prefetch={false} key={link.href} href={link.href} className="card dashboard-card focus-ring flex min-h-24 items-center p-5 transition hover:-translate-y-0.5 hover:border-gold">
                 <span className="font-display text-2xl font-semibold leading-tight text-navy">{link.label}</span>
               </Link>
             ))}

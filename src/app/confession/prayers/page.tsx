@@ -31,7 +31,7 @@ export default function ConfessionPrayersPage() {
               summary="Short prayers for preparing, confessing, returning after a long time, and giving thanks for mercy."
             />
             <ExaminationNotices compact />
-            <Link href="/confession/examination/start" className="btn btn-primary focus-ring w-fit">
+            <Link prefetch={false} href="/confession/examination/start" className="btn btn-primary focus-ring w-fit">
               Begin examination
             </Link>
             <ConfessionReportCta />

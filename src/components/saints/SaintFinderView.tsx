@@ -143,7 +143,7 @@ export function SaintFinderView() {
                   </p>
                   <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                     <SaintSaveButton saintId={saint.id} />
-                    <Link href={`/saints/${saint.slug}`} className="btn btn-secondary focus-ring">
+                    <Link prefetch={false} href={`/saints/${saint.slug}`} className="btn btn-secondary focus-ring">
                       View profile
                     </Link>
                   </div>
@@ -171,7 +171,7 @@ export function SaintFinderView() {
               Continue
             </button>
           ) : (
-            <Link href="/saints/companions" className="btn btn-primary focus-ring">
+            <Link prefetch={false} href="/saints/companions" className="btn btn-primary focus-ring">
               View saved companions
             </Link>
           )}

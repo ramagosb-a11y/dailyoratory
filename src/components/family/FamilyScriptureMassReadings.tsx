@@ -20,10 +20,10 @@ export function FamilyScriptureMassReadings() {
           ))}
         </ul>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link href="/library/scripture-prayer" className="btn liturgical-button focus-ring justify-center">
+          <Link prefetch={false} href="/library/scripture-prayer" className="btn liturgical-button focus-ring justify-center">
             Scripture Prayer
           </Link>
-          <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
+          <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
             Mass Readings Reflections
           </Link>
           <TrackedLink

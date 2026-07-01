@@ -23,10 +23,10 @@ export function CouncilsAndEucharist() {
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/mass" className="btn btn-secondary focus-ring justify-center">Mass</Link>
-        <Link href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
-        <Link href="/adoration" className="btn btn-secondary focus-ring justify-center">Adoration</Link>
-        <Link href="/church-fathers" className="btn btn-secondary focus-ring justify-center">Church Fathers</Link>
+        <Link prefetch={false} href="/mass" className="btn btn-secondary focus-ring justify-center">Mass</Link>
+        <Link prefetch={false} href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
+        <Link prefetch={false} href="/adoration" className="btn btn-secondary focus-ring justify-center">Adoration</Link>
+        <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring justify-center">Church Fathers</Link>
       </div>
     </section>
   );

@@ -33,7 +33,7 @@ export function PrayerMediaFeature({ item }: { item: MediaItem | null }) {
               <span className="season-pill border-gold text-gold">Prayer</span>
             </div>
             <h3 className="font-display mt-4 text-4xl font-semibold leading-tight text-navy">
-              <Link href={`/media/${item.slug}`} className="focus-ring rounded-sm">
+              <Link prefetch={false} href={`/media/${item.slug}`} className="focus-ring rounded-sm">
                 {item.title}
               </Link>
             </h3>
@@ -67,7 +67,7 @@ export function PrayerMediaFeature({ item }: { item: MediaItem | null }) {
             >
               Watch this talk
             </TrackedLink>
-            <Link href="/media" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/media" className="btn btn-secondary focus-ring">
               Browse Media Library
             </Link>
           </div>

@@ -18,7 +18,7 @@ export function SaintCalendarPreview() {
           <h3 className="font-display text-3xl font-semibold text-navy">Upcoming feast days</h3>
           <div className="mt-5 grid gap-3">
             {upcoming.map(({ saint, nextOccurrence }) => (
-              <Link key={`${saint.id}-${nextOccurrence.toISOString()}`} href={`/saints/${saint.slug}`} className="card focus-ring block p-4 hover:border-gold">
+              <Link prefetch={false} key={`${saint.id}-${nextOccurrence.toISOString()}`} href={`/saints/${saint.slug}`} className="card focus-ring block p-4 hover:border-gold">
                 <p className="text-xs font-bold uppercase tracking-[0.14em] text-burgundy">
                   {formatFeastDate(saint.feastDay)}
                 </p>
@@ -36,10 +36,10 @@ export function SaintCalendarPreview() {
               Browse saints month by month, connect feast days to prayer and the liturgical year, and keep your reading inside the Daily Oratory flow.
             </p>
             <div className="mt-6 flex flex-col gap-3">
-              <Link href="/saints/calendar" className="btn liturgical-button focus-ring justify-center">
+              <Link prefetch={false} href="/saints/calendar" className="btn liturgical-button focus-ring justify-center">
                 Open Saints Calendar
               </Link>
-              <Link href="/saints/saint-of-the-day" className="btn btn-secondary focus-ring justify-center">
+              <Link prefetch={false} href="/saints/saint-of-the-day" className="btn btn-secondary focus-ring justify-center">
                 Saint of the Day
               </Link>
             </div>

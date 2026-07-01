@@ -16,7 +16,7 @@ export function LibraryResultCard({ result }: { result: LibrarySearchResult }) {
         </div>
       </div>
       <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">
-        <Link href={href} className="focus-ring rounded-sm">
+        <Link prefetch={false} href={href} className="focus-ring rounded-sm">
           <span className="absolute inset-0" aria-hidden="true" />
           {record.title}
         </Link>

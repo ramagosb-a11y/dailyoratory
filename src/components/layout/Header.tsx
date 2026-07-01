@@ -15,7 +15,7 @@ function isActive(pathname: string, href: string) {
 
 function Logo() {
   return (
-    <Link href="/" className="focus-ring flex shrink-0 items-center gap-3 rounded-md">
+    <Link href="/" prefetch={false} className="focus-ring flex shrink-0 items-center gap-3 rounded-md">
       <span
         aria-hidden="true"
         className="grid h-11 w-11 place-items-center rounded-md border border-gold/50 bg-navy text-gold shadow-sm"
@@ -62,6 +62,7 @@ export function Header() {
             <div key={section.href} className="group relative">
               <Link
                 href={section.href}
+                prefetch={false}
                 aria-current={isActive(pathname, section.href) ? "page" : undefined}
                 className={`focus-ring liturgical-nav-link rounded-md px-2.5 py-2 text-sm font-semibold transition xl:px-3 ${
                   isActive(pathname, section.href)
@@ -80,6 +81,7 @@ export function Header() {
                     <p className="mt-2 text-sm leading-6 text-muted">{section.description}</p>
                     <Link
                       href={section.href}
+                      prefetch={false}
                       className="btn btn-liturgical focus-ring mt-4"
                     >
                       Open section
@@ -95,6 +97,7 @@ export function Header() {
                               <li key={`${section.href}-${group.title}-${link.href}-${link.label}`}>
                                 <Link
                                   href={link.href}
+                                  prefetch={false}
                                   aria-current={isActive(pathname, link.href) ? "page" : undefined}
                                   className="focus-ring liturgical-nav-link block rounded-md px-3 py-2 transition hover:bg-parchment"
                                 >
@@ -115,6 +118,7 @@ export function Header() {
                         <li key={`${section.href}-${link.href}-${link.label}`}>
                           <Link
                             href={link.href}
+                            prefetch={false}
                             aria-current={isActive(pathname, link.href) ? "page" : undefined}
                             className="focus-ring liturgical-nav-link block rounded-md px-3 py-2.5 transition hover:bg-parchment"
                           >
@@ -173,6 +177,7 @@ export function Header() {
                 <section key={section.href} className="border-t border-stone pt-4">
                   <Link
                     href={section.href}
+                    prefetch={false}
                     aria-current={isActive(pathname, section.href) ? "page" : undefined}
                     onClick={() => setOpen(false)}
                     className={`focus-ring block rounded-md text-base font-bold ${
@@ -192,6 +197,7 @@ export function Header() {
                               <Link
                                 key={`${section.href}-${group.title}-${link.href}-${link.label}`}
                                 href={link.href}
+                                prefetch={false}
                                 aria-current={isActive(pathname, link.href) ? "page" : undefined}
                                 onClick={() => setOpen(false)}
                                 className="focus-ring liturgical-nav-link rounded-md px-3 py-2 text-sm font-semibold text-navy hover:bg-parchment"
@@ -209,6 +215,7 @@ export function Header() {
                         <Link
                           key={`${section.href}-${link.href}-${link.label}`}
                           href={link.href}
+                          prefetch={false}
                           aria-current={isActive(pathname, link.href) ? "page" : undefined}
                           onClick={() => setOpen(false)}
                           className="focus-ring liturgical-nav-link rounded-md px-3 py-2 text-sm font-semibold text-navy hover:bg-parchment"

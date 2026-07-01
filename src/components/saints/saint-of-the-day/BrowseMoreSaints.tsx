@@ -13,7 +13,7 @@ export function BrowseMoreSaints({ saintSlug, dateKey }: { saintSlug?: string; d
       <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Browse More Saints</h2>
       <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {tools.map((tool) => (
-          <Link
+          <Link prefetch={false}
             key={tool.href}
             href={tool.href}
             onClick={() =>

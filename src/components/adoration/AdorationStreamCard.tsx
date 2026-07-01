@@ -21,7 +21,7 @@ export function AdorationStreamCard({ stream, featured = false }: { stream: Live
       </div>
 
       <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">
-        <Link href={getAdorationStreamHref(stream)} className="focus-ring rounded-sm hover:text-burgundy">
+        <Link prefetch={false} href={getAdorationStreamHref(stream)} className="focus-ring rounded-sm hover:text-burgundy">
           {stream.chapelName}
         </Link>
       </h2>
@@ -45,7 +45,7 @@ export function AdorationStreamCard({ stream, featured = false }: { stream: Live
 
       <div className="mt-5 flex flex-col gap-4 border-t border-stone pt-5 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-sm font-semibold text-navy">{stream.location.country}</p>
-        <Link href={getAdorationStreamHref(stream)} className="btn btn-primary focus-ring">
+        <Link prefetch={false} href={getAdorationStreamHref(stream)} className="btn btn-primary focus-ring">
           Enter Adoration
         </Link>
       </div>

@@ -6,16 +6,16 @@ import type { CommunityContactOption } from "@/types/community";
 
 export function CommunityContactForm({ options }: { options: CommunityContactOption[] }) {
   const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   if (submitted) {
     return (
       <section className="form-shell p-6 sm:p-8" aria-live="polite">
-        <p className="text-xs font-bold uppercase text-burgundy">Message sent</p>
+        <p className="text-xs font-bold uppercase text-burgundy">Email prepared</p>
         <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Thank you for reaching out.</h2>
         <p className="mt-3 text-base leading-8 text-muted sm:text-lg">
-          Thank you. Your message has been sent to Daily Oratory.
+          Your email app should open with the message ready to send. If it does not open, please email
+          thegospelmovements@gmail.com directly.
         </p>
         <button type="button" className="btn btn-secondary focus-ring mt-5 w-full sm:w-auto" onClick={() => setSubmitted(false)}>
           Send another note
@@ -30,7 +30,6 @@ export function CommunityContactForm({ options }: { options: CommunityContactOpt
       onSubmit={async (event) => {
         event.preventDefault();
         setError(null);
-        setSubmitting(true);
 
         const formData = new FormData(event.currentTarget);
         const payload = {
@@ -41,37 +40,24 @@ export function CommunityContactForm({ options }: { options: CommunityContactOpt
           company: String(formData.get("company") ?? ""),
         };
 
-        try {
-          const response = await fetch("/api/contact", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-
-          let data: { ok?: boolean; error?: string } | null = null;
-          try {
-            data = (await response.json()) as { ok?: boolean; error?: string };
-          } catch {
-            data = null;
-          }
-
-          if (!response.ok) {
-            setError(data?.error ?? "We could not send your message just now. Please email thegospelmovements@gmail.com directly.");
-            return;
-          }
-
-          if (data && data.ok === false) {
-            setError(data.error ?? "We could not send your message just now. Please email thegospelmovements@gmail.com directly.");
-            return;
-          }
-
-          event.currentTarget.reset();
+        if (payload.company) {
           setSubmitted(true);
-        } catch {
-          setError("We could not send your message just now. Please email thegospelmovements@gmail.com directly.");
-        } finally {
-          setSubmitting(false);
+          return;
         }
+
+        const reasonLabel = options.find((option) => option.id === payload.reason)?.label ?? payload.reason;
+        const subject = `Daily Oratory contact: ${reasonLabel || "General note"}`;
+        const body = [
+          `Name: ${payload.name}`,
+          `Email: ${payload.email}`,
+          `Reason: ${reasonLabel || "General note"}`,
+          "",
+          payload.message,
+        ].join("\n");
+
+        window.location.href = `mailto:thegospelmovements@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        event.currentTarget.reset();
+        setSubmitted(true);
       }}
     >
       <div>
@@ -135,14 +121,14 @@ export function CommunityContactForm({ options }: { options: CommunityContactOpt
           >
             <p>{error}</p>
             <p className="mt-2">
-              <Link href="mailto:thegospelmovements@gmail.com" className="text-link focus-ring">
+              <Link prefetch={false} href="mailto:thegospelmovements@gmail.com" className="text-link focus-ring">
                 Email thegospelmovements@gmail.com directly
               </Link>
             </p>
           </div>
         ) : null}
-        <button type="submit" className="btn btn-primary focus-ring w-full sm:w-auto" disabled={submitting}>
-          {submitting ? "Sending..." : "Send message"}
+        <button type="submit" className="btn btn-primary focus-ring w-full sm:w-auto">
+          Open email app
         </button>
       </div>
     </form>

@@ -25,8 +25,6 @@ import {
 } from "@/lib/massReadingsReflections";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const revalidate = 86400;
-
 export const metadata: Metadata = createPageMetadata({
   title: "Mass Readings Reflections",
   description:
@@ -78,10 +76,10 @@ export default async function MassReadingsReflectionsPage() {
               summary="See what is prepared next for daily Mass, Sundays, solemnities, and feast days."
             />
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/reflections/mass-readings/upcoming" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/reflections/mass-readings/upcoming" className="btn btn-secondary focus-ring">
                 Upcoming archive
               </Link>
-              <Link href="/reflections/mass-readings/archive" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/reflections/mass-readings/archive" className="btn btn-secondary focus-ring">
                 Past archive
               </Link>
             </div>
@@ -108,10 +106,10 @@ export default async function MassReadingsReflectionsPage() {
               summary="A calm archive of published reflections for daily Mass, Sundays, solemnities, and feast days."
             />
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link href="/reflections/mass-readings/archive" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/reflections/mass-readings/archive" className="btn btn-secondary focus-ring">
                 Archive view
               </Link>
-              <Link href="/reflections/mass-readings/calendar" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/reflections/mass-readings/calendar" className="btn btn-secondary focus-ring">
                 Calendar view
               </Link>
             </div>
@@ -130,7 +128,7 @@ export default async function MassReadingsReflectionsPage() {
             summary="If you want a wider Catholic guide to Scripture, translations, prayer, and how Catholics read the Bible with the Church, continue to the Bible page."
           />
           <div className="card-parchment mt-7 p-6">
-            <Link href="/bible" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/bible" className="btn btn-secondary focus-ring justify-center">
               Visit The Bible
             </Link>
           </div>

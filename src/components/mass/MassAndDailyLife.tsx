@@ -35,10 +35,10 @@ export function MassAndDailyLife() {
         <article className="card-parchment p-6">
           <h3 className="font-display text-3xl font-semibold text-navy">Keep going after Sunday</h3>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
-            <Link href="/rule-of-life" className="btn btn-secondary focus-ring justify-center">Rule of Life</Link>
-            <Link href="/pathways/works-of-mercy-and-service" className="btn btn-secondary focus-ring justify-center">Works of Mercy</Link>
-            <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">Mass Reflections</Link>
+            <Link prefetch={false} href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
+            <Link prefetch={false} href="/rule-of-life" className="btn btn-secondary focus-ring justify-center">Rule of Life</Link>
+            <Link prefetch={false} href="/pathways/works-of-mercy-and-service" className="btn btn-secondary focus-ring justify-center">Works of Mercy</Link>
+            <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">Mass Reflections</Link>
           </div>
         </article>
       </div>

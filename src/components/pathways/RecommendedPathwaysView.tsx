@@ -19,7 +19,7 @@ export function RecommendedPathwaysView() {
               These suggestions are shaped by your local settings. They are invitations, not assignments.
             </p>
           </div>
-          <Link href="/pathways/settings" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/pathways/settings" className="btn btn-secondary focus-ring">
             Adjust settings
           </Link>
         </div>

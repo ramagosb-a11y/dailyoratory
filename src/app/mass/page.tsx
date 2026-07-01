@@ -252,7 +252,7 @@ export default function MassPage() {
               as one Catholic way of life.
             </p>
             <div className="mt-6">
-              <Link href="/catholic-life" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/catholic-life" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Open the Catholic Life Roadmap
               </Link>
             </div>
@@ -307,10 +307,10 @@ export default function MassPage() {
             becomes wonder.
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href="/sacraments/eucharist" className="btn btn-primary focus-ring justify-center">
+            <Link prefetch={false} href="/sacraments/eucharist" className="btn btn-primary focus-ring justify-center">
               Return to the Eucharist
             </Link>
-            <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
               Pray the readings
             </Link>
           </div>

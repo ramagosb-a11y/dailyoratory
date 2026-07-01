@@ -31,10 +31,10 @@ export function RealPresenceSection() {
         <article className="card-parchment p-6">
           <h3 className="font-display text-3xl font-semibold text-navy">Keep learning reverently</h3>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
-            <Link href="/adoration" className="btn btn-secondary focus-ring justify-center">Adoration</Link>
-            <Link href="/church-fathers" className="btn btn-secondary focus-ring justify-center">Church Fathers</Link>
-            <Link href="/devotions/eucharistic-adoration" className="btn btn-secondary focus-ring justify-center">Eucharistic Devotion</Link>
+            <Link prefetch={false} href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
+            <Link prefetch={false} href="/adoration" className="btn btn-secondary focus-ring justify-center">Adoration</Link>
+            <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring justify-center">Church Fathers</Link>
+            <Link prefetch={false} href="/devotions/eucharistic-adoration" className="btn btn-secondary focus-ring justify-center">Eucharistic Devotion</Link>
           </div>
         </article>
       </div>

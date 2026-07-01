@@ -25,14 +25,14 @@ export function ActiveFilters({ state }: { state: LibrarySearchState }) {
     <div className="flex flex-wrap items-center gap-2">
       <span className="text-xs font-bold uppercase text-muted">Active filters</span>
       {activeFilters.map((filter) => (
-        <Link key={filter.label} href={filter.href} className="season-pill focus-ring hover:border-gold hover:text-navy">
+        <Link prefetch={false} key={filter.label} href={filter.href} className="season-pill focus-ring hover:border-gold hover:text-navy">
           {filter.label}
           <span aria-hidden="true" className="ml-1">
             x
           </span>
         </Link>
       ))}
-      <Link href="/library" className="text-link focus-ring text-sm">
+      <Link prefetch={false} href="/library" className="text-link focus-ring text-sm">
         Clear all
       </Link>
     </div>

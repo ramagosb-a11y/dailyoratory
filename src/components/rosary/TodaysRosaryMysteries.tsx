@@ -33,10 +33,10 @@ export function TodaysRosaryMysteries() {
           <div>
             <p className="text-sm leading-8 text-muted">{group.theme}</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href={`/devotions/holy-rosary/${group.slug}`} className="btn btn-secondary focus-ring justify-center">
+              <Link prefetch={false} href={`/devotions/holy-rosary/${group.slug}`} className="btn btn-secondary focus-ring justify-center">
                 Explore {group.title}
               </Link>
-              <Link href="/rosary" className="btn btn-gold focus-ring justify-center">
+              <Link prefetch={false} href="/rosary" className="btn btn-gold focus-ring justify-center">
                 Pray the Rosary Live
               </Link>
             </div>
@@ -44,7 +44,7 @@ export function TodaysRosaryMysteries() {
           <ul className="space-y-3">
             {mysteries.map((mystery) => (
               <li key={mystery.id}>
-                <Link
+                <Link prefetch={false}
                   href={mystery.fullPath}
                   className="flex flex-col rounded-md border border-stone/80 bg-ivory/85 px-4 py-3 transition hover:border-gold"
                 >

@@ -35,10 +35,10 @@ export default function LiveAdorationPage() {
             <p className="mt-2 text-sm font-semibold text-navy">{getAdorationLocationLabel(featuredStream)}</p>
             <div className="mt-5">
               <div className="flex flex-col gap-3 sm:flex-row">
-                <Link href={getAdorationStreamHref(featuredStream)} className="btn liturgical-button focus-ring justify-center">
+                <Link prefetch={false} href={getAdorationStreamHref(featuredStream)} className="btn liturgical-button focus-ring justify-center">
                   Open Featured Chapel
                 </Link>
-                <Link href="/adoration/melbourne" className="btn btn-secondary focus-ring justify-center">
+                <Link prefetch={false} href="/adoration/melbourne" className="btn btn-secondary focus-ring justify-center">
                   Melbourne Adoration Guide
                 </Link>
               </div>

@@ -24,7 +24,7 @@ export function ExploreEachDecade() {
               <ul className="mt-4 space-y-3">
                 {mysteries.map((mystery) => (
                   <li key={mystery.id}>
-                    <Link
+                    <Link prefetch={false}
                       href={mystery.fullPath}
                       className="flex flex-col rounded-md border border-stone/80 bg-ivory/80 px-4 py-3 transition hover:border-gold"
                     >

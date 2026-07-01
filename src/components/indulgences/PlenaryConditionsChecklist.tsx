@@ -20,7 +20,7 @@ export function PlenaryConditionsChecklist() {
                 <li key={condition} className="rounded-md border border-stone bg-ivory px-4 py-3 text-sm leading-7 text-muted">
                   <span className="font-semibold text-navy">&middot; </span>
                   {isDetachment ? (
-                    <Link
+                    <Link prefetch={false}
                       href="/indulgences/detachment-from-sin"
                       className="focus-ring rounded-sm font-semibold text-navy underline decoration-gold underline-offset-4 hover:text-burgundy"
                     >

@@ -54,7 +54,7 @@ export default function EucharisticMiraclesPage() {
                 <a href={miraclesUrl} target="_blank" rel="noopener noreferrer" className="btn btn-outline-inverse focus-ring">
                   Open Eucharistic miracles catalog
                 </a>
-                <Link href="/adoration" className="btn btn-outline-inverse focus-ring">
+                <Link prefetch={false} href="/adoration" className="btn btn-outline-inverse focus-ring">
                   Enter Adoration
                 </Link>
               </div>

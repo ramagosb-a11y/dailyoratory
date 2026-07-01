@@ -16,10 +16,10 @@ export function VaticanAndPope() {
           rooted in Christ and the witness of Saint Peter.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/pope" className="btn liturgical-button focus-ring">
+          <Link prefetch={false} href="/pope" className="btn liturgical-button focus-ring">
             Learn About the Pope
           </Link>
-          <Link href="/news" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/news" className="btn btn-secondary focus-ring">
             Read Vatican News
           </Link>
         </div>

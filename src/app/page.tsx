@@ -12,8 +12,6 @@ import { getFeaturedMediaItems, getMediaCategories, getMediaTypeLabel } from "@/
 import { createPageMetadata } from "@/lib/metadata";
 import type { MediaType } from "@/types/media";
 
-export const revalidate = 86400;
-
 export const metadata: Metadata = createPageMetadata({
   title: "Daily Oratory | Catholic Prayer, Scripture, Liturgy, and Formation",
   description:
@@ -105,7 +103,7 @@ export default async function Home() {
                 <h3 className="font-display text-2xl font-semibold text-navy">{card.title}</h3>
                 <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.description}</p>
                 <div className="mt-5">
-                  <Link href={card.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                  <Link prefetch={false} href={card.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                     Open Guide
                   </Link>
                 </div>

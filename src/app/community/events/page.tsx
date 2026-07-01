@@ -30,7 +30,7 @@ export default function CommunityEventsPage() {
               Browse Catholic prayer, formation, and community gatherings, including trusted external events and Daily Oratory resources.
             </p>
           </div>
-          <Link href="/community/contact" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/community/contact" className="btn btn-secondary focus-ring">
             Submit an event question
           </Link>
         </div>

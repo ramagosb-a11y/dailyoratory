@@ -13,7 +13,6 @@ const DEFAULT_SHEET_ID = "17sMLuAMjUYyEo0ZqSJBrLF3p-j-9e6Dbzn7UEfoMmr0";
 const REFLECTIONS_SHEET = "Mass_Readings_Reflections";
 const MEDIA_SHEET = "Reflection_Media";
 const CACHE_TAG = "mass-readings-google-sheet";
-const REVALIDATE_SECONDS = 60 * 60 * 24;
 const OFFICIAL_READINGS_URL = "https://bible.usccb.org/daily-bible-reading";
 
 type SheetRow = Record<string, string>;
@@ -77,9 +76,7 @@ async function fetchGoogleSheetRows(sheetId: string, sheetName: string): Promise
     sheetName,
   )}`;
 
-  const response = await fetch(url, {
-    next: { revalidate: REVALIDATE_SECONDS, tags: [CACHE_TAG] },
-  });
+  const response = await fetch(url);
 
   if (!response.ok) return [];
 

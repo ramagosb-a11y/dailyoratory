@@ -102,7 +102,7 @@ export default function DetachmentFromSinPage() {
               during Lent, or whenever you are asking God to free your heart from sin.
             </p>
             <div className="mt-6">
-              <Link href="/prayers/seven-penitential-psalms" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/prayers/seven-penitential-psalms" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Begin the Penitential Psalms
               </Link>
             </div>
@@ -115,7 +115,7 @@ export default function DetachmentFromSinPage() {
               that draw the soul toward repentance, worship, charity, and love for God.
             </p>
             <div className="mt-6">
-              <Link href="/indulgences/prayers-and-devotions" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/indulgences/prayers-and-devotions" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Explore Prayers and Devotions with Indulgences
               </Link>
             </div>

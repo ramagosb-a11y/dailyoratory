@@ -37,10 +37,10 @@ export default async function MassReadingsCalendarPage() {
             summary="See published and scheduled Mass reading reflections in calendar order."
           />
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring">
               Main view
             </Link>
-            <Link href="/reflections/mass-readings/archive" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/reflections/mass-readings/archive" className="btn btn-secondary focus-ring">
               Archive view
             </Link>
           </div>

@@ -45,7 +45,7 @@ export function ExaminationPrintView() {
             Return to the guided examination to prepare your report.
           </p>
           <div className="confession-print-room-chrome mt-6">
-            <Link href="/confession/examination" className="btn btn-primary focus-ring min-h-12 justify-center">
+            <Link prefetch={false} href="/confession/examination" className="btn btn-primary focus-ring min-h-12 justify-center">
               Return to examination
             </Link>
           </div>
@@ -73,7 +73,7 @@ export function ExaminationPrintView() {
           <button type="button" onClick={copyText} className="btn btn-secondary focus-ring min-h-12">
             Copy text
           </button>
-          <Link href="/confession/examination#report" className="btn btn-secondary focus-ring min-h-12 justify-center">
+          <Link prefetch={false} href="/confession/examination#report" className="btn btn-secondary focus-ring min-h-12 justify-center">
             Return to examination
           </Link>
           <button type="button" onClick={clearLocalReport} className="btn btn-secondary focus-ring min-h-12">

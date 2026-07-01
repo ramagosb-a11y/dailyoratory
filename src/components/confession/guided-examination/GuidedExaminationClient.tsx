@@ -81,7 +81,7 @@ export function ExaminationOverview() {
             <p className="text-xs font-bold uppercase text-burgundy">Paths</p>
             <h2 className="font-display mt-2 text-4xl font-semibold text-navy">Choose a path through the examination.</h2>
           </div>
-          <Link href="/confession/examination/review" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/confession/examination/review" className="btn btn-secondary focus-ring">
             Review marked items
           </Link>
         </div>
@@ -183,7 +183,7 @@ export function GuidedExaminationPathClient({ path }: { path: GuidedExaminationP
   return (
     <div className="grid gap-8 lg:grid-cols-[0.76fr_1.24fr] lg:items-start">
       <aside className="dashboard-card p-5 lg:sticky lg:top-24">
-        <Link href="/confession/examination" className="text-link focus-ring text-sm">
+        <Link prefetch={false} href="/confession/examination" className="text-link focus-ring text-sm">
           Back to paths
         </Link>
         <p className="mt-5 text-xs font-bold uppercase text-burgundy">Examination path</p>
@@ -293,7 +293,7 @@ export function ExaminationReviewHub({ embedded = false }: { embedded?: boolean 
             Open a clean page for intentional printing or copying. The report stays on this device.
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-            <Link href="/confession/examination/print" className="btn btn-primary focus-ring min-h-12 justify-center">
+            <Link prefetch={false} href="/confession/examination/print" className="btn btn-primary focus-ring min-h-12 justify-center">
               Open print-safe page
             </Link>
             <button type="button" onClick={copyReportText} className="btn btn-secondary focus-ring min-h-12">
@@ -365,7 +365,7 @@ function ReviewPathSummary({ path }: { path: GuidedExaminationPath }) {
           <p className="text-xs font-bold uppercase text-burgundy">{path.shortTitle}</p>
           <h2 className="font-display mt-2 text-3xl font-semibold text-navy">{path.title}</h2>
         </div>
-        <Link href={path.href} className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href={path.href} className="btn btn-secondary focus-ring">
           Open path
         </Link>
       </div>
@@ -590,7 +590,7 @@ function PromptStep({
             Back to categories
           </button>
         ) : (
-          <Link href="/confession/examination" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/confession/examination" className="btn btn-secondary focus-ring">
             Back to paths
           </Link>
         )}
@@ -740,18 +740,18 @@ function ReviewPanel({
           </button>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Link href="/confession/examination/print" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/confession/examination/print" className="btn btn-secondary focus-ring">
             Open print-safe page
           </Link>
-          <Link href="/confession/examination/review" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/confession/examination/review" className="btn btn-secondary focus-ring">
             View full review
           </Link>
           {nextPath ? (
-            <Link href={nextPath.href} className="btn btn-primary focus-ring">
+            <Link prefetch={false} href={nextPath.href} className="btn btn-primary focus-ring">
               Continue to {nextPath.shortTitle}
             </Link>
           ) : (
-            <Link href="/confession/examination/review" className="btn btn-primary focus-ring">
+            <Link prefetch={false} href="/confession/examination/review" className="btn btn-primary focus-ring">
               Finish with full review
             </Link>
           )}

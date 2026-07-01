@@ -95,13 +95,13 @@ export function AlmsgivingContent() {
       <section className="card-parchment p-6 sm:p-8">
         <h2 className="font-display text-4xl font-semibold text-navy">Related links</h2>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link href="/liturgical-living/lent" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/liturgical-living/lent" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Back to Lent
           </Link>
-          <Link href="/formation/catholic-burial/prayers-for-the-dead" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/formation/catholic-burial/prayers-for-the-dead" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Pray for the Dead
           </Link>
-          <Link href="/indulgences/detachment-from-sin" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/indulgences/detachment-from-sin" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Detachment from Sin
           </Link>
         </div>

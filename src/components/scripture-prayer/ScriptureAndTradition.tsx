@@ -21,7 +21,7 @@ export function ScriptureAndTradition() {
       </p>
       <div className="mt-6 flex flex-wrap gap-3">
         {links.map((link) => (
-          <Link key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
+          <Link prefetch={false} key={link.href} href={link.href} className="btn btn-secondary focus-ring justify-center">
             {link.label}
           </Link>
         ))}

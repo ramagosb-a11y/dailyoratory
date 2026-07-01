@@ -20,7 +20,7 @@ export function OciaGlossary() {
             {term.relatedLinks.length > 0 ? (
               <div className="mt-4 flex flex-wrap gap-2">
                 {term.relatedLinks.map((link) => (
-                  <Link
+                  <Link prefetch={false}
                     key={`${term.id}-${link.href}`}
                     href={link.href}
                     className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy"

@@ -40,7 +40,7 @@ export default function GuidedExaminationPage() {
             self-measurement, use the guide below.
           </p>
           <div className="mt-6">
-            <Link href="/indulgences/detachment-from-sin" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/indulgences/detachment-from-sin" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Open the Detachment Guide
             </Link>
           </div>
@@ -53,7 +53,7 @@ export default function GuidedExaminationPage() {
             contrition, mercy, and a clean heart.
           </p>
           <div className="mt-6">
-            <Link href="/prayers/seven-penitential-psalms" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers/seven-penitential-psalms" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Pray the Penitential Psalms
             </Link>
           </div>

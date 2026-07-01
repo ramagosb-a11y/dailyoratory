@@ -103,10 +103,10 @@ export default function AngelusPage() {
             traditionally prayed three times a day, except during the Easter season, when it is replaced by the Regina Caeli.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="#angelus-text" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#angelus-text" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Pray the Angelus
             </Link>
-            <Link href="/prayers/regina-caeli" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers/regina-caeli" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Easter Prayer: Regina Caeli
             </Link>
           </div>
@@ -185,7 +185,7 @@ export default function AngelusPage() {
               From Easter through Pentecost, the Angelus is traditionally replaced by the Regina Caeli, a joyful Marian prayer celebrating the Resurrection.
             </p>
             <div className="mt-6">
-              <Link href="/prayers/regina-caeli" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/prayers/regina-caeli" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Regina Caeli
               </Link>
             </div>
@@ -196,7 +196,7 @@ export default function AngelusPage() {
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Continue in Prayer</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
               {relatedLinks.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

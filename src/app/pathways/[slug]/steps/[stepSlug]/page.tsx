@@ -121,15 +121,15 @@ export default async function PathwayStepPage({
               <p className="text-xs font-bold uppercase text-burgundy">Step navigation</p>
               <div className="mt-4 grid gap-3">
                 {previousStep ? (
-                  <Link href={getPathwayStepHref(pathway, previousStep)} className="btn btn-secondary focus-ring">
+                  <Link prefetch={false} href={getPathwayStepHref(pathway, previousStep)} className="btn btn-secondary focus-ring">
                     Previous step
                   </Link>
                 ) : null}
-                <Link href={getPathwayHref(pathway)} className="btn btn-secondary focus-ring">
+                <Link prefetch={false} href={getPathwayHref(pathway)} className="btn btn-secondary focus-ring">
                   Pathway overview
                 </Link>
                 {nextStep ? (
-                  <Link href={getPathwayStepHref(pathway, nextStep)} className="btn btn-primary focus-ring">
+                  <Link prefetch={false} href={getPathwayStepHref(pathway, nextStep)} className="btn btn-primary focus-ring">
                     Next step
                   </Link>
                 ) : null}

@@ -29,7 +29,7 @@ export function SacramentsOfInitiation() {
       />
       <div className="mt-7 grid gap-4 md:grid-cols-3">
         {sacraments.map((sacrament) => (
-          <Link key={sacrament.href} href={sacrament.href} className="card-parchment p-5">
+          <Link prefetch={false} key={sacrament.href} href={sacrament.href} className="card-parchment p-5">
             <h3 className="font-display text-3xl font-semibold text-navy">{sacrament.title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{sacrament.description}</p>
           </Link>

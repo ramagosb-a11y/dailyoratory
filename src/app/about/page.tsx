@@ -40,7 +40,7 @@ export default function AboutPage() {
             may grow in daily life.
           </p>
           <div className="mt-5">
-            <Link href="/mission" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/mission" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Read The Mission of the Church
             </Link>
           </div>

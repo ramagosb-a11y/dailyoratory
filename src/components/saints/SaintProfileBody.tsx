@@ -62,7 +62,7 @@ export function SaintProfileBody({ saint }: { saint: Saint }) {
           <ul className="mt-4 space-y-2 text-sm leading-7 text-muted">
             {saint.relatedDailyOratoryLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="font-semibold text-navy underline decoration-gold underline-offset-4">
+                <Link prefetch={false} href={link.href} className="font-semibold text-navy underline decoration-gold underline-offset-4">
                   {link.label}
                 </Link>
               </li>

@@ -78,13 +78,13 @@ export function LentenPrayerPlanContent() {
       <section className="card-parchment p-6 sm:p-8">
         <h2 className="font-display text-4xl font-semibold text-navy">Related links</h2>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link href="/pray" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/pray" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Prayer
           </Link>
-          <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Confession Guide
           </Link>
-          <Link href="/prayers/seven-penitential-psalms" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link prefetch={false} href="/prayers/seven-penitential-psalms" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Seven Penitential Psalms
           </Link>
         </div>

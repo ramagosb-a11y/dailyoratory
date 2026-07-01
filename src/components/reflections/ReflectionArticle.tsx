@@ -39,7 +39,7 @@ export function ReflectionArticle({
                 </li>
               ))}
             </ul>
-            <Link
+            <Link prefetch={false}
               href={reflection.externalReadingsUrl}
               target="_blank"
               rel="noreferrer"

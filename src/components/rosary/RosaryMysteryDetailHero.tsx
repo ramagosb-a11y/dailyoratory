@@ -46,10 +46,10 @@ export function RosaryMysteryDetailHero({
             </div>
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <Link href="#seven-senses-meditation" className="btn btn-gold focus-ring justify-center">
+            <Link prefetch={false} href="#seven-senses-meditation" className="btn btn-gold focus-ring justify-center">
               Begin the Meditation
             </Link>
-            <Link href="#pray-this-decade" className="btn btn-gold focus-ring justify-center">
+            <Link prefetch={false} href="#pray-this-decade" className="btn btn-gold focus-ring justify-center">
               Pray This Decade
             </Link>
             <TrackedLink
@@ -60,7 +60,7 @@ export function RosaryMysteryDetailHero({
             >
               Open Rosary Prayer Room
             </TrackedLink>
-            <Link href={`/devotions/holy-rosary/${group.slug}`} className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href={`/devotions/holy-rosary/${group.slug}`} className="btn btn-secondary focus-ring justify-center">
               Back to {group.shortTitle} Mysteries
             </Link>
           </div>

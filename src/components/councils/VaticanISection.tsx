@@ -19,9 +19,9 @@ export function VaticanISection() {
         </p>
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
-        <Link href="/tradition" className="btn btn-secondary focus-ring justify-center">Tradition</Link>
-        <Link href="/pope" className="btn btn-secondary focus-ring justify-center">The Pope</Link>
+        <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
+        <Link prefetch={false} href="/tradition" className="btn btn-secondary focus-ring justify-center">Tradition</Link>
+        <Link prefetch={false} href="/pope" className="btn btn-secondary focus-ring justify-center">The Pope</Link>
       </div>
     </section>
   );

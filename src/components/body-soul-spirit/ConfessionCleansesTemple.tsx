@@ -21,10 +21,10 @@ export function ConfessionCleansesTemple() {
         ))}
       </div>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <Link href="/confession" className="btn btn-primary focus-ring justify-center">
+        <Link prefetch={false} href="/confession" className="btn btn-primary focus-ring justify-center">
           Go to the Confession Guide
         </Link>
-        <Link href="/confession/examination" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/confession/examination" className="btn btn-secondary focus-ring justify-center">
           Examination of Conscience
         </Link>
       </div>

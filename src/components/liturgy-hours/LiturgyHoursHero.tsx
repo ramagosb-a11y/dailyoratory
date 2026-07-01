@@ -28,7 +28,7 @@ export function LiturgyHoursHero() {
         >
           Pray Today&apos;s Office
         </a>
-        <Link href="#how-to-begin" className="btn btn-outline-inverse focus-ring justify-center">
+        <Link prefetch={false} href="#how-to-begin" className="btn btn-outline-inverse focus-ring justify-center">
           Learn How It Works
         </Link>
         <a

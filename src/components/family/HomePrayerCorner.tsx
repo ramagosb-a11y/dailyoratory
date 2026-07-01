@@ -27,13 +27,13 @@ export function HomePrayerCorner() {
             image in one visible corner can gently remind the household that prayer belongs in ordinary life.
           </p>
           <div className="mt-6 flex flex-col gap-3">
-            <Link href="/pray" className="btn liturgical-button focus-ring justify-center">
+            <Link prefetch={false} href="/pray" className="btn liturgical-button focus-ring justify-center">
               Open Prayer Resources
             </Link>
-            <Link href="/rosary" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/rosary" className="btn btn-secondary focus-ring justify-center">
               Pray the Rosary
             </Link>
-            <Link href="/liturgical-living/seasons" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="/liturgical-living/seasons" className="btn btn-secondary focus-ring justify-center">
               Live the Seasons at Home
             </Link>
           </div>

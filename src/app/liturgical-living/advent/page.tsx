@@ -45,7 +45,7 @@ export default function AdventPage() {
               panic or speculation.
             </p>
             <div className="mt-6">
-              <Link
+              <Link prefetch={false}
                 href="/formation/eschatology/second-coming"
                 className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center"
               >

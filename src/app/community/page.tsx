@@ -49,10 +49,10 @@ export default function CommunityPage() {
               events, and discussion guides for formation teams.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/prayer-intentions" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/prayer-intentions" className="btn btn-primary focus-ring">
                 Prayer intentions
               </Link>
-              <Link href="/community/events" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/community/events" className="btn btn-secondary focus-ring">
                 View events
               </Link>
             </div>
@@ -70,7 +70,7 @@ export default function CommunityPage() {
       <section className="mx-auto w-full max-w-7xl px-5 pb-14 sm:px-8 lg:px-10">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {communityActions.map((action) => (
-            <Link key={action.href} href={action.href} className="card resource-card focus-ring p-5">
+            <Link prefetch={false} key={action.href} href={action.href} className="card resource-card focus-ring p-5">
               <span className="font-display text-3xl font-semibold text-navy">{action.title}</span>
               <span className="mt-3 block text-sm leading-7 text-muted">{action.description}</span>
             </Link>
@@ -86,7 +86,7 @@ export default function CommunityPage() {
               title="Gather for prayer and formation"
               summary="Upcoming events include live prayer, trusted Catholic webinars, and community gatherings for formation and fellowship."
             />
-            <Link href="/community/events" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/community/events" className="btn btn-secondary focus-ring">
               All events
             </Link>
           </div>
@@ -107,7 +107,7 @@ export default function CommunityPage() {
                 title="Find a place to gather"
                 summary="Use the directory pattern for parish groups, home circles, hybrid Scripture groups, and prayer teams."
               />
-              <Link href="/community/local-faith-groups" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/community/local-faith-groups" className="btn btn-secondary focus-ring">
                 Groups
               </Link>
             </div>
@@ -128,7 +128,7 @@ export default function CommunityPage() {
               title="Formation prompts for peaceful conversation"
               summary="Each topic gives facilitators a prayer, Scripture reference, reflection questions, and gentle boundaries."
             />
-            <Link href="/community/group-discussion-topics" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/community/group-discussion-topics" className="btn btn-secondary focus-ring">
               Discussion topics
             </Link>
           </div>
@@ -149,7 +149,7 @@ export default function CommunityPage() {
               Send questions about events, group listings, prayer support, or community formation workflows.
             </p>
           </div>
-          <Link href="/community/contact" className="btn btn-primary focus-ring">
+          <Link prefetch={false} href="/community/contact" className="btn btn-primary focus-ring">
             Contact Daily Oratory
           </Link>
         </div>

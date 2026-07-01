@@ -11,7 +11,7 @@ export function PathwayStepTimeline({ pathway }: { pathway: SpiritualGrowthPathw
             <div>
               <p className="text-xs font-bold uppercase text-burgundy">{step.timeframe}</p>
               <h3 className="font-display mt-2 text-3xl font-semibold leading-tight text-navy">
-                <Link href={getPathwayStepHref(pathway, step)} className="focus-ring rounded-sm hover:text-burgundy">
+                <Link prefetch={false} href={getPathwayStepHref(pathway, step)} className="focus-ring rounded-sm hover:text-burgundy">
                   {step.title}
                 </Link>
               </h3>

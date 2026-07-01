@@ -51,7 +51,7 @@ export function MassRoadmap({ sections }: { sections: MassSection[] }) {
             <p className="mt-3 text-sm leading-7 text-muted">
               <span className="font-semibold text-navy">Spiritual meaning:</span> {section.description}
             </p>
-            <Link href={anchorMap[section.slug] ?? "#"} className="btn btn-secondary focus-ring mt-5 justify-center">
+            <Link prefetch={false} href={anchorMap[section.slug] ?? "#"} className="btn btn-secondary focus-ring mt-5 justify-center">
               Learn More
             </Link>
           </article>

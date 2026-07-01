@@ -19,9 +19,9 @@ export function CouncilsAndMary() {
         </p>
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/saints" className="btn btn-secondary focus-ring justify-center">Saints</Link>
-        <Link href="/devotions" className="btn btn-secondary focus-ring justify-center">Devotions</Link>
-        <Link href="/rosary" className="btn btn-secondary focus-ring justify-center">Rosary</Link>
+        <Link prefetch={false} href="/saints" className="btn btn-secondary focus-ring justify-center">Saints</Link>
+        <Link prefetch={false} href="/devotions" className="btn btn-secondary focus-ring justify-center">Devotions</Link>
+        <Link prefetch={false} href="/rosary" className="btn btn-secondary focus-ring justify-center">Rosary</Link>
       </div>
     </section>
   );

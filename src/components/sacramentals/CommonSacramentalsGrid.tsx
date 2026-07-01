@@ -28,7 +28,7 @@ export function CommonSacramentalsGrid() {
             ) : null}
             <div className="mt-5 flex flex-wrap gap-2">
               {item.relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="rounded-full border border-stone px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-navy">
+                <Link prefetch={false} key={link.href} href={link.href} className="rounded-full border border-stone px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-navy">
                   {link.label}
                 </Link>
               ))}

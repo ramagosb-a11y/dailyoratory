@@ -48,7 +48,7 @@ export function PatronSaintsDirectory() {
                 .filter(Boolean)
                 .map((saint) => (
                   <li key={saint!.id}>
-                    <Link href={`/saints/${saint!.slug}`} className="font-semibold text-navy underline decoration-gold underline-offset-4">
+                    <Link prefetch={false} href={`/saints/${saint!.slug}`} className="font-semibold text-navy underline decoration-gold underline-offset-4">
                       {saint!.name}
                     </Link>
                   </li>

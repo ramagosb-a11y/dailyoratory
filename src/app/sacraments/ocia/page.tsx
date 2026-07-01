@@ -33,10 +33,10 @@ export default function OciaPage() {
               Christians entering full communion, and Catholics completing initiation.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/sacraments/prepare" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/sacraments/prepare" className="btn btn-primary focus-ring">
                 Open OCIA Companion
               </Link>
-              <Link href="/pathways" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/pathways" className="btn btn-secondary focus-ring">
                 Explore pathways
               </Link>
             </div>

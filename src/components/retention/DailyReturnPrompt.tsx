@@ -28,11 +28,11 @@ export function DailyReturnPrompt({
           <p className="daily-readable mt-4 text-base leading-8 text-muted">{summary}</p>
         </div>
         <div className="flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-          <Link href={primaryHref} className="btn btn-primary focus-ring min-h-12 justify-center whitespace-normal text-center">
+          <Link prefetch={false} href={primaryHref} className="btn btn-primary focus-ring min-h-12 justify-center whitespace-normal text-center">
             {primaryLabel}
           </Link>
           {secondaryHref && secondaryLabel ? (
-            <Link href={secondaryHref} className="btn btn-secondary focus-ring min-h-12 justify-center whitespace-normal text-center">
+            <Link prefetch={false} href={secondaryHref} className="btn btn-secondary focus-ring min-h-12 justify-center whitespace-normal text-center">
               {secondaryLabel}
             </Link>
           ) : null}

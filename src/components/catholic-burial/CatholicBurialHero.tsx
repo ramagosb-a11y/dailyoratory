@@ -17,13 +17,13 @@ export function CatholicBurialHero() {
         the mercy of Christ.
       </p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="/formation/catholic-burial/cremation" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/formation/catholic-burial/cremation" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
           Learn About Cremation
         </Link>
-        <Link href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Plan a Catholic Funeral
         </Link>
-        <Link href="/formation/catholic-burial/prayers-for-the-dead" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/formation/catholic-burial/prayers-for-the-dead" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Pray for the Dead
         </Link>
       </div>

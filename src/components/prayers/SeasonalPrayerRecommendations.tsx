@@ -21,7 +21,7 @@ export function SeasonalPrayerRecommendations() {
             <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{item.summary}</p>
             {item.href ? (
               <div className="mt-5">
-                <Link href={item.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                <Link prefetch={false} href={item.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                   Open guide
                 </Link>
               </div>

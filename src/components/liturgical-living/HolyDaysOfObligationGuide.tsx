@@ -36,10 +36,10 @@ export function HolyDaysOfObligationGuide() {
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="#official-sources" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="#official-sources" className="btn btn-secondary focus-ring justify-center">
           Check Your Diocese
         </Link>
-        <Link href="/today" className="text-link focus-ring inline-flex text-sm">
+        <Link prefetch={false} href="/today" className="text-link focus-ring inline-flex text-sm">
           Open Today in the Church
         </Link>
       </div>

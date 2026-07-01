@@ -19,7 +19,7 @@ export function RulePrintView() {
       <div className="dashboard-card p-6 text-center">
         <p className="text-xs font-bold uppercase text-burgundy">Nothing to print yet</p>
         <h1 className="font-display mt-2 text-4xl font-semibold text-navy">Create your rule first.</h1>
-        <Link href="/rule-of-life/builder" className="btn btn-primary focus-ring mt-6">
+        <Link prefetch={false} href="/rule-of-life/builder" className="btn btn-primary focus-ring mt-6">
           Open builder
         </Link>
       </div>
@@ -39,7 +39,7 @@ export function RulePrintView() {
         <button type="button" onClick={() => copyText(exportRuleAsText(rule))} className="btn btn-secondary focus-ring">
           Copy text
         </button>
-        <Link href="/rule-of-life/my-rule" className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href="/rule-of-life/my-rule" className="btn btn-secondary focus-ring">
           Back to my rule
         </Link>
       </div>

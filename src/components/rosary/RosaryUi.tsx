@@ -70,7 +70,7 @@ export function RosaryLinkPills({ links }: { links: RosaryLink[] }) {
   return (
     <div className="flex flex-wrap gap-2">
       {links.map((link) => (
-        <Link
+        <Link prefetch={false}
           key={`${link.href}-${link.label}`}
           href={link.href}
           className="rounded-full border border-stone bg-ivory px-4 py-3 text-base font-semibold text-navy transition hover:border-gold hover:text-navy md:px-3 md:py-2 md:text-sm"

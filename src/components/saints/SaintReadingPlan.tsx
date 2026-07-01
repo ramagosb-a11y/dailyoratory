@@ -32,7 +32,7 @@ export function SaintReadingPlanSection() {
                     </h4>
                     <p className="mt-2 text-sm leading-7 text-muted">{item.prompt}</p>
                     {saint ? (
-                      <Link href={`/saints/${saint.slug}`} className="mt-3 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+                      <Link prefetch={false} href={`/saints/${saint.slug}`} className="mt-3 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
                         Learn more
                       </Link>
                     ) : null}

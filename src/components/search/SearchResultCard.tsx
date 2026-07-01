@@ -11,7 +11,7 @@ export function SearchResultCard({ item, query }: { item: SearchItem; query: str
         <span className="season-pill liturgical-chip">{formatTypeLabel(item.type)}</span>
       </div>
       <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">
-        <Link href={item.href} className="focus-ring rounded-sm">
+        <Link prefetch={false} href={item.href} className="focus-ring rounded-sm">
           <span className="absolute inset-0" aria-hidden="true" />
           {item.title}
         </Link>

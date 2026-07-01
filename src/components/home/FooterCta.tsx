@@ -23,10 +23,10 @@ export function FooterCta() {
           </p>
         </div>
         <div className="flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row lg:w-auto">
-          <Link href="/daily-examen" className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.primaryButtonClassName}`}>
+          <Link prefetch={false} href="/daily-examen" className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.primaryButtonClassName}`}>
             End in Prayer
           </Link>
-          <Link href="/library" className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.secondaryButtonClassName}`}>
+          <Link prefetch={false} href="/library" className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.secondaryButtonClassName}`}>
             Explore the Library
           </Link>
         </div>

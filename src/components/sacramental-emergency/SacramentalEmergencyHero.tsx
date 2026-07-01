@@ -23,7 +23,7 @@ export function SacramentalEmergencyHero() {
             <a href="#someone-is-dying" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">Someone Is Dying</a>
             <a href="#need-a-priest" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">Need a Priest</a>
             <a href="#pray-now" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">Pray Now</a>
-            <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">Confession Guide</Link>
+            <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">Confession Guide</Link>
           </div>
         </div>
       </div>

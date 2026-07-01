@@ -33,7 +33,7 @@ export default function PrayerIntentionsPage() {
               Submit a prayer request for review, pray for approved public intentions, and keep private details protected.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/prayer-intentions/submit" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/prayer-intentions/submit" className="btn btn-primary focus-ring">
                 Submit intention
               </Link>
             </div>
@@ -73,7 +73,7 @@ export default function PrayerIntentionsPage() {
               A production version should route submissions to a trusted moderation workflow, remove identifying
               details, and keep prayer team only intentions out of the public build.
             </p>
-            <Link href="/prayer-intentions/guidelines" className="text-link focus-ring mt-5 inline-flex">
+            <Link prefetch={false} href="/prayer-intentions/guidelines" className="text-link focus-ring mt-5 inline-flex">
               Read guidelines
             </Link>
           </div>

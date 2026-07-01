@@ -58,7 +58,7 @@ export function SaintCategoryGrid() {
       <h2 className="font-display mt-2 text-4xl font-semibold text-navy sm:text-5xl">Browse Saints by Category</h2>
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {categories.map(([title, href]) => (
-          <Link key={title} href={href} className="card-parchment liturgical-card-accent block p-5 transition hover:-translate-y-0.5">
+          <Link prefetch={false} key={title} href={href} className="card-parchment liturgical-card-accent block p-5 transition hover:-translate-y-0.5">
             <h3 className="font-display text-2xl font-semibold text-navy">{title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">Browse saints connected to this path of holiness.</p>
           </Link>
@@ -98,7 +98,7 @@ export function SaintsByVirtue() {
             <p className="mt-4 rounded-md border border-stone bg-ivory px-4 py-3 text-sm leading-7 text-muted">
               <span className="font-semibold text-navy">Practice for the week:</span> {practice}
             </p>
-            <Link href="/virtue-tracker" className="mt-5 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+            <Link prefetch={false} href="/virtue-tracker" className="mt-5 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
               Open Virtue Tracker
             </Link>
           </article>

@@ -26,7 +26,7 @@ export function FormationHero() {
         <a href="#doctrine" className="btn btn-outline-inverse focus-ring justify-center">
           Explore Doctrine
         </a>
-        <Link href="/rule-of-life" className="btn btn-outline-inverse focus-ring justify-center">
+        <Link prefetch={false} href="/rule-of-life" className="btn btn-outline-inverse focus-ring justify-center">
           Build a Rule of Life
         </Link>
       </div>

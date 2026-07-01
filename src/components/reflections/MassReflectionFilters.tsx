@@ -105,7 +105,7 @@ export function MassReflectionFilters({
           Filter reflections
         </button>
         {hasFilters ? (
-          <Link href={action} className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href={action} className="btn btn-secondary focus-ring">
             Clear filters
           </Link>
         ) : null}
@@ -156,7 +156,7 @@ function FilterSelect({
 
 function FilterPill({ label, href }: { label: string; href: string }) {
   return (
-    <Link href={href} className="season-pill focus-ring bg-ivory px-3 py-2 hover:border-gold hover:text-navy">
+    <Link prefetch={false} href={href} className="season-pill focus-ring bg-ivory px-3 py-2 hover:border-gold hover:text-navy">
       {label}
       <span className="sr-only"> remove filter</span>
     </Link>

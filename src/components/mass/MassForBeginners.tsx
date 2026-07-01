@@ -31,9 +31,9 @@ export function MassForBeginners() {
         <article className="card-parchment p-6">
           <h3 className="font-display text-3xl font-semibold text-navy">Helpful next pages</h3>
           <div className="mt-4 flex flex-wrap gap-3">
-            <Link href="/sacraments/ocia" className="btn btn-secondary focus-ring justify-center">OCIA</Link>
-            <Link href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
-            <Link href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
+            <Link prefetch={false} href="/sacraments/ocia" className="btn btn-secondary focus-ring justify-center">OCIA</Link>
+            <Link prefetch={false} href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
+            <Link prefetch={false} href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
           </div>
         </article>
       </div>

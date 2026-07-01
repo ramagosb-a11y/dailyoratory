@@ -29,10 +29,10 @@ export function MySacramentPreparationView() {
             Choose a sacrament companion and Daily Oratory will remember visible checklist progress on this device only.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="/sacraments/prepare" className="btn btn-primary focus-ring">
+            <Link prefetch={false} href="/sacraments/prepare" className="btn btn-primary focus-ring">
               Start preparation
             </Link>
-            <Link href="/sacraments/companion" className="btn btn-secondary focus-ring">
+            <Link prefetch={false} href="/sacraments/companion" className="btn btn-secondary focus-ring">
               Browse companions
             </Link>
           </div>
@@ -64,7 +64,7 @@ export function MySacramentPreparationView() {
                 <div>
                   <p className="text-xs font-bold uppercase text-burgundy">{companion.sacrament}</p>
                   <h2 className="font-display mt-2 text-4xl font-semibold leading-tight text-navy">
-                    <Link href={companion.route} className="focus-ring rounded-sm hover:text-burgundy">
+                    <Link prefetch={false} href={companion.route} className="focus-ring rounded-sm hover:text-burgundy">
                       {companion.title}
                     </Link>
                   </h2>
@@ -76,10 +76,10 @@ export function MySacramentPreparationView() {
               </div>
               <p className="mt-4 text-sm leading-7 text-muted">{companion.description}</p>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                <Link href={companion.route} className="btn btn-primary focus-ring">
+                <Link prefetch={false} href={companion.route} className="btn btn-primary focus-ring">
                   Continue
                 </Link>
-                <Link href="/sacraments/print" className="btn btn-secondary focus-ring">
+                <Link prefetch={false} href="/sacraments/print" className="btn btn-secondary focus-ring">
                   Print/export
                 </Link>
                 <button type="button" onClick={() => resetSacramentPreparation(companion.slug)} className="btn btn-secondary focus-ring">

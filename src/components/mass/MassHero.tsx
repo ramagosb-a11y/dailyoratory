@@ -57,7 +57,7 @@ export function MassHero() {
                 A reverent guide to the altar, the Word, the Eucharistic sacrifice, and the sacred
                 mission flowing from the dismissal.
               </p>
-              <Link
+              <Link prefetch={false}
                 href="/sacraments/eucharist"
                 className="btn btn-secondary focus-ring mt-5 inline-flex justify-center"
               >

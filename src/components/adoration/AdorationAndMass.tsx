@@ -21,10 +21,10 @@ export function AdorationAndMass() {
         ))}
       </div>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="/mass" className="btn liturgical-button focus-ring justify-center">The Holy Mass</Link>
-        <Link href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
-        <Link href="/confession" className="btn btn-secondary focus-ring justify-center">Confession Guide</Link>
-        <Link href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
+        <Link prefetch={false} href="/mass" className="btn liturgical-button focus-ring justify-center">The Holy Mass</Link>
+        <Link prefetch={false} href="/sacraments/eucharist" className="btn btn-secondary focus-ring justify-center">Eucharist</Link>
+        <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring justify-center">Confession Guide</Link>
+        <Link prefetch={false} href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>
       </div>
     </section>
   );

@@ -15,16 +15,16 @@ export function CatechismAndPrayer() {
           especially if you are new to Catholic prayer or returning after time away.
         </p>
         <div className="mt-5 flex flex-wrap gap-2">
-          <Link href="/pray" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/pray" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Pray
           </Link>
-          <Link href="/liturgy-of-the-hours" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/liturgy-of-the-hours" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Liturgy of the Hours
           </Link>
-          <Link href="/rosary" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/rosary" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Rosary
           </Link>
-          <Link href="/devotions" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+          <Link prefetch={false} href="/devotions" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
             Devotions
           </Link>
         </div>

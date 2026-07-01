@@ -23,7 +23,7 @@ export function HomeHeavenboundSpotlight() {
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link
+            <Link prefetch={false}
               href="/tools/heavenbound"
               className={`focus-ring inline-flex min-h-12 items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.primaryButtonClassName}`}
             >

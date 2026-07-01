@@ -15,7 +15,7 @@ export function PrayingForTheDead() {
           { label: "Indulgences", href: "/indulgences" },
           { label: "Seven Penitential Psalms", href: "/prayers/seven-penitential-psalms" },
         ].map((link) => (
-          <Link key={link.href} href={link.href} className="dashboard-card p-4 text-sm font-semibold text-navy transition hover:border-gold">
+          <Link prefetch={false} key={link.href} href={link.href} className="dashboard-card p-4 text-sm font-semibold text-navy transition hover:border-gold">
             {link.label}
           </Link>
         ))}

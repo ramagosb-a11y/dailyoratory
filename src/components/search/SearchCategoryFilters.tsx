@@ -87,7 +87,7 @@ function FilterChip({
   children: ReactNode;
 }) {
   return (
-    <Link
+    <Link prefetch={false}
       href={href}
       aria-current={active ? "page" : undefined}
       className={`focus-ring season-pill liturgical-chip transition ${

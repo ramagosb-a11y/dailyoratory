@@ -15,7 +15,7 @@ export function SeasonOAntiphonsCallout({
       <h2 className="font-display mt-3 text-4xl font-semibold text-navy">{title}</h2>
       <p className="daily-readable-muted mt-4 max-w-3xl text-base leading-8 text-muted">{description}</p>
       <div className="mt-6">
-        <Link href="/liturgical-living/advent/o-antiphons" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/liturgical-living/advent/o-antiphons" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
           {buttonLabel}
         </Link>
       </div>

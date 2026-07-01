@@ -27,10 +27,10 @@ export function SeasonQuickCards() {
               <QuickList title="Major days" items={card.majorDays} />
             </div>
             <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href={`#${card.anchorId}`} className="btn btn-secondary focus-ring justify-center">
+              <Link prefetch={false} href={`#${card.anchorId}`} className="btn btn-secondary focus-ring justify-center">
                 Learn more
               </Link>
-              <Link href={card.dailyOratoryLink.href} className="text-link focus-ring inline-flex text-sm">
+              <Link prefetch={false} href={card.dailyOratoryLink.href} className="text-link focus-ring inline-flex text-sm">
                 {card.dailyOratoryLink.label}
               </Link>
             </div>

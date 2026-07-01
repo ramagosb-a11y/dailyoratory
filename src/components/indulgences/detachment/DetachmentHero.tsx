@@ -17,13 +17,13 @@ export function DetachmentHero() {
         and desires to belong fully to Christ.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="#prayer-for-detachment" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="#prayer-for-detachment" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
           Pray for Detachment
         </Link>
-        <Link href="#indulgence-preparation" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="#indulgence-preparation" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Before Seeking an Indulgence
         </Link>
-        <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Go to Confession Guide
         </Link>
       </div>

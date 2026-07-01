@@ -210,14 +210,14 @@ export default function CatholicAnswersPage() {
               <h2 className="font-display mt-3 text-3xl font-semibold text-navy">{item.question}</h2>
               <p className="daily-card-readable mt-4 text-base leading-8 text-muted">{item.shortAnswer}</p>
               <div className="mt-6">
-                <Link href={item.learnMoreHref} className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+                <Link prefetch={false} href={item.learnMoreHref} className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                   {item.learnMoreLabel}
                 </Link>
               </div>
               {item.relatedLinks.length ? (
                 <div className="mt-5 flex flex-wrap gap-3">
                   {item.relatedLinks.map((link) => (
-                    <Link
+                    <Link prefetch={false}
                       key={`${item.id}-${link.href}`}
                       href={link.href}
                       className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
@@ -244,7 +244,7 @@ export default function CatholicAnswersPage() {
               { label: "Prayer Library", href: "/prayers" },
               { label: "Confession Guide", href: "/confession" },
             ].map((link) => (
-              <Link
+              <Link prefetch={false}
                 key={link.href}
                 href={link.href}
                 className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

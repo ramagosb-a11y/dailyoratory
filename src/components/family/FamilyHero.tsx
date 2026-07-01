@@ -16,13 +16,13 @@ export function FamilyHero() {
         growing, or beginning again, the Holy Spirit can help your family become a place of grace.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="#family-rule-of-life" className="btn liturgical-button focus-ring justify-center">
+        <Link prefetch={false} href="#family-rule-of-life" className="btn liturgical-button focus-ring justify-center">
           Build a Family Rule of Life
         </Link>
-        <Link href="#family-prayer" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="#family-prayer" className="btn btn-secondary focus-ring justify-center">
           Start Family Prayer
         </Link>
-        <Link href="#what-is-domestic-church" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="#what-is-domestic-church" className="btn btn-secondary focus-ring justify-center">
           Learn What the Domestic Church Means
         </Link>
       </div>

@@ -26,9 +26,9 @@ export function CouncilsAndChrist() {
         ))}
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
-        <Link href="/library/scripture-prayer" className="btn btn-secondary focus-ring justify-center">Scripture Prayer</Link>
-        <Link href="/church-fathers" className="btn btn-secondary focus-ring justify-center">Church Fathers</Link>
+        <Link prefetch={false} href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
+        <Link prefetch={false} href="/library/scripture-prayer" className="btn btn-secondary focus-ring justify-center">Scripture Prayer</Link>
+        <Link prefetch={false} href="/church-fathers" className="btn btn-secondary focus-ring justify-center">Church Fathers</Link>
       </div>
     </section>
   );

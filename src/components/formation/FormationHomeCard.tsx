@@ -14,7 +14,7 @@ export function FormationHomeCard() {
           <p className="text-sm leading-7 text-muted">
             Grow in doctrine, virtue, prayer, Scripture, sacraments, and daily discipleship through guided Catholic formation pathways.
           </p>
-          <Link href="/formation" className="btn btn-primary focus-ring mt-5 w-full justify-center sm:w-auto">
+          <Link prefetch={false} href="/formation" className="btn btn-primary focus-ring mt-5 w-full justify-center sm:w-auto">
             Begin Formation
           </Link>
         </div>

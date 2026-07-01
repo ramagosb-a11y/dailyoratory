@@ -35,7 +35,7 @@ export function SaintOfTheDayHero({
               <p className="mt-5 text-xs font-bold uppercase tracking-[0.16em] text-burgundy">{entry.name}</p>
               <p className="mt-2 max-w-3xl text-sm leading-8 text-muted">{entry.shortDescription}</p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                <Link href="#todays-saint" className="btn liturgical-button focus-ring justify-center">
+                <Link prefetch={false} href="#todays-saint" className="btn liturgical-button focus-ring justify-center">
                   Read Daily Oratory Reflection
                 </Link>
                 <SaintDayExternalLink

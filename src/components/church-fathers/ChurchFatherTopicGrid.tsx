@@ -31,7 +31,7 @@ export function ChurchFatherTopicGrid({ topics }: { topics: ChurchFatherTopic[] 
                 <p className="text-xs font-bold uppercase text-burgundy">Related Daily Oratory links</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {topic.relatedDailyOratoryLinks.map((link) => (
-                    <Link key={`${topic.id}-${link.href}`} href={link.href} className="focus-ring season-pill">
+                    <Link prefetch={false} key={`${topic.id}-${link.href}`} href={link.href} className="focus-ring season-pill">
                       {link.label}
                     </Link>
                   ))}

@@ -97,7 +97,7 @@ export default function CatholicCremationPage() {
               <li>What timelines should the family follow so burial and liturgy can be arranged well?</li>
             </ul>
             <div className="mt-6">
-              <Link href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Plan a Catholic Funeral
               </Link>
             </div>

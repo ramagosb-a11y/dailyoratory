@@ -48,14 +48,14 @@ export function SacramentalJourneySelector() {
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Recommended next steps</p>
             <div className="mt-3 flex flex-wrap gap-2">
               {needRecommendation.suggestedSacramentIds.map((id) => (
-                <Link key={id} href={`/sacraments/${id === "matrimony" ? "matrimony" : id}`} className="season-pill bg-ivory px-3 py-2 text-navy">
+                <Link prefetch={false} key={id} href={`/sacraments/${id === "matrimony" ? "matrimony" : id}`} className="season-pill bg-ivory px-3 py-2 text-navy">
                   {labelize(id)}
                 </Link>
               ))}
             </div>
             <div className="mt-4 flex flex-wrap gap-3">
               {needRecommendation.relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
+                <Link prefetch={false} key={link.href} href={link.href} className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
                   {link.label}
                 </Link>
               ))}
@@ -117,14 +117,14 @@ export function SacramentalJourneySelector() {
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Suggested next pages</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {journey.sacraments.map((sacrament) => (
-              <Link key={sacrament.id} href={`/sacraments/${sacrament.slug}`} className="season-pill bg-ivory px-3 py-2 text-navy">
+              <Link prefetch={false} key={sacrament.id} href={`/sacraments/${sacrament.slug}`} className="season-pill bg-ivory px-3 py-2 text-navy">
                 {sacrament.name}
               </Link>
             ))}
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
             {journey.links.map((link) => (
-              <Link key={link.href} href={link.href} className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
+              <Link prefetch={false} key={link.href} href={link.href} className="text-sm font-semibold text-navy underline-offset-4 hover:underline">
                 {link.label}
               </Link>
             ))}

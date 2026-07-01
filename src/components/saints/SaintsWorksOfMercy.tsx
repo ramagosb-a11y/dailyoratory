@@ -22,7 +22,7 @@ export function SaintsWorksOfMercy() {
           </article>
         ))}
       </div>
-      <Link href="/pathways/works-of-mercy-and-service" className="mt-6 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
+      <Link prefetch={false} href="/pathways/works-of-mercy-and-service" className="mt-6 inline-flex text-sm font-semibold text-navy underline decoration-gold underline-offset-4">
         Works of Mercy and Service
       </Link>
     </section>

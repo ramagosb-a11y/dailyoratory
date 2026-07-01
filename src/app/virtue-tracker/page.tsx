@@ -28,16 +28,16 @@ export default function VirtueTrackerPage() {
               Reflect privately on theological virtues, cardinal virtues, capital vices, and the contrary virtues that help the heart return to Christ.
             </p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link href="/virtue-tracker/check-in" className="btn btn-primary focus-ring">
+              <Link prefetch={false} href="/virtue-tracker/check-in" className="btn btn-primary focus-ring">
                 Start check-in
               </Link>
-              <Link href="/virtue-tracker/virtues" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/virtue-tracker/virtues" className="btn btn-secondary focus-ring">
                 View virtues
               </Link>
-              <Link href="/body-soul-spirit" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/body-soul-spirit" className="btn btn-secondary focus-ring">
                 Interior temple
               </Link>
-              <Link href="/daily-examen" className="btn btn-secondary focus-ring">
+              <Link prefetch={false} href="/daily-examen" className="btn btn-secondary focus-ring">
                 Daily Examen
               </Link>
             </div>

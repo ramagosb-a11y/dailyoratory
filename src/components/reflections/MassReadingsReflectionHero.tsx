@@ -18,10 +18,10 @@ export function MassReadingsReflectionHero({
           republishing copyrighted lectionary texts.
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <Link href={primaryHref} className="btn btn-primary focus-ring">
+          <Link prefetch={false} href={primaryHref} className="btn btn-primary focus-ring">
             Read Today's Reflection
           </Link>
-          <Link href="/reflections/mass-readings/calendar" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/reflections/mass-readings/calendar" className="btn btn-secondary focus-ring">
             Browse Calendar
           </Link>
         </div>

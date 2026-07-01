@@ -16,7 +16,7 @@ export function PrayerIntentionCard({ intention }: { intention: PrayerIntentionR
         <span className="text-xs font-semibold text-muted">{formatIntentionDate(intention.approvedAt ?? intention.updatedAt)}</span>
       </div>
       <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">
-        <Link href={`/prayer-intentions/${intention.slug}`} className="focus-ring rounded-sm hover:text-burgundy">
+        <Link prefetch={false} href={`/prayer-intentions/${intention.slug}`} className="focus-ring rounded-sm hover:text-burgundy">
           {intention.title}
         </Link>
       </h2>

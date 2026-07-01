@@ -19,10 +19,10 @@ export function LiturgicalLivingAtHome() {
         ))}
       </div>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Link href="/liturgical-living/seasons" className="btn liturgical-button focus-ring justify-center">
+        <Link prefetch={false} href="/liturgical-living/seasons" className="btn liturgical-button focus-ring justify-center">
           Explore Liturgical Seasons
         </Link>
-        <Link href="/liturgical-living/family" className="btn btn-secondary focus-ring justify-center">
+        <Link prefetch={false} href="/liturgical-living/family" className="btn btn-secondary focus-ring justify-center">
           Family Liturgical Living
         </Link>
       </div>

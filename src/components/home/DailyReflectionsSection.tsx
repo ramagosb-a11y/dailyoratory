@@ -17,7 +17,7 @@ export async function DailyReflectionsSection() {
             Catholic reflection, prayer, and practical application for the daily and Sunday liturgy.
           </p>
         </div>
-        <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring w-fit">
+        <Link prefetch={false} href="/reflections/mass-readings" className="btn btn-secondary focus-ring w-fit">
           Read today&apos;s reflection
         </Link>
       </div>

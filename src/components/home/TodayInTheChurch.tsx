@@ -65,7 +65,7 @@ export async function TodayInTheChurch() {
           <article className={`rounded-md border p-4 ${theme.cardClassName}`}>
             <p className={`text-xs font-bold uppercase ${theme.cardEyebrowClassName}`}>Liturgical Year &amp; Calendar</p>
             <h3 className={`font-display mt-2 text-3xl font-semibold ${theme.cardHeadingClassName}`}>
-              <Link href={currentSeasonHref} className={`focus-ring rounded-sm ${theme.cardLinkClassName}`}>
+              <Link prefetch={false} href={currentSeasonHref} className={`focus-ring rounded-sm ${theme.cardLinkClassName}`}>
                 Liturgical Year &amp; Calendar
               </Link>
             </h3>
@@ -83,14 +83,14 @@ export async function TodayInTheChurch() {
           <article className={`rounded-md border p-4 sm:col-span-2 ${theme.cardClassName}`}>
             <p className={`text-xs font-bold uppercase ${theme.cardEyebrowClassName}`}>Suggested prayer</p>
             <h3 className={`font-display mt-2 text-3xl font-semibold ${theme.cardHeadingClassName}`}>
-              <Link href="/pray/today" className={`focus-ring rounded-sm ${theme.cardLinkClassName}`}>
+              <Link prefetch={false} href="/pray/today" className={`focus-ring rounded-sm ${theme.cardLinkClassName}`}>
                 {today.suggestedPrayer?.title ?? "Begin in prayer"}
               </Link>
             </h3>
             <p className={`mt-2 text-sm leading-6 ${theme.cardCopyClassName}`}>
               {today.suggestedPrayer?.description ?? "Offer the day to the Lord and ask for grace to live faithfully."}
             </p>
-            <Link href="/pray/today" className={`focus-ring mt-4 inline-flex text-sm font-semibold ${theme.cardLinkClassName}`}>
+            <Link prefetch={false} href="/pray/today" className={`focus-ring mt-4 inline-flex text-sm font-semibold ${theme.cardLinkClassName}`}>
               Open today's prayer
             </Link>
           </article>

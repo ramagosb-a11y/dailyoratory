@@ -18,10 +18,10 @@ export function ChurchFathersHero() {
         and life in Christ.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-        <Link href="#apostolic-fathers" className="btn btn-gold focus-ring justify-center">
+        <Link prefetch={false} href="#apostolic-fathers" className="btn btn-gold focus-ring justify-center">
           Start with the Apostolic Fathers
         </Link>
-        <Link href="#topics" className="btn btn-outline-inverse focus-ring justify-center">
+        <Link prefetch={false} href="#topics" className="btn btn-outline-inverse focus-ring justify-center">
           Browse by Topic
         </Link>
       </div>

@@ -10,7 +10,7 @@ export function CatholicBurialRelatedLinks() {
       <h2 className="font-display text-4xl font-semibold text-navy">Related Daily Oratory Links</h2>
       <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {catholicBurialRelatedLinks.map((link) => (
-          <Link
+          <Link prefetch={false}
             key={link.id}
             href={link.href}
             onClick={() => trackEvent("eschatology_related_link_click", { href: link.href, section: "catholic-burial" })}

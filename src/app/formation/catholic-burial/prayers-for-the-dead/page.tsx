@@ -54,13 +54,13 @@ export default function PrayersForTheDeadPage() {
               One of the most meaningful things Catholics can do for the deceased is request Masses for their soul. Contact the parish office, ask about Mass intentions, and continue to remember the person in prayer beyond the funeral itself.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Link href="/mass-intentions" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/mass-intentions" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
                 Mass Intentions for the Dead
               </Link>
-              <Link href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/formation/catholic-burial/planning-a-catholic-funeral" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Plan a Catholic Funeral
               </Link>
-              <Link href="/indulgences" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+              <Link prefetch={false} href="/indulgences" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
                 Learn About Indulgences
               </Link>
             </div>

@@ -29,10 +29,10 @@ export function DailyExamenHero() {
             >
               Start the Examen
             </TrackedLink>
-            <Link href="#quick-examen" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="#quick-examen" className="btn btn-secondary focus-ring justify-center">
               5-Minute Version
             </Link>
-            <Link href="#journal-prompts" className="btn btn-secondary focus-ring justify-center">
+            <Link prefetch={false} href="#journal-prompts" className="btn btn-secondary focus-ring justify-center">
               Journal Prompts
             </Link>
           </div>

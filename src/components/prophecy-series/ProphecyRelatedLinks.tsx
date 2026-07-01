@@ -12,7 +12,7 @@ export function ProphecyRelatedLinks() {
       />
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {prophecySeriesRelatedLinks.map((link) => (
-          <Link key={link.id} href={link.href} className="card-parchment block h-full p-5 transition hover:border-gold">
+          <Link prefetch={false} key={link.id} href={link.href} className="card-parchment block h-full p-5 transition hover:border-gold">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Daily Oratory</p>
             <h3 className="font-display mt-3 text-2xl font-semibold text-navy">{link.title}</h3>
             <p className="daily-card-readable mt-4 text-[#4b443a]">{link.description}</p>

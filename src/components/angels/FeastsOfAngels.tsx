@@ -20,7 +20,7 @@ export function FeastsOfAngels() {
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {feast.relatedLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="season-pill focus-ring hover:border-gold hover:text-navy">
+                <Link prefetch={false} key={link.href} href={link.href} className="season-pill focus-ring hover:border-gold hover:text-navy">
                   {link.label}
                 </Link>
               ))}

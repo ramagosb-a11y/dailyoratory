@@ -20,7 +20,7 @@ export function MyRuleView() {
         <p className="mx-auto mt-3 max-w-xl text-sm leading-7 text-muted">
           Start small. The builder will save your rule on this device using localStorage.
         </p>
-        <Link href="/rule-of-life/builder" className="btn btn-primary focus-ring mt-6">
+        <Link prefetch={false} href="/rule-of-life/builder" className="btn btn-primary focus-ring mt-6">
           Open builder
         </Link>
       </div>
@@ -47,10 +47,10 @@ export function MyRuleView() {
       <aside className="dashboard-card p-5 lg:sticky lg:top-24">
         <p className="text-xs font-bold uppercase text-burgundy">Local actions</p>
         <div className="mt-4 grid gap-3">
-          <Link href="/rule-of-life/builder" className="btn btn-primary focus-ring">
+          <Link prefetch={false} href="/rule-of-life/builder" className="btn btn-primary focus-ring">
             Edit in builder
           </Link>
-          <Link href="/rule-of-life/print" className="btn btn-secondary focus-ring">
+          <Link prefetch={false} href="/rule-of-life/print" className="btn btn-secondary focus-ring">
             Print view
           </Link>
           <button type="button" onClick={() => download("daily-oratory-rule.txt", exportRuleAsText(rule), "text/plain")} className="btn btn-secondary focus-ring">

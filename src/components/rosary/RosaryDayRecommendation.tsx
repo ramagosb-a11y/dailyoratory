@@ -35,7 +35,7 @@ export function RosaryDayRecommendation() {
       <p className="mt-3 rounded-md border border-stone bg-parchment p-3 text-sm font-semibold leading-6 text-navy">
         {recommended.theme}
       </p>
-      <Link href={`/rosary/${recommended.slug}`} className="btn btn-primary focus-ring mt-5">
+      <Link prefetch={false} href={`/rosary/${recommended.slug}`} className="btn btn-primary focus-ring mt-5">
         Pray today&apos;s mysteries
       </Link>
     </div>

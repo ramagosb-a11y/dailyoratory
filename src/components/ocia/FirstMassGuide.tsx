@@ -27,10 +27,10 @@ export function FirstMassGuide() {
         ))}
       </div>
       <div className="mt-5 flex flex-wrap gap-2">
-        <Link href="/mass" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+        <Link prefetch={false} href="/mass" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
           The Holy Mass
         </Link>
-        <Link href="/sacraments/eucharist" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
+        <Link prefetch={false} href="/sacraments/eucharist" className="rounded-full border border-stone bg-ivory px-3 py-1 text-xs font-semibold text-navy">
           Eucharist
         </Link>
       </div>

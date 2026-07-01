@@ -17,13 +17,13 @@ export function PenitentialPsalmsHero() {
         forgiveness, and begin again.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <Link href="#seven-day-journey" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="#seven-day-journey" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
           Begin the Seven-Day Journey
         </Link>
-        <Link href="#before-confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="#before-confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Pray Before Confession
         </Link>
-        <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+        <Link prefetch={false} href="/confession" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
           Go to Confession Guide
         </Link>
       </div>

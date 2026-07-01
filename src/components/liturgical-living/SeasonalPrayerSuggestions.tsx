@@ -30,7 +30,7 @@ export function SeasonalPrayerSuggestions() {
                 <li key={item}>• {item}</li>
               ))}
             </ul>
-            <Link href={prayerLinks[group.season]} className="text-link focus-ring mt-4 inline-flex text-sm">
+            <Link prefetch={false} href={prayerLinks[group.season]} className="text-link focus-ring mt-4 inline-flex text-sm">
               Open related prayer help
             </Link>
           </article>

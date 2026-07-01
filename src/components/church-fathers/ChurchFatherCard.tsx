@@ -41,7 +41,7 @@ export function ChurchFatherCard({ father }: { father: ChurchFather }) {
         <p className="text-xs font-bold uppercase text-burgundy">Related Daily Oratory links</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {father.relatedDailyOratoryLinks.map((link) => (
-            <Link key={`${father.id}-${link.href}`} href={link.href} className="focus-ring season-pill">
+            <Link prefetch={false} key={`${father.id}-${link.href}`} href={link.href} className="focus-ring season-pill">
               {link.label}
             </Link>
           ))}

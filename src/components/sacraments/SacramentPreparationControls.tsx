@@ -37,7 +37,7 @@ export function SacramentPreparationControls({ companion }: { companion: Sacrame
         >
           {progress ? "Keep preparing" : "Start preparation"}
         </button>
-        <Link href="/sacraments/my-preparation" className="btn btn-secondary focus-ring">
+        <Link prefetch={false} href="/sacraments/my-preparation" className="btn btn-secondary focus-ring">
           My preparation
         </Link>
         {progress ? (

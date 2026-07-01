@@ -27,10 +27,10 @@ export function CatholicLifeHero() {
             <a href="#roadmap" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Explore the Roadmap
             </a>
-            <Link href="/explore" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/explore" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Explore the Catholic Faith
             </Link>
-            <Link href="/pray" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/pray" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Start Praying
             </Link>
           </div>

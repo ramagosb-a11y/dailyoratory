@@ -25,7 +25,7 @@ export function SelectedPathPanel({ path }: { path: HeavenboundPath }) {
         <p className="text-xs font-bold uppercase tracking-[0.12em] text-burgundy">Related Daily Oratory links</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {path.relatedDailyOratoryLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-link focus-ring text-sm">
+            <Link prefetch={false} key={link.href} href={link.href} className="text-link focus-ring text-sm">
               {link.label}
             </Link>
           ))}
