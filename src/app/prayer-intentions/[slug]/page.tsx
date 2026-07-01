@@ -16,6 +16,8 @@ import {
   getPrayerIntentionBySlug,
 } from "@/lib/prayerIntentions";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getApprovedPrayerIntentions().map((intention) => ({ slug: intention.slug }));
 }

@@ -12,6 +12,8 @@ import {
   getSacramentCompanionBySlug,
 } from "@/lib/sacraments";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPublishedSacramentCompanions().map((companion) => ({ slug: companion.slug }));
 }

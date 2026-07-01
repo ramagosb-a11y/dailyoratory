@@ -20,6 +20,8 @@ import {
 } from "@/lib/media";
 import type { MediaItem } from "@/types/media";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return (await getApprovedMediaItems()).map((item) => ({ slug: item.slug }));
 }

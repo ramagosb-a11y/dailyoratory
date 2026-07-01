@@ -5,7 +5,7 @@ import { DailyPrayerActions } from "@/components/pray/DailyPrayerActions";
 import { createPageMetadata } from "@/lib/metadata";
 import { getDailyPrayerModel } from "@/lib/dailyPrayer";
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Today's Suggested Prayer",

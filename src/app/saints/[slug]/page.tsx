@@ -6,6 +6,8 @@ import { SaintProfileTracker } from "@/components/saints/SaintProfileTracker";
 import { createPageMetadata } from "@/lib/metadata";
 import { getApprovedSaints, getSaintBySlug } from "@/lib/saints";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return getApprovedSaints().map((saint) => ({ slug: saint.slug }));
 }

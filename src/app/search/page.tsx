@@ -11,7 +11,7 @@ export const metadata: Metadata = createPageMetadata({
   path: "/search",
 });
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export default async function SearchPage() {
   const [items, categories] = await Promise.all([getAllSearchItems(), Promise.resolve(getSearchCategories())]);

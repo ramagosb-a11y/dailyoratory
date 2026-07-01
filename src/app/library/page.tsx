@@ -5,7 +5,7 @@ import { SectionHeader } from "@/components/section-header";
 import { createPageMetadata } from "@/lib/metadata";
 import { getLibraryFacetOptions, getLibrarySearchResults } from "@/lib/search";
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Library",

@@ -11,6 +11,8 @@ import {
 } from "@/lib/massReadingsReflections";
 import { createPageMetadata } from "@/lib/metadata";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return (await getPublishedMassReadingsReflectionsData()).map((reflection) => ({ slug: reflection.slug }));
 }

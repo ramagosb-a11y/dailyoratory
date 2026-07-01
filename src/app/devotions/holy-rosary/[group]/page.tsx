@@ -8,6 +8,8 @@ import { RosaryMysteryGroupHero } from "@/components/rosary/RosaryMysteryGroupHe
 import { createPageMetadata } from "@/lib/metadata";
 import { getMysteriesByGroup, getRosaryMysteryGroups } from "@/lib/rosary";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getRosaryMysteryGroups().map((group) => ({ group: group.slug }));
 }

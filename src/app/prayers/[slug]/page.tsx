@@ -7,6 +7,8 @@ import { getPrayerGuidePage, prayerGuidePages } from "@/data/prayerGuidePages";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildArticleStructuredData, buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structuredData";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return prayerGuidePages.map((guide) => ({ slug: guide.slug }));
 }

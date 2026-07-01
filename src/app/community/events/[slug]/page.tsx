@@ -8,6 +8,8 @@ type EventPageProps = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPublishedEvents().map((event) => ({ slug: event.slug }));
 }

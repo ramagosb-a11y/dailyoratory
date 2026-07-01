@@ -4,7 +4,7 @@ import { DailyReturnPrompt } from "@/components/retention/DailyReturnPrompt";
 import { getLiturgicalDashboardModelWithGoogleCalendar } from "@/lib/liturgicalLiving";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Today in the Church",

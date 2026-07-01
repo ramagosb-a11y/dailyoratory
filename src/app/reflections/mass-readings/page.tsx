@@ -25,7 +25,7 @@ import {
 } from "@/lib/massReadingsReflections";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Mass Readings Reflections",

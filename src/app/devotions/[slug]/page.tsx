@@ -12,6 +12,8 @@ import { TrustedDevotionLinks } from "@/components/devotions/TrustedDevotionLink
 import { createPageMetadata } from "@/lib/metadata";
 import { getApprovedDevotions, getDevotionBySlug, getRelatedDevotions, getTrustedLinksForDevotion } from "@/lib/devotions";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getApprovedDevotions().map((devotion: { slug: string }) => ({ slug: devotion.slug }));
 }

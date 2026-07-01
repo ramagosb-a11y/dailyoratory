@@ -30,6 +30,8 @@ import {
 const FALLBACK_OPENING_PRAYER =
   "Lord Jesus, draw me into this mystery of the Rosary. Open my heart to receive the grace You desire to give me, and teach me to contemplate Your life with Mary's faith, humility, and love. Amen.";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getRosaryMysteries().map((mystery) => ({
     group: mystery.groupSlug,

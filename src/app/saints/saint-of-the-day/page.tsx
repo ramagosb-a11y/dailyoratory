@@ -5,7 +5,7 @@ import { SaintOfTheDayPageClient } from "@/components/saints/saint-of-the-day/Sa
 import { createPageMetadata } from "@/lib/metadata";
 import { getApprovedSaintEntries, getTodayDateKey } from "@/lib/saintOfTheDay";
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Saint of the Day",

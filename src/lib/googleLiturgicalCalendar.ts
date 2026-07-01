@@ -2,6 +2,8 @@ import { liturgicalGoogleCalendarIcsUrl } from "@/config/liturgicalCalendar";
 import type { ISODateString, LiturgicalSeasonName } from "@/types/content";
 import type { LiturgicalColor, LiturgicalRank } from "@/types/liturgicalLiving";
 
+const REVALIDATE_SECONDS = 60 * 60 * 24;
+
 export type GoogleLiturgicalCalendarEvent = {
   uid: string;
   title: string;
@@ -24,7 +26,7 @@ export async function getGoogleLiturgicalCalendarEventForDate(date: ISODateStrin
 export async function getGoogleLiturgicalCalendarEvents(): Promise<GoogleLiturgicalCalendarEvent[]> {
   try {
     const response = await fetch(liturgicalGoogleCalendarIcsUrl, {
-      next: { revalidate: 60 * 60 },
+      next: { revalidate: REVALIDATE_SECONDS },
     });
 
     if (!response.ok) return [];

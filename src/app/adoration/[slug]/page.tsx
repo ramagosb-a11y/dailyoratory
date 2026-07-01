@@ -14,6 +14,8 @@ import {
 } from "@/lib/structuredData";
 import type { LiveAdorationStreamRecord } from "@/types/adoration";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPublishedAdorationStreams().map((stream) => ({ slug: stream.slug }));
 }

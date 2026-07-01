@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   ],
 };
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export default async function HomiliesPage() {
   const [allHomilies, featuredHomilies, collections, resources] = await Promise.all([

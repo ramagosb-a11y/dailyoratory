@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FamilyLiturgicalLivingView } from "@/components/liturgical-living/FamilyLiturgicalLivingView";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Family Liturgical Living",

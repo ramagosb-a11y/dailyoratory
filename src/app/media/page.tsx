@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 const relatedLinks = [
   { label: "The Bible", href: "/bible" },

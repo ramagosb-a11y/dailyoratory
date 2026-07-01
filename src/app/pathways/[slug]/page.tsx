@@ -11,6 +11,8 @@ import { getRelatedContent } from "@/lib/content";
 import { createPageMetadata } from "@/lib/metadata";
 import { getPathwayBySlug, getPathwayHref, getPublishedPathways } from "@/lib/pathways";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPublishedPathways().map((pathway) => ({ slug: pathway.slug }));
 }

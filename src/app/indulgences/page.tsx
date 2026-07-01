@@ -32,7 +32,7 @@ import { WhatIsIndulgenceSection } from "@/components/indulgences/WhatIsIndulgen
 import { YearOfSaintFrancisIndulgenceGuide } from "@/components/indulgences/YearOfSaintFrancisIndulgenceGuide";
 import { createPageMetadata } from "@/lib/metadata";
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 const pageMetadata = createPageMetadata({
   title: "Catholic Indulgences Guide",

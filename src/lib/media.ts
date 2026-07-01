@@ -9,7 +9,7 @@ const MEDIA_ITEMS_SHEET = "Media_Items";
 const MEDIA_CATEGORIES_SHEET = "Media_Categories";
 const FEATURED_COLLECTIONS_SHEET = "Featured_Collections";
 const CACHE_TAG = "media-library-google-sheet";
-const REVALIDATE_SECONDS = 60 * 5;
+const REVALIDATE_SECONDS = 60 * 60 * 24;
 
 type SheetRow = Record<string, string>;
 

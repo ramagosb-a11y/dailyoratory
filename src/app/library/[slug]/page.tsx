@@ -6,6 +6,8 @@ import { RelatedContent } from "@/components/content/RelatedContent";
 import { getContentHref, getLibraryContentRecords, getPublishedContentBySlug, getRelatedContent } from "@/lib/content";
 import { createPageMetadata } from "@/lib/metadata";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getLibraryContentRecords().map((record) => ({ slug: record.slug }));
 }

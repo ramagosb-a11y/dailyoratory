@@ -18,6 +18,8 @@ import {
   getPublishedPathways,
 } from "@/lib/pathways";
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return getPublishedPathways().flatMap((pathway) =>
     pathway.modules.map((step) => ({

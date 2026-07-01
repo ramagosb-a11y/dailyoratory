@@ -28,7 +28,7 @@ import { getMediaItemBySlug } from "@/lib/media";
 import { createPageMetadata } from "@/lib/metadata";
 import { getTopPrayers } from "@/lib/prayer";
 
-export const revalidate = 900;
+export const revalidate = 86400;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Catholic Prayer",

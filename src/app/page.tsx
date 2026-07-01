@@ -12,7 +12,7 @@ import { getFeaturedMediaItems, getMediaCategories, getMediaTypeLabel } from "@/
 import { createPageMetadata } from "@/lib/metadata";
 import type { MediaType } from "@/types/media";
 
-export const revalidate = 300;
+export const revalidate = 86400;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Daily Oratory | Catholic Prayer, Scripture, Liturgy, and Formation",
