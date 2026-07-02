@@ -1,5 +1,7 @@
+"use client";
+
 import { TrackedLink } from "@/components/analytics/TrackedLink";
-import { getSaintForDate } from "@/lib/saintOfTheDay";
+import type { SaintOfTheDayEntry } from "@/types/saintOfTheDay";
 
 type TodaySaintCompanionCardProps = {
   cardClassName: string;
@@ -7,16 +9,17 @@ type TodaySaintCompanionCardProps = {
   cardHeadingClassName: string;
   cardCopyClassName: string;
   cardLinkClassName: string;
+  entry?: SaintOfTheDayEntry;
 };
 
-export async function TodaySaintCompanionCard({
+export function TodaySaintCompanionCard({
   cardClassName,
   cardEyebrowClassName,
   cardHeadingClassName,
   cardCopyClassName,
   cardLinkClassName,
+  entry,
 }: TodaySaintCompanionCardProps) {
-  const entry = await getSaintForDate(new Date());
   const destination = entry ? `/saints/saint-of-the-day?date=${entry.dateKey}` : "/saints/saint-of-the-day";
 
   return (

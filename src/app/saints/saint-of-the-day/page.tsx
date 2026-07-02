@@ -3,7 +3,8 @@ import { Suspense } from "react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SaintOfTheDayPageClient } from "@/components/saints/saint-of-the-day/SaintOfTheDayPageClient";
 import { createPageMetadata } from "@/lib/metadata";
-import { getApprovedSaintEntries, getTodayDateKey } from "@/lib/saintOfTheDay";
+import { getApprovedSaintEntries } from "@/lib/saintOfTheDay";
+import { getCurrentSiteDateKey } from "@/lib/staticDailyContent";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Saint of the Day",
@@ -24,7 +25,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default async function SaintOfTheDayPage() {
   const entries = await getApprovedSaintEntries();
-  const todayDateKey = getTodayDateKey();
+  const todayDateKey = getCurrentSiteDateKey();
 
   return (
     <div className="paper-texture">

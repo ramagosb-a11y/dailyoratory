@@ -3,8 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { MassReadingsReflectionHero } from "@/components/reflections/MassReadingsReflectionHero";
 import { MassReadingsGoogleCalendarEmbed } from "@/components/reflections/MassReadingsGoogleCalendarEmbed";
-import { TodayMassReflectionCard } from "@/components/reflections/TodayMassReflectionCard";
-import { TodayMassReflectionFull } from "@/components/reflections/TodayMassReflectionFull";
+import { CurrentMassReflectionSection } from "@/components/reflections/CurrentMassReflectionSection";
 import { MassReadingsFilteredResultsClient } from "@/components/reflections/MassReadingsFilteredResultsClient";
 import { UpcomingMassReflections } from "@/components/reflections/UpcomingMassReflections";
 import { SundayMassReflectionsSection } from "@/components/reflections/SundayMassReflectionsSection";
@@ -21,9 +20,9 @@ import {
   getPublishedMassReadingsReflectionsData,
   getScheduledMassReadingsReflectionsData,
   getSundayMassReflectionsData,
-  getTodayMassReadingsReflectionData,
 } from "@/lib/massReadingsReflections";
 import { createPageMetadata } from "@/lib/metadata";
+import { getCurrentSiteIsoDate, selectMassReflectionForIsoDate } from "@/lib/staticDailyContent";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Mass Readings Reflections",
@@ -33,7 +32,6 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default async function MassReadingsReflectionsPage() {
-  const today = await getTodayMassReadingsReflectionData();
   const [published, scheduled, sunday, daily, facets, allReflections] = await Promise.all([
     getPublishedMassReadingsReflectionsData(),
     getScheduledMassReadingsReflectionsData(),
@@ -42,17 +40,17 @@ export default async function MassReadingsReflectionsPage() {
     getMassReadingsFacetOptionsData(),
     getMassReadingsReflectionsData(),
   ]);
+  const initialReferenceDate = getCurrentSiteIsoDate();
+  const initialSelection = selectMassReflectionForIsoDate(allReflections, initialReferenceDate);
   const filterableReflections = filterMassReadingsReflections({}, { includeScheduled: true }, allReflections);
 
   return (
     <div className="paper-texture">
       <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
-        {today ? (
-          <section>
-            <TodayMassReflectionCard reflection={today} mode="today" />
-            <TodayMassReflectionFull reflection={today} />
-          </section>
-        ) : null}
+        <CurrentMassReflectionSection
+          reflections={allReflections}
+          initialReferenceDate={initialReferenceDate}
+        />
 
         <div className="mt-10">
           <DailyReturnPrompt
@@ -91,7 +89,7 @@ export default async function MassReadingsReflectionsPage() {
 
         <div className="mt-14">
           <MassReadingsReflectionHero
-            primaryHref={today ? `/reflections/mass-readings/${today.slug}` : "/reflections/mass-readings/calendar"}
+            primaryHref={initialSelection?.reflection ? `/reflections/mass-readings/${initialSelection.reflection.slug}` : "/reflections/mass-readings/calendar"}
           />
         </div>
 
