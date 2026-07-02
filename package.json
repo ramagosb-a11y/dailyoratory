@@ -15,7 +15,8 @@
     "audit:citations": "node --experimental-strip-types scripts/audit-citations.ts",
     "validate:urls": "node --experimental-strip-types scripts/validate-urls.ts",
     "check:priority-pages": "node --experimental-strip-types scripts/check-priority-pages.ts",
-    "seo:preflight": "node --experimental-strip-types scripts/seo-preflight.ts"
+    "seo:preflight": "node --experimental-strip-types scripts/seo-preflight.ts",
+    "sync:mass-readings-calendar": "node --experimental-strip-types scripts/sync-mass-readings-calendar.ts"
   },
   "dependencies": {
     "next": "16.2.4",

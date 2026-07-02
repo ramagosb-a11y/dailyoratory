@@ -1,0 +1,54 @@
+name: Daily Cloudflare content sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 7 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-daily-content-sync
+  cancel-in-progress: false
+
+jobs:
+  sync-and-rebuild:
+    name: Sync calendar and rebuild Cloudflare Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Cloudflare branch
+        uses: actions/checkout@v4
+        with:
+          ref: cloudflare-static
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync Google Calendar from Mass Readings sheet
+        env:
+          GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL }}
+          GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY }}
+          MASS_READINGS_GOOGLE_CALENDAR_ID: ${{ secrets.MASS_READINGS_GOOGLE_CALENDAR_ID }}
+          GOOGLE_SHEETS_MASS_READINGS_SHEET_ID: ${{ secrets.GOOGLE_SHEETS_MASS_READINGS_SHEET_ID }}
+          DAILY_ORATORY_SITE_URL: https://dailyoratory.faith
+        run: npm run sync:mass-readings-calendar
+
+      - name: Trigger Cloudflare Pages rebuild
+        env:
+          CLOUDFLARE_PAGES_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_PAGES_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$CLOUDFLARE_PAGES_DEPLOY_HOOK" ]; then
+            echo "::error::Missing CLOUDFLARE_PAGES_DEPLOY_HOOK secret."
+            exit 1
+          fi
+
+          curl -fsS -X POST "$CLOUDFLARE_PAGES_DEPLOY_HOOK"
+          echo "Cloudflare Pages rebuild requested."

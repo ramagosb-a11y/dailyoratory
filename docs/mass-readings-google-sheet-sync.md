@@ -1,17 +1,23 @@
 # Mass Readings Google Sheet Sync
 
-Daily Oratory now supports Mass Readings Reflections from the public Google Sheet with ID `1xKgFxs6_7R5n_M2x60CIVZsR1fzQwCEp`.
+Daily Oratory supports Mass Readings Reflections from the public Google Sheet. The current default sheet ID used by the site is `17sMLuAMjUYyEo0ZqSJBrLF3p-j-9e6Dbzn7UEfoMmr0`.
 
 ## How it works
 
 - The site reads the `Mass_Readings_Reflections` tab directly from Google Sheets.
 - If the sheet is unavailable, the app falls back gracefully to the built-in reflections already in the repository.
-- A Vercel cron job hits `/api/cron/sync-mass-readings` every day at `6:10 UTC`.
-- On a Vercel Hobby plan, cron jobs are limited to one run per day, so this is the best practical fit.
-- That means the sync runs at:
-  - `1:10 AM` in Chicago during daylight saving time
-  - `12:10 AM` in Chicago during standard time
-- If you want a true year-round `1:10 AM America/Chicago` refresh, you would need a scheduler that supports timezone-aware timing or more than one daily cron run.
+- The Cloudflare fallback branch uses GitHub Actions instead of Vercel cron.
+- The action runs `npm run sync:mass-readings-calendar` to update the Google Calendar from the sheet.
+- After the calendar sync succeeds, the action calls a Cloudflare Pages Deploy Hook so Cloudflare rebuilds the static export from `cloudflare-static`.
+- The scheduled workflow is set for `7:20 UTC`, which is usually overnight in Chicago. GitHub scheduled workflows can drift by a few minutes.
+
+## Automation flow
+
+1. Update the `Mass_Readings_Reflections` Google Sheet.
+2. GitHub Actions runs `Daily Cloudflare content sync` on schedule, or manually from the Actions tab.
+3. The action syncs published and scheduled sheet rows into the Mass Readings Google Calendar.
+4. The action triggers the Cloudflare Pages Deploy Hook.
+5. Cloudflare rebuilds `out/`, so the static site receives the latest reflection pages and daily content.
 
 ## Required sheet access
 
@@ -22,16 +28,37 @@ Daily Oratory now supports Mass Readings Reflections from the public Google Shee
 
 ## Environment variables
 
-Optional overrides:
+Required GitHub repository secrets for the automation:
+
+- `GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL`
+- `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY`
+- `CLOUDFLARE_PAGES_DEPLOY_HOOK`
+
+Optional GitHub repository secrets:
 
 - `GOOGLE_SHEETS_MASS_READINGS_SHEET_ID`
 - `MASS_READINGS_REFLECTIONS_SHEET_ID`
+- `MASS_READINGS_GOOGLE_CALENDAR_ID`
 
-Optional cron protection:
+If the sheet ID is changed from the default, set the same `GOOGLE_SHEETS_MASS_READINGS_SHEET_ID` value in Cloudflare Pages build environment variables so the deployed static build reads the same sheet.
 
-- `CRON_SECRET`
+## Google Calendar setup
 
-If `CRON_SECRET` is set in Vercel, Vercel will send it to the cron route in the `Authorization` header.
+- Create or reuse the Mass Readings Google Calendar.
+- Share the calendar with the Google service account email.
+- Grant the service account permission to make changes to events.
+- Keep the calendar public only if the embedded public calendar should be visible to site visitors.
+
+The sync manages only events marked by Daily Oratory metadata or the `[Managed by Daily Oratory sync]` description marker. It will not intentionally delete unrelated calendar events.
+
+## Cloudflare Pages Deploy Hook
+
+Create the deploy hook in Cloudflare Pages:
+
+1. Open the `dailyoratory` Pages project.
+2. Go to `Settings` then `Builds and deployments`.
+3. Create a Deploy Hook for the `cloudflare-static` branch.
+4. Add the generated URL as the GitHub repository secret `CLOUDFLARE_PAGES_DEPLOY_HOOK`.
 
 ## Minimum reflection columns
 
@@ -65,3 +92,4 @@ If `CRON_SECRET` is set in Vercel, Vercel will send it to the cron route in the 
 
 - Daily Oratory stores Scripture references only, not full modern lectionary texts.
 - This sync is designed to be practical and forgiving: when the sheet is incomplete or temporarily unavailable, the public site should continue to work.
+- Static hosting has no request-time regeneration. New sheet content appears publicly after the next Cloudflare rebuild.
