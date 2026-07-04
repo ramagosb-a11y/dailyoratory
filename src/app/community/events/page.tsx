@@ -19,7 +19,7 @@ export default function CommunityEventsPage() {
   return (
     <main className="paper-texture">
       <section className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Community", href: "/community" }, { label: "Events" }]} />
+        <Breadcrumbs items={[{ label: "Events" }]} />
         <div className="mt-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs font-bold uppercase text-burgundy">Events</p>

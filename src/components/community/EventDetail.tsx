@@ -19,7 +19,6 @@ export function EventDetail({ event }: { event: EventRecord }) {
       <main className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
         <Breadcrumbs
           items={[
-            { label: "Community", href: "/community" },
             { label: "Events", href: "/community/events" },
             { label: event.title },
           ]}

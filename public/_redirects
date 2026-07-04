@@ -116,6 +116,7 @@ https://www.dailyoratory.faith/* https://dailyoratory.faith/:splat 301
 /prayer-chain /prayer-intentions 301
 /community/prayer-chain /prayer-intentions 301
 /library/prayer-chain /prayer-intentions 301
-/live-prayer-rooms /community 301
+/community /community/events 301
+/live-prayer-rooms /community/events 301
 /resources /library 301
 /resources/:slug /library/:slug 301

@@ -17,7 +17,7 @@ export default function LocalFaithGroupsPage() {
   return (
     <main className="paper-texture">
       <section className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Community", href: "/community" }, { label: "Local Faith Groups" }]} />
+        <Breadcrumbs items={[{ label: "Local Faith Groups" }]} />
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.65fr_0.35fr] lg:items-end">
           <div>
             <p className="text-xs font-bold uppercase text-burgundy">Local faith groups</p>

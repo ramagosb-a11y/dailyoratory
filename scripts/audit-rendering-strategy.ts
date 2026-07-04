@@ -12,7 +12,6 @@ const requiredStaticRoutes = [
   "/confession",
   "/reflections/mass-readings",
   "/liturgical-living",
-  "/community",
   "/confession/examination",
   "/sitemap.xml",
   "/robots.txt",

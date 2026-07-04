@@ -16,7 +16,7 @@ export default function GroupDiscussionTopicsPage() {
   return (
     <main className="paper-texture">
       <section className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Community", href: "/community" }, { label: "Group Discussion Topics" }]} />
+        <Breadcrumbs items={[{ label: "Group Discussion Topics" }]} />
         <div className="mt-8 max-w-3xl">
           <p className="text-xs font-bold uppercase text-burgundy">Group discussion topics</p>
           <h1 className="font-display mt-3 text-4xl font-semibold leading-tight text-navy sm:text-5xl lg:text-6xl">

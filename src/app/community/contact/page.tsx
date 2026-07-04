@@ -16,7 +16,7 @@ export default function CommunityContactPage() {
   return (
     <main className="paper-texture">
       <section className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Community", href: "/community" }, { label: "Contact" }]} />
+        <Breadcrumbs items={[{ label: "Contact" }]} />
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.45fr_0.55fr] lg:items-start">
           <div>
             <p className="text-xs font-bold uppercase text-burgundy">Contact</p>

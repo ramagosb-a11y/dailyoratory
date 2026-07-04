@@ -240,18 +240,6 @@ export const siteNavigation: NavigationSection[] = [
     ],
   },
   {
-    label: "Community",
-    href: "/community",
-    description: "Find Catholic events, live prayer gatherings, and local faith groups.",
-    children: [
-      { label: "Community Home", href: "/community", description: "Prayer intentions, events, groups, and Catholic community support." },
-      { label: "Events", href: "/community/events", description: "Upcoming Catholic prayer, formation, and community gatherings." },
-      { label: "Local Faith Groups", href: "/community/local-faith-groups", description: "Find Catholic groups, circles, and parish gatherings." },
-      { label: "Discussion Topics", href: "/community/group-discussion-topics", description: "Prayerful prompts for parish groups and Catholic conversation." },
-      { label: "Community Contact", href: "/community/contact", description: "Questions about event listings, groups, and community support." },
-    ],
-  },
-  {
     label: "About",
     href: "/about",
     description: "The mission and editorial posture of Daily Oratory.",
@@ -308,7 +296,6 @@ export const footerNavigationGroups = [
     links: [
       { label: "Library", href: "/library" },
       { label: "Events", href: "/community/events" },
-      { label: "Community", href: "/community" },
     ],
   },
 ] as const;
@@ -486,7 +473,6 @@ export const breadcrumbPatterns = [
   { pattern: "/saints/patronage", label: "Patronage" },
   { pattern: "/saints/settings", label: "Settings" },
   { pattern: "/saints/[slug]", label: "Saint Profile" },
-  { pattern: "/community", label: "Community" },
   { pattern: "/ask-for-prayer", label: "Ask for Prayer" },
   { pattern: "/community/events", label: "Events" },
   { pattern: "/community/events/[slug]", label: "Event" },
@@ -642,7 +628,6 @@ export const urlStructure = [
   { path: "/saints/patronage", purpose: "Saint patronage groups" },
   { path: "/saints/settings", purpose: "Local companion export/delete and Google Sheets saint schema" },
   { path: "/saints/[slug]", purpose: "Saint profile page" },
-  { path: "/community", purpose: "Prayer requests, intention wall, prayer chain, events, groups, discussions" },
   { path: "/community/events", purpose: "Upcoming Daily Oratory prayer, formation, and local Catholic community events" },
   { path: "/community/events/[slug]", purpose: "Event detail with schedule, location, recurrence, preparation notes, and related resources" },
   { path: "/community/local-faith-groups", purpose: "Directory pattern for local Catholic prayer groups and formation circles" },

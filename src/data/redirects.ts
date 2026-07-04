@@ -1037,12 +1037,20 @@ export const redirectMap = [
     notes: "Prayer chain library alias now maps to the prayer intentions page.",
   },
   {
-    source: "/live-prayer-rooms",
-    destination: "/community",
+    source: "/community",
+    destination: "/community/events",
     permanent: true,
     category: "Community",
     status: "implemented",
-    notes: "Live prayer rooms have been retired; route maps to Community.",
+    notes: "Community landing page retired; requests now resolve to the events listing.",
+  },
+  {
+    source: "/live-prayer-rooms",
+    destination: "/community/events",
+    permanent: true,
+    category: "Community",
+    status: "implemented",
+    notes: "Live prayer rooms have been retired; route maps to the events listing.",
   },
   {
     source: "/resources",
