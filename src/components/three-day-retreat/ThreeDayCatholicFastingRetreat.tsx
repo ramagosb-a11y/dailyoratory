@@ -4,6 +4,12 @@ import { useState } from "react";
 
 const calendarUrl =
   "https://calendar.google.com/calendar/u/1?cid=ODZmOGM0OGYwNjExZTA5MzA1OGE5YTdmMjhmY2E3NWM5Yjc4ODk3N2MwNzZhNWQwYTQ5Njk4OTYzM2YxNTQyZUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t";
+const calendarEmbedUrl =
+  "https://calendar.google.com/calendar/embed?src=86f8c48f0611e093058a9a7f28fca75c9b788977c076a5d0a496989633f1542e%40group.calendar.google.com&ctz=America%2FChicago";
+const prayerPlanDocumentUrl =
+  "https://docs.google.com/document/d/1LErqoZoh6CqF2OGTMtruZZvy2jy1n7bOLFc065VM5Lg/edit?tab=t.0#heading=h.qc1hfioqtd9y";
+const prayerPlanDownloadUrl =
+  "https://docs.google.com/document/d/1LErqoZoh6CqF2OGTMtruZZvy2jy1n7bOLFc065VM5Lg/export?format=pdf";
 
 type RetreatDay = {
   id: string;
@@ -48,6 +54,7 @@ const retreatDays: RetreatDay[] = [
 
 const navItems = [
   ["overview", "Overview"],
+  ["calendar", "Calendar"],
   ["preparation", "Preparation"],
   ["fast", "Three-Day Fast"],
   ["indulgence", "Indulgences"],
@@ -190,16 +197,6 @@ Even if you cannot keep the full fast, you are welcome to join in prayer and off
 
 May Jesus draw us deeper into His Sacred Heart.`;
 
-const prayerPlanText = `Three-Day Catholic Fasting and Spiritual Renewal Retreat
-
-Day 0: Prepare with examination of conscience, Confession if available, Mass if possible, Eucharistic Adoration, retreat consecration, and written prayer intentions.
-
-Day 1: Humility. Scripture: John 15. Phrase: Abide in Me.
-Day 2: Purity. Scripture: John 6. Phrase: Jesus, Bread of Life.
-Day 3: Charity. Scripture: John 17. Phrase: That They May Be One.
-
-Daily rhythm: Psalm 63, Morning Offering, indulgence prayers, Gospel Lectio Divina, prayer for the gifts God wants to reveal, hourly recollection, Angelus, Mass or Spiritual Communion, Eucharistic Adoration, Divine Mercy Chaplet, work of mercy, Rosary, Sermon on the Mount, examination of conscience, Act of Contrition, and night surrender.`;
-
 export function ThreeDayCatholicFastingRetreat() {
   const [activeDay, setActiveDay] = useState(retreatDays[0].id);
   const activeRetreatDay = retreatDays.find((day) => day.id === activeDay) ?? retreatDays[0];
@@ -210,6 +207,7 @@ export function ThreeDayCatholicFastingRetreat() {
         <Hero />
         <SectionNav />
         <RetreatOverview />
+        <RetreatCalendar />
         <PreparationDay />
         <ThreeDayFast activeDay={activeRetreatDay} onSelectDay={setActiveDay} />
         <IndulgencePractice />
@@ -257,7 +255,9 @@ function Hero() {
             <a className="btn btn-gold focus-ring justify-center" href={calendarUrl}>
               Join the Retreat Calendar
             </a>
-            <CopyButton text={prayerPlanText} label="Download the Prayer Plan" copiedLabel="Prayer plan copied" variant="inverse" />
+            <a className="btn btn-outline-inverse focus-ring justify-center" href={prayerPlanDownloadUrl}>
+              Download the Prayer Plan
+            </a>
             <CopyButton text={shareText} label="Share with Others" copiedLabel="Invitation copied" variant="inverse" />
             <a className="btn btn-outline-inverse focus-ring justify-center" href="#preparation">
               Begin Preparation Day
@@ -295,6 +295,41 @@ function SectionNav() {
         ))}
       </div>
     </nav>
+  );
+}
+
+function RetreatCalendar() {
+  return (
+    <PageSection id="calendar" title="Retreat Calendar" subtitle="Join the shared retreat rhythm">
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="overflow-hidden rounded-2xl border border-gold/60 bg-ivory shadow-oratory">
+          <iframe
+            title="Three-Day Catholic Fasting Retreat Calendar"
+            src={calendarEmbedUrl}
+            className="h-[32rem] w-full"
+            loading="lazy"
+          />
+        </div>
+        <aside className="content-card p-6">
+          <h3 className="font-display text-3xl font-semibold text-navy">Calendar and prayer plan</h3>
+          <p className="mt-4 text-base leading-8 text-muted">
+            Add the retreat calendar to follow the shared schedule, and download the prayer plan for printing,
+            sharing, or bringing to Adoration.
+          </p>
+          <div className="no-print mt-6 grid gap-3">
+            <a className="btn btn-primary focus-ring justify-center" href={calendarUrl}>
+              Join the Retreat Calendar
+            </a>
+            <a className="btn btn-secondary focus-ring justify-center" href={prayerPlanDownloadUrl}>
+              Download the Prayer Plan
+            </a>
+            <a className="btn btn-secondary focus-ring justify-center" href={prayerPlanDocumentUrl}>
+              Open the Google Doc
+            </a>
+          </div>
+        </aside>
+      </div>
+    </PageSection>
   );
 }
 
