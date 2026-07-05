@@ -11,7 +11,7 @@ const description =
 const path = "/three-day-catholic-fasting-retreat";
 
 const baseMetadata = createPageMetadata({
-  title: "Three-Day Catholic Fasting and Spiritual Renewal Retreat | Daily Oratory",
+  title,
   description,
   path,
   keywords: [
@@ -29,7 +29,9 @@ const baseMetadata = createPageMetadata({
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  title: "Three-Day Catholic Fasting and Spiritual Renewal Retreat | Daily Oratory",
+  title: {
+    absolute: "Three-Day Catholic Fasting and Spiritual Renewal Retreat | Daily Oratory",
+  },
   description,
   openGraph: {
     ...baseMetadata.openGraph,

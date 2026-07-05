@@ -230,19 +230,25 @@ export function ThreeDayCatholicFastingRetreat() {
 
 function Hero() {
   return (
-    <header className="liturgical-dark-hero overflow-hidden rounded-[1.75rem] px-5 py-10 shadow-lifted sm:px-8 lg:px-12 lg:py-14">
+    <header
+      className="overflow-hidden rounded-[1.75rem] border border-gold/50 border-t-4 border-t-burgundy px-5 py-10 shadow-lifted sm:px-8 lg:px-12 lg:py-14"
+      style={{
+        background:
+          "radial-gradient(circle at 88% 10%, rgba(189, 138, 47, 0.2), transparent 18rem), radial-gradient(circle at 8% 12%, rgba(122, 37, 51, 0.32), transparent 20rem), linear-gradient(135deg, #071a2d 0%, #0d2038 54%, #641f2d 100%)",
+      }}
+    >
       <div className="relative z-10 grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.65fr)] lg:items-center">
         <div>
-          <h1 className="font-display text-balance text-5xl font-semibold leading-[0.95] text-ivory sm:text-6xl lg:text-7xl">
+          <h1 className="font-display text-balance text-5xl font-semibold leading-[0.95] text-ivory drop-shadow-sm sm:text-6xl lg:text-7xl">
             Three-Day Catholic Fasting and Spiritual Renewal Retreat
           </h1>
-          <p className="mt-5 max-w-3xl text-2xl font-semibold leading-9 text-gold-soft">
+          <p className="mt-5 max-w-3xl text-2xl font-semibold leading-9 text-gold-soft drop-shadow-sm">
             Draw Near to Jesus, Fight Sin, and Intercede for Souls
           </p>
           <blockquote className="mt-8 border-l-4 border-gold-soft pl-5 font-display text-2xl leading-9 text-ivory sm:text-3xl">
             &quot;Draw near to God, and he will draw near to you.&quot; <span className="block text-lg text-gold-soft">James 4:8</span>
           </blockquote>
-          <p className="daily-readable mt-8 max-w-3xl text-ivory/90">
+          <p className="mt-8 max-w-3xl text-xl leading-9 text-ivory/95">
             This three-day retreat is a Catholic prayer and fasting journey designed to help the soul draw closer to Jesus
             Christ, turn away from sin, receive the grace God desires to reveal, and intercede for family, friends, the
             Church, souls in Purgatory, and all entrusted to prayer.
@@ -279,7 +285,11 @@ function SectionNav() {
     >
       <div className="flex gap-2 overflow-x-auto pb-1">
         {navItems.map(([id, label]) => (
-          <a key={id} href={`#${id}`} className="season-pill focus-ring shrink-0 text-decoration-none">
+          <a
+            key={id}
+            href={`#${id}`}
+            className="focus-ring shrink-0 rounded-md border border-gold/60 bg-ivory px-3 py-1.5 text-xs font-extrabold uppercase tracking-[0.12em] text-burgundy no-underline shadow-hairline hover:bg-parchment"
+          >
             {label}
           </a>
         ))}
@@ -301,7 +311,7 @@ function RetreatOverview() {
           </div>
         ))}
       </div>
-      <p className="liturgical-callout mt-7 text-base leading-8 text-navy">
+      <p className="mt-7 rounded-xl border border-gold/60 border-l-4 border-l-burgundy bg-ivory p-5 text-base leading-8 text-navy shadow-hairline">
         The fast may be practiced as water and black coffee only, or with one simple protein shake if needed for health,
         work, or strength.
       </p>
@@ -414,7 +424,7 @@ function ThreeDayFast({
 function DailyFastPanel({ day }: { day: RetreatDay }) {
   return (
     <div id="daily-fast-panel" role="region" aria-label={`${day.label} fasting schedule`} className="mt-7 grid gap-5">
-      <div className="liturgical-callout">
+      <div className="rounded-xl border border-gold/60 border-l-4 border-l-burgundy bg-ivory p-5 shadow-hairline">
         <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">{day.label} Theme</p>
         <h3 className="font-display mt-2 text-4xl font-semibold text-navy">{day.theme}</h3>
         <p className="mt-2 text-lg font-semibold text-muted">Scripture: {day.scripture}</p>
@@ -669,7 +679,7 @@ function IndulgencePractice() {
           <Checklist items={["Thirty minutes of devout Scripture reading", "Thirty minutes of Eucharistic Adoration", "Rosary prayed in a church, family, or prayer group", "Stations of the Cross, if available"]} />
         </div>
       </div>
-      <p className="liturgical-callout mt-6 text-base leading-8 text-navy">
+      <p className="mt-6 rounded-xl border border-gold/60 border-l-4 border-l-burgundy bg-ivory p-5 text-base leading-8 text-navy shadow-hairline">
         Indulgences may be applied to oneself or to the souls in Purgatory, but not directly to another living person.
       </p>
       <div className="content-card mt-6 p-6">
@@ -790,7 +800,7 @@ function PageSection({
 }) {
   return (
     <section id={id} className="scroll-mt-28 py-10 sm:py-12">
-      <div className="card-parchment p-5 shadow-oratory sm:p-8 lg:p-10">
+      <div className="card-parchment !border-t-burgundy p-5 shadow-oratory sm:p-8 lg:p-10">
         <div className="max-w-4xl">
           <h2 className="font-display text-balance text-4xl font-semibold leading-tight text-navy sm:text-5xl">{title}</h2>
           {subtitle ? <p className="mt-3 text-xl font-semibold text-burgundy">{subtitle}</p> : null}
