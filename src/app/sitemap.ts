@@ -440,7 +440,6 @@ function getPriority(url: string) {
       "/liturgical-living/lent",
       "/sacraments",
       "/saints",
-      "/community",
       "/library",
       "/adoration",
       "/sacramental-emergency",
