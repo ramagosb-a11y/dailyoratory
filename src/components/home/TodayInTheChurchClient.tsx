@@ -100,7 +100,7 @@ export function TodayInTheChurchClient({
               </Link>
             </h3>
             <p className={`mt-2 text-sm leading-6 ${theme.cardCopyClassName}`}>
-              Follow the Church's seasons, holy days, and liturgical rhythm.
+              Follow the Church&apos;s seasons, holy days, and liturgical rhythm.
             </p>
           </article>
           <TodaySaintCompanionCard
@@ -122,7 +122,7 @@ export function TodayInTheChurchClient({
               {today.suggestedPrayer?.description ?? "Offer the day to the Lord and ask for grace to live faithfully."}
             </p>
             <Link prefetch={false} href="/pray/today" className={`focus-ring mt-4 inline-flex text-sm font-semibold ${theme.cardLinkClassName}`}>
-              Open today's prayer
+              Open today&apos;s prayer
             </Link>
           </article>
         </div>
