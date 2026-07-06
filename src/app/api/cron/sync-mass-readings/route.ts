@@ -2,6 +2,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 import { syncScheduledMassReadingsCalendar } from "@/lib/massReadingsCalendarSync";
 import { getMassReadingsGoogleSheetTag } from "@/lib/massReadingsGoogleSheets";
+import { getSaintOfTheDayGoogleSheetTag } from "@/lib/saintOfTheDay";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -14,14 +15,11 @@ export async function GET(request: Request) {
   }
 
   revalidateTag(getMassReadingsGoogleSheetTag(), "max");
-  revalidatePath("/");
-  revalidatePath("/reflect");
-  revalidatePath("/reflections");
-  revalidatePath("/reflections/mass-readings");
-  revalidatePath("/reflections/mass-readings/archive");
-  revalidatePath("/reflections/mass-readings/calendar");
-  revalidatePath("/reflections/mass-readings/upcoming");
-  revalidatePath("/sitemap.xml");
+  revalidateTag(getSaintOfTheDayGoogleSheetTag(), "max");
+
+  for (const path of DAILY_REFRESH_PATHS) {
+    revalidatePath(path);
+  }
 
   const calendarSync = await syncScheduledMassReadingsCalendar();
 
@@ -57,3 +55,23 @@ function getChicagoTimestamp(date: Date) {
     timeZone: CHICAGO_TIME_ZONE,
   }).format(date);
 }
+
+const DAILY_REFRESH_PATHS = [
+  "/",
+  "/today",
+  "/dashboard",
+  "/liturgical-living",
+  "/liturgical-living/calendar",
+  "/liturgical-living/family",
+  "/pray",
+  "/pray/today",
+  "/reflect",
+  "/reflections",
+  "/reflections/mass-readings",
+  "/reflections/mass-readings/archive",
+  "/reflections/mass-readings/calendar",
+  "/reflections/mass-readings/upcoming",
+  "/saints",
+  "/saints/saint-of-the-day",
+  "/sitemap.xml",
+] as const;

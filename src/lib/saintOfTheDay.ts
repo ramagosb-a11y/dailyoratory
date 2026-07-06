@@ -1,5 +1,7 @@
 import { cache } from "react";
 import { saintOfTheDayCalendar as localSaintOfTheDayCalendar } from "@/data/saintOfTheDayCalendar";
+import { defaultLiturgicalLivingSettings } from "@/data/liturgicalLiving";
+import { getTodayIsoDate } from "@/lib/liturgicalLiving";
 import type { SaintOfTheDayEntry } from "@/types/saintOfTheDay";
 
 const DEFAULT_SAINT_OF_THE_DAY_SHEET_ID = "1NW-77lyZvbM7TmZT9xuR65b5HvPMLpK5Y-a-q8n9hHI";
@@ -10,7 +12,6 @@ const VATICAN_NEWS_SAINTS_URL = "https://www.vaticannews.va/en/saints.html";
 const CATHOLIC_ONLINE_SAINTS_URL = "https://www.catholic.org/saints/sofd.php";
 const CACHE_TAG = "saint-of-the-day-google-sheet";
 const REVALIDATE_SECONDS = 60 * 60 * 24;
-const SITE_TIME_ZONE = process.env.DAILY_ORATORY_SITE_TIME_ZONE || "America/Chicago";
 
 type SheetRow = Record<string, string>;
 
@@ -21,17 +22,22 @@ type SaintOfTheDaySource = {
 };
 
 export function getTodayDateKey(date = new Date()) {
-  const parts = getSiteDateParts(date);
-  return `${parts.month}-${parts.day}`;
+  const isoDate = getTodayIsoDate(date);
+  return isoDate.slice(5);
 }
 
 export function getSiteTimeZone() {
-  return SITE_TIME_ZONE;
+  return defaultLiturgicalLivingSettings.timeZone;
 }
 
 export function getSiteDate(date = new Date()) {
-  const parts = getSiteDateParts(date);
-  return new Date(parts.year, Number.parseInt(parts.month, 10) - 1, Number.parseInt(parts.day, 10), 12);
+  const isoDate = getTodayIsoDate(date);
+  const [year, month, day] = isoDate.split("-").map((value) => Number.parseInt(value, 10));
+  return new Date(year, month - 1, day, 12);
+}
+
+export function getSaintOfTheDayGoogleSheetTag() {
+  return CACHE_TAG;
 }
 
 export function getSaintOfTheDaySheetId() {
@@ -151,22 +157,6 @@ function getSortedApprovedEntries(entries: SaintOfTheDayEntry[]) {
   return entries
     .filter((entry) => entry.status === "approved")
     .sort((a, b) => a.sortOrder - b.sortOrder || a.month - b.month || a.day - b.day);
-}
-
-function getSiteDateParts(date = new Date()) {
-  const formatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: SITE_TIME_ZONE,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  });
-
-  const parts = formatter.formatToParts(date);
-  return {
-    year: Number.parseInt(parts.find((part) => part.type === "year")?.value ?? "2026", 10),
-    month: parts.find((part) => part.type === "month")?.value ?? "01",
-    day: parts.find((part) => part.type === "day")?.value ?? "01",
-  };
 }
 
 function mergePreferredEntries(
