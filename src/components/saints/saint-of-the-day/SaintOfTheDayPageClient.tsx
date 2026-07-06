@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { AboutSaintOfTheDay } from "@/components/saints/saint-of-the-day/AboutSaintOfTheDay";
 import { BrowseMoreSaints } from "@/components/saints/saint-of-the-day/BrowseMoreSaints";
 import { SaintExternalSources } from "@/components/saints/saint-of-the-day/SaintExternalSources";
@@ -11,6 +11,7 @@ import { SaintPracticeToday } from "@/components/saints/saint-of-the-day/SaintPr
 import { SaintPrayerCard } from "@/components/saints/saint-of-the-day/SaintPrayerCard";
 import { ThisWeeksSaints } from "@/components/saints/saint-of-the-day/ThisWeeksSaints";
 import { TodaySaintCard } from "@/components/saints/saint-of-the-day/TodaySaintCard";
+import { getCurrentSiteDateKey } from "@/lib/staticDailyContent";
 import type { SaintOfTheDayEntry } from "@/types/saintOfTheDay";
 
 const fallbackSourceLinks = [
@@ -43,8 +44,20 @@ type SaintOfTheDayPageClientProps = {
 
 export function SaintOfTheDayPageClient({ entries, todayDateKey }: SaintOfTheDayPageClientProps) {
   const searchParams = useSearchParams();
+  const [currentDateKey, setCurrentDateKey] = useState(todayDateKey);
+
+  useEffect(() => {
+    function refreshDateKey() {
+      setCurrentDateKey(getCurrentSiteDateKey());
+    }
+
+    refreshDateKey();
+    const intervalId = window.setInterval(refreshDateKey, 15 * 60 * 1000);
+    return () => window.clearInterval(intervalId);
+  }, []);
+
   const requestedDateKey = searchParams.get("date");
-  const selectedDateKey = isValidDateKey(requestedDateKey) ? requestedDateKey : todayDateKey;
+  const selectedDateKey = isValidDateKey(requestedDateKey) ? requestedDateKey : currentDateKey;
   const entry = entries.find((item) => item.dateKey === selectedDateKey);
   const fallbackLinks = getFallbackLinks(selectedDateKey);
   const upcoming = useMemo(() => getUpcomingSaints(entries, selectedDateKey, 7), [entries, selectedDateKey]);

@@ -1,7 +1,13 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo } from "react";
-import { applyLiturgicalThemeToDocument, getLiturgicalThemeClassName, getLiturgicalThemeStyle } from "@/lib/liturgicalTheme";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  applyLiturgicalThemeToDocument,
+  getLiturgicalThemeClassName,
+  getLiturgicalThemeForToday,
+  getLiturgicalThemeStyle,
+} from "@/lib/liturgicalTheme";
+import { getStaticLiturgicalDashboardModel } from "@/lib/staticDailyContent";
 import type { LiturgicalThemeContextValue } from "@/types/liturgicalTheme";
 
 const LiturgicalThemeContext = createContext<LiturgicalThemeContextValue | null>(null);
@@ -13,16 +19,32 @@ export function LiturgicalThemeProvider({
   value: LiturgicalThemeContextValue;
   children: React.ReactNode;
 }) {
-  const style = useMemo(() => getLiturgicalThemeStyle(value.theme), [value.theme]);
-  const className = useMemo(() => getLiturgicalThemeClassName(value.theme), [value.theme]);
+  const [activeValue, setActiveValue] = useState(value);
+  const style = useMemo(() => getLiturgicalThemeStyle(activeValue.theme), [activeValue.theme]);
+  const className = useMemo(() => getLiturgicalThemeClassName(activeValue.theme), [activeValue.theme]);
 
   useEffect(() => {
-    applyLiturgicalThemeToDocument(value.theme);
-  }, [value.theme]);
+    function refreshTheme() {
+      const model = getStaticLiturgicalDashboardModel();
+      setActiveValue({
+        theme: getLiturgicalThemeForToday(model.day),
+        day: model.day,
+        seasonLabel: model.season.title,
+      });
+    }
+
+    refreshTheme();
+    const intervalId = window.setInterval(refreshTheme, 15 * 60 * 1000);
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    applyLiturgicalThemeToDocument(activeValue.theme);
+  }, [activeValue.theme]);
 
   return (
-    <LiturgicalThemeContext.Provider value={value}>
-      <div data-liturgical-theme={value.theme.id} className={`${className} flex min-h-full flex-col`} style={style}>
+    <LiturgicalThemeContext.Provider value={activeValue}>
+      <div data-liturgical-theme={activeValue.theme.id} className={`${className} flex min-h-full flex-col`} style={style}>
         {children}
       </div>
     </LiturgicalThemeContext.Provider>
