@@ -1,5 +1,8 @@
 import { massReadingsReflections, massReadingsReflectionMedia, massReadingsReflectionsCollection } from "@/data/massReadingsReflections";
-import { getMassReadingsReflectionsSource } from "@/lib/massReadingsGoogleSheets";
+import {
+  getMassReadingsReflectionsSource,
+  type MassReadingsSourceOptions,
+} from "@/lib/massReadingsGoogleSheets";
 import type {
   CycleYear,
   GroupedMassReadingsReflections,
@@ -15,8 +18,8 @@ export function getMassReadingsReflections() {
   return sortReflections(massReadingsReflections);
 }
 
-export async function getMassReadingsReflectionsData() {
-  return sortReflections((await getMassReadingsReflectionsSource()).reflections);
+export async function getMassReadingsReflectionsData(options?: MassReadingsSourceOptions) {
+  return sortReflections((await getMassReadingsReflectionsSource(options)).reflections);
 }
 
 export function getPublishedMassReadingsReflections(referenceDate = getCurrentChicagoIsoDate()) {
@@ -147,8 +150,8 @@ export function getReflectionBySlug(slug: string) {
   return massReadingsReflections.find((reflection) => reflection.slug === slug);
 }
 
-export async function getReflectionBySlugData(slug: string) {
-  return (await getMassReadingsReflectionsSource()).reflections.find((reflection) => reflection.slug === slug);
+export async function getReflectionBySlugData(slug: string, options?: MassReadingsSourceOptions) {
+  return (await getMassReadingsReflectionsSource(options)).reflections.find((reflection) => reflection.slug === slug);
 }
 
 export function getReflectionByDate(date: string) {
@@ -177,9 +180,9 @@ export function getNextReflection(currentDate: string) {
   )[0];
 }
 
-export async function getNextReflectionData(currentDate: string) {
+export async function getNextReflectionData(currentDate: string, options?: MassReadingsSourceOptions) {
   return sortReflectionsAscending(
-    (await getMassReadingsReflectionsSource()).reflections.filter(
+    (await getMassReadingsReflectionsSource(options)).reflections.filter(
       (reflection) =>
         (reflection.status === "published" || reflection.status === "scheduled") &&
         reflection.reflectionDate > currentDate,
@@ -195,9 +198,9 @@ export function getPreviousReflection(currentDate: string) {
   )[0];
 }
 
-export async function getPreviousReflectionData(currentDate: string) {
+export async function getPreviousReflectionData(currentDate: string, options?: MassReadingsSourceOptions) {
   return sortReflections(
-    (await getMassReadingsReflectionsSource()).reflections.filter(
+    (await getMassReadingsReflectionsSource(options)).reflections.filter(
       (reflection) => isReflectionLive(reflection, currentDate) && reflection.reflectionDate < currentDate,
     ),
   )[0];
@@ -392,8 +395,11 @@ export function getReflectionMedia(reflection: MassReadingsReflection) {
     .sort((a, b) => a.sortOrder - b.sortOrder);
 }
 
-export async function getReflectionMediaData(reflection: MassReadingsReflection) {
-  return (await getMassReadingsReflectionsSource()).media
+export async function getReflectionMediaData(
+  reflection: MassReadingsReflection,
+  options?: MassReadingsSourceOptions,
+) {
+  return (await getMassReadingsReflectionsSource(options)).media
     .filter((item) => item.reflectionId === reflection.id && item.status === "published")
     .sort((a, b) => a.sortOrder - b.sortOrder);
 }

@@ -17,8 +17,9 @@ const REVALIDATE_SECONDS = 60 * 60 * 24;
 const OFFICIAL_READINGS_URL = "https://bible.usccb.org/daily-bible-reading";
 
 type SheetRow = Record<string, string>;
+export type MassReadingsSourceOptions = { cacheMode?: "daily" | "static" };
 
-export async function getMassReadingsReflectionsSource() {
+export async function getMassReadingsReflectionsSource(options: MassReadingsSourceOptions = {}) {
   const remoteSheetId = getMassReadingsSheetId();
   if (!remoteSheetId) {
     return {
@@ -30,8 +31,8 @@ export async function getMassReadingsReflectionsSource() {
   }
 
   const [remoteReflections, remoteMedia] = await Promise.all([
-    fetchReflectionRows(remoteSheetId),
-    fetchMediaRows(remoteSheetId),
+    fetchReflectionRows(remoteSheetId, options),
+    fetchMediaRows(remoteSheetId, options),
   ]);
 
   return {
@@ -54,32 +55,39 @@ export function getMassReadingsGoogleSheetTag() {
   return CACHE_TAG;
 }
 
-async function fetchReflectionRows(sheetId: string) {
+async function fetchReflectionRows(sheetId: string, options: MassReadingsSourceOptions) {
   try {
-    const rows = await fetchGoogleSheetRows(sheetId, REFLECTIONS_SHEET);
+    const rows = await fetchGoogleSheetRows(sheetId, REFLECTIONS_SHEET, options);
     return rows.map((row, index) => mapRowToReflection(row, index)).filter(Boolean) as MassReadingsReflection[];
   } catch {
     return [];
   }
 }
 
-async function fetchMediaRows(sheetId: string) {
+async function fetchMediaRows(sheetId: string, options: MassReadingsSourceOptions) {
   try {
-    const rows = await fetchGoogleSheetRows(sheetId, MEDIA_SHEET);
+    const rows = await fetchGoogleSheetRows(sheetId, MEDIA_SHEET, options);
     return rows.map((row) => mapRowToMedia(row)).filter(Boolean) as ReflectionMediaRecord[];
   } catch {
     return [];
   }
 }
 
-async function fetchGoogleSheetRows(sheetId: string, sheetName: string): Promise<SheetRow[]> {
+async function fetchGoogleSheetRows(
+  sheetId: string,
+  sheetName: string,
+  options: MassReadingsSourceOptions,
+): Promise<SheetRow[]> {
   const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(
     sheetName,
   )}`;
 
-  const response = await fetch(url, {
-    next: { revalidate: REVALIDATE_SECONDS, tags: [CACHE_TAG] },
-  });
+  const response = await fetch(
+    url,
+    options.cacheMode === "static"
+      ? { cache: "force-cache" }
+      : { next: { revalidate: REVALIDATE_SECONDS, tags: [CACHE_TAG] } },
+  );
 
   if (!response.ok) return [];
 
@@ -130,7 +138,7 @@ function mapRowToReflection(row: SheetRow, index: number): MassReadingsReflectio
     system: "google-sheets",
     sheetName: REFLECTIONS_SHEET,
     externalId: pick(row, ["Reflection ID"]) || slug,
-    lastSyncedAt: new Date().toISOString(),
+    lastSyncedAt: updatedAt,
   };
 
   return {

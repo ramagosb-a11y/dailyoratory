@@ -19,8 +19,9 @@ function isVercelDeploymentHost(host: string) {
 
 export function proxy(request: NextRequest) {
   const host = normalizeHost(request.headers.get("host"));
+  const isCronRequest = request.nextUrl.pathname.startsWith("/api/cron/");
 
-  if (!host || isLocalHost(host)) {
+  if (!host || isLocalHost(host) || isCronRequest) {
     return NextResponse.next();
   }
 

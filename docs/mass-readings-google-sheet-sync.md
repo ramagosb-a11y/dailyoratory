@@ -7,6 +7,8 @@ Daily Oratory now supports Mass Readings Reflections from the public Google Shee
 - The site reads the `Mass_Readings_Reflections` tab directly from Google Sheets.
 - If the sheet is unavailable, the app falls back gracefully to the built-in reflections already in the repository.
 - A Vercel cron job hits `/api/cron/sync-mass-readings` every day at `6:10 UTC`.
+- Eligible reflection detail pages are generated statically during deployment. They do not regenerate through daily ISR.
+- The optional bound Apps Script in `google-workspace/mass-readings-deploy` groups eligible sheet edits and triggers one production deployment after 15 minutes.
 - On a Vercel Hobby plan, cron jobs are limited to one run per day, so this is the best practical fit.
 - That means the sync runs at:
   - `1:10 AM` in Chicago during daylight saving time
@@ -65,3 +67,4 @@ If `CRON_SECRET` is set in Vercel, Vercel will send it to the cron route in the 
 
 - Daily Oratory stores Scripture references only, not full modern lectionary texts.
 - This sync is designed to be practical and forgiving: when the sheet is incomplete or temporarily unavailable, the public site should continue to work.
+- New `published` or `scheduled` slugs require a deployment before their detail URLs exist. Configure the Apps Script automation to make that deployment automatic.

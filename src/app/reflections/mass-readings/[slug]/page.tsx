@@ -5,16 +5,20 @@ import { getRelatedContent } from "@/lib/content";
 import {
   getNextReflectionData,
   getPreviousReflectionData,
-  getPublishedMassReadingsReflectionsData,
+  getMassReadingsReflectionsData,
   getReflectionBySlugData,
   getReflectionMediaData,
 } from "@/lib/massReadingsReflections";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const dynamicParams = false;
+export const revalidate = false;
+const staticSource = { cacheMode: "static" } as const;
 
 export async function generateStaticParams() {
-  return (await getPublishedMassReadingsReflectionsData()).map((reflection) => ({ slug: reflection.slug }));
+  return (await getMassReadingsReflectionsData(staticSource))
+    .filter((reflection) => reflection.status === "published" || reflection.status === "scheduled")
+    .map((reflection) => ({ slug: reflection.slug }));
 }
 
 export async function generateMetadata({
@@ -23,7 +27,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const reflection = await getReflectionBySlugData(slug);
+  const reflection = await getReflectionBySlugData(slug, staticSource);
 
   if (!reflection) return {};
 
@@ -40,7 +44,7 @@ export default async function MassReadingsReflectionDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const reflection = await getReflectionBySlugData(slug);
+  const reflection = await getReflectionBySlugData(slug, staticSource);
 
   if (!reflection || (reflection.status !== "published" && reflection.status !== "scheduled")) {
     notFound();
@@ -50,9 +54,9 @@ export default async function MassReadingsReflectionDetailPage({
     (item) => item.status === "published" && item.visibility !== "private",
   );
   const [media, previousReflection, nextReflection] = await Promise.all([
-    getReflectionMediaData(reflection),
-    getPreviousReflectionData(reflection.reflectionDate),
-    getNextReflectionData(reflection.reflectionDate),
+    getReflectionMediaData(reflection, staticSource),
+    getPreviousReflectionData(reflection.reflectionDate, staticSource),
+    getNextReflectionData(reflection.reflectionDate, staticSource),
   ]);
 
   return (
