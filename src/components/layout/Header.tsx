@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { brand } from "@/config/brand";
 import { desktopMegaMenu, mobileDrawerNavigation } from "@/config/navigation";
 import { HeaderSearchButton } from "@/components/search/HeaderSearchButton";
@@ -13,9 +13,13 @@ function isActive(pathname: string, href: string) {
   return pathname === hrefPath || pathname.startsWith(`${hrefPath}/`);
 }
 
-function Logo() {
+function Logo({ onNavigate }: { onNavigate?: () => void }) {
   return (
-    <Link href="/" className="focus-ring flex shrink-0 items-center gap-3 rounded-md">
+    <Link
+      href="/"
+      onClick={onNavigate}
+      className="focus-ring flex shrink-0 items-center gap-3 rounded-md"
+    >
       <span
         aria-hidden="true"
         className="grid h-11 w-11 place-items-center rounded-md border border-gold/50 bg-navy text-gold shadow-sm"
@@ -33,22 +37,67 @@ function Logo() {
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  function closeMenu({ returnFocus = false }: { returnFocus?: boolean } = {}) {
+    setOpen(false);
+    if (returnFocus) {
+      window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+    }
+  }
 
   useEffect(() => {
     if (!open) return;
 
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") {
+        setOpen(false);
+        window.requestAnimationFrame(() => menuButtonRef.current?.focus());
+        return;
+      }
+
+      if (event.key !== "Tab") return;
+
+      const focusableElements = menuRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusableElements?.length) return;
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
     }
 
+    function handlePopState() {
+      setOpen(false);
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("popstate", handlePopState);
+    window.requestAnimationFrame(() => closeButtonRef.current?.focus());
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-stone bg-ivory/95 backdrop-blur">
-      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
-        <Logo />
+    <>
+      <header className="sticky top-0 z-40 border-b border-stone bg-ivory/95 backdrop-blur">
+        <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
+        <Logo onNavigate={() => closeMenu()} />
         <nav aria-label="Primary navigation" className="hidden items-center gap-0.5 lg:flex">
           {desktopMegaMenu.map((section, index) => {
             const menuPosition =
@@ -137,6 +186,7 @@ export function Header() {
           <HeaderSearchButton />
         </div>
         <button
+          ref={menuButtonRef}
           type="button"
           aria-controls="mobile-menu"
           aria-expanded={open}
@@ -145,28 +195,59 @@ export function Header() {
           className="focus-ring ml-auto inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-stone bg-ivory text-navy lg:hidden"
         >
           <span className="sr-only">{open ? "Close" : "Open"} {brand.platformName} menu</span>
-          <span aria-hidden="true" className="grid gap-1">
-            <span className="block h-0.5 w-5 bg-current" />
-            <span className="block h-0.5 w-5 bg-current" />
-            <span className="block h-0.5 w-5 bg-current" />
-          </span>
+          {open ? (
+            <span aria-hidden="true" className="relative block h-5 w-5">
+              <span className="absolute left-0 top-1/2 block h-0.5 w-5 rotate-45 bg-current" />
+              <span className="absolute left-0 top-1/2 block h-0.5 w-5 -rotate-45 bg-current" />
+            </span>
+          ) : (
+            <span aria-hidden="true" className="grid gap-1">
+              <span className="block h-0.5 w-5 bg-current" />
+              <span className="block h-0.5 w-5 bg-current" />
+              <span className="block h-0.5 w-5 bg-current" />
+            </span>
+          )}
         </button>
-      </div>
+        </div>
+      </header>
       {open ? (
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`${brand.platformName} mobile navigation`}
-          className="fixed inset-x-0 top-20 z-50 border-t border-stone bg-navy/20 lg:hidden"
+          aria-labelledby="mobile-menu-title"
+          className="fixed inset-x-0 bottom-0 top-20 z-50 border-t border-stone lg:hidden"
         >
+          <button
+            type="button"
+            aria-label={`Close ${brand.platformName} menu`}
+            onClick={() => closeMenu({ returnFocus: true })}
+            className="absolute inset-0 bg-navy/45"
+          />
           <nav
+            ref={menuRef}
             id="mobile-menu"
             aria-label="Mobile navigation"
-            className="ml-auto max-h-[calc(100vh-5rem)] w-full overflow-y-auto bg-ivory px-5 py-5 shadow-xl sm:max-w-md"
+            className="relative ml-auto h-full w-full overflow-y-auto bg-ivory px-5 py-5 shadow-xl sm:max-w-md"
           >
             <div className="mb-4 flex items-center justify-between gap-4">
-              <p className="font-display text-2xl font-semibold text-navy">{brand.platformName}</p>
-              <HeaderSearchButton mobile />
+              <p id="mobile-menu-title" className="font-display text-2xl font-semibold text-navy">
+                {brand.platformName}
+              </p>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={() => closeMenu({ returnFocus: true })}
+                className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-md border border-stone bg-ivory text-navy"
+                aria-label={`Close ${brand.platformName} menu`}
+              >
+                <span aria-hidden="true" className="relative block h-5 w-5">
+                  <span className="absolute left-0 top-1/2 block h-0.5 w-5 rotate-45 bg-current" />
+                  <span className="absolute left-0 top-1/2 block h-0.5 w-5 -rotate-45 bg-current" />
+                </span>
+              </button>
+            </div>
+            <div className="mb-5">
+              <HeaderSearchButton mobile onNavigate={() => closeMenu()} />
             </div>
             <div className="grid gap-4">
               {mobileDrawerNavigation.map((section) => (
@@ -174,7 +255,7 @@ export function Header() {
                   <Link
                     href={section.href}
                     aria-current={isActive(pathname, section.href) ? "page" : undefined}
-                    onClick={() => setOpen(false)}
+                    onClick={() => closeMenu()}
                     className={`focus-ring block rounded-md text-base font-bold ${
                       isActive(pathname, section.href) ? "liturgical-accent-text" : "text-navy"
                     }`}
@@ -193,7 +274,7 @@ export function Header() {
                                 key={`${section.href}-${group.title}-${link.href}-${link.label}`}
                                 href={link.href}
                                 aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                                onClick={() => setOpen(false)}
+                                onClick={() => closeMenu()}
                                 className="focus-ring liturgical-nav-link rounded-md px-3 py-2 text-sm font-semibold text-navy hover:bg-parchment"
                               >
                                 {link.label}
@@ -210,7 +291,7 @@ export function Header() {
                           key={`${section.href}-${link.href}-${link.label}`}
                           href={link.href}
                           aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                          onClick={() => setOpen(false)}
+                          onClick={() => closeMenu()}
                           className="focus-ring liturgical-nav-link rounded-md px-3 py-2 text-sm font-semibold text-navy hover:bg-parchment"
                         >
                           {link.label}
@@ -224,6 +305,6 @@ export function Header() {
           </nav>
         </div>
       ) : null}
-    </header>
+    </>
   );
 }

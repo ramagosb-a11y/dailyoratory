@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { FindMassSection } from "@/components/home/FindMassSection";
 import { FooterCta } from "@/components/home/FooterCta";
 import { HomeExaminationSpotlight } from "@/components/home/HomeExaminationSpotlight";
 import { GrowInFaithSection } from "@/components/home/GrowInFaithSection";
-import { HomeFeaturedMediaSection } from "@/components/home/HomeFeaturedMediaSection";
 import { HomeHeavenboundSpotlight } from "@/components/home/HomeHeavenboundSpotlight";
-import { HomeSearchSection } from "@/components/home/HomeSearchSection";
 import { Hero } from "@/components/home/Hero";
 import { TodayInTheChurch } from "@/components/home/TodayInTheChurch";
-import Link from "next/link";
-import { getFeaturedMediaItems, getMediaCategories, getMediaTypeLabel } from "@/lib/media";
 import { createPageMetadata } from "@/lib/metadata";
-import type { MediaType } from "@/types/media";
 
 export const revalidate = 86400;
 
@@ -21,92 +18,59 @@ export const metadata: Metadata = createPageMetadata({
   path: "/",
 });
 
-const ALLOWED_HOME_MEDIA_TYPES: ReadonlySet<MediaType> = new Set([
-  "youtube-video",
-  "youtube-playlist",
-  "google-slides",
-  "google-drive-file",
-  "pdf",
-  "google-drive-image",
-  "external-image",
-]);
-
-const priorityStartHereCards = [
+const featuredContentCards = [
   {
-    title: "What Should I Do?",
-    description: "Choose the situation that fits where you are right now and get one clear Catholic next step.",
-    href: "/what-should-i-do",
+    title: "The Holy Mass",
+    description:
+      "Understand the parts of the Mass, its sacred signs, and the mystery of Christ's Eucharistic sacrifice.",
+    href: "/mass",
   },
   {
-    title: "Catholic Life Roadmap",
-    description: "See how prayer, Mass, Confession, Scripture, grace, and daily Catholic life fit together.",
-    href: "/catholic-life",
+    title: "Eucharistic Miracles",
+    description:
+      "Discover remarkable Eucharistic miracles and what they reveal about Christ's Real Presence.",
+    href: "/eucharistic-miracles",
   },
   {
-    title: "Catholic Q&A",
-    description: "Get short answers to common Catholic questions and then go deeper through fuller guides.",
-    href: "/catholic-answers",
+    title: "Mass Readings Reflections",
+    description:
+      "Pray with Scripture through reflections on daily Mass readings, Sundays, solemnities, and feast days.",
+    href: "/reflections/mass-readings",
   },
   {
-    title: "Prayer Library",
-    description: "Find Catholic prayers for daily life, the Rosary, Confession, repentance, and hope.",
-    href: "/prayers",
-  },
-  {
-    title: "Confession Guide",
-    description: "Return to mercy with practical help for preparation, contrition, and thanksgiving.",
-    href: "/confession",
-  },
-  {
-    title: "Holy Hour Adoration Guide",
-    description: "Learn a simple, peaceful structure for spending a Holy Hour with Jesus in Eucharistic Adoration.",
-    href: "/adoration#holy-hour-guide",
+    title: "Catholic Homilies",
+    description:
+      "Listen to Catholic homilies and Gospel reflections that connect Scripture, the Mass, and daily discipleship.",
+    href: "/homilies",
   },
 ];
 
-export default async function Home() {
-  const [featuredMediaItems, mediaCategories] = await Promise.all([getFeaturedMediaItems(), getMediaCategories()]);
-  const categoryMap = new Map(mediaCategories.map((category) => [category.slug, category.title]));
-  const homeFeaturedMedia = featuredMediaItems
-    .filter((item) => ALLOWED_HOME_MEDIA_TYPES.has(item.mediaType))
-    .slice(0, 6)
-    .map((item) => ({
-      id: item.id,
-      slug: item.slug,
-      title: item.title,
-      description: item.shortDescription,
-      mediaTypeLabel: getHomeMediaTypeLabel(item.mediaType),
-      categoryLabel: categoryMap.get(item.category) ?? formatCategoryLabel(item.category),
-      thumbnailUrl: item.thumbnailUrl || item.imageUrl,
-      altText: item.altText,
-      href: resolveHomeMediaHref(item),
-      external: Boolean(item.directExternalOnly && item.sourceUrl),
-      ctaLabel: getHomeMediaCtaLabel(item.mediaType),
-      mediaType: item.mediaType,
-    }));
-
+export default function Home() {
   return (
     <div className="liturgical-home-shell paper-texture">
       <Hero />
       <TodayInTheChurch />
       <section className="mx-auto mt-12 w-full max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="liturgical-home-section p-6 sm:p-8">
-          <p className="liturgical-section-eyebrow text-xs font-bold uppercase tracking-[0.18em]">Find Your Path</p>
+          <p className="liturgical-section-eyebrow text-xs font-bold uppercase tracking-[0.18em]">
+            Explore Daily Oratory
+          </p>
           <h2 className="font-display mt-3 text-4xl font-semibold text-navy sm:text-5xl">
-            Priority Catholic Guides
+            Featured Content
           </h2>
           <p className="daily-readable-muted mt-4 max-w-4xl text-base leading-8 text-muted">
-            Explore the major Daily Oratory hubs for prayer, mercy, Catholic answers, daily Catholic life, and urgent sacramental help.
+            Explore the Mass, Eucharistic miracles, Scripture reflections, and Catholic homilies—all
+            gathered to deepen faith and prayer.
           </p>
           <div className="liturgical-home-rule mt-6" aria-hidden="true" />
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {priorityStartHereCards.map((card) => (
+            {featuredContentCards.map((card) => (
               <article key={card.href} className="liturgical-home-card rounded-3xl p-5">
                 <h3 className="font-display text-2xl font-semibold text-navy">{card.title}</h3>
                 <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.description}</p>
                 <div className="mt-5">
                   <Link href={card.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
-                    Open Guide
+                    Explore
                   </Link>
                 </div>
               </article>
@@ -114,64 +78,11 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <HomeSearchSection />
       <HomeExaminationSpotlight />
       <GrowInFaithSection />
       <HomeHeavenboundSpotlight />
-      <HomeFeaturedMediaSection items={homeFeaturedMedia} showHomiliesCta />
       <FooterCta />
+      <FindMassSection />
     </div>
   );
-}
-
-function getHomeMediaTypeLabel(mediaType: MediaType) {
-  switch (mediaType) {
-    case "youtube-video":
-      return "Video";
-    case "youtube-playlist":
-      return "Playlist";
-    case "google-slides":
-      return "Slides";
-    case "google-drive-file":
-      return "Resource";
-    case "pdf":
-      return "PDF";
-    case "google-drive-image":
-    case "external-image":
-      return "Image";
-    default:
-      return getMediaTypeLabel(mediaType);
-  }
-}
-
-function getHomeMediaCtaLabel(mediaType: MediaType) {
-  switch (mediaType) {
-    case "youtube-video":
-      return "Watch";
-    case "youtube-playlist":
-      return "View Playlist";
-    case "google-drive-file":
-    case "pdf":
-    case "google-slides":
-      return "Open Resource";
-    default:
-      return "View Media";
-  }
-}
-
-function resolveHomeMediaHref(item: {
-  slug: string;
-  sourceUrl?: string;
-  directExternalOnly?: boolean;
-}) {
-  if (item.slug) return `/media/${item.slug}`;
-  if (item.sourceUrl && item.directExternalOnly) return item.sourceUrl;
-  return "/media";
-}
-
-function formatCategoryLabel(category: string) {
-  return category
-    .split("-")
-    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
-    .join(" ");
 }
