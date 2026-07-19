@@ -6,8 +6,8 @@ export function CatholicViewBible() {
     <BibleSection
       id="catholic-view"
       eyebrow="Catholic view"
-      title="How Catholics Understand the Bible"
-      summary="Catholics believe Sacred Scripture is inspired by God and entrusted to the Church. Scripture is proclaimed in the Mass, prayed in the Liturgy of the Hours, studied with the help of Tradition, and lived through faith, hope, and charity."
+      title="One Catholic Way to Approach the Bible"
+      summary="This is one way Catholics may approach Sacred Scripture: receiving it as inspired by God, reading it with the Church's Tradition, praying with it, and letting it shape faith and daily life. Catholics may differ in translation, study habits, devotional style, and emphasis while sharing the Church's central beliefs about Scripture."
     >
       <BibleCardGrid columns="md:grid-cols-2 xl:grid-cols-4">
         {catholicViewPoints.map((point) => (

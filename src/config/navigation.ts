@@ -22,14 +22,10 @@ export const siteNavigation: NavigationSection[] = [
     href: "/catholic-life",
     description: "See how prayer, Mass, Confession, formation, and daily Catholic life fit together.",
     children: [
-      { label: "What Should I Do?", href: "/what-should-i-do", description: "Choose your situation and find one faithful next step." },
       { label: "Catholic Life Roadmap", href: "/catholic-life", description: "A simple roadmap through Catholic prayer, sacraments, formation, mercy, and hope." },
-      { label: "Catholic Q&A", href: "/catholic-answers", description: "Short beginner-friendly Catholic answers with links to deeper guides." },
-      { label: "Sacramental Emergency", href: "/sacramental-emergency", description: "What to do when someone needs a priest, Confession, Anointing, or prayer urgently." },
       { label: "Explore the Catholic Faith", href: "/explore", description: "A welcoming starting place for first questions and next steps." },
       { label: "Becoming Catholic", href: "/ocia", description: "The parish path into full communion." },
       { label: "Returning Catholics", href: "/returning", description: "A calm guide for coming home to the Church." },
-      { label: "Formation", href: "/formation", description: "Grow in doctrine, virtue, prayer, and daily discipleship." },
     ],
   },
   {
@@ -258,26 +254,9 @@ export const mobileDrawerNavigation = siteNavigation;
 
 export const footerNavigationGroups = [
   {
-    title: "Helpful Guides",
-    links: [
-      { label: "What Should I Do?", href: "/what-should-i-do" },
-      { label: "Catholic Life Roadmap", href: "/catholic-life" },
-      { label: "Catholic Q&A", href: "/catholic-answers" },
-      { label: "Prayer Library", href: "/prayers" },
-      { label: "Begin in Prayer", href: "/begin-in-prayer" },
-      { label: "Litanies", href: "/prayers/litanies" },
-      { label: "Confession Guide", href: "/confession" },
-      { label: "Holy Rosary", href: "/devotions/holy-rosary" },
-      { label: "Sacramental Emergency", href: "/sacramental-emergency" },
-    ],
-  },
-  {
     title: "Begin",
     links: [
       { label: "Begin in prayer", href: "/begin-in-prayer" },
-      { label: "Catholic Life Roadmap", href: "/catholic-life" },
-      { label: "Enter Adoration", href: "/adoration" },
-      { label: "Build a daily rule of life", href: "/rule-of-life" },
       { label: "Confession Guide", href: "/confession" },
     ],
   },
@@ -285,17 +264,7 @@ export const footerNavigationGroups = [
     title: "Grow",
     links: [
       { label: "Mass Readings Reflections", href: "/reflections/mass-readings" },
-      { label: "Live the liturgical year", href: "/liturgical-living" },
-      { label: "Sacrament Companion", href: "/sacraments" },
-      { label: "Grow in virtue", href: "/virtue-tracker" },
       { label: "Find a saint companion", href: "/saints" },
-    ],
-  },
-  {
-    title: "Gather",
-    links: [
-      { label: "Library", href: "/library" },
-      { label: "Events", href: "/community/events" },
     ],
   },
 ] as const;

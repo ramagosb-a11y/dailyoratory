@@ -29,7 +29,7 @@ export function BibleHero() {
               Read Today&apos;s Mass Readings
             </TrackedLink>
             <Link href="#catholic-view" className="btn btn-secondary focus-ring justify-center">
-              How Catholics Read the Bible
+              Explore a Catholic Approach
             </Link>
             <Link href="#translations" className="btn btn-secondary focus-ring justify-center">
               Choose a Catholic Bible

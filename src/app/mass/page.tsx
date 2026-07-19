@@ -156,10 +156,6 @@ export default function MassPage() {
         </div>
 
         <div className="mt-14">
-          <MassVideoSection videos={videos} />
-        </div>
-
-        <div className="mt-14">
           <MassRoadmap sections={sections} />
         </div>
 
@@ -314,6 +310,10 @@ export default function MassPage() {
               Pray the readings
             </Link>
           </div>
+        </div>
+
+        <div className="mt-14">
+          <MassVideoSection videos={videos} />
         </div>
       </main>
     </div>
