@@ -124,6 +124,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Live Adoration Streams", href: "/adoration/live" },
     { label: "How to Make a Holy Hour", href: "/adoration/holy-hour" },
     { label: "Adoration Prayers", href: "/adoration/prayers" },
+    { label: "Meditation Before the Blessed Sacrament", href: "/adoration/meditation-before-the-blessed-sacrament" },
     { label: "Submit Adoration Stream", href: "/adoration/submit-stream" },
     { label: "Eucharistic Miracles", href: "/eucharistic-miracles" },
   ];

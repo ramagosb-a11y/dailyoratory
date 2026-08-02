@@ -40,6 +40,7 @@ export const adorationLinks = [
   { label: "Portal", href: "/adoration" },
   { label: "Live", href: "/adoration/live" },
   { label: "Prayers", href: "/adoration/prayers" },
+  { label: "Meditation", href: "/adoration/meditation-before-the-blessed-sacrament" },
   { label: "Submit stream", href: "/adoration/submit-stream" },
 ] as const;
 

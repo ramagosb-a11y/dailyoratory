@@ -24,6 +24,22 @@ export default function AdorationPrayersPage() {
         <div className="mt-8">
           <AdorationPrayerPanel />
         </div>
+        <section className="mt-8 card-parchment p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Guided meditation</p>
+          <h2 className="font-display mt-3 text-3xl font-semibold text-navy">
+            A Meditation Before the Blessed Sacrament
+          </h2>
+          <p className="daily-card-readable mt-4 text-base leading-8 text-muted">
+            Bring your needs, relationships, gratitude, repentance, and silence before Jesus with help from
+            Scripture and the Catechism.
+          </p>
+          <Link
+            href="/adoration/meditation-before-the-blessed-sacrament"
+            className="btn btn-secondary focus-ring mt-6 min-h-12 justify-center"
+          >
+            Open the Meditation
+          </Link>
+        </section>
         <div className="mt-8 text-center">
           <Link href="/adoration/live" className="btn btn-primary focus-ring">
             Enter Adoration
