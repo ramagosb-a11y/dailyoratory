@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { formatHolyHourGuideForCopy, getHolyHourGuide } from "@/lib/adoration";
@@ -89,6 +90,12 @@ export function HolyHourGuide() {
         <button type="button" onClick={() => window.print()} className="btn btn-secondary focus-ring justify-center">
           Print Holy Hour Guide
         </button>
+        <Link
+          href="/adoration/meditation-before-the-blessed-sacrament"
+          className="btn btn-secondary focus-ring justify-center"
+        >
+          Pray the Blessed Sacrament Meditation
+        </Link>
       </div>
     </section>
   );
