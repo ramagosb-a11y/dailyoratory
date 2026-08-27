@@ -5,6 +5,7 @@ import { FooterCta } from "@/components/home/FooterCta";
 import { HomeExaminationSpotlight } from "@/components/home/HomeExaminationSpotlight";
 import { GrowInFaithSection } from "@/components/home/GrowInFaithSection";
 import { HomeHeavenboundSpotlight } from "@/components/home/HomeHeavenboundSpotlight";
+import { HomeRosaryCta } from "@/components/home/HomeRosaryCta";
 import { Hero } from "@/components/home/Hero";
 import { TodayInTheChurch } from "@/components/home/TodayInTheChurch";
 import { createPageMetadata } from "@/lib/metadata";
@@ -82,6 +83,7 @@ export default function Home() {
       <GrowInFaithSection />
       <HomeHeavenboundSpotlight />
       <FooterCta />
+      <HomeRosaryCta />
       <FindMassSection />
     </div>
   );
