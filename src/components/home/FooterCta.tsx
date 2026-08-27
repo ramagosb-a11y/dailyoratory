@@ -23,9 +23,14 @@ export function FooterCta() {
           </p>
         </div>
         <div className="flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row lg:w-auto">
-          <Link href="/adoration/meditation-before-the-blessed-sacrament" className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.primaryButtonClassName}`}>
+          <a
+            href="https://adoration-companion.ai.studio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.primaryButtonClassName}`}
+          >
             Pray the Meditation
-          </Link>
+          </a>
           <Link href="/adoration#holy-hour-guide" className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.secondaryButtonClassName}`}>
             Open the Holy Hour Guide
           </Link>
