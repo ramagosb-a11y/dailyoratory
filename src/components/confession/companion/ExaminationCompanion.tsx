@@ -1,17 +1,46 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { actOfContrition, guidedExaminationPaths, openingPrayer } from "@/data/guidedExamination";
+import {
+  companionExaminationGuides,
+  openingPrayer,
+} from "@/data/examinationCompanion";
+import { actOfContrition } from "@/data/guidedExamination";
 import {
   examinationCompanionStorageKey,
   useExaminationCompanionStore,
 } from "@/lib/examinationCompanionStorage";
-import type { CompanionPromptStatus } from "@/types/examinationCompanion";
-import type { GuidedExaminationPathId } from "@/types/guidedExamination";
+import type {
+  CompanionGuideId,
+  CompanionPromptStatus,
+  CompanionSinDetails,
+  CompanionSinFrequency,
+} from "@/types/examinationCompanion";
 
 type CompanionView = "examine" | "list" | "confessional" | "history" | "prayers";
 type PromptFilter = "all" | "unreviewed" | "confess" | "clear";
+type SelectedConfessionItem = {
+  id: string;
+  guideTitle: string;
+  sectionTitle: string;
+  text: string;
+  note: string;
+  sinDetails?: CompanionSinDetails;
+};
+
+const frequencyOptions: { value: CompanionSinFrequency; label: string }[] = [
+  { value: "once", label: "Once" },
+  { value: "few-times", label: "A few times (2–3)" },
+  { value: "several-times", label: "Several times (4–10)" },
+  { value: "habitual", label: "Habitual / Frequent" },
+  { value: "daily", label: "Daily" },
+  { value: "unsure", label: "Unsure" },
+];
+
+const frequencyLabels = Object.fromEntries(
+  frequencyOptions.map((option) => [option.value, option.label]),
+) as Record<CompanionSinFrequency, string>;
 
 const navItems: { id: CompanionView; label: string; shortLabel: string; symbol: string }[] = [
   { id: "examine", label: "Examine Conscience", shortLabel: "Examine", symbol: "✦" },
@@ -29,8 +58,12 @@ export function ExaminationCompanion() {
   const [customText, setCustomText] = useState("");
   const [confessedIds, setConfessedIds] = useState<string[]>([]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [view]);
+
   const activeGuide =
-    guidedExaminationPaths.find((guide) => guide.id === store.activeGuideId) ?? guidedExaminationPaths[0];
+    companionExaminationGuides.find((guide) => guide.id === store.activeGuideId) ?? companionExaminationGuides[0];
   const activePrompts = useMemo(
     () =>
       activeGuide.sections.flatMap((section) =>
@@ -40,7 +73,7 @@ export function ExaminationCompanion() {
   );
   const reviewedCount = activePrompts.filter((prompt) => store.statusByPromptId[prompt.id]).length;
   const selectedItems = useMemo(() => {
-    const standardItems = guidedExaminationPaths.flatMap((guide) =>
+    const standardItems = companionExaminationGuides.flatMap((guide) =>
       guide.sections.flatMap((section) =>
         section.prompts
           .filter((prompt) => store.statusByPromptId[prompt.id] === "confess")
@@ -50,6 +83,7 @@ export function ExaminationCompanion() {
             sectionTitle: section.title,
             text: prompt.text,
             note: store.noteByPromptId[prompt.id] ?? "",
+            sinDetails: store.sinDetailsByPromptId[prompt.id],
           })),
       ),
     );
@@ -61,27 +95,36 @@ export function ExaminationCompanion() {
         sectionTitle: "Custom reflection",
         text: reflection.text,
         note: store.noteByPromptId[reflection.id] ?? "",
+        sinDetails: store.sinDetailsByPromptId[reflection.id],
       }));
 
     return [...standardItems, ...customItems];
-  }, [store.customReflections, store.noteByPromptId, store.statusByPromptId]);
+  }, [store.customReflections, store.noteByPromptId, store.sinDetailsByPromptId, store.statusByPromptId]);
   const lastConfessionSummary = formatLastConfession(store.lastConfessionDate);
 
-  function changeGuide(guideId: GuidedExaminationPathId) {
+  function changeGuide(guideId: CompanionGuideId) {
     updateStore((current) => ({ ...current, activeGuideId: guideId }));
     setFilter("all");
     setSearch("");
+  }
+
+  function updateLastConfessionDate(lastConfessionDate: string) {
+    updateStore((current) => ({ ...current, lastConfessionDate }));
+    setView("examine");
   }
 
   function setPromptStatus(promptId: string, status: CompanionPromptStatus) {
     updateStore((current) => {
       const currentStatus = current.statusByPromptId[promptId];
       const statusByPromptId = { ...current.statusByPromptId };
+      const sinDetailsByPromptId = { ...current.sinDetailsByPromptId };
       if (currentStatus === status) delete statusByPromptId[promptId];
       else statusByPromptId[promptId] = status;
+      if (status !== "confess" || currentStatus === status) delete sinDetailsByPromptId[promptId];
 
       return {
         ...current,
+        sinDetailsByPromptId,
         statusByPromptId,
         customReflections: current.customReflections.map((reflection) =>
           reflection.id === promptId
@@ -90,6 +133,18 @@ export function ExaminationCompanion() {
         ),
       };
     });
+  }
+
+  function saveSinDetails(promptId: string, details: CompanionSinDetails, note: string) {
+    updateStore((current) => ({
+      ...current,
+      noteByPromptId: { ...current.noteByPromptId, [promptId]: note.slice(0, 1200) },
+      sinDetailsByPromptId: { ...current.sinDetailsByPromptId, [promptId]: details },
+      statusByPromptId: { ...current.statusByPromptId, [promptId]: "confess" },
+      customReflections: current.customReflections.map((reflection) =>
+        reflection.id === promptId ? { ...reflection, status: "confess" } : reflection,
+      ),
+    }));
   }
 
   function saveNote(promptId: string, note: string) {
@@ -113,13 +168,16 @@ export function ExaminationCompanion() {
   function removeCustomReflection(id: string) {
     updateStore((current) => {
       const statusByPromptId = { ...current.statusByPromptId };
+      const sinDetailsByPromptId = { ...current.sinDetailsByPromptId };
       const noteByPromptId = { ...current.noteByPromptId };
       delete statusByPromptId[id];
+      delete sinDetailsByPromptId[id];
       delete noteByPromptId[id];
       return {
         ...current,
         customReflections: current.customReflections.filter((reflection) => reflection.id !== id),
         noteByPromptId,
+        sinDetailsByPromptId,
         statusByPromptId,
       };
     });
@@ -138,6 +196,7 @@ export function ExaminationCompanion() {
       ...current,
       lastConfessionDate: completedAt.slice(0, 10),
       statusByPromptId: {},
+      sinDetailsByPromptId: {},
       noteByPromptId: {},
       customReflections: current.customReflections.map((reflection) => ({
         id: reflection.id,
@@ -171,30 +230,32 @@ export function ExaminationCompanion() {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 pb-32 pt-6 sm:px-6 sm:pt-8 md:pb-12 lg:px-10">
-      <header className="overflow-hidden rounded-[1.5rem] border border-stone bg-navy text-ivory shadow-soft">
-        <div className="p-5 sm:p-7 lg:flex lg:items-end lg:justify-between lg:gap-8">
-          <div>
-            <div className="flex flex-wrap items-center gap-2 text-[0.68rem] font-bold uppercase tracking-[0.18em] text-gold-light">
-              <span>Sacrament of Reconciliation</span>
-              <span className="rounded-full border border-gold/40 px-2 py-1">V1.0 preview</span>
+      <header className="dashboard-card overflow-hidden">
+        <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="rounded border border-gold/30 bg-parchment px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-burgundy">
+                ◷ Interval: {lastConfessionSummary}
+              </span>
+              <span className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted">V1.0 preview</span>
             </div>
-            <h1 className="font-display mt-3 text-4xl font-semibold leading-tight sm:text-5xl">
-              Examination of Conscience
-            </h1>
-            <p className="mt-3 max-w-3xl text-sm leading-7 text-ivory/80 sm:text-base">
-              Prepare prayerfully, keep a simple confession list, and carry only what you choose into the confessional.
+            <p className="font-display mt-3 border-l-2 border-gold pl-4 text-lg italic leading-8 text-navy sm:text-xl">
+              “Bless me, Father, for I have sinned. It has been {formatConfessionInterval(store.lastConfessionDate)} since my last confession.”
+            </p>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              The Church encourages regular confession for ongoing spiritual renewal, pardon, and peace.
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => setView("history")}
-            className="focus-ring mt-5 min-h-12 w-full rounded-xl border border-ivory/25 bg-ivory/10 px-4 py-3 text-left text-sm font-semibold lg:mt-0 lg:w-auto lg:min-w-52"
-          >
-            <span className="block text-[0.65rem] uppercase tracking-[0.16em] text-gold-light">Last Confession</span>
-            <span className="mt-1 block">{lastConfessionSummary}</span>
-          </button>
+          <div className="grid grid-cols-2 gap-2 sm:flex">
+            <button type="button" onClick={() => setView("history")} className="btn btn-secondary focus-ring min-h-12 justify-center">
+              Update date
+            </button>
+            <button type="button" onClick={() => setView("prayers")} className="btn btn-primary focus-ring min-h-12 justify-center">
+              Confessional guide →
+            </button>
+          </div>
         </div>
-        <nav aria-label="Examination Companion" className="hidden border-t border-ivory/15 bg-black/10 p-2 md:grid md:grid-cols-5">
+        <nav aria-label="Examination Companion" className="hidden border-t border-stone bg-navy p-2 md:grid md:grid-cols-5">
           {navItems.map((item) => (
             <NavButton key={item.id} active={view === item.id} item={item} onSelect={() => setView(item.id)} />
           ))}
@@ -214,6 +275,7 @@ export function ExaminationCompanion() {
             customReflections={store.customReflections}
             filter={filter}
             noteByPromptId={store.noteByPromptId}
+            sinDetailsByPromptId={store.sinDetailsByPromptId}
             reviewedCount={reviewedCount}
             search={search}
             statusByPromptId={store.statusByPromptId}
@@ -225,7 +287,7 @@ export function ExaminationCompanion() {
             onFilterChange={setFilter}
             onOpenList={() => setView("list")}
             onRemoveCustom={removeCustomReflection}
-            onSaveNote={saveNote}
+            onSaveSinDetails={saveSinDetails}
             onSearchChange={setSearch}
             onSetStatus={setPromptStatus}
           />
@@ -255,12 +317,49 @@ export function ExaminationCompanion() {
           <PrivacyHistoryView
             history={store.history}
             lastConfessionDate={store.lastConfessionDate}
-            onChangeDate={(lastConfessionDate) => updateStore((current) => ({ ...current, lastConfessionDate }))}
+            onChangeDate={updateLastConfessionDate}
             onClearAll={clearAllData}
           />
         ) : null}
-        {view === "prayers" ? <PrayersGuideView /> : null}
+        {view === "prayers" ? <PrayersGuideView onReturnToExamination={() => setView("examine")} /> : null}
       </main>
+
+      {view === "examine" && selectedItems.length ? (
+        <aside
+          className="fixed bottom-[5.75rem] right-3 z-50 text-ivory md:bottom-6 md:left-4 md:right-4 md:mx-auto md:max-w-lg"
+          aria-live="polite"
+        >
+          <button
+            type="button"
+            onClick={() => setView("list")}
+            className="focus-ring flex min-h-11 items-center gap-2 rounded-full border border-gold/30 bg-navy px-4 text-sm font-bold shadow-[0_8px_24px_rgba(22,35,55,0.28)] md:hidden"
+          >
+            Review sin list
+            <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-gold px-1.5 text-xs text-navy">
+              {selectedItems.length}
+            </span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <div className="hidden items-center gap-3 rounded-xl border border-navy/15 bg-navy p-3 shadow-[0_12px_32px_rgba(22,35,55,0.3)] md:flex">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gold text-sm font-bold text-navy">
+              {selectedItems.length}
+            </span>
+            <div className="min-w-0 flex-1">
+              <p className="font-display text-base font-semibold">
+                {selectedItems.length} {selectedItems.length === 1 ? "sin" : "sins"} ready
+              </p>
+              <p className="text-xs text-ivory/65">In your private confession list</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setView("list")}
+              className="focus-ring min-h-11 shrink-0 rounded-lg bg-gold px-3 text-xs font-bold uppercase tracking-wide text-navy sm:px-4"
+            >
+              Review sin list →
+            </button>
+          </div>
+        </aside>
+      ) : null}
 
       <p className="mt-8 text-center text-xs leading-6 text-muted">
         Preview route only. The current examination tool and its saved data are unchanged. Storage key: {examinationCompanionStorageKey}.
@@ -284,6 +383,7 @@ function ExamineView({
   customText,
   filter,
   noteByPromptId,
+  sinDetailsByPromptId,
   reviewedCount,
   search,
   statusByPromptId,
@@ -294,30 +394,31 @@ function ExamineView({
   onFilterChange,
   onOpenList,
   onRemoveCustom,
-  onSaveNote,
+  onSaveSinDetails,
   onSearchChange,
   onSetStatus,
 }: {
-  activeGuideId: GuidedExaminationPathId;
+  activeGuideId: CompanionGuideId;
   customReflections: { id: string; text: string; status?: CompanionPromptStatus }[];
   customText: string;
   filter: PromptFilter;
   noteByPromptId: Record<string, string>;
+  sinDetailsByPromptId: Record<string, CompanionSinDetails>;
   reviewedCount: number;
   search: string;
   statusByPromptId: Record<string, CompanionPromptStatus>;
   totalCount: number;
   onAddCustom: () => void;
-  onChangeGuide: (guideId: GuidedExaminationPathId) => void;
+  onChangeGuide: (guideId: CompanionGuideId) => void;
   onCustomTextChange: (value: string) => void;
   onFilterChange: (filter: PromptFilter) => void;
   onOpenList: () => void;
   onRemoveCustom: (id: string) => void;
-  onSaveNote: (id: string, note: string) => void;
+  onSaveSinDetails: (id: string, details: CompanionSinDetails, note: string) => void;
   onSearchChange: (value: string) => void;
   onSetStatus: (id: string, status: CompanionPromptStatus) => void;
 }) {
-  const activeGuide = guidedExaminationPaths.find((guide) => guide.id === activeGuideId) ?? guidedExaminationPaths[0];
+  const activeGuide = companionExaminationGuides.find((guide) => guide.id === activeGuideId) ?? companionExaminationGuides[0];
   const normalizedSearch = search.trim().toLowerCase();
   const visibleSections = activeGuide.sections
     .map((section) => ({
@@ -335,32 +436,56 @@ function ExamineView({
   return (
     <div className="grid min-w-0 gap-6">
       <section className="dashboard-card min-w-0 p-5 sm:p-7">
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Choose an examination guide</p>
-            <h2 className="font-display mt-2 text-3xl font-semibold text-navy sm:text-4xl">Begin with prayer and honesty.</h2>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">USCCB examination framework</p>
+            <h1 className="font-display mt-2 text-3xl font-semibold text-navy sm:text-4xl">Select Examination Guide</h1>
           </div>
-          <button type="button" onClick={onOpenList} className="btn btn-primary focus-ring min-h-12 justify-center">
-            View confession list ({selectedCount})
+          <button
+            type="button"
+            onClick={() => document.getElementById("custom-reflection")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+            className="btn btn-primary focus-ring min-h-12 justify-center"
+          >
+            + Add custom reflection
           </button>
         </div>
-        <label className="mt-6 grid gap-2">
-          <span className="form-label">Examination guide</span>
-          <select
-            value={activeGuideId}
-            onChange={(event) => onChangeGuide(event.target.value as GuidedExaminationPathId)}
-            className="form-field focus-ring min-h-12 w-full"
-          >
-            {guidedExaminationPaths.map((guide) => (
-              <option key={guide.id} value={guide.id}>{guide.title}</option>
-            ))}
-          </select>
-        </label>
-        <p className="mt-3 text-sm leading-7 text-muted">{activeGuide.description}</p>
-        <div className="mt-5 rounded-xl border border-gold/30 bg-parchment p-4">
+        <div className="mt-5 h-px bg-stone" />
+        <div className="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-4" aria-label="USCCB examination guides">
+          {companionExaminationGuides.map((guide) => {
+            const active = guide.id === activeGuideId;
+            return (
+              <button
+                key={guide.id}
+                type="button"
+                onClick={() => onChangeGuide(guide.id)}
+                aria-pressed={active}
+                className={`focus-ring relative min-h-24 rounded-lg border p-3 text-left transition ${
+                  active ? "border-gold bg-parchment shadow-sm" : "border-stone bg-ivory hover:border-gold/60"
+                }`}
+              >
+                <span className="block pr-5 font-display text-base font-semibold leading-6 text-navy">{guide.title}</span>
+                <span className="mt-1 block text-[0.68rem] leading-5 text-muted">{guide.attribution}</span>
+                {active ? <span aria-hidden="true" className="absolute right-3 top-3 text-gold">●</span> : null}
+              </button>
+            );
+          })}
+        </div>
+        <div className="mt-5 grid gap-4 rounded-xl border border-gold/30 bg-parchment p-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">{activeGuide.title}</p>
+            <p className="mt-2 text-sm leading-7 text-navy">{activeGuide.description}</p>
+          </div>
+          <a href={activeGuide.sourceUrl} target="_blank" rel="noreferrer" className="focus-ring text-sm font-bold text-burgundy underline underline-offset-4">
+            View official USCCB source ↗
+          </a>
+        </div>
+        <div className="mt-4 rounded-xl border border-stone bg-ivory p-4">
           <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Opening prayer</p>
           <p className="mt-2 text-sm leading-7 text-navy">{openingPrayer}</p>
         </div>
+        <button type="button" onClick={onOpenList} className="btn btn-primary focus-ring mt-4 min-h-12 w-full justify-center sm:w-auto">
+          View confession list ({selectedCount})
+        </button>
       </section>
 
       <section className="dashboard-card min-w-0 p-4 sm:p-6">
@@ -400,8 +525,17 @@ function ExamineView({
         visibleSections.map((section) => (
           <section key={section.id} className="dashboard-card min-w-0 overflow-hidden">
             <div className="border-b border-stone bg-parchment p-5 sm:p-6">
-              <h2 className="font-display text-2xl font-semibold leading-tight text-navy sm:text-3xl">{section.title}</h2>
-              {section.scripture ? <p className="mt-2 font-display text-lg italic text-burgundy">{section.scripture}</p> : null}
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h2 className="font-display text-2xl font-semibold leading-tight text-navy sm:text-3xl">{section.title}</h2>
+                  {section.scripture ? <p className="mt-2 font-display text-lg italic text-burgundy">{section.scripture}</p> : null}
+                </div>
+                {section.reference ? (
+                  <span className="shrink-0 rounded border border-stone bg-ivory px-3 py-2 text-xs font-semibold text-muted">
+                    {section.reference}
+                  </span>
+                ) : null}
+              </div>
               <p className="mt-2 text-sm leading-7 text-muted">{section.reflection}</p>
             </div>
             <div className="grid gap-3 p-3 sm:p-5">
@@ -410,9 +544,12 @@ function ExamineView({
                   key={prompt.id}
                   id={prompt.id}
                   text={prompt.text}
+                  graveMatterNote={prompt.graveMatterNote}
+                  pastoralReflection={prompt.pastoralReflection}
                   note={noteByPromptId[prompt.id] ?? ""}
+                  sinDetails={sinDetailsByPromptId[prompt.id]}
                   status={statusByPromptId[prompt.id]}
-                  onSaveNote={onSaveNote}
+                  onSaveSinDetails={onSaveSinDetails}
                   onSetStatus={onSetStatus}
                 />
               ))}
@@ -428,7 +565,7 @@ function ExamineView({
         </section>
       )}
 
-      <section className="dashboard-card min-w-0 p-5 sm:p-6">
+      <section id="custom-reflection" className="dashboard-card min-w-0 scroll-mt-5 p-5 sm:p-6">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Personal reflection</p>
         <h2 className="font-display mt-2 text-3xl font-semibold text-navy">Add something you want to remember.</h2>
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
@@ -450,8 +587,9 @@ function ExamineView({
                   id={reflection.id}
                   text={reflection.text}
                   note={noteByPromptId[reflection.id] ?? ""}
+                  sinDetails={sinDetailsByPromptId[reflection.id]}
                   status={reflection.status}
-                  onSaveNote={onSaveNote}
+                  onSaveSinDetails={onSaveSinDetails}
                   onSetStatus={onSetStatus}
                 />
                 <button type="button" onClick={() => onRemoveCustom(reflection.id)} className="focus-ring mt-3 min-h-11 text-sm font-semibold text-burgundy underline underline-offset-4">
@@ -466,55 +604,115 @@ function ExamineView({
   );
 }
 
-function PromptCard({ id, note, status, text, onSaveNote, onSetStatus }: {
+function PromptCard({ graveMatterNote, id, note, pastoralReflection, sinDetails, status, text, onSaveSinDetails, onSetStatus }: {
+  graveMatterNote?: string;
   id: string;
   note: string;
+  pastoralReflection?: string;
+  sinDetails?: CompanionSinDetails;
   status?: CompanionPromptStatus;
   text: string;
-  onSaveNote: (id: string, note: string) => void;
+  onSaveSinDetails: (id: string, details: CompanionSinDetails, note: string) => void;
   onSetStatus: (id: string, status: CompanionPromptStatus) => void;
 }) {
+  const [detailsOpen, setDetailsOpen] = useState(false);
+  const [frequency, setFrequency] = useState<CompanionSinFrequency>(sinDetails?.frequency ?? "once");
+  const [graveMatter, setGraveMatter] = useState(sinDetails?.graveMatter ?? false);
+  const [reminder, setReminder] = useState(note);
+
+  function openDetails() {
+    setFrequency(sinDetails?.frequency ?? "once");
+    setGraveMatter(sinDetails?.graveMatter ?? false);
+    setReminder(note);
+    setDetailsOpen(true);
+  }
+
   return (
     <article className={`rounded-xl border p-4 ${status === "confess" ? "border-burgundy/40 bg-parchment" : status === "clear" ? "border-green-700/30 bg-green-50/60" : "border-stone bg-ivory"}`}>
       <p className="text-base font-semibold leading-7 text-navy">{text}</p>
       <div className="mt-4 grid grid-cols-2 gap-2">
         <button
           type="button"
-          onClick={() => onSetStatus(id, "confess")}
+          onClick={openDetails}
           aria-pressed={status === "confess"}
           className={`focus-ring min-h-12 rounded-lg border px-3 text-sm font-bold ${status === "confess" ? "border-burgundy bg-burgundy text-ivory" : "border-burgundy/30 bg-ivory text-burgundy"}`}
         >
-          {status === "confess" ? "✓ To confess" : "Confess"}
+          {status === "confess" ? "✓ Saved" : "+ Confess"}
         </button>
         <button
           type="button"
-          onClick={() => onSetStatus(id, "clear")}
+          onClick={() => { setDetailsOpen(false); onSetStatus(id, "clear"); }}
           aria-pressed={status === "clear"}
           className={`focus-ring min-h-12 rounded-lg border px-3 text-sm font-bold ${status === "clear" ? "border-green-800 bg-green-800 text-white" : "border-stone bg-ivory text-navy"}`}
         >
-          {status === "clear" ? "✓ Reviewed" : "Clear"}
+          {status === "clear" ? "✓ Cleared" : "Clear"}
         </button>
       </div>
-      <details className="mt-3">
-        <summary className="focus-ring min-h-11 cursor-pointer py-2 text-sm font-semibold text-burgundy">Optional private note</summary>
-        <label className="mt-2 grid gap-2">
-          <span className="sr-only">Private note for {text}</span>
-          <textarea
-            value={note}
-            onChange={(event) => onSaveNote(id, event.target.value)}
-            maxLength={1200}
-            rows={3}
-            placeholder="Stored only in this browser"
-            className="form-field textarea-field focus-ring"
-          />
-        </label>
-      </details>
+      {detailsOpen ? (
+        <form
+          className="mt-4 rounded-lg border border-stone bg-ivory p-4"
+          onSubmit={(event) => {
+            event.preventDefault();
+            onSaveSinDetails(id, { frequency, graveMatter }, reminder);
+            setDetailsOpen(false);
+          }}
+        >
+          <div className="flex items-center justify-between gap-3 border-b border-stone pb-3">
+            <p className="text-xs font-bold uppercase tracking-[0.12em] text-burgundy">Specify sin details for confession</p>
+            <button type="button" onClick={() => setDetailsOpen(false)} className="focus-ring flex h-10 w-10 items-center justify-center rounded-lg text-xl text-muted" aria-label="Close sin details">×</button>
+          </div>
+          <div className="mt-4 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+            <label className="grid gap-2">
+              <span className="form-label">Approximate frequency</span>
+              <select value={frequency} onChange={(event) => setFrequency(event.target.value as CompanionSinFrequency)} className="form-field focus-ring min-h-12 w-full">
+                {frequencyOptions.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+              </select>
+            </label>
+            <label className="flex min-h-12 cursor-pointer items-center gap-2 rounded-lg border border-stone px-3 text-sm text-navy">
+              <input type="checkbox" checked={graveMatter} onChange={(event) => setGraveMatter(event.target.checked)} className="h-5 w-5 accent-burgundy" />
+              Grave matter
+            </label>
+          </div>
+          <label className="mt-4 grid gap-2">
+            <span className="form-label">Private reminder note <span className="font-normal normal-case text-muted">(optional, for your eyes only)</span></span>
+            <input value={reminder} onChange={(event) => setReminder(event.target.value.slice(0, 1200))} maxLength={1200} placeholder="e.g. A brief reminder of the occasion" className="form-field focus-ring min-h-12 w-full" />
+          </label>
+          <p className="mt-3 text-xs leading-5 text-muted">This information remains only in this browser. Marking “grave matter” is a reminder, not a judgment about personal culpability.</p>
+          <div className="mt-4 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+            <button type="button" onClick={() => setDetailsOpen(false)} className="btn btn-secondary focus-ring min-h-11 justify-center">Cancel</button>
+            <button type="submit" className="btn btn-primary focus-ring min-h-11 justify-center">Save to sin list</button>
+          </div>
+        </form>
+      ) : null}
+      {pastoralReflection ? (
+        <details className="mt-3">
+          <summary className="focus-ring min-h-11 cursor-pointer py-2 text-sm font-semibold text-burgundy">
+            Moral Guidance &amp; Context
+          </summary>
+          <div className="rounded-lg border border-stone bg-parchment p-4 text-sm leading-6 text-navy">
+            {graveMatterNote ? (
+              <p className="text-burgundy">
+                <strong>Grave matter note:</strong> {graveMatterNote}
+              </p>
+            ) : null}
+            <p className={graveMatterNote ? "mt-3" : ""}>
+              <strong>Pastoral reflection:</strong> {pastoralReflection}
+            </p>
+            <p className="mt-3 text-xs leading-5 text-muted">
+              Mortal sin also requires full knowledge and deliberate consent. When uncertain, bring the matter simply to a priest.
+            </p>
+          </div>
+        </details>
+      ) : null}
+      {status === "clear" ? (
+        <p className="mt-3 text-sm font-semibold text-green-800">✓ Clear / No sin identified in this area</p>
+      ) : null}
     </article>
   );
 }
 
 function ConfessionListView({ items, onOpenConfessional, onSaveNote, onSetStatus }: {
-  items: { id: string; guideTitle: string; sectionTitle: string; text: string; note: string }[];
+  items: SelectedConfessionItem[];
   onOpenConfessional: () => void;
   onSaveNote: (id: string, note: string) => void;
   onSetStatus: (id: string, status: CompanionPromptStatus) => void;
@@ -540,6 +738,12 @@ function ConfessionListView({ items, onOpenConfessional, onSaveNote, onSetStatus
                 <div className="min-w-0 flex-1">
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-burgundy">{item.guideTitle}</p>
                   <p className="mt-2 text-base font-semibold leading-7 text-navy">{item.text}</p>
+                  {item.sinDetails ? (
+                    <div className="mt-3 flex flex-wrap gap-2 text-xs font-semibold">
+                      <span className="rounded-full border border-stone bg-parchment px-3 py-1.5 text-navy">Frequency: {frequencyLabels[item.sinDetails.frequency]}</span>
+                      {item.sinDetails.graveMatter ? <span className="rounded-full border border-burgundy/30 bg-burgundy/5 px-3 py-1.5 text-burgundy">Marked grave matter</span> : null}
+                    </div>
+                  ) : null}
                   <label className="mt-3 grid gap-2">
                     <span className="form-label">Optional frequency or brief note</span>
                     <textarea value={item.note} onChange={(event) => onSaveNote(item.id, event.target.value)} rows={2} maxLength={1200} className="form-field textarea-field focus-ring" />
@@ -562,7 +766,7 @@ function ConfessionListView({ items, onOpenConfessional, onSaveNote, onSetStatus
 
 function ConfessionalView({ confessedIds, items, lastConfessionSummary, onFinish, onToggle }: {
   confessedIds: string[];
-  items: { id: string; text: string; note: string }[];
+  items: SelectedConfessionItem[];
   lastConfessionSummary: string;
   onFinish: () => void;
   onToggle: (id: string) => void;
@@ -589,6 +793,7 @@ function ConfessionalView({ confessedIds, items, lastConfessionSummary, onFinish
                   <input type="checkbox" checked={confessedIds.includes(item.id)} onChange={() => onToggle(item.id)} className="mt-1 h-5 w-5 shrink-0 accent-gold" />
                   <span>
                     <span className={`block text-sm font-semibold leading-6 ${confessedIds.includes(item.id) ? "text-ivory/55 line-through" : "text-ivory"}`}>{item.text}</span>
+                    {item.sinDetails ? <span className="mt-2 block text-xs uppercase tracking-wide text-gold-light">{frequencyLabels[item.sinDetails.frequency]}{item.sinDetails.graveMatter ? " · Marked grave matter" : ""}</span> : null}
                     {item.note ? <span className="mt-2 block text-sm leading-6 text-gold-light">{item.note}</span> : null}
                   </span>
                 </label>
@@ -624,7 +829,7 @@ function PrivacyHistoryView({ history, lastConfessionDate, onChangeDate, onClear
         <p className="mt-4 text-sm leading-7 text-muted">This companion stores your selections, notes, and history only in this browser. It does not send confession details to Daily Oratory or analytics.</p>
         <label className="mt-6 grid gap-2">
           <span className="form-label">Date of last Confession</span>
-          <input type="date" value={lastConfessionDate} max={new Date().toISOString().slice(0, 10)} onChange={(event) => onChangeDate(event.target.value)} className="form-field focus-ring min-h-12" />
+          <input type="date" value={lastConfessionDate} max={new Date().toISOString().slice(0, 10)} onInput={(event) => onChangeDate(event.currentTarget.value)} className="form-field focus-ring min-h-12" />
         </label>
         <button type="button" onClick={onClearAll} className="focus-ring mt-6 min-h-12 w-full rounded-xl border border-burgundy/40 bg-ivory px-4 py-3 text-sm font-bold text-burgundy">Clear all Companion data</button>
         <p className="mt-3 text-xs leading-6 text-muted">This does not clear or modify the current Daily Oratory examination tool.</p>
@@ -648,7 +853,7 @@ function PrivacyHistoryView({ history, lastConfessionDate, onChangeDate, onClear
   );
 }
 
-function PrayersGuideView() {
+function PrayersGuideView({ onReturnToExamination }: { onReturnToExamination: () => void }) {
   const steps = [
     "Make the Sign of the Cross and say how long it has been since your last Confession.",
     "Confess your sins simply, including number or frequency when you reasonably can.",
@@ -671,7 +876,13 @@ function PrayersGuideView() {
         <h2 className="font-display mt-2 text-4xl font-semibold text-navy">Act of Contrition</h2>
         <p className="mt-5 rounded-xl border border-gold/30 bg-parchment p-5 font-display text-xl leading-9 text-navy">{actOfContrition}</p>
         <p className="mt-5 text-sm leading-7 text-muted">This guide does not decide whether a sin is mortal or venial. When unsure, speak simply and honestly with a priest.</p>
-        <Link href="/confession/prayers" className="btn btn-primary focus-ring mt-6 min-h-12 justify-center">Open more Confession prayers</Link>
+        <button
+          type="button"
+          onClick={onReturnToExamination}
+          className="btn btn-primary focus-ring mt-6 min-h-12 justify-center"
+        >
+          Return to examination
+        </button>
       </section>
     </div>
   );
@@ -705,6 +916,23 @@ function formatLastConfession(value: string) {
   const days = Math.max(0, Math.floor((todayStart.getTime() - date.getTime()) / 86_400_000));
   if (days === 0) return "today";
   return `${days} day${days === 1 ? "" : "s"} ago`;
+}
+
+function formatConfessionInterval(value: string) {
+  if (!value) return "some time";
+  const date = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return "some time";
+  const today = new Date();
+  const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const days = Math.max(0, Math.floor((todayStart.getTime() - date.getTime()) / 86_400_000));
+  if (days === 0) return "less than a day";
+  if (days < 14) return `${days} day${days === 1 ? "" : "s"}`;
+  const weeks = Math.floor(days / 7);
+  if (days < 60) return `${weeks} week${weeks === 1 ? "" : "s"}`;
+  const months = Math.floor(days / 30);
+  if (days < 730) return `${months} month${months === 1 ? "" : "s"}`;
+  const years = Math.floor(days / 365);
+  return `${years} year${years === 1 ? "" : "s"}`;
 }
 
 function formatDate(value: string) {

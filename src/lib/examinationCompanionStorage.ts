@@ -1,18 +1,25 @@
 "use client";
 
 import { useCallback, useSyncExternalStore } from "react";
-import { guidedExaminationPaths } from "@/data/guidedExamination";
+import { companionExaminationGuides } from "@/data/examinationCompanion";
 import type {
   CompanionCustomReflection,
+  CompanionGuideId,
   CompanionHistoryEntry,
   CompanionPromptStatus,
+  CompanionSinDetails,
+  CompanionSinFrequency,
   ExaminationCompanionStore,
 } from "@/types/examinationCompanion";
-import type { GuidedExaminationPathId } from "@/types/guidedExamination";
 
 export const examinationCompanionStorageKey = "daily-oratory-examination-companion-v1";
 
-const guideIds = new Set<GuidedExaminationPathId>(guidedExaminationPaths.map((guide) => guide.id));
+const guideIds = new Set<CompanionGuideId>(companionExaminationGuides.map((guide) => guide.id));
+const promptIds = new Set(
+  companionExaminationGuides.flatMap((guide) =>
+    guide.sections.flatMap((section) => section.prompts.map((prompt) => prompt.id)),
+  ),
+);
 const examinationCompanionChangeEvent = "daily-oratory-examination-companion-change";
 
 export const emptyExaminationCompanionStore: ExaminationCompanionStore = {
@@ -20,6 +27,7 @@ export const emptyExaminationCompanionStore: ExaminationCompanionStore = {
   activeGuideId: "ten-commandments",
   lastConfessionDate: "",
   statusByPromptId: {},
+  sinDetailsByPromptId: {},
   noteByPromptId: {},
   customReflections: [],
   history: [],
@@ -114,14 +122,15 @@ function sanitizeStore(value: unknown): ExaminationCompanionStore {
   return {
     version: 1,
     activeGuideId:
-      typeof maybe.activeGuideId === "string" && guideIds.has(maybe.activeGuideId as GuidedExaminationPathId)
-        ? (maybe.activeGuideId as GuidedExaminationPathId)
+      typeof maybe.activeGuideId === "string" && guideIds.has(maybe.activeGuideId as CompanionGuideId)
+        ? (maybe.activeGuideId as CompanionGuideId)
         : "ten-commandments",
     lastConfessionDate:
       typeof maybe.lastConfessionDate === "string" && /^\d{4}-\d{2}-\d{2}$/.test(maybe.lastConfessionDate)
         ? maybe.lastConfessionDate
         : "",
     statusByPromptId: sanitizeStatuses(maybe.statusByPromptId),
+    sinDetailsByPromptId: sanitizeSinDetails(maybe.sinDetailsByPromptId),
     noteByPromptId: sanitizeNotes(maybe.noteByPromptId),
     customReflections: sanitizeCustomReflections(maybe.customReflections),
     history: sanitizeHistory(maybe.history),
@@ -129,12 +138,41 @@ function sanitizeStore(value: unknown): ExaminationCompanionStore {
   };
 }
 
+const sinFrequencies = new Set<CompanionSinFrequency>([
+  "once",
+  "few-times",
+  "several-times",
+  "habitual",
+  "daily",
+  "unsure",
+]);
+
+function sanitizeSinDetails(value: unknown) {
+  if (!value || typeof value !== "object") return {};
+
+  return Object.fromEntries(
+    Object.entries(value as Record<string, unknown>)
+      .filter(([id, details]) => {
+        if (!promptIds.has(id) && !id.startsWith("companion-custom-")) return false;
+        if (!details || typeof details !== "object") return false;
+        const maybe = details as Partial<CompanionSinDetails>;
+        return typeof maybe.frequency === "string" && sinFrequencies.has(maybe.frequency as CompanionSinFrequency);
+      })
+      .map(([id, details]) => {
+        const safe = details as CompanionSinDetails;
+        return [id, { frequency: safe.frequency, graveMatter: safe.graveMatter === true }];
+      }),
+  ) as Record<string, CompanionSinDetails>;
+}
+
 function sanitizeStatuses(value: unknown) {
   if (!value || typeof value !== "object") return {};
 
   return Object.fromEntries(
     Object.entries(value as Record<string, unknown>).filter(
-      ([id, status]) => Boolean(id) && (status === "confess" || status === "clear"),
+      ([id, status]) =>
+        (promptIds.has(id) || id.startsWith("companion-custom-")) &&
+        (status === "confess" || status === "clear"),
     ),
   ) as Record<string, CompanionPromptStatus>;
 }
@@ -144,7 +182,10 @@ function sanitizeNotes(value: unknown) {
 
   return Object.fromEntries(
     Object.entries(value as Record<string, unknown>)
-      .filter(([id, note]) => Boolean(id) && typeof note === "string")
+      .filter(
+        ([id, note]) =>
+          (promptIds.has(id) || id.startsWith("companion-custom-")) && typeof note === "string",
+      )
       .map(([id, note]) => [id, (note as string).slice(0, 1200)]),
   );
 }
