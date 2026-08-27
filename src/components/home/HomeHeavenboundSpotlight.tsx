@@ -7,7 +7,7 @@ export function HomeHeavenboundSpotlight() {
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-soft">Spiritual companion</p>
           <h2 className="font-display mt-3 max-w-4xl text-4xl font-semibold leading-tight text-ivory sm:text-5xl">
-            Heavenbound spiritual companion for prayer, Scripture, and Catholic next steps.
+            Heavenbound Companion
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-parchment">
             Choose a Catholic spiritual path for the moment you are in, then continue in Heavenbound for guided prayer,

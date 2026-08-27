@@ -7,10 +7,10 @@ export function HomeExaminationSpotlight() {
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-gold-soft">Featured tool</p>
           <h2 className="font-display mt-3 max-w-4xl text-4xl font-semibold leading-tight text-ivory sm:text-5xl">
-            Make a guided examination of conscience with peace and honesty.
+            Guided Examination of Conscience Tool
           </h2>
           <p className="mt-4 max-w-4xl text-base leading-8 text-parchment">
-            When you need a concrete Catholic next step before Confession, this tool helps you slow down, examine your heart clearly, and prepare without spiraling.
+            Prepare for Confession with a peaceful, private guided reflection.
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
