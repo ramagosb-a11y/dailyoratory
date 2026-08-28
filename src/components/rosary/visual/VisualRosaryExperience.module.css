@@ -17,6 +17,26 @@
 .senseContent{scroll-margin-top:96px}
 .galleryCaption .galleryBrowseButton{align-items:center;background:linear-gradient(135deg,#2b2111,#15110a);border-color:#9b762f;border-radius:12px;box-shadow:inset 0 0 0 1px #3b2d16;color:var(--gold2);display:inline-flex;font-family:var(--font-body);font-size:.9rem;font-weight:700;gap:10px;letter-spacing:.01em;min-height:46px;padding:10px 15px}
 .galleryBrowseIcon{background:radial-gradient(circle,currentColor 1.8px,transparent 2.2px) 0 0/7px 7px;display:inline-block;flex:0 0 19px;height:14px;width:19px}
+.galleryPrev,.galleryNext{appearance:none;background:transparent;border:0;border-radius:0;color:transparent;height:64px;padding:0;width:54px}
+.galleryPrev{left:8px}
+.galleryNext{right:8px}
+.galleryPrev:before,.galleryNext:before{border-left:3px solid rgba(255,255,255,.76);border-top:3px solid rgba(255,255,255,.76);content:"";filter:drop-shadow(0 2px 4px rgba(0,0,0,.8));height:22px;left:50%;position:absolute;top:50%;width:22px}
+.galleryPrev:before{transform:translate(-38%,-50%) rotate(-45deg)}
+.galleryNext:before{transform:translate(-62%,-50%) rotate(135deg)}
+.galleryPrev:focus-visible,.galleryNext:focus-visible{outline:2px solid rgba(240,199,109,.8);outline-offset:-4px}
+.galleryPrev:active:before,.galleryNext:active:before{border-color:rgba(255,255,255,.96)}
+.strand details>div{gap:10px;padding:6px 4px;scrollbar-width:none}
+.strand details>div::-webkit-scrollbar{display:none}
+.strand details button{align-items:center;appearance:none;box-sizing:border-box;display:inline-flex;font-size:1rem;font-weight:600;justify-content:center;-webkit-tap-highlight-color:transparent}
+.strand details button:focus:not(:focus-visible){outline:none}
+.strand details button:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+.strand .completeBead{background:#241f14;border-color:#715a2d;box-shadow:none;color:#d5b66d}
+.strand .currentBead{background:var(--gold2);border:2px solid #8d6c2e;box-shadow:inset 0 0 0 2px rgba(255,245,211,.38);color:#171208}
+.beadCross{height:22px;position:relative;width:16px}
+.beadCross:before,.beadCross:after{background:currentColor;border-radius:1px;content:"";left:50%;position:absolute;top:50%;transform:translate(-50%,-50%)}
+.beadCross:before{height:22px;width:2px}
+.beadCross:after{height:2px;margin-top:-3px;width:14px}
+@media (hover:none) and (pointer:coarse){.strand details button:focus-visible{outline:none}}
 
 @media (max-width:600px){.experience{padding-left:8px;padding-right:8px}.hero{align-items:flex-start;flex-direction:column}.heroActions{justify-content:space-between;width:100%}.heroActions button{flex:1}.sectionHeading,.playerHeading{align-items:flex-start;flex-direction:column}.today{width:100%}.playerSettings{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.playerSettings button{padding:8px 5px}.mysteryGrid{grid-template-columns:1fr}.playerControls{bottom:0;background:#090a0af2;margin:0 -18px -18px;padding:10px 12px;position:sticky;z-index:10}.playerControls button{padding:8px 11px}.prayerBook>header{align-items:flex-start;flex-direction:column}.prayerBook>header>div:last-child{width:100%}.prayerBook>header>div:last-child button{flex:1}.senseContent>footer span{display:none}.senseContent>footer button{flex:1}.sectionHeading>button{width:100%}.galleryPrev,.galleryNext{top:42%}}
 @media (min-width:700px){.setGrid{grid-template-columns:repeat(4,1fr)}.mysteryGrid{grid-template-columns:repeat(5,1fr)}.playerBody{grid-template-columns:35% 1fr;align-items:center}.artGrid{grid-template-columns:minmax(0,3fr) minmax(280px,2fr)}.focalArt>span strong{font-size:1.25rem}.scripture footer{align-items:center;flex-direction:row;justify-content:space-between}.senseTabs button{flex:1}.strand details{align-items:center;display:grid;grid-template-columns:120px 1fr}.strand details>div{margin-top:0}.strand summary span{display:none}.playerControls .primaryButton{flex:0 1 220px}.playerControls button span{display:inline}}
