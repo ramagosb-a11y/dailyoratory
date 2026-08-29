@@ -23,12 +23,10 @@ export function FooterCta() {
         </div>
         <div className="flex w-full max-w-sm flex-col gap-3 sm:max-w-none sm:flex-row lg:w-auto">
           <a
-            href="https://adoration-companion.ai.studio"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/adoration/companion"
             className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.primaryButtonClassName}`}
           >
-            The Blessed Sacrament Meditation
+            Adoration Companion
           </a>
         </div>
       </div>
