@@ -62,7 +62,7 @@ export const companionNavigation: Array<{
   { id: "meditation", label: "Blessed Sacrament Meditation", shortLabel: "Meditation", icon: "✦" },
   { id: "scripture", label: "Guided Scripture", shortLabel: "Scripture", icon: "▤" },
   { id: "prayers", label: "Prayers & Hymns", shortLabel: "Prayers", icon: "♩" },
-  { id: "silence", label: "Silent Timer & Holy Hour", shortLabel: "Silence", icon: "◷" },
+  { id: "silence", label: "Holy Hour Guide", shortLabel: "Holy Hour", icon: "✦" },
   { id: "catechism", label: "Catechism Guide", shortLabel: "CCC Guide", icon: "▣" },
 ];
 

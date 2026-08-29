@@ -7,7 +7,7 @@ import { buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structure
 
 const pagePath = "/adoration/companion";
 const pageDescription =
-  "A Catholic Adoration companion with guided meditation, Douay-Rheims Scripture, Eucharistic prayers and hymns, a silent prayer timer, and Catechism study links.";
+  "A Catholic Adoration companion with guided meditation, a structured Holy Hour, Douay-Rheims Scripture, Eucharistic prayers and hymns, and Catechism study links.";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Adoration Companion | Daily Oratory",
@@ -18,7 +18,7 @@ export const metadata: Metadata = createPageMetadata({
     "Blessed Sacrament meditation",
     "Eucharistic prayers and hymns",
     "Douay-Rheims Scripture",
-    "silent prayer timer",
+    "Catholic Holy Hour guide",
   ],
 });
 
