@@ -20,7 +20,8 @@ export function LiturgicalPageTheme({
 }) {
   const pathname = usePathname();
   const { theme, day, seasonLabel } = useLiturgicalTheme();
-  const shouldApplyTheme = applyToHomepage || pathname !== "/";
+  const shouldApplyTheme =
+    applyToHomepage || (pathname !== "/" && pathname !== "/rosary/visual-meditation");
 
   if (!shouldApplyTheme) {
     return <>{children}</>;

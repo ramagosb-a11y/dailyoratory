@@ -6,15 +6,14 @@
 .artGrid,.focalArt,.viewpointList{min-width:0}
 .focalArt,.viewpointList{width:100%}
 .playerControls button{align-items:center;display:inline-flex;gap:8px;justify-content:center}
-.playerControls .navButton,.playerControls .restartButton{flex:0 0 52px;padding:0}
+.playerControls .navButton,.playerControls .restartButton{background:rgba(255,255,255,.025);border-color:#343535;border-radius:50%;flex:0 0 52px;padding:0;width:52px}
 .playerControls .primaryButton{min-width:0;white-space:nowrap}
 .playerControls .prayerIcon{display:inline-block;height:20px;position:relative;width:20px}
-.previousIcon,.nextIcon{background:currentColor;clip-path:polygon(72% 4%,96% 28%,58% 50%,96% 72%,72% 96%,4% 50%)}
-.nextIcon{transform:rotate(180deg)}
+.playerControls .navIcon{fill:none;height:22px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2;width:22px}
 .playIcon{background:currentColor;clip-path:polygon(18% 8%,92% 50%,18% 92%)}
 .pauseIcon:before{background:linear-gradient(90deg,currentColor 0 34%,transparent 34% 66%,currentColor 66% 100%);border-radius:2px;content:"";inset:2px 3px;position:absolute}
 .playerControls .restartButton span{display:inline;font-size:1.45rem;line-height:1}
-.senseContent{scroll-margin-top:96px}
+.prayerPlayer,.senseContent{scroll-margin-top:96px}
 .galleryCaption .galleryBrowseButton{align-items:center;background:linear-gradient(135deg,#2b2111,#15110a);border-color:#9b762f;border-radius:12px;box-shadow:inset 0 0 0 1px #3b2d16;color:var(--gold2);display:inline-flex;font-family:var(--font-body);font-size:.9rem;font-weight:700;gap:10px;letter-spacing:.01em;min-height:46px;padding:10px 15px}
 .galleryBrowseIcon{background:radial-gradient(circle,currentColor 1.8px,transparent 2.2px) 0 0/7px 7px;display:inline-block;flex:0 0 19px;height:14px;width:19px}
 .galleryPrev,.galleryNext{appearance:none;background:transparent;border:0;border-radius:0;color:transparent;height:64px;padding:0;width:54px}
@@ -42,5 +41,5 @@
 @media (hover:none) and (pointer:coarse){.strand details button:focus-visible .beadFace{outline:none}}
 
 @media (max-width:600px){.experience{padding-left:8px;padding-right:8px}.hero{align-items:flex-start;flex-direction:column}.heroActions{justify-content:space-between;width:100%}.heroActions button{flex:1}.sectionHeading,.playerHeading{align-items:flex-start;flex-direction:column}.today{width:100%}.playerSettings{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.playerSettings button{padding:8px 5px}.mysteryGrid{grid-template-columns:1fr}.playerControls{bottom:0;background:#090a0af2;margin:0 -18px -18px;padding:10px 12px;position:sticky;z-index:10}.playerControls button{padding:8px 11px}.prayerBook>header{align-items:flex-start;flex-direction:column}.prayerBook>header>div:last-child{width:100%}.prayerBook>header>div:last-child button{flex:1}.senseContent>footer span{display:none}.senseContent>footer button{flex:1}.sectionHeading>button{width:100%}.galleryPrev,.galleryNext{top:42%}}
-@media (min-width:700px){.setGrid{grid-template-columns:repeat(4,1fr)}.mysteryGrid{grid-template-columns:repeat(5,1fr)}.playerBody{grid-template-columns:35% 1fr;align-items:center}.artGrid{grid-template-columns:minmax(0,3fr) minmax(280px,2fr)}.focalArt>span strong{font-size:1.25rem}.scripture footer{align-items:center;flex-direction:row;justify-content:space-between}.senseTabs button{flex:1}.strand details{align-items:center;display:grid;grid-template-columns:120px 1fr}.strand details>div{margin-top:0}.strand summary span{display:none}.playerControls .primaryButton{flex:0 1 220px}.playerControls button span{display:inline}}
+@media (min-width:700px){.setGrid{grid-template-columns:repeat(4,1fr)}.mysteryGrid{grid-template-columns:repeat(5,1fr)}.playerBody{grid-template-columns:35% 1fr;align-items:center}.artGrid{grid-template-columns:minmax(0,3fr) minmax(280px,2fr)}.focalArt>span strong{font-size:1.25rem}.scripture footer{align-items:center;flex-direction:row;justify-content:space-between}.senseTabs button{flex:1}.strand details{align-items:center;display:grid;grid-template-columns:120px 1fr}.strand details>div{margin-top:0}.strand summary span{display:none}.playerControls .primaryButton{flex:0 1 220px}}
 @media (max-width:600px){.playerControls{gap:6px}.playerControls .navButton,.playerControls .restartButton{flex:0 0 48px;padding:0}.playerControls .primaryButton{font-size:.9rem;padding:8px}}

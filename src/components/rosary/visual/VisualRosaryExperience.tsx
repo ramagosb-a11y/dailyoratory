@@ -95,6 +95,7 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
   const [bookOpen, setBookOpen] = useState(false);
   const [bookLanguage, setBookLanguage] = useState<"both" | "english" | "latin">("both");
   const [speaking, setSpeaking] = useState(false);
+  const prayerPlayerRef = useRef<HTMLElement>(null);
   const activeBeadRef = useRef<HTMLButtonElement>(null);
   const senseContentRef = useRef<HTMLElement>(null);
 
@@ -122,10 +123,23 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
     }), 1000);
     return () => window.clearInterval(timer);
   }, [autoAdvance, pace, running, sequence.length]);
-  useEffect(() => { activeBeadRef.current?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" }); }, [stepIndex]);
+  useEffect(() => {
+    const bead = activeBeadRef.current;
+    const beadRow = bead?.parentElement;
+    if (!bead || !beadRow) return;
+    const left = bead.offsetLeft - (beadRow.clientWidth - bead.offsetWidth) / 2;
+    beadRow.scrollTo({ behavior: "smooth", left: Math.max(0, left) });
+  }, [stepIndex]);
   useEffect(() => { if (!galleryOpen && !bookOpen) return; const previous = document.body.style.overflow; document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = previous; }; }, [bookOpen, galleryOpen]);
 
-  const goToStep = (index: number) => { setRunning(false); setSeconds(pace); setStepIndex(Math.max(0, Math.min(index, sequence.length - 1))); };
+  const goToStep = (index: number) => {
+    setRunning(false);
+    setSeconds(pace);
+    setStepIndex(Math.max(0, Math.min(index, sequence.length - 1)));
+    window.requestAnimationFrame(() => {
+      prayerPlayerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
   const goToSense = (index: number) => {
     const nextIndex = Math.max(0, Math.min(index, sensoryItems.length - 1));
     if (nextIndex === senseIndex) return;
@@ -192,13 +206,13 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
           <a href="#prayer-player">◷ Visual Timer & Beads</a><a href="#sacred-art">◉ Sacred Perspectives</a><a href="#seven-senses">✦ 7 Senses</a><a href="#bead-strand">◈ Bead Strand</a>
         </nav>
 
-        <section id="prayer-player" className={`${styles.panel} ${styles.prayerPlayer}`}>
+        <section ref={prayerPlayerRef} id="prayer-player" className={`${styles.panel} ${styles.prayerPlayer}`}>
           <div className={styles.playerHeading}><div><p>Prayer {stepIndex + 1} of {sequence.length}</p><h2>{step.title}</h2>{step.latinTitle ? <em>{step.latinTitle}</em> : null}</div><div className={styles.playerSettings}><button type="button">T&nbsp; Text: Large</button><button type="button" onClick={() => setLanguage((value) => value === "english" ? "latin" : "english")}>{language === "english" ? "English" : "Latin"}</button><button type="button" onClick={() => setAutoAdvance((value) => !value)}>Auto: {autoAdvance ? "ON" : "OFF"}</button></div></div>
           <div className={styles.playerBody}>
             <div className={styles.timerColumn}><div className={styles.timer}><strong>{seconds}s</strong><span>{running ? "PRAYING" : "PAUSED"}</span><em>Hold this grace</em></div><div className={styles.paces}><span>Pace:</span>{paces.map((value) => <button key={value} type="button" onClick={() => choosePace(value)} className={pace === value ? styles.activePace : ""}>{value}s</button>)}</div></div>
             <article className={styles.prayerText}><header><strong>{step.title.replace(/^.*: /, "")}</strong><span>{language.toUpperCase()}</span></header><blockquote>{language === "latin" && latinText ? latinText : step.body}</blockquote><p>✦ {step.note}</p></article>
           </div>
-          <div className={styles.playerControls}><button type="button" className={styles.navButton} aria-label="Previous prayer" onClick={() => goToStep(stepIndex - 1)} disabled={stepIndex === 0}><span className={`${styles.prayerIcon} ${styles.previousIcon}`} aria-hidden="true" /></button><button type="button" className={styles.primaryButton} onClick={() => setRunning((value) => !value)}><span className={`${styles.prayerIcon} ${running ? styles.pauseIcon : styles.playIcon}`} aria-hidden="true" />{running ? "Pause" : "Start Contemplation"}</button><button type="button" className={styles.navButton} aria-label="Next prayer" onClick={() => goToStep(stepIndex + 1)} disabled={stepIndex === sequence.length - 1}><span className={`${styles.prayerIcon} ${styles.nextIcon}`} aria-hidden="true" /><span className={styles.controlLabel}>Next Prayer</span></button><button type="button" className={styles.restartButton} aria-label="Restart timer" onClick={() => { setSeconds(pace); setRunning(false); }}><span aria-hidden="true">↻</span></button></div>
+          <div className={styles.playerControls}><button type="button" className={styles.navButton} aria-label="Previous prayer" title="Previous prayer" onClick={() => goToStep(stepIndex - 1)} disabled={stepIndex === 0}><svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button><button type="button" className={styles.primaryButton} onClick={() => setRunning((value) => !value)}><span className={`${styles.prayerIcon} ${running ? styles.pauseIcon : styles.playIcon}`} aria-hidden="true" />{running ? "Pause" : "Start Contemplation"}</button><button type="button" className={styles.navButton} aria-label="Next prayer" title="Next prayer" onClick={() => goToStep(stepIndex + 1)} disabled={stepIndex === sequence.length - 1}><svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button><button type="button" className={styles.restartButton} aria-label="Restart timer" title="Restart timer" onClick={() => { setSeconds(pace); setRunning(false); }}><span aria-hidden="true">↻</span></button></div>
         </section>
 
         <section id="sacred-art" className={`${styles.panel} ${styles.artSection}`}>
