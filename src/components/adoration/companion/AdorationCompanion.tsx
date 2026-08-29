@@ -274,6 +274,11 @@ function MeditationView({
 }) {
   const displayedParts = guidedMode ? [meditationParts[partIndex]] : meditationParts;
 
+  useEffect(() => {
+    if (!guidedMode) return;
+    document.getElementById("meditation-part-top")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [guidedMode, partIndex]);
+
   return (
     <div>
       <section className={styles.hero}>
@@ -293,7 +298,7 @@ function MeditationView({
         </div>
       </section>
 
-      <div className={styles.stack}>
+      <div id="meditation-part-top" className={styles.stack}>
         {displayedParts.map((part) => (
           <MeditationPartCard
             key={part.id}
