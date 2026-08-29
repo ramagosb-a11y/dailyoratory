@@ -27,16 +27,19 @@
 .galleryPrev:active:before,.galleryNext:active:before{border-color:rgba(255,255,255,.96)}
 .strand details>div{gap:10px;padding:6px 4px;scrollbar-width:none}
 .strand details>div::-webkit-scrollbar{display:none}
-.strand details button{align-items:center;appearance:none;box-sizing:border-box;display:inline-flex;font-size:1rem;font-weight:600;justify-content:center;-webkit-tap-highlight-color:transparent}
-.strand details button:focus:not(:focus-visible){outline:none}
-.strand details button:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
-.strand .completeBead{background:#241f14;border-color:#715a2d;box-shadow:none;color:#d5b66d}
-.strand .currentBead{background:var(--gold2);border:2px solid #8d6c2e;box-shadow:inset 0 0 0 2px rgba(255,245,211,.38);color:#171208}
+.strand details button{align-items:center;appearance:none;-webkit-appearance:none;background:transparent;border:0;border-radius:0;box-shadow:none;box-sizing:border-box;color:var(--muted);display:inline-flex;flex:0 0 46px;height:46px;justify-content:center;padding:2px;-webkit-tap-highlight-color:transparent}
+.strand details button:focus{outline:none}
+.beadFace{align-items:center;background:#151616;border:1px solid #2c2d2d;border-radius:50%;box-sizing:border-box;display:inline-flex;font-size:1rem;font-weight:600;height:42px;justify-content:center;line-height:1;overflow:hidden;width:42px}
+.strand .completeBead{background:transparent;border:0;box-shadow:none;color:#d5b66d}
+.strand .completeBead .beadFace{background:#241f14;border-color:#715a2d}
+.strand .currentBead{background:transparent;border:0;box-shadow:none;color:#171208}
+.strand .currentBead .beadFace{background:#f0c76d;border:2px solid #8d6c2e;box-shadow:inset 0 0 0 2px rgba(255,245,211,.38)}
+.strand details button:focus-visible .beadFace{outline:2px solid var(--gold2);outline-offset:2px}
 .beadCross{height:22px;position:relative;width:16px}
 .beadCross:before,.beadCross:after{background:currentColor;border-radius:1px;content:"";left:50%;position:absolute;top:50%;transform:translate(-50%,-50%)}
 .beadCross:before{height:22px;width:2px}
 .beadCross:after{height:2px;margin-top:-3px;width:14px}
-@media (hover:none) and (pointer:coarse){.strand details button:focus-visible{outline:none}}
+@media (hover:none) and (pointer:coarse){.strand details button:focus-visible .beadFace{outline:none}}
 
 @media (max-width:600px){.experience{padding-left:8px;padding-right:8px}.hero{align-items:flex-start;flex-direction:column}.heroActions{justify-content:space-between;width:100%}.heroActions button{flex:1}.sectionHeading,.playerHeading{align-items:flex-start;flex-direction:column}.today{width:100%}.playerSettings{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.playerSettings button{padding:8px 5px}.mysteryGrid{grid-template-columns:1fr}.playerControls{bottom:0;background:#090a0af2;margin:0 -18px -18px;padding:10px 12px;position:sticky;z-index:10}.playerControls button{padding:8px 11px}.prayerBook>header{align-items:flex-start;flex-direction:column}.prayerBook>header>div:last-child{width:100%}.prayerBook>header>div:last-child button{flex:1}.senseContent>footer span{display:none}.senseContent>footer button{flex:1}.sectionHeading>button{width:100%}.galleryPrev,.galleryNext{top:42%}}
 @media (min-width:700px){.setGrid{grid-template-columns:repeat(4,1fr)}.mysteryGrid{grid-template-columns:repeat(5,1fr)}.playerBody{grid-template-columns:35% 1fr;align-items:center}.artGrid{grid-template-columns:minmax(0,3fr) minmax(280px,2fr)}.focalArt>span strong{font-size:1.25rem}.scripture footer{align-items:center;flex-direction:row;justify-content:space-between}.senseTabs button{flex:1}.strand details{align-items:center;display:grid;grid-template-columns:120px 1fr}.strand details>div{margin-top:0}.strand summary span{display:none}.playerControls .primaryButton{flex:0 1 220px}.playerControls button span{display:inline}}

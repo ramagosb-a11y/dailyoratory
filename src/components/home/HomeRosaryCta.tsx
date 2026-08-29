@@ -23,9 +23,7 @@ export function HomeRosaryCta() {
         </div>
         <div className="flex w-full max-w-sm lg:w-auto">
           <a
-            href="https://daily-oratory-7-senses-holy-rosary.ai.studio"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/rosary/visual-meditation"
             className={`focus-ring inline-flex w-full items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition sm:w-auto ${theme.primaryButtonClassName}`}
           >
             7-Senses Rosary
