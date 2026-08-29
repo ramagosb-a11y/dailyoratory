@@ -1,0 +1,47 @@
+import type { Metadata } from "next";
+import { AdorationCompanion } from "@/components/adoration/companion/AdorationCompanion";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { StructuredDataScript } from "@/components/seo/StructuredDataScript";
+import { createPageMetadata } from "@/lib/metadata";
+import { buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structuredData";
+
+const pagePath = "/adoration/companion";
+const pageDescription =
+  "A Catholic Adoration companion with guided meditation, Douay-Rheims Scripture, Eucharistic prayers and hymns, a silent prayer timer, and Catechism study links.";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Adoration Companion | Daily Oratory",
+  description: pageDescription,
+  path: pagePath,
+  keywords: [
+    "Catholic Adoration companion",
+    "Blessed Sacrament meditation",
+    "Eucharistic prayers and hymns",
+    "Douay-Rheims Scripture",
+    "silent prayer timer",
+  ],
+});
+
+export default function AdorationCompanionPage() {
+  return (
+    <div className="paper-texture">
+      <StructuredDataScript
+        data={[
+          buildWebPageStructuredData({
+            name: "Adoration Companion",
+            description: pageDescription,
+            path: pagePath,
+          }),
+          buildBreadcrumbList([
+            { name: "Adoration", path: "/adoration" },
+            { name: "Adoration Companion", path: pagePath },
+          ]),
+        ]}
+      />
+      <div className="mx-auto w-full max-w-7xl px-5 pt-6 sm:px-8 lg:px-10">
+        <Breadcrumbs items={[{ label: "Adoration", href: "/adoration" }, { label: "Adoration Companion" }]} />
+      </div>
+      <AdorationCompanion />
+    </div>
+  );
+}

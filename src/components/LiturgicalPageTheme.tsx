@@ -20,6 +20,7 @@ export function LiturgicalPageTheme({
 }) {
   const pathname = usePathname();
   const { theme, day, seasonLabel } = useLiturgicalTheme();
+  const hidesLiturgicalBanner = pathname === "/adoration/companion";
   const shouldApplyTheme =
     applyToHomepage || (pathname !== "/" && pathname !== "/rosary/visual-meditation");
 
@@ -29,17 +30,19 @@ export function LiturgicalPageTheme({
 
   return (
     <div className={mergeClassNames("liturgical-interior-shell", className)}>
-      <div className="section-shell pt-4 sm:pt-5">
-        <div className="liturgical-day-banner">
-          <div className="min-w-0">
-            <p className="liturgical-day-banner-label">Daily Oratory follows today&apos;s liturgical color</p>
-            <p className="liturgical-day-banner-copy">
-              Interior pages use today&apos;s Church color as a subtle devotional accent.
-            </p>
+      {!hidesLiturgicalBanner ? (
+        <div className="section-shell pt-4 sm:pt-5">
+          <div className="liturgical-day-banner">
+            <div className="min-w-0">
+              <p className="liturgical-day-banner-label">Daily Oratory follows today&apos;s liturgical color</p>
+              <p className="liturgical-day-banner-copy">
+                Interior pages use today&apos;s Church color as a subtle devotional accent.
+              </p>
+            </div>
+            <LiturgicalThemeBadge theme={theme} day={day} seasonLabel={seasonLabel} className="shrink-0 shadow-sm" />
           </div>
-          <LiturgicalThemeBadge theme={theme} day={day} seasonLabel={seasonLabel} className="shrink-0 shadow-sm" />
         </div>
-      </div>
+      ) : null}
       {children}
     </div>
   );

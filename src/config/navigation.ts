@@ -49,6 +49,7 @@ export const siteNavigation: NavigationSection[] = [
       { label: "Holy Rosary", href: "/rosary", description: "Pray the mysteries with Mary." },
       { label: "Divine Mercy Chaplet", href: "/divine-mercy", description: "A quiet Chaplet room for mercy and trust." },
       { label: "Way of the Cross", href: "/way-of-cross", description: "Pray the Stations of the Cross with Christ." },
+      { label: "Adoration Companion", href: "/adoration/companion", description: "Meditation, Scripture, Eucharistic prayers and hymns, silence, and Catechism guidance in one place." },
       { label: "Live Adoration", href: "/adoration", description: "Enter Adoration with reverence." },
       { label: "Eucharistic Miracles", href: "/eucharistic-miracles", description: "Study signs of Christ's Eucharistic presence." },
       { label: "Confession Guide", href: "/confession", description: "Prepare for the sacrament of mercy." },
