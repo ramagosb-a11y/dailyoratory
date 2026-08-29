@@ -91,10 +91,10 @@ export function HolyHourGuide() {
           Print Holy Hour Guide
         </button>
         <Link
-          href="/adoration/meditation-before-the-blessed-sacrament"
+          href="/adoration/companion"
           className="btn btn-secondary focus-ring justify-center"
         >
-          Pray the Blessed Sacrament Meditation
+          Open Adoration Companion
         </Link>
       </div>
     </section>

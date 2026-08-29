@@ -418,19 +418,20 @@ export const companionPrayers: CompanionPrayer[] = [
     latinTitle: "Soul of Christ",
     kind: "prayer",
     whenToUse: "After Holy Communion or during Eucharistic Adoration",
-    english: `Soul of Christ, be my sanctification.
-Body of Christ, be my salvation.
-Blood of Christ, fill all my veins.
-Water of Christ’s side, wash out my stains.
-Passion of Christ, my comfort be.
-O good Jesus, listen to me.
-In Thy wounds I fain would hide,
-Ne’er to be parted from Thy side,
-Guard me, should the foe assail me.
-Call me when my life shall fail me.
-Bid me come to Thee above,
-With Thy saints to sing Thy love,
-World without end. Amen.`,
+    english: `Soul of Christ, sanctify me.
+Body of Christ, save me.
+Blood of Christ, embolden me.
+Water from the side of Christ, wash me.
+Passion of Christ, strengthen me.
+O good Jesus, hear me.
+Within your wounds hide me.
+Never permit me to be parted from you.
+From the evil Enemy defend me.
+At the hour of my death call me
+and bid me come to you,
+that with your Saints I may praise you
+for age upon age.
+Amen.`,
     latin: `Anima Christi, sanctifica me.
 Corpus Christi, salva me.
 Sanguis Christi, inebria me.
@@ -444,9 +445,9 @@ In hora mortis meae voca me.
 Et iube me venire ad te,
 ut cum Sanctis tuis laudem te
 in saecula saeculorum. Amen.`,
-    verification: "Vatican source verified",
-    sourceNote: "Traditional Catholic prayer printed in the Vatican’s Compendium of the Catechism; public-domain prayer text.",
-    sourceUrl: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html",
+    verification: "USCCB source verified",
+    sourceNote: "Prayer text reproduced from the United States Conference of Catholic Bishops’ official Anima Christi prayer page.",
+    sourceUrl: "https://www.usccb.org/prayers/anima-christi",
   },
   {
     id: "tantum-ergo",

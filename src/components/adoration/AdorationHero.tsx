@@ -19,10 +19,10 @@ export function AdorationHero() {
         <Link href="/adoration/live" className="btn btn-primary focus-ring justify-center">Browse Live Adoration</Link>
         <Link href="/adoration/holy-hour" className="btn btn-secondary focus-ring justify-center">How to Make a Holy Hour</Link>
         <Link
-          href="/adoration/meditation-before-the-blessed-sacrament"
+          href="/adoration/companion"
           className="btn btn-secondary focus-ring justify-center"
         >
-          Blessed Sacrament Meditation
+          Adoration Companion
         </Link>
       </div>
     </section>
