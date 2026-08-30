@@ -43,3 +43,29 @@
 @media (max-width:600px){.experience{padding-left:8px;padding-right:8px}.hero{align-items:flex-start;flex-direction:column}.heroActions{justify-content:space-between;width:100%}.heroActions button{flex:1}.sectionHeading,.playerHeading{align-items:flex-start;flex-direction:column}.today{width:100%}.playerSettings{display:grid;grid-template-columns:repeat(3,1fr);width:100%}.playerSettings button{padding:8px 5px}.mysteryGrid{grid-template-columns:1fr}.playerControls{bottom:0;background:#090a0af2;margin:0 -18px -18px;padding:10px 12px;position:sticky;z-index:10}.playerControls button{padding:8px 11px}.prayerBook>header{align-items:flex-start;flex-direction:column}.prayerBook>header>div:last-child{width:100%}.prayerBook>header>div:last-child button{flex:1}.senseContent>footer span{display:none}.senseContent>footer button{flex:1}.sectionHeading>button{width:100%}.galleryPrev,.galleryNext{top:42%}}
 @media (min-width:700px){.setGrid{grid-template-columns:repeat(4,1fr)}.mysteryGrid{grid-template-columns:repeat(5,1fr)}.playerBody{grid-template-columns:35% 1fr;align-items:center}.artGrid{grid-template-columns:minmax(0,3fr) minmax(280px,2fr)}.focalArt>span strong{font-size:1.25rem}.scripture footer{align-items:center;flex-direction:row;justify-content:space-between}.senseTabs button{flex:1}.strand details{align-items:center;display:grid;grid-template-columns:120px 1fr}.strand details>div{margin-top:0}.strand summary span{display:none}.playerControls .primaryButton{flex:0 1 220px}}
 @media (max-width:600px){.playerControls{gap:6px}.playerControls .navButton,.playerControls .restartButton{flex:0 0 48px;padding:0}.playerControls .primaryButton{font-size:.9rem;padding:8px}}
+
+/* Prayer-first meditation layout: sacred art remains visible directly above the active prayer. */
+.playerBody{display:flex;flex-direction:column;gap:16px;padding:20px 0}
+.prayerArt{display:grid;gap:10px;min-width:0}
+.prayerArt .focalArt{aspect-ratio:16/9}
+.artworkMeta{align-items:center;background:#070808;border:1px solid var(--line);border-radius:13px;display:flex;gap:14px;justify-content:space-between;padding:11px 13px}
+.artworkMeta>div{display:flex;flex-direction:column;min-width:0}
+.artworkMeta span{color:var(--gold);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase}
+.artworkMeta strong{font-family:var(--font-heading);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.artworkMeta button{background:#17140e;border:1px solid #695327;border-radius:9px;color:var(--gold2);flex:0 0 auto;min-height:42px;padding:8px 12px}
+.playerControls{align-items:center;justify-content:center}
+.prayerProgress{color:var(--gold2);font-size:.78rem;font-weight:700;letter-spacing:.04em;min-width:132px;text-align:center;text-transform:uppercase}
+
+@media (max-width:600px){
+  .playerSettings{grid-template-columns:repeat(2,1fr)}
+  .prayerArt .focalArt{aspect-ratio:4/3}
+  .artworkMeta{align-items:stretch;flex-direction:column}
+  .artworkMeta button{width:100%}
+  .playerControls{justify-content:space-between}
+  .prayerProgress{flex:1;min-width:0}
+}
+
+@media (min-width:700px){
+  .playerBody{display:flex;align-items:stretch}
+  .prayerArt,.prayerText{margin-left:auto;margin-right:auto;width:min(900px,100%)}
+}

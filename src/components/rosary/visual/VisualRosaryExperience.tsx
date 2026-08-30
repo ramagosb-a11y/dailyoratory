@@ -49,13 +49,12 @@ const latinPrayerFallbacks: Record<string, string> = {
 const senseNames = ["Sight", "Sound", "Smell", "Taste", "Touch", "Heart", "Soul"];
 const senseLatin = ["Visus", "Auditus", "Olfactus", "Gustus", "Tactus", "Cordis", "Anima & Gratia"];
 const senseIcons = ["◉", "◔", "♨", "♜", "✋", "♡", "✦"];
-const paces = [15, 25, 35, 50];
 
 function buildPrayerSequence(mysteries: RosaryMystery[], prayers: RosaryPrayer[]): PrayerStep[] {
   const prayer = (slug: string) => prayers.find((item) => item.slug === slug);
-  const fromPrayer = (slug: string, id: string, title: string, beadLabel: string, section: string, note: string): PrayerStep => {
+  const fromPrayer = (slug: string, id: string, title: string, beadLabel: string, section: string, note: string, mysteryIndex?: number): PrayerStep => {
     const item = prayer(slug);
-    return { id, title, latinTitle: item?.latin ? undefined : slug === "apostles-creed" ? "Credo in Deum" : undefined, body: item?.body ?? "", note, beadLabel, section, prayerSlug: slug };
+    return { id, title, latinTitle: item?.latin ? undefined : slug === "apostles-creed" ? "Credo in Deum" : undefined, body: item?.body ?? "", note, beadLabel, section, prayerSlug: slug, mysteryIndex };
   };
 
   const steps: PrayerStep[] = [
@@ -68,10 +67,10 @@ function buildPrayerSequence(mysteries: RosaryMystery[], prayers: RosaryPrayer[]
   mysteries.forEach((mystery, index) => {
     const section = `${index + 1}${index === 0 ? "st" : index === 1 ? "nd" : index === 2 ? "rd" : "th"} Decade`;
     steps.push({ id: `mystery-${mystery.id}`, title: mystery.title, latinTitle: mystery.mysteryLabel, body: mystery.decadePrayer, note: `Announce the ${mystery.decadeLabel}: ${mystery.title}.`, beadLabel: "•", section, mysteryIndex: index + 1 });
-    steps.push(fromPrayer("our-father", `${mystery.id}-pater`, "Our Father", "P", section, `Begin the ${section.toLowerCase()} with the Our Father.`));
-    for (let hail = 1; hail <= 10; hail += 1) steps.push(fromPrayer("hail-mary", `${mystery.id}-ave-${hail}`, `Hail Mary ${hail} of 10`, `${hail}`, section, `Remain with ${mystery.title} while praying this Hail Mary.`));
-    steps.push(fromPrayer("glory-be", `${mystery.id}-gloria`, "Glory Be", "G", section, "Return praise to the Holy Trinity."));
-    steps.push(fromPrayer("fatima-prayer", `${mystery.id}-fatima`, "Fatima Prayer", "•", section, "Optional customary prayer at the close of the decade."));
+    steps.push(fromPrayer("our-father", `${mystery.id}-pater`, "Our Father", "P", section, `Begin the ${section.toLowerCase()} with the Our Father.`, index + 1));
+    for (let hail = 1; hail <= 10; hail += 1) steps.push(fromPrayer("hail-mary", `${mystery.id}-ave-${hail}`, `Hail Mary ${hail} of 10`, `${hail}`, section, `Remain with ${mystery.title} while praying this Hail Mary.`, index + 1));
+    steps.push(fromPrayer("glory-be", `${mystery.id}-gloria`, "Glory Be", "G", section, "Return praise to the Holy Trinity.", index + 1));
+    steps.push(fromPrayer("fatima-prayer", `${mystery.id}-fatima`, "Fatima Prayer", "•", section, "Optional customary prayer at the close of the decade.", index + 1));
   });
 
   steps.push(fromPrayer("hail-holy-queen", "conclusion-salve", "Hail Holy Queen", "•", "Conclusion", "Entrust the completed Rosary to the Blessed Virgin Mary."));
@@ -83,10 +82,6 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
   const [groupSlug, setGroupSlug] = useState<RosaryMysteryGroupSlug>("sorrowful-mysteries");
   const [mysteryIndex, setMysteryIndex] = useState(1);
   const [stepIndex, setStepIndex] = useState(0);
-  const [pace, setPace] = useState(25);
-  const [seconds, setSeconds] = useState(25);
-  const [running, setRunning] = useState(false);
-  const [autoAdvance, setAutoAdvance] = useState(false);
   const [language, setLanguage] = useState<"english" | "latin">("english");
   const [senseIndex, setSenseIndex] = useState(0);
   const [viewpointId, setViewpointId] = useState("");
@@ -106,23 +101,13 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
   const sequence = useMemo(() => buildPrayerSequence(groupMysteries, prayers), [groupMysteries, prayers]);
   const step = sequence[stepIndex] ?? sequence[0];
   const mysteryViewpoints = viewpoints.filter((item) => item.groupSlug === groupSlug && item.mysteryIndex === mysteryIndex);
-  const currentViewpoint = viewpoints.find((item) => item.id === viewpointId) ?? mysteryViewpoints[0] ?? viewpoints[0];
+  const currentViewpoint = mysteryViewpoints.find((item) => item.id === viewpointId) ?? mysteryViewpoints[0] ?? viewpoints[0];
   const globalViewpointIndex = Math.max(0, viewpoints.findIndex((item) => item.id === currentViewpoint?.id));
   const sensoryItems = [...(mystery?.sensoryMeditation ?? [])].sort((a, b) => a.sortOrder - b.sortOrder);
   const sense = sensoryItems[senseIndex] ?? sensoryItems[0];
   const currentPrayer = prayers.find((item) => item.slug === step?.prayerSlug);
   const latinText = currentPrayer?.latin ?? (step?.prayerSlug ? latinPrayerFallbacks[step.prayerSlug] : undefined);
 
-  useEffect(() => {
-    if (!running) return;
-    const timer = window.setInterval(() => setSeconds((value) => {
-      if (value > 1) return value - 1;
-      setRunning(false);
-      if (autoAdvance) setStepIndex((index) => Math.min(index + 1, sequence.length - 1));
-      return pace;
-    }), 1000);
-    return () => window.clearInterval(timer);
-  }, [autoAdvance, pace, running, sequence.length]);
   useEffect(() => {
     const bead = activeBeadRef.current;
     const beadRow = bead?.parentElement;
@@ -133,9 +118,15 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
   useEffect(() => { if (!galleryOpen && !bookOpen) return; const previous = document.body.style.overflow; document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = previous; }; }, [bookOpen, galleryOpen]);
 
   const goToStep = (index: number) => {
-    setRunning(false);
-    setSeconds(pace);
-    setStepIndex(Math.max(0, Math.min(index, sequence.length - 1)));
+    const nextIndex = Math.max(0, Math.min(index, sequence.length - 1));
+    const nextMysteryIndex = sequence[nextIndex]?.mysteryIndex;
+    if (nextMysteryIndex && nextMysteryIndex !== mysteryIndex) {
+      setMysteryIndex(nextMysteryIndex);
+      setSenseIndex(0);
+      const first = viewpoints.find((item) => item.groupSlug === groupSlug && item.mysteryIndex === nextMysteryIndex);
+      if (first) setViewpointId(first.id);
+    }
+    setStepIndex(nextIndex);
     window.requestAnimationFrame(() => {
       prayerPlayerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
@@ -150,7 +141,7 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
     });
   };
   const chooseGroup = (slug: RosaryMysteryGroupSlug) => {
-    setGroupSlug(slug); setMysteryIndex(1); setStepIndex(0); setSeconds(pace); setRunning(false); setSenseIndex(0);
+    setGroupSlug(slug); setMysteryIndex(1); setStepIndex(0); setSenseIndex(0);
     const first = viewpoints.find((item) => item.groupSlug === slug && item.mysteryIndex === 1); if (first) setViewpointId(first.id);
   };
   const chooseMystery = (index: number) => {
@@ -158,7 +149,6 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
     const first = viewpoints.find((item) => item.groupSlug === groupSlug && item.mysteryIndex === index); if (first) setViewpointId(first.id);
     const target = sequence.findIndex((item) => item.mysteryIndex === index); if (target >= 0) goToStep(target);
   };
-  const choosePace = (value: number) => { setPace(value); setSeconds(value); setRunning(false); };
   const moveGallery = (direction: number) => { const next = (globalViewpointIndex + direction + viewpoints.length) % viewpoints.length; const target = viewpoints[next]; setViewpointId(target.id); setGroupSlug(target.groupSlug); setMysteryIndex(target.mysteryIndex); setSenseIndex(0); };
   const speakSense = () => {
     if (!("speechSynthesis" in window) || !sense) return;
@@ -203,24 +193,19 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
         </section>
 
         <nav className={styles.modeTabs} aria-label="Rosary experience sections">
-          <a href="#prayer-player">◷ Visual Timer & Beads</a><a href="#sacred-art">◉ Sacred Perspectives</a><a href="#seven-senses">✦ 7 Senses</a><a href="#bead-strand">◈ Bead Strand</a>
+          <a href="#prayer-player">◉ Prayer & Sacred Art</a><a href="#seven-senses">✦ 7 Senses</a><a href="#bead-strand">◈ Bead Strand</a>
         </nav>
 
         <section ref={prayerPlayerRef} id="prayer-player" className={`${styles.panel} ${styles.prayerPlayer}`}>
-          <div className={styles.playerHeading}><div><p>Prayer {stepIndex + 1} of {sequence.length}</p><h2>{step.title}</h2>{step.latinTitle ? <em>{step.latinTitle}</em> : null}</div><div className={styles.playerSettings}><button type="button">T&nbsp; Text: Large</button><button type="button" onClick={() => setLanguage((value) => value === "english" ? "latin" : "english")}>{language === "english" ? "English" : "Latin"}</button><button type="button" onClick={() => setAutoAdvance((value) => !value)}>Auto: {autoAdvance ? "ON" : "OFF"}</button></div></div>
+          <div className={styles.playerHeading}><div><p>Prayer {stepIndex + 1} of {sequence.length}</p><h2>{step.title}</h2>{step.latinTitle ? <em>{step.latinTitle}</em> : null}</div><div className={styles.playerSettings}><button type="button">T&nbsp; Text: Large</button><button type="button" onClick={() => setLanguage((value) => value === "english" ? "latin" : "english")}>{language === "english" ? "English" : "Latin"}</button></div></div>
           <div className={styles.playerBody}>
-            <div className={styles.timerColumn}><div className={styles.timer}><strong>{seconds}s</strong><span>{running ? "PRAYING" : "PAUSED"}</span><em>Hold this grace</em></div><div className={styles.paces}><span>Pace:</span>{paces.map((value) => <button key={value} type="button" onClick={() => choosePace(value)} className={pace === value ? styles.activePace : ""}>{value}s</button>)}</div></div>
+            <div className={styles.prayerArt}>
+              <button type="button" className={styles.focalArt} onClick={() => setGalleryOpen(true)} aria-label={`Open ${currentViewpoint.title} in the full-screen gallery`}><Image src={currentViewpoint.src} alt={`${mystery.title}: ${currentViewpoint.title}`} fill sizes="(max-width: 900px) 100vw, 900px" /><span>Currently viewing<strong>{currentViewpoint.title}</strong></span><b>⛶</b></button>
+              <div className={styles.artworkMeta}><div><span>Sacred perspective</span><strong>{mystery.title}</strong></div><button type="button" onClick={() => { setGalleryOpen(true); setGalleryIndexOpen(true); }}>Change viewpoint</button></div>
+            </div>
             <article className={styles.prayerText}><header><strong>{step.title.replace(/^.*: /, "")}</strong><span>{language.toUpperCase()}</span></header><blockquote>{language === "latin" && latinText ? latinText : step.body}</blockquote><p>✦ {step.note}</p></article>
           </div>
-          <div className={styles.playerControls}><button type="button" className={styles.navButton} aria-label="Previous prayer" title="Previous prayer" onClick={() => goToStep(stepIndex - 1)} disabled={stepIndex === 0}><svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button><button type="button" className={styles.primaryButton} onClick={() => setRunning((value) => !value)}><span className={`${styles.prayerIcon} ${running ? styles.pauseIcon : styles.playIcon}`} aria-hidden="true" />{running ? "Pause" : "Start Contemplation"}</button><button type="button" className={styles.navButton} aria-label="Next prayer" title="Next prayer" onClick={() => goToStep(stepIndex + 1)} disabled={stepIndex === sequence.length - 1}><svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button><button type="button" className={styles.restartButton} aria-label="Restart timer" title="Restart timer" onClick={() => { setSeconds(pace); setRunning(false); }}><span aria-hidden="true">↻</span></button></div>
-        </section>
-
-        <section id="sacred-art" className={`${styles.panel} ${styles.artSection}`}>
-          <div className={styles.sectionHeading}><div><p>Sacred art & perspective gallery</p><h2>Contemplate <em>{mystery.title.replace(/^The /, "The ")}</em></h2></div></div>
-          <div className={styles.artGrid}>
-            <button type="button" className={styles.focalArt} onClick={() => setGalleryOpen(true)} aria-label={`Open ${currentViewpoint.title} in the full-screen gallery`}><Image src={currentViewpoint.src} alt={`${mystery.title}: ${currentViewpoint.title}`} fill sizes="(max-width: 900px) 100vw, 62vw" /><span>Currently viewing<strong>{currentViewpoint.title}</strong></span><b>⛶</b></button>
-            <div className={styles.viewpointList}><p>Contemplative viewpoints ({mysteryViewpoints.length})</p>{mysteryViewpoints.map((item) => <button key={item.id} type="button" className={item.id === currentViewpoint.id ? styles.activeViewpoint : ""} onClick={() => setViewpointId(item.id)}><span>◉</span><span><strong>{item.title}</strong><small>{mystery.title}</small></span></button>)}<button type="button" className={styles.browseAll} onClick={() => { setGalleryOpen(true); setGalleryIndexOpen(true); }}>Browse all 62 sacred viewpoints</button></div>
-          </div>
+          <div className={styles.playerControls}><button type="button" className={styles.navButton} aria-label="Previous prayer" title="Previous prayer" onClick={() => goToStep(stepIndex - 1)} disabled={stepIndex === 0}><svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button><span className={styles.prayerProgress}>Prayer {stepIndex + 1} of {sequence.length}</span><button type="button" className={styles.navButton} aria-label="Next prayer" title="Next prayer" onClick={() => goToStep(stepIndex + 1)} disabled={stepIndex === sequence.length - 1}><svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button></div>
         </section>
 
         <section id="seven-senses" className={`${styles.panel} ${styles.senses}`}>
