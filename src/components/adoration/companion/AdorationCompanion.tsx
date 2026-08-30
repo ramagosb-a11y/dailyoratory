@@ -50,6 +50,10 @@ export function AdorationCompanion() {
   const [copied, setCopied] = useState(false);
   const [cccQuery, setCccQuery] = useState("");
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   const playChime = useCallback(() => {
     const AudioContextClass = window.AudioContext ??
       (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
