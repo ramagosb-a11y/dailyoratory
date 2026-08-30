@@ -176,8 +176,6 @@ export function AdorationCompanion() {
               partIndex={partIndex}
               onModeChange={setGuidedMode}
               onPartChange={setPartIndex}
-              onSilence={chooseTimer}
-              onOpenJournal={() => setJournalOpen(true)}
             />
           ) : null}
           {section === "scripture" ? (
@@ -262,15 +260,11 @@ function MeditationView({
   partIndex,
   onModeChange,
   onPartChange,
-  onSilence,
-  onOpenJournal,
 }: {
   guidedMode: boolean;
   partIndex: number;
   onModeChange: (guided: boolean) => void;
   onPartChange: (index: number) => void;
-  onSilence: (minutes: number) => void;
-  onOpenJournal: () => void;
 }) {
   const displayedParts = guidedMode ? [meditationParts[partIndex]] : meditationParts;
 
@@ -304,8 +298,6 @@ function MeditationView({
             key={part.id}
             part={part}
             partNumber={meditationParts.findIndex((item) => item.id === part.id) + 1}
-            onSilence={onSilence}
-            onOpenJournal={onOpenJournal}
           />
         ))}
       </div>
@@ -333,13 +325,9 @@ function MeditationView({
 function MeditationPartCard({
   part,
   partNumber,
-  onSilence,
-  onOpenJournal,
 }: {
   part: MeditationPart;
   partNumber: number;
-  onSilence: (minutes: number) => void;
-  onOpenJournal: () => void;
 }) {
   return (
     <article className={styles.featureCard}>
@@ -373,11 +361,7 @@ function MeditationPartCard({
       </section>
 
       <div className={styles.pauseRow}>
-        <div><strong>Part-specific silent pause</strong><span>Rest in quiet adoration before continuing.</span></div>
-        {[2, 3, 5].map((minutes) => (
-          <button key={minutes} type="button" onClick={() => onSilence(minutes)}>{minutes}m silence</button>
-        ))}
-        <button type="button" onClick={onOpenJournal}>Journal</button>
+        <div><strong>Suggested silent time</strong><span>Rest in quiet adoration for a few minutes before continuing.</span></div>
       </div>
     </article>
   );
