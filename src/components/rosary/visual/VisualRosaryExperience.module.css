@@ -53,6 +53,13 @@
 .artworkMeta span{color:var(--gold);font-size:.66rem;letter-spacing:.07em;text-transform:uppercase}
 .artworkMeta strong{font-family:var(--font-heading);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .artworkMeta button{background:#17140e;border:1px solid #695327;border-radius:9px;color:var(--gold2);flex:0 0 auto;min-height:42px;padding:8px 12px}
+.viewpointPicker{align-items:center;display:flex!important;flex-direction:row!important;gap:7px;justify-content:flex-end}
+.viewpointPicker>span{margin-right:3px}
+.viewpointPicker button{height:44px;min-height:44px;padding:0;width:44px}
+.viewpointPicker .activeViewpointChoice{background:var(--gold2);border-color:#8d6c2e;box-shadow:inset 0 0 0 2px rgba(255,245,211,.38);color:#171208;font-weight:800}
+.playerSettings .activeSetting{background:#352914;border-color:#bd8d31;color:var(--gold2)}
+.largePrayerText blockquote{font-size:clamp(1.45rem,5vw,2rem);line-height:1.75}
+.largePrayerText>p{font-size:.95rem;line-height:1.55}
 .playerControls{align-items:center;justify-content:center}
 .prayerProgress{color:var(--gold2);font-size:.78rem;font-weight:700;letter-spacing:.04em;min-width:132px;text-align:center;text-transform:uppercase}
 
@@ -60,7 +67,8 @@
   .playerSettings{grid-template-columns:repeat(2,1fr)}
   .prayerArt .focalArt{aspect-ratio:4/3}
   .artworkMeta{align-items:stretch;flex-direction:column}
-  .artworkMeta button{width:100%}
+  .viewpointPicker{justify-content:flex-start;width:100%}
+  .viewpointPicker button{width:44px}
   .playerControls{justify-content:space-between}
   .prayerProgress{flex:1;min-width:0}
 }
