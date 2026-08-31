@@ -137,6 +137,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Luminous Mysteries", href: "/rosary/luminous-mysteries" },
     { label: "Latin Rosary", href: "/rosary/latin-rosary" },
   ];
+  const divineMercyPages = [
+    { label: "Divine Mercy Chaplet", href: "/divine-mercy" },
+    { label: "Divine Mercy Chaplet Companion", href: "/divine-mercy/chaplet" },
+  ];
   const devotionRosaryPages = [
     { label: "Holy Rosary Guide", href: "/devotions/holy-rosary" },
     ...rosaryMysteryGroups.map((group) => ({ label: group.title, href: `/devotions/holy-rosary/${group.slug}` })),
@@ -268,7 +272,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "The Mission of the Church", href: "/mission" },
     { label: "Contact", href: "/contact" },
   ];
-  const pages = [{ label: "Home", href: "/" }, ...primaryNavigation, ...startHerePages, ...toolPages, ...aboutPages, ...rosaryPages, ...devotionRosaryPages, ...reflectionPages, ...massPages, ...catholicLifePages, ...sacramentalEmergencyPages, ...biblePages, ...bodySoulSpiritPages, ...sinAndTemptationPages, ...scripturePages, ...prayerGuidePages, ...formationPages, ...gracePages, ...eschatologyPages, ...catholicBurialPages, ...indulgencePages, ...studyPages, ...devotionPages, ...sacramentalPages, ...relicPages, ...newsPages, ...catechismPages, ...angelsPages, ...dailyExamenPages, ...explorePages, ...ociaPages, ...returningPages, ...glossaryPages, ...traditionPages, ...councilPages, ...familyPages, ...popePages, ...vaticanPages, ...mediaPages, ...featuredSeriesPages, ...homilyPages, ...searchPages, ...liturgyHoursPages, ...dailyPrayerPages, ...adorationPages, ...liturgicalLivingPages, ...ruleOfLifePages, ...pathwayPages, ...sacramentPages, ...confessionPages, ...virtueTrackerPages, ...saintPages, ...prayerIntentionPages, ...communityPages]
+  const pages = [{ label: "Home", href: "/" }, ...primaryNavigation, ...startHerePages, ...toolPages, ...aboutPages, ...rosaryPages, ...divineMercyPages, ...devotionRosaryPages, ...reflectionPages, ...massPages, ...catholicLifePages, ...sacramentalEmergencyPages, ...biblePages, ...bodySoulSpiritPages, ...sinAndTemptationPages, ...scripturePages, ...prayerGuidePages, ...formationPages, ...gracePages, ...eschatologyPages, ...catholicBurialPages, ...indulgencePages, ...studyPages, ...devotionPages, ...sacramentalPages, ...relicPages, ...newsPages, ...catechismPages, ...angelsPages, ...dailyExamenPages, ...explorePages, ...ociaPages, ...returningPages, ...glossaryPages, ...traditionPages, ...councilPages, ...familyPages, ...popePages, ...vaticanPages, ...mediaPages, ...featuredSeriesPages, ...homilyPages, ...searchPages, ...liturgyHoursPages, ...dailyPrayerPages, ...adorationPages, ...liturgicalLivingPages, ...ruleOfLifePages, ...pathwayPages, ...sacramentPages, ...confessionPages, ...virtueTrackerPages, ...saintPages, ...prayerIntentionPages, ...communityPages]
     .map((item) => buildSitemapEntry(item.href, new Date(), item.label))
     .filter(isSitemapEntry);
 
@@ -406,6 +410,7 @@ function getPriority(url: string) {
       "/daily-examen",
       "/pray/today",
       "/rosary",
+      "/divine-mercy",
       "/devotions/holy-rosary",
       "/confession",
       "/mass",

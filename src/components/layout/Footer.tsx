@@ -1,8 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { brand } from "@/config/brand";
 import { footerNavigationGroups } from "@/config/navigation";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === "/divine-mercy/chaplet") {
+    return null;
+  }
+
   return (
     <footer className="liturgical-footer-accent border-t border-stone bg-ivory">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_1.6fr] lg:px-10">

@@ -1,6 +1,6 @@
 {
   "name": "daily-oratory",
-  "version": "0.2.0-preview.1",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
