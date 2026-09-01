@@ -1,5 +1,5 @@
 import { LitanyData } from '../../types';
-import { saintJosephImg, createDevotionalArtUrl } from '../litanyImages';
+import { saintJosephImg, saintJosephProtectorImg, createDevotionalArtUrl } from '../litanyImages';
 
 export const saintJosephLitany: LitanyData = {
   id: 'saint-joseph',
@@ -121,7 +121,7 @@ export const saintJosephLitany: LitanyData = {
       eyebrow: 'V · PROTECTOR OF CHRIST',
       title: 'Defender in Danger',
       reflection: 'Awakened in the night, Joseph arose to take the Child and His Mother into Egypt. He remains the protector of the universal Church.',
-      image: createDevotionalArtUrl('Protector of the Church', '#3A533E', 'cross'),
+      image: saintJosephProtectorImg,
       imageAlt: 'Saint Joseph leading the Holy Family safely through the desert into Egypt',
       invocations: [
         { prompt: 'Solace of the wretched,', response: 'pray for us.' },

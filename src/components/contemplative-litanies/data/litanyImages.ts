@@ -11,6 +11,7 @@ const consolationPeaceImg = image('consolation_peace_1788195068059.jpg');
 const hopeSaintsImg = image('hope_saints_1788195078354.jpg');
 const sacredHeartHeroImg = image('sacred-heart-hero-v2.png');
 const saintJosephImg = image('saint_joseph_preview_1788195107772.jpg');
+const saintJosephProtectorImg = image('saint-joseph-protector-of-the-church.png');
 const holyNameHeroImg = image('holy_name_hero_1788196946386.jpg');
 const preciousBloodHeroImg = image('precious_blood_hero_1788196962982.jpg');
 const loretoHeroImg = image('loreto_hero_1788196976232.jpg');
@@ -28,6 +29,7 @@ export {
   consolationPeaceImg,
   hopeSaintsImg,
   saintJosephImg,
+  saintJosephProtectorImg,
   holyNameHeroImg,
   preciousBloodHeroImg,
   loretoHeroImg,
