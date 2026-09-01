@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { LitanyPrayerShelf, type LitanyShelfItem } from "@/components/contemplative-litanies/LitanyPrayerShelf";
+import { litanyCatalog } from "@/components/contemplative-litanies/data/litanyRegistry";
 import { StructuredDataScript } from "@/components/seo/StructuredDataScript";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildArticleStructuredData, buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structuredData";
@@ -277,6 +279,21 @@ const relatedLinks = [
   { label: "Lent Guide", href: "/liturgical-living/lent" },
 ];
 
+const contemplativeLitanyShelf: LitanyShelfItem[] = litanyCatalog
+  .filter((litany) => litany.status === "available" && Boolean(litany.image))
+  .map((litany) => ({
+    id: litany.id,
+    title: litany.title,
+    subtitle: litany.subtitle,
+    shortDescription: litany.shortDescription,
+    movementsCount: litany.movementsCount,
+    href: `/prayers/litanies/${litany.slug}`,
+    image: litany.image as string,
+    imageAlt: `${litany.title} devotional holy card`,
+    accent: litany.colorTheme.primary,
+    border: litany.colorTheme.cardBorder,
+  }));
+
 export default function LitaniesPage() {
   return (
     <div className="paper-texture">
@@ -316,8 +333,8 @@ export default function LitaniesPage() {
             A litany is a prayer of repeated petitions, invocations, and responses. It helps the heart pray steadily when words are hard to find, and it teaches us to ask for mercy, intercession, protection, healing, humility, and hope.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link prefetch={false} href="#common-litanies" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
-              Explore Common Litanies
+            <Link prefetch={false} href="#contemplative-litanies" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+              Explore Contemplative Litanies
             </Link>
             <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Prayer Library
@@ -326,6 +343,8 @@ export default function LitaniesPage() {
         </header>
 
         <div className="mt-10 grid gap-10">
+          <LitanyPrayerShelf litanies={contemplativeLitanyShelf} />
+
           <section className="card-parchment p-6 sm:p-8">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">What it is</p>
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">What Is a Litany?</h2>
