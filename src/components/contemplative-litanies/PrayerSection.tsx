@@ -68,6 +68,20 @@ export const PrayerSection: React.FC<PrayerSectionProps> = ({
               />
             ))}
           </div>
+
+          {/* A quiet image for lingering prayer, placed after the words on mobile. */}
+          <div className="mt-10 lg:hidden">
+            <div className="mb-3 text-center text-[10px] font-semibold uppercase tracking-[0.3em] text-[#BD8A2F]">
+              Remain with this image
+            </div>
+            <div className="rounded-xl border border-[#BD8A2F]/60 bg-[#F3EAD8]/70 p-2 shadow-md">
+              <SacredImage
+                src={section.image}
+                alt={`${section.imageAlt} — meditation image`}
+                aspectRatio="portrait"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
