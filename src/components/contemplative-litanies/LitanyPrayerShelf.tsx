@@ -35,6 +35,22 @@ function ArrowIcon({ direction }: { direction: "left" | "right" }) {
   );
 }
 
+function WoodenPrayerShelf() {
+  return (
+    <div aria-hidden="true" className="relative z-10 mx-3 -mt-5 h-10 sm:mx-6 sm:h-12">
+      <div className="absolute inset-x-3 top-1 h-3 rounded-t-[0.7rem] border border-[#4b2811] bg-[#5a3015] shadow-[inset_0_2px_0_rgba(255,235,181,0.38),0_3px_5px_rgba(50,25,10,0.36)]" />
+      <div
+        className="absolute inset-x-0 top-3 h-6 rounded-b-[0.7rem] border border-[#44210c] shadow-[inset_0_2px_0_rgba(255,226,164,0.45),inset_0_-4px_0_rgba(52,24,8,0.45),0_5px_7px_rgba(50,25,10,0.35)] sm:h-7"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(87deg, rgba(255,222,151,0.14) 0 2px, transparent 2px 17px), repeating-linear-gradient(2deg, transparent 0 8px, rgba(54,25,9,0.26) 9px 10px, transparent 11px 18px), linear-gradient(180deg, #b77b38 0%, #875020 35%, #633315 72%, #3d1d0b 100%)",
+        }}
+      />
+      <div className="absolute inset-x-5 top-5 h-px bg-[#f3cc82]/50 sm:top-6" />
+    </div>
+  );
+}
+
 export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
   const railRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
@@ -121,7 +137,7 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
         role="region"
         tabIndex={0}
       >
-        <div className="flex w-max min-w-full snap-x snap-mandatory gap-4 px-5 py-7 sm:gap-6 sm:px-8 sm:py-9">
+        <div className="flex w-max min-w-full snap-x snap-mandatory gap-4 px-5 pb-7 pt-7 sm:gap-6 sm:px-8 sm:pb-9 sm:pt-9">
           {litanies.map((litany, index) => (
             <div
               aria-current={index === activeIndex ? "true" : undefined}
@@ -164,6 +180,7 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
             </div>
           ))}
         </div>
+        <WoodenPrayerShelf />
       </div>
 
       <div className="border-t border-stone bg-ivory/80 px-5 py-5 sm:px-8">
