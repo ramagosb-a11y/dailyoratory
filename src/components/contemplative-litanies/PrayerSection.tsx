@@ -21,11 +21,12 @@ export const PrayerSection: React.FC<PrayerSectionProps> = ({
 
   return (
     <div
-      className="relative w-full max-w-5xl mx-auto px-4 sm:px-8 py-6 sm:py-12 animate-prayer-fade bg-cover bg-center bg-fixed"
+      className="relative w-full max-w-5xl mx-auto my-3 sm:my-8 overflow-hidden rounded-[1.75rem] border-2 border-[#BD8A2F] bg-cover bg-center bg-fixed shadow-[0_18px_55px_rgba(13,32,56,0.24)] ring-1 ring-[#FFFDF7]/80 animate-prayer-fade"
       style={{ backgroundImage: `url(${section.image})` }}
     >
-      <div className="absolute inset-0 bg-[#FFFDF7]/78 sm:bg-[#FFFDF7]/70" aria-hidden="true" />
-      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0D2038]/55 via-[#0D2038]/20 to-[#FFFDF7]/35" aria-hidden="true" />
+      <div className="absolute inset-2 rounded-[1.35rem] border border-[#F3EAD8]/65 pointer-events-none" aria-hidden="true" />
+      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start px-5 py-7 sm:px-10 sm:py-12">
         {/* Sacred Art Column */}
         <div className="hidden lg:block w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none lg:col-span-5 lg:sticky lg:top-24">
           <div className="p-3 sm:p-5 bg-[#F3EAD8]/80 rounded-2xl border border-[#D8CDB9] shadow-sm">
@@ -38,7 +39,7 @@ export const PrayerSection: React.FC<PrayerSectionProps> = ({
         </div>
 
         {/* Litany Text Column */}
-        <div ref={prayerTextRef} className="w-full lg:col-span-7 flex flex-col justify-start scroll-mt-6 bg-[#FFFDF7]/80 rounded-2xl px-3 py-4 sm:px-5 sm:py-6 shadow-sm">
+        <div ref={prayerTextRef} className="w-full lg:col-span-7 flex flex-col justify-start scroll-mt-6 bg-[#FFFDF7]/94 rounded-xl border border-[#D8CDB9] px-4 py-5 sm:px-7 sm:py-8 shadow-[0_8px_24px_rgba(13,32,56,0.16)]">
           {/* Header & Mystery Title */}
           <div className="mb-6 sm:mb-8 text-left">
             <span className="block text-xs font-semibold tracking-[0.28em] text-[#BD8A2F] uppercase mb-2">
