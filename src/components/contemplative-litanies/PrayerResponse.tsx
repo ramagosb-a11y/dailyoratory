@@ -33,7 +33,7 @@ export const PrayerResponse: React.FC<PrayerResponseProps> = ({
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 font-serif italic text-base sm:text-[1.15rem] leading-relaxed font-medium tracking-wide ${getColorClass()} ${className}`}
+      className={`inline-flex items-center gap-1.5 font-serif italic text-lg sm:text-[1.15rem] leading-relaxed font-medium tracking-wide ${getColorClass()} ${className}`}
     >
       {showRubricSymbol && (
         <span className="not-italic font-bold text-xs opacity-75 font-sans">℟.</span>

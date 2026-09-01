@@ -38,7 +38,7 @@ export const Invocation: React.FC<InvocationProps> = ({
           : 'py-3 sm:py-4 px-3 sm:px-4 -mx-3 sm:-mx-4 hover:bg-[#F3EAD8]/30'
       }`}
     >
-      <p className="font-serif text-lg sm:text-xl text-[#0D2038] leading-relaxed tracking-normal font-normal">
+      <p className="font-serif text-xl sm:text-xl text-[#0D2038] leading-relaxed tracking-normal font-normal">
         {prompt}
       </p>
       <div className={`mt-1.5 sm:mt-2 pl-4 sm:pl-5 border-l-2 ${getBorderColor()} transition-colors`}>

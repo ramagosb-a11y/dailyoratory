@@ -20,10 +20,14 @@ export const PrayerSection: React.FC<PrayerSectionProps> = ({
   const responseVariant: ResponseVariant = colorTheme?.responseVariant || 'burgundy';
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4 sm:px-8 py-6 sm:py-12 animate-prayer-fade">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
+    <div
+      className="relative w-full max-w-5xl mx-auto px-4 sm:px-8 py-6 sm:py-12 animate-prayer-fade bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: `url(${section.image})` }}
+    >
+      <div className="absolute inset-0 bg-[#FFFDF7]/78 sm:bg-[#FFFDF7]/70" aria-hidden="true" />
+      <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start">
         {/* Sacred Art Column */}
-        <div className="w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none lg:col-span-5 lg:sticky lg:top-24">
+        <div className="hidden lg:block w-full max-w-sm sm:max-w-md mx-auto lg:max-w-none lg:col-span-5 lg:sticky lg:top-24">
           <div className="p-3 sm:p-5 bg-[#F3EAD8]/80 rounded-2xl border border-[#D8CDB9] shadow-sm">
             <SacredImage
               src={section.image}
@@ -34,7 +38,7 @@ export const PrayerSection: React.FC<PrayerSectionProps> = ({
         </div>
 
         {/* Litany Text Column */}
-        <div ref={prayerTextRef} className="w-full lg:col-span-7 flex flex-col justify-start scroll-mt-6">
+        <div ref={prayerTextRef} className="w-full lg:col-span-7 flex flex-col justify-start scroll-mt-6 bg-[#FFFDF7]/80 rounded-2xl px-3 py-4 sm:px-5 sm:py-6 shadow-sm">
           {/* Header & Mystery Title */}
           <div className="mb-6 sm:mb-8 text-left">
             <span className="block text-xs font-semibold tracking-[0.28em] text-[#BD8A2F] uppercase mb-2">
