@@ -81,7 +81,7 @@ const commonLitanies: LitanyCard[] = [
     category: "Jesus / Mercy / Reparation",
     summary: "A traditional litany honoring the merciful Heart of Jesus and asking to be formed by His love.",
     links: [
-      { label: "Daily Oratory Guide", href: "/prayers/novena-to-the-sacred-heart-of-jesus" },
+      { label: "Begin Contemplative Prayer", href: "/prayers/litanies/sacred-heart" },
       { label: "Official USCCB Text", href: "https://www.usccb.org/prayers/litany-sacred-heart-jesus", external: true },
     ],
   },
@@ -89,37 +89,37 @@ const commonLitanies: LitanyCard[] = [
     title: "Litany of the Holy Name of Jesus",
     category: "Jesus / Holy Name",
     summary: "A litany invoking the Holy Name of Jesus with reverence, trust, and love.",
-    links: [{ label: "Official USCCB Text", href: "https://www.usccb.org/prayers/litany-holy-name-jesus", external: true }],
+    links: [{ label: "Begin Contemplative Prayer", href: "/prayers/litanies/holy-name" }],
   },
   {
     title: "Litany of the Precious Blood",
     category: "Jesus / Passion / Redemption",
     summary: "A litany honoring the Precious Blood of Christ and His saving Passion.",
-    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-the-precious-blood" }],
+    links: [{ label: "Begin Contemplative Prayer", href: "/prayers/litanies/precious-blood" }],
   },
   {
     title: "Litany of Loreto",
     category: "Mary / Marian Prayer",
     summary: "A beloved Marian litany invoking Mary under many titles and asking for her intercession.",
-    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-loreto" }],
+    links: [{ label: "Begin Contemplative Prayer", href: "/prayers/litanies/loreto" }],
   },
   {
     title: "Litany of St. Joseph",
     category: "Saints / Family / Work / Protection",
     summary: "A litany asking the intercession of St. Joseph, guardian of Jesus and Mary.",
-    links: [{ label: "Official USCCB Text", href: "https://www.usccb.org/prayers/litany-saint-joseph", external: true }],
+    links: [{ label: "Begin Contemplative Prayer", href: "/prayers/litanies/saint-joseph" }],
   },
   {
     title: "Litany of the Saints",
     category: "Saints / Church / Intercession",
     summary: "A solemn litany invoking the saints and asking God for mercy, often used in major liturgies.",
-    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-the-saints" }],
+    links: [{ label: "Begin Contemplative Prayer", href: "/prayers/litanies/saints" }],
   },
   {
     title: "Litany of Humility",
     category: "Repentance / Humility / Lent",
     summary: "A searching prayer asking Jesus for freedom from pride, fear, comparison, and the desire to be praised.",
-    links: [{ label: "Daily Oratory Guide", href: "/prayers/litany-of-humility" }],
+    links: [{ label: "Begin Contemplative Prayer", href: "/prayers/litanies/humility" }],
   },
   {
     title: "Litany for the Dying",
@@ -316,10 +316,10 @@ export default function LitaniesPage() {
             A litany is a prayer of repeated petitions, invocations, and responses. It helps the heart pray steadily when words are hard to find, and it teaches us to ask for mercy, intercession, protection, healing, humility, and hope.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="#common-litanies" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="#common-litanies" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Explore Common Litanies
             </Link>
-            <Link href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link prefetch={false} href="/prayers" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
               Prayer Library
             </Link>
           </div>
@@ -414,7 +414,7 @@ export default function LitaniesPage() {
                             {link.label}
                           </a>
                         ) : (
-                          <Link
+                          <Link prefetch={false}
                             key={`${litany.title}-${link.href}`}
                             href={link.href}
                             className="focus-ring inline-flex rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
@@ -441,7 +441,7 @@ export default function LitaniesPage() {
                   <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.note}</p>
                   <div className="mt-4 flex flex-wrap gap-3">
                     {card.links.map((link) => (
-                      <Link
+                      <Link prefetch={false}
                         key={`${card.title}-${link.href}`}
                         href={link.href}
                         className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
@@ -486,7 +486,7 @@ export default function LitaniesPage() {
                 { label: "Prayer Library", href: "/prayers" },
                 { label: "Prayers for the Dead", href: "/formation/catholic-burial/prayers-for-the-dead" },
               ].map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="rounded-full border border-stone px-4 py-2 text-sm font-semibold text-navy transition hover:border-gold"
@@ -515,7 +515,7 @@ export default function LitaniesPage() {
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Continue in Prayer</h2>
             <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {relatedLinks.map((link) => (
-                <Link
+                <Link prefetch={false}
                   key={link.href}
                   href={link.href}
                   className="focus-ring rounded-3xl border border-stone bg-ivory/80 px-5 py-4 text-base font-semibold text-navy transition hover:border-gold"

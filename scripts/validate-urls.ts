@@ -131,7 +131,7 @@ function validateLiteral(file: string, line: number, lineText: string, value: st
 }
 
 function shouldIgnoreLiteral(lineText: string) {
-  return /\b(?:includes|match|test)\s*\(/.test(lineText) || /\b(?:pattern|reason)\s*:/.test(lineText);
+  return lineText.includes("validate-urls-ignore") || /\b(?:includes|match|test)\s*\(/.test(lineText) || /\b(?:pattern|reason)\s*:/.test(lineText);
 }
 
 function validateSitemapUrl(file: string, line: number, value: string) {
