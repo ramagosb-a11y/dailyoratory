@@ -42,6 +42,19 @@ export function createDevotionalArtUrl(
   themeColor: string,
   symbol: 'cross' | 'lily' | 'marian' | 'monogram' | 'chalice' | 'communion' | 'dove' | 'crown' | 'hands' | 'basin' | 'heart' | 'star' | 'ark' | 'tower' | 'gate' | 'rose'
 ): string {
+  // Use the litany's original, copyright-safe sacred artwork for every movement.
+  // The previous vector cards were useful scaffolding, but read as placeholders
+  // beside the real holy-card imagery used on the cover screens.
+  const heroByTheme: Record<string, string> = {
+    '#0D2038': holyNameHeroImg,
+    '#6B1D28': preciousBloodHeroImg,
+    '#1F4E79': loretoHeroImg,
+    '#3A533E': saintJosephImg,
+    '#1B365D': saintsHeroImg,
+    '#4A5844': humilityHeroImg,
+  };
+  if (heroByTheme[themeColor]) return heroByTheme[themeColor];
+
   const getSymbolSvg = () => {
     switch (symbol) {
       case 'cross':
