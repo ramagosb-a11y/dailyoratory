@@ -119,7 +119,8 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
     >
       {/* Step 0: Intro Screen */}
       {currentStep === 0 && (
-        <div className="max-w-2xl mx-auto px-4 sm:px-8 py-12 sm:py-20 flex-1 flex flex-col items-center justify-center text-center animate-prayer-fade">
+        <div className="relative max-w-2xl mx-4 sm:mx-auto my-5 sm:my-10 px-5 sm:px-10 py-12 sm:py-20 flex-1 flex flex-col items-center justify-center text-center animate-prayer-fade rounded-[1.75rem] border-2 border-[#BD8A2F] bg-[#FFFDF7] shadow-[0_18px_55px_rgba(13,32,56,0.16)] ring-1 ring-[#D8CDB9]">
+          <div className="absolute inset-2 rounded-[1.35rem] border border-[#BD8A2F]/55 pointer-events-none" aria-hidden="true" />
           {/* Sacred Art centerpiece */}
           <div className="relative group mb-8">
             <div className="absolute -inset-3 rounded-2xl border border-[#BD8A2F]/40 pointer-events-none" />
@@ -222,7 +223,8 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
 
       {/* Step 1: Opening Section ("In the Presence of God") */}
       {currentStep === 1 && (
-        <div className="max-w-2xl mx-auto px-4 sm:px-8 py-10 sm:py-16 flex-1 w-full animate-prayer-fade">
+        <div className="relative max-w-3xl mx-4 sm:mx-auto my-5 sm:my-10 px-5 sm:px-10 py-10 sm:py-16 flex-1 w-[calc(100%-2rem)] animate-prayer-fade rounded-[1.75rem] border-2 border-[#BD8A2F] bg-[#FFFDF7]/96 shadow-[0_18px_55px_rgba(13,32,56,0.16)] ring-1 ring-[#D8CDB9]">
+          <div className="absolute inset-2 rounded-[1.35rem] border border-[#BD8A2F]/55 pointer-events-none" aria-hidden="true" />
           <div className="text-center mb-10 pb-6 border-b border-[#D8CDB9]">
             <span className="block text-xs font-semibold tracking-[0.3em] text-[#BD8A2F] uppercase mb-2">
               Opening Invocation
