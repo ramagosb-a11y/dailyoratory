@@ -8,12 +8,14 @@ interface PrayerSectionProps {
   section: ContemplativeSection;
   totalSections: number;
   colorTheme?: LitanyColorTheme;
+  prayerTextRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 export const PrayerSection: React.FC<PrayerSectionProps> = ({
   section,
   totalSections,
   colorTheme,
+  prayerTextRef,
 }) => {
   const responseVariant: ResponseVariant = colorTheme?.responseVariant || 'burgundy';
 
@@ -32,7 +34,7 @@ export const PrayerSection: React.FC<PrayerSectionProps> = ({
         </div>
 
         {/* Litany Text Column */}
-        <div className="w-full lg:col-span-7 flex flex-col justify-start">
+        <div ref={prayerTextRef} className="w-full lg:col-span-7 flex flex-col justify-start scroll-mt-6">
           {/* Header & Mystery Title */}
           <div className="mb-6 sm:mb-8 text-left">
             <span className="block text-xs font-semibold tracking-[0.28em] text-[#BD8A2F] uppercase mb-2">

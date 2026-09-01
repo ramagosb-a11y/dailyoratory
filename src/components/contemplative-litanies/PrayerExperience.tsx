@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { LitanyData } from './types';
 import { PrayerSection } from './PrayerSection';
 import { PrayerNavigation } from './PrayerNavigation';
@@ -26,6 +26,7 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
   const [currentStep, setCurrentStep] = useState<number>(0);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [showAboutPrayer, setShowAboutPrayer] = useState<boolean>(false);
+  const prayerTextRef = useRef<HTMLDivElement>(null);
 
   const sectionCount = litany.sections.length;
   const closingStep = sectionCount + 2;
@@ -37,8 +38,17 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
 
   // Scroll to top on step change
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [currentStep]);
+    // On movement changes, keep the reader at the prayer text on mobile.
+    // The image is intentionally first in the responsive layout, but advancing
+    // should never make the reader hunt for the invocation again.
+    if (currentStep >= 2 && currentStep <= sectionCount + 1) {
+      requestAnimationFrame(() => {
+        prayerTextRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentStep, sectionCount]);
 
   const handleNext = () => {
     setCurrentStep((prev) => Math.min(prev + 1, silenceStep));
@@ -269,6 +279,7 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
             section={litany.sections[currentStep - 2]}
             totalSections={sectionCount}
             colorTheme={litany.colorTheme}
+            prayerTextRef={prayerTextRef}
           />
         </div>
       )}

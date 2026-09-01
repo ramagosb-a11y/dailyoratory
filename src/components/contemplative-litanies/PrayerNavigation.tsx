@@ -53,9 +53,9 @@ export const PrayerNavigation: React.FC<PrayerNavigationProps> = ({
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
+    <div className="w-full max-w-4xl mx-auto px-3 sm:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
       {/* Contemplative Movement Marker */}
-      <div className="flex items-center gap-3">
+      <div className="flex basis-full sm:basis-auto items-center justify-center sm:justify-start gap-3 min-w-0">
         <div className="flex items-center gap-1.5" aria-hidden="true">
           {Array.from({ length: sectionCount }).map((_, i) => {
             const movementStepNumber = i + 2; // Steps 2 through (sectionCount + 1)
@@ -81,11 +81,11 @@ export const PrayerNavigation: React.FC<PrayerNavigationProps> = ({
       </div>
 
       {/* Action Navigation Buttons */}
-      <div className="flex items-center gap-3">
+      <div className="flex basis-full sm:basis-auto justify-end items-center gap-2 sm:gap-3">
         {canPrevious && (
           <button
             onClick={onPrevious}
-            className="px-5 sm:px-6 py-2.5 rounded-full border border-[#D8CDB9] text-xs uppercase tracking-widest font-medium text-[#0D2038]/80 hover:bg-[#F3EAD8] hover:text-[#0D2038] transition-colors focus:outline-hidden"
+            className="flex-1 sm:flex-none px-3 sm:px-6 py-2.5 rounded-full border border-[#D8CDB9] text-[11px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-widest font-medium text-[#0D2038]/80 hover:bg-[#F3EAD8] hover:text-[#0D2038] transition-colors focus:outline-hidden whitespace-nowrap"
             aria-label="Previous prayer movement"
           >
             {previousLabel}
@@ -94,7 +94,7 @@ export const PrayerNavigation: React.FC<PrayerNavigationProps> = ({
 
         <button
           onClick={onNext}
-          className="px-6 sm:px-8 py-2.5 rounded-full bg-[#0D2038] text-[#FFFDF7] text-xs uppercase tracking-widest font-semibold hover:bg-opacity-90 shadow-md hover:shadow-lg transition-all focus:outline-hidden flex items-center justify-center gap-2"
+          className="flex-1 sm:flex-none px-3 sm:px-8 py-2.5 rounded-full bg-[#0D2038] text-[#FFFDF7] text-[11px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-widest font-semibold hover:bg-opacity-90 shadow-md hover:shadow-lg transition-all focus:outline-hidden flex items-center justify-center gap-2 whitespace-nowrap"
           aria-label="Continue to next prayer movement"
         >
           <span>{nextLabel}</span>
