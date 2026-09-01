@@ -37,16 +37,14 @@ function ArrowIcon({ direction }: { direction: "left" | "right" }) {
 
 function WoodenPrayerShelf() {
   return (
-    <div aria-hidden="true" className="relative z-10 mx-3 -mt-5 h-10 sm:mx-6 sm:h-12">
-      <div className="absolute inset-x-3 top-1 h-3 rounded-t-[0.7rem] border border-[#4b2811] bg-[#5a3015] shadow-[inset_0_2px_0_rgba(255,235,181,0.38),0_3px_5px_rgba(50,25,10,0.36)]" />
-      <div
-        className="absolute inset-x-0 top-3 h-6 rounded-b-[0.7rem] border border-[#44210c] shadow-[inset_0_2px_0_rgba(255,226,164,0.45),inset_0_-4px_0_rgba(52,24,8,0.45),0_5px_7px_rgba(50,25,10,0.35)] sm:h-7"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(87deg, rgba(255,222,151,0.14) 0 2px, transparent 2px 17px), repeating-linear-gradient(2deg, transparent 0 8px, rgba(54,25,9,0.26) 9px 10px, transparent 11px 18px), linear-gradient(180deg, #b77b38 0%, #875020 35%, #633315 72%, #3d1d0b 100%)",
-        }}
+    <div aria-hidden="true" className="pointer-events-none relative z-10 -mt-10 h-24 w-full sm:-mt-12 sm:h-28">
+      <Image
+        alt=""
+        className="object-cover object-[center_65%]"
+        fill
+        sizes="100vw"
+        src="/images/litanies/carved-walnut-prayer-shelf.png"
       />
-      <div className="absolute inset-x-5 top-5 h-px bg-[#f3cc82]/50 sm:top-6" />
     </div>
   );
 }
@@ -137,18 +135,18 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
         role="region"
         tabIndex={0}
       >
-        <div className="flex w-max min-w-full snap-x snap-mandatory gap-4 px-5 pb-7 pt-7 sm:gap-6 sm:px-8 sm:pb-9 sm:pt-9">
+        <div className="flex w-max min-w-full snap-x snap-mandatory gap-4 px-5 pb-0 pt-7 sm:gap-6 sm:px-8 sm:pt-9">
           {litanies.map((litany, index) => (
             <div
               aria-current={index === activeIndex ? "true" : undefined}
-              className="w-[81vw] max-w-[23rem] shrink-0 snap-center sm:w-[22rem] lg:w-[23rem]"
+              className="w-[72vw] max-w-[17rem] shrink-0 snap-center sm:w-[15.5rem] lg:w-[17rem]"
               key={litany.id}
               ref={(element) => {
                 cardRefs.current[index] = element;
               }}
             >
               <article
-                className="h-full overflow-hidden rounded-[1.35rem] border bg-ivory shadow-oratory"
+                className="overflow-hidden rounded-[1.25rem] border-2 bg-ivory shadow-[0_12px_22px_rgba(30,16,7,0.28)] transition-transform duration-300 hover:-translate-y-1"
                 style={{ borderColor: index === activeIndex ? litany.accent : litany.border }}
               >
                 <div className="relative aspect-[3/4] overflow-hidden bg-parchment">
@@ -159,21 +157,9 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
                     sizes="(max-width: 640px) 81vw, (max-width: 1024px) 22rem, 23rem"
                     src={litany.image}
                   />
-                  <div className="absolute inset-x-3 bottom-3 rounded-xl border border-ivory/70 bg-navy/90 px-4 py-3 text-ivory shadow-hairline">
+                  <div className="absolute inset-x-3 bottom-3 rounded-xl border border-ivory/70 bg-navy/95 px-4 py-3 text-ivory shadow-hairline">
                     <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-gold-soft">Contemplative litany</p>
-                    <h3 className="font-display mt-1 text-2xl font-semibold leading-tight">{litany.title}</h3>
-                  </div>
-                </div>
-                <div className="flex h-[13.5rem] flex-col p-5">
-                  <p className="text-sm font-semibold text-burgundy">{litany.subtitle}</p>
-                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-muted">{litany.shortDescription}</p>
-                  <div className="mt-auto flex items-center justify-between gap-3 pt-5">
-                    <span className="rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-navy" style={{ borderColor: litany.border }}>
-                      {litany.movementsCount} movements
-                    </span>
-                    <Link className="focus-ring inline-flex min-h-11 items-center justify-center rounded-full bg-navy px-4 text-sm font-bold text-ivory transition hover:bg-navy-soft" href={litany.href}>
-                      Begin prayer
-                    </Link>
+                    <h3 className="font-display mt-1 text-xl font-semibold leading-tight">{litany.title}</h3>
                   </div>
                 </div>
               </article>
@@ -181,6 +167,23 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
           ))}
         </div>
         <WoodenPrayerShelf />
+      </div>
+
+      <div className="border-y border-stone bg-ivory/70 px-6 py-6 sm:px-8">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Now on the shelf</p>
+          <h3 className="font-display mt-2 text-3xl font-semibold text-navy sm:text-4xl">{activeLitany.title}</h3>
+          <p className="mt-2 text-sm font-semibold text-burgundy">{activeLitany.subtitle}</p>
+          <p className="daily-readable-muted mt-3 max-w-2xl text-base leading-7 text-muted">{activeLitany.shortDescription}</p>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+            <span className="rounded-full border px-3 py-1 text-xs font-bold uppercase tracking-[0.12em] text-navy" style={{ borderColor: activeLitany.border }}>
+              {activeLitany.movementsCount} movements
+            </span>
+            <Link className="focus-ring inline-flex min-h-11 items-center justify-center rounded-full bg-navy px-5 text-sm font-bold text-ivory transition hover:bg-navy-soft" href={activeLitany.href}>
+              Begin prayer
+            </Link>
+          </div>
+        </div>
       </div>
 
       <div className="border-t border-stone bg-ivory/80 px-5 py-5 sm:px-8">
