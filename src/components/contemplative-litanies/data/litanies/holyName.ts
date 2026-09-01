@@ -1,5 +1,5 @@
 import { LitanyData } from '../../types';
-import { createDevotionalArtUrl, holyNameHeroImg } from '../litanyImages';
+import { holyNameHeroImg } from '../litanyImages';
 
 export const holyNameLitany: LitanyData = {
   id: 'holy-name',
@@ -55,7 +55,7 @@ export const holyNameLitany: LitanyData = {
       eyebrow: 'I · JESUS',
       title: 'Light of the Father',
       reflection: 'Jesus: God Saves. He is the splendor of the Father’s glory and the brightness of eternal light.',
-      image: createDevotionalArtUrl('Jesus Son of God', '#0D2038', 'monogram'),
+      image: holyNameHeroImg,
       imageAlt: 'Radiant Christ the Teacher surrounded by celestial light',
       invocations: [
         { prompt: 'Jesus, Son of the living God,', response: 'have mercy on us.' },
@@ -69,7 +69,7 @@ export const holyNameLitany: LitanyData = {
       eyebrow: 'II · KING OF GLORY',
       title: 'Sun of Justice',
       reflection: 'The King of glory came in human poverty, born of the Virgin Mary to disperse the shadows of sin and death.',
-      image: createDevotionalArtUrl('King of Glory', '#0D2038', 'crown'),
+      image: holyNameHeroImg,
       imageAlt: 'Christ the King enthroned with golden halo and sun of justice',
       invocations: [
         { prompt: 'Jesus, King of glory,', response: 'have mercy on us.' },
@@ -83,7 +83,7 @@ export const holyNameLitany: LitanyData = {
       eyebrow: 'III · JESUS MOST LOVABLE',
       title: 'Mighty God',
       reflection: 'In Christ, infinite power is united with infinite tenderness. He is the Father of the world to come.',
-      image: createDevotionalArtUrl('Most Amiable', '#0D2038', 'heart'),
+      image: holyNameHeroImg,
       imageAlt: 'Devotional illustration of Christ holding out open arms in loving kindness',
       invocations: [
         { prompt: 'Jesus most amiable,', response: 'have mercy on us.' },
@@ -98,7 +98,7 @@ export const holyNameLitany: LitanyData = {
       eyebrow: 'IV · JESUS OUR SAVIOR',
       title: 'Meek and Humble of Heart',
       reflection: 'Learn from Him who is meek and humble of heart, patient in suffering and obedient even unto the Cross.',
-      image: createDevotionalArtUrl('Our Savior', '#0D2038', 'cross'),
+      image: holyNameHeroImg,
       imageAlt: 'Jesus standing meekly, holding the Cross of redemption',
       invocations: [
         { prompt: 'Jesus, Angel of great counsel,', response: 'have mercy on us.' },
@@ -114,7 +114,7 @@ export const holyNameLitany: LitanyData = {
       eyebrow: 'V · JESUS LOVER OF SOULS',
       title: 'Author of Life',
       reflection: 'Christ is the lover of chastity, the lover of our souls, and the fountainhead of all divine virtues.',
-      image: createDevotionalArtUrl('Lover of Souls', '#0D2038', 'dove'),
+      image: holyNameHeroImg,
       imageAlt: 'Christ blessing humanity with gifts of the Holy Spirit and peace',
       invocations: [
         { prompt: 'Jesus, Lover of chastity,', response: 'have mercy on us.' },
@@ -130,7 +130,7 @@ export const holyNameLitany: LitanyData = {
       eyebrow: 'VI · JESUS OUR REFUGE',
       title: 'The Good Shepherd',
       reflection: 'He leaves the ninety-nine to seek the lost lamb. He is the father of the poor and treasure of the faithful.',
-      image: createDevotionalArtUrl('Good Shepherd', '#0D2038', 'chalice'),
+      image: holyNameHeroImg,
       imageAlt: 'Jesus as the Good Shepherd carrying a lost lamb across mountains',
       invocations: [
         { prompt: 'Jesus, Father of the poor,', response: 'have mercy on us.' },
@@ -146,7 +146,7 @@ export const holyNameLitany: LitanyData = {
       eyebrow: 'VII · JESUS OUR GLORY',
       title: 'Crown of All Saints',
       reflection: 'Christ is the way, the truth, and the life—the joy of angels, strength of martyrs, and crown of all the saints.',
-      image: createDevotionalArtUrl('Crown of All Saints', '#0D2038', 'communion'),
+      image: holyNameHeroImg,
       imageAlt: 'Christ in eternal glory surrounded by the heavenly communion of saints',
       invocations: [
         { prompt: 'Jesus, Infinite Goodness,', response: 'have mercy on us.' },
