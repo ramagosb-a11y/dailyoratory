@@ -1,5 +1,5 @@
 import { LitanyData } from '../../types';
-import { createDevotionalArtUrl, humilityHeroImg } from '../litanyImages';
+import { humilityHeroImg } from '../litanyImages';
 
 export const humilityLitany: LitanyData = {
   id: 'humility',
@@ -53,8 +53,8 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'I · FROM THE DESIRE OF ESTEEM',
       title: 'Deliverance from Acclaim',
       reflection: 'Contemplate Jesus hidden in Nazareth for thirty years. Pray to be freed from the constant craving for praise, honor, and human applause.',
-      image: createDevotionalArtUrl('Freedom from Esteem', '#4A5844', 'basin'),
-      imageAlt: 'Quiet humble workshop of Nazareth with workbench and simple pottery',
+      image: '/images/contemplative-litanies/humility-deliverance-from-acclaim.png',
+      imageAlt: 'Christ working quietly at a carpenter’s bench in Nazareth',
       invocations: [
         { prompt: 'From the desire of being esteemed,', response: 'Deliver me, Jesus.' },
         { prompt: 'From the desire of being loved,', response: 'Deliver me, Jesus.' },
@@ -72,8 +72,8 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'II · FROM THE FEAR OF HUMILIATION',
       title: 'Deliverance from Fear',
       reflection: 'Behold Christ silent before Pilate, bruised and ridiculed for our sake. Surrender the dread of being forgotten or misunderstood.',
-      image: createDevotionalArtUrl('Freedom from Fear', '#4A5844', 'cross'),
-      imageAlt: 'Christ bearing the cross in quiet majesty and meekness',
+      image: '/images/contemplative-litanies/humility-freedom-from-fear.png',
+      imageAlt: 'Christ guiding a fearful soul from a storm into light',
       invocations: [
         { prompt: 'From the fear of being humiliated,', response: 'Deliver me, Jesus.' },
         { prompt: 'From the fear of being despised,', response: 'Deliver me, Jesus.' },
@@ -91,8 +91,8 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'III · JESUS, GRANT ME THE GRACE',
       title: 'Turning Toward Charity',
       reflection: 'Humility is not self-hatred, but freedom from self-absorption. We turn from fear of injury toward the joy of selfless charity.',
-      image: createDevotionalArtUrl('Grace of Humility', '#4A5844', 'dove'),
-      imageAlt: 'Dove of peace resting upon an olive branch in morning light',
+      image: '/images/contemplative-litanies/humility-grace-of-humility.png',
+      imageAlt: 'Christ washing a disciple’s feet before the apostles',
       invocations: [
         { prompt: 'That others may be loved more than I,', response: 'Jesus, grant me the grace to desire it.' },
         { prompt: 'That others may be esteemed more than I,', response: 'Jesus, grant me the grace to desire it.' },
@@ -104,8 +104,8 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'IV · THAT OTHERS MAY BE LOVED MORE',
       title: 'Rejoicing in Others',
       reflection: 'Like Saint John the Baptist: ‘He must increase, but I must decrease.’ Rejoice genuinely when others are chosen, praised, and preferred.',
-      image: createDevotionalArtUrl('Love for Others', '#4A5844', 'hands'),
-      imageAlt: 'Hands joined in humble prayer and service of the poor',
+      image: '/images/contemplative-litanies/humility-rejoicing-in-others.png',
+      imageAlt: 'Saint John the Baptist directing his disciples toward Christ across the Jordan',
       invocations: [
         { prompt: 'That, in the opinion of the world, others may increase and I may decrease,', response: 'Jesus, grant me the grace to desire it.' },
         { prompt: 'That others may be chosen and I set aside,', response: 'Jesus, grant me the grace to desire it.' },
@@ -119,8 +119,8 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'V · THAT I MAY BECOME HOLY',
       title: 'Holiness in Truth',
       reflection: 'Pray not for comparison, but for true sanctity: that others may become holier than you, provided that you become as holy as God desires.',
-      image: createDevotionalArtUrl('Sanctity in Truth', '#4A5844', 'lily'),
-      imageAlt: 'Pure white lily blossoming in a hidden garden of peace',
+      image: '/images/contemplative-litanies/humility-holiness-in-truth.png',
+      imageAlt: 'Christ blessing humble souls gathered before Him',
       invocations: [
         { prompt: 'That others may become holier than I, provided that I may become as holy as I should,', response: 'Jesus, grant me the grace to desire it.' },
       ],

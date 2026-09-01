@@ -1,5 +1,5 @@
 import { LitanyData } from '../../types';
-import { createDevotionalArtUrl, loretoHeroImg } from '../litanyImages';
+import { loretoHeroImg } from '../litanyImages';
 
 export const loretoLitany: LitanyData = {
   id: 'loreto',
@@ -55,8 +55,8 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'I · HOLY MARY',
       title: 'Mother of God',
       reflection: 'Contemplate Mary’s divine maternity: through her humble ‘Fiat’, the Word took flesh and dwelt among us.',
-      image: createDevotionalArtUrl('Holy Mary', '#1F4E79', 'marian'),
-      imageAlt: 'The Blessed Virgin Mary in soft celestial light holding the infant Christ',
+      image: '/images/contemplative-litanies/loreto-mother-of-god.png',
+      imageAlt: 'The Archangel Gabriel greeting Mary at the Annunciation beneath the Holy Spirit',
       invocations: [
         { prompt: 'Holy Mary,', response: 'pray for us.' },
         { prompt: 'Holy Mother of God,', response: 'pray for us.' },
@@ -83,8 +83,8 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'II · VIRGIN MOST FAITHFUL',
       title: 'Purity and Steadfastness',
       reflection: 'Reflect on Mary’s steadfast fidelity at the Annunciation, in the trials of Bethlehem and Egypt, and standing faithful beneath the Cross.',
-      image: createDevotionalArtUrl('Virgin Most Faithful', '#1F4E79', 'lily'),
-      imageAlt: 'Our Lady standing faithfully with pure white lilies in prayer',
+      image: '/images/contemplative-litanies/loreto-purity-and-steadfastness.png',
+      imageAlt: 'Mary standing faithfully beneath the Cross',
       invocations: [
         { prompt: 'Virgin most prudent,', response: 'pray for us.' },
         { prompt: 'Virgin most venerable,', response: 'pray for us.' },
@@ -100,8 +100,8 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'III · MIRROR AND SEAT OF WISDOM',
       title: 'Vessel of Honor',
       reflection: 'Mary is the mirror reflecting the light of Christ, and the throne upon which Eternal Wisdom rests.',
-      image: createDevotionalArtUrl('Seat of Wisdom', '#1F4E79', 'crown'),
-      imageAlt: 'Our Lady as Seat of Wisdom surrounded by golden radiant light',
+      image: '/images/contemplative-litanies/loreto-seat-of-wisdom.png',
+      imageAlt: 'Mary seated as the Seat of Wisdom with an open book',
       invocations: [
         { prompt: 'Mirror of justice,', response: 'pray for us.' },
         { prompt: 'Seat of wisdom,', response: 'pray for us.' },
@@ -117,8 +117,8 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'IV · MYSTICAL ROSE',
       title: 'Tower of David',
       reflection: 'The fragrance of Mary’s holiness unfurls like a mystical rose, and her intercession stands strong as a fortress tower in spiritual combat.',
-      image: createDevotionalArtUrl('Mystical Rose', '#1F4E79', 'rose'),
-      imageAlt: 'The Mystical Rose blooming with golden dew and spiritual fragrance',
+      image: '/images/contemplative-litanies/loreto-mystical-rose.png',
+      imageAlt: 'Mary praying among luminous white roses',
       invocations: [
         { prompt: 'Mystical rose,', response: 'pray for us.' },
         { prompt: 'Tower of David,', response: 'pray for us.' },
@@ -132,8 +132,8 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'V · ARK AND GATE',
       title: 'Gateway to Heaven',
       reflection: 'As the Ark carried the living presence of God, Mary bore Christ within her womb and shines as the Morning Star heralding the Dawn of salvation.',
-      image: createDevotionalArtUrl('Ark & Gate of Heaven', '#1F4E79', 'ark'),
-      imageAlt: 'The golden Ark of the Covenant and the celestial morning star in the dawn sky',
+      image: '/images/contemplative-litanies/loreto-gateway-to-heaven.png',
+      imageAlt: 'Mary with the Ark of the Covenant beneath the Morning Star',
       invocations: [
         { prompt: 'Ark of the covenant,', response: 'pray for us.' },
         { prompt: 'Gate of heaven,', response: 'pray for us.' },
@@ -146,8 +146,8 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'VI · HELP OF CHRISTIANS',
       title: 'Refuge and Consolation',
       reflection: 'Bring your sickness, sorrow, and wanderings to Mary. She is the refuge of sinners and comforter of the afflicted.',
-      image: createDevotionalArtUrl('Help of Christians', '#1F4E79', 'hands'),
-      imageAlt: 'Our Lady extending her hands in maternal blessing and protection',
+      image: '/images/contemplative-litanies/loreto-help-of-christians.png',
+      imageAlt: 'Mary sheltering families and pilgrims beneath her mantle',
       invocations: [
         { prompt: 'Health of the sick,', response: 'pray for us.' },
         { prompt: 'Refuge of sinners,', response: 'pray for us.' },
@@ -162,8 +162,8 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'VII · QUEEN',
       title: 'Queen of All Saints',
       reflection: 'Contemplate Mary crowned in heavenly glory, interceding as Queen of peace and Mother of the entire human family.',
-      image: createDevotionalArtUrl('Queen of Heaven', '#1F4E79', 'crown'),
-      imageAlt: 'The Blessed Virgin Mary crowned with twelve stars in celestial majesty',
+      image: '/images/contemplative-litanies/loreto-queen-of-all-saints.png',
+      imageAlt: 'Mary crowned as Queen of All Saints among the heavenly communion',
       invocations: [
         { prompt: 'Queen of Angels,', response: 'pray for us.' },
         { prompt: 'Queen of Patriarchs,', response: 'pray for us.' },

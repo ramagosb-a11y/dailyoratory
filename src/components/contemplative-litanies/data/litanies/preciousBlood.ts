@@ -1,5 +1,5 @@
 import { LitanyData } from '../../types';
-import { createDevotionalArtUrl, preciousBloodHeroImg } from '../litanyImages';
+import { preciousBloodHeroImg } from '../litanyImages';
 
 export const preciousBloodLitany: LitanyData = {
   id: 'precious-blood',
@@ -55,8 +55,8 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'I · BLOOD OF THE INCARNATE WORD',
       title: 'The Eternal Covenant',
       reflection: 'The Blood of the only-begotten Son took flesh in the womb of Mary, uniting heaven and earth in an eternal testament of love.',
-      image: createDevotionalArtUrl('Incarnate Word', '#6B1D28', 'chalice'),
-      imageAlt: 'Golden altar with liturgical chalice and rays of divine light',
+      image: '/images/contemplative-litanies/precious-blood-eternal-covenant.png',
+      imageAlt: 'Mary kneeling before the Lamb and chalice beneath Trinitarian light',
       invocations: [
         { prompt: 'Blood of Christ, only-begotten Son of the Eternal Father,', response: 'save us.' },
         { prompt: 'Blood of Christ, Incarnate Word of God,', response: 'save us.' },
@@ -69,8 +69,8 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'II · GETHSEMANE',
       title: 'Sweat of Blood and Surrender',
       reflection: 'In the darkness of the olive garden, Christ knelt in prayer, offering His whole will to the Father: ‘Not My will, but Thine be done.’',
-      image: createDevotionalArtUrl('Gethsemane', '#6B1D28', 'hands'),
-      imageAlt: 'Jesus kneeling in prayer in the Garden of Gethsemane under moonlight',
+      image: '/images/contemplative-litanies/precious-blood-sweat-of-blood-and-surrender.png',
+      imageAlt: 'Christ surrendering to the Father in the moonlit Garden of Gethsemane',
       invocations: [
         { prompt: 'Blood of Christ, falling upon the earth in the Agony,', response: 'save us.' },
         { prompt: 'Blood of Christ, shed in the surrender of Gethsemane,', response: 'save us.' },
@@ -82,8 +82,8 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'III · THE PASSION',
       title: 'Scourging and Thorns',
       reflection: 'Behold the King of Love crowned with thorns, wounded for our transgressions, and healing our infirmities by His stripes.',
-      image: createDevotionalArtUrl('The Passion', '#6B1D28', 'crown'),
-      imageAlt: 'Sacred crown of thorns with divine light radiating outward',
+      image: '/images/contemplative-litanies/precious-blood-the-passion.png',
+      imageAlt: 'Christ in solemn prayer beneath a darkened Passion sky',
       invocations: [
         { prompt: 'Blood of Christ, flowing profusely in the Scourging,', response: 'save us.' },
         { prompt: 'Blood of Christ, flowing forth in the Crowning with Thorns,', response: 'save us.' },
@@ -96,8 +96,8 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'IV · CALVARY',
       title: 'The Pierced Side',
       reflection: 'From the pierced side of the Crucified Savior flowed blood and water—the fountainhead of the Sacraments and the birth of the Church.',
-      image: createDevotionalArtUrl('Calvary', '#6B1D28', 'cross'),
-      imageAlt: 'The holy Cross of Calvary standing against a twilight sky',
+      image: '/images/contemplative-litanies/precious-blood-pierced-side.png',
+      imageAlt: 'Blood and water flowing symbolically from the pierced side of Christ',
       invocations: [
         { prompt: 'Blood of Christ, price of our salvation,', response: 'save us.' },
         { prompt: 'Blood of Christ, without which there is no forgiveness,', response: 'save us.' },
@@ -110,8 +110,8 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'V · BLOOD OF THE NEW COVENANT',
       title: 'Stream of Divine Mercy',
       reflection: 'In the Holy Eucharist, the Precious Blood is truly present, strengthening the faithful, empowering martyrs, and defeating the darkness.',
-      image: createDevotionalArtUrl('New Covenant', '#6B1D28', 'chalice'),
-      imageAlt: 'The Holy Eucharist and chalice surrounded by golden rays of mercy',
+      image: '/images/contemplative-litanies/precious-blood-new-covenant.png',
+      imageAlt: 'A Eucharistic chalice and bread illuminated upon a quiet altar',
       invocations: [
         { prompt: 'Blood of Christ, stream of mercy,', response: 'save us.' },
         { prompt: 'Blood of Christ, victor over demons,', response: 'save us.' },
@@ -124,8 +124,8 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'VI · MERCY AND PURIFICATION',
       title: 'Refuge of the Burdened',
       reflection: 'Bring your weariness and burdens to Christ. His Precious Blood cleanses every conscience and sustains all who are in peril.',
-      image: createDevotionalArtUrl('Mercy & Purification', '#6B1D28', 'dove'),
-      imageAlt: 'Dove of the Holy Spirit radiating grace and pure cleansing waters',
+      image: '/images/contemplative-litanies/precious-blood-refuge-of-the-burdened.png',
+      imageAlt: 'Christ receiving weary families beneath His mantle of mercy',
       invocations: [
         { prompt: 'Blood of Christ, comfort of confessors,', response: 'save us.' },
         { prompt: 'Blood of Christ, source of virgins,', response: 'save us.' },
@@ -139,8 +139,8 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'VII · VICTORY AND SALVATION',
       title: 'Pledge of Eternal Life',
       reflection: 'Rejoice in the final victory of the Lamb: He who died is alive forevermore, offering hope in death and eternal peace in heaven.',
-      image: createDevotionalArtUrl('Victory & Salvation', '#6B1D28', 'star'),
-      imageAlt: 'The triumphant Lamb of God with the banner of victory and eternal light',
+      image: '/images/contemplative-litanies/precious-blood-pledge-of-eternal-life.png',
+      imageAlt: 'The risen Christ and Lamb offering resurrection hope at dawn',
       invocations: [
         { prompt: 'Blood of Christ, solace in sorrow,', response: 'save us.' },
         { prompt: 'Blood of Christ, hope of the penitent,', response: 'save us.' },

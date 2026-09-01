@@ -1,5 +1,5 @@
 import { LitanyData } from '../../types';
-import { createDevotionalArtUrl, saintsHeroImg } from '../litanyImages';
+import { saintsHeroImg } from '../litanyImages';
 
 export const saintsLitany: LitanyData = {
   id: 'saints',
@@ -55,8 +55,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'I · LORD HAVE MERCY',
       title: 'The Cry for Mercy',
       reflection: 'We begin by placing ourselves before the throne of the Divine Mercy, acknowledging our need for Christ’s redeeming grace.',
-      image: createDevotionalArtUrl('Lord Have Mercy', '#1B365D', 'cross'),
-      imageAlt: 'Golden cross radiant with the dawn of divine mercy',
+      image: '/images/contemplative-litanies/saints-cry-for-mercy.png',
+      imageAlt: 'Humanity kneeling before Christ enthroned in divine mercy',
       invocations: [
         { prompt: 'Christ, hear us.', response: 'Christ, graciously hear us.' },
         { prompt: 'God the Father of heaven,', response: 'have mercy on us.' },
@@ -71,8 +71,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'II · MARY AND THE ANGELS',
       title: 'Queen of the Heavenly Host',
       reflection: 'Contemplate the Mother of God and the holy angels who minister in the presence of the Almighty.',
-      image: createDevotionalArtUrl('Mary & Angels', '#1B365D', 'marian'),
-      imageAlt: 'Our Lady surrounded by Archangels Michael, Gabriel, and Raphael',
+      image: '/images/contemplative-litanies/saints-queen-of-the-heavenly-host.png',
+      imageAlt: 'Mary among angels in adoration beneath the glorified Christ',
       invocations: [
         { prompt: 'Holy Mary,', response: 'pray for us.' },
         { prompt: 'Holy Mother of God,', response: 'pray for us.' },
@@ -89,8 +89,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'III · PATRIARCHS AND PROPHETS',
       title: 'Fathers of Faith',
       reflection: 'Remember Abraham, Moses, Elijah, John the Baptist, and Joseph—those who looked forward in hope to the coming of the Messiah.',
-      image: createDevotionalArtUrl('Patriarchs & Prophets', '#1B365D', 'lily'),
-      imageAlt: 'Saint John the Baptist and Saint Joseph holding the banner of Christ',
+      image: '/images/contemplative-litanies/saints-fathers-of-faith.png',
+      imageAlt: 'Patriarchs and prophets looking toward the promised light of Christ',
       invocations: [
         { prompt: 'Saint John the Baptist,', response: 'pray for us.' },
         { prompt: 'Saint Joseph,', response: 'pray for us.' },
@@ -103,8 +103,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'IV · APOSTLES AND EVANGELISTS',
       title: 'Foundations of the Church',
       reflection: 'The Twelve Apostles carried the Gospel to the ends of the earth, sealing their testimony with faith and love.',
-      image: createDevotionalArtUrl('Apostles & Evangelists', '#1B365D', 'crown'),
-      imageAlt: 'Saints Peter and Paul standing before the pillars of the Church',
+      image: '/images/contemplative-litanies/saints-foundations-of-the-church.png',
+      imageAlt: 'The apostles carrying the Gospel outward from Jerusalem beneath the Holy Spirit',
       invocations: [
         { prompt: 'Saint Peter and Saint Paul,', response: 'pray for us.' },
         { prompt: 'Saint Andrew,', response: 'pray for us.' },
@@ -120,8 +120,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'V · MARTYRS',
       title: 'Witnesses unto Blood',
       reflection: 'The martyrs conquered by the blood of the Lamb and the word of their testimony, holding fast to Christ even unto death.',
-      image: createDevotionalArtUrl('Holy Martyrs', '#1B365D', 'cross'),
-      imageAlt: 'Saint Stephen and Saint Lawrence with the martyr palm branches of victory',
+      image: '/images/contemplative-litanies/saints-holy-martyrs.png',
+      imageAlt: 'Early Christian martyrs gathered serenely around the Cross',
       invocations: [
         { prompt: 'Saint Stephen,', response: 'pray for us.' },
         { prompt: 'Saint Lawrence and Saint Vincent,', response: 'pray for us.' },
@@ -137,8 +137,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'VI · BISHOPS AND DOCTORS',
       title: 'Teachers of Truth',
       reflection: 'The pastors and doctors of the Church guarded the sacred deposit of faith with wisdom, eloquence, and holiness of life.',
-      image: createDevotionalArtUrl('Bishops & Doctors', '#1B365D', 'dove'),
-      imageAlt: 'Saint Augustine and Saint Gregory the Great writing inspired sacred doctrine',
+      image: '/images/contemplative-litanies/saints-bishops-and-doctors.png',
+      imageAlt: 'Bishops and doctors of the Church gathered around an open Gospel',
       invocations: [
         { prompt: 'Saint Leo and Saint Gregory,', response: 'pray for us.' },
         { prompt: 'Saint Ambrose and Saint Augustine,', response: 'pray for us.' },
@@ -154,8 +154,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'VII · PRIESTS AND RELIGIOUS',
       title: 'Monks and Missionaries',
       reflection: 'Leaving all things for the Kingdom, founders of religious orders and missionaries consecrated their lives to prayer and charity.',
-      image: createDevotionalArtUrl('Priests & Religious', '#1B365D', 'basin'),
-      imageAlt: 'Saint Benedict and Saint Francis of Assisi in contemplation and holy peace',
+      image: '/images/contemplative-litanies/saints-monks-and-missionaries.png',
+      imageAlt: 'Monks and missionaries united in prayer, teaching, and works of mercy',
       invocations: [
         { prompt: 'Saint Anthony and Saint Benedict,', response: 'pray for us.' },
         { prompt: 'Saint Bernard, Saint Francis, and Saint Dominic,', response: 'pray for us.' },
@@ -170,8 +170,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'VIII · HOLY WOMEN AND MEN',
       title: 'Witnesses of Love',
       reflection: 'Holy women and men of every age, station, and vocation lived the Gospel in purity, contemplation, and generous service.',
-      image: createDevotionalArtUrl('Holy Women & Men', '#1B365D', 'rose'),
-      imageAlt: 'Saint Mary Magdalene and Saint Thérèse of Lisieux with roses of divine love',
+      image: '/images/contemplative-litanies/saints-witnesses-of-love.png',
+      imageAlt: 'Saints of varied vocations gathered around Christ in contemplation and charity',
       invocations: [
         { prompt: 'Saint Mary Magdalene and Saint Martha,', response: 'pray for us.' },
         { prompt: 'Saint Monica and Saint Scholastica,', response: 'pray for us.' },
@@ -186,8 +186,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'IX · FROM ALL EVIL',
       title: 'Deliver Us, O Lord',
       reflection: 'United with the prayers of the saints, we ask the Lord to deliver us from sin, danger, division, and spiritual apathy.',
-      image: createDevotionalArtUrl('Deliver Us', '#1B365D', 'hands'),
-      imageAlt: 'Hands raised in prayer towards the radiant cross of deliverance',
+      image: '/images/contemplative-litanies/saints-deliver-us-o-lord.png',
+      imageAlt: 'The saints interceding as Christ leads humanity from darkness into light',
       invocations: [
         { prompt: 'From all evil,', response: 'deliver us, O Lord.' },
         { prompt: 'From all sin,', response: 'deliver us, O Lord.' },
@@ -204,8 +204,8 @@ export const saintsLitany: LitanyData = {
       eyebrow: 'X · CHRIST HEAR US',
       title: 'Petitions for the Church',
       reflection: 'We bring our universal intercessions for the Holy Father, the Church, and all peoples into the heart of Christ.',
-      image: createDevotionalArtUrl('Christ Hear Us', '#1B365D', 'communion'),
-      imageAlt: 'The Church gathered in prayer under the guidance of the Holy Spirit',
+      image: '/images/contemplative-litanies/saints-petitions-for-the-church.png',
+      imageAlt: 'The universal Church gathered around Christ in hopeful prayer',
       invocations: [
         { prompt: 'That Thou wouldst govern and preserve Thy holy Church,', response: 'we beseech Thee, hear us.' },
         { prompt: 'That Thou wouldst keep the Holy Father and all clergy in true religion,', response: 'we beseech Thee, hear us.' },

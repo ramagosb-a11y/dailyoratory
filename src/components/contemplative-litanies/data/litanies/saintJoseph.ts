@@ -1,5 +1,5 @@
 import { LitanyData } from '../../types';
-import { saintJosephImg, saintJosephProtectorImg, createDevotionalArtUrl } from '../litanyImages';
+import { saintJosephImg } from '../litanyImages';
 
 export const saintJosephLitany: LitanyData = {
   id: 'saint-joseph',
@@ -55,8 +55,8 @@ export const saintJosephLitany: LitanyData = {
       eyebrow: 'I · JOSEPH, SON OF DAVID',
       title: 'Heir of Promise',
       reflection: 'Contemplate Joseph’s place in salvation history: root of Jesse, faithful spouse of the Mother of God, and guardian of the eternal Promise.',
-      image: saintJosephImg,
-      imageAlt: 'Saint Joseph standing in quiet dignity with flowering staff and lily',
+      image: '/images/contemplative-litanies/saint-joseph-heir-of-promise.png',
+      imageAlt: 'Saint Joseph standing within the lineage of the patriarchs beneath the star of Bethlehem',
       invocations: [
         { prompt: 'Holy Mary,', response: 'pray for us.' },
         { prompt: 'Saint Joseph,', response: 'pray for us.' },
@@ -73,8 +73,8 @@ export const saintJosephLitany: LitanyData = {
       eyebrow: 'II · FATHER AND GUARDIAN',
       title: 'Tender and Devoted Father',
       reflection: 'Contemplate the fatherly heart of Joseph: feeding the Bread of Life, teaching the Word to speak, and protecting the infant Savior.',
-      image: createDevotionalArtUrl('Father & Guardian', '#3A533E', 'lily'),
-      imageAlt: 'Saint Joseph holding the infant Jesus with tender paternal devotion',
+      image: '/images/contemplative-litanies/saint-joseph-tender-and-devoted-father.png',
+      imageAlt: 'Saint Joseph and Mary tenderly caring for the infant Jesus',
       invocations: [
         { prompt: 'Foster Father of the Son of God,', response: 'pray for us.' },
         { prompt: 'Zealous Defender of Christ,', response: 'pray for us.' },
@@ -89,8 +89,8 @@ export const saintJosephLitany: LitanyData = {
       eyebrow: 'III · JUST AND FAITHFUL',
       title: 'Strength in Silence',
       reflection: 'Joseph spoke no recorded words in Scripture, yet his prompt obedience and steadfast faith answered every angel in the night.',
-      image: createDevotionalArtUrl('Just & Faithful', '#3A533E', 'dove'),
-      imageAlt: 'Saint Joseph listening attentively to the divine guidance of the angel in a dream',
+      image: '/images/contemplative-litanies/saint-joseph-strength-in-silence.png',
+      imageAlt: 'Saint Joseph rising in obedience after receiving guidance from an angel in a dream',
       invocations: [
         { prompt: 'Joseph most prudent,', response: 'pray for us.' },
         { prompt: 'Joseph most courageous,', response: 'pray for us.' },
@@ -105,8 +105,8 @@ export const saintJosephLitany: LitanyData = {
       eyebrow: 'IV · WORKER OF NAZARETH',
       title: 'Dignity of Hidden Labor',
       reflection: 'In the carpenter shop of Nazareth, Joseph sanctified manual labor and daily hidden service in love.',
-      image: createDevotionalArtUrl('Worker of Nazareth', '#3A533E', 'basin'),
-      imageAlt: 'Saint Joseph working in the Nazareth carpentry workshop beside young Jesus',
+      image: '/images/contemplative-litanies/saint-joseph-worker-of-nazareth.png',
+      imageAlt: 'Saint Joseph sanctifying labor at his carpentry bench in Nazareth',
       invocations: [
         { prompt: 'Lover of poverty,', response: 'pray for us.' },
         { prompt: 'Model of workers,', response: 'pray for us.' },
@@ -121,8 +121,8 @@ export const saintJosephLitany: LitanyData = {
       eyebrow: 'V · PROTECTOR OF CHRIST',
       title: 'Defender in Danger',
       reflection: 'Awakened in the night, Joseph arose to take the Child and His Mother into Egypt. He remains the protector of the universal Church.',
-      image: saintJosephProtectorImg,
-      imageAlt: 'Saint Joseph leading the Holy Family safely through the desert into Egypt',
+      image: '/images/contemplative-litanies/saint-joseph-defender-in-danger.png',
+      imageAlt: 'Saint Joseph leading Mary and Jesus through the moonlit flight into Egypt',
       invocations: [
         { prompt: 'Solace of the wretched,', response: 'pray for us.' },
         { prompt: 'Hope of the sick,', response: 'pray for us.' },
@@ -142,8 +142,8 @@ export const saintJosephLitany: LitanyData = {
       eyebrow: 'VI · PATRON OF THE DYING',
       title: 'Holy Departure',
       reflection: 'Passing into eternity in the arms of Jesus and Mary, Joseph intercedes for our final perseverance and peaceful rest in God.',
-      image: createDevotionalArtUrl('Patron of the Dying', '#3A533E', 'star'),
-      imageAlt: 'Saint Joseph peacefully expiring surrounded by Jesus and Mary',
+      image: '/images/contemplative-litanies/saint-joseph-patron-of-the-dying.png',
+      imageAlt: 'Saint Joseph dying peacefully with Jesus and Mary beside him',
       invocations: [
         { prompt: 'Patron of the dying,', response: 'pray for us.' },
         { prompt: 'Comfort of our final hour,', response: 'pray for us.' },

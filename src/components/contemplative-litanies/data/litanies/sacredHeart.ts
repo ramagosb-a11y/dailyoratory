@@ -1,15 +1,5 @@
 import { LitanyData } from '../../types';
-import {
-  sacredHeartHeroImg,
-  incarnateWordImg,
-  holyTempleImg,
-  furnaceCharityImg,
-  kingCenterImg,
-  mercyLifeImg,
-  piercedHeartImg,
-  consolationPeaceImg,
-  hopeSaintsImg,
-} from '../litanyImages';
+import { sacredHeartHeroImg } from '../litanyImages';
 
 export const sacredHeartLitany: LitanyData = {
   id: 'sacred-heart',
@@ -65,8 +55,8 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'I · THE INCARNATE WORD',
       title: 'The Heart of the Son',
       reflection: 'Behold the Heart of Christ: eternally from the Father, truly human through Mary, and filled with the Holy Spirit.',
-      image: incarnateWordImg,
-      imageAlt: 'Sacred devotional painting of Jesus with the radiant Sacred Heart, surrounded by the Holy Trinity and the Blessed Virgin Mary',
+      image: '/images/contemplative-litanies/sacred-heart-heart-of-the-son.png',
+      imageAlt: 'Christ revealing His Sacred Heart beneath the Father and the Holy Spirit',
       invocations: [
         {
           prompt: 'Heart of Jesus, Son of the Eternal Father,',
@@ -92,8 +82,8 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'II · THE HOLY TEMPLE',
       title: 'Enter His Heart',
       reflection: 'Approach the Heart of Jesus as sanctuary, tabernacle, and doorway into the life of God.',
-      image: holyTempleImg,
-      imageAlt: 'Devotional image of Jesus with the Sacred Heart inside a luminous sacred temple sanctuary with altar and arches',
+      image: '/images/contemplative-litanies/sacred-heart-enter-his-heart.png',
+      imageAlt: 'The Sacred Heart of Christ opening into a luminous chapel sanctuary',
       invocations: [
         {
           prompt: 'Heart of Jesus, holy temple of God,',
@@ -115,8 +105,8 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'III · THE FURNACE OF CHARITY',
       title: 'Rest in His Love',
       reflection: 'Let the fire of His Heart illuminate what is cold, divided, or wounded within you.',
-      image: furnaceCharityImg,
-      imageAlt: 'Christ with a radiant Sacred Heart surrounded by warm holy fire and golden-red light of divine charity',
+      image: '/images/contemplative-litanies/sacred-heart-furnace-of-charity.png',
+      imageAlt: 'Christ revealing His radiant Sacred Heart beside the open Scriptures',
       invocations: [
         {
           prompt: 'Heart of Jesus, glowing furnace of charity,',
@@ -146,8 +136,8 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'IV · KING AND CENTER',
       title: 'Turn Your Heart Toward His',
       reflection: 'All wisdom, truth, and divine fullness meet in Christ. Let Him become the center rather than one concern among many.',
-      image: kingCenterImg,
-      imageAlt: 'Christ enthroned peacefully in glory with the radiant Sacred Heart, wisdom, and light',
+      image: '/images/contemplative-litanies/sacred-heart-turn-your-heart-toward-his.png',
+      imageAlt: 'Christ inviting a searching soul to turn from distraction toward His Heart',
       invocations: [
         {
           prompt: 'Heart of Jesus, king and center of all hearts,',
@@ -177,8 +167,8 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'V · MERCY AND LIFE',
       title: 'Come to the Fountain',
       reflection: 'Bring Him your need without hiding it. His patience is greater than your weakness.',
-      image: mercyLifeImg,
-      imageAlt: 'Jesus standing in a mountain landscape with living water of mercy and life flowing from His Sacred Heart',
+      image: '/images/contemplative-litanies/sacred-heart-mercy-and-life.png',
+      imageAlt: 'Christ with His Sacred Heart beside a clear fountain and white lilies',
       invocations: [
         {
           prompt: 'Heart of Jesus, desire of the everlasting hills,',
@@ -204,8 +194,8 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'VI · THE PIERCED HEART',
       title: 'Remain With Him at the Cross',
       reflection: 'Do not rush past His suffering. Receive the love revealed in His obedience, sacrifice, and pierced Heart.',
-      image: piercedHeartImg,
-      imageAlt: 'Sorrowful and gentle devotional depiction of Jesus with the pierced Sacred Heart crowned with thorns and the cross',
+      image: '/images/contemplative-litanies/sacred-heart-remain-with-him-at-the-cross.png',
+      imageAlt: 'Mary and the beloved disciple remaining beside Christ on the Cross',
       invocations: [
         {
           prompt: 'Heart of Jesus, propitiation for our sins,',
@@ -235,8 +225,8 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'VII · CONSOLATION AND PEACE',
       title: 'Receive His Peace',
       reflection: 'The wounded Heart is also the risen Heart. Let Christ meet your grief with consolation and your division with reconciliation.',
-      image: consolationPeaceImg,
-      imageAlt: 'The Risen Jesus with radiant Sacred Heart bringing holy peace and consolation at the dawn of resurrection',
+      image: '/images/contemplative-litanies/sacred-heart-receive-his-peace.png',
+      imageAlt: 'The risen Christ offering peace and reconciliation to gathered families',
       invocations: [
         {
           prompt: 'Heart of Jesus, source of all consolation,',
@@ -262,8 +252,8 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'VIII · HOPE OF THE SAINTS',
       title: 'Place Your Trust in Him',
       reflection: 'The final movement of the litany is toward trust: in life, at death, and in the communion of the saints.',
-      image: hopeSaintsImg,
-      imageAlt: 'Jesus in celestial glory with the Sacred Heart, surrounded by the communion of saints in golden light',
+      image: '/images/contemplative-litanies/sacred-heart-place-your-trust-in-him.png',
+      imageAlt: 'Christ receiving a kneeling soul in trust among the communion of saints',
       invocations: [
         {
           prompt: 'Heart of Jesus, salvation of those who trust in Thee,',
