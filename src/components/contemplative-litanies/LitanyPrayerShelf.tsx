@@ -39,20 +39,14 @@ function WoodenPrayerShelf() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none relative z-10 h-24 w-full overflow-hidden border-y-2 border-[#3a1808] bg-[#4b220c] shadow-[inset_0_2px_0_rgba(255,213,137,0.34),inset_0_-4px_0_rgba(28,10,3,0.5)] sm:h-28"
-      style={{
-        backgroundImage:
-          "repeating-linear-gradient(1deg, transparent 0 11px, rgba(18,6,2,0.2) 12px 14px, transparent 15px 22px), repeating-linear-gradient(90deg, rgba(255,205,119,0.08) 0 2px, transparent 3px 25px), linear-gradient(180deg, #875022 0%, #5f2d10 34%, #3a1808 100%)",
-      }}
+      className="pointer-events-none relative z-10 h-36 w-full overflow-hidden bg-parchment sm:h-40"
     >
-      <div className="absolute inset-x-0 top-2 h-3 border-y border-[#d7a653]/60 bg-[#9b5d28] shadow-[inset_0_2px_0_rgba(255,232,172,0.52),0_3px_4px_rgba(27,8,2,0.42)] sm:hidden" />
-      <div className="absolute inset-x-0 bottom-2 h-5 border-y border-[#2d1004] bg-[#5d2a0c] shadow-[inset_0_2px_0_rgba(233,173,83,0.28),inset_0_-3px_0_rgba(26,8,2,0.55)] sm:hidden" />
       <Image
         alt=""
-        className="hidden object-cover object-[center_65%] sm:block"
+        className="object-cover"
         fill
         sizes="100vw"
-        src="/images/litanies/carved-walnut-prayer-shelf.png"
+        src="/images/litanies/carved-walnut-prayer-shelf-trimmed.png"
       />
     </div>
   );
