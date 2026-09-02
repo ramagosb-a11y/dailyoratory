@@ -181,8 +181,7 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
                       src={litany.image}
                     />
                     <div className="absolute inset-x-3 bottom-3 rounded-xl border border-ivory/70 bg-navy/95 px-4 py-3 text-ivory shadow-hairline">
-                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-gold-soft">Contemplative litany</p>
-                      <h3 className="font-display mt-1 text-xl font-semibold leading-tight">{litany.title}</h3>
+                      <h3 className="font-display text-2xl font-semibold leading-tight sm:text-[1.7rem]">{litany.title}</h3>
                     </div>
                   </div>
                 </article>
