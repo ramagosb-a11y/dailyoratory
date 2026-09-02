@@ -168,23 +168,29 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
                   cardRefs.current[index] = element;
                 }}
               >
-                <article
-                  className={`overflow-hidden rounded-[1.25rem] border-[5px] bg-[#3b1c0b] p-1.5 shadow-[0_12px_22px_rgba(30,16,7,0.32)] ring-1 ring-[#d5a95c] transition-transform duration-300 hover:-translate-y-1 ${index === activeIndex ? "ring-2 ring-gold" : ""}`}
-                  style={{ borderColor: "#6d401b" }}
+                <Link
+                  aria-label={`Begin ${litany.title}`}
+                  className="focus-ring block rounded-[1.25rem]"
+                  href={litany.href}
                 >
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-[0.82rem] border border-[#d8ae63]/70 bg-parchment shadow-[inset_0_0_0_2px_rgba(44,20,6,0.55)]">
-                    <Image
-                      alt={litany.imageAlt}
-                      className="object-cover"
-                      fill
-                      sizes="(max-width: 640px) 72vw, (max-width: 1024px) 15.5rem, 17rem"
-                      src={litany.image}
-                    />
-                    <div className="absolute inset-x-3 bottom-3 rounded-xl border border-ivory/70 bg-navy/95 px-4 py-3 text-ivory shadow-hairline">
-                      <h3 className="font-display text-2xl font-semibold leading-tight sm:text-[1.7rem]">{litany.title}</h3>
+                  <article
+                    className={`overflow-hidden rounded-[1.25rem] border-[5px] bg-[#3b1c0b] p-1.5 shadow-[0_12px_22px_rgba(30,16,7,0.32)] ring-1 ring-[#d5a95c] transition-transform duration-300 hover:-translate-y-1 ${index === activeIndex ? "ring-2 ring-gold" : ""}`}
+                    style={{ borderColor: "#6d401b" }}
+                  >
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-[0.82rem] border border-[#d8ae63]/70 bg-parchment shadow-[inset_0_0_0_2px_rgba(44,20,6,0.55)]">
+                      <Image
+                        alt={litany.imageAlt}
+                        className="object-cover"
+                        fill
+                        sizes="(max-width: 640px) 72vw, (max-width: 1024px) 15.5rem, 17rem"
+                        src={litany.image}
+                      />
+                      <div className="absolute inset-x-3 bottom-3 rounded-xl border border-ivory/70 bg-navy/95 px-4 py-3 text-ivory shadow-hairline">
+                        <h3 className="font-display text-2xl font-semibold leading-tight sm:text-[1.7rem]">{litany.title}</h3>
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               </div>
             ))}
             <div aria-hidden="true" className="w-[14vw] shrink-0 sm:hidden" />
