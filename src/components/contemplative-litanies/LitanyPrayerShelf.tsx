@@ -149,6 +149,7 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
       >
         <div className="w-max min-w-full">
           <div className="flex snap-x snap-mandatory gap-4 px-5 pb-0 pt-7 sm:gap-6 sm:px-8 sm:pt-9">
+            <div aria-hidden="true" className="w-[14vw] shrink-0 sm:hidden" />
             {litanies.map((litany, index) => (
               <div
                 aria-current={index === activeIndex ? "true" : undefined}
@@ -178,6 +179,7 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
                 </article>
               </div>
             ))}
+            <div aria-hidden="true" className="w-[14vw] shrink-0 sm:hidden" />
           </div>
           <WoodenPrayerShelf />
         </div>
