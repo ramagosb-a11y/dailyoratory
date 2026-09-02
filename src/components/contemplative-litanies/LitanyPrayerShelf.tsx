@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { KeyboardEvent, useRef, useState } from "react";
+import { KeyboardEvent, useEffect, useRef, useState } from "react";
 
 export type LitanyShelfItem = {
   id: string;
@@ -52,11 +52,10 @@ function WoodenPrayerShelf() {
 export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
   const railRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const hasCenteredInitially = useRef(false);
+  const [activeIndex, setActiveIndex] = useState(() => Math.floor(litanies.length / 2));
 
-  if (!litanies.length) return null;
-
-  const scrollToLitany = (index: number) => {
+  const scrollToLitany = (index: number, behavior?: ScrollBehavior) => {
     const rail = railRef.current;
     const card = cardRefs.current[index];
     if (!rail || !card) return;
@@ -64,7 +63,7 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     rail.scrollTo({
       left: card.offsetLeft - Math.max(0, (rail.clientWidth - card.clientWidth) / 2),
-      behavior: reduceMotion ? "auto" : "smooth",
+      behavior: behavior ?? (reduceMotion ? "auto" : "smooth"),
     });
     setActiveIndex(index);
   };
@@ -90,6 +89,17 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
     setActiveIndex(nearestIndex);
   };
 
+  useEffect(() => {
+    if (!litanies.length || hasCenteredInitially.current) return;
+
+    const animationFrame = window.requestAnimationFrame(() => {
+      scrollToLitany(Math.floor(litanies.length / 2), "auto");
+      hasCenteredInitially.current = true;
+    });
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [litanies.length]);
+
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "ArrowRight" && activeIndex < litanies.length - 1) {
       event.preventDefault();
@@ -100,6 +110,8 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
       scrollToLitany(activeIndex - 1);
     }
   };
+
+  if (!litanies.length) return null;
 
   const activeLitany = litanies[activeIndex];
 
@@ -147,10 +159,10 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
                 }}
               >
                 <article
-                  className="overflow-hidden rounded-[1.25rem] border-2 bg-ivory shadow-[0_12px_22px_rgba(30,16,7,0.28)] transition-transform duration-300 hover:-translate-y-1"
-                  style={{ borderColor: index === activeIndex ? litany.accent : litany.border }}
+                  className={`overflow-hidden rounded-[1.25rem] border-[5px] bg-[#3b1c0b] p-1.5 shadow-[0_12px_22px_rgba(30,16,7,0.32)] ring-1 ring-[#d5a95c] transition-transform duration-300 hover:-translate-y-1 ${index === activeIndex ? "ring-2 ring-gold" : ""}`}
+                  style={{ borderColor: "#6d401b" }}
                 >
-                  <div className="relative aspect-[3/4] overflow-hidden bg-parchment">
+                  <div className="relative aspect-[3/4] overflow-hidden rounded-[0.82rem] border border-[#d8ae63]/70 bg-parchment shadow-[inset_0_0_0_2px_rgba(44,20,6,0.55)]">
                     <Image
                       alt={litany.imageAlt}
                       className="object-cover"
