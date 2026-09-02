@@ -37,7 +37,7 @@ function ArrowIcon({ direction }: { direction: "left" | "right" }) {
 
 function WoodenPrayerShelf() {
   return (
-    <div aria-hidden="true" className="pointer-events-none relative z-10 -mt-10 h-24 w-full sm:-mt-12 sm:h-28">
+    <div aria-hidden="true" className="pointer-events-none relative z-10 h-24 w-full sm:h-28">
       <Image
         alt=""
         className="object-cover object-[center_65%]"
@@ -128,45 +128,47 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
 
       <div
         aria-label="Contemplative litany prayer cards"
-        className="overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:thin]"
+        className="overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         onKeyDown={handleKeyDown}
         onScroll={updateActiveLitany}
         ref={railRef}
         role="region"
         tabIndex={0}
       >
-        <div className="flex w-max min-w-full snap-x snap-mandatory gap-4 px-5 pb-0 pt-7 sm:gap-6 sm:px-8 sm:pt-9">
-          {litanies.map((litany, index) => (
-            <div
-              aria-current={index === activeIndex ? "true" : undefined}
-              className="w-[72vw] max-w-[17rem] shrink-0 snap-center sm:w-[15.5rem] lg:w-[17rem]"
-              key={litany.id}
-              ref={(element) => {
-                cardRefs.current[index] = element;
-              }}
-            >
-              <article
-                className="overflow-hidden rounded-[1.25rem] border-2 bg-ivory shadow-[0_12px_22px_rgba(30,16,7,0.28)] transition-transform duration-300 hover:-translate-y-1"
-                style={{ borderColor: index === activeIndex ? litany.accent : litany.border }}
+        <div className="w-max min-w-full">
+          <div className="flex snap-x snap-mandatory gap-4 px-5 pb-0 pt-7 sm:gap-6 sm:px-8 sm:pt-9">
+            {litanies.map((litany, index) => (
+              <div
+                aria-current={index === activeIndex ? "true" : undefined}
+                className="w-[72vw] max-w-[17rem] shrink-0 snap-center sm:w-[15.5rem] lg:w-[17rem]"
+                key={litany.id}
+                ref={(element) => {
+                  cardRefs.current[index] = element;
+                }}
               >
-                <div className="relative aspect-[3/4] overflow-hidden bg-parchment">
-                  <Image
-                    alt={litany.imageAlt}
-                    className="object-cover"
-                    fill
-                    sizes="(max-width: 640px) 81vw, (max-width: 1024px) 22rem, 23rem"
-                    src={litany.image}
-                  />
-                  <div className="absolute inset-x-3 bottom-3 rounded-xl border border-ivory/70 bg-navy/95 px-4 py-3 text-ivory shadow-hairline">
-                    <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-gold-soft">Contemplative litany</p>
-                    <h3 className="font-display mt-1 text-xl font-semibold leading-tight">{litany.title}</h3>
+                <article
+                  className="overflow-hidden rounded-[1.25rem] border-2 bg-ivory shadow-[0_12px_22px_rgba(30,16,7,0.28)] transition-transform duration-300 hover:-translate-y-1"
+                  style={{ borderColor: index === activeIndex ? litany.accent : litany.border }}
+                >
+                  <div className="relative aspect-[3/4] overflow-hidden bg-parchment">
+                    <Image
+                      alt={litany.imageAlt}
+                      className="object-cover"
+                      fill
+                      sizes="(max-width: 640px) 72vw, (max-width: 1024px) 15.5rem, 17rem"
+                      src={litany.image}
+                    />
+                    <div className="absolute inset-x-3 bottom-3 rounded-xl border border-ivory/70 bg-navy/95 px-4 py-3 text-ivory shadow-hairline">
+                      <p className="text-[0.68rem] font-bold uppercase tracking-[0.16em] text-gold-soft">Contemplative litany</p>
+                      <h3 className="font-display mt-1 text-xl font-semibold leading-tight">{litany.title}</h3>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </div>
-          ))}
+                </article>
+              </div>
+            ))}
+          </div>
+          <WoodenPrayerShelf />
         </div>
-        <WoodenPrayerShelf />
       </div>
 
       <div className="border-y border-stone bg-ivory/70 px-6 py-6 sm:px-8">
