@@ -14,17 +14,20 @@ export interface ContemplativeSection {
   reflection: string; // contemplation text
   image: string;
   imageAlt: string;
+  backgroundPosition?: string;
   invocations: InvocationItem[];
 }
 
 export interface OpeningSection {
   title: string;
+  secondaryHeading?: string;
   kyrie: InvocationItem[];
   trinity: InvocationItem[];
 }
 
 export interface ClosingSection {
   title: string;
+  invocationHeading?: string;
   agnusDei: InvocationItem[];
   versicle: {
     prompt: string;
@@ -90,4 +93,3 @@ export interface LitanyCardInfo {
   iconType: 'heart' | 'cross' | 'monogram' | 'chalice' | 'lily' | 'marian' | 'crown' | 'hands' | 'basin';
   colorTheme: LitanyColorTheme;
 }
-

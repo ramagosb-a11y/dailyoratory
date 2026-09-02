@@ -20,7 +20,10 @@ export function LiturgicalPageTheme({
 }) {
   const pathname = usePathname();
   const { theme, day, seasonLabel } = useLiturgicalTheme();
-  const hidesLiturgicalBanner = pathname === "/adoration/companion" || pathname === "/divine-mercy/chaplet";
+  const hidesLiturgicalBanner =
+    pathname === "/adoration/companion" ||
+    pathname === "/divine-mercy/chaplet" ||
+    pathname === "/prayers/litany-of-saint-darby";
   const shouldApplyTheme =
     applyToHomepage || (pathname !== "/" && pathname !== "/rosary/visual-meditation");
 

@@ -257,7 +257,7 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
             {/* Invocations to the Holy Trinity */}
             <div className="pt-4">
               <div className="text-xs uppercase tracking-[0.25em] text-[#BD8A2F] font-semibold mb-4 text-center">
-                The Most Holy Trinity
+                {litany.opening.secondaryHeading || 'The Most Holy Trinity'}
               </div>
               <div className="space-y-3">
                 {litany.opening.trinity.map((item, idx) => (
@@ -297,7 +297,9 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
               {litany.closing.title}
             </h2>
             <p className="text-sm font-serif italic text-[#0D2038]/70">
-              Agnus Dei, versicle, and closing collect.
+              {litany.closing.invocationHeading
+                ? 'Final invocations and a prayer of trust.'
+                : 'Agnus Dei, versicle, and closing collect.'}
             </p>
           </div>
 
@@ -305,7 +307,7 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
             {/* Agnus Dei */}
             <div className="space-y-4">
               <div className="text-xs uppercase tracking-[0.25em] text-[#BD8A2F] font-semibold mb-2 text-center">
-                Agnus Dei
+                {litany.closing.invocationHeading || 'Agnus Dei'}
               </div>
               <div className="space-y-3 divide-y divide-[#D8CDB9]/30">
                 {litany.closing.agnusDei.map((item, idx) => (

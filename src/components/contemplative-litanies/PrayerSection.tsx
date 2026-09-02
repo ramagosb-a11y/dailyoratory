@@ -22,7 +22,10 @@ export const PrayerSection: React.FC<PrayerSectionProps> = ({
   return (
     <div
       className="relative w-full max-w-5xl mx-auto my-3 sm:my-8 overflow-hidden rounded-[1.75rem] border-2 border-[#BD8A2F] bg-cover bg-center bg-fixed shadow-[0_18px_55px_rgba(13,32,56,0.24)] ring-1 ring-[#FFFDF7]/80 animate-prayer-fade"
-      style={{ backgroundImage: `url(${section.image})` }}
+      style={{
+        backgroundImage: `url(${section.image})`,
+        backgroundPosition: section.backgroundPosition || 'center',
+      }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#0D2038]/55 via-[#0D2038]/20 to-[#FFFDF7]/35" aria-hidden="true" />
       <div className="absolute inset-2 rounded-[1.35rem] border border-[#F3EAD8]/65 pointer-events-none" aria-hidden="true" />
