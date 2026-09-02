@@ -8,6 +8,8 @@ import { HomeHeavenboundSpotlight } from "@/components/home/HomeHeavenboundSpotl
 import { HomeRosaryCta } from "@/components/home/HomeRosaryCta";
 import { Hero } from "@/components/home/Hero";
 import { TodayInTheChurch } from "@/components/home/TodayInTheChurch";
+import { LitanyPrayerShelf, type LitanyShelfItem } from "@/components/contemplative-litanies/LitanyPrayerShelf";
+import { litanyCatalog } from "@/components/contemplative-litanies/data/litanyRegistry";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const revalidate = 86400;
@@ -45,6 +47,21 @@ const featuredContentCards = [
     href: "/homilies",
   },
 ];
+
+const contemplativeLitanyShelf: LitanyShelfItem[] = litanyCatalog
+  .filter((litany) => litany.status === "available" && Boolean(litany.image))
+  .map((litany) => ({
+    id: litany.id,
+    title: litany.title,
+    subtitle: litany.subtitle,
+    shortDescription: litany.shortDescription,
+    movementsCount: litany.movementsCount,
+    href: `/prayers/litanies/${litany.slug}`,
+    image: litany.image as string,
+    imageAlt: `${litany.title} devotional holy card`,
+    accent: litany.colorTheme.primary,
+    border: litany.colorTheme.cardBorder,
+  }));
 
 export default function Home() {
   return (
@@ -84,6 +101,11 @@ export default function Home() {
       <HomeHeavenboundSpotlight />
       <FooterCta />
       <HomeRosaryCta />
+      <section aria-label="Explore contemplative litanies" className="bg-[#FFFDF7] px-0 pb-16 pt-2 sm:pb-20 sm:pt-4">
+        <div className="mx-auto w-full max-w-7xl px-0 sm:px-5 lg:px-10">
+          <LitanyPrayerShelf litanies={contemplativeLitanyShelf} />
+        </div>
+      </section>
       <FindMassSection />
     </div>
   );
