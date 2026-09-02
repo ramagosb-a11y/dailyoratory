@@ -121,7 +121,7 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
   return (
     <section
       aria-labelledby="contemplative-litanies-heading"
-      className="card-parchment overflow-hidden p-0"
+      className="overflow-hidden bg-parchment p-0"
       id="contemplative-litanies"
     >
       <div className="border-b border-stone bg-ivory/75 px-6 py-7 sm:px-8 sm:py-8">
