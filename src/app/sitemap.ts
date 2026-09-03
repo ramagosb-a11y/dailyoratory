@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Liturgical Settings", href: "/liturgical-living/settings" },
   ];
   const startHerePages = [
-    { label: "Begin in Prayer", href: "/begin-in-prayer" },
+    { label: "Begin in Prayer", href: "/morning-prayer" },
     { label: "What Should I Do?", href: "/what-should-i-do" },
     { label: "Catholic Q&A", href: "/catholic-answers" },
     { label: "Prayer Library", href: "/prayers" },

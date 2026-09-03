@@ -927,10 +927,10 @@ export const staticSearchIndex: SearchItem[] = [
   {
     id: "search-begin-in-prayer",
     title: "Begin in Prayer",
-    slug: "begin-in-prayer",
-    href: "/begin-in-prayer",
+    slug: "morning-prayer",
+    href: "/morning-prayer",
     description:
-      "A simpler start page for Catholic prayer with morning prayers, mercy prayers, Marian prayers, evening prayers, and a gentle next step into daily prayer.",
+      "A guided Catholic morning prayer experience with sacred imagery, traditional prayers, family intercessions, and quiet reflection.",
     content:
       "begin in prayer start praying catholic morning prayer evening prayer marian prayers beginner prayer catholic daily prayer start here",
     category: "Pray",

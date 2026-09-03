@@ -102,7 +102,7 @@ export default function MissionPage() {
             The Church&apos;s mission begins in worship and flows outward into witness, service, formation, and charity. Daily Oratory exists to help that mission take root in ordinary Catholic life through prayer, reverence, and steady fidelity.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link href="/begin-in-prayer" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
+            <Link href="/morning-prayer" className="btn btn-primary focus-ring daily-button-readable min-h-12 justify-center">
               Begin in prayer
             </Link>
             <Link href="/formation" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">

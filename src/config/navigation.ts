@@ -33,7 +33,7 @@ export const siteNavigation: NavigationSection[] = [
     href: "/prayers",
     description: "Begin in prayer and keep a daily Catholic rhythm.",
     children: [
-      { label: "Begin in Prayer", href: "/begin-in-prayer", description: "A simpler start page with direct prayers and a calmer first step into Catholic prayer." },
+      { label: "Begin in Prayer", href: "/morning-prayer", description: "Enter a guided morning prayer experience with sacred imagery, quiet reflection, and a steady daily rhythm." },
       { label: "Prayer Library", href: "/prayers", description: "Find Catholic prayers for daily life, Confession, the Rosary, the dead, and more." },
       { label: "Litanies", href: "/prayers/litanies", description: "Learn what Catholic litanies are, how to pray them, and which traditional litanies fit different needs." },
       { label: "The Angelus", href: "/prayers/angelus", description: "A traditional Marian prayer for morning, noon, and evening outside the Easter season." },
@@ -257,7 +257,7 @@ export const footerNavigationGroups = [
   {
     title: "Begin",
     links: [
-      { label: "Begin in prayer", href: "/begin-in-prayer" },
+      { label: "Begin in prayer", href: "/morning-prayer" },
       { label: "Confession Guide", href: "/confession" },
     ],
   },

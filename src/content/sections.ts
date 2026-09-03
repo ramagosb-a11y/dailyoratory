@@ -7,7 +7,7 @@ export const sectionPages: SectionPage[] = [
     navLabel: "Pray",
     description: "Prayer Library, Catholic Devotions, Holy Rosary, Divine Mercy Chaplet, Live Adoration, Daily Rule of Life, and Confession Guide.",
     hero: "Begin with prayer and let the day become an offering.",
-    primaryHref: "/library/morning-offering",
+    primaryHref: "/morning-prayer",
     primaryLabel: "Begin in prayer",
     categories: ["Prayer", "Rosary"],
     tags: ["Prayer Library", "Catholic Devotions", "Holy Rosary", "Divine Mercy Chaplet", "Live Adoration", "Daily Rule of Life", "Confession Guide"],

@@ -34,7 +34,7 @@ export const startHereSection: HomepageSection = {
       title: "I want to pray today",
       description:
         "Begin with Scripture, the Rosary, the Liturgy of the Hours, or quiet Eucharistic prayer.",
-      href: "/pray",
+      href: "/morning-prayer",
       cta: "Begin in Prayer",
       category: "Pray",
       featured: true,
