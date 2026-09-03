@@ -93,6 +93,8 @@ export function Header() {
     };
   }, [open]);
 
+  if (pathname === "/morning-prayer") return null;
+
   return (
     <>
       <header className="sticky top-0 z-40 border-b border-stone bg-ivory/95 backdrop-blur">
