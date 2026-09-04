@@ -44,8 +44,20 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
   const [draft, setDraft] = useState<NightlyExamenDraft | null>(null);
   const [completedSession, setCompletedSession] = useState<NightlyExamenSession | null>(null);
   const [storageMessage, setStorageMessage] = useState<string | null>(null);
-  const topRef = useRef<HTMLDivElement | null>(null);
+  const topRef = useRef<HTMLElement | null>(null);
   const resumableDraft = store.draft?.localDate === getLocalDate() ? store.draft : null;
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      const container = topRef.current;
+      if (!container) return;
+
+      container.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      if (!standalone) container.scrollIntoView({ block: "start", behavior: "auto" });
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [draft?.stepIndex, standalone, view]);
 
   function begin(writingEnabled: boolean) {
     setStorageMessage(null);
@@ -69,7 +81,6 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
     setView("prayer");
     trackEvent("daily_examen_mode_select", { pace, writing_enabled: nextDraft.writingEnabled });
     trackEvent("daily_examen_start", { category: "nightly-examen", item_slug: pace, source: "/daily-examen/nightly" });
-    scrollToTop();
   }
 
   function resume() {
@@ -78,7 +89,6 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
     setDraft(resumableDraft);
     setView("prayer");
     trackEvent("daily_examen_resume", { pace: resumableDraft.pace, step: stepMeta[resumableDraft.stepIndex]?.id });
-    scrollToTop();
   }
 
   function updateDraft(patch: Partial<NightlyExamenDraft>) {
@@ -93,11 +103,9 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
     if (!draft) return;
     if (draft.stepIndex === 0) {
       setView("welcome");
-      scrollToTop();
       return;
     }
     updateDraft({ stepIndex: draft.stepIndex - 1 });
-    scrollToTop();
   }
 
   function nextStep() {
@@ -107,7 +115,6 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
 
     if (draft.stepIndex < stepMeta.length - 1) {
       updateDraft({ stepIndex: draft.stepIndex + 1 });
-      scrollToTop();
       return;
     }
 
@@ -135,7 +142,6 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
     setDraft(null);
     setView("complete");
     trackEvent("daily_examen_complete", { pace: session.pace, duration_minutes: durationMinutes });
-    scrollToTop();
   }
 
   function toggleMovement(movement: string) {
@@ -153,15 +159,6 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
     setView("welcome");
     setStorageMessage("Your saved Examen reflections and rhythm have been cleared from this browser.");
     trackEvent("daily_examen_clear_private_data", { source: "nightly-examen" });
-  }
-
-  function scrollToTop() {
-    window.setTimeout(() => {
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const behavior = reducedMotion ? "auto" : "smooth";
-      topRef.current?.scrollTo({ top: 0, behavior });
-      topRef.current?.scrollIntoView({ behavior, block: "start" });
-    }, 0);
   }
 
   return (
@@ -195,10 +192,7 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
               session={completedSession}
               storageMessage={storageMessage}
               onOpenMap={() => setView("grace-map")}
-              onPrayAgain={() => {
-                setView("welcome");
-                scrollToTop();
-              }}
+              onPrayAgain={() => setView("welcome")}
             />
           ) : null}
           {view === "grace-map" ? (
