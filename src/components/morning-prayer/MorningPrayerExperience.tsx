@@ -129,7 +129,7 @@ export function MorningPrayerExperience() {
               <button onClick={() => moveTo(0)} className="focus-ring mt-10 inline-flex min-h-14 items-center gap-3 rounded-full bg-[#BD8A2F] px-8 py-4 text-sm font-bold uppercase tracking-[0.16em] text-[#0D2038] shadow-xl transition hover:bg-[#D6AA54]">
                 Begin Morning Prayer <Arrow />
               </button>
-              <p className="mt-5 text-sm text-[#F3EAD8]/65">12 prayers · approximately 10 minutes</p>
+              <p className="mt-5 text-sm text-[#F3EAD8]/65">{morningPrayers.length} prayers · approximately 12 minutes</p>
             </div>
           </main>
         </div>
@@ -167,8 +167,17 @@ export function MorningPrayerExperience() {
             </div>
           )}
           <div className="mt-12 flex w-full max-w-md flex-col gap-3 sm:flex-row">
-            <button onClick={() => moveTo(0)} className="focus-ring min-h-14 flex-1 rounded-full border border-[#D8CDB9]/40 px-6 py-3 text-sm font-semibold">Pray Again</button>
-            <Link href="/begin-in-prayer" className="focus-ring inline-flex min-h-14 flex-1 items-center justify-center rounded-full bg-[#BD8A2F] px-6 py-3 text-sm font-bold text-[#0D2038]">Begin My Day</Link>
+            <a href="https://dailyoratory.faith/" className="focus-ring inline-flex min-h-14 flex-1 items-center justify-center rounded-full border border-[#D8CDB9]/40 px-6 py-3 text-center text-sm font-semibold">
+              Return to Home Page
+            </a>
+            <a
+              href="https://bible.usccb.org/daily-bible-reading"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring inline-flex min-h-14 flex-1 items-center justify-center rounded-full bg-[#BD8A2F] px-6 py-3 text-center text-sm font-bold text-[#0D2038]"
+            >
+              Daily Readings
+            </a>
           </div>
         </main>
       </div>

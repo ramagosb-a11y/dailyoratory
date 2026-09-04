@@ -1,13 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { TodaySaintCompanionCard } from "@/components/home/TodaySaintCompanionCard";
 import { homeLiturgicalSurfaceThemes } from "@/components/home/homeLiturgicalSurface";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { LiturgicalThemeBadge } from "@/components/theme/LiturgicalThemeBadge";
 import {
-  getSeasonsPageAnchorForStaticSlug,
   getStaticLiturgicalDashboardModelForIsoDate,
   getCurrentSiteIsoDate,
   getStaticSaintForDateKey,
@@ -43,7 +41,6 @@ export function TodayInTheChurchClient({
   const liturgicalTheme = getLiturgicalThemeForToday(model.day);
   const primaryColor = liturgicalTheme.liturgicalColor === "default" ? "gold" : liturgicalTheme.liturgicalColor;
   const theme = todaySectionThemes[primaryColor];
-  const currentSeasonHref = `/liturgical-living/seasons#${getSeasonsPageAnchorForStaticSlug(model.season.slug)}`;
   const saintEntry = getStaticSaintForDateKey(saintEntries, isoDateToDateKey(model.isoDate));
 
   return (
@@ -91,18 +88,7 @@ export function TodayInTheChurchClient({
             </TrackedLink>
           </div>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <article className={`rounded-md border p-4 ${theme.cardClassName}`}>
-            <p className={`text-xs font-bold uppercase ${theme.cardEyebrowClassName}`}>Liturgical Year &amp; Calendar</p>
-            <h3 className={`font-display mt-2 text-3xl font-semibold ${theme.cardHeadingClassName}`}>
-              <Link prefetch={false} href={currentSeasonHref} className={`focus-ring rounded-sm ${theme.cardLinkClassName}`}>
-                Liturgical Year &amp; Calendar
-              </Link>
-            </h3>
-            <p className={`mt-2 text-sm leading-6 ${theme.cardCopyClassName}`}>
-              Follow the Church&apos;s seasons, holy days, and liturgical rhythm.
-            </p>
-          </article>
+        <div>
           <TodaySaintCompanionCard
             entry={saintEntry}
             cardClassName={theme.cardClassName}
@@ -111,20 +97,6 @@ export function TodayInTheChurchClient({
             cardCopyClassName={theme.cardCopyClassName}
             cardLinkClassName={theme.cardLinkClassName}
           />
-          <article className={`rounded-md border p-4 sm:col-span-2 ${theme.cardClassName}`}>
-            <p className={`text-xs font-bold uppercase ${theme.cardEyebrowClassName}`}>Suggested prayer</p>
-            <h3 className={`font-display mt-2 text-3xl font-semibold ${theme.cardHeadingClassName}`}>
-              <Link prefetch={false} href="/pray/today" className={`focus-ring rounded-sm ${theme.cardLinkClassName}`}>
-                {today.suggestedPrayer?.title ?? "Begin in prayer"}
-              </Link>
-            </h3>
-            <p className={`mt-2 text-sm leading-6 ${theme.cardCopyClassName}`}>
-              {today.suggestedPrayer?.description ?? "Offer the day to the Lord and ask for grace to live faithfully."}
-            </p>
-            <Link prefetch={false} href="/pray/today" className={`focus-ring mt-4 inline-flex text-sm font-semibold ${theme.cardLinkClassName}`}>
-              Open today&apos;s prayer
-            </Link>
-          </article>
         </div>
       </div>
     </section>

@@ -62,8 +62,8 @@ export const morningPrayers: MorningPrayer[] = [
     id: "act-of-spiritual-communion",
     title: "Act of Spiritual Communion",
     text: "My Jesus, I believe that you are in the Blessed Sacrament. I love you above all things, and I long for you in my soul. Since I cannot now receive you sacramentally, come at least spiritually into my heart. As though you have already come, I embrace you and unite myself entirely to you; never permit me to be separated from you.",
-    image: "/images/morning-prayers/act-of-spiritual-communion.png",
-    imageAlt: "Christ bringing the light of His Eucharistic presence to a kneeling worshipper",
+    image: "/images/morning-prayers/act-of-spiritual-communion-v2.png",
+    imageAlt: "Christ bringing the light of His Eucharistic presence to a Black man kneeling in prayer",
     stage: "Communion",
   },
   {
@@ -107,5 +107,22 @@ export const morningPrayers: MorningPrayer[] = [
     imageAlt: "Christ blessing children in a sunlit garden beside a chapel",
     stage: "Intercession",
     optionalNote: "For parents, guardians, and all who care for children",
+  },
+  {
+    id: "holy-father-and-priests",
+    title: "Prayer for the Holy Father and Priests",
+    text: "Lord Jesus Christ, I pray for the intentions of our Holy Father. Grant him wisdom, strength, and holiness, and guide Your Church in truth and charity.\n\nBless our priests, O Lord. Sanctify them in Your love, strengthen them in their ministry, and make them faithful shepherds of Your people. Amen.",
+    image: "/images/morning-prayers/prayer-for-holy-father-and-priests.png",
+    imageAlt: "The Holy Father and a diverse group of priests kneeling in prayer before Christ",
+    stage: "Intercession",
+  },
+  {
+    id: "special-intentions",
+    title: "Prayer for Special Intentions",
+    text: "Heavenly Father, I place before You those especially in need of prayer today:\n\nPause here in silent reflection and entrust each name or intention to God.\n\nYou know their needs better than I do. Grant them healing, strength, peace, guidance, and every grace they need. Draw them closer to Jesus and lead them according to Your holy will.\n\nBless also everyone who has asked for my prayers and anyone I may have forgotten.\n\nMary, Mother of Mercy, pray for them.\nSaint Joseph, pray for them.\nGuardian angels, watch over them.\n\nJesus, I trust them to You.\n\nAmen.",
+    image: "/images/morning-prayers/prayer-for-special-intentions.png",
+    imageAlt: "A Black woman silently entrusting special intentions to Jesus with Mary, Saint Joseph, and a guardian angel",
+    stage: "Intercession",
+    optionalNote: "Pause as long as you need",
   },
 ];
