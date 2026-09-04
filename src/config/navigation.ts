@@ -510,6 +510,7 @@ export const urlStructure = [
   { path: "/angels", purpose: "Catholic guide to angels, guardian angels, archangels, heavenly worship, spiritual protection, and the invisible world" },
   { path: "/relics", purpose: "Catholic guide to relics, relic classes, reliquaries, veneration, pilgrimage, and the communion of saints" },
   { path: "/daily-examen", purpose: "Daily Examen guide for gratitude, mercy, review, trust, and peaceful night prayer" },
+  { path: "/night-prayer", purpose: "Guided Catholic prayer for protection during sleep with the Our Father and prayer to Saint Michael" },
   { path: "/ocia", purpose: "Welcoming OCIA guide for adults exploring Catholicism, preparing for initiation, or seeking full communion" },
   { path: "/tradition", purpose: "Beginner-friendly guide to Sacred Tradition, Scripture, the Magisterium, apostolic succession, Church Fathers, and the deposit of faith" },
   { path: "/family", purpose: "Beginner-friendly guide to the domestic church, family prayer, family virtue, sacramental life, and Catholic formation in the home" },

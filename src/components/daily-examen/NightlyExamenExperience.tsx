@@ -192,7 +192,6 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
               session={completedSession}
               storageMessage={storageMessage}
               onOpenMap={() => setView("grace-map")}
-              onPrayAgain={() => setView("welcome")}
             />
           ) : null}
           {view === "grace-map" ? (
@@ -297,7 +296,7 @@ function PrayerView({
 
   return (
     <div className={styles.prayerView} aria-live="polite">
-      <div className="flex items-center justify-between gap-4">
+      <div className={`${styles.prayerMeta} flex items-center justify-between gap-4`}>
         <p className={styles.eyebrow}>{step.eyebrow} · {draft.stepIndex + 1} of {stepMeta.length}</p>
         <span className="text-xs text-ivory/45">{paceOptions.find((item) => item.id === draft.pace)?.title}</span>
       </div>
@@ -464,12 +463,10 @@ function CompleteView({
   session,
   storageMessage,
   onOpenMap,
-  onPrayAgain,
 }: {
   session: NightlyExamenSession;
   storageMessage: string | null;
   onOpenMap: () => void;
-  onPrayAgain: () => void;
 }) {
   return (
     <div className="mx-auto grid max-w-3xl justify-items-center text-center">
@@ -484,8 +481,8 @@ function CompleteView({
       </p>
       <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
         <button type="button" onClick={onOpenMap} className={`${styles.goldButton} focus-ring`}>View my Grace Map</button>
-        <Link href="/liturgy-of-the-hours" className={`${styles.quietButton} focus-ring inline-flex items-center justify-center`}>Continue to Night Prayer</Link>
-        <button type="button" onClick={onPrayAgain} className={`${styles.quietButton} focus-ring`}>Return to the beginning</button>
+        <Link href="/night-prayer" className={`${styles.quietButton} focus-ring inline-flex items-center justify-center`}>Continue to Night Prayer</Link>
+        <Link href="/" className={`${styles.quietButton} focus-ring inline-flex items-center justify-center`}>Return to Home Page</Link>
       </div>
       <p className="mt-6 text-xs leading-6 text-ivory/48" aria-live="polite">
         {storageMessage ?? "Your private reflection remains only in this browser."}

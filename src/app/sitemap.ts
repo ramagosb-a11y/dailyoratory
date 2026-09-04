@@ -45,7 +45,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Rule Templates", href: "/rule-of-life/templates" },
     { label: "Print Rule", href: "/rule-of-life/print" },
   ];
-  const dailyExamenPages = [{ label: "Daily Examen", href: "/daily-examen" }];
+  const dailyExamenPages = [
+    { label: "Daily Examen", href: "/daily-examen" },
+    { label: "The Last Light Nightly Examen", href: "/daily-examen/nightly" },
+    { label: "Prayer for Protection During Sleep", href: "/night-prayer" },
+  ];
   const pathwayPages = [
     { label: "Pathways", href: "/pathways" },
     { label: "Start Pathway", href: "/pathways/start" },

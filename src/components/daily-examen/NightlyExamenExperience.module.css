@@ -1493,3 +1493,182 @@
     border-radius: 2.65rem;
   }
 }
+
+/* Desktop prayer room: preserve the phone composition below 900px. */
+@media (min-width: 900px) {
+  .standalone {
+    padding: clamp(1.5rem, 4vh, 3rem) clamp(1.5rem, 4vw, 4.5rem);
+    place-items: center;
+    background:
+      radial-gradient(circle at 19% 34%, rgba(124, 75, 30, 0.16), transparent 25rem),
+      radial-gradient(circle at 82% 65%, rgba(24, 61, 91, 0.2), transparent 31rem),
+      linear-gradient(145deg, #01060b 0%, #020a12 48%, #01050a 100%);
+  }
+
+  .standalone .shell {
+    width: min(100%, 72rem);
+    min-height: min(54rem, calc(100svh - clamp(3rem, 8vh, 6rem)));
+    border-radius: 2rem;
+    background:
+      radial-gradient(circle at 21% 48%, rgba(174, 113, 36, 0.12), transparent 24rem),
+      radial-gradient(circle at 78% 20%, rgba(31, 67, 96, 0.18), transparent 26rem),
+      linear-gradient(145deg, #020b15 0%, #061523 55%, #020a13 100%);
+    box-shadow:
+      0 42px 120px rgba(0, 0, 0, 0.62),
+      inset 0 0 0 5px #01060c,
+      inset 0 0 0 6px rgba(211, 173, 98, 0.12);
+  }
+
+  .standalone .content {
+    min-height: inherit;
+    padding: clamp(2.5rem, 4vw, 4.25rem);
+  }
+
+  .standalone .welcome {
+    min-height: calc(min(54rem, 100svh - clamp(3rem, 8vh, 6rem)) - clamp(5rem, 8vw, 8.5rem));
+    grid-template-columns: minmax(15rem, 0.88fr) minmax(21rem, 1.12fr);
+    grid-template-rows: auto auto auto auto auto 1fr;
+    column-gap: clamp(2rem, 5vw, 6.5rem);
+    align-items: center;
+  }
+
+  .standalone .welcome .brandLockup {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+  }
+
+  .standalone .welcome .photoScene {
+    width: calc(100% + 2rem);
+    height: clamp(25rem, 52vh, 31rem);
+    margin: -1.5rem -1rem 0;
+    grid-column: 1;
+    grid-row: 2 / span 5;
+    align-self: start;
+  }
+
+  .standalone .welcome .photoScene img {
+    object-position: center 47%;
+  }
+
+  .standalone .welcome .stepMarker,
+  .standalone .welcome .heading,
+  .standalone .welcome .headingOrnament,
+  .standalone .welcome .body,
+  .standalone .welcomeActions {
+    width: 100%;
+    grid-column: 2;
+    justify-self: stretch;
+  }
+
+  .standalone .welcome .stepMarker {
+    grid-row: 1;
+    align-self: end;
+  }
+
+  .standalone .welcome .heading {
+    max-width: 34rem;
+    margin-top: 1.75rem !important;
+    grid-row: 2;
+    font-size: clamp(3.8rem, 5.1vw, 5.4rem);
+    line-height: 0.93;
+  }
+
+  .standalone .welcome .headingOrnament {
+    margin-top: 1.2rem;
+    grid-row: 3;
+  }
+
+  .standalone .welcome .body {
+    margin-top: 1.25rem !important;
+    grid-row: 4;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .standalone .welcomeActions {
+    margin-top: 2rem !important;
+    grid-row: 5;
+    align-self: start;
+  }
+
+  .standalone .welcomeActions .goldButton {
+    width: auto;
+    min-width: 19rem;
+    min-height: 3.8rem;
+  }
+
+  .standalone .prayerView {
+    display: grid;
+    min-height: calc(min(54rem, 100svh - clamp(3rem, 8vh, 6rem)) - clamp(5rem, 8vw, 8.5rem));
+    grid-template-columns: minmax(16rem, 0.88fr) minmax(22rem, 1.12fr);
+    grid-template-areas:
+      "meta meta"
+      "progress progress"
+      "title content"
+      "visual content"
+      ". actions";
+    grid-template-rows: auto auto auto 1fr auto;
+    column-gap: clamp(2rem, 5vw, 6rem);
+    align-items: start;
+  }
+
+  .standalone .prayerMeta {
+    grid-area: meta;
+  }
+
+  .standalone .progressTrack {
+    grid-area: progress;
+  }
+
+  .standalone .prayerView .subheading {
+    max-width: 31rem;
+    margin-top: clamp(2.75rem, 6vh, 4.5rem) !important;
+    grid-area: title;
+    align-self: end;
+    font-size: clamp(3.7rem, 4.6vw, 5rem);
+    line-height: 0.94;
+  }
+
+  .standalone .stepVisual {
+    width: 100%;
+    height: clamp(17rem, 34vh, 22rem);
+    margin: 2rem 0 0;
+    grid-area: visual;
+    align-self: start;
+    border: 1px solid rgba(211, 173, 98, 0.2);
+    border-radius: 1.25rem;
+    mask-image: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
+  }
+
+  .standalone .stepContent {
+    width: 100%;
+    max-width: 34rem;
+    margin-top: clamp(2.75rem, 6vh, 4.5rem) !important;
+    grid-area: content;
+    align-self: start;
+  }
+
+  .standalone .stepStack,
+  .standalone .arriveLayout,
+  .standalone .reviewLayout {
+    gap: 1.5rem;
+  }
+
+  .standalone .card,
+  .standalone .parchmentCard {
+    padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  }
+
+  .standalone .field {
+    min-height: 9rem;
+  }
+
+  .standalone .prayerActions {
+    width: 100%;
+    max-width: 34rem;
+    margin-top: 1.75rem;
+    grid-area: actions;
+    align-self: end;
+  }
+}

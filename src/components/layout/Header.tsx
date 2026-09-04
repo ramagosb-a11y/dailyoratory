@@ -93,7 +93,7 @@ export function Header() {
     };
   }, [open]);
 
-  if (pathname === "/morning-prayer") return null;
+  if (pathname === "/morning-prayer" || pathname === "/night-prayer") return null;
 
   return (
     <>

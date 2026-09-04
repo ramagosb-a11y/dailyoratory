@@ -53,14 +53,6 @@ export const redirectMap = [
     notes: "Prayer namespace alias redirects to the dedicated Daily Examen page.",
   },
   {
-    source: "/night-prayer",
-    destination: "/daily-examen",
-    permanent: true,
-    category: "Prayer",
-    status: "implemented",
-    notes: "Night prayer landing redirects to the dedicated Daily Examen page.",
-  },
-  {
     source: "/end-in-prayer",
     destination: "/daily-examen",
     permanent: true,
