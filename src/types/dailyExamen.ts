@@ -59,10 +59,37 @@ export interface ExamenJournalEntry {
   surrender: string;
 }
 
+export type NightlyExamenPace = "rest" | "review" | "discern";
+
+export type NightlyExamenDraft = {
+  localDate: string;
+  startedAt: string;
+  pace: NightlyExamenPace;
+  writingEnabled: boolean;
+  stepIndex: number;
+  gratitude: string;
+  gratitudeArea: string;
+  significantMoment: string;
+  movementTags: string[];
+  mercy: string;
+  tomorrowGrace: string;
+};
+
+export type NightlyExamenSession = Omit<NightlyExamenDraft, "stepIndex"> & {
+  id: string;
+  completedAt: string;
+  durationMinutes: number;
+};
+
+export type NightlyExamenStore = {
+  version: 1;
+  draft: NightlyExamenDraft | null;
+  sessions: NightlyExamenSession[];
+};
+
 export type ExamenRelatedTool = {
   title: string;
   description: string;
   href: string;
   cta: string;
 };
-

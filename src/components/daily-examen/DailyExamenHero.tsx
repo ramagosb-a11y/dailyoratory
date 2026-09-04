@@ -17,17 +17,17 @@ export function DailyExamenHero() {
           <p className="mt-6 max-w-4xl text-sm leading-8 text-muted">{dailyExamenHero.copy}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <TrackedLink
-              href="#daily-examen-guide"
+              href="#nightly-examen"
               className="btn btn-gold focus-ring justify-center"
               eventName="daily_examen_start"
               eventParams={{
                 category: "hero",
                 item_slug: "start-the-examen",
                 source: "/daily-examen",
-                destination: "#daily-examen-guide",
+                destination: "#nightly-examen",
               }}
             >
-              Start the Examen
+              Enter The Last Light
             </TrackedLink>
             <Link href="#quick-examen" className="btn btn-secondary focus-ring justify-center">
               5-Minute Version
