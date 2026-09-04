@@ -13,7 +13,6 @@ import { ExamenVsExamination } from "@/components/daily-examen/ExamenVsExaminati
 import { FamilyExamen } from "@/components/daily-examen/FamilyExamen";
 import { GuidedExamenPrayer } from "@/components/daily-examen/GuidedExamenPrayer";
 import { NightPrayerConnection } from "@/components/daily-examen/NightPrayerConnection";
-import { NightlyExamenExperience } from "@/components/daily-examen/NightlyExamenExperience";
 import { QuickExamen } from "@/components/daily-examen/QuickExamen";
 import { RelatedDailyExamenTools } from "@/components/daily-examen/RelatedDailyExamenTools";
 import { WhatIsDailyExamen } from "@/components/daily-examen/WhatIsDailyExamen";
@@ -87,10 +86,6 @@ export default function DailyExamenPage() {
         </div>
 
         <div className="mt-14">
-          <NightlyExamenExperience />
-        </div>
-
-        <div className="mt-14">
           <DailyExamenGuide />
         </div>
 
@@ -103,7 +98,7 @@ export default function DailyExamenPage() {
             eyebrow="Evening rhythm"
             title="End tomorrow with the same gentle review."
             summary="A short Examen works best as a steady habit: gratitude, review, mercy, and trust before sleep."
-            primaryHref="#nightly-examen"
+            primaryHref="/daily-examen/nightly"
             primaryLabel="Return to The Last Light"
             secondaryHref="/today"
             secondaryLabel="Open Today's Guide"

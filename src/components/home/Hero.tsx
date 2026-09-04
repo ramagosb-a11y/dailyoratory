@@ -31,7 +31,7 @@ export function Hero() {
             <Link href="/morning-prayer" className="btn btn-gold focus-ring w-full sm:w-auto">
               Begin in Prayer
             </Link>
-            <Link href="/daily-examen#nightly-examen" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
+            <Link href="/daily-examen/nightly" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
               End in Prayer
             </Link>
           </div>

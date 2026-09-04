@@ -37,7 +37,7 @@ const towardLove = ["Peace", "Gratitude", "Courage", "Connection"];
 const towardUnrest = ["Agitation", "Fear", "Resistance", "Isolation"];
 const tomorrowGraces = ["Faith", "Hope", "Charity", "Patience", "Courage", "Humility", "Wisdom", "Peace"];
 
-export function NightlyExamenExperience() {
+export function NightlyExamenExperience({ standalone = false }: { standalone?: boolean }) {
   const store = useNightlyExamenStore();
   const [view, setView] = useState<ExperienceView>("welcome");
   const [pace, setPace] = useState<NightlyExamenPace>("review");
@@ -68,7 +68,7 @@ export function NightlyExamenExperience() {
     if (!saved) setStorageMessage("Browser storage is unavailable. You can still pray, but this session may not resume after you leave.");
     setView("prayer");
     trackEvent("daily_examen_mode_select", { pace, writing_enabled: nextDraft.writingEnabled });
-    trackEvent("daily_examen_start", { category: "nightly-examen", item_slug: pace, source: "/daily-examen" });
+    trackEvent("daily_examen_start", { category: "nightly-examen", item_slug: pace, source: "/daily-examen/nightly" });
     scrollToTop();
   }
 
@@ -165,7 +165,12 @@ export function NightlyExamenExperience() {
   }
 
   return (
-    <section ref={topRef} id="nightly-examen" aria-labelledby="nightly-examen-title" className="scroll-mt-24">
+    <section
+      ref={topRef}
+      id="nightly-examen"
+      aria-labelledby="nightly-examen-title"
+      className={`${standalone ? styles.standalone : ""} scroll-mt-24`}
+    >
       <div className={styles.shell}>
         <div className={styles.content}>
           {view === "welcome" ? (
@@ -223,7 +228,7 @@ function WelcomeView({
   return (
     <div className={`${styles.welcome} mx-auto grid justify-items-center text-center`}>
       <div className={styles.brandLockup}>
-        <div className={styles.sunburst} aria-hidden="true"><span>✝</span></div>
+        <div className={styles.sunburst} aria-hidden="true"><span className={styles.brandCross} /></div>
         <p className={styles.brandTitle}>The Last Light</p>
         <p className={styles.brandSubtitle}>A Nightly Examen</p>
         <div className={styles.brandRule} aria-hidden="true"><span>◆</span></div>
@@ -255,11 +260,11 @@ function WelcomeView({
       <div className={`${styles.welcomeActions} mt-7 flex w-full flex-col justify-center gap-3 sm:flex-row sm:flex-wrap`}>
         {onResume ? (
           <button type="button" onClick={onResume} className={`${styles.goldButton} focus-ring`}>
-            <span aria-hidden="true">✝</span> Resume tonight&apos;s Examen
+            <span className={styles.crossIcon} aria-hidden="true" /> Resume tonight&apos;s Examen
           </button>
         ) : (
           <button type="button" onClick={() => onBegin(true)} className={`${styles.goldButton} focus-ring`}>
-            <span aria-hidden="true">✝</span> Begin in God&apos;s presence
+            <span className={styles.crossIcon} aria-hidden="true" /> Begin in God&apos;s presence
           </button>
         )}
         <button type="button" onClick={() => onBegin(false)} className={`${styles.textButton} focus-ring`}>
@@ -564,11 +569,11 @@ function StepVisual({ step }: { step: StepId }) {
     tomorrow: styles.stepVisualTomorrow,
   }[step];
   const symbol = {
-    arrive: "✝",
+    arrive: "",
     gratitude: "✦",
     review: "◷",
     notice: "◉",
-    mercy: "✝",
+    mercy: "",
     tomorrow: "✦",
   }[step];
 
@@ -580,7 +585,9 @@ function StepVisual({ step }: { step: StepId }) {
         fill
         sizes="(max-width: 520px) 100vw, 430px"
       />
-      <span className={styles.stepSigil}>{symbol}</span>
+      <span className={styles.stepSigil}>
+        {step === "arrive" || step === "mercy" ? <span className={styles.sigilCross} /> : symbol}
+      </span>
     </div>
   );
 }

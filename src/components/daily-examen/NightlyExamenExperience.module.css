@@ -96,6 +96,65 @@
   font-size: 1.15rem;
 }
 
+.brandCross,
+.crossIcon,
+.sigilCross {
+  position: relative;
+  display: inline-block;
+  color: currentColor;
+}
+
+.brandCross::before,
+.crossIcon::before,
+.sigilCross::before,
+.brandCross::after,
+.crossIcon::after,
+.sigilCross::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 999px;
+  background: currentColor;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.brandCross::before,
+.sigilCross::before {
+  width: 0.11rem;
+  height: 1.05rem;
+}
+
+.brandCross::after,
+.sigilCross::after {
+  width: 0.7rem;
+  height: 0.11rem;
+  transform: translate(-50%, -75%);
+}
+
+.crossIcon {
+  width: 1rem;
+  height: 1.1rem;
+  margin-right: 0.55rem;
+  vertical-align: -0.18rem;
+}
+
+.crossIcon::before {
+  width: 0.1rem;
+  height: 1rem;
+}
+
+.crossIcon::after {
+  width: 0.65rem;
+  height: 0.1rem;
+  transform: translate(-50%, -80%);
+}
+
+.sigilCross {
+  width: 1.5rem;
+  height: 1.7rem;
+}
+
 .brandTitle {
   margin-top: 0.15rem;
   color: #f1d99c;
@@ -1385,5 +1444,52 @@
 
   .prayerActions .quietButton {
     grid-row: 2;
+  }
+}
+
+/* Dedicated app route: own the viewport and never inherit article scroll or site chrome. */
+.standalone {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: grid;
+  overflow-x: hidden;
+  overflow-y: auto;
+  place-items: start center;
+  background: #01060c;
+  overscroll-behavior: contain;
+  scroll-padding-top: env(safe-area-inset-top);
+}
+
+.standalone .shell {
+  width: min(100%, 27rem);
+  min-height: 100svh;
+  border-radius: 0;
+}
+
+.standalone .content {
+  min-height: 100svh;
+  padding-top: max(1.5rem, calc(env(safe-area-inset-top) + 0.75rem));
+  padding-bottom: max(1.7rem, calc(env(safe-area-inset-bottom) + 1rem));
+}
+
+:global(body):has(.standalone) {
+  overflow: hidden;
+  background: #01060c;
+}
+
+:global(body):has(.standalone) header,
+:global(body):has(.standalone) footer {
+  display: none;
+}
+
+@media (min-width: 520px) {
+  .standalone {
+    padding-block: 1rem;
+  }
+
+  .standalone .shell {
+    min-height: min(calc(100svh - 2rem), 52rem);
+    border-radius: 2.65rem;
   }
 }
