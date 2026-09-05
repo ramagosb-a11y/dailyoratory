@@ -19,7 +19,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="liturgical-footer-accent border-t border-stone bg-ivory">
+    <footer className="site-footer liturgical-footer-accent border-t border-stone bg-ivory">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-5 py-10 sm:px-8 lg:grid-cols-[1fr_1.6fr] lg:px-10">
         <div>
           <p className="font-display text-3xl font-semibold text-navy">{brand.platformName}</p>

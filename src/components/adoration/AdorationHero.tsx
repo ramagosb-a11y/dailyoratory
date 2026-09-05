@@ -20,11 +20,31 @@ export function AdorationHero() {
         <Link href="/adoration/holy-hour" className="btn btn-secondary focus-ring justify-center">How to Make a Holy Hour</Link>
         <Link
           href="/adoration/companion"
-          className="btn btn-secondary focus-ring justify-center"
+          className="btn btn-gold focus-ring justify-center rounded-full border-2 border-gold bg-navy px-5 text-gold shadow-lg shadow-black/20 hover:bg-navy-soft"
         >
-          Adoration Companion
+          <MonstranceIcon />
+          Eucharistic Adoration Guide
         </Link>
       </div>
     </section>
+  );
+}
+
+function MonstranceIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-5 w-5 shrink-0"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 3v2.25M9.75 5.25h4.5M12 5.25v2.1" />
+      <circle cx="12" cy="11" r="4.1" />
+      <path d="M12 6.9v8.2M7.9 11h8.2M8.3 8.1l7.4 5.8M15.7 8.1l-7.4 5.8M12 15.1v3.1M9.5 18.2h5M8.25 20.3h7.5" />
+    </svg>
   );
 }

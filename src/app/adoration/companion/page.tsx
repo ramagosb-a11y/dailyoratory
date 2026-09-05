@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { AdorationCompanion } from "@/components/adoration/companion/AdorationCompanion";
-import { Breadcrumbs } from "@/components/breadcrumbs";
 import { StructuredDataScript } from "@/components/seo/StructuredDataScript";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structuredData";
@@ -24,7 +23,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function AdorationCompanionPage() {
   return (
-    <div className="paper-texture">
+    <div className="paper-texture companion-page">
       <StructuredDataScript
         data={[
           buildWebPageStructuredData({
@@ -38,9 +37,6 @@ export default function AdorationCompanionPage() {
           ]),
         ]}
       />
-      <div className="mx-auto w-full max-w-7xl px-5 pt-6 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Adoration", href: "/adoration" }, { label: "Adoration Companion" }]} />
-      </div>
       <AdorationCompanion />
     </div>
   );

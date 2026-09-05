@@ -1,6 +1,8 @@
 "use client";
 
 import { useCallback, useMemo, useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import {
   catechismGuides,
   companionNavigation,
@@ -12,7 +14,7 @@ import {
   type CompanionSection,
   type MeditationPart,
 } from "@/data/adorationCompanion";
-import { formatHolyHourGuideForCopy, getHolyHourGuide } from "@/lib/adoration";
+import { getHolyHourGuide } from "@/lib/adoration";
 import type { HolyHourGuideBlock } from "@/types/adoration";
 import styles from "./AdorationCompanion.module.css";
 
@@ -149,14 +151,24 @@ export function AdorationCompanion() {
         <span className={styles.version}>Adoration Companion v1.0.2</span>
       </header>
 
-      <nav className={styles.rhythm} aria-label="Daily prayer rhythm">
-        <a href="/morning-prayer">Morning Prayer</a>
-        <a href="/adoration/companion" aria-current="page">Adoration</a>
-        <a href="/night-prayer">Night Prayer</a>
+      <nav className={styles.focusNav} aria-label="Primary adoration practices">
+        {companionNavigation.filter((item) => item.id === "meditation" || item.id === "silence").map((item) => (
+          <button
+            key={item.id}
+            type="button"
+            onClick={() => chooseSection(item.id)}
+            aria-current={section === item.id ? "page" : undefined}
+            className={section === item.id ? styles.modeActive : undefined}
+          >
+            <span aria-hidden="true">{item.icon}</span>
+            <span className={styles.longLabel}>{item.label}</span>
+            <span className={styles.shortLabel}>{item.shortLabel}</span>
+          </button>
+        ))}
       </nav>
 
-      <nav className={styles.modeNav} aria-label="Adoration Companion sections">
-        {companionNavigation.map((item) => (
+      <nav className={styles.modeNav} aria-label="Additional Adoration Companion sections">
+        {companionNavigation.filter((item) => item.id !== "meditation" && item.id !== "silence").map((item) => (
           <button
             key={item.id}
             type="button"
@@ -341,6 +353,21 @@ function MeditationPartCard({
 }) {
   return (
     <article className={styles.featureCard}>
+      <div className={styles.meditationVisual}>
+        <Image
+          src="/images/adoration/monstrance-adoration-night.png"
+          alt="A golden monstrance holding the Eucharist in quiet nighttime adoration"
+          fill
+          sizes="(max-width: 760px) 100vw, 760px"
+          className={styles.meditationVisualImage}
+        />
+        <div className={styles.meditationVisualShade} aria-hidden="true" />
+        <div className={styles.meditationVisualCopy}>
+          <p className={styles.visualKicker}>Part {partNumber} of {meditationParts.length}</p>
+          <h3>Remain with Jesus</h3>
+          <p>Let His peace settle in your heart as you prepare to rest.</p>
+        </div>
+      </div>
       <header className={styles.cardHeader}>
         <div>
           <p className={styles.eyebrow}>Part {partNumber} of {meditationParts.length}</p>
@@ -525,39 +552,17 @@ function PrayerView({
 
 function HolyHourView() {
   const segments = getHolyHourGuide();
-  const [copied, setCopied] = useState(false);
-
-  async function copyGuide() {
-    try {
-      await navigator.clipboard.writeText(formatHolyHourGuideForCopy());
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
-    } catch {
-      setCopied(false);
-    }
-  }
 
   return (
-    <div>
+    <div className={styles.holyHourView}>
       <section className={styles.hero}>
         <p className={styles.eyebrow}>Eucharistic Adoration</p>
         <h2>A Simple Holy Hour Guide</h2>
         <p>A peaceful structure for spending one hour with Jesus through adoration, thanksgiving, mercy, Scripture, intercession, and surrender.</p>
       </section>
-      <section className={styles.holyHourGrid} aria-label="Holy Hour outline">
-        {segments.map((segment, index) => (
-          <article key={segment.id}>
-            <span>{index + 1}</span>
-            <p className={styles.eyebrow}>{segment.startMinute}-{segment.endMinute} minutes</p>
-            <h3>{segment.title}</h3>
-            <p>{segment.description}</p>
-            <blockquote>“{segment.prayerPrompt}”</blockquote>
-          </article>
-        ))}
-      </section>
       <div className={styles.holyHourDetails}>
-        {segments.map((segment, index) => (
-          <details key={`${segment.id}-details`} open={index === 0}>
+        {segments.map((segment) => (
+          <details key={`${segment.id}-details`} open>
             <summary><span>{segment.startMinute}-{segment.endMinute} minutes</span><strong>{segment.title}</strong><em>View prayer details</em></summary>
             <div>
               {segment.sourceNote ? <p className={styles.quietNote}>{segment.sourceNote}</p> : null}
@@ -568,8 +573,7 @@ function HolyHourView() {
         ))}
       </div>
       <div className={styles.holyHourActions}>
-        <button type="button" className={styles.goldButton} onClick={copyGuide}>{copied ? "Holy Hour copied" : "Copy Holy Hour Guide"}</button>
-        <button type="button" onClick={() => window.print()}>Print Holy Hour Guide</button>
+        <Link href="/" className={styles.goldButton}>Return to Homepage</Link>
       </div>
     </div>
   );

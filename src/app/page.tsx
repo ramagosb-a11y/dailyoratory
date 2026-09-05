@@ -99,13 +99,13 @@ export default function Home() {
       <HomeExaminationSpotlight />
       <GrowInFaithSection />
       <HomeHeavenboundSpotlight />
-      <FooterCta />
       <HomeRosaryCta />
       <section aria-label="Explore contemplative litanies" className="bg-[#FFFDF7] px-0 pb-16 pt-2 sm:pb-20 sm:pt-4">
         <div className="mx-auto w-full max-w-7xl px-0 sm:px-5 lg:px-10">
           <LitanyPrayerShelf litanies={contemplativeLitanyShelf} />
         </div>
       </section>
+      <FooterCta />
       <FindMassSection />
     </div>
   );

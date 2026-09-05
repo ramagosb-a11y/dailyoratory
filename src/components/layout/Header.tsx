@@ -97,7 +97,7 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b border-stone bg-ivory/95 backdrop-blur">
+      <header className="site-header sticky top-0 z-40 border-b border-stone bg-ivory/95 backdrop-blur">
         <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
         <Logo onNavigate={() => closeMenu()} />
         <nav aria-label="Primary navigation" className="hidden items-center gap-0.5 lg:flex">

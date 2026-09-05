@@ -59,7 +59,7 @@ export const companionNavigation: Array<{
   shortLabel: string;
   icon: string;
 }> = [
-  { id: "meditation", label: "Blessed Sacrament Meditation", shortLabel: "Meditation", icon: "✦" },
+  { id: "meditation", label: "Meditation", shortLabel: "Meditation", icon: "✦" },
   { id: "scripture", label: "Guided Scripture", shortLabel: "Scripture", icon: "▤" },
   { id: "prayers", label: "Prayers & Hymns", shortLabel: "Prayers", icon: "♩" },
   { id: "silence", label: "Holy Hour Guide", shortLabel: "Holy Hour", icon: "✦" },
