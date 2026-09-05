@@ -198,15 +198,66 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
         </nav>
 
         <section ref={prayerPlayerRef} id="prayer-player" className={`${styles.panel} ${styles.prayerPlayer}`}>
-          <div className={styles.playerHeading}><div><p>Prayer {stepIndex + 1} of {sequence.length}</p><h2>{step.title}</h2>{step.latinTitle ? <em>{step.latinTitle}</em> : null}</div><div className={styles.playerSettings}><button type="button" aria-pressed={largeText} className={largeText ? styles.activeSetting : ""} onClick={() => setLargeText((value) => !value)}>T&nbsp; Text: {largeText ? "Large" : "Standard"}</button><button type="button" onClick={() => setLanguage((value) => value === "english" ? "latin" : "english")}>{language === "english" ? "English" : "Latin"}</button></div></div>
+          <header className={styles.meditationHeader}>
+            <div>
+              <p>{group.title} · Prayer {stepIndex + 1} of {sequence.length}</p>
+              <h2>{mystery.title}</h2>
+              <em>{mystery.mysteryLabel}</em>
+            </div>
+            <div className={styles.playerSettings}>
+              <button type="button" aria-pressed={largeText} className={largeText ? styles.activeSetting : ""} onClick={() => setLargeText((value) => !value)}>
+                {largeText ? "Large text" : "Standard text"}
+              </button>
+              <button type="button" onClick={() => setLanguage((value) => value === "english" ? "latin" : "english")}>
+                {language === "english" ? "English" : "Latin"}
+              </button>
+            </div>
+          </header>
+
+          <div className={styles.simpleProgress} role="progressbar" aria-label="Rosary prayer progress" aria-valuemin={1} aria-valuemax={sequence.length} aria-valuenow={stepIndex + 1}>
+            <span style={{ width: `${((stepIndex + 1) / sequence.length) * 100}%` }} />
+          </div>
+
           <div className={styles.playerBody}>
             <div className={styles.prayerArt}>
-              <button type="button" className={styles.focalArt} onClick={() => setGalleryOpen(true)} aria-label={`Open ${currentViewpoint.title} in the full-screen gallery`}><Image src={currentViewpoint.src} alt={`${mystery.title}: ${currentViewpoint.title}`} fill sizes="(max-width: 900px) 100vw, 900px" /><span>Currently viewing<strong>{currentViewpoint.title}</strong></span><b>⛶</b></button>
-              <div className={styles.artworkMeta}><div><span>Sacred perspective</span><strong>{mystery.title}</strong></div><div className={styles.viewpointPicker} role="group" aria-label={`Choose a viewpoint for ${mystery.title}`}><span>Viewpoint</span>{mysteryViewpoints.map((item, index) => <button key={item.id} type="button" className={item.id === currentViewpoint.id ? styles.activeViewpointChoice : ""} aria-label={`Viewpoint ${index + 1}: ${item.title}`} aria-pressed={item.id === currentViewpoint.id} title={item.title} onClick={() => setViewpointId(item.id)}>{index + 1}</button>)}</div></div>
+              <button type="button" className={styles.focalArt} onClick={() => setGalleryOpen(true)} aria-label={`Open ${currentViewpoint.title} in the full-screen gallery`}>
+                <Image src={currentViewpoint.src} alt={`${mystery.title}: ${currentViewpoint.title}`} fill sizes="(max-width: 900px) 100vw, 900px" />
+                <span>Currently viewing<strong>{currentViewpoint.title}</strong></span>
+                <b aria-hidden="true">⛶</b>
+              </button>
+              <div className={styles.namedViewpoints} role="group" aria-label={`Choose a viewpoint for ${mystery.title}`}>
+                {mysteryViewpoints.map((item, index) => (
+                  <button key={item.id} type="button" className={item.id === currentViewpoint.id ? styles.activeNamedViewpoint : ""} aria-label={`Viewpoint ${index + 1}: ${item.title}`} aria-pressed={item.id === currentViewpoint.id} onClick={() => setViewpointId(item.id)}>
+                    <span>{index + 1}</span>
+                    <strong>{item.title}</strong>
+                  </button>
+                ))}
+              </div>
             </div>
-            <article className={`${styles.prayerText} ${largeText ? styles.largePrayerText : ""}`}><header><strong>{step.title.replace(/^.*: /, "")}</strong><span>{language.toUpperCase()}</span></header><blockquote>{language === "latin" && latinText ? latinText : step.body}</blockquote><p>✦ {step.note}</p></article>
+
+            <article className={`${styles.prayerText} ${largeText ? styles.largePrayerText : ""}`}>
+              <header>
+                <div>
+                  <span>Prayer {stepIndex + 1} of {sequence.length}</span>
+                  <strong>{step.title.replace(/^.*: /, "")}</strong>
+                  {step.latinTitle ? <em>{step.latinTitle}</em> : null}
+                </div>
+                <span>{language.toUpperCase()}</span>
+              </header>
+              <blockquote>{language === "latin" && latinText ? latinText : step.body}</blockquote>
+              <p>✦ {step.note}</p>
+              <nav className={styles.playerControls} aria-label="Prayer navigation">
+                <button type="button" className={styles.previousPrayer} onClick={() => goToStep(stepIndex - 1)} disabled={stepIndex === 0}>
+                  <svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>
+                  Back
+                </button>
+                <button type="button" className={styles.continuePrayer} onClick={() => goToStep(stepIndex + 1)} disabled={stepIndex === sequence.length - 1}>
+                  Continue
+                  <svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>
+                </button>
+              </nav>
+            </article>
           </div>
-          <div className={styles.playerControls}><button type="button" className={styles.navButton} aria-label="Previous prayer" title="Previous prayer" onClick={() => goToStep(stepIndex - 1)} disabled={stepIndex === 0}><svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg></button><span className={styles.prayerProgress}>Prayer {stepIndex + 1} of {sequence.length}</span><button type="button" className={styles.navButton} aria-label="Next prayer" title="Next prayer" onClick={() => goToStep(stepIndex + 1)} disabled={stepIndex === sequence.length - 1}><svg className={styles.navIcon} viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg></button></div>
         </section>
 
         <section id="seven-senses" className={`${styles.panel} ${styles.senses}`}>
