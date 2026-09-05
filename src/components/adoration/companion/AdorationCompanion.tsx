@@ -58,6 +58,9 @@ export function AdorationCompanion() {
   const [cccQuery, setCccQuery] = useState("");
 
   useEffect(() => {
+    if (new URLSearchParams(window.location.search).get("mode") === "holy-hour") {
+      window.requestAnimationFrame(() => setSection("silence"));
+    }
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
 
