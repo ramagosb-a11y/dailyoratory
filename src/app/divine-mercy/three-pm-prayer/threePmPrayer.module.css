@@ -10,3 +10,8 @@
 .rule { display:flex; align-items:center; gap:.7rem; margin:1.8rem 0; color:#b78127; }.rule::before,.rule::after { content:""; flex:1; height:1px; background:linear-gradient(90deg,transparent,#cfaa69); }.rule::after { transform:scaleX(-1); }
 .prayer { max-width:42rem; margin:0 auto; font-family:var(--font-heading),Georgia,serif; font-size:clamp(1.2rem,2.4vw,1.55rem); line-height:1.65; text-align:center; }.prayer p { margin:1.2rem 0; }.prayer .opening,.prayer .closing { color:#6e1c24; font-size:.92em; }.trust { color:#7a2533; font-size:1.12em; line-height:1.75; }.footer { display:flex; justify-content:space-between; gap:1rem; margin-top:2rem; padding-top:1rem; border-top:1px solid #cfaa69; color:#6b6255; font-size:.75rem; }.footer a { color:#741d24; font-weight:700; text-decoration:none; }
 @media (max-width:860px) { .prayerLayout { grid-template-columns:1fr; }.imagePanel { min-height:22rem; }.panelImage { object-position:62% 40%; }.prayerCard { padding:1.6rem 1rem; }.background { object-position:65% center; }.backdrop { background:linear-gradient(180deg,rgba(3,14,27,.18),rgba(3,14,27,.8) 45%,rgba(3,14,27,.95)); }.content { width:calc(100% - 1rem); padding:1rem 0; }.header h1 { font-size:clamp(2.45rem,13vw,3.6rem); }.prayer { font-size:1.2rem; }.footer { flex-direction:column; } }
+
+.cssCross { position:relative; display:inline-block; width:1rem; height:1.35rem; color:#b78127; }
+.cssCross::before,.cssCross::after { content:""; position:absolute; left:50%; top:50%; background:currentColor; transform:translate(-50%,-50%); }
+.cssCross::before { width:1px; height:100%; }
+.cssCross::after { width:100%; height:1px; top:42%; }

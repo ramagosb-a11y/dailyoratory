@@ -32,7 +32,7 @@ export default function ThreePmPrayerPage() {
       />
       <div className={styles.backdrop} />
       <section className={styles.content}>
-        <Link href="/divine-mercy/chaplet" className={styles.backLink}>← Return to the Chaplet</Link>
+        <Link href="/divine-mercy/chaplet" className={styles.backLink}>Return to the Chaplet</Link>
         <div className={styles.prayerLayout}>
           <aside className={styles.imagePanel} aria-label="The Hour of Great Mercy devotional image">
             <Image
@@ -44,20 +44,19 @@ export default function ThreePmPrayerPage() {
             />
             <div className={styles.imageVeil} />
             <div className={styles.imageCaption}>
-              <span aria-hidden="true">✝</span>
               <p>At three o’clock, pause with the Passion of Christ.</p>
               <small>The Hour of Great Mercy</small>
             </div>
           </aside>
           <article className={styles.prayerCard}>
           <header className={styles.header}>
-            <div className={styles.emblem} aria-hidden="true"><span>✝</span><i /><b /></div>
+            <div className={styles.emblem} aria-hidden="true"><span className={styles.cssCross} /><i /><b /></div>
             <p className={styles.eyebrow}>Divine Mercy devotion</p>
             <h1>3 PM <span>—</span> The Hour of Great Mercy</h1>
             <p>Pause with the Passion and death of Jesus Christ.</p>
           </header>
 
-          <div className={styles.rule}><span>✦</span></div>
+          <div className={styles.rule} />
           <div className={styles.prayer}>
             <p className={styles.opening}><strong>In the name of the Father, and of the Son, and of the Holy Ghost. Amen.</strong></p>
             {prayerParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -68,7 +67,7 @@ export default function ThreePmPrayerPage() {
           </div>
           <footer className={styles.footer}>
             <span>Pray slowly and with trust.</span>
-            <Link href="/divine-mercy/chaplet">Pray the Divine Mercy Chaplet →</Link>
+            <Link href="/divine-mercy/chaplet">Pray the Divine Mercy Chaplet</Link>
           </footer>
           </article>
         </div>

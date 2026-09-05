@@ -222,7 +222,7 @@ export function DivineMercyChaplet() {
               ) : null}
 
               <div className={styles.prayerText}>
-                <span aria-hidden="true">✝</span>
+                <span aria-hidden="true" className={styles.cssCross} />
                 <p>{currentStep.text}</p>
                 {currentStep.repeat ? <small>Prayer {currentStep.repeat.current} of {currentStep.repeat.total}</small> : null}
               </div>
@@ -292,18 +292,18 @@ function StartScreen({
         <aside className={styles.startArt} aria-label="Divine Mercy devotional image">
           <Image src="/images/divine-mercy/chaplet-immersive-v1.0.2.png" alt="Jesus of Divine Mercy in a sunlit chapel" fill sizes="(min-width: 860px) 44vw, 100vw" className={styles.imageCover} priority />
           <div className={styles.startArtVeil} />
-          <div className={styles.startArtPrayer}><span aria-hidden="true">✦</span><p>Jesus, I trust in You.</p><small>For the whole world</small></div>
+          <div className={styles.startArtPrayer}><p>Jesus, I trust in You.</p><small>For the whole world</small></div>
         </aside>
         <div className={styles.startPaper}>
-          <div className={styles.mercyEmblem} aria-hidden="true"><span>✝</span><i /><b /></div>
+          <div className={styles.mercyEmblem} aria-hidden="true"><span className={styles.cssCross} /><i /><b /></div>
           <div className={styles.startTitle}>
             <p className={styles.eyebrow}>Enter in peace</p>
             <h1>Divine Mercy<br />Chaplet</h1>
             <p>Bring your intention to the merciful Heart of Jesus.</p>
           </div>
-          <div className={styles.startRule} aria-hidden="true"><span>✦</span></div>
+          <div className={styles.startRule} aria-hidden="true" />
           <button type="button" className={styles.intentionCard} onClick={onOpenIntention}>
-            <span aria-hidden="true">♡</span><span><strong>{intention ? "Private intention set" : "Pray for an intention"}</strong><small>{intention || "Optional · kept only in this prayer session"}</small></span><b>{intention ? "Edit" : "Add +"}</b>
+            <span className={styles.intentionMark} aria-hidden="true" /><span><strong>{intention ? "Private intention set" : "Pray for an intention"}</strong><small>{intention || "Optional · kept only in this prayer session"}</small></span><b>{intention ? "Edit" : "Add +"}</b>
           </button>
           {savedProgress ? (
             <div className={styles.resumeCard}>
@@ -311,15 +311,15 @@ function StartScreen({
               <button type="button" onClick={onReset}>Reset</button><button type="button" onClick={onResume}>Resume</button>
             </div>
           ) : null}
-          <button type="button" className={styles.beginButton} onClick={onBegin}><span aria-hidden="true">▶</span><strong>Begin Chaplet</strong><small>Manual mode · tap Next when ready</small></button>
+          <button type="button" className={styles.beginButton} onClick={onBegin}><strong>Begin Chaplet</strong><small>Manual mode · tap Next when ready</small></button>
           <div className={styles.prayerJourney} aria-label="The Chaplet prayer journey">
             <span className={styles.journeyLine} aria-hidden="true" />
-            <div><b>✝</b><small>Opening</small></div><div><b>1</b><small>First</small></div><div><b>2</b><small>Second</small></div><div><b>3</b><small>Third</small></div><div><b>✦</b><small>Mercy</small></div>
+            <div><b>1</b><small>Opening</small></div><div><b>2</b><small>First</small></div><div><b>3</b><small>Second</small></div><div><b>4</b><small>Third</small></div><div><b>5</b><small>Mercy</small></div>
           </div>
           <div className={styles.startOptions}>
-            <button type="button" onClick={onSilence}><span aria-hidden="true">☾</span>Silent prayer</button>
-            <button type="button" onClick={onBeginAuto}><span aria-hidden="true">▷</span>Auto-advance</button>
-            <button type="button" onClick={onFullscreen}><span aria-hidden="true">↗</span>{fullscreen ? "Exit full" : "Fullscreen"}</button>
+            <button type="button" onClick={onSilence}>Silent prayer</button>
+            <button type="button" onClick={onBeginAuto}>Auto-advance</button>
+            <button type="button" onClick={onFullscreen}>{fullscreen ? "Exit full" : "Fullscreen"}</button>
           </div>
           <div className={styles.textSizeStart} role="group" aria-label="Prayer text size">{textScaleOptions.map((option) => <button type="button" key={option.value} aria-pressed={textScale === option.value} onClick={() => onTextScaleChange(option.value)}>{option.label}</button>)}</div>
           <footer className={styles.startFooter}><p>“For the sake of His sorrowful Passion, have mercy on us and on the whole world.”</p><span>Daily Oratory · Version 1.0.2</span></footer>
@@ -332,7 +332,7 @@ function StartScreen({
 function CompanionHeader({ onPath, onSettings }: { onPath?: () => void; onSettings?: () => void }) {
   return (
     <header className={styles.masthead}>
-      <Link href="/divine-mercy" className={styles.brand}><span aria-hidden="true" className={styles.brandMark}>✝</span><span><strong>Daily Oratory</strong><small>Divine Mercy Chaplet</small></span></Link>
+      <Link href="/divine-mercy" className={styles.brand}><span aria-hidden="true" className={`${styles.brandMark} ${styles.cssCross}`} /><span><strong>Daily Oratory</strong><small>Divine Mercy Chaplet</small></span></Link>
       <div className={styles.headerActions}>
         <Link href="/divine-mercy/three-pm-prayer" className={styles.mercyHourButton}>3 PM Prayer</Link>
         {onPath ? <button type="button" onClick={onPath}>Prayer path</button> : null}
@@ -368,7 +368,7 @@ function BeadProgress({ decade, bead, onSelect }: { decade: number; bead: number
     <div className={styles.beadProgress} role="group" aria-label={`Decade ${decade} beads`}>
       {Array.from({ length: 11 }, (_, index) => {
         const target = DIVINE_MERCY_CHAPLET_STEPS.findIndex((step) => step.decade === decade && step.bead === index);
-        return <button type="button" key={index} aria-label={index === 0 ? "Large bead" : `Bead ${index}`} aria-current={bead === index ? "step" : undefined} onClick={() => onSelect(target)}>{index === 0 ? "✦" : index}</button>;
+        return <button type="button" key={index} aria-label={index === 0 ? "Large bead" : `Bead ${index}`} aria-current={bead === index ? "step" : undefined} onClick={() => onSelect(target)}>{index + 1}</button>;
       })}
     </div>
   );
@@ -382,8 +382,8 @@ function PrayerControls({ stepIndex, stepCount, autoAdvance, autoProgress, speed
     <footer className={styles.controls}>
       <div className={styles.autoStatus}>{autoAdvance ? <><span>Auto-advance active · {speed}×</span><div><i style={{ width: `${autoProgress}%` }} /></div></> : <span>Manual mode · continue when ready</span>}</div>
       <div className={styles.primaryControls}>
-        <button type="button" onClick={onPrevious} disabled={stepIndex === 0} aria-label="Previous prayer">←</button>
-        <button type="button" className={styles.nextButton} onClick={onNext}>{stepIndex === stepCount - 1 ? "Complete Chaplet" : "Next Prayer"}<span aria-hidden="true">→</span></button>
+        <button type="button" onClick={onPrevious} disabled={stepIndex === 0} aria-label="Previous prayer">Back</button>
+        <button type="button" className={styles.nextButton} onClick={onNext}>{stepIndex === stepCount - 1 ? "Complete Chaplet" : "Next Prayer"}</button>
         <button type="button" aria-pressed={autoAdvance} onClick={onToggleAuto}>{autoAdvance ? "Pause" : "Auto"}</button>
       </div>
       <div className={styles.utilityControls}>
@@ -407,7 +407,7 @@ function CompletionScreen({ intention, onSilence, onAgain }: { intention: string
 }
 
 function SilentPrayerScreen({ intention, onExit }: { intention: string; onExit: () => void }) {
-  return <main className={styles.silence}><span aria-hidden="true">✝</span><p className={styles.eyebrow}>Silent prayer</p><h1>Be still before the mercy of Jesus.</h1>{intention ? <p>Hold this intention quietly: <strong>{intention}</strong></p> : <p>Rest in trust. No words are required.</p>}<button type="button" onClick={onExit}>Return to Chaplet menu</button></main>;
+  return <main className={styles.silence}><span aria-hidden="true" className={styles.cssCross} /><p className={styles.eyebrow}>Silent prayer</p><h1>Be still before the mercy of Jesus.</h1>{intention ? <p>Hold this intention quietly: <strong>{intention}</strong></p> : <p>Rest in trust. No words are required.</p>}<button type="button" onClick={onExit}>Return to Chaplet menu</button></main>;
 }
 
 function IntentionDialog({ value, onSave, onClose }: { value: string; onSave: (value: string) => void; onClose: () => void }) {

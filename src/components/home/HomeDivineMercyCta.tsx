@@ -21,10 +21,7 @@ export function HomeDivineMercyCta() {
           <p className="mt-4 max-w-xl text-sm leading-7 text-parchment sm:text-base">
             A quiet place to pray with the Divine Mercy image, reflect on Christ’s love, and entrust your life to His mercy.
           </p>
-          <div className="mt-6 grid max-w-xl gap-3 sm:grid-cols-2">
-            <Link href="/divine-mercy" className="btn btn-gold focus-ring justify-center text-center">
-              Divine Mercy Meditation
-            </Link>
+          <div className="mt-6 max-w-xl">
             <Link href="/divine-mercy/chaplet" className="btn btn-outline-inverse focus-ring justify-center text-center">
               Divine Mercy Chaplet
             </Link>
