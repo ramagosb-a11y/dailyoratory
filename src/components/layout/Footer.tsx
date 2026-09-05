@@ -8,7 +8,13 @@ import { footerNavigationGroups } from "@/config/navigation";
 export function Footer() {
   const pathname = usePathname();
 
-  if (pathname === "/divine-mercy/chaplet" || pathname === "/prayers/litany-of-saint-darby" || pathname === "/morning-prayer" || pathname === "/night-prayer") {
+  if (
+    pathname === "/divine-mercy/chaplet" ||
+    pathname === "/prayers/litany-of-saint-darby" ||
+    pathname === "/morning-prayer" ||
+    pathname === "/night-prayer" ||
+    pathname === "/rosary/visual-meditation"
+  ) {
     return null;
   }
 

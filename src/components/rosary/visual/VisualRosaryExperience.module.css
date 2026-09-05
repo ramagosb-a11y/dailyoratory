@@ -401,7 +401,7 @@
   .meditationHeader .playerSettings{display:grid;grid-template-columns:1fr 1fr;width:100%}
   .simpleProgress{margin:0 18px}
   .prayerPlayer .playerBody{padding:18px 0 0}
-  .prayerPlayer .focalArt{aspect-ratio:4/5;border-left:0;border-radius:0;border-right:0}
+  .prayerPlayer .focalArt{aspect-ratio:16/9;border-left:0;border-radius:0;border-right:0}
   .prayerPlayer .focalArt img{object-position:center}
   .prayerPlayer .focalArt>span{bottom:42px;left:20px;right:74px}
   .prayerPlayer .focalArt>b{right:14px;top:14px}
@@ -411,4 +411,152 @@
   .prayerPlayer .prayerText>header{align-items:flex-start}
   .prayerText .playerControls{bottom:0;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);margin:24px 0 0;position:sticky;z-index:8}
   .prayerText .playerControls button{padding-left:14px;padding-right:14px}
+}
+
+/* Carry the navy prayer palette through every supporting Rosary module. */
+.experience .heroActions button,
+.experience .sectionHeading>button,
+.experience .playerSettings button,
+.experience .modeTabs a,
+.experience .senseTabs button,
+.experience .senseContent,
+.experience .senseContent>footer button,
+.experience .strand details,
+.experience .strand details button .beadFace{
+  background:#08182a;
+  border-color:rgba(214,170,84,.24);
+  color:#fffdf7;
+}
+
+.experience .heroActions button:hover,
+.experience .sectionHeading>button:hover,
+.experience .modeTabs a:hover,
+.experience .senseTabs button:hover,
+.experience .senseContent>footer button:hover{
+  background:#183555;
+  border-color:rgba(214,170,84,.56);
+}
+
+.experience .today{
+  background:linear-gradient(135deg,rgba(189,138,47,.2),rgba(122,37,51,.13));
+  border-color:rgba(214,170,84,.5);
+  color:#ead6a7;
+}
+
+.experience .choiceCard,
+.experience .mysteryCard{
+  background:linear-gradient(145deg,rgba(8,24,42,.98),rgba(13,32,56,.92));
+  border-color:rgba(214,170,84,.22);
+}
+
+.experience .selectedCard,
+.experience .selectedMystery{
+  background:linear-gradient(145deg,rgba(189,138,47,.24),rgba(13,32,56,.96));
+  border-color:#bd8a2f;
+  box-shadow:inset 0 0 0 1px rgba(234,214,167,.2),0 12px 32px rgba(5,11,20,.2);
+}
+
+.experience .modeTabs a:first-child{
+  background:linear-gradient(135deg,#d6aa54,#bd8a2f);
+  border-color:#ead6a7;
+  color:#071426;
+}
+
+.experience .scripture{
+  background:linear-gradient(145deg,#08182a,#0d2038);
+  border-color:rgba(214,170,84,.3);
+  color:#ead6a7;
+}
+
+.experience .senseTabs .activeSense{
+  background:linear-gradient(145deg,rgba(214,170,84,.24),rgba(122,37,51,.18));
+  border-color:#d6aa54;
+  color:#fff8e8;
+}
+
+.experience .senseContent{
+  background:
+    radial-gradient(circle at 100% 0,rgba(214,170,84,.08),transparent 20rem),
+    linear-gradient(145deg,#08182a,#071522);
+  border-color:rgba(214,170,84,.3);
+}
+
+.experience .senseContent aside{
+  background:linear-gradient(145deg,rgba(122,37,51,.25),rgba(189,138,47,.12));
+  border-color:rgba(214,170,84,.46);
+}
+
+.experience .strand details{
+  background:linear-gradient(145deg,rgba(8,24,42,.96),rgba(7,21,34,.96));
+}
+
+.experience .strand .activeStrand{
+  background:linear-gradient(145deg,rgba(189,138,47,.22),rgba(13,32,56,.96));
+  border-color:rgba(214,170,84,.7);
+}
+
+.experience .strand .completeBead .beadFace{
+  background:#183555;
+  border-color:rgba(214,170,84,.5);
+}
+
+.experience .strand .currentBead .beadFace{
+  background:#d6aa54;
+  border-color:#8a5e13;
+  color:#071426;
+}
+
+.prayerPlayer .focalArt{
+  background:
+    radial-gradient(circle at 50% 45%,rgba(214,170,84,.12),transparent 65%),
+    #050b14;
+}
+
+.prayerPlayer .focalArt img{
+  object-fit:contain;
+}
+
+.galleryModal{
+  background:#050b14;
+}
+
+.modalClose{
+  background:rgba(7,20,38,.76);
+  border-color:rgba(214,170,84,.45);
+}
+
+.galleryCaption{
+  background:linear-gradient(transparent,rgba(5,11,20,.98));
+}
+
+.galleryIndex,
+.galleryIndex>header{
+  background:rgba(7,20,38,.98);
+}
+
+.prayerBook{
+  background:#071426;
+  border-color:rgba(214,170,84,.42);
+}
+
+.prayerBook>header,
+.prayerBook>footer{
+  background:#08182a;
+  border-color:rgba(214,170,84,.24);
+}
+
+.prayerBook article{
+  background:linear-gradient(145deg,#fffdf7,#f3ead8);
+  border-color:#ead6a7;
+  color:#0d2038;
+}
+
+.prayerBook article h3{
+  border-color:#d8cdb9;
+  color:#7a2533;
+}
+
+.prayerBook article h3 em,
+.prayerBook article section strong{
+  color:#9a6a1b;
 }
