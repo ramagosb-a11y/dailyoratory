@@ -9,7 +9,14 @@ export function FooterCta() {
         alt="An open chapel leading toward the Eucharist in a monstrance"
         fill
         sizes="100vw"
-        className="object-cover object-center opacity-90"
+        className="hidden object-cover object-center opacity-90 sm:block"
+      />
+      <Image
+        src="/images/adoration/adoration-open-chapel-day-mobile.png"
+        alt="An open chapel leading toward the Eucharist in a monstrance"
+        fill
+        sizes="100vw"
+        className="object-cover object-center opacity-90 sm:hidden"
       />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(7,21,38,0.96)_0%,rgba(7,21,38,0.84)_42%,rgba(7,21,38,0.28)_100%)]" />
       <div className="relative mx-auto flex min-h-[18rem] w-full max-w-7xl items-center px-5 py-10 sm:min-h-[20rem] sm:px-8 lg:px-10">
