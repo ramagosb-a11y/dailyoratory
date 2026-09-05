@@ -1,203 +1,24 @@
-.shell {
-  --mercy-bg: #08090b;
-  --mercy-surface: #101114;
-  --mercy-surface-soft: rgba(255, 255, 255, 0.035);
-  --mercy-border: rgba(255, 255, 255, 0.1);
-  --mercy-text: #eee9de;
-  --mercy-muted: #aaa59b;
-  --mercy-gold: #d1a82f;
-  --mercy-gold-bright: #e1bd4e;
-  --mercy-button-text: #11100c;
-  min-height: 100dvh;
-  background:
-    linear-gradient(180deg, rgba(4, 5, 6, .82), rgba(4, 5, 6, .72)),
-    radial-gradient(circle at 50% 12%, rgba(180, 134, 30, 0.15), transparent 38%),
-    url("/images/divine-mercy/christ-rays-v1.0.1.png") center / cover fixed,
-    var(--mercy-bg);
-  color: var(--mercy-text);
-  font-family: var(--font-body), system-ui, sans-serif;
-}
+.shell { --ink:#102342; --ink-soft:#254160; --paper:#fffaf0; --line:#cfaa69; --gold:#b78127; --burgundy:#741d24; --muted:#6b6255; --font-display:var(--font-heading); --font-prayer:var(--font-heading); min-height:100dvh; color:var(--ink); background:radial-gradient(circle at 20% 0%,#fffdf7 0,transparent 36rem),#f5ead8; font-family:var(--font-body),Arial,sans-serif; }
+.shell::before { content:""; position:fixed; inset:0; pointer-events:none; opacity:.35; background-image:radial-gradient(rgba(73,51,22,.13) .5px,transparent .7px); background-size:5px 5px; mix-blend-mode:multiply; }
+.imageCover { object-fit:cover; }
+.masthead { position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; min-height:4.8rem; padding:.8rem clamp(1rem,4vw,3rem); border-bottom:1px solid var(--gold); background:#0b203a; color:#f9e9c6; }
+.brand { display:flex; align-items:center; gap:.7rem; color:inherit; text-decoration:none; }.brandMark { display:grid; place-items:center; width:2.35rem; height:2.35rem; border:1px solid var(--gold); border-radius:999px; color:#e5bd69; font-size:1.2rem; }.brand strong { display:block; font-family:var(--font-display),Georgia,serif; font-size:clamp(1.15rem,2.8vw,1.65rem); font-weight:500; }.brand small { display:block; margin-top:.05rem; color:#ddc080; font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; }.headerActions { display:flex; gap:.45rem; }.headerActions button { min-height:2.4rem; padding:.45rem .72rem; border:1px solid rgba(230,190,105,.7); border-radius:999px; background:transparent; color:#f8e7c5; font-size:.72rem; cursor:pointer; }
+.mercyHourButton { display:inline-flex; align-items:center; justify-content:center; min-height:2.4rem; padding:.45rem .78rem; border:1px solid #d7a34a; border-radius:999px; background:linear-gradient(135deg,#b67a20,#8d5517); color:#fff4d6; font-size:.72rem; font-weight:800; letter-spacing:.04em; text-decoration:none; box-shadow:0 .25rem .7rem rgba(0,0,0,.2); }.mercyHourButton::before { content:"✦"; margin-right:.35rem; color:#ffe9a7; }
+.eyebrow { margin:0; color:#8d621d; font-size:.68rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }.startScreen { min-height:100dvh; padding-bottom:2rem; }.startPaper { width:min(100% - 2rem,64rem); margin:clamp(1.5rem,5vw,4.5rem) auto 0; padding:clamp(1.5rem,5vw,4rem); border:1px solid var(--line); border-radius:2rem; background:linear-gradient(135deg,rgba(255,253,247,.98),rgba(247,233,203,.92)); box-shadow:0 1.4rem 3rem rgba(52,30,5,.16); text-align:center; }.mercyEmblem { display:flex; align-items:flex-start; justify-content:center; gap:.25rem; height:3.8rem; color:var(--gold); }.mercyEmblem span { font-size:1.8rem; line-height:1; }.mercyEmblem i,.mercyEmblem b { display:block; width:1px; height:3rem; transform-origin:top; }.mercyEmblem i { background:#a72b2b; transform:rotate(31deg); }.mercyEmblem b { background:#e6dfce; transform:rotate(-31deg); }.startTitle { margin:.4rem auto 1.5rem; max-width:43rem; }.startTitle h1,.prayerCard h1,.completion h1,.silence h1 { margin:.45rem 0; font-family:var(--font-display),Georgia,serif; font-weight:600; }.startTitle h1 { font-size:clamp(2.4rem,7vw,4.8rem); }.startTitle>p:last-child { margin:1rem auto 0; color:#986622; font-family:var(--font-prayer),Georgia,serif; font-size:clamp(1.1rem,2.6vw,1.55rem); }.mercyHourLive { width:min(100% - 2rem,64rem); margin:1rem auto 0; padding:.8rem 1rem; border:1px solid var(--line); border-radius:.8rem; background:#fff7e6; color:var(--ink); text-align:center; }.mercyHourLive span { margin-left:.5rem; color:var(--muted); font-size:.85rem; }
+.startScreen { position:relative; isolation:isolate; overflow:hidden; padding-bottom:clamp(1rem,4vw,3rem); background:#071525; }.startScreen::after { content:""; position:absolute; z-index:-1; inset:4.8rem 0 0; background:radial-gradient(circle at 68% 15%,rgba(220,170,76,.38),transparent 27rem),linear-gradient(110deg,#051324,#102948 48%,#211a17); }.startExperience { display:grid; grid-template-columns:minmax(20rem,.82fr) minmax(27rem,1.18fr); width:min(100% - 2rem,82rem); min-height:min(49rem,calc(100dvh - 8rem)); margin:clamp(1rem,3vw,3rem) auto 0; overflow:hidden; border:1px solid rgba(231,190,105,.82); border-radius:1.75rem; background:#f9edd5; box-shadow:0 2rem 5.5rem rgba(0,0,0,.42),inset 0 0 0 1px rgba(255,255,255,.38); }.startArt { position:relative; min-height:100%; overflow:hidden; background:#071525; }.startArt::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(3,15,29,.12),rgba(3,15,29,.66)),linear-gradient(0deg,rgba(3,13,26,.76),transparent 50%); }.startArtVeil { position:absolute; z-index:1; inset:0; background:radial-gradient(ellipse at 48% 35%,transparent 0,rgba(4,16,30,.08) 32%,rgba(3,12,25,.46) 100%); }.startArtPrayer { position:absolute; z-index:2; left:clamp(1.2rem,4vw,2.4rem); right:1rem; bottom:clamp(1.2rem,4vw,2.4rem); color:#f9df9d; }.startArtPrayer span { font-size:1.25rem; }.startArtPrayer p { margin:.4rem 0 .25rem; font-family:var(--font-prayer),Georgia,serif; font-size:clamp(1.45rem,3vw,2.05rem); font-style:italic; }.startArtPrayer small { color:#f4dbab; font-size:.68rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase; }.startExperience .startPaper { width:auto; min-height:100%; margin:0; padding:clamp(1.7rem,4vw,3.75rem); border:0; border-radius:0; background:linear-gradient(125deg,rgba(255,253,247,.99),rgba(247,232,202,.97)); box-shadow:none; }.startExperience .startPaper::before { content:""; position:absolute; inset:.7rem; pointer-events:none; border:1px solid rgba(184,128,39,.32); border-radius:1.25rem; }.startExperience .startPaper { position:relative; }.startExperience .startTitle { margin-bottom:1rem; }.startExperience .startTitle h1 { font-size:clamp(3rem,5vw,4.7rem); line-height:.98; letter-spacing:-.045em; }.startExperience .startTitle>p:last-child { max-width:29rem; }.startRule { display:flex; align-items:center; gap:.75rem; margin:1.4rem 0 1.1rem; color:var(--gold); }.startRule::before,.startRule::after { content:""; height:1px; flex:1; background:linear-gradient(90deg,transparent,var(--line)); }.startRule::after { transform:scaleX(-1); }.startRule span { font-size:.9rem; }.startExperience .intentionCard,.startExperience .resumeCard { width:100%; position:relative; margin:.75rem 0; border-radius:.75rem; background:rgba(255,253,247,.72); transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease; }.startExperience .intentionCard:hover { transform:translateY(-2px); border-color:var(--gold); box-shadow:0 .7rem 1.4rem rgba(114,70,14,.12); }.startExperience .beginButton { width:100%; position:relative; margin-top:1rem; min-height:4.7rem; border-radius:.7rem; }.prayerJourney { position:relative; display:flex; justify-content:space-between; gap:.25rem; margin:1.45rem auto 1rem; padding:0 .1rem; }.journeyLine { position:absolute; top:1.2rem; left:9%; right:9%; height:1px; background:var(--line); }.prayerJourney div { position:relative; z-index:1; display:grid; place-items:center; gap:.38rem; flex:1; color:var(--muted); }.prayerJourney b { display:grid; place-items:center; width:2.35rem; height:2.35rem; border:1px solid var(--line); border-radius:50%; background:#fffaf0; color:var(--gold); font-family:var(--font-display),Georgia,serif; }.prayerJourney div:first-of-type b { border-color:var(--gold); background:var(--gold); color:#fff8e9; }.prayerJourney small { font-size:.61rem; letter-spacing:.05em; }.startExperience .startOptions { width:100%; gap:.5rem; }.startExperience .startOptions button { min-height:4.2rem; border-radius:.6rem; transition:transform .18s ease,border-color .18s ease,background .18s ease; }.startExperience .startOptions button:hover { transform:translateY(-2px); border-color:var(--gold); background:#fffaf0; }.startExperience .startLinks { margin-top:.65rem; }.startExperience .textSizeStart { margin-top:.8rem; }.startExperience .startFooter { margin-top:.8rem; }
+.intentionCard,.resumeCard { width:min(100%,50rem); margin:1rem auto; padding:1rem; border:1px solid rgba(183,129,39,.7); border-radius:1rem; background:rgba(255,252,245,.7); color:var(--ink); text-align:left; cursor:pointer; }.intentionCard { display:flex; align-items:center; gap:.8rem; }.intentionCard>span:first-child { color:var(--burgundy); font-size:1.7rem; }.intentionCard span:nth-child(2) { flex:1; }.intentionCard strong,.resumeCard strong { display:block; font-family:var(--font-display),Georgia,serif; font-size:1.15rem; }.intentionCard small,.resumeCard small { color:var(--muted); }.intentionCard b { color:var(--burgundy); font-size:.75rem; }.resumeCard { display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:.7rem; }.resumeCard button { min-height:2.5rem; padding:.45rem .8rem; border:1px solid var(--line); border-radius:.5rem; background:#fffaf0; color:var(--ink); cursor:pointer; }.resumeCard button:last-child { border-color:var(--burgundy); background:var(--burgundy); color:#fff8e9; }
+.beginButton { display:grid; grid-template-columns:auto auto; justify-content:center; align-items:center; width:min(100%,38rem); min-height:4.5rem; margin:1.2rem auto 0; padding:.7rem 1rem; border:1px solid #571219; border-radius:.7rem; background:linear-gradient(135deg,#882a2c,#65151c); box-shadow:inset 0 0 0 2px rgba(255,230,174,.28),0 .5rem 1rem rgba(93,29,22,.2); color:#fff6e4; cursor:pointer; }.beginButton>span { grid-row:1 / 3; margin-right:.65rem; }.beginButton strong { font-family:var(--font-display),Georgia,serif; font-size:1.5rem; font-weight:500; }.beginButton small { color:#f7dcae; font-size:.7rem; }.startOptions { display:grid; grid-template-columns:repeat(3,1fr); gap:.65rem; width:min(100%,50rem); margin:1rem auto; }.startOptions button { min-height:4.8rem; padding:.6rem; border:1px solid var(--line); border-radius:.8rem; background:rgba(255,251,242,.65); color:var(--ink); font-family:var(--font-display),Georgia,serif; font-size:1rem; cursor:pointer; }.startOptions span { display:block; margin-bottom:.3rem; color:var(--gold); }.startLinks { display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem; margin-top:1rem; }.startLinks a { padding:.65rem .9rem; color:var(--ink-soft); font-size:.78rem; text-decoration:underline; text-underline-offset:.2rem; }.textSizeStart { display:flex; justify-content:center; gap:.3rem; margin-top:1.3rem; }.textSizeStart button,.textControls button { min-width:2.3rem; min-height:2.3rem; border:1px solid var(--line); border-radius:.45rem; background:#fffaf0; color:var(--ink); cursor:pointer; }.textSizeStart button[aria-pressed=true],.textControls button[aria-pressed=true] { background:var(--gold); color:#fff9e9; }.startFooter { margin-top:1.5rem; color:var(--muted); font-size:.72rem; }.startFooter p { max-width:34rem; margin:.4rem auto; font-family:var(--font-prayer),Georgia,serif; font-size:.92rem; font-style:italic; }
+.player { position:relative; isolation:isolate; display:grid; grid-template-rows:auto minmax(0,1fr) auto; min-height:100dvh; overflow:hidden; background:#071525; }.player::before { content:""; position:absolute; z-index:-2; inset:0; background:url("/images/divine-mercy/chaplet-immersive-v1.0.2.png") center/cover no-repeat; }.player::after { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(90deg,rgba(3,14,28,.88) 0%,rgba(7,19,35,.48) 35%,rgba(7,18,31,.12) 70%,rgba(3,13,25,.5)),linear-gradient(0deg,rgba(3,12,23,.6),transparent 35%); }.player .masthead { background:rgba(5,19,36,.9); backdrop-filter:blur(14px); }.prayerStage { display:grid; place-items:center; min-height:0; padding:clamp(1.2rem,4vw,3.75rem); }.prayerCard { width:min(100%,55rem); min-height:0; padding:clamp(1.5rem,4.5vw,4rem); border:1px solid rgba(229,193,122,.8); border-radius:1.35rem; background:linear-gradient(135deg,rgba(255,253,247,.95),rgba(245,228,193,.88)); box-shadow:0 1.5rem 5rem rgba(0,0,0,.44),inset 0 0 0 1px rgba(255,255,255,.7); }.prayerCardHeader { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; padding-bottom:1rem; border-bottom:1px solid var(--line); }.prayerCard h1 { font-size:clamp(2.1rem,4vw,3.55rem); outline:none; }.currentPrayerImage { position:relative; flex:0 0 6.2rem; aspect-ratio:2/2.7; overflow:hidden; border:1px solid var(--line); border-radius:.5rem; box-shadow:0 .45rem 1rem rgba(37,23,10,.2); }.instruction { margin:1rem 0 0; color:var(--muted); font-size:.83rem; text-align:center; }.beadProgress { display:flex; flex-wrap:wrap; justify-content:center; gap:.35rem; margin:1.25rem auto; }.beadProgress button { display:grid; place-items:center; width:2rem; height:2rem; padding:0; border:1px solid var(--line); border-radius:50%; background:#fffaf0; color:#8d6a38; font-size:.65rem; cursor:pointer; }.beadProgress button:first-child { width:2.35rem; height:2.35rem; }.beadProgress button[aria-current=step] { background:var(--gold); color:white; }.intentionBanner { display:flex; gap:.35rem; width:100%; margin:1rem 0; padding:.65rem .8rem; overflow:hidden; border:1px solid var(--line); border-radius:.5rem; background:#f8edda; color:var(--ink); text-align:left; cursor:pointer; }.intentionBanner strong { color:var(--burgundy); }.intentionBanner span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }.prayerText { display:grid; place-items:center; min-height:clamp(18rem,44vh,31rem); padding:2rem 0; text-align:center; }.prayerText>span { color:var(--gold); font-size:1.6rem; }.prayerText p { max-width:44rem; margin:1rem auto; font-family:var(--font-prayer),Georgia,serif; font-size:var(--prayer-size,1.75rem); line-height:1.62; }.prayerText small { color:var(--burgundy); font-size:.75rem; }.text-small { --prayer-size:1.35rem; }.text-standard { --prayer-size:1.75rem; }.text-large { --prayer-size:2.15rem; }.text-largest { --prayer-size:2.55rem; }.prayerCardFooter { display:flex; justify-content:space-between; gap:1rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--muted); font-size:.72rem; }.prayerCardFooter a { color:var(--burgundy); }
+.controls { position:sticky; bottom:0; z-index:4; padding:.55rem 1rem max(.75rem,env(safe-area-inset-bottom)); border-top:1px solid rgba(228,189,107,.5); background:rgba(5,18,34,.88); color:#f9e8c6; backdrop-filter:blur(16px); }.autoStatus { display:grid; place-items:center; min-height:1.3rem; color:#e4c993; font-size:.69rem; }.autoStatus>div { width:min(100%,38rem); height:.18rem; margin-top:.2rem; overflow:hidden; border-radius:999px; background:rgba(255,255,255,.18); }.autoStatus i { display:block; height:100%; background:var(--gold); }.primaryControls { display:flex; justify-content:center; gap:.6rem; }.primaryControls button { min-height:3.1rem; padding:.55rem .8rem; border:1px solid rgba(229,193,122,.72); border-radius:.5rem; background:rgba(255,250,240,.12); color:#fff6df; cursor:pointer; }.primaryControls button:disabled { opacity:.35; }.primaryControls .nextButton { min-width:min(58vw,19rem); border-color:#a84845; background:linear-gradient(135deg,#8e2d31,#68171c); color:#fff8e8; font-family:var(--font-display),Georgia,serif; font-size:1.2rem; }.utilityControls { display:flex; justify-content:space-between; width:min(100%,48rem); margin:.45rem auto 0; }.utilityControls>div { display:flex; gap:.35rem; }.utilityControls button { min-height:2.15rem; padding:.35rem .55rem; border:0; background:transparent; color:#f4ddaf; font-size:.67rem; cursor:pointer; }
+.completion,.silence { display:grid; place-items:center; align-content:center; min-height:100dvh; padding:2rem 1rem; text-align:center; }.completionImage { position:relative; width:min(50vw,15rem); aspect-ratio:2/2.7; overflow:hidden; border:1px solid var(--line); border-radius:.7rem; }.completion>p:not(.eyebrow),.silence>p:not(.eyebrow) { max-width:34rem; color:var(--muted); line-height:1.65; }.completedIntention { display:grid; gap:.35rem; width:min(100%,32rem); padding:1rem; border:1px solid var(--line); border-radius:.7rem; background:#fffaf0; }.completedIntention strong { color:var(--burgundy); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; }.completedIntention span { font-family:var(--font-prayer),Georgia,serif; font-size:1.2rem; }.completionActions { display:flex; flex-wrap:wrap; justify-content:center; gap:.55rem; }.completionActions button,.completionActions a,.silence button { min-height:2.8rem; padding:.6rem .9rem; border:1px solid var(--line); border-radius:.5rem; background:#fffaf0; color:var(--ink); text-decoration:none; cursor:pointer; }.completionActions button:first-child,.silence button { border-color:var(--burgundy); background:var(--burgundy); color:white; }
+.dialogBackdrop { position:fixed; inset:0; z-index:20; display:grid; place-items:center; padding:1rem; background:rgba(6,20,36,.65); backdrop-filter:blur(5px); }.dialog { position:relative; width:min(100%,35rem); padding:1.4rem; border:1px solid var(--line); border-radius:1rem; background:#fffaf0; color:var(--ink); box-shadow:0 1.5rem 4rem rgba(2,14,25,.35); }.dialog h2 { margin:0 2rem 1rem 0; font-family:var(--font-display),Georgia,serif; font-size:2rem; }.dialog p { color:var(--muted); line-height:1.6; }.dialogClose { position:absolute; top:.75rem; right:.75rem; display:grid; place-items:center; width:2.2rem; height:2.2rem; border:1px solid var(--line); border-radius:50%; background:transparent; cursor:pointer; }.dialog form { display:grid; gap:.7rem; }.dialog label { font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }.dialog label span,.dialog small { color:var(--muted); font-weight:400; }.dialog textarea { width:100%; padding:.85rem; border:1px solid var(--line); border-radius:.5rem; background:#fffdf6; color:var(--ink); font:1rem/1.5 var(--font-prayer),Georgia,serif; }.privacyNote { padding:.7rem; border:1px solid var(--line); border-radius:.5rem; background:#f8edda; font-size:.78rem; }.dialogActions { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:.5rem; }.dialogActions button,.settingsPanel>button { min-height:2.6rem; padding:.5rem .75rem; border:1px solid var(--line); border-radius:.5rem; background:#fffdf7; color:var(--ink); cursor:pointer; }.dialogActions button:last-child { background:var(--burgundy); border-color:var(--burgundy); color:white; }.pathIntro { font-size:.85rem; }.progressNav { display:grid; grid-template-columns:repeat(7,1fr); gap:.25rem; margin-top:1rem; }.progressNav button { min-height:2.6rem; border:1px solid var(--line); border-radius:.45rem; background:#fffdf7; color:var(--ink); cursor:pointer; }.progressNav button[aria-current=step] { background:var(--gold); color:white; }.settingsPanel { display:grid; gap:.6rem; }.settingsPanel>span { color:var(--muted); font-size:.76rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }.settingsPanel>button { text-align:left; }.textControls { display:flex; gap:.3rem; }
+@media (max-width:899px) { .player::before { background-position:58% center; }.player::after { background:linear-gradient(180deg,rgba(3,13,25,.18) 0%,rgba(3,13,25,.04) 28%,rgba(3,13,25,.76) 52%,rgba(3,13,25,.94) 100%); }.prayerStage { display:flex; align-items:flex-end; padding:clamp(7rem,28vh,15rem) .65rem 1rem; }.prayerCard { width:100%; min-height:0; border-radius:1.2rem; background:linear-gradient(135deg,rgba(255,253,247,.97),rgba(245,228,193,.94)); }.prayerText { min-height:clamp(16rem,40vh,27rem); }.prayerCardFooter { flex-direction:column; }.text-largest .prayerText p { font-size:2.1rem; } }
+@media (max-width:859px) { .startExperience { grid-template-columns:1fr; width:calc(100% - 1rem); margin-top:.6rem; border-radius:1.3rem; }.startArt { min-height:22rem; }.startArt .imageCover { object-position:55% 32%; }.startArt::after { background:linear-gradient(0deg,rgba(3,13,26,.8),transparent 65%); }.startArtPrayer { left:1.25rem; bottom:1.1rem; }.startExperience .startPaper { min-height:unset; padding:1.65rem 1rem 1.5rem; }.startExperience .startTitle h1 { font-size:clamp(2.8rem,13vw,4rem); }.startExperience .startPaper::before { inset:.45rem; border-radius:.9rem; }.startScreen::after { inset:4.2rem 0 0; } }
+@media (max-width:550px) { .masthead { min-height:4.2rem; padding:.65rem .8rem; }.brand small { display:none; }.brandMark { width:2rem; height:2rem; }.brand strong { font-size:1.08rem; }.headerActions { gap:.25rem; }.headerActions button { min-height:2.1rem; padding:.35rem .5rem; font-size:.65rem; }.startPaper { width:calc(100% - 1rem); margin-top:.8rem; padding:1.25rem .85rem; border-radius:1.25rem; }.mercyHourLive { width:calc(100% - 1rem); }.startOptions { gap:.35rem; }.startOptions button { min-height:4.25rem; font-size:.82rem; }.startLinks { display:grid; }.startLinks a { padding:.45rem; }.prayerCard { padding:1rem .9rem; }.prayerCardHeader { gap:.7rem; }.currentPrayerImage { flex-basis:4.1rem; }.prayerCard h1 { font-size:1.72rem; }.instruction { text-align:left; }.beadProgress { gap:.24rem; }.beadProgress button { width:1.65rem; height:1.65rem; }.beadProgress button:first-child { width:1.9rem; height:1.9rem; }.primaryControls { gap:.35rem; }.primaryControls button { min-width:2.75rem; padding:.5rem; }.primaryControls .nextButton { min-width:52vw; font-size:1rem; }.utilityControls button { padding:.25rem .35rem; font-size:.61rem; }.dialog { padding:1.15rem; }.progressNav { grid-template-columns:repeat(4,1fr); } }
+@media (prefers-reduced-motion:reduce) { .shell *,.shell *::before,.shell *::after { transition-duration:.01ms!important; animation-duration:.01ms!important; } }
 
-.daylight {
-  --mercy-bg: #f5f0e6;
-  --mercy-surface: #fffdf8;
-  --mercy-surface-soft: rgba(92, 67, 24, 0.05);
-  --mercy-border: rgba(74, 53, 20, 0.18);
-  --mercy-text: #1d2430;
-  --mercy-muted: #5e5b54;
-  --mercy-gold: #906b11;
-  --mercy-gold-bright: #ad821d;
-  --mercy-button-text: #fffdf8;
-  background:
-    linear-gradient(180deg, rgba(245, 240, 230, .88), rgba(245, 240, 230, .78)),
-    radial-gradient(circle at 50% 12%, rgba(189, 146, 48, 0.18), transparent 38%),
-    url("/images/divine-mercy/christ-rays-v1.0.1.png") center / cover fixed,
-    var(--mercy-bg);
-}
-
-.imageCover { object-fit: cover; object-position: center top; }
-
-.masthead {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  width: min(100%, 72rem);
-  margin: 0 auto;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--mercy-border);
-}
-
-.brand { display: inline-flex; align-items: center; gap: .7rem; color: inherit; text-decoration: none; }
-.brand > span:first-child { display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--mercy-border); border-radius: .65rem; color: var(--mercy-gold); }
-.brand > span:last-child { display: grid; }
-.brand strong { font-family: var(--font-display), Georgia, serif; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; }
-.brand small { color: var(--mercy-muted); font-size: .68rem; margin-top: .1rem; }
-
-.displayControls { display: flex; align-items: center; gap: .55rem; }
-.textControls, .themeControls { display: flex; padding: .2rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: var(--mercy-surface-soft); }
-.textControls button, .themeControls button { min-width: 2.2rem; min-height: 2rem; padding: .3rem .55rem; border: 0; border-radius: 999px; background: transparent; color: var(--mercy-muted); font-size: .73rem; cursor: pointer; }
-.textControls button[aria-pressed="true"], .themeControls button[aria-checked="true"] { background: color-mix(in srgb, var(--mercy-gold) 16%, transparent); box-shadow: inset 0 0 0 1px var(--mercy-gold); color: var(--mercy-gold-bright); }
-.textControls button:focus-visible, .themeControls button:focus-visible, .shell button:focus-visible, .shell a:focus-visible { outline: 3px solid var(--mercy-gold-bright); outline-offset: 3px; }
-
-.startScreen { width: min(100%, 42rem); min-height: 100dvh; margin: 0 auto; padding: 0 1rem 1.25rem; }
-.startScreen .masthead { padding-inline: 0; }
-.mercyHourLive { display: grid; gap: .2rem; margin: 1rem auto 0; padding: .8rem 1rem; border: 1px solid color-mix(in srgb, var(--mercy-gold) 45%, transparent); border-radius: 1rem; background: color-mix(in srgb, var(--mercy-gold) 10%, transparent); text-align: center; }
-.mercyHourLive strong { color: var(--mercy-gold-bright); font-family: var(--font-display), Georgia, serif; }
-.mercyHourLive span { color: var(--mercy-muted); font-size: .78rem; }
-
-.startTitle { margin-top: clamp(3.5rem, 12vh, 7rem); text-align: center; text-shadow: 0 .15rem .8rem rgba(0, 0, 0, .8); }
-.eyebrow { margin: 0; color: var(--mercy-gold-bright); font-size: .68rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
-.startTitle h1, .completion h1, .silence h1 { margin: .35rem 0; font-family: var(--font-display), Georgia, serif; font-size: clamp(2rem, 7vw, 3.15rem); line-height: 1.05; }
-.startTitle > p:last-child { margin: .5rem 0 0; color: var(--mercy-muted); }
-
-.intentionCard { display: grid; grid-template-columns: auto minmax(0,1fr) auto; align-items: center; gap: .8rem; width: 100%; min-height: 4.5rem; margin-top: 1.4rem; padding: .8rem 1rem; border: 1px solid var(--mercy-border); border-radius: 1rem; background: var(--mercy-surface-soft); color: inherit; text-align: left; cursor: pointer; }
-.intentionCard > span:first-child { display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border: 1px solid var(--mercy-border); border-radius: .75rem; color: var(--mercy-gold-bright); font-size: 1.25rem; }
-.intentionCard > span:nth-child(2) { display: grid; min-width: 0; gap: .15rem; }
-.intentionCard strong { color: var(--mercy-gold-bright); font-size: .73rem; letter-spacing: .08em; text-transform: uppercase; }
-.intentionCard small { overflow: hidden; color: var(--mercy-muted); font-family: var(--font-prayer), Georgia, serif; font-size: .82rem; text-overflow: ellipsis; white-space: nowrap; }
-.intentionCard b { color: var(--mercy-gold-bright); font-size: .75rem; }
-
-.resumeCard { display: grid; grid-template-columns: minmax(0,1fr) auto auto; align-items: center; gap: .55rem; margin-top: .7rem; padding: .75rem .85rem; border: 1px solid color-mix(in srgb, var(--mercy-gold) 38%, transparent); border-radius: 1rem; background: color-mix(in srgb, var(--mercy-gold) 8%, transparent); }
-.resumeCard span { display: grid; gap: .15rem; }
-.resumeCard strong { color: var(--mercy-gold-bright); font-size: .8rem; }
-.resumeCard small { color: var(--mercy-muted); font-size: .7rem; }
-.resumeCard button { min-height: 2.4rem; padding: .45rem .75rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: transparent; color: var(--mercy-muted); cursor: pointer; }
-.resumeCard button:last-child { border-color: var(--mercy-gold); background: var(--mercy-gold); color: var(--mercy-button-text); font-weight: 700; }
-
-.beginButton { display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; width: 100%; min-height: 4.2rem; margin-top: .8rem; padding: .75rem 1.3rem; border: 0; border-radius: 999px; background: var(--mercy-gold); color: var(--mercy-button-text); box-shadow: 0 .7rem 2rem rgba(177, 127, 20, .22); cursor: pointer; }
-.beginButton > span { grid-row: 1 / 3; margin-right: .65rem; }
-.beginButton strong { font-size: .83rem; letter-spacing: .13em; text-transform: uppercase; }
-.beginButton small { font-size: .68rem; opacity: .75; }
-.startOptions { display: grid; grid-template-columns: repeat(3,1fr); gap: .55rem; margin-top: .75rem; }
-.startOptions button { display: grid; place-items: center; gap: .35rem; min-height: 4.2rem; padding: .55rem .25rem; border: 1px solid var(--mercy-border); border-radius: 1rem; background: var(--mercy-surface-soft); color: var(--mercy-muted); font-size: .72rem; cursor: pointer; }
-.startOptions span { color: var(--mercy-gold-bright); font-size: 1rem; }
-.startLinks { display: grid; gap: .45rem; margin-top: .75rem; }
-.startLinks a { padding: .7rem 1rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: var(--mercy-surface-soft); color: var(--mercy-muted); font-size: .75rem; text-align: center; text-decoration: none; }
-.startFooter { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--mercy-border); color: var(--mercy-muted); text-align: center; }
-.startFooter p { margin: 0; font-family: var(--font-prayer), Georgia, serif; font-size: .78rem; font-style: italic; }
-.startFooter span { display: block; margin-top: .35rem; font-size: .65rem; }
-
-.player { display: grid; grid-template-rows: auto auto minmax(0,1fr) auto; min-height: 100dvh; }
-.progressNav { display: flex; justify-content: center; gap: .25rem; width: min(calc(100% - 2rem), 36rem); margin: .7rem auto 0; padding: .3rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: var(--mercy-surface-soft); }
-.progressNav button { min-width: 2rem; min-height: 2rem; padding: .3rem .55rem; border: 0; border-radius: 999px; background: transparent; color: var(--mercy-muted); font-size: .68rem; cursor: pointer; }
-.progressNav button[aria-current="step"] { background: color-mix(in srgb, var(--mercy-gold) 18%, transparent); color: var(--mercy-gold-bright); font-weight: 800; }
-.prayerStage { display: grid; place-items: center; width: 100%; padding: 1rem; }
-.prayerCard { width: min(100%, 48rem); min-height: 27rem; padding: clamp(1.2rem, 4vw, 2.4rem); border: 1px solid var(--mercy-border); border-radius: 1.5rem; background: color-mix(in srgb, var(--mercy-surface) 96%, transparent); box-shadow: 0 1.5rem 4rem rgba(0,0,0,.24); }
-.prayerCardHeader { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--mercy-border); }
-.prayerCardHeader h1 { margin: .35rem 0 0; font-family: var(--font-display), Georgia, serif; font-size: clamp(1.45rem, 4vw, 2.2rem); outline: none; }
-.cardActions { display: flex; align-items: flex-start; gap: .45rem; }
-.cardActions button, .cardActions span { min-height: 2rem; padding: .4rem .65rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: var(--mercy-surface-soft); color: var(--mercy-muted); font-size: .65rem; }
-.cardActions button { cursor: pointer; }
-.cardActions button[aria-pressed="true"] { border-color: var(--mercy-gold); color: var(--mercy-gold-bright); }
-.inlineImage { position: relative; width: 9.5rem; aspect-ratio: 2 / 2.7; margin: 1rem auto; overflow: hidden; border: 1px solid color-mix(in srgb, var(--mercy-gold) 40%, transparent); border-radius: 1rem; }
-.beadProgress { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; margin: 1rem 0; }
-.beadProgress button { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; padding: 0; border: 1px solid var(--mercy-border); border-radius: 50%; background: transparent; color: var(--mercy-muted); font-size: .63rem; cursor: pointer; }
-.beadProgress button:first-child { width: 2.1rem; height: 2.1rem; color: var(--mercy-gold-bright); }
-.beadProgress button[aria-current="step"] { border-color: var(--mercy-gold); background: var(--mercy-gold); color: var(--mercy-button-text); font-weight: 800; }
-.intentionBanner { display: flex; gap: .35rem; width: 100%; margin-top: .8rem; padding: .65rem .8rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--mercy-gold) 28%, transparent); border-radius: .8rem; background: color-mix(in srgb, var(--mercy-gold) 7%, transparent); color: var(--mercy-muted); font-size: .75rem; text-align: left; cursor: pointer; }
-.intentionBanner strong { flex: 0 0 auto; color: var(--mercy-gold-bright); }
-.intentionBanner span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.prayerText { display: grid; place-items: center; min-height: 15rem; padding: 1.5rem 0; text-align: center; }
-.prayerText > span { color: var(--mercy-gold-bright); font-size: 1.4rem; }
-.prayerText p { max-width: 42rem; margin: .8rem auto; font-family: var(--font-prayer), Georgia, serif; font-size: var(--prayer-size, 1.65rem); line-height: 1.55; }
-.prayerText small { color: var(--mercy-gold-bright); font-size: .75rem; }
-.text-small { --prayer-size: 1.3rem; }
-.text-standard { --prayer-size: 1.65rem; }
-.text-large { --prayer-size: 2rem; }
-.text-largest { --prayer-size: 2.4rem; }
-.prayerCardFooter { display: flex; justify-content: space-between; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--mercy-border); color: var(--mercy-muted); font-size: .7rem; }
-.prayerCardFooter a { color: var(--mercy-gold-bright); }
-
-.controls { position: sticky; bottom: 0; z-index: 20; padding: .65rem 1rem .9rem; border-top: 1px solid var(--mercy-border); background: color-mix(in srgb, var(--mercy-bg) 94%, transparent); backdrop-filter: blur(18px); }
-.autoStatus { display: grid; min-height: 1.5rem; place-items: center; width: min(100%, 38rem); margin: 0 auto .35rem; color: var(--mercy-muted); font-size: .68rem; }
-.autoStatus > div { width: 100%; height: .2rem; margin-top: .25rem; overflow: hidden; border-radius: 999px; background: var(--mercy-surface-soft); }
-.autoStatus i { display: block; height: 100%; background: var(--mercy-gold); transition: width .2s linear; }
-.primaryControls { display: flex; justify-content: center; gap: .7rem; }
-.primaryControls button { min-width: 3.2rem; min-height: 3.2rem; padding: .6rem .8rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: var(--mercy-surface-soft); color: var(--mercy-text); cursor: pointer; }
-.primaryControls button:disabled { opacity: .3; cursor: not-allowed; }
-.primaryControls .nextButton { min-width: min(58vw, 15rem); border-color: var(--mercy-gold); background: var(--mercy-gold); color: var(--mercy-button-text); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.nextButton span { margin-left: .55rem; }
-.utilityControls { display: flex; justify-content: space-between; width: min(100%, 38rem); margin: .45rem auto 0; }
-.utilityControls > div { display: flex; gap: .4rem; }
-.utilityControls button { min-height: 2.35rem; padding: .4rem .7rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: var(--mercy-surface-soft); color: var(--mercy-muted); font-size: .67rem; cursor: pointer; }
-
-.completion, .silence { display: grid; place-items: center; align-content: center; min-height: 100dvh; padding: 2rem 1rem; text-align: center; }
-.completionImage { position: relative; width: min(64vw, 15rem); aspect-ratio: 2 / 2.7; margin-bottom: 1.25rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--mercy-gold) 42%, transparent); border-radius: 1.2rem; }
-.completion > p:not(.eyebrow), .silence > p:not(.eyebrow) { max-width: 35rem; color: var(--mercy-muted); line-height: 1.7; }
-.completedIntention { display: grid; gap: .4rem; width: min(100%, 36rem); padding: 1rem; border: 1px solid var(--mercy-border); border-radius: 1rem; background: var(--mercy-surface-soft); }
-.completedIntention strong { color: var(--mercy-gold-bright); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
-.completedIntention span { color: var(--mercy-text); font-family: var(--font-prayer), Georgia, serif; font-size: 1.15rem; }
-.completionActions { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; margin-top: 1.25rem; }
-.completionActions button, .completionActions a, .silence button { min-height: 2.8rem; padding: .65rem 1rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: var(--mercy-surface-soft); color: var(--mercy-text); text-decoration: none; cursor: pointer; }
-.completionActions button:first-child, .silence button { border-color: var(--mercy-gold); background: var(--mercy-gold); color: var(--mercy-button-text); font-weight: 800; }
-.silence > span { color: var(--mercy-gold-bright); font-size: 3rem; }
-
-.dialogBackdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 1rem; background: rgba(0,0,0,.8); backdrop-filter: blur(8px); }
-.dialog { position: relative; width: min(100%, 34rem); padding: 1.4rem; border: 1px solid var(--mercy-border); border-radius: 1.25rem; background: var(--mercy-surface); color: var(--mercy-text); box-shadow: 0 2rem 5rem rgba(0,0,0,.45); }
-.dialog h2 { margin: 0 2.5rem 1rem 0; font-family: var(--font-display), Georgia, serif; font-size: 1.5rem; }
-.dialog p { color: var(--mercy-muted); line-height: 1.6; }
-.dialogClose { position: absolute; top: .8rem; right: .8rem; display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 1px solid var(--mercy-border); border-radius: 50%; background: transparent; color: var(--mercy-text); cursor: pointer; }
-.dialog form { display: grid; gap: .7rem; }
-.dialog label { font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-.dialog label span { color: var(--mercy-muted); font-weight: 400; }
-.dialog textarea { width: 100%; padding: .85rem; border: 1px solid var(--mercy-border); border-radius: .8rem; background: var(--mercy-surface-soft); color: var(--mercy-text); font: 1rem/1.5 var(--font-prayer), Georgia, serif; resize: vertical; }
-.dialog form > small { color: var(--mercy-muted); text-align: right; }
-.privacyNote { padding: .7rem .8rem; border: 1px solid color-mix(in srgb, var(--mercy-gold) 28%, transparent); border-radius: .75rem; background: color-mix(in srgb, var(--mercy-gold) 8%, transparent); font-size: .75rem; }
-.dialogActions { display: flex; justify-content: flex-end; gap: .55rem; margin-top: 1rem; }
-.dialogActions button { min-height: 2.7rem; padding: .55rem .9rem; border: 1px solid var(--mercy-border); border-radius: 999px; background: transparent; color: var(--mercy-text); cursor: pointer; }
-.dialogActions button:last-child { border-color: var(--mercy-gold); background: var(--mercy-gold); color: var(--mercy-button-text); font-weight: 800; }
-
-@media (max-width: 700px) {
-  .masthead { align-items: flex-start; padding-inline: .85rem; }
-  .brand small { display: none; }
-  .displayControls { align-items: flex-end; flex-direction: column; }
-  .themeControls button { padding-inline: .45rem; font-size: .65rem; }
-  .prayerCardHeader { flex-direction: column; }
-  .cardActions { flex-wrap: wrap; }
-  .cardActions span { flex: 1; text-align: center; }
-  .text-largest .prayerText p { font-size: 2rem; }
-  .prayerCardFooter { align-items: flex-start; flex-direction: column; }
-  .utilityControls { gap: .6rem; }
-  .utilityControls button { min-width: 2.55rem; padding-inline: .55rem; font-size: .62rem; }
-}
-
-@media (max-width: 420px) {
-  .masthead { gap: .45rem; }
-  .brand strong { font-size: .68rem; }
-  .textControls button { min-width: 1.8rem; padding-inline: .35rem; }
-  .themeControls button { min-width: 2rem; }
-  .themeControls button { font-size: 0; }
-  .themeControls button::first-letter { font-size: .75rem; }
-  .resumeCard { grid-template-columns: minmax(0,1fr) auto; }
-  .resumeCard button:first-of-type { grid-column: 2; }
-  .resumeCard button:last-child { grid-column: 1 / 3; }
-  .prayerStage { padding: .7rem; }
-  .prayerCard { min-height: 25rem; padding: 1rem; }
-  .primaryControls { gap: .4rem; }
-  .primaryControls .nextButton { min-width: 56vw; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .shell *, .shell *::before, .shell *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
-}
+.startExperience .startTitle h1 { font-size:clamp(3.25rem,5.5vw,5.15rem); line-height:.84; letter-spacing:-.055em; font-weight:600; }
+.startExperience .startTitle>p:last-child { letter-spacing:.005em; }
+.startExperience .eyebrow { font-size:.69rem; letter-spacing:.24em; }
+.startExperience .intentionCard strong,.startExperience .resumeCard strong { font-family:var(--font-display),Georgia,serif; font-size:1.34rem; letter-spacing:-.015em; font-weight:600; }
+.startExperience .beginButton strong { font-size:1.75rem; letter-spacing:-.01em; }

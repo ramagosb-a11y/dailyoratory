@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { DIVINE_MERCY_CHAPLET_SOURCE, DIVINE_MERCY_CHAPLET_STEPS } from "@/data/divineMercyChaplet";
 import {
   clearDivineMercyProgress,
@@ -13,7 +13,6 @@ import {
 import styles from "./DivineMercyChaplet.module.css";
 
 type Screen = "start" | "prayer" | "complete" | "silence";
-type Theme = "chapel" | "daylight";
 type TextScale = "small" | "standard" | "large" | "largest";
 
 const speedOptions = [0.75, 1, 1.25] as const;
@@ -28,12 +27,12 @@ export function DivineMercyChaplet() {
   const steps = DIVINE_MERCY_CHAPLET_STEPS;
   const [screen, setScreen] = useState<Screen>("start");
   const [stepIndex, setStepIndex] = useState(0);
-  const [theme, setTheme] = useState<Theme>("chapel");
   const [textScale, setTextScale] = useState<TextScale>("standard");
   const [intention, setIntention] = useState("");
   const [intentionOpen, setIntentionOpen] = useState(false);
   const [exitOpen, setExitOpen] = useState(false);
-  const [showImage, setShowImage] = useState(false);
+  const [pathOpen, setPathOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [autoAdvance, setAutoAdvance] = useState(false);
   const [autoProgress, setAutoProgress] = useState(0);
   const [speed, setSpeed] = useState<(typeof speedOptions)[number]>(1);
@@ -85,7 +84,7 @@ export function DivineMercyChaplet() {
     setStepIndex(boundedIndex);
     setAutoProgress(0);
     saveDivineMercyProgress(boundedIndex, autoAdvance);
-    setSavedProgress({ version: "1.0.1", stepIndex: boundedIndex, autoAdvance, updatedAt: Date.now() });
+    setSavedProgress({ version: "1.0.2", stepIndex: boundedIndex, autoAdvance, updatedAt: Date.now() });
     announceStep();
   }, [announceStep, autoAdvance, steps.length]);
 
@@ -146,7 +145,7 @@ export function DivineMercyChaplet() {
     setAutoAdvance(withAutoAdvance);
     setAutoProgress(0);
     saveDivineMercyProgress(0, withAutoAdvance);
-    setSavedProgress({ version: "1.0.1", stepIndex: 0, autoAdvance: withAutoAdvance, updatedAt: Date.now() });
+    setSavedProgress({ version: "1.0.2", stepIndex: 0, autoAdvance: withAutoAdvance, updatedAt: Date.now() });
     setScreen("prayer");
     announceStep();
   }
@@ -175,21 +174,17 @@ export function DivineMercyChaplet() {
   }
 
   const mercyHour = now?.getHours() === 15;
-  const nextMercyHour = useMemo(() => now ? formatTimeUntilMercyHour(now) : "at 3 PM", [now]);
-  const shellClass = `${styles.shell} ${theme === "daylight" ? styles.daylight : styles.chapel} ${styles[`text-${textScale}`]}`;
+  const shellClass = `${styles.shell} ${styles[`text-${textScale}`]}`;
 
   return (
     <div className={shellClass}>
       {screen === "start" ? (
         <StartScreen
-          theme={theme}
           textScale={textScale}
           intention={intention}
           savedProgress={hydrated ? savedProgress : null}
           mercyHour={mercyHour}
-          nextMercyHour={nextMercyHour}
           fullscreen={fullscreen}
-          onThemeChange={setTheme}
           onTextScaleChange={setTextScale}
           onOpenIntention={() => setIntentionOpen(true)}
           onBegin={() => beginChaplet(false)}
@@ -203,8 +198,7 @@ export function DivineMercyChaplet() {
 
       {screen === "prayer" ? (
         <main className={styles.player}>
-          <CompanionHeader theme={theme} textScale={textScale} onThemeChange={setTheme} onTextScaleChange={setTextScale} />
-          <ProgressNavigation stepIndex={stepIndex} onSelect={goToStep} />
+          <CompanionHeader onPath={() => setPathOpen(true)} onSettings={() => setSettingsOpen(true)} />
           <section className={styles.prayerStage} aria-label="Current Chaplet prayer">
             <article className={styles.prayerCard}>
               <header className={styles.prayerCardHeader}>
@@ -212,17 +206,12 @@ export function DivineMercyChaplet() {
                   <p className={styles.eyebrow}>{formatSection(currentStep)}</p>
                   <h1 ref={stepHeadingRef} tabIndex={-1}>{currentStep.title}</h1>
                 </div>
-                <div className={styles.cardActions}>
-                  <button type="button" aria-pressed={showImage} onClick={() => setShowImage((value) => !value)}>{showImage ? "Hide image" : "Show image"}</button>
-                  <span>{currentStep.instruction}</span>
+                <div className={styles.currentPrayerImage}>
+                  <Image src="/images/divine-mercy/chaplet-immersive-v1.0.2.png" alt="Divine Mercy image" fill sizes="88px" className={styles.imageCover} />
                 </div>
               </header>
 
-              {showImage ? (
-                <div className={styles.inlineImage}>
-                  <Image src="/images/divine-mercy/christ-rays-v1.0.1.png" alt="Original Daily Oratory artwork of Christ with red and pale rays" fill sizes="240px" className={styles.imageCover} />
-                </div>
-              ) : null}
+              <p className={styles.instruction}>{currentStep.instruction}</p>
 
               {currentStep.section === "decade" ? <BeadProgress decade={currentStep.decade ?? 1} bead={currentStep.bead ?? 0} onSelect={goToStep} /> : null}
 
@@ -271,6 +260,8 @@ export function DivineMercyChaplet() {
       {screen === "silence" ? <SilentPrayerScreen intention={intention} onExit={() => setScreen("start")} /> : null}
 
       {intentionOpen ? <IntentionDialog value={intention} onSave={setIntention} onClose={() => setIntentionOpen(false)} /> : null}
+      {pathOpen ? <PrayerPathDialog stepIndex={stepIndex} onSelect={(index) => { goToStep(index); setPathOpen(false); }} onClose={() => setPathOpen(false)} /> : null}
+      {settingsOpen ? <SettingsDialog textScale={textScale} autoAdvance={autoAdvance} speed={speed} muted={muted} fullscreen={fullscreen} onTextScaleChange={setTextScale} onToggleAuto={() => { setAutoAdvance((value) => !value); setAutoProgress(0); }} onCycleSpeed={() => setSpeed(speedOptions[(speedOptions.indexOf(speed) + 1) % speedOptions.length])} onToggleMuted={() => setMuted((value) => !value)} onFullscreen={toggleFullscreen} onClose={() => setSettingsOpen(false)} /> : null}
       <ConfirmDialog
         open={exitOpen}
         title="Pause or exit the Chaplet?"
@@ -284,62 +275,68 @@ export function DivineMercyChaplet() {
 }
 
 function StartScreen({
-  theme, textScale, intention, savedProgress, mercyHour, nextMercyHour, fullscreen,
-  onThemeChange, onTextScaleChange, onOpenIntention, onBegin, onBeginAuto, onResume, onReset, onSilence, onFullscreen,
+  textScale, intention, savedProgress, mercyHour, fullscreen,
+  onTextScaleChange, onOpenIntention, onBegin, onBeginAuto, onResume, onReset, onSilence, onFullscreen,
 }: {
-  theme: Theme; textScale: TextScale; intention: string; savedProgress: DivineMercySavedProgress | null;
-  mercyHour: boolean; nextMercyHour: string; fullscreen: boolean;
-  onThemeChange: (theme: Theme) => void; onTextScaleChange: (scale: TextScale) => void;
+  textScale: TextScale; intention: string; savedProgress: DivineMercySavedProgress | null;
+  mercyHour: boolean; fullscreen: boolean;
+  onTextScaleChange: (scale: TextScale) => void;
   onOpenIntention: () => void; onBegin: () => void; onBeginAuto: () => void; onResume: () => void;
   onReset: () => void; onSilence: () => void; onFullscreen: () => void;
 }) {
   return (
     <main className={styles.startScreen}>
-      <CompanionHeader theme={theme} textScale={textScale} onThemeChange={onThemeChange} onTextScaleChange={onTextScaleChange} />
+      <CompanionHeader />
       {mercyHour ? <div className={styles.mercyHourLive}><strong>The Hour of Great Mercy</strong><span>Pause with the Passion of Christ at three o’clock.</span></div> : null}
-      <div className={styles.startTitle}>
-        <p className={styles.eyebrow}>For the whole world</p>
-        <h1>Divine Mercy Chaplet</h1>
-        <p>Pray one prayer and one bead at a time.</p>
-      </div>
-      <button type="button" className={styles.intentionCard} onClick={onOpenIntention}>
-        <span aria-hidden="true">♡</span><span><strong>{intention ? "Private intention set" : "Pray for an intention"}</strong><small>{intention || "Optional · kept only in this prayer session"}</small></span><b>{intention ? "Edit" : "Add +"}</b>
-      </button>
-      {savedProgress ? (
-        <div className={styles.resumeCard}>
-          <span><strong>Continue your Chaplet</strong><small>Prayer {savedProgress.stepIndex + 1} of {DIVINE_MERCY_CHAPLET_STEPS.length}</small></span>
-          <button type="button" onClick={onReset}>Reset</button><button type="button" onClick={onResume}>Resume</button>
+      <div className={styles.startExperience}>
+        <aside className={styles.startArt} aria-label="Divine Mercy devotional image">
+          <Image src="/images/divine-mercy/chaplet-immersive-v1.0.2.png" alt="Jesus of Divine Mercy in a sunlit chapel" fill sizes="(min-width: 860px) 44vw, 100vw" className={styles.imageCover} priority />
+          <div className={styles.startArtVeil} />
+          <div className={styles.startArtPrayer}><span aria-hidden="true">✦</span><p>Jesus, I trust in You.</p><small>For the whole world</small></div>
+        </aside>
+        <div className={styles.startPaper}>
+          <div className={styles.mercyEmblem} aria-hidden="true"><span>✝</span><i /><b /></div>
+          <div className={styles.startTitle}>
+            <p className={styles.eyebrow}>Enter in peace</p>
+            <h1>Divine Mercy<br />Chaplet</h1>
+            <p>Bring your intention to the merciful Heart of Jesus.</p>
+          </div>
+          <div className={styles.startRule} aria-hidden="true"><span>✦</span></div>
+          <button type="button" className={styles.intentionCard} onClick={onOpenIntention}>
+            <span aria-hidden="true">♡</span><span><strong>{intention ? "Private intention set" : "Pray for an intention"}</strong><small>{intention || "Optional · kept only in this prayer session"}</small></span><b>{intention ? "Edit" : "Add +"}</b>
+          </button>
+          {savedProgress ? (
+            <div className={styles.resumeCard}>
+              <span><strong>Continue your Chaplet</strong><small>Prayer {savedProgress.stepIndex + 1} of {DIVINE_MERCY_CHAPLET_STEPS.length}</small></span>
+              <button type="button" onClick={onReset}>Reset</button><button type="button" onClick={onResume}>Resume</button>
+            </div>
+          ) : null}
+          <button type="button" className={styles.beginButton} onClick={onBegin}><span aria-hidden="true">▶</span><strong>Begin Chaplet</strong><small>Manual mode · tap Next when ready</small></button>
+          <div className={styles.prayerJourney} aria-label="The Chaplet prayer journey">
+            <span className={styles.journeyLine} aria-hidden="true" />
+            <div><b>✝</b><small>Opening</small></div><div><b>1</b><small>First</small></div><div><b>2</b><small>Second</small></div><div><b>3</b><small>Third</small></div><div><b>✦</b><small>Mercy</small></div>
+          </div>
+          <div className={styles.startOptions}>
+            <button type="button" onClick={onSilence}><span aria-hidden="true">☾</span>Silent prayer</button>
+            <button type="button" onClick={onBeginAuto}><span aria-hidden="true">▷</span>Auto-advance</button>
+            <button type="button" onClick={onFullscreen}><span aria-hidden="true">↗</span>{fullscreen ? "Exit full" : "Fullscreen"}</button>
+          </div>
+          <div className={styles.textSizeStart} role="group" aria-label="Prayer text size">{textScaleOptions.map((option) => <button type="button" key={option.value} aria-pressed={textScale === option.value} onClick={() => onTextScaleChange(option.value)}>{option.label}</button>)}</div>
+          <footer className={styles.startFooter}><p>“For the sake of His sorrowful Passion, have mercy on us and on the whole world.”</p><span>Daily Oratory · Version 1.0.2</span></footer>
         </div>
-      ) : null}
-      <button type="button" className={styles.beginButton} onClick={onBegin}><span aria-hidden="true">▶</span><strong>Begin Chaplet</strong><small>Manual mode · tap Next when ready</small></button>
-      <div className={styles.startOptions}>
-        <button type="button" onClick={onSilence}><span aria-hidden="true">☾</span>Silent prayer</button>
-        <button type="button" onClick={onBeginAuto}><span aria-hidden="true">▷</span>Auto-advance</button>
-        <button type="button" onClick={onFullscreen}><span aria-hidden="true">↗</span>{fullscreen ? "Exit full" : "Fullscreen"}</button>
       </div>
-      <div className={styles.startLinks}>
-        <Link href="/divine-mercy#divine-mercy-sunday">Divine Mercy Sunday guide</Link>
-        <Link href="/divine-mercy#hour-of-mercy">3 PM Mercy Hour {mercyHour ? "· active now" : `· ${nextMercyHour}`}</Link>
-      </div>
-      <footer className={styles.startFooter}><p>“For the sake of His sorrowful Passion, have mercy on us and on the whole world.”</p><span>Daily Oratory · Version 1.0.1</span></footer>
     </main>
   );
 }
 
-function CompanionHeader({ theme, textScale, onThemeChange, onTextScaleChange }: {
-  theme: Theme; textScale: TextScale; onThemeChange: (theme: Theme) => void; onTextScaleChange: (scale: TextScale) => void;
-}) {
+function CompanionHeader({ onPath, onSettings }: { onPath?: () => void; onSettings?: () => void }) {
   return (
     <header className={styles.masthead}>
-      <Link href="/divine-mercy" className={styles.brand}><span aria-hidden="true">✝</span><span><strong>Daily Oratory</strong><small>Return to Divine Mercy</small></span></Link>
-      <div className={styles.displayControls}>
-        <div role="group" aria-label="Text size" className={styles.textControls}>
-          {textScaleOptions.map((option) => <button type="button" key={option.value} aria-pressed={textScale === option.value} onClick={() => onTextScaleChange(option.value)}>{option.label}</button>)}
-        </div>
-        <div role="radiogroup" aria-label="Color theme" className={styles.themeControls}>
-          <button type="button" role="radio" aria-checked={theme === "chapel"} onClick={() => onThemeChange("chapel")}>☾ Chapel</button>
-          <button type="button" role="radio" aria-checked={theme === "daylight"} onClick={() => onThemeChange("daylight")}>☀ Daylight</button>
-        </div>
+      <Link href="/divine-mercy" className={styles.brand}><span aria-hidden="true" className={styles.brandMark}>✝</span><span><strong>Daily Oratory</strong><small>Divine Mercy Chaplet</small></span></Link>
+      <div className={styles.headerActions}>
+        <Link href="/divine-mercy/three-pm-prayer" className={styles.mercyHourButton}>3 PM Prayer</Link>
+        {onPath ? <button type="button" onClick={onPath}>Prayer path</button> : null}
+        {onSettings ? <button type="button" onClick={onSettings} aria-label="Prayer settings">Settings</button> : null}
       </div>
     </header>
   );
@@ -356,6 +353,14 @@ function ProgressNavigation({ stepIndex, onSelect }: { stepIndex: number; onSele
     { label: "Amen", index: DIVINE_MERCY_CHAPLET_STEPS.findIndex((step) => step.section === "conclusion"), active: current.section === "conclusion" },
   ];
   return <nav className={styles.progressNav} aria-label="Chaplet sections">{items.map((item) => <button type="button" key={item.label} aria-current={item.active ? "step" : undefined} onClick={() => onSelect(item.index)}>{item.label}</button>)}</nav>;
+}
+
+function PrayerPathDialog({ stepIndex, onSelect, onClose }: { stepIndex: number; onSelect: (index: number) => void; onClose: () => void }) {
+  return <DialogShell title="Prayer path" onClose={onClose}><p className={styles.pathIntro}>Move to a prayer section at any time. Your current bead is always preserved on this device.</p><ProgressNavigation stepIndex={stepIndex} onSelect={onSelect} /></DialogShell>;
+}
+
+function SettingsDialog({ textScale, autoAdvance, speed, muted, fullscreen, onTextScaleChange, onToggleAuto, onCycleSpeed, onToggleMuted, onFullscreen, onClose }: { textScale: TextScale; autoAdvance: boolean; speed: number; muted: boolean; fullscreen: boolean; onTextScaleChange: (scale: TextScale) => void; onToggleAuto: () => void; onCycleSpeed: () => void; onToggleMuted: () => void; onFullscreen: () => void; onClose: () => void }) {
+  return <DialogShell title="Prayer settings" onClose={onClose}><div className={styles.settingsPanel}><span>Text size</span><div className={styles.textControls}>{textScaleOptions.map((option) => <button type="button" key={option.value} aria-pressed={textScale === option.value} onClick={() => onTextScaleChange(option.value)}>{option.label}</button>)}</div><button type="button" onClick={onToggleAuto}>{autoAdvance ? "Pause auto-advance" : "Use auto-advance"}</button><button type="button" onClick={onCycleSpeed}>Prayer pace: {speed}×</button><button type="button" onClick={onToggleMuted}>{muted ? "Turn prayer sounds on" : "Turn prayer sounds off"}</button><button type="button" onClick={onFullscreen}>{fullscreen ? "Exit fullscreen" : "Use fullscreen"}</button></div></DialogShell>;
 }
 
 function BeadProgress({ decade, bead, onSelect }: { decade: number; bead: number; onSelect: (index: number) => void }) {
@@ -448,15 +453,6 @@ function formatSection(step: (typeof DIVINE_MERCY_CHAPLET_STEPS)[number]) {
   if (step.section === "opening") return "Opening prayers";
   if (step.section === "conclusion") return "Concluding prayers";
   return `Decade ${step.decade} · ${step.bead === 0 ? "large bead" : `bead ${step.bead} of 10`}`;
-}
-
-function formatTimeUntilMercyHour(now: Date) {
-  if (now.getHours() === 15) return "active now";
-  const next = new Date(now);
-  next.setHours(15, 0, 0, 0);
-  if (next <= now) next.setDate(next.getDate() + 1);
-  const minutes = Math.max(0, Math.round((next.getTime() - now.getTime()) / 60_000));
-  return `in ${Math.floor(minutes / 60)}h ${minutes % 60}m`;
 }
 
 function playChime(muted: boolean, type: "section" | "complete") {

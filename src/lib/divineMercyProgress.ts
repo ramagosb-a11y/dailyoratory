@@ -1,11 +1,11 @@
 export type DivineMercySavedProgress = {
-  version: "1.0.1";
+  version: "1.0.2";
   stepIndex: number;
   autoAdvance: boolean;
   updatedAt: number;
 };
 
-const STORAGE_KEY = "daily-oratory:divine-mercy:progress:1.0.1";
+const STORAGE_KEY = "daily-oratory:divine-mercy:progress:1.0.2";
 const MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
 
 export function readDivineMercyProgress(stepCount: number): DivineMercySavedProgress | null {
@@ -16,7 +16,7 @@ export function readDivineMercyProgress(stepCount: number): DivineMercySavedProg
     if (!raw) return null;
     const parsed = JSON.parse(raw) as Partial<DivineMercySavedProgress>;
     const valid =
-      parsed.version === "1.0.1" &&
+      parsed.version === "1.0.2" &&
       Number.isInteger(parsed.stepIndex) &&
       typeof parsed.stepIndex === "number" &&
       parsed.stepIndex >= 0 &&
@@ -30,7 +30,7 @@ export function readDivineMercyProgress(stepCount: number): DivineMercySavedProg
     }
 
     return {
-      version: "1.0.1",
+      version: "1.0.2",
       stepIndex: parsed.stepIndex as number,
       autoAdvance: parsed.autoAdvance === true,
       updatedAt: parsed.updatedAt as number,
@@ -43,7 +43,7 @@ export function readDivineMercyProgress(stepCount: number): DivineMercySavedProg
 export function saveDivineMercyProgress(stepIndex: number, autoAdvance: boolean) {
   if (typeof window === "undefined") return;
   const progress: DivineMercySavedProgress = {
-    version: "1.0.1",
+    version: "1.0.2",
     stepIndex,
     autoAdvance,
     updatedAt: Date.now(),

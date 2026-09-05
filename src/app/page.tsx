@@ -6,6 +6,7 @@ import { HomeExaminationSpotlight } from "@/components/home/HomeExaminationSpotl
 import { GrowInFaithSection } from "@/components/home/GrowInFaithSection";
 import { HomeHeavenboundSpotlight } from "@/components/home/HomeHeavenboundSpotlight";
 import { HomeRosaryCta } from "@/components/home/HomeRosaryCta";
+import { HomeDivineMercyCta } from "@/components/home/HomeDivineMercyCta";
 import { Hero } from "@/components/home/Hero";
 import { TodayInTheChurch } from "@/components/home/TodayInTheChurch";
 import { LitanyPrayerShelf, type LitanyShelfItem } from "@/components/contemplative-litanies/LitanyPrayerShelf";
@@ -97,6 +98,7 @@ export default function Home() {
         </div>
       </section>
       <HomeExaminationSpotlight />
+      <FooterCta />
       <GrowInFaithSection />
       <HomeHeavenboundSpotlight />
       <HomeRosaryCta />
@@ -105,7 +107,7 @@ export default function Home() {
           <LitanyPrayerShelf litanies={contemplativeLitanyShelf} />
         </div>
       </section>
-      <FooterCta />
+      <HomeDivineMercyCta />
       <FindMassSection />
     </div>
   );
