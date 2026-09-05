@@ -38,18 +38,12 @@ export function HomeRosaryCta() {
           <p className="mt-4 max-w-xl text-sm leading-7 text-parchment sm:text-base">
             A peaceful place to pray the Rosary, reflect on the mysteries of Christ, and grow in faithful devotion.
           </p>
-          <div className="mt-6 grid max-w-xl gap-3 sm:grid-cols-2">
+          <div className="mt-6 max-w-sm">
             <Link
-              href="/rosary"
+              href="/rosary/visual-meditation"
               className="btn btn-gold focus-ring min-h-12 w-full justify-center text-center"
             >
               Pray the Rosary
-            </Link>
-            <Link
-              href="/devotions/holy-rosary"
-              className="btn btn-outline-inverse focus-ring min-h-12 w-full justify-center text-center"
-            >
-              Rosary Guide
             </Link>
           </div>
         </div>
