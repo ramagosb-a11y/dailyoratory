@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contemplative Litanies — Image Review</title>
+  <style>
+    :root { color-scheme: light; --ink:#0d2038; --gold:#bd8a2f; --paper:#fffaf2; --line:#d8cdb9; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Georgia,serif; }
+    header { max-width:1200px; margin:auto; padding:48px 24px 30px; text-align:center; }
+    h1 { margin:0 0 12px; font-size:clamp(2rem,5vw,4rem); font-weight:400; }
+    header p { margin:0; color:#4b5563; font-family:Arial,sans-serif; }
+    main { max-width:1400px; margin:auto; padding:0 24px 64px; }
+    section { margin-top:42px; }
+    h2 { border-bottom:1px solid var(--line); padding-bottom:10px; color:var(--gold); font-weight:400; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:24px; }
+    article { background:#fff; border:1px solid var(--line); border-radius:18px; padding:10px; box-shadow:0 10px 28px rgba(13,32,56,.09); }
+    img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; border-radius:12px; border:1px solid rgba(189,138,47,.55); }
+    h3 { margin:14px 8px 5px; font-size:1.2rem; font-weight:400; }
+    code { display:block; margin:0 8px 10px; color:#6b7280; font:11px/1.4 Consolas,monospace; overflow-wrap:anywhere; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contemplative Litanies</h1>
+    <p>50 primary meditation images · local review collection · not integrated into the website</p>
+  </header>
+  <main id="gallery"></main>
+  <script>
+    const images = [
+      ['Holy Name of Jesus','Light of the Father','holy-name-light-of-the-father.png'],
+      ['Holy Name of Jesus','Sun of Justice','holy-name-sun-of-justice.png'],
+      ['Holy Name of Jesus','Mighty God','holy-name-mighty-god.png'],
+      ['Holy Name of Jesus','Meek and Humble of Heart','holy-name-meek-and-humble-of-heart.png'],
+      ['Holy Name of Jesus','Author of Life','holy-name-author-of-life.png'],
+      ['Holy Name of Jesus','The Good Shepherd','holy-name-good-shepherd.png'],
+      ['Holy Name of Jesus','Crown of All Saints','holy-name-crown-of-all-saints.png'],
+      ['Litany of Humility','Deliverance from Acclaim','humility-deliverance-from-acclaim.png'],
+      ['Litany of Humility','Deliverance from Fear','humility-freedom-from-fear.png'],
+      ['Litany of Humility','Turning Toward Charity','humility-grace-of-humility.png'],
+      ['Litany of Humility','Rejoicing in Others','humility-rejoicing-in-others.png'],
+      ['Litany of Humility','Holiness in Truth','humility-holiness-in-truth.png'],
+      ['Litany of Loreto','Mother of God','loreto-mother-of-god.png'],
+      ['Litany of Loreto','Purity and Steadfastness','loreto-purity-and-steadfastness.png'],
+      ['Litany of Loreto','Vessel of Honor','loreto-seat-of-wisdom.png'],
+      ['Litany of Loreto','Tower of David','loreto-mystical-rose.png'],
+      ['Litany of Loreto','Gateway to Heaven','loreto-gateway-to-heaven.png'],
+      ['Litany of Loreto','Refuge and Consolation','loreto-help-of-christians.png'],
+      ['Litany of Loreto','Queen of All Saints','loreto-queen-of-all-saints.png'],
+      ['Litany of the Precious Blood','The Eternal Covenant','precious-blood-eternal-covenant.png'],
+      ['Litany of the Precious Blood','Sweat of Blood and Surrender','precious-blood-sweat-of-blood-and-surrender.png'],
+      ['Litany of the Precious Blood','Scourging and Thorns','precious-blood-the-passion.png'],
+      ['Litany of the Precious Blood','The Pierced Side','precious-blood-pierced-side.png'],
+      ['Litany of the Precious Blood','Stream of Divine Mercy','precious-blood-new-covenant.png'],
+      ['Litany of the Precious Blood','Refuge of the Burdened','precious-blood-refuge-of-the-burdened.png'],
+      ['Litany of the Precious Blood','Pledge of Eternal Life','precious-blood-pledge-of-eternal-life.png'],
+      ['Litany of the Sacred Heart','The Heart of the Son','sacred-heart-heart-of-the-son.png'],
+      ['Litany of the Sacred Heart','Enter His Heart','sacred-heart-enter-his-heart.png'],
+      ['Litany of the Sacred Heart','Rest in His Love','sacred-heart-furnace-of-charity.png'],
+      ['Litany of the Sacred Heart','Turn Your Heart Toward His','sacred-heart-turn-your-heart-toward-his.png'],
+      ['Litany of the Sacred Heart','Come to the Fountain','sacred-heart-mercy-and-life.png'],
+      ['Litany of the Sacred Heart','Remain With Him at the Cross','sacred-heart-remain-with-him-at-the-cross.png'],
+      ['Litany of the Sacred Heart','Receive His Peace','sacred-heart-receive-his-peace.png'],
+      ['Litany of the Sacred Heart','Place Your Trust in Him','sacred-heart-place-your-trust-in-him.png'],
+      ['Litany of Saint Joseph','Heir of Promise','saint-joseph-heir-of-promise.png'],
+      ['Litany of Saint Joseph','Tender and Devoted Father','saint-joseph-tender-and-devoted-father.png'],
+      ['Litany of Saint Joseph','Strength in Silence','saint-joseph-strength-in-silence.png'],
+      ['Litany of Saint Joseph','Dignity of Hidden Labor','saint-joseph-worker-of-nazareth.png'],
+      ['Litany of Saint Joseph','Defender in Danger','saint-joseph-defender-in-danger.png'],
+      ['Litany of Saint Joseph','Holy Departure','saint-joseph-patron-of-the-dying.png'],
+      ['Litany of the Saints','The Cry for Mercy','saints-cry-for-mercy.png'],
+      ['Litany of the Saints','Queen of the Heavenly Host','saints-queen-of-the-heavenly-host.png'],
+      ['Litany of the Saints','Fathers of Faith','saints-fathers-of-faith.png'],
+      ['Litany of the Saints','Foundations of the Church','saints-foundations-of-the-church.png'],
+      ['Litany of the Saints','Witnesses unto Blood','saints-holy-martyrs.png'],
+      ['Litany of the Saints','Teachers of Truth','saints-bishops-and-doctors.png'],
+      ['Litany of the Saints','Monks and Missionaries','saints-monks-and-missionaries.png'],
+      ['Litany of the Saints','Witnesses of Love','saints-witnesses-of-love.png'],
+      ['Litany of the Saints','Deliver Us, O Lord','saints-deliver-us-o-lord.png'],
+      ['Litany of the Saints','Petitions for the Church','saints-petitions-for-the-church.png']
+    ];
+    const root = document.getElementById('gallery');
+    for (const group of [...new Set(images.map(x => x[0]))]) {
+      const section = document.createElement('section');
+      const heading = document.createElement('h2');
+      heading.textContent = group;
+      const grid = document.createElement('div');
+      grid.className = 'grid';
+      for (const [, title, file] of images.filter(x => x[0] === group)) {
+        const card = document.createElement('article');
+        const img = document.createElement('img');
+        img.src = file;
+        img.alt = title;
+        img.loading = 'lazy';
+        const h3 = document.createElement('h3');
+        h3.textContent = title;
+        const code = document.createElement('code');
+        code.textContent = file;
+        card.append(img, h3, code);
+        grid.append(card);
+      }
+      section.append(heading, grid);
+      root.append(section);
+    }
+  </script>
+</body>
+</html>

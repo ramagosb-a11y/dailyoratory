@@ -1,0 +1,36 @@
+.desktopImage {
+  display: none !important;
+}
+
+.mobileImage {
+  display: block !important;
+}
+
+.overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(7, 21, 38, 0.97) 0%,
+    rgba(7, 21, 38, 0.88) 52%,
+    rgba(7, 21, 38, 0.42) 78%,
+    rgba(7, 21, 38, 0.24) 100%
+  );
+}
+
+@media (min-width: 640px) {
+  .desktopImage {
+    display: block !important;
+  }
+
+  .mobileImage {
+    display: none !important;
+  }
+
+  .overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(7, 21, 38, 0.97) 0%,
+      rgba(7, 21, 38, 0.88) 46%,
+      rgba(7, 21, 38, 0.34) 100%
+    );
+  }
+}

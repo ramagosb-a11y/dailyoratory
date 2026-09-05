@@ -1,33 +1,57 @@
-import { homeLiturgicalSurfaceThemes } from "@/components/home/homeLiturgicalSurface";
-import { getLiturgicalDashboardModel } from "@/lib/liturgicalLiving";
-import { getLiturgicalThemeForToday } from "@/lib/liturgicalTheme";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./HomeRosaryCta.module.css";
+
+const rosaryImageAlt =
+  "A traditional black-bead Rosary with a crucifix and Marian centerpiece resting beside a prayer book in a sunlit monastery cloister";
 
 export function HomeRosaryCta() {
-  const model = getLiturgicalDashboardModel();
-  const liturgicalTheme = getLiturgicalThemeForToday(model);
-  const primaryColor = liturgicalTheme.liturgicalColor === "default" ? "gold" : liturgicalTheme.liturgicalColor;
-  const theme = homeLiturgicalSurfaceThemes[primaryColor];
-
   return (
-    <section className={`${theme.sectionClassName} pb-16`}>
-      <div className={`mx-auto flex w-full max-w-7xl flex-col gap-8 rounded-[1.5rem] border px-5 py-8 shadow-soft sm:px-8 sm:py-10 lg:flex-row lg:items-center lg:justify-between lg:px-10 ${theme.cardClassName}`}>
-        <div>
-          <p className={`text-xs font-bold uppercase ${theme.eyebrowClassName}`}>The Holy Rosary</p>
-          <h2 className={`font-display mt-2 max-w-3xl text-4xl font-semibold leading-tight sm:text-5xl ${theme.headingClassName}`}>
-            Pray the mysteries of Christ with Mary.
-          </h2>
-          <p className={`mt-4 max-w-3xl text-sm leading-7 ${theme.copyClassName}`}>
-            Enter a guided Rosary that brings Scripture, sacred imagination, and all seven senses
-            into contemplative prayer.
-          </p>
-        </div>
-        <div className="flex w-full max-w-sm lg:w-auto">
-          <a
-            href="/rosary/visual-meditation"
-            className={`focus-ring inline-flex w-full items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition sm:w-auto ${theme.primaryButtonClassName}`}
+    <section
+      aria-labelledby="home-rosary-heading"
+      className="relative isolate overflow-hidden bg-navy text-ivory"
+    >
+      <Image
+        src="/images/rosary/home/rosary-cloister-day-desktop-v2.webp"
+        alt={rosaryImageAlt}
+        fill
+        sizes="100vw"
+        className={`${styles.desktopImage} object-cover object-center opacity-90`}
+      />
+      <Image
+        src="/images/rosary/home/rosary-cloister-day-mobile-v2.webp"
+        alt={rosaryImageAlt}
+        fill
+        sizes="100vw"
+        className={`${styles.mobileImage} object-cover object-center opacity-90`}
+      />
+      <div className={`${styles.overlay} absolute inset-0`} />
+      <div className="relative mx-auto flex min-h-[18rem] w-full max-w-7xl items-center px-5 py-10 sm:min-h-[20rem] sm:px-8 lg:aspect-[2048/704] lg:min-h-0 lg:px-10">
+        <div className="max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-gold">The Holy Rosary</p>
+          <h2
+            id="home-rosary-heading"
+            className="font-display mt-3 text-4xl font-semibold leading-tight text-ivory sm:text-5xl"
           >
-            7-Senses Rosary
-          </a>
+            Pray with Mary and Jesus
+          </h2>
+          <p className="mt-4 max-w-xl text-sm leading-7 text-parchment sm:text-base">
+            A peaceful place to pray the Rosary, reflect on the mysteries of Christ, and grow in faithful devotion.
+          </p>
+          <div className="mt-6 grid max-w-xl gap-3 sm:grid-cols-2">
+            <Link
+              href="/rosary"
+              className="btn btn-gold focus-ring min-h-12 w-full justify-center text-center"
+            >
+              Pray the Rosary
+            </Link>
+            <Link
+              href="/devotions/holy-rosary"
+              className="btn btn-outline-inverse focus-ring min-h-12 w-full justify-center text-center"
+            >
+              Rosary Guide
+            </Link>
+          </div>
         </div>
       </div>
     </section>
