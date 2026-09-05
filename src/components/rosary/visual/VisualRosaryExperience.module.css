@@ -82,19 +82,20 @@
 .experience{
   --ink:#071426;
   --panel:#0d2038;
-  --panel2:#071522;
+  --panel2:#0a1c31;
   --line:rgba(214,170,84,.24);
   --gold:#bd8a2f;
   --gold2:#d6aa54;
   --muted:rgba(255,253,247,.68);
   --white:#fffdf7;
   background:
-    radial-gradient(circle at 50% 0,rgba(214,170,84,.1),transparent 26rem),
-    linear-gradient(165deg,#050b14 0%,#0d2038 52%,#071522 100%);
+    radial-gradient(circle at 52% -4rem,rgba(214,170,84,.17),transparent 32rem),
+    radial-gradient(circle at 0 38rem,rgba(122,37,51,.12),transparent 30rem),
+    linear-gradient(165deg,#0b2038 0%,#102b49 48%,#0a1c31 100%);
 }
 
 .experience .panel{
-  background:linear-gradient(145deg,rgba(13,32,56,.96),rgba(5,11,20,.96));
+  background:linear-gradient(145deg,rgba(16,43,73,.97),rgba(9,27,47,.97));
   border-color:rgba(214,170,84,.22);
   box-shadow:0 24px 70px rgba(0,0,0,.2);
 }
