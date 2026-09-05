@@ -38,7 +38,12 @@ function getPrayerCopy(prayer: CompanionPrayer, language: LanguageMode) {
 }
 
 export function AdorationCompanion() {
-  const [section, setSection] = useState<CompanionSection>("meditation");
+  const [section, setSection] = useState<CompanionSection>(() => {
+    if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("mode") === "holy-hour") {
+      return "silence";
+    }
+    return "meditation";
+  });
   const [guidedMode, setGuidedMode] = useState(true);
   const [partIndex, setPartIndex] = useState(0);
   const [theme, setTheme] = useState("all");
