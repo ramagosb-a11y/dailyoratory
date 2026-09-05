@@ -149,6 +149,12 @@ export function AdorationCompanion() {
         <span className={styles.version}>Adoration Companion v1.0.2</span>
       </header>
 
+      <nav className={styles.rhythm} aria-label="Daily prayer rhythm">
+        <a href="/morning-prayer">Morning Prayer</a>
+        <a href="/adoration/companion" aria-current="page">Adoration</a>
+        <a href="/night-prayer">Night Prayer</a>
+      </nav>
+
       <nav className={styles.modeNav} aria-label="Adoration Companion sections">
         {companionNavigation.map((item) => (
           <button
