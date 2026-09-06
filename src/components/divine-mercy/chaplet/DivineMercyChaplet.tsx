@@ -334,7 +334,7 @@ function CompanionHeader({ onPath, onSettings }: { onPath?: () => void; onSettin
     <header className={styles.masthead}>
       <Link href="/divine-mercy" className={styles.brand}><span aria-hidden="true" className={`${styles.brandMark} ${styles.cssCross}`} /><span><strong>Daily Oratory</strong><small>Divine Mercy Chaplet</small></span></Link>
       <div className={styles.headerActions}>
-        <Link href="/divine-mercy/three-pm-prayer" className={styles.mercyHourButton}>3 PM Prayer</Link>
+        <Link href="/divine-mercy/three-pm-prayer" className={styles.mercyHourButton}>3 pm Prayer</Link>
         {onPath ? <button type="button" onClick={onPath}>Prayer path</button> : null}
         {onSettings ? <button type="button" onClick={onSettings} aria-label="Prayer settings">Settings</button> : null}
       </div>
