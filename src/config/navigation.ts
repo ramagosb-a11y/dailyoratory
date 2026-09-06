@@ -14,68 +14,30 @@ export { legacyRedirects, redirectMap, type RedirectRule } from "@/data/redirect
 export type NavigationSection = NavigationItem & {
   children: NavigationItem[];
   groups?: NavigationGroup[];
+  hideMenuIntro?: boolean;
 };
 
-export const siteNavigation: NavigationSection[] = [
-  {
-    label: "Start Here",
-    href: "/catholic-life",
-    description: "See how prayer, Mass, Confession, formation, and daily Catholic life fit together.",
-    children: [
-      { label: "Catholic Life Roadmap", href: "/catholic-life", description: "A simple roadmap through Catholic prayer, sacraments, formation, mercy, and hope." },
-      { label: "Explore the Catholic Faith", href: "/explore", description: "A welcoming starting place for first questions and next steps." },
-      { label: "Becoming Catholic", href: "/ocia", description: "The parish path into full communion." },
-      { label: "Returning Catholics", href: "/returning", description: "A calm guide for coming home to the Church." },
-    ],
-  },
+const navigationSections: NavigationSection[] = [
   {
     label: "Pray",
     href: "/prayers",
     description: "Begin in prayer and keep a daily Catholic rhythm.",
+    hideMenuIntro: true,
     children: [
-      { label: "Begin in Prayer", href: "/morning-prayer", description: "Enter a guided morning prayer experience with sacred imagery, quiet reflection, and a steady daily rhythm." },
+      { label: "Morning Prayers", href: "/morning-prayer", description: "Enter a guided morning prayer experience with sacred imagery, quiet reflection, and a steady daily rhythm." },
       { label: "Prayer Library", href: "/prayers", description: "Find Catholic prayers for daily life, Confession, the Rosary, the dead, and more." },
       { label: "Litanies", href: "/prayers/litanies", description: "Learn what Catholic litanies are, how to pray them, and which traditional litanies fit different needs." },
       { label: "The Angelus", href: "/prayers/angelus", description: "A traditional Marian prayer for morning, noon, and evening outside the Easter season." },
       { label: "Regina Caeli", href: "/prayers/regina-caeli", description: "The Easter Marian prayer traditionally prayed from Easter through Pentecost." },
       { label: "Devotions", href: "/devotions", description: "Discover Catholic devotions ordered to Christ, the sacraments, and daily fidelity." },
       { label: "Scripture Prayer", href: "/library/scripture-prayer", description: "Pray with the Word of God through Scripture, Mass readings, and Lectio Divina." },
-      { label: "Daily Examen", href: "/daily-examen", description: "End the day with gratitude, mercy, reflection, and peaceful trust in God." },
+      { label: "Daily Examen", href: "/daily-examen/nightly", description: "End the day with gratitude, mercy, reflection, and peaceful trust in God." },
       { label: "Liturgy of the Hours", href: "/liturgy-of-the-hours", description: "Learn the Divine Office and pray the Church's daily hours." },
-      { label: "Saint Companion", href: "/saints/finder", description: "Find a saint companion for prayer, virtue, and discipleship." },
       { label: "The Holy Mass", href: "/mass", description: "Understand the Mass as sacrifice, worship, communion, and heaven touching earth." },
-      { label: "Sacramental Emergency", href: "/sacramental-emergency", description: "Urgent Catholic help for serious illness, danger of death, Confession, and prayer." },
-      { label: "Family Prayer", href: "/family", description: "Build a home of prayer, mercy, and steady Catholic family rhythms." },
-      { label: "Holy Rosary", href: "/rosary", description: "Pray the mysteries with Mary." },
-      { label: "Divine Mercy Chaplet", href: "/divine-mercy", description: "A quiet Chaplet room for mercy and trust." },
+      { label: "Divine Mercy Chaplet", href: "/divine-mercy/chaplet", description: "A quiet Chaplet room for mercy and trust." },
       { label: "Way of the Cross", href: "/way-of-cross", description: "Pray the Stations of the Cross with Christ." },
       { label: "Adoration Companion", href: "/adoration/companion", description: "Meditation, Scripture, Eucharistic prayers and hymns, silence, and Catechism guidance in one place." },
       { label: "Live Adoration", href: "/adoration", description: "Enter Adoration with reverence." },
-      { label: "Eucharistic Miracles", href: "/eucharistic-miracles", description: "Study signs of Christ's Eucharistic presence." },
-      { label: "Confession Guide", href: "/confession", description: "Prepare for the sacrament of mercy." },
-    ],
-  },
-  {
-    label: "Reflect",
-    href: "/reflections",
-    description: "Receive Scripture and examine the day with peace.",
-    children: [
-      { label: "Mass Readings Reflections", href: "/reflections/mass-readings", description: "Daily Mass, Sunday Mass, solemnity, and feast day reflections." },
-      {
-        label: "Guided Examination of Conscience",
-        href: "/confession/examination",
-        description: "Review the day before God.",
-      },
-      {
-        label: "Homilies",
-        href: "/homilies",
-        description: "Listen to Catholic homilies, Gospel reflections, and preaching playlists.",
-      },
-      {
-        label: "Virtue and Vice Tracker",
-        href: "/virtue-tracker",
-        description: "Notice patterns and grow in virtue.",
-      },
     ],
   },
   {
@@ -247,6 +209,10 @@ export const siteNavigation: NavigationSection[] = [
   },
 ];
 
+export const siteNavigation = navigationSections.filter(
+  (section) => section.label !== "Learn" && section.label !== "Library" && section.label !== "About",
+);
+
 export const primaryNavigation = siteNavigation.map(({ label, href }) => ({ label, href }));
 
 export const desktopMegaMenu = siteNavigation;
@@ -276,7 +242,7 @@ export const breadcrumbPatterns = [
   { pattern: "/catholic-life", label: "Catholic Life Roadmap" },
   { pattern: "/catholic-answers", label: "Catholic Q&A" },
   { pattern: "/pray", label: "Pray" },
-  { pattern: "/begin-in-prayer", label: "Begin in Prayer" },
+  { pattern: "/begin-in-prayer", label: "Morning Prayers" },
   { pattern: "/prayers", label: "Prayer Library" },
   { pattern: "/prayers/litanies", label: "Catholic Litanies" },
   { pattern: "/daily-examen", label: "Daily Examen" },

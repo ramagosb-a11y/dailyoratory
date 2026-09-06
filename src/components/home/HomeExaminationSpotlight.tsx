@@ -13,18 +13,12 @@ export function HomeExaminationSpotlight() {
             Prepare for Confession with a peaceful, private guided reflection.
           </p>
 
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-6">
             <Link
               href="/confession/examination-companion"
               className="focus-ring inline-flex min-h-12 items-center justify-center rounded-md border border-gold bg-gold px-5 py-3 text-sm font-semibold text-navy transition hover:bg-gold-soft"
             >
               Open Examination Tool
-            </Link>
-            <Link
-              href="/confession"
-              className="focus-ring inline-flex min-h-12 items-center justify-center rounded-md border border-gold-soft px-5 py-3 text-sm font-semibold text-ivory transition hover:bg-ivory/10"
-            >
-              Read Confession Guide
             </Link>
           </div>
         </div>

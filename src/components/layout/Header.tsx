@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { brand } from "@/config/brand";
 import { desktopMegaMenu, mobileDrawerNavigation } from "@/config/navigation";
-import { HeaderSearchButton } from "@/components/search/HeaderSearchButton";
 
 function isActive(pathname: string, href: string) {
   const hrefPath = href.split("?")[0] || href;
@@ -125,17 +124,19 @@ export function Header() {
               <div
                 className={`invisible absolute top-full w-[min(760px,calc(100vw-4rem))] translate-y-2 rounded-md border border-stone bg-ivory p-5 opacity-0 shadow-xl transition group-hover:visible group-hover:translate-y-3 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-3 group-focus-within:opacity-100 ${menuPosition}`}
               >
-                <div className="grid max-h-[calc(100vh-140px)] gap-5 overflow-y-auto md:grid-cols-[0.72fr_1.28fr]">
-                  <div className="border-r border-stone pr-5">
-                    <p className="font-display text-3xl font-semibold text-navy">{section.label}</p>
-                    <p className="mt-2 text-sm leading-6 text-muted">{section.description}</p>
-                    <Link
-                      href={section.href}
-                      className="btn btn-liturgical focus-ring mt-4"
-                    >
-                      Open section
-                    </Link>
-                  </div>
+                <div className={`grid max-h-[calc(100vh-140px)] gap-5 overflow-y-auto ${section.hideMenuIntro ? "" : "md:grid-cols-[0.72fr_1.28fr]"}`}>
+                  {!section.hideMenuIntro ? (
+                    <div className="border-r border-stone pr-5">
+                      <p className="font-display text-3xl font-semibold text-navy">{section.label}</p>
+                      <p className="mt-2 text-sm leading-6 text-muted">{section.description}</p>
+                      <Link
+                        href={section.href}
+                        className="btn btn-liturgical focus-ring mt-4"
+                      >
+                        Open section
+                      </Link>
+                    </div>
+                  ) : null}
                   {section.groups?.length ? (
                     <div className="grid gap-4 sm:grid-cols-2">
                       {section.groups.map((group) => (
@@ -184,9 +185,6 @@ export function Header() {
           );
           })}
         </nav>
-        <div className="hidden items-center gap-3 lg:flex">
-          <HeaderSearchButton />
-        </div>
         <button
           ref={menuButtonRef}
           type="button"
@@ -247,9 +245,6 @@ export function Header() {
                   <span className="absolute left-0 top-1/2 block h-0.5 w-5 -rotate-45 bg-current" />
                 </span>
               </button>
-            </div>
-            <div className="mb-5">
-              <HeaderSearchButton mobile onNavigate={() => closeMenu()} />
             </div>
             <div className="grid gap-4">
               {mobileDrawerNavigation.map((section) => (

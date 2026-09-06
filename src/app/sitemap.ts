@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Liturgical Settings", href: "/liturgical-living/settings" },
   ];
   const startHerePages = [
-    { label: "Begin in Prayer", href: "/morning-prayer" },
+    { label: "Morning Prayers", href: "/morning-prayer" },
     { label: "What Should I Do?", href: "/what-should-i-do" },
     { label: "Catholic Q&A", href: "/catholic-answers" },
     { label: "Prayer Library", href: "/prayers" },
@@ -75,7 +75,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Print Sacrament Preparation", href: "/sacraments/print" },
   ];
   const confessionPages = [
-    { label: "Confession Guide", href: "/confession" },
     { label: "Guided Examination", href: "/confession/examination" },
     { label: "Start Examination", href: "/confession/examination/start" },
     { label: "Ten Commandments Examination", href: "/confession/examination/ten-commandments" },
@@ -102,7 +101,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
   const saintPages = [
     { label: "Saints", href: "/saints" },
-    { label: "Saint Finder", href: "/saints/finder" },
     { label: "Saint of the Day", href: "/saints/saint-of-the-day" },
     { label: "Saved Saint Companions", href: "/saints/companions" },
     { label: "Saint Calendar", href: "/saints/calendar" },
@@ -130,10 +128,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Adoration Prayers", href: "/adoration/prayers" },
     { label: "Meditation Before the Blessed Sacrament", href: "/adoration/meditation-before-the-blessed-sacrament" },
     { label: "Submit Adoration Stream", href: "/adoration/submit-stream" },
-    { label: "Eucharistic Miracles", href: "/eucharistic-miracles" },
   ];
   const rosaryPages = [
-    { label: "Holy Rosary", href: "/rosary" },
     { label: "Way of the Cross", href: "/way-of-cross" },
     { label: "Joyful Mysteries", href: "/rosary/joyful-mysteries" },
     { label: "Sorrowful Mysteries", href: "/rosary/sorrowful-mysteries" },
@@ -160,8 +156,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "The Holy Mass", href: "/mass" },
     { label: "Returning to Mass", href: "/returning-to-mass" },
   ];
-  const catholicLifePages = [{ label: "Catholic Life Roadmap", href: "/catholic-life" }];
-  const sacramentalEmergencyPages = [{ label: "Sacramental Emergency Guide", href: "/sacramental-emergency" }];
+  const catholicLifePages: Array<{ label: string; href: string }> = [];
+  const sacramentalEmergencyPages: Array<{ label: string; href: string }> = [];
   const biblePages = [{ label: "The Bible and Sacred Scripture", href: "/bible" }];
   const bodySoulSpiritPages = [{ label: "Body, Soul, and Spirit", href: "/body-soul-spirit" }];
   const sinAndTemptationPages = [
@@ -241,21 +237,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const catechismPages = [{ label: "Catechism of the Catholic Church", href: "/catechism" }];
   const angelsPages = [{ label: "Angels and the Invisible World", href: "/angels" }];
   const explorePages = [
-    { label: "Explore the Catholic Faith", href: "/explore" },
-    { label: "First Time at Mass", href: "/explore/first-time-at-mass" },
     { label: "Common Questions About Catholicism", href: "/explore/questions" },
     { label: "Catholic Beliefs", href: "/explore/catholic-beliefs" },
     { label: "Mary and the Saints", href: "/explore/mary-and-saints" },
   ];
-  const ociaPages = [{ label: "Becoming Catholic", href: "/ocia" }];
+  const ociaPages: Array<{ label: string; href: string }> = [];
   const returningPages = [
-    { label: "Coming Home to the Catholic Church", href: "/returning" },
     { label: "Returning to Mass", href: "/returning-to-mass" },
   ];
-  const glossaryPages = [{ label: "Catholic Terms Glossary", href: "/glossary" }];
+  const glossaryPages: Array<{ label: string; href: string }> = [];
   const traditionPages = [{ label: "Sacred Tradition", href: "/tradition" }];
   const councilPages = [{ label: "Councils of the Church", href: "/councils" }];
-  const familyPages = [{ label: "The Domestic Church", href: "/family" }];
+  const familyPages: Array<{ label: string; href: string }> = [];
   const popePages = [{ label: "The Pope and the Papacy", href: "/pope" }];
   const vaticanPages = [{ label: "The Vatican", href: "/vatican" }];
   const mediaPages = [{ label: "Catholic Media Library", href: "/media" }];

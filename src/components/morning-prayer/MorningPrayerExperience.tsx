@@ -110,7 +110,7 @@ export function MorningPrayerExperience() {
         <div className="relative flex min-h-[100svh] flex-col">
           <div className="flex items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
             <span className="font-serif text-lg uppercase tracking-[0.2em] text-[#D6AA54]">Daily Oratory</span>
-            <Link href="/begin-in-prayer" className="focus-ring rounded-md text-sm font-semibold text-[#FFFDF7]/80 hover:text-white">
+            <Link href="/" className="focus-ring rounded-md text-sm font-semibold text-[#FFFDF7]/80 hover:text-white">
               Exit Prayer
             </Link>
           </div>
@@ -144,7 +144,7 @@ export function MorningPrayerExperience() {
       <div className="flex min-h-[100svh] flex-col bg-[#08182A] px-5 text-center text-[#FFFDF7] sm:px-8">
         <div className="flex items-center justify-between py-5">
           <span className="font-serif text-lg uppercase tracking-[0.2em] text-[#D6AA54]">Daily Oratory</span>
-          <Link href="/begin-in-prayer" className="focus-ring rounded-md text-sm font-semibold text-[#FFFDF7]/75 hover:text-white">Exit Prayer</Link>
+          <Link href="/" className="focus-ring rounded-md text-sm font-semibold text-[#FFFDF7]/75 hover:text-white">Exit Prayer</Link>
         </div>
         <main className="mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center py-12">
           <div className="grid h-24 w-24 place-items-center rounded-full border border-[#BD8A2F]/45 bg-[#162E4E] shadow-[0_0_50px_rgba(189,138,47,0.2)]">
@@ -167,9 +167,9 @@ export function MorningPrayerExperience() {
             </div>
           )}
           <div className="mt-12 flex w-full max-w-md flex-col gap-3 sm:flex-row">
-            <a href="/" className="focus-ring inline-flex min-h-14 flex-1 items-center justify-center rounded-full border border-[#D8CDB9]/40 px-6 py-3 text-center text-sm font-semibold">
+            <Link href="/" className="focus-ring inline-flex min-h-14 flex-1 items-center justify-center rounded-full border border-[#D8CDB9]/40 px-6 py-3 text-center text-sm font-semibold">
               Return to Home Page
-            </a>
+            </Link>
             <a
               href="https://bible.usccb.org/daily-bible-reading"
               target="_blank"
@@ -190,7 +190,7 @@ export function MorningPrayerExperience() {
     <div className="min-h-[100svh] bg-[#0D2038] text-[#0D2038]" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
       <header className="sticky top-0 z-40 flex min-h-16 items-center justify-between border-b border-[#BD8A2F]/25 bg-[#0D2038]/95 px-4 py-3 text-[#FFFDF7] backdrop-blur sm:px-6 lg:px-10">
         <span className="font-serif text-sm uppercase tracking-[0.18em] text-[#D6AA54] sm:text-lg">Daily Oratory</span>
-        <Link href="/begin-in-prayer" className="focus-ring rounded-md px-2 py-2 text-sm font-semibold text-[#FFFDF7]/80 hover:text-white">Exit Prayer</Link>
+        <Link href="/" className="focus-ring rounded-md px-2 py-2 text-sm font-semibold text-[#FFFDF7]/80 hover:text-white">Exit Prayer</Link>
       </header>
 
       <main className="mx-auto grid min-h-[calc(100svh-4rem)] w-full max-w-[1500px] lg:grid-cols-[minmax(0,0.88fr)_minmax(34rem,1.12fr)] lg:gap-7 lg:px-7 lg:py-7 xl:gap-10 xl:px-10">
