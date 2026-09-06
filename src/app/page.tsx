@@ -7,6 +7,7 @@ import { GrowInFaithSection } from "@/components/home/GrowInFaithSection";
 import { HomeHeavenboundSpotlight } from "@/components/home/HomeHeavenboundSpotlight";
 import { HomeRosaryCta } from "@/components/home/HomeRosaryCta";
 import { HomeDivineMercyCta } from "@/components/home/HomeDivineMercyCta";
+import { HomeWayOfCrossCta } from "@/components/home/HomeWayOfCrossCta";
 import { Hero } from "@/components/home/Hero";
 import { TodayInTheChurch } from "@/components/home/TodayInTheChurch";
 import { LitanyPrayerShelf, type LitanyShelfItem } from "@/components/contemplative-litanies/LitanyPrayerShelf";
@@ -100,6 +101,7 @@ export default function Home() {
       <HomeExaminationSpotlight />
       <FooterCta />
       <GrowInFaithSection />
+      <HomeWayOfCrossCta />
       <HomeHeavenboundSpotlight />
       <HomeRosaryCta />
       <section aria-label="Explore contemplative litanies" className="bg-[#FFFDF7] px-0 pb-16 pt-2 sm:pb-20 sm:pt-4">
