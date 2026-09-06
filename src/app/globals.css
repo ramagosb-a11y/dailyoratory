@@ -1431,6 +1431,11 @@ a {
   }
 }
 
+.sacred-hours-home-card .daily-card-readable {
+  font-size: clamp(.95rem, 1.2vw, 1.05rem);
+  line-height: 1.55;
+}
+
 @media print {
   @page {
     margin: 0.75in;

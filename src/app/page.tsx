@@ -28,7 +28,7 @@ const featuredContentCards = [
   {
     title: "The Sacred Hours",
     description:
-      "A guided journey through the final hours of Christ's earthly life, from Jerusalem to the Empty Tomb.",
+      "A guided journey through the final hours of Christ's earthly life.",
     href: "/holy-week",
     image: "/images/sacred-hours/sacred-hours-hourglass.png",
     imageAlt: "Antique hourglass with falling sand in a candlelit chapel",
@@ -84,7 +84,7 @@ export default function Home() {
           <div className="liturgical-home-rule mt-6" aria-hidden="true" />
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featuredContentCards.map((card) => (
-              <article key={card.href} className="liturgical-home-card rounded-3xl p-5">
+              <article key={card.href} className={`liturgical-home-card rounded-3xl p-5${"image" in card ? " sacred-hours-home-card" : ""}`}>
                 {"image" in card ? <div className="-mx-5 -mt-5 mb-5 overflow-hidden rounded-t-3xl"><Image src={card.image!} alt={card.imageAlt!} width={1672} height={941} sizes="(max-width: 1279px) 50vw, 25vw" className="aspect-video w-full object-cover" /></div> : null}
                 <h3 className="font-display text-2xl font-semibold text-navy">{card.title}</h3>
                 <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.description}</p>
