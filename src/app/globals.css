@@ -1240,16 +1240,6 @@ a {
     text-transform: uppercase;
   }
 
-  .way-cross-header > div:first-child > div:first-child::before {
-    content: "✝";
-    display: block;
-    margin-bottom: 0.7rem;
-    color: var(--gold);
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    line-height: 1;
-  }
-
   .way-cross-progress {
     border-top: 1px solid rgba(234, 214, 167, 0.18);
     padding-top: 0.7rem;
