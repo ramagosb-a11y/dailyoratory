@@ -3,10 +3,8 @@ import { Suspense } from "react";
 import Script from "next/script";
 import { Cormorant_Garamond, Geist, Geist_Mono } from "next/font/google";
 import { AnalyticsPageTracker } from "@/components/analytics/AnalyticsPageTracker";
-import { LiturgicalPageTheme } from "@/components/LiturgicalPageTheme";
 import { LiturgicalThemeProvider } from "@/components/theme/LiturgicalThemeProvider";
-import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 import { brand } from "@/config/brand";
 import { getLiturgicalDashboardModel } from "@/lib/liturgicalLiving";
 import { getLiturgicalThemeForToday } from "@/lib/liturgicalTheme";
@@ -129,11 +127,7 @@ export default function RootLayout({
           <Suspense fallback={null}>
             <AnalyticsPageTracker />
           </Suspense>
-          <Header />
-          <main id="main-content" className="flex-1">
-            <LiturgicalPageTheme>{children}</LiturgicalPageTheme>
-          </main>
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
         </LiturgicalThemeProvider>
       </body>
     </html>

@@ -57,6 +57,7 @@ export function ExaminationCompanion() {
   const [search, setSearch] = useState("");
   const [customText, setCustomText] = useState("");
   const [confessedIds, setConfessedIds] = useState<string[]>([]);
+  const [showDateEditor, setShowDateEditor] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -111,6 +112,7 @@ export function ExaminationCompanion() {
   function updateLastConfessionDate(lastConfessionDate: string) {
     updateStore((current) => ({ ...current, lastConfessionDate }));
     setView("examine");
+    setShowDateEditor(false);
   }
 
   function setPromptStatus(promptId: string, status: CompanionPromptStatus) {
@@ -230,31 +232,51 @@ export function ExaminationCompanion() {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 pb-32 pt-6 sm:px-6 sm:pt-8 md:pb-12 lg:px-10">
-      <header className="dashboard-card overflow-hidden">
+      <header className="overflow-hidden rounded-2xl border border-gold/25 bg-navy text-ivory shadow-[0_18px_45px_rgba(2,14,30,0.3)]">
         <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded border border-gold/30 bg-parchment px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-burgundy">
+              <span className="rounded border border-gold/40 bg-gold/15 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold-light">
                 ◷ Interval: {lastConfessionSummary}
               </span>
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-muted">V1.0 preview</span>
+              <span className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-ivory/60">V1.0 preview</span>
             </div>
-            <p className="font-display mt-3 border-l-2 border-gold pl-4 text-lg italic leading-8 text-navy sm:text-xl">
+            <p className="font-display mt-3 border-l-2 border-gold pl-4 text-lg italic leading-8 text-ivory sm:text-xl">
               “Bless me, Father, for I have sinned. It has been {formatConfessionInterval(store.lastConfessionDate)} since my last confession.”
             </p>
-            <p className="mt-2 text-sm leading-6 text-muted">
+            <p className="mt-2 text-sm leading-6 text-ivory/70">
               The Church encourages regular confession for ongoing spiritual renewal, pardon, and peace.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-2 sm:flex">
-            <button type="button" onClick={() => setView("history")} className="btn btn-secondary focus-ring min-h-12 justify-center">
+          <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-end">
+            <button type="button" onClick={() => setShowDateEditor((current) => !current)} className="focus-ring min-h-12 justify-center rounded-lg border border-ivory/30 bg-ivory/10 px-4 text-sm font-bold text-ivory hover:bg-ivory/15">
               Update date
             </button>
-            <button type="button" onClick={() => setView("prayers")} className="btn btn-primary focus-ring min-h-12 justify-center">
+            <button type="button" onClick={clearAllData} className="focus-ring min-h-12 justify-center rounded-lg border border-burgundy/60 bg-burgundy/90 px-4 text-sm font-bold text-ivory hover:bg-burgundy">
+              Clear config
+            </button>
+            <button type="button" onClick={() => setView("prayers")} className="btn btn-primary focus-ring col-span-2 min-h-12 justify-center sm:col-span-1">
               Confessional guide →
             </button>
           </div>
         </div>
+        {showDateEditor ? (
+          <div className="border-t border-ivory/15 bg-ink/20 px-5 py-4 sm:px-6" role="region" aria-label="Update confession date">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <label className="grid gap-2">
+                <span className="text-xs font-bold uppercase tracking-[0.14em] text-gold-light">Date of last Confession</span>
+                <input
+                  type="date"
+                  value={store.lastConfessionDate}
+                  max={new Date().toISOString().slice(0, 10)}
+                  onChange={(event) => updateLastConfessionDate(event.currentTarget.value)}
+                  className="form-field focus-ring min-h-12 border-ivory/30 bg-ivory text-navy"
+                />
+              </label>
+              <button type="button" onClick={() => setShowDateEditor(false)} className="focus-ring min-h-11 rounded-lg border border-ivory/30 px-4 text-sm font-semibold text-ivory">Cancel</button>
+            </div>
+          </div>
+        ) : null}
         <nav aria-label="Examination Companion" className="hidden border-t border-stone bg-navy p-2 md:grid md:grid-cols-5">
           {navItems.map((item) => (
             <NavButton key={item.id} active={view === item.id} item={item} onSelect={() => setView(item.id)} />
@@ -270,7 +292,7 @@ export function ExaminationCompanion() {
 
       <main className="mt-6 min-w-0" aria-busy={!ready}>
         {view === "examine" ? (
-          <ExamineView
+        <ExamineView
             activeGuideId={activeGuide.id}
             customReflections={store.customReflections}
             filter={filter}
@@ -361,7 +383,7 @@ export function ExaminationCompanion() {
         </aside>
       ) : null}
 
-      <p className="mt-8 text-center text-xs leading-6 text-muted">
+      <p className="mt-8 text-center text-xs leading-6 text-ivory/60">
         Preview route only. The current examination tool and its saved data are unchanged. Storage key: {examinationCompanionStorageKey}.
       </p>
 

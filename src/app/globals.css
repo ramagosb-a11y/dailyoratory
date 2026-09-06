@@ -1195,6 +1195,175 @@ a {
   }
 }
 
+@layer components {
+  .way-of-cross-page-shell {
+    background: #070d15;
+  }
+
+  body:has(.way-of-cross-root) {
+    background: #070d15;
+  }
+
+  body:has(.way-of-cross-root) > header,
+  body:has(.way-of-cross-root) > footer {
+    display: none;
+  }
+
+  .way-of-cross-shell {
+    --way-cross-ink: var(--ivory);
+    --way-cross-muted: var(--stone-soft);
+    position: relative;
+    isolation: isolate;
+    background: #070d15;
+    border: 1px solid rgba(234, 214, 167, 0.22);
+    box-shadow: 0 24px 80px rgba(7, 13, 21, 0.28), inset 0 1px 0 rgba(255, 253, 247, 0.06);
+  }
+
+  .way-of-cross-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 76% 18%, rgba(189, 138, 47, 0.12), transparent 22rem), linear-gradient(115deg, rgba(255, 253, 247, 0.035), transparent 35%);
+    z-index: -1;
+  }
+
+  .way-cross-header {
+    background: linear-gradient(180deg, rgba(13, 32, 56, 0.98), rgba(7, 13, 21, 0.94));
+  }
+
+  .way-cross-header h1 {
+    max-width: none;
+    font-size: clamp(1.7rem, 3vw, 2.7rem);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .way-cross-header > div:first-child > div:first-child::before {
+    content: "✝";
+    display: block;
+    margin-bottom: 0.7rem;
+    color: var(--gold);
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .way-cross-progress {
+    border-top: 1px solid rgba(234, 214, 167, 0.18);
+    padding-top: 0.7rem;
+  }
+
+  .way-cross-progress button {
+    min-width: 2.1rem;
+    border: 1px solid transparent;
+    transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease;
+  }
+
+  .way-cross-progress button:hover,
+  .way-cross-progress button:focus-visible {
+    border-color: rgba(234, 214, 167, 0.55);
+  }
+
+  .way-cross-art {
+    border-right: 1px solid rgba(234, 214, 167, 0.24);
+  }
+
+  .way-cross-art::after {
+    content: "";
+    position: absolute;
+    inset: 1rem;
+    border: 1px solid rgba(234, 214, 167, 0.18);
+    pointer-events: none;
+  }
+
+  .way-cross-content {
+    background: linear-gradient(135deg, rgba(13, 32, 56, 0.98), rgba(7, 13, 21, 0.98));
+  }
+
+  .way-cross-content h2 {
+    color: var(--ivory);
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.2);
+  }
+
+  .way-cross-content .btn-primary {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #5f1727, #7a2533 72%, #9a3b43);
+    color: var(--ivory);
+    box-shadow: 0 10px 24px rgba(122, 37, 51, 0.25), inset 0 1px 0 rgba(255, 253, 247, 0.16);
+  }
+
+  .way-cross-content .btn-primary:hover {
+    background: linear-gradient(135deg, #7a2533, #a0444e);
+  }
+
+  .way-cross-actions {
+    background: linear-gradient(180deg, transparent, rgba(255, 253, 247, 0.025));
+  }
+
+  .way-of-cross-shell h1,
+  .way-of-cross-shell h2,
+  .way-of-cross-shell p.font-display {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+  }
+
+  .way-of-cross-shell h1 {
+    max-width: 18ch;
+    font-size: clamp(2.65rem, 6vw, 5.4rem);
+    line-height: 0.98;
+  }
+
+  .way-of-cross-shell h2 {
+    max-width: 15ch;
+    font-size: clamp(2.6rem, 5vw, 4.75rem);
+    line-height: 0.98;
+  }
+
+  .way-of-cross-shell main > section > p,
+  .way-of-cross-shell main > section > div > p:not([class*="text-xs"]),
+  .way-of-cross-shell main > section > div > div > p:not([class*="text-xs"]),
+  .way-of-cross-shell main > section > div > div > div > p:not([class*="text-xs"]) {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2vw, 1.65rem);
+    line-height: 1.72;
+    letter-spacing: 0.003em;
+  }
+
+  .way-of-cross-shell .text-xs,
+  .way-of-cross-shell select,
+  .way-of-cross-shell button,
+  .way-of-cross-shell label {
+    font-family: var(--font-body);
+    letter-spacing: 0.04em;
+  }
+
+  .way-of-cross-shell .text-xs {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  }
+
+  .way-of-cross-shell main {
+    max-width: 48rem;
+  }
+
+  @media (max-width: 640px) {
+    .way-of-cross-shell h1 { font-size: clamp(2.45rem, 12vw, 3.8rem); }
+    .way-of-cross-shell h2 { font-size: clamp(2.35rem, 11vw, 3.5rem); }
+    .way-of-cross-shell main > section > p,
+    .way-of-cross-shell main > section > div > p:not([class*="text-xs"]),
+    .way-of-cross-shell main > section > div > div > p:not([class*="text-xs"]),
+    .way-of-cross-shell main > section > div > div > div > p:not([class*="text-xs"]) {
+      font-size: 1.28rem;
+      line-height: 1.7;
+    }
+  }
+}
+
 @media (max-width: 640px) {
   .liturgical-day-banner {
     align-items: flex-start;
