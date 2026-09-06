@@ -6,7 +6,8 @@ import { Header } from "@/components/layout/Header";
 import { LiturgicalPageTheme } from "@/components/LiturgicalPageTheme";
 
 function isImmersivePrayerRoute(pathname: string | null) {
-  return pathname?.replace(/\/+$/, "") === "/way-of-cross";
+  const route = pathname?.replace(/\/+$/, "");
+  return route === "/way-of-cross" || route === "/holy-week";
 }
 
 function isStandaloneCompanionRoute(pathname: string | null) {

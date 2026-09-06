@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { FindMassSection } from "@/components/home/FindMassSection";
 import { FooterCta } from "@/components/home/FooterCta";
@@ -25,6 +26,14 @@ export const metadata: Metadata = createPageMetadata({
 
 const featuredContentCards = [
   {
+    title: "The Sacred Hours",
+    description:
+      "A guided journey through the final hours of Christ's earthly life, from Jerusalem to the Empty Tomb.",
+    href: "/holy-week",
+    image: "/images/sacred-hours/sacred-hours-hourglass.png",
+    imageAlt: "Antique hourglass with falling sand in a candlelit chapel",
+  },
+  {
     title: "The Holy Mass",
     description:
       "Understand the parts of the Mass, its sacred signs, and the mystery of Christ's Eucharistic sacrifice.",
@@ -35,12 +44,6 @@ const featuredContentCards = [
     description:
       "Discover remarkable Eucharistic miracles and what they reveal about Christ's Real Presence.",
     href: "/eucharistic-miracles",
-  },
-  {
-    title: "Mass Readings Reflections",
-    description:
-      "Pray with Scripture through reflections on daily Mass readings, Sundays, solemnities, and feast days.",
-    href: "/reflections/mass-readings",
   },
   {
     title: "Catholic Homilies",
@@ -78,14 +81,11 @@ export default function Home() {
           <h2 className="font-display mt-3 text-4xl font-semibold text-navy sm:text-5xl">
             Featured Content
           </h2>
-          <p className="daily-readable-muted mt-4 max-w-4xl text-base leading-8 text-muted">
-            Explore the Mass, Eucharistic miracles, Scripture reflections, and Catholic homilies—all
-            gathered to deepen faith and prayer.
-          </p>
           <div className="liturgical-home-rule mt-6" aria-hidden="true" />
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featuredContentCards.map((card) => (
               <article key={card.href} className="liturgical-home-card rounded-3xl p-5">
+                {"image" in card ? <div className="-mx-5 -mt-5 mb-5 overflow-hidden rounded-t-3xl"><Image src={card.image!} alt={card.imageAlt!} width={1672} height={941} sizes="(max-width: 1279px) 50vw, 25vw" className="aspect-video w-full object-cover" /></div> : null}
                 <h3 className="font-display text-2xl font-semibold text-navy">{card.title}</h3>
                 <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.description}</p>
                 <div className="mt-5">

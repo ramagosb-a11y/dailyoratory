@@ -167,7 +167,7 @@ export function MorningPrayerExperience() {
             </div>
           )}
           <div className="mt-12 flex w-full max-w-md flex-col gap-3 sm:flex-row">
-            <a href="https://dailyoratory.faith/" className="focus-ring inline-flex min-h-14 flex-1 items-center justify-center rounded-full border border-[#D8CDB9]/40 px-6 py-3 text-center text-sm font-semibold">
+            <a href="/" className="focus-ring inline-flex min-h-14 flex-1 items-center justify-center rounded-full border border-[#D8CDB9]/40 px-6 py-3 text-center text-sm font-semibold">
               Return to Home Page
             </a>
             <a
