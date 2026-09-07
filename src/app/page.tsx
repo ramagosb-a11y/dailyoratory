@@ -38,8 +38,9 @@ const featuredContentCards = [
     description:
       "A guided three-day retreat of fasting, Scripture, prayer, and consecration with Christ.",
     href: "/fasting-retreat",
-    image: "/images/fasting-retreat/01-retreat-opening.webp",
-    imageAlt: "Candlelit prayer book prepared for the Three-Day Fasting Retreat",
+    image: "/images/fasting-retreat/02-fasting-and-intentions.webp",
+    imageAlt: "Bread, water, candle, and prayer book prepared for fasting intentions",
+    imagePosition: "center 68%",
   },
   {
     title: "The Holy Mass",
@@ -81,7 +82,7 @@ export default function Home() {
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featuredContentCards.map((card) => (
               <article key={card.href} className={`liturgical-home-card rounded-3xl p-5${"image" in card ? " sacred-hours-home-card" : ""}`}>
-                {"image" in card ? <div className="-mx-5 -mt-5 mb-5 overflow-hidden rounded-t-3xl"><Image src={card.image!} alt={card.imageAlt!} width={1672} height={941} sizes="(max-width: 1279px) 50vw, 25vw" className="aspect-video w-full object-cover" /></div> : null}
+                {"image" in card ? <div className="-mx-5 -mt-5 mb-5 overflow-hidden rounded-t-3xl"><Image src={card.image!} alt={card.imageAlt!} width={1672} height={941} sizes="(max-width: 1279px) 50vw, 25vw" className="aspect-video w-full object-cover" style={{ objectPosition: "imagePosition" in card ? card.imagePosition : "center" }} /></div> : null}
                 <h3 className="font-display text-2xl font-semibold text-navy">{card.title}</h3>
                 <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.description}</p>
                 <div className="mt-5">
