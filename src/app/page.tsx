@@ -34,6 +34,14 @@ const featuredContentCards = [
     imageAlt: "Antique hourglass with falling sand in a candlelit chapel",
   },
   {
+    title: "Three-Day Fasting Retreat",
+    description:
+      "A guided three-day retreat of fasting, Scripture, prayer, and consecration with Christ.",
+    href: "/fasting-retreat",
+    image: "/images/fasting-retreat/01-retreat-opening.webp",
+    imageAlt: "Candlelit prayer book prepared for the Three-Day Fasting Retreat",
+  },
+  {
     title: "The Holy Mass",
     description:
       "Understand the parts of the Mass, its sacred signs, and the mystery of Christ's Eucharistic sacrifice.",
@@ -44,14 +52,6 @@ const featuredContentCards = [
     description:
       "Discover remarkable Eucharistic miracles and what they reveal about Christ's Real Presence.",
     href: "/eucharistic-miracles",
-  },
-  {
-    title: "Three-Day Fasting Retreat",
-    description:
-      "A guided three-day retreat of fasting, Scripture, prayer, and consecration with Christ.",
-    href: "/fasting-retreat",
-    image: "/images/fasting-retreat/01-retreat-opening.webp",
-    imageAlt: "Candlelit prayer book prepared for the Three-Day Fasting Retreat",
   },
 ];
 
