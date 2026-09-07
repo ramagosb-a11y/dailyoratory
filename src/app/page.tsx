@@ -46,10 +46,12 @@ const featuredContentCards = [
     href: "/eucharistic-miracles",
   },
   {
-    title: "Catholic Homilies",
+    title: "Three-Day Fasting Retreat",
     description:
-      "Listen to Catholic homilies and Gospel reflections that connect Scripture, the Mass, and daily discipleship.",
-    href: "/homilies",
+      "A guided three-day retreat of fasting, Scripture, prayer, and consecration with Christ.",
+    href: "/fasting-retreat",
+    image: "/images/fasting-retreat/01-retreat-opening.webp",
+    imageAlt: "Candlelit prayer book prepared for the Three-Day Fasting Retreat",
   },
 ];
 
