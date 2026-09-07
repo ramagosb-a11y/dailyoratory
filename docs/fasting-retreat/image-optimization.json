@@ -1,0 +1,236 @@
+{
+  "quality": 88,
+  "format": "webp",
+  "totals": {
+    "original": 57215528,
+    "optimized": 4548302,
+    "saved": 52667226
+  },
+  "files": [
+    {
+      "file": "01-retreat-opening.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2158380,
+      "optimized": 139830,
+      "saved": 2018550,
+      "percent": 93.52
+    },
+    {
+      "file": "02-fasting-and-intentions.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2279092,
+      "optimized": 160436,
+      "saved": 2118656,
+      "percent": 92.96
+    },
+    {
+      "file": "03-preparation-communion-of-saints.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2448964,
+      "optimized": 230958,
+      "saved": 2218006,
+      "percent": 90.57
+    },
+    {
+      "file": "04-confession-and-examination.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 1936871,
+      "optimized": 113830,
+      "saved": 1823041,
+      "percent": 94.12
+    },
+    {
+      "file": "05-retreat-consecration.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 1883159,
+      "optimized": 70824,
+      "saved": 1812335,
+      "percent": 96.24
+    },
+    {
+      "file": "06-day-1-abide-in-me.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2054087,
+      "optimized": 140856,
+      "saved": 1913231,
+      "percent": 93.14
+    },
+    {
+      "file": "07-day-2-annunciation.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2093906,
+      "optimized": 121782,
+      "saved": 1972124,
+      "percent": 94.18
+    },
+    {
+      "file": "08-day-3-holy-family.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2178780,
+      "optimized": 159406,
+      "saved": 2019374,
+      "percent": 92.68
+    },
+    {
+      "file": "09-morning-offering.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2375410,
+      "optimized": 188204,
+      "saved": 2187206,
+      "percent": 92.08
+    },
+    {
+      "file": "10-scripture-lectio-divina.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2354773,
+      "optimized": 173154,
+      "saved": 2181619,
+      "percent": 92.65
+    },
+    {
+      "file": "11-hourly-recollection.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 3261065,
+      "optimized": 460100,
+      "saved": 2800965,
+      "percent": 85.89
+    },
+    {
+      "file": "12-angelus.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2982108,
+      "optimized": 375660,
+      "saved": 2606448,
+      "percent": 87.4
+    },
+    {
+      "file": "13-mass-spiritual-communion.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2100674,
+      "optimized": 110460,
+      "saved": 1990214,
+      "percent": 94.74
+    },
+    {
+      "file": "14-eucharistic-adoration.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2269523,
+      "optimized": 200030,
+      "saved": 2069493,
+      "percent": 91.19
+    },
+    {
+      "file": "15-rosary.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2372646,
+      "optimized": 185720,
+      "saved": 2186926,
+      "percent": 92.17
+    },
+    {
+      "file": "16-litany-sacred-heart.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2036606,
+      "optimized": 105528,
+      "saved": 1931078,
+      "percent": 94.82
+    },
+    {
+      "file": "17-litany-loreto.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 1986797,
+      "optimized": 104040,
+      "saved": 1882757,
+      "percent": 94.76
+    },
+    {
+      "file": "18-litany-saint-joseph.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2258088,
+      "optimized": 162482,
+      "saved": 2095606,
+      "percent": 92.8
+    },
+    {
+      "file": "19-work-of-mercy.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2310712,
+      "optimized": 175610,
+      "saved": 2135102,
+      "percent": 92.4
+    },
+    {
+      "file": "20-evening-examen.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 1981623,
+      "optimized": 124874,
+      "saved": 1856749,
+      "percent": 93.7
+    },
+    {
+      "file": "21-night-prayer.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2299644,
+      "optimized": 205642,
+      "saved": 2094002,
+      "percent": 91.06
+    },
+    {
+      "file": "22-closing-consecration.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2576854,
+      "optimized": 248766,
+      "saved": 2328088,
+      "percent": 90.35
+    },
+    {
+      "file": "23-carry-it-forward.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2939157,
+      "optimized": 357502,
+      "saved": 2581655,
+      "percent": 87.84
+    },
+    {
+      "file": "24-divine-mercy.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 2277320,
+      "optimized": 178360,
+      "saved": 2098960,
+      "percent": 92.17
+    },
+    {
+      "file": "25-invocation-holy-spirit.webp",
+      "width": 1024,
+      "height": 1536,
+      "original": 1799289,
+      "optimized": 54248,
+      "saved": 1745041,
+      "percent": 96.99
+    }
+  ]
+}

@@ -17,7 +17,6 @@ export const SilenceTimer: React.FC<SilenceTimerProps> = ({
 }) => {
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [secondsRemaining, setSecondsRemaining] = useState(60);
-  const [hasCompletedTimer, setHasCompletedTimer] = useState(false);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
@@ -25,16 +24,12 @@ export const SilenceTimer: React.FC<SilenceTimerProps> = ({
       interval = setInterval(() => {
         setSecondsRemaining((prev) => prev - 1);
       }, 1000);
-    } else if (secondsRemaining === 0) {
-      setIsTimerRunning(false);
-      setHasCompletedTimer(true);
     }
     return () => clearInterval(interval);
   }, [isTimerRunning, secondsRemaining]);
 
   const handleStartTimer = () => {
     setSecondsRemaining(60);
-    setHasCompletedTimer(false);
     setIsTimerRunning(true);
   };
 
@@ -78,7 +73,7 @@ export const SilenceTimer: React.FC<SilenceTimerProps> = ({
 
       {/* Silence Timer Section */}
       <div className="w-full max-w-sm mx-auto mb-12">
-        {!isTimerRunning && !hasCompletedTimer && (
+        {!isTimerRunning && secondsRemaining > 0 && (
           <button
             onClick={handleStartTimer}
             className="touch-target inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#162E4E] text-[#F3EAD8] hover:text-[#FFFDF7] hover:bg-[#1f3d66] border border-[#BD8A2F]/40 transition-all font-sans text-sm tracking-wide shadow-sm hover:shadow-md"
@@ -91,7 +86,7 @@ export const SilenceTimer: React.FC<SilenceTimerProps> = ({
           </button>
         )}
 
-        {isTimerRunning && (
+        {isTimerRunning && secondsRemaining > 0 && (
           <div className="flex flex-col items-center p-6 rounded-2xl bg-[#162E4E]/50 border border-[#BD8A2F]/30 backdrop-blur-xs">
             <div className="relative w-28 h-28 flex items-center justify-center mb-4">
               <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -134,7 +129,7 @@ export const SilenceTimer: React.FC<SilenceTimerProps> = ({
           </div>
         )}
 
-        {hasCompletedTimer && (
+        {secondsRemaining === 0 && (
           <div className="p-6 rounded-2xl bg-[#162E4E]/40 border border-[#BD8A2F]/30">
             <p className="font-serif text-2xl text-[#BD8A2F] mb-1">
               Remain as long as you wish.

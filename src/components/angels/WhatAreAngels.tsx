@@ -18,7 +18,7 @@ export function WhatAreAngels() {
         <p className="mt-6 text-sm leading-7 text-muted">
           The word <span className="font-semibold text-navy">angel</span> means messenger, but angels do
           more than deliver messages. They worship, guard, guide, announce, protect, and serve
-          according to God's will.
+          according to God’s will.
         </p>
       </div>
     </section>

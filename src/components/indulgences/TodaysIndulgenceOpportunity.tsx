@@ -13,7 +13,7 @@ export function TodaysIndulgenceOpportunity() {
     <IndulgenceSection
       id="todays-opportunity"
       eyebrow="Today"
-      title="Today's Indulgence Opportunity"
+      title="Today’s Indulgence Opportunity"
       summary="One practical suggestion for today, plus seasonal callouts when a special indulgence year is active."
     >
       <div className="dashboard-card p-6 sm:p-8">
@@ -28,7 +28,7 @@ export function TodaysIndulgenceOpportunity() {
                 Open related Daily Oratory page
               </Link>
               <Link href="#indulgence-builder" className="btn btn-primary focus-ring justify-center">
-                Start Today's Plan
+                Start Today’s Plan
               </Link>
             </div>
           </div>

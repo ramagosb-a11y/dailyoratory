@@ -64,7 +64,7 @@ export default function TodayPrayerPage() {
               <h2 className="font-display text-3xl font-semibold text-navy">Keep praying with the Church</h2>
               <div className="mt-4 flex flex-col gap-3">
                 <Link href="https://bible.usccb.org/daily-bible-reading" className="btn liturgical-button focus-ring justify-center">
-                  Read Today's Readings
+                  Read Today’s Readings
                 </Link>
                 <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring justify-center">
                   Mass Readings Reflections

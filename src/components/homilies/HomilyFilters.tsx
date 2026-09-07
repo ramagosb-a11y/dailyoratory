@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { getHomilySeasonOptions, getHomilyTopicOptions, isAudioHomily, isPlaylistHomily } from "@/lib/homilies";
 import type { HomilyItem } from "@/types/homilies";
@@ -23,10 +23,9 @@ export function HomilyFilters({ items }: { items: HomilyItem[] }) {
   const speakers = Array.from(new Set(items.map((item) => item.creator))).sort();
   const audiences = Array.from(new Set(items.flatMap((item) => item.audience))).sort();
 
-  const filtered = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
+  const normalizedQuery = query.trim().toLowerCase();
 
-    return items.filter((item) => {
+  const filtered = items.filter((item) => {
       const searchable = [
         item.title,
         item.shortDescription,
@@ -67,8 +66,7 @@ export function HomilyFilters({ items }: { items: HomilyItem[] }) {
         matchesAudience &&
         matchesFeatured
       );
-    });
-  }, [audience, featuredOnly, items, mediaType, query, season, speaker, topic]);
+  });
 
   const playlistItems = filtered.filter((item) => isPlaylistHomily(item));
   const audioItems = filtered.filter((item) => isAudioHomily(item));

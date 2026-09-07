@@ -28,7 +28,7 @@ export function EucharistAndSoul() {
           <p className="mt-4 text-sm leading-7 text-muted">
             Catholics conscious of mortal sin should receive sacramental Confession before
             receiving Holy Communion. This is not rejection, but reverence for Christ and love
-            for the soul's healing.
+            for the soul’s healing.
           </p>
         </article>
       </div>

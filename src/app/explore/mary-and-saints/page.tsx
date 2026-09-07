@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SectionHeader } from "@/components/section-header";
 import { createPageMetadata } from "@/lib/metadata";
@@ -54,7 +55,7 @@ export default function MaryAndSaintsPage() {
             ))}
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="/saints" className="btn liturgical-button focus-ring justify-center">Saints</a>
+            <Link href="/saints" className="btn liturgical-button focus-ring justify-center">Saints</Link>
             <a href="/rosary" className="btn btn-secondary focus-ring justify-center">Rosary</a>
             <a href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</a>
           </div>

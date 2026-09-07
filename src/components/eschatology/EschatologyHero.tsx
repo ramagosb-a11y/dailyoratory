@@ -13,7 +13,7 @@ export function EschatologyHero() {
       </p>
       <p className="daily-readable-muted mt-5 max-w-4xl text-base leading-8 text-muted">
         Catholic eschatology is not meant to produce fear or speculation. It teaches us to live in the light of
-        eternity, to prepare for death with faith, to trust God's justice and mercy, and to hope for the
+        eternity, to prepare for death with faith, to trust God’s justice and mercy, and to hope for the
         resurrection and eternal life promised in Jesus Christ.
       </p>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

@@ -8,7 +8,7 @@ export function SacredVesselsAndLinens({ objects }: { objects: MassObject[] }) {
         Ordinary-looking objects, sacred use
       </h2>
       <p className="mt-4 max-w-4xl text-sm leading-7 text-muted">
-        These objects are beginner-friendly windows into the Church's care for the Eucharist.
+        These objects are beginner-friendly windows into the Church’s care for the Eucharist.
       </p>
       <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
         {objects.map((item) => (

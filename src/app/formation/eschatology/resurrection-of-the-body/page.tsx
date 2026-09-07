@@ -40,10 +40,10 @@ export default function EschatologyResurrectionPage() {
       </section>
       <section className="grid gap-5 lg:grid-cols-2">
         <article className="card-parchment p-6 sm:p-8">
-          <h2 className="font-display text-4xl font-semibold text-navy">Christ's Resurrection as the foundation</h2>
+          <h2 className="font-display text-4xl font-semibold text-navy">Christ’s Resurrection as the foundation</h2>
           <p className="daily-readable mt-5 text-base leading-8 text-muted">
             The Resurrection of Jesus is the foundation of Christian hope. Because He lives, those who belong
-            to Him hope not only for the soul's life with God, but for final bodily glory.
+            to Him hope not only for the soul’s life with God, but for final bodily glory.
           </p>
         </article>
         <article className="card-parchment p-6 sm:p-8">
@@ -65,7 +65,7 @@ export default function EschatologyResurrectionPage() {
         <article className="card-parchment p-6 sm:p-8">
           <h2 className="font-display text-4xl font-semibold text-navy">Resurrection, judgment, and new creation</h2>
           <p className="daily-readable mt-5 text-base leading-8 text-muted">
-            Bodily resurrection belongs to the final fulfillment of God's Kingdom, the judgment of history, and
+            Bodily resurrection belongs to the final fulfillment of God’s Kingdom, the judgment of history, and
             the renewal of creation in Christ.
           </p>
         </article>

@@ -1,6 +1,5 @@
-{
-const { existsSync } = require("node:fs");
-const { join } = require("node:path");
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
 const root = process.cwd();
 const blockedMarker = join(root, ".do-not-deploy-from-this-folder");
@@ -18,5 +17,4 @@ if (existsSync(blockedMarker)) {
     ].join("\n"),
   );
   process.exit(1);
-}
 }

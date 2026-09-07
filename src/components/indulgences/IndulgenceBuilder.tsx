@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { commonIndulgencedWorks } from "@/data/commonIndulgencedWorks";
 import { buildIndulgencePlanText, validateIndulgencePlan } from "@/lib/indulgences";
 import type { IndulgenceOfferingTarget, IndulgencePlan, IndulgencedWorkSlug } from "@/types/indulgences";
@@ -32,16 +32,21 @@ export function IndulgenceBuilder() {
   const [storageReady, setStorageReady] = useState(false);
 
   useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as Partial<IndulgencePlan>;
-        setPlan((current) => ({ ...current, ...parsed }));
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      try {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw) as Partial<IndulgencePlan>;
+          setPlan((current) => ({ ...current, ...parsed }));
+        }
+        setStorageReady(true);
+      } catch {
+        setStorageReady(false);
       }
-      setStorageReady(true);
-    } catch {
-      setStorageReady(false);
-    }
+    });
+    return () => { cancelled = true; };
   }, []);
 
   useEffect(() => {
@@ -55,7 +60,7 @@ export function IndulgenceBuilder() {
   }, [plan, storageReady]);
 
   const validation = validateIndulgencePlan(plan);
-  const planText = useMemo(() => buildIndulgencePlanText(plan), [plan]);
+  const planText = buildIndulgencePlanText(plan);
 
   async function copyPlan() {
     try {
@@ -147,7 +152,7 @@ export function IndulgenceBuilder() {
                 onChange={(checked) => setPlan((current) => ({ ...current, communionPlannedOrCompleted: checked }))}
               />
               <ChecklistToggle
-                label="Prayer for the Holy Father's intentions"
+                label="Prayer for the Holy Father’s intentions"
                 checked={plan.prayedForPopeIntentions}
                 onChange={(checked) => setPlan((current) => ({ ...current, prayedForPopeIntentions: checked }))}
               />

@@ -11,7 +11,7 @@ export function CouncilsAndMary() {
       />
       <div className="card-parchment mt-7 p-6">
         <p className="text-sm leading-7 text-muted">
-          This teaching protects the truth about Jesus: Mary's Son is not merely a human person joined to God, but the
+          This teaching protects the truth about Jesus: Mary’s Son is not merely a human person joined to God, but the
           eternal Son made flesh.
         </p>
         <p className="mt-4 rounded-md border border-stone bg-ivory/80 p-4 text-sm leading-7 text-muted">

@@ -31,7 +31,7 @@ export function ChoirsOfAngels() {
       <div className="card-parchment mt-6 p-5">
         <p className="text-sm leading-7 text-muted">
           The Church does not require curiosity about every angelic hierarchy detail. The main point
-          is that all angels exist for God's glory and His plan.
+          is that all angels exist for God’s glory and His plan.
         </p>
       </div>
     </section>

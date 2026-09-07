@@ -8,7 +8,7 @@ export function EschatologyProphecySeriesCallout() {
       <h2 className="font-display text-4xl font-semibold text-navy">Connected to the Prophecy Series</h2>
       <p className="daily-readable mt-5 text-base leading-8 text-muted">
         The Prophecy Series can help viewers think about Scripture, hope, vigilance, and the final fulfillment
-        of God's plan. This Eschatology section provides the doctrinal foundation: Christ has died, Christ is
+        of God’s plan. This Eschatology section provides the doctrinal foundation: Christ has died, Christ is
         risen, Christ will come again.
       </p>
       <div className="mt-6">

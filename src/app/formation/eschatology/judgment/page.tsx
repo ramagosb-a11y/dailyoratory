@@ -24,7 +24,7 @@ export default function EschatologyJudgmentPage() {
       ]}
       title={topic.title}
       subtitle={topic.subtitle}
-      summary="Judgment is not arbitrary or impersonal. It is the soul's encounter with Jesus Christ, in whom truth, justice, and mercy are perfectly united."
+      summary="Judgment is not arbitrary or impersonal. It is the soul’s encounter with Jesus Christ, in whom truth, justice, and mercy are perfectly united."
       ctas={[
         { label: "Particular Judgment", href: "#particular-judgment" },
         { label: "Final Judgment", href: "#final-judgment", variant: "secondary" },
@@ -41,7 +41,7 @@ export default function EschatologyJudgmentPage() {
       <section id="particular-judgment" className="card-parchment scroll-mt-28 p-6 sm:p-8">
         <h2 className="font-display text-4xl font-semibold text-navy">Particular Judgment</h2>
         <p className="daily-readable mt-5 text-base leading-8 text-muted">
-          At death, each soul encounters Christ and receives the particular judgment. This concerns the person's
+          At death, each soul encounters Christ and receives the particular judgment. This concerns the person’s
           life, choices, and state before God at the end of earthly life.
         </p>
       </section>
@@ -49,7 +49,7 @@ export default function EschatologyJudgmentPage() {
         <h2 className="font-display text-4xl font-semibold text-navy">Final Judgment</h2>
         <p className="daily-readable mt-5 text-base leading-8 text-muted">
           At the end of time, Christ will come in glory and the final judgment will reveal the meaning of each
-          life and of history itself. God's justice and mercy will be made manifest before all.
+          life and of history itself. God’s justice and mercy will be made manifest before all.
         </p>
       </section>
       <section className="grid gap-5 lg:grid-cols-2">
@@ -63,7 +63,7 @@ export default function EschatologyJudgmentPage() {
         <article className="card-parchment p-6 sm:p-8">
           <h2 className="font-display text-4xl font-semibold text-navy">Matthew 25 and works of mercy</h2>
           <p className="daily-readable mt-5 text-base leading-8 text-muted">
-            Christ's teaching in Matthew 25 shows that love of neighbor matters eternally. Works of mercy do
+            Christ’s teaching in Matthew 25 shows that love of neighbor matters eternally. Works of mercy do
             not replace grace, but they reveal a heart being formed by it.
           </p>
         </article>

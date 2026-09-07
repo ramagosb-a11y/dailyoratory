@@ -1,0 +1,1308 @@
+.app {
+  --navy: #0b1420;
+  --panel: #131f2d;
+  --cream: #f2e9d8;
+  --gold: #d2b67b;
+  --muted: #aab0b7;
+  min-height: 100vh;
+  background: var(--navy);
+  color: var(--cream);
+  padding-bottom: 90px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color-scheme: dark;
+}
+.app * {
+  box-sizing: border-box;
+}
+.app button,
+.app a,
+.app select {
+  -webkit-tap-highlight-color: transparent;
+}
+.app button,
+.app select {
+  cursor: pointer;
+  font: inherit;
+}
+.app button {
+  border: 0;
+  color: inherit;
+}
+.app a {
+  color: inherit;
+  text-decoration: none;
+}
+.app button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.app :focus-visible {
+  outline: 2px solid #f5d894;
+  outline-offset: 5px;
+}
+.app h1,
+.app h2,
+.app h3,
+.app blockquote {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  color: var(--cream);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+.app p {
+  margin: 0 0 1em;
+}
+.app h1 {
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: 1.06;
+  white-space: pre-line;
+}
+.app h2 {
+  font-size: 34px;
+  line-height: 1.18;
+}
+.app h3 {
+  font-size: 25px;
+  line-height: 1.15;
+}
+.header {
+  max-width: 1380px;
+  margin: auto;
+  min-height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 48px;
+  gap: 24px;
+}
+.brand {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  letter-spacing: 0.16em;
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+.brand small {
+  display: block;
+  font:
+    10px Arial,
+    sans-serif;
+  letter-spacing: 0.16em;
+  margin-top: 4px;
+  color: var(--muted);
+}
+.cross {
+  font-size: 38px;
+  color: var(--gold);
+  line-height: 1;
+}
+.headerTitle {
+  font-family: Georgia, serif;
+  color: #c5bbaa;
+  font-size: 17px;
+}
+.headerActions {
+  display: flex;
+  gap: 12px;
+}
+.headerActions button {
+  background: transparent;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid #ffffff1a;
+  padding: 0 12px;
+  border-radius: 5px;
+}
+.headerActions button[aria-pressed="true"] {
+  background: #d2b67b28;
+}
+.chapterNav {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #ffffff0c;
+  border-bottom: 1px solid #ffffff13;
+  padding: 0 24px;
+  gap: 38px;
+  background: #0d1723;
+}
+.chapterNav button {
+  min-height: 52px;
+  background: none;
+  border-bottom: 2px solid transparent;
+  padding: 8px 2px;
+  font-size: 13px;
+  white-space: nowrap;
+  color: #b7b7b7;
+}
+.chapterNav button.selected {
+  border-bottom-color: var(--gold);
+  color: var(--gold);
+}
+.hero {
+  position: relative;
+  min-height: 530px;
+  max-width: 1440px;
+  margin: auto;
+  overflow: hidden;
+  isolation: isolate;
+}
+.heroImage {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 62%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  z-index: -3;
+}
+.heroShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      #0b1420 0%,
+      #0b1420f5 22%,
+      #0b1420b5 47%,
+      #0b142010 76%
+    ),
+    linear-gradient(0deg, #0b1420, transparent 24%);
+  z-index: -2;
+}
+.heroContent {
+  padding: 74px 48px 65px;
+  max-width: 760px;
+  margin-left: max(0px, calc((100% - 1284px) / 2));
+}
+.eyebrow {
+  display: block;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+  color: var(--gold);
+  font-weight: 600;
+}
+.hero h1 {
+  margin: 18px 0 24px;
+  max-width: 650px;
+}
+.heroContent > p {
+  max-width: 455px;
+  color: #c2c5ca;
+  font-size: 16px;
+  line-height: 1.85;
+}
+.heroActions {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin: 30px 0 18px;
+}
+.app .primary,
+.app .secondary,
+.app .ghost {
+  min-height: 48px;
+  border-radius: 5px;
+  padding: 12px 24px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+.app .primary {
+  color: #1c2027;
+  background: linear-gradient(110deg, #e0c58d, #c6a366);
+  box-shadow: 0 3px 15px #0002;
+}
+.app .primary:hover {
+  background: #ecd39e;
+}
+.app .secondary {
+  border: 1px solid #d2b67b55;
+  background: none;
+  margin-top: 26px;
+}
+.app .ghost {
+  background: none;
+  border: 1px solid #ffffff35;
+  color: #e0d8c9;
+}
+.heroNote {
+  font-size: 11px;
+  color: #a6a9ab;
+}
+.container {
+  max-width: 1284px;
+  padding: 25px 48px 0;
+  margin: auto;
+}
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1.65fr 1fr;
+  gap: 42px;
+  margin: 10px 0 62px;
+  align-items: start;
+}
+.sectionHeading {
+  margin-bottom: 24px;
+}
+.sectionHeading .eyebrow {
+  margin-bottom: 9px;
+}
+.sectionHeading h1 {
+  margin-top: 18px;
+}
+.sectionHeading p {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 10px;
+  max-width: 540px;
+}
+.pathList {
+  display: grid;
+  gap: 12px;
+}
+.pathCard {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  gap: 18px;
+  width: 100%;
+  padding: 12px 20px 12px 12px;
+  background: linear-gradient(110deg, #182433, #121d2b);
+  border: 1px solid #ffffff0e !important;
+  border-radius: 8px;
+  min-height: 95px;
+}
+.pathCard:hover {
+  border-color: #d2b67b55 !important;
+  background: #1c2938;
+}
+.pathCard img {
+  width: 70px;
+  height: 74px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.pathNumber {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  color: #d2b67b88;
+}
+.pathText {
+  flex: 1;
+  min-width: 0;
+}
+.pathText strong {
+  display: block;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.pathText > span {
+  display: block;
+  font-size: 11px;
+  color: #acb2bc;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+.graceCard {
+  background:
+    radial-gradient(ellipse at 50% 0, #d2b67b0c, transparent 65%), #121d29;
+  border: 1px solid #bfa06c25;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  margin-top: 0;
+}
+.ornament {
+  font-size: 40px;
+  color: var(--gold);
+  display: block;
+  line-height: 1.4;
+  margin-bottom: 17px;
+}
+.graceCard h2 {
+  font-size: 36px;
+  margin-top: 12px;
+}
+.divider {
+  width: 50px;
+  height: 1px;
+  background: #d2b67b4d;
+  margin: 24px auto;
+}
+.graceCard blockquote {
+  font-size: 25px;
+  line-height: 1.45;
+  margin: 15px 0 21px;
+  font-style: italic;
+}
+.app .textLink {
+  color: var(--gold);
+  background: none;
+  min-height: 44px;
+  font-size: 12px;
+  padding: 8px 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.quiet {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.graceCard .quiet {
+  margin: 22px 0 0;
+}
+.resumeStrip {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  border: 1px solid #c5aa793a !important;
+  border-radius: 6px;
+  padding: 16px 22px;
+  background: #d2b67b0b;
+  margin: 0 0 35px;
+  color: var(--gold) !important;
+  font-size: 12px !important;
+  gap: 20px;
+}
+.resumeStrip strong {
+  display: block;
+  color: var(--cream);
+  font-weight: 400;
+  font-size: 14px;
+}
+.resumeStrip > span:first-child {
+  font-size: 9px;
+  letter-spacing: 0.05em;
+}
+.journey {
+  margin: 0 0 60px;
+}
+.journeyGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 13px;
+}
+.journeyCard {
+  position: relative;
+  text-align: left;
+  min-height: 190px;
+  overflow: hidden;
+  border-radius: 7px;
+  background: #192532;
+  padding: 0;
+  border: 1px solid #ffffff14 !important;
+}
+.journeyCard img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  opacity: 0.6;
+  transition: transform 0.3s;
+}
+.journeyCard:hover img {
+  transform: scale(1.035);
+}
+.journeyCard:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #0b1420fa, transparent 90%);
+}
+.journeyCard > span {
+  position: absolute;
+  z-index: 1;
+  bottom: 18px;
+  left: 16px;
+  right: 10px;
+}
+.journeyCard small {
+  display: block;
+  color: #e0c78f;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.journeyCard strong {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  font-size: 23px;
+  line-height: 1.12;
+  display: block;
+  margin-top: 5px;
+}
+.currentCard {
+  outline: 1px solid #d2b67ba0;
+  outline-offset: 3px;
+}
+.prayerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.prayerCard {
+  background: #141f2d;
+  border: 1px solid #ffffff10;
+  border-radius: 7px;
+  overflow: hidden;
+  display: block;
+}
+.prayerCard:hover {
+  border-color: #d2b67b66;
+}
+.prayerCard > img {
+  display: block;
+  width: 100%;
+  height: 135px;
+  object-fit: cover;
+  object-position: center 42%;
+}
+.prayerCard > div {
+  padding: 20px;
+}
+.prayerCard p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+  margin: 10px 0 18px;
+}
+.prayerCard div > span {
+  color: var(--gold);
+  font-size: 11px;
+}
+.footer {
+  text-align: center;
+  border-top: 1px solid #ffffff10;
+  margin: 60px 0 0;
+  padding: 38px 0 15px;
+}
+.footer > span {
+  font-size: 30px;
+  color: var(--gold);
+}
+.footer p {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 26px;
+  font-style: italic;
+  margin: 12px 0 5px;
+}
+.footer small {
+  color: #959da8;
+  font-size: 10px;
+}
+.footer > div {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 20px 0;
+}
+.footer button,
+.footer a {
+  background: none;
+  font-size: 11px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold);
+}
+.bottomBar {
+  position: fixed;
+  z-index: 20;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 72px;
+  padding: 10px max(24px, calc((100vw - 1160px) / 2))
+    calc(10px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  border-top: 1px solid #d2b67b29;
+  background: #0d1724f7;
+  backdrop-filter: blur(18px);
+}
+.bottomBar button {
+  background: none;
+  min-height: 44px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: #c7c2b8;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.bottomBar button[aria-current="page"] {
+  color: var(--gold);
+  background: #d2b67b0b;
+}
+.bottomBar .bottomPrimary {
+  background: #d2b67b;
+  color: #111b28;
+  font-weight: 600;
+  min-width: 170px;
+}
+.reader {
+  max-width: 1284px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  align-items: start;
+  padding: 44px 48px 30px;
+  gap: 0;
+}
+.readerArt {
+  position: sticky;
+  top: 28px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-right: 44px;
+  height: min(740px, calc(100dvh - 140px));
+  min-height: 400px;
+}
+.readerArt > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+}
+.artCaption {
+  position: absolute;
+  bottom: 0;
+  padding: 70px 30px 30px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, #0b1420f2, transparent);
+}
+.artCaption p {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 27px;
+  line-height: 1.3;
+  margin: 8px 0 0;
+}
+.reading {
+  padding: 0 5px 30px 0;
+  min-width: 0;
+}
+.backLink {
+  font-size: 11px !important;
+  min-height: 44px;
+  background: none;
+  color: #b9b3a5 !important;
+  padding: 0 0 10px;
+}
+.readerMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 14px 0;
+}
+.readerMeta > span:last-child {
+  font-size: 10px;
+  color: #939ea9;
+}
+.reading h1 {
+  font-size: 48px;
+  line-height: 1.08;
+  margin: 16px 0 23px;
+}
+.reading .intro {
+  font-size: 17px;
+  line-height: 1.85;
+  color: #c6c9cd;
+  margin-bottom: 30px;
+}
+.prayerText {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  color: #dedbd4;
+  line-height: 1.95;
+}
+.prayerText p {
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  margin-bottom: 1.2em;
+}
+.prayerText h2 {
+  font-size: 29px;
+  line-height: 1.25;
+  margin: 36px 0 15px;
+  color: #e8c98c;
+}
+.scripture {
+  padding: 26px 28px;
+  background: #d2b67b09;
+  border-left: 2px solid #c6ab76;
+  border-radius: 0 5px 5px 0;
+  margin: 28px 0;
+}
+.scripture h2 {
+  margin: 8px 0 20px;
+  font-size: 29px;
+}
+.scripture > p {
+  font-family: Georgia, serif;
+  line-height: 1.9;
+  font-size: 17px;
+  color: #e7dfd0;
+}
+.scripture sup {
+  color: var(--gold);
+  font-size: 10px;
+}
+.scripture .readingNote {
+  font:
+    12px/1.7 Arial,
+    sans-serif;
+  color: #aeb7bf;
+}
+.scripture a {
+  color: var(--gold);
+  font-size: 12px;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.scripture small {
+  display: block;
+  color: #aab0b7;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.handoff {
+  padding: 28px;
+  border: 1px solid #d2b67b4d;
+  border-radius: 7px;
+  background: linear-gradient(140deg, #283140, #152232);
+  margin: 25px 0 32px;
+}
+.handoff h2 {
+  margin: 10px 0;
+  font-size: 31px;
+}
+.handoff p {
+  font-size: 13px;
+  color: #c4c9cf;
+  line-height: 1.85;
+}
+.handoff .primary {
+  margin-top: 8px;
+  gap: 10px;
+}
+.silence {
+  border: 1px solid #ffffff20;
+  background: #101d2b;
+  border-radius: 7px;
+  padding: 26px;
+  margin-top: 32px;
+  text-align: center;
+}
+.silence p {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.timer {
+  font-family: Georgia, serif;
+  font-size: 45px;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+  margin: 20px 0;
+}
+.timerControls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.timerControls button,
+.timerControls select {
+  background: #d2b67b13;
+  border: 1px solid #d2b67b33;
+  min-height: 44px;
+  border-radius: 4px;
+  padding: 6px 13px;
+  color: var(--cream);
+  font-size: 12px;
+}
+.dayEnd {
+  text-align: center;
+  border-top: 1px solid #ffffff15;
+  margin-top: 35px;
+  padding-top: 28px;
+}
+.dayEnd > span {
+  font-size: 30px;
+  color: var(--gold);
+}
+.dayEnd h2 {
+  font-size: 31px;
+  margin: 12px 0;
+}
+.dayEnd p {
+  font-size: 13px;
+  color: var(--muted);
+}
+.saved {
+  font-size: 10px;
+  color: #99a4af;
+  margin-top: 35px !important;
+  text-align: center;
+}
+.largeText .prayerText,
+.largeText .scripture > p {
+  font-size: 20px;
+}
+.dialog {
+  position: fixed;
+  inset: 0 0 0 auto;
+  margin: 0;
+  max-width: 520px;
+  width: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
+  border: 0;
+  border-left: 1px solid #d2b67b44;
+  padding: 0;
+  background: #111e2c;
+  color: var(--cream);
+  overflow: auto;
+}
+.dialog::backdrop {
+  background: #030912b8;
+  backdrop-filter: blur(4px);
+}
+.dialogInner {
+  padding: 30px;
+}
+.dialog header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.dialog header h2 {
+  font-size: 36px;
+  margin-top: 6px;
+}
+.dialog header button {
+  min-width: 44px;
+  min-height: 44px;
+  background: #ffffff0c;
+  font-size: 28px;
+}
+.dialogInner > p {
+  font-size: 12px;
+  color: #a9b2be;
+}
+.dialog details {
+  border-top: 1px solid #ffffff1c;
+  padding: 14px 0;
+}
+.dialog summary {
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 22px;
+  min-height: 44px;
+}
+.dialog summary > span {
+  font:
+    11px/1.6 Arial,
+    sans-serif;
+  color: #aab3bc;
+  display: block;
+  margin: 6px 0 0 18px;
+}
+.outlineStep {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 13px 14px;
+  background: transparent;
+  min-height: 56px;
+  border-radius: 4px;
+}
+.outlineStep:hover,
+.outlineStep[aria-current="step"] {
+  background: #d2b67b13;
+}
+.outlineStep > span:first-child {
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.outlineStep small {
+  display: block;
+  color: #929fad;
+  font-size: 10px;
+}
+.bookmark {
+  color: var(--gold);
+  font-size: 9px;
+}
+.outlineOverview {
+  background: none;
+  padding: 10px 14px;
+  color: var(--gold) !important;
+  font-size: 11px !important;
+  min-height: 44px;
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (min-width: 1500px) {
+  .hero {
+    border-radius: 0 0 10px 10px;
+  }
+  .heroContent {
+    padding-left: 0;
+  }
+}
+@media (max-width: 1000px) {
+  .header {
+    padding: 16px 28px;
+  }
+  .chapterNav {
+    gap: 26px;
+  }
+  .heroContent {
+    padding-left: 35px;
+  }
+  .container {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  .overviewGrid {
+    gap: 25px;
+  }
+  .reader {
+    padding: 30px 28px;
+    grid-template-columns: 37% 63%;
+  }
+  .readerArt {
+    margin-right: 28px;
+  }
+  .reading h1 {
+    font-size: 41px;
+  }
+  .prayerGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .prayerCard {
+    display: flex;
+  }
+  .prayerCard > img {
+    width: 35%;
+    height: auto;
+    max-height: 210px;
+  }
+  .prayerCard > div {
+    padding: 20px;
+  }
+  .journeyCard strong {
+    font-size: 21px;
+  }
+  .headerTitle {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .app {
+    padding-bottom: 84px;
+    font-size: 14px;
+  }
+  .header {
+    min-height: 74px;
+    padding: 12px 20px;
+    gap: 8px;
+  }
+  .brand {
+    font-size: 11px;
+    gap: 10px;
+  }
+  .brand small {
+    font-size: 8px;
+  }
+  .cross {
+    font-size: 31px;
+  }
+  .headerActions {
+    gap: 8px;
+  }
+  .headerActions button {
+    padding: 0 10px;
+  }
+  .desktopLabel {
+    display: none;
+  }
+  .chapterNav {
+    justify-content: flex-start;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 0 20px;
+    scrollbar-width: none;
+  }
+  .chapterNav button {
+    font-size: 11px;
+    min-height: 48px;
+  }
+  .hero {
+    min-height: 590px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .heroImage {
+    width: 100%;
+    height: 100%;
+    object-position: center 26%;
+  }
+  .heroShade {
+    background: linear-gradient(
+      0deg,
+      #0b1420 0%,
+      #0b1420ed 18%,
+      #0b1420b8 41%,
+      #0b14201a 76%,
+      #0b142030
+    );
+  }
+  .heroContent {
+    padding: 215px 24px 30px;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero h1 {
+    font-size: 45px;
+    line-height: 1.03;
+    margin: 14px 0 18px;
+  }
+  .heroContent > p {
+    font-size: 13px;
+    line-height: 1.8;
+    max-width: 450px;
+    margin-bottom: 0;
+  }
+  .heroContent > .eyebrow {
+    max-width: 300px;
+    font-size: 9px;
+    text-shadow: 0 1px 8px #000;
+  }
+  .heroActions {
+    margin: 24px 0 15px;
+    gap: 10px;
+  }
+  .heroActions .primary {
+    flex: 1;
+  }
+  .heroActions .ghost {
+    padding: 12px 16px;
+  }
+  .heroNote {
+    font-size: 9px;
+  }
+  .container {
+    padding: 16px 20px 0;
+  }
+  .overviewGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+    margin-bottom: 42px;
+  }
+  .overviewGrid > section {
+    width: 100%;
+  }
+  .sectionHeading h2 {
+    font-size: 30px;
+  }
+  .sectionHeading p {
+    font-size: 12px;
+  }
+  .sectionHeading {
+    margin-bottom: 20px;
+  }
+  .pathCard {
+    gap: 13px;
+    padding: 10px 14px 10px 10px;
+    min-height: 89px;
+  }
+  .pathCard img {
+    width: 60px;
+    height: 65px;
+  }
+  .pathNumber {
+    display: none;
+  }
+  .pathText strong {
+    font-size: 25px;
+  }
+  .pathText > span {
+    font-size: 10px;
+  }
+  .graceCard {
+    width: 100%;
+    padding: 24px;
+  }
+  .graceCard .ornament {
+    font-size: 29px;
+    margin-bottom: 9px;
+  }
+  .graceCard h2 {
+    font-size: 32px;
+  }
+  .graceCard blockquote {
+    font-size: 25px;
+    max-width: 320px;
+    margin: 14px auto;
+  }
+  .graceCard .quiet {
+    font-size: 11px;
+  }
+  .journey {
+    margin-bottom: 42px;
+  }
+  .journeyGrid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+  }
+  .journeyCard {
+    grid-column: span 2;
+    min-height: 170px;
+  }
+  .journeyCard:first-child,
+  .journeyCard:last-child {
+    grid-column: span 3;
+    min-height: 125px;
+  }
+  .journeyCard:first-child {
+    order: -1;
+  }
+  .journeyCard:last-child {
+    order: -1;
+  }
+  .journeyCard strong {
+    font-size: 21px;
+  }
+  .journeyCard > span {
+    left: 11px;
+    bottom: 13px;
+  }
+  .journeyCard small {
+    font-size: 9px;
+  }
+  .prayerGrid {
+    gap: 12px;
+  }
+  .prayerCard {
+    display: block;
+  }
+  .prayerCard > img {
+    height: 110px;
+    width: 100%;
+    object-position: center 37%;
+  }
+  .prayerCard > div {
+    padding: 15px;
+  }
+  .prayerCard h3 {
+    font-size: 24px;
+  }
+  .prayerCard p {
+    font-size: 11px;
+    line-height: 1.6;
+    margin-bottom: 13px;
+  }
+  .prayerCard div > span {
+    font-size: 10px;
+  }
+  .footer {
+    margin-top: 38px;
+    padding-top: 28px;
+  }
+  .footer p {
+    font-size: 23px;
+  }
+  .footer > div {
+    gap: 14px;
+  }
+  .footer a,
+  .footer button {
+    font-size: 10px;
+  }
+  .resumeStrip {
+    padding: 13px 15px;
+    margin-bottom: 28px;
+  }
+  .resumeStrip strong {
+    font-size: 12px;
+  }
+  .resumeStrip > span:last-child {
+    white-space: nowrap;
+    font-size: 11px;
+  }
+  .bottomBar {
+    padding: 9px 14px calc(9px + env(safe-area-inset-bottom));
+    min-height: 68px;
+    gap: 5px;
+  }
+  .bottomBar button {
+    padding: 9px 9px;
+    font-size: 11px;
+    gap: 6px;
+    min-width: 0;
+  }
+  .bottomBar .bottomPrimary {
+    min-width: 0;
+    flex: 1;
+    max-width: 165px;
+  }
+  .bottomBar[aria-label="Retreat navigation"] button {
+    flex: 1;
+    flex-direction: column;
+    gap: 0;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .bottomBar[aria-label="Retreat navigation"] button span {
+    font-size: 10px;
+  }
+  .reader {
+    display: block;
+    padding: 0;
+  }
+  .readerArt {
+    position: relative;
+    top: auto;
+    min-height: 0;
+    height: 260px;
+    border-radius: 0;
+    margin: 0;
+  }
+  .readerArt > img {
+    object-position: center 29%;
+  }
+  .artCaption {
+    padding: 50px 24px 20px;
+    background: linear-gradient(0deg, #0b1420, transparent);
+  }
+  .artCaption .eyebrow {
+    font-size: 9px;
+  }
+  .artCaption p {
+    font-size: 24px;
+    max-width: 340px;
+  }
+  .reading {
+    padding: 0 24px 30px;
+  }
+  .backLink {
+    margin-top: 6px;
+  }
+  .readerMeta {
+    margin: 14px 0 12px;
+  }
+  .reading h1 {
+    font-size: 39px;
+    margin: 13px 0 20px;
+  }
+  .reading .intro {
+    font-size: 15px;
+    line-height: 1.85;
+    margin-bottom: 24px;
+  }
+  .prayerText {
+    font-size: 17px;
+    line-height: 1.9;
+  }
+  .prayerText h2 {
+    font-size: 29px;
+    margin-top: 30px;
+  }
+  .scripture {
+    padding: 22px 20px;
+    margin: 25px 0;
+  }
+  .scripture > p {
+    font-size: 16px;
+  }
+  .handoff {
+    padding: 24px 20px;
+  }
+  .handoff .primary {
+    width: 100%;
+    padding: 12px;
+    font-size: 12px;
+  }
+  .largeText .prayerText,
+  .largeText .scripture > p {
+    font-size: 19px;
+  }
+  .dialogInner {
+    padding: 25px 22px;
+  }
+  .dialog header h2 {
+    font-size: 33px;
+  }
+  .silence {
+    padding: 23px 18px;
+  }
+  .sectionHeading h1 {
+    font-size: 44px;
+  }
+  .dayEnd h2 {
+    font-size: 29px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .journeyCard img {
+    transition: none;
+  }
+  .app * {
+    scroll-behavior: auto !important;
+  }
+}
+
+:global(html):has(.app) {
+  scroll-padding-bottom: 105px;
+}
+.app button,
+.app a {
+  scroll-margin-block: 24px 105px;
+}
+.app h1:focus {
+  outline: none;
+}

@@ -19,7 +19,7 @@ export function MassReadingsReflectionHero({
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link href={primaryHref} className="btn btn-primary focus-ring">
-            Read Today's Reflection
+            Read Today’s Reflection
           </Link>
           <Link href="/reflections/mass-readings/calendar" className="btn btn-secondary focus-ring">
             Browse Calendar

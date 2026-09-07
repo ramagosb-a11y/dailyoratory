@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { trackEvent } from "@/lib/analytics";
 import { formatScripturePrayerPlanForCopy } from "@/lib/scripturePrayer";
@@ -57,16 +57,21 @@ export function ThirtyMinuteScriptureBuilder() {
   const [storageReady, setStorageReady] = useState(false);
 
   useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as Partial<ScripturePrayerPlan>;
-        setPlan((current) => ({ ...current, ...parsed }));
+    let cancelled = false;
+    queueMicrotask(() => {
+      if (cancelled) return;
+      try {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw) as Partial<ScripturePrayerPlan>;
+          setPlan((current) => ({ ...current, ...parsed }));
+        }
+        setStorageReady(true);
+      } catch {
+        setStorageReady(false);
       }
-      setStorageReady(true);
-    } catch {
-      setStorageReady(false);
-    }
+    });
+    return () => { cancelled = true; };
   }, []);
 
   useEffect(() => {
@@ -79,7 +84,7 @@ export function ThirtyMinuteScriptureBuilder() {
     }
   }, [plan, storageReady]);
 
-  const planText = useMemo(() => formatScripturePrayerPlanForCopy(plan), [plan]);
+  const planText = formatScripturePrayerPlanForCopy(plan);
 
   async function copyPlan() {
     try {

@@ -1,0 +1,3092 @@
+{
+  "chapters": [
+    {
+      "id": "welcome",
+      "label": "Welcome",
+      "title": "A little less noise.\nA little closer to Jesus.",
+      "subtitle": "Three days of fasting and spiritual renewal",
+      "grace": "An open heart",
+      "refrain": "Jesus, I hunger for You more than for bread.",
+      "image": "/images/fasting-retreat/01-retreat-opening.webp",
+      "imageAlt": "Jesus praying in the Judean wilderness at dawn",
+      "description": "An invitation to prayer, surrender, and renewal—with Jesus, Mary, St. Joseph, and the saints. Begin whenever you are ready."
+    },
+    {
+      "id": "preparation",
+      "label": "Preparation",
+      "title": "Prepare your heart",
+      "subtitle": "The communion of saints",
+      "grace": "Contrition",
+      "refrain": "Jesus, prepare my heart for Your grace.",
+      "image": "/images/fasting-retreat/03-preparation-communion-of-saints.webp",
+      "imageAlt": "A devotional gathering of saints in prayer",
+      "description": "Before the three days begin, bring your intentions to Jesus. Ask for mercy, invite the saints to pray with you, and consecrate the retreat."
+    },
+    {
+      "id": "day-1",
+      "label": "Day 1",
+      "title": "Abide in Me",
+      "subtitle": "Jesus · Humility and union",
+      "grace": "Humility",
+      "refrain": "Jesus, keep me in You.",
+      "image": "/images/fasting-retreat/06-day-1-abide-in-me.webp",
+      "imageAlt": "Jesus standing among fruitful vines",
+      "description": "Begin by remaining close to Jesus, the True Vine. Let prayer, hunger, work, and each small interruption become an offering of love."
+    },
+    {
+      "id": "day-2",
+      "label": "Day 2",
+      "title": "Be It Done Unto Me",
+      "subtitle": "Mary · Purity and surrender",
+      "grace": "Purity of heart",
+      "refrain": "Mary, lead me closer to your Son.",
+      "image": "/images/fasting-retreat/07-day-2-annunciation.webp",
+      "imageAlt": "Mary receiving the angel Gabriel at the Annunciation",
+      "description": "With Mary, welcome the word of God. Ask for an undivided heart and the freedom to say yes to His will in ordinary life."
+    },
+    {
+      "id": "day-3",
+      "label": "Day 3",
+      "title": "Let this fast become love",
+      "subtitle": "St. Joseph and the Holy Family · Charity and mission",
+      "grace": "Charity",
+      "refrain": "Jesus, Mary, and Joseph, make my heart and home holy.",
+      "image": "/images/fasting-retreat/08-day-3-holy-family.webp",
+      "imageAlt": "Joseph, Mary and the child Jesus at home in Nazareth",
+      "description": "Let the retreat bear fruit in faithful service. Pray for your family by name, serve someone quietly, and carry the love of Jesus into your responsibilities."
+    },
+    {
+      "id": "closing",
+      "label": "Closing",
+      "title": "Carry the grace forward",
+      "subtitle": "Thanksgiving and a new beginning",
+      "grace": "Perseverance",
+      "refrain": "Jesus, I give myself to You again.",
+      "image": "/images/fasting-retreat/23-carry-it-forward.webp",
+      "imageAlt": "A family walking into morning light beyond a chapel doorway",
+      "description": "Receive the close of this retreat with gratitude. Choose a few faithful practices that can take root in daily life."
+    }
+  ],
+  "steps": [
+    {
+      "id": "welcome-invitation",
+      "chapter": "welcome",
+      "title": "An invitation to renewal",
+      "period": "Begin here",
+      "image": "/images/fasting-retreat/01-retreat-opening.webp",
+      "imageAlt": "Jesus praying in the Judean wilderness at dawn",
+      "intro": "Three days, with a preparation day. Follow the retreat at your own pace.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "This Catholic retreat brings together Scripture, prayer, fasting, repentance, Eucharistic devotion, intercession, and works of mercy. The purpose is to draw nearer to Jesus and to let His grace change the way we live."
+        },
+        {
+          "kind": "heading",
+          "text": "A simple daily rhythm"
+        },
+        {
+          "kind": "text",
+          "text": "Morning: offer the day and listen to Scripture.\nThroughout the day: return to a short prayer, bring your intentions to Jesus, and practice charity.\nEvening: give thanks, examine your heart, and surrender the day."
+        },
+        {
+          "kind": "heading",
+          "text": "Make room for prayer"
+        },
+        {
+          "kind": "text",
+          "text": "Choose a quiet place and keep a journal nearby if you wish. Mass and Adoration times can follow your parish schedule. You may open any section whenever your circumstances allow."
+        },
+        {
+          "kind": "text",
+          "text": "The Rosary, Adoration, Examination, and litany sections link to the existing prayer companions. Your retreat place is saved in this browser. Personal intentions and examination answers are not collected by this retreat."
+        },
+        {
+          "kind": "heading",
+          "text": "Begin with peace"
+        },
+        {
+          "kind": "text",
+          "text": "You do not need to finish every optional devotion. A sincere prayer, an adapted fast, and a hidden act of love belong here."
+        }
+      ]
+    },
+    {
+      "id": "welcome-fasting",
+      "chapter": "welcome",
+      "title": "Choose your fast with care",
+      "period": "Begin here",
+      "image": "/images/fasting-retreat/02-fasting-and-intentions.webp",
+      "imageAlt": "Simple bread, water and a prayer book on a modest table",
+      "intro": "This is a voluntary devotional fast. Choose an offering compatible with your health and responsibilities.",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "Lenten-style plan from the retreat guide"
+        },
+        {
+          "kind": "text",
+          "text": "One full meal, with two smaller meals if needed that together do not equal the full meal. Keep meals simple and avoid eating between meals. Water, plain tea, and black coffee are permitted. This is an optional devotional pattern, not a medical recommendation."
+        },
+        {
+          "kind": "heading",
+          "text": "A simple or non-food offering"
+        },
+        {
+          "kind": "text",
+          "text": "You may instead keep regular nourishing meals and set aside unnecessary treats or another legitimate comfort, such as entertainment, social media, or shopping. Use that space for prayer or an act of mercy."
+        },
+        {
+          "kind": "heading",
+          "text": "Health and prudence"
+        },
+        {
+          "kind": "text",
+          "text": "Do not restrict food if it is unsafe for you. Minors, pregnant or breastfeeding people, those with an eating disorder history, diabetes, illness, or medication affected by food should choose an appropriate alternative and consult a qualified healthcare professional before food restriction. Do not change medication yourself. Keep hydrated. Stop fasting and seek help if you feel unwell."
+        },
+        {
+          "kind": "heading",
+          "text": "An offering of love"
+        },
+        {
+          "kind": "text",
+          "text": "Adapting the fast is not failure. Care for your body, your family, and your work. Let the offering lead to humility and charity."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I offer this hunger for the intentions I carry. Teach me to hunger for You more than for bread. Amen."
+        }
+      ],
+      "links": [
+        {
+          "label": "Health guidance for fasting with diabetes",
+          "href": "https://www.niddk.nih.gov/health-information/professionals/diabetes-discoveries-practice/fasting-safely-with-diabetes"
+        }
+      ]
+    },
+    {
+      "id": "welcome-indulgences",
+      "chapter": "welcome",
+      "title": "Prayer and indulgences",
+      "period": "Further guidance",
+      "image": "/images/fasting-retreat/13-mass-spiritual-communion.webp",
+      "imageAlt": "A chalice and paten on an altar",
+      "intro": "Optional guidance for participants who wish to seek an indulgence.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "An indulgence concerns temporal punishment due to sins whose guilt has already been forgiven. It does not replace repentance or sacramental Confession."
+        },
+        {
+          "kind": "text",
+          "text": "A plenary indulgence requires the prescribed work, complete detachment from sin, sacramental Confession, Holy Communion, and prayer for the Pope’s intentions. One Confession may serve several indulgences; Communion and prayer for the Pope’s intentions are required for each. An indulgence may be applied to oneself or to the deceased."
+        },
+        {
+          "kind": "text",
+          "text": "Consult the applicable grant for the particular devotion. Opening an app or checking off a prayer does not establish these conditions. Spiritual Communion is a valuable devotion, but does not fulfill the sacramental Communion condition."
+        },
+        {
+          "kind": "text",
+          "text": "The retreat guide suggests Scripture reading, Eucharistic Adoration, the Rosary, and the Stations of the Cross. Follow the Church’s conditions for the selected work, with pastoral guidance when needed."
+        }
+      ],
+      "optional": true,
+      "links": [
+        {
+          "label": "Read the Apostolic Penitentiary’s guidance",
+          "href": "https://www.vatican.va/roman_curia/tribunals/apost_penit/documents/rc_trib_appen_pro_20000129_indulgence_en.html"
+        }
+      ]
+    },
+    {
+      "id": "preparation-holy-spirit",
+      "chapter": "preparation",
+      "title": "Come, Holy Spirit",
+      "period": "Preparation",
+      "image": "/images/fasting-retreat/25-invocation-holy-spirit.webp",
+      "imageAlt": "A white dove in a beam of chapel light",
+      "intro": "Begin quietly. Ask for a contrite heart and trust in the mercy of Jesus.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Come, Holy Spirit, Light of my soul.\n Prepare my heart for this retreat.\n Reveal my sins with gentleness and truth.\n Give me sincere contrition, courage for Confession, and trust in the mercy of Jesus."
+        },
+        {
+          "kind": "text",
+          "text": "Through the intercession of the saints, awaken in me a deeper desire for holiness.\n Help me begin this fast with humility, hope, purity of intention, and a heart ready to receive every grace God desires to give."
+        },
+        {
+          "kind": "text",
+          "text": "Holy Spirit, cleanse what is wounded, strengthen what is weak, and lead me into the mercy of Christ."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Fasting Intention"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I offer You my desire to begin this fast with humility, repentance, and trust. Prepare my heart for the intentions You want me to carry: for my soul, my family, those in need of conversion, the sick, the dying, souls in Purgatory, and all who have asked for prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Through the prayers of the saints, help me enter this retreat with contrition, purity of intention, and a heart ready for grace."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ]
+    },
+    {
+      "id": "preparation-saints",
+      "chapter": "preparation",
+      "title": "With the saints",
+      "period": "Preparation",
+      "image": "/images/fasting-retreat/03-preparation-communion-of-saints.webp",
+      "imageAlt": "A devotional gathering of saints in prayer",
+      "intro": "The saints are friends of Christ who help us draw closer to Him.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Day 0 prepares the soul before the fast begins. This is the day to ask the saints to intercede, examine your conscience, go to Confession if possible, attend Mass, spend time in Adoration, consecrate the retreat, and write your prayer intentions."
+        },
+        {
+          "kind": "text",
+          "text": "The saints are not the center of the retreat. They are friends of Christ who help us come closer to Jesus."
+        },
+        {
+          "kind": "heading",
+          "text": "Main Prayer"
+        },
+        {
+          "kind": "text",
+          "text": "Saints of God, friends of Christ, pray for me as I prepare for this fast. Intercede for my repentance, healing, protection, perseverance, and conversion. Pray for every person on my intention list. Help me begin this retreat with a contrite heart, a clean conscience, and a deep desire for holiness. Amen."
+        }
+      ],
+      "companion": "saints",
+      "scripture": "preparation"
+    },
+    {
+      "id": "preparation-confession",
+      "chapter": "preparation",
+      "title": "Return to His mercy",
+      "period": "Preparation",
+      "image": "/images/fasting-retreat/04-confession-and-examination.webp",
+      "imageAlt": "A quiet wooden confessional in a church",
+      "intro": "Examine your conscience and seek sacramental Confession if available. Let honesty be joined to hope.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Receive the Sacrament of Reconciliation if available."
+        },
+        {
+          "kind": "text",
+          "text": "Prayer before Confession:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, I come to You as a sinner in need of mercy. Give me honesty, humility, contrition, and trust. Help me confess my sins clearly and receive Your forgiveness with gratitude. Amen."
+        },
+        {
+          "kind": "text",
+          "text": "After Confession:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, thank You for Your mercy. Help me begin again with a clean heart. Strengthen me to avoid sin and to live faithfully in Your grace. Amen."
+        },
+        {
+          "kind": "text",
+          "text": "If Mass is available, attend and offer the entire retreat with the sacrifice of Christ."
+        },
+        {
+          "kind": "text",
+          "text": "Prayer Before Mass"
+        }
+      ],
+      "companion": "examination"
+    },
+    {
+      "id": "preparation-mass",
+      "chapter": "preparation",
+      "title": "Offer the retreat at Mass",
+      "period": "Preparation",
+      "image": "/images/fasting-retreat/13-mass-spiritual-communion.webp",
+      "imageAlt": "A chalice and paten on an altar",
+      "intro": "If Mass is available, bring this retreat and its intentions to the altar.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Lord Jesus,"
+        },
+        {
+          "kind": "text",
+          "text": "I come before You at this Holy Mass with a heart in need of mercy."
+        },
+        {
+          "kind": "text",
+          "text": "Through the prayers of all the saints, prepare my soul for this retreat and fast."
+        },
+        {
+          "kind": "text",
+          "text": "I place on the altar my sins, wounds, fears, attachments, weaknesses, and every person I will carry in prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Give me sincere contrition, a clean heart, and a deeper desire for holiness."
+        },
+        {
+          "kind": "text",
+          "text": "May this Mass unite me to Your sacrifice on Calvary."
+        },
+        {
+          "kind": "text",
+          "text": "May the saints intercede for me, for my family, for the Church, for the sick, for the dying, for souls in Purgatory, and for all entrusted to this fast."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, receive this retreat before it begins."
+        },
+        {
+          "kind": "text",
+          "text": "Purify my intention."
+        },
+        {
+          "kind": "text",
+          "text": "Strengthen my faith."
+        },
+        {
+          "kind": "text",
+          "text": "Prepare my soul for every grace You desire to give."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ]
+    },
+    {
+      "id": "preparation-intentions",
+      "chapter": "preparation",
+      "title": "The intentions you carry",
+      "period": "Preparation",
+      "image": "/images/fasting-retreat/02-fasting-and-intentions.webp",
+      "imageAlt": "Simple bread, water and a prayer book on a modest table",
+      "intro": "Name the people you will carry in prayer. Hold them in your heart or write them in your own journal.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Pray for your family and friends; priests and religious; the sick and dying; souls in Purgatory; those away from God; those who have hurt you; those you have hurt; and your personal intentions."
+        },
+        {
+          "kind": "text",
+          "text": "Group Intention"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, unite all who join this fast in one heart and one spirit. May this retreat bring glory to God, conversion of sinners, healing for families, protection for loved ones, freedom from sin, deeper prayer, and a greater love for Jesus Christ."
+        },
+        {
+          "kind": "text",
+          "text": "We place before Your Sacred Heart our shared specific intention:"
+        },
+        {
+          "kind": "text",
+          "text": "For: [name or intention]"
+        },
+        {
+          "kind": "text",
+          "text": "That You may grant: [name or intention]"
+        },
+        {
+          "kind": "text",
+          "text": "According to Your holy will and for the salvation of souls."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ]
+    },
+    {
+      "id": "preparation-adoration",
+      "chapter": "preparation",
+      "title": "Be still before Jesus",
+      "period": "Preparation",
+      "image": "/images/fasting-retreat/14-eucharistic-adoration.webp",
+      "imageAlt": "The Blessed Sacrament in a gold monstrance",
+      "intro": "Spend time with Jesus before beginning. Open the Adoration Companion for a guided prayer experience.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Spend 30–60 minutes with Jesus in the Blessed Sacrament. In Adoration, the soul enters into praise, thanksgiving, repentance, petition, and silence before Christ truly present."
+        },
+        {
+          "kind": "text",
+          "text": "Prayer of Presence:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, my Lord and my God, I believe that You are here before me. I adore You with all the love of my heart. Help me to be still, to listen, and to rest in Your Eucharistic Heart. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer Before Adoration"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, I come before You with the saints. They now behold Your glory and intercede for the Church. Through their prayers, help me begin this retreat with a contrite heart, a clean conscience, and a sincere desire for holiness. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Scripture for Adoration"
+        },
+        {
+          "kind": "text",
+          "text": "Psalm 50 (51)\n Hebrews 12:1"
+        },
+        {
+          "kind": "heading",
+          "text": "Meditation"
+        },
+        {
+          "kind": "text",
+          "text": "The saints remind us that holiness is possible. They were weak, tempted, wounded, and in need of mercy, yet they allowed grace to transform them."
+        },
+        {
+          "kind": "text",
+          "text": "Before the fast begins, sit before Jesus honestly. Bring Him your sins, wounds, fears, attachments, and intentions. Ask the saints to pray that you may make a good Confession, begin again, and persevere."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayers with the Saints"
+        },
+        {
+          "kind": "text",
+          "text": "St. Peter, pray that I may repent sincerely.\n St. Mary Magdalene, pray that I may love Jesus with a purified heart.\n St. Augustine, pray that my restless heart may rest in God.\n St. Monica, pray for my family and all who are far from God.\n St. Padre Pio, pray for my Confession and perseverance.\n St. Faustina, pray that I may trust in Divine Mercy.\n All holy saints of God, pray for me."
+        },
+        {
+          "kind": "heading",
+          "text": "Adoration Petition"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, through the prayers of the saints, prepare my soul for this retreat. Give me repentance without despair, humility without fear, and confidence in Your mercy."
+        },
+        {
+          "kind": "heading",
+          "text": "Intercession Focus"
+        },
+        {
+          "kind": "text",
+          "text": "Pray for:"
+        },
+        {
+          "kind": "text",
+          "text": "Your own conversion\n A good Confession\n Those far from God\n Those who have lost hope\n Family members needing conversion\n Souls in Purgatory\n All retreat participants"
+        },
+        {
+          "kind": "heading",
+          "text": "Closing Prayer for Day 0"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, Divine Mercy, I surrender this retreat to You. Through the prayers of the saints, prepare my heart, purify my intentions, and help me begin this fast in grace. Amen."
+        }
+      ],
+      "companion": "adoration",
+      "silence": true
+    },
+    {
+      "id": "preparation-consecration",
+      "chapter": "preparation",
+      "title": "I place myself in Your hands",
+      "period": "Preparation",
+      "image": "/images/fasting-retreat/05-retreat-consecration.webp",
+      "imageAlt": "Open hands beside a crucifix in prayer",
+      "intro": "Consecrate the retreat to Jesus. Pray slowly and allow these words to become your own offering.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Lord Jesus Christ, my Savior, my Redeemer, and my King,"
+        },
+        {
+          "kind": "text",
+          "text": "I come before You at the beginning of this retreat and fast."
+        },
+        {
+          "kind": "text",
+          "text": "I place myself entirely into Your hands."
+        },
+        {
+          "kind": "text",
+          "text": "I consecrate to You these days of prayer, fasting, sacrifice, silence, Scripture, Mass, Adoration, Rosary, works of mercy, and intercession."
+        },
+        {
+          "kind": "text",
+          "text": "Receive my body, my soul, my mind, my heart, my memory, my imagination, my desires, my fears, my wounds, my weaknesses, my family, my home, my work, my vocation, and every intention I carry."
+        },
+        {
+          "kind": "text",
+          "text": "I offer You every hunger, every restraint, every discomfort, every temptation resisted, every prayer spoken, every tear shed, every act of mercy, and every hidden sacrifice."
+        },
+        {
+          "kind": "text",
+          "text": "May nothing in this retreat be done for pride, attention, spiritual curiosity, or self-glory."
+        },
+        {
+          "kind": "text",
+          "text": "Purify my motives."
+        },
+        {
+          "kind": "text",
+          "text": "Make my fasting humble."
+        },
+        {
+          "kind": "text",
+          "text": "Make my prayer sincere."
+        },
+        {
+          "kind": "text",
+          "text": "Make my repentance honest."
+        },
+        {
+          "kind": "text",
+          "text": "Make my love generous."
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, wash me in Your Precious Blood."
+        },
+        {
+          "kind": "text",
+          "text": "Create in me a clean heart."
+        },
+        {
+          "kind": "text",
+          "text": "Renew within me a steadfast spirit."
+        },
+        {
+          "kind": "text",
+          "text": "Detach me from all sin and every disordered attachment."
+        },
+        {
+          "kind": "text",
+          "text": "Free me from anything that keeps me from loving You with my whole heart."
+        },
+        {
+          "kind": "text",
+          "text": "I ask for the grace to repent sincerely, to make a good Confession if possible, to receive or desire the Eucharist worthily, to adore You faithfully, to listen to Your Word, and to persevere in this fast with peace."
+        },
+        {
+          "kind": "text",
+          "text": "Reveal only what You desire to reveal, in the way You desire, and in the time You desire."
+        },
+        {
+          "kind": "text",
+          "text": "Give me the humility to receive Your gifts without pride, the wisdom to discern Your voice, and the obedience to follow Your will."
+        },
+        {
+          "kind": "text",
+          "text": "I place this retreat under the intercession of the Blessed Virgin Mary, St. Joseph, my guardian angel, and all the saints."
+        },
+        {
+          "kind": "text",
+          "text": "Mary, Mother of the Word Incarnate, teach me to say yes to God."
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, guardian of Jesus and Mary, protect the fruits of this retreat."
+        },
+        {
+          "kind": "text",
+          "text": "Holy angels of God, guard me from evil and guide me in holiness."
+        },
+        {
+          "kind": "text",
+          "text": "All holy saints of God, pray for me and for all who join this fast."
+        },
+        {
+          "kind": "text",
+          "text": "Lord, I consecrate every person on my prayer list to Your Sacred Heart."
+        },
+        {
+          "kind": "text",
+          "text": "Bless my family, friends, priests, religious, the sick, the dying, souls in Purgatory, those away from the Church, those who have hurt me, those I have hurt, and all who have asked for prayer."
+        },
+        {
+          "kind": "text",
+          "text": "May this retreat bring glory to the Father, deepen my union with You, strengthen me against sin, heal families, protect souls, and draw many hearts closer to Your mercy."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I trust in You."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I belong to You."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I begin this retreat with You, for You, and in You."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ],
+      "prayer": true,
+      "dayEnd": true
+    },
+    {
+      "id": "day-1-holy-spirit",
+      "chapter": "day-1",
+      "title": "Begin with the Holy Spirit",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/25-invocation-holy-spirit.webp",
+      "imageAlt": "A white dove in a beam of chapel light",
+      "intro": "Make the Sign of the Cross. Settle into silence and ask for the grace of this day.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Come, Holy Spirit, Spirit of Jesus.\n Draw me deeply into the Heart of Christ.\n Teach me to abide in Him as a branch remains on the vine."
+        },
+        {
+          "kind": "text",
+          "text": "Remove pride, self-reliance, distraction, fear, and every desire to live apart from God.\n Let every hunger remind me that I need Jesus more than bread.\n Let every weakness become humility.\n Let every prayer become union."
+        },
+        {
+          "kind": "text",
+          "text": "Holy Spirit, make me fruitful in Christ.\n Prune what does not bear fruit, strengthen what is weak, and keep me faithful in love."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ],
+      "prayer": true
+    },
+    {
+      "id": "day-1-offering",
+      "chapter": "day-1",
+      "title": "Offer this day",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/09-morning-offering.webp",
+      "imageAlt": "An empty chapel kneeler in morning light",
+      "intro": "Remember your retreat intentions and offer today’s prayer, fasting, work, and relationships to Jesus.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Begin without your phone."
+        },
+        {
+          "kind": "text",
+          "text": "Make the Sign of the Cross."
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, today belongs completely to You. Every hunger, every weakness, every joy, every sacrifice, I offer to You for Your glory. Teach me to abide in You. Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Read Psalm 62 (63) slowly."
+        },
+        {
+          "kind": "text",
+          "text": "Repeat:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I hunger for You more than for bread."
+        },
+        {
+          "kind": "text",
+          "text": "Morning Offering:"
+        },
+        {
+          "kind": "text",
+          "text": "O Jesus, through the Immaculate Heart of Mary, I offer You my prayers, works, joys, sufferings, hunger, and sacrifices of this day for the intentions of Your Sacred Heart, in union with the Holy Sacrifice of the Mass throughout the world, for the salvation of souls, the reparation of sin, the reunion of all Christians, and the intentions of the Holy Father. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Today’s fasting intention"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I offer this fast for the intentions You place on my heart: for my soul, my family, those in need of conversion, the sick, the dying, souls in Purgatory, and all who have asked for prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Receive every hunger, sacrifice, restraint, and discomfort today. Unite this fast to Your Cross, purify my heart, strengthen me against sin, and let this sacrifice become love for souls."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer for today"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, True Vine, teach me to abide in You. Strip away pride, self-reliance, vanity, fear, and the desire for control. Let every hunger and weakness draw me closer to Your Sacred Heart. Without You I can do nothing. With You, I can bear fruit for eternal life. Amen."
+        }
+      ]
+    },
+    {
+      "id": "day-1-scripture",
+      "chapter": "day-1",
+      "title": "Abide in Me",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/10-scripture-lectio-divina.webp",
+      "imageAlt": "An open Bible beside a candle",
+      "intro": "Read slowly. Notice one word or phrase, speak with God about it, and rest in His presence.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Read John 15 slowly."
+        },
+        {
+          "kind": "text",
+          "text": "Focus on:"
+        },
+        {
+          "kind": "text",
+          "text": "“Abide in me, and I in you.”"
+        },
+        {
+          "kind": "text",
+          "text": "Ask:"
+        },
+        {
+          "kind": "text",
+          "text": "What does it mean for me to abide in Jesus today?\nWhere have I tried to live apart from Him?\nWhat pride keeps me from remaining in Him?\nWhat fruit does Jesus desire to produce in me?"
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, I want to abide in You. I confess that I often rely on myself, my plans, my strength, and my understanding. Teach me humility. Graft my heart more deeply into Yours. Let Your life flow through me. Amen."
+        }
+      ],
+      "scripture": "day-1",
+      "silence": true
+    },
+    {
+      "id": "day-1-gifts",
+      "chapter": "day-1",
+      "title": "Receive the gifts of God",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/25-invocation-holy-spirit.webp",
+      "imageAlt": "A white dove in a beam of chapel light",
+      "intro": "Seek greater holiness, humility, obedience, and love. Let every gift serve Christ and His Church.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Heavenly Father, I surrender myself completely to You. Through the Holy Spirit, reveal the gifts You have placed within me from my baptism and confirmation. Increase in me the gifts of wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord. If it is Your holy will, awaken every grace, virtue, and charism You desire me to use for the building up of Your Church and the salvation of souls. Remove anything that hinders Your work in me. Help me seek not extraordinary experiences, but greater holiness, humility, obedience, and love. May everything You reveal draw me closer to Jesus and bear fruit for Your glory alone. Through Christ our Lord. Amen."
+        }
+      ],
+      "prayer": true
+    },
+    {
+      "id": "day-1-recollection",
+      "chapter": "day-1",
+      "title": "Return to prayer",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/11-hourly-recollection.webp",
+      "imageAlt": "A quiet path through olive trees",
+      "intro": "Pause during ordinary tasks. Offer this hour for one person on your prayer list.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "At 9 AM, 10 AM, 11 AM, 1 PM, and 4 PM, pause and pray:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, have mercy on me.\nCome, Holy Spirit.\nJesus, I hunger for You more than for bread."
+        },
+        {
+          "kind": "text",
+          "text": "Offer the hour for:"
+        }
+      ]
+    },
+    {
+      "id": "day-1-angelus",
+      "chapter": "day-1",
+      "title": "The Angelus",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/12-angelus.webp",
+      "imageAlt": "A stone chapel bell tower in daylight",
+      "intro": "At noon, or when you can pause, remember the Incarnation and thank God for His gifts.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Pray the Angelus."
+        },
+        {
+          "kind": "text",
+          "text": "Then thank Jesus for five blessings:"
+        }
+      ],
+      "companion": "angelus"
+    },
+    {
+      "id": "day-1-mass",
+      "chapter": "day-1",
+      "title": "Mass & Spiritual Communion",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/13-mass-spiritual-communion.webp",
+      "imageAlt": "A chalice and paten on an altar",
+      "intro": "If possible, attend Mass according to your parish schedule. If you cannot receive sacramentally, make an act of Spiritual Communion.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Before Mass:"
+        },
+        {
+          "kind": "text",
+          "text": "Day 1: Jesus — Abide in Me"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, True Vine,"
+        },
+        {
+          "kind": "text",
+          "text": "I come to this Holy Mass desiring to abide in You."
+        },
+        {
+          "kind": "text",
+          "text": "I place on the altar my hunger, weakness, pride, self-reliance, distractions, and desire for control."
+        },
+        {
+          "kind": "text",
+          "text": "Receive them with the bread and wine and unite them to Your perfect sacrifice."
+        },
+        {
+          "kind": "text",
+          "text": "Without You, I can do nothing."
+        },
+        {
+          "kind": "text",
+          "text": "With You, I can bear fruit for the Father."
+        },
+        {
+          "kind": "text",
+          "text": "As I participate in this Mass, draw me closer to Your Sacred Heart."
+        },
+        {
+          "kind": "text",
+          "text": "Teach me humility."
+        },
+        {
+          "kind": "text",
+          "text": "Prune away what does not bear fruit."
+        },
+        {
+          "kind": "text",
+          "text": "Let my fasting become prayer, and let my prayer become union with You."
+        },
+        {
+          "kind": "text",
+          "text": "If I receive Holy Communion today, may I receive You with reverence, gratitude, and love."
+        },
+        {
+          "kind": "text",
+          "text": "Remain in me, Lord Jesus, and teach me to remain in You."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Spiritual Communion: is a valuable devotion but does not replace sacramental Communion for satisfying the indulgence condition."
+        },
+        {
+          "kind": "text",
+          "text": "My Jesus, I believe that You are present in the Most Holy Sacrament. I love You above all things, and I desire to receive You into my soul. Since I cannot now receive You sacramentally, come at least spiritually into my heart. I embrace You as if You were already there and unite myself wholly to You. Never permit me to be separated from You. Amen."
+        }
+      ]
+    },
+    {
+      "id": "day-1-adoration",
+      "chapter": "day-1",
+      "title": "Remain with Jesus",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/14-eucharistic-adoration.webp",
+      "imageAlt": "The Blessed Sacrament in a gold monstrance",
+      "intro": "Carry today’s intention into prayer before the Blessed Sacrament. Use the companion for a guided Holy Hour.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Spend 30–60 minutes before Jesus."
+        },
+        {
+          "kind": "text",
+          "text": "Structure:"
+        },
+        {
+          "kind": "text",
+          "text": "Adoration\nThanksgiving\nRepentance\nIntercession\nSilence"
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, You are the Vine. I am the branch. Keep me in You."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer Before Adoration"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, True Vine, I come before You in the Eucharist. Teach me to abide in You. Let every hunger, weakness, and sacrifice draw me closer to Your Sacred Heart. Without You I can do nothing. With You, I can bear fruit for eternal life. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Scripture for Adoration"
+        },
+        {
+          "kind": "text",
+          "text": "John 15\n Psalm 62 (63)"
+        },
+        {
+          "kind": "heading",
+          "text": "Meditation"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus says, “Abide in me.” He does not ask you to produce fruit by anxiety or self-reliance. He asks you to remain in Him."
+        },
+        {
+          "kind": "text",
+          "text": "In Adoration, you are like a branch resting on the Vine. Let Jesus give you life. Let Him prune what is not fruitful. Let Him teach you humility."
+        },
+        {
+          "kind": "text",
+          "text": "Your hunger today is not empty. It is a prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I hunger for You more than for bread."
+        },
+        {
+          "kind": "heading",
+          "text": "Adoration Prayer"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, True Vine, keep me attached to You.\n Prune away pride, fear, self-reliance, vanity, distraction, and sin.\n Let Your Eucharistic life flow through me.\n Make me humble, fruitful, and faithful.\n Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Intercession Focus"
+        },
+        {
+          "kind": "text",
+          "text": "Pray for:"
+        },
+        {
+          "kind": "text",
+          "text": "Humility\n Freedom from pride\n Deeper Eucharistic love\n Those who rely only on themselves\n Those who feel spiritually dry\n All who need to return to Jesus\n The group intention"
+        },
+        {
+          "kind": "heading",
+          "text": "Silence Prayer"
+        },
+        {
+          "kind": "text",
+          "text": "Inhale: Jesus, True Vine\n Exhale: Help me abide in You"
+        },
+        {
+          "kind": "heading",
+          "text": "Closing Prayer for Day 1"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I have come before You as a branch before the Vine. Keep me in You. Let this fast bear fruit in humility, repentance, and love. Amen."
+        }
+      ],
+      "companion": "adoration",
+      "silence": true
+    },
+    {
+      "id": "day-1-mercy",
+      "chapter": "day-1",
+      "title": "Jesus, I trust in You",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/24-divine-mercy.webp",
+      "imageAlt": "A devotional image of Jesus with the rays of Divine Mercy",
+      "intro": "At 3 p.m., or another suitable time, intercede for the sick, the dying, and all in need of mercy.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Jesus, I trust in You. Have mercy on me, on my family, on the Church, on the sick and dying, and on all souls in need of Your mercy. Amen."
+        }
+      ],
+      "companion": "divine-mercy",
+      "optional": true
+    },
+    {
+      "id": "day-1-charity",
+      "chapter": "day-1",
+      "title": "Let prayer become charity",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/19-work-of-mercy.webp",
+      "imageAlt": "A loaf of bread offered to an elderly neighbor",
+      "intro": "Offer one inconvenience without complaining, and complete one hidden act of service.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Choose one small, concrete action. Let it be quiet, generous, and appropriate to the person’s needs."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, let this fast become love. Show me one soul I can help carry today. Amen."
+        }
+      ]
+    },
+    {
+      "id": "day-1-rosary",
+      "chapter": "day-1",
+      "title": "Pray with Mary",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/15-rosary.webp",
+      "imageAlt": "Rosary beads and a crucifix on ivory linen",
+      "intro": "Bring the day’s theme and the people on your prayer list into the mysteries of Christ.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Offer the decades for:"
+        },
+        {
+          "kind": "text",
+          "text": "Family\nThe Church\nThe sick and suffering\nSouls in Purgatory\nPersonal intentions"
+        }
+      ],
+      "companion": "rosary"
+    },
+    {
+      "id": "day-1-litany",
+      "chapter": "day-1",
+      "title": "Litany of the Sacred Heart",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/16-litany-sacred-heart.webp",
+      "imageAlt": "A devotional portrait of the Sacred Heart of Jesus",
+      "intro": "Bring this day into the Heart of Jesus. Ask for humility and deeper union with Him.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Move slowly through the invocations. Ask for the grace to carry this day’s virtue into the people and responsibilities entrusted to you."
+        }
+      ],
+      "companion": "sacred-heart",
+      "optional": true
+    },
+    {
+      "id": "day-1-conversion",
+      "chapter": "day-1",
+      "title": "Choose the way of life",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/10-scripture-lectio-divina.webp",
+      "imageAlt": "An open Bible beside a candle",
+      "intro": "Return to Scripture and consider one concrete step away from sin and toward love.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Read Matthew 5."
+        },
+        {
+          "kind": "text",
+          "text": "Ask:"
+        },
+        {
+          "kind": "text",
+          "text": "Am I poor in spirit?\nAm I meek?\nAm I merciful?\nAm I pure in heart?\nWhere does pride still rule me?"
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, I renounce pride and every sin that separates me from You. I choose humility, obedience, repentance, and love. Amen."
+        }
+      ],
+      "scripture": "day-1-evening"
+    },
+    {
+      "id": "day-1-examen",
+      "chapter": "day-1",
+      "title": "Look back with mercy",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/20-evening-examen.webp",
+      "imageAlt": "A journal and crucifix beside a candle at dusk",
+      "intro": "Give thanks for grace received. Review your day honestly and without despair. A fuller examination is available in the companion.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "1. Presence"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, I place myself in Your presence. Help me see this day with truth and peace."
+        },
+        {
+          "kind": "text",
+          "text": "2. Gratitude"
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for every grace, prayer, hunger, sacrifice, and blessing of this day."
+        },
+        {
+          "kind": "text",
+          "text": "3. Light"
+        },
+        {
+          "kind": "text",
+          "text": "Holy Spirit, show me where I loved well and where I failed to love."
+        },
+        {
+          "kind": "text",
+          "text": "4. Review"
+        },
+        {
+          "kind": "text",
+          "text": "Where did I follow grace today?"
+        },
+        {
+          "kind": "text",
+          "text": "Where did I resist grace?"
+        },
+        {
+          "kind": "text",
+          "text": "Did I offer my hunger and sacrifices to Jesus?"
+        },
+        {
+          "kind": "text",
+          "text": "Did I live today’s virtue?"
+        },
+        {
+          "kind": "text",
+          "text": "5. Repentance"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I am sorry for my sins today. Forgive me, heal me, and give me a clean heart."
+        },
+        {
+          "kind": "text",
+          "text": "6. Tomorrow"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, prepare me for tomorrow. Help me begin again with humility, trust, and love."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Pray the Act of Contrition."
+        }
+      ],
+      "companion": "examination"
+    },
+    {
+      "id": "day-1-night",
+      "chapter": "day-1",
+      "title": "Surrender the day",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/21-night-prayer.webp",
+      "imageAlt": "A quiet room with a candle at night",
+      "intro": "Receive what was good, ask forgiveness for what was sinful, and rest in the care of God.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Lord Jesus, True Vine,"
+        },
+        {
+          "kind": "text",
+          "text": "I come to You at the end of this first day of fasting and prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for carrying me through this day."
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for every grace, every moment of strength, every hunger offered, every prayer spoken, every Scripture received, every temptation resisted, and every person I carried before You."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I surrender this day to You."
+        },
+        {
+          "kind": "text",
+          "text": "Receive what was good."
+        },
+        {
+          "kind": "text",
+          "text": "Receive every act of faith, hope, love, humility, patience, and sacrifice."
+        },
+        {
+          "kind": "text",
+          "text": "Receive every hidden offering that no one else saw."
+        },
+        {
+          "kind": "text",
+          "text": "Receive every hunger I offered for souls."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive what was sinful."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive my pride, impatience, distractions, complaints, judgments, selfishness, lack of trust, and every failure to abide in You."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive the moments when I relied on myself more than Your grace."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive the times I resisted Your pruning."
+        },
+        {
+          "kind": "text",
+          "text": "Heal what was wounded."
+        },
+        {
+          "kind": "text",
+          "text": "Heal the places in my heart that were exposed today."
+        },
+        {
+          "kind": "text",
+          "text": "Heal the fears, attachments, resentments, and weaknesses that surfaced during this fast."
+        },
+        {
+          "kind": "text",
+          "text": "Heal anything in me that still clings to control instead of surrender."
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, You said, “Abide in me.”"
+        },
+        {
+          "kind": "text",
+          "text": "Tonight I choose to remain in You."
+        },
+        {
+          "kind": "text",
+          "text": "Keep me attached to Your Sacred Heart as a branch remains on the vine."
+        },
+        {
+          "kind": "text",
+          "text": "Prune what does not bear fruit."
+        },
+        {
+          "kind": "text",
+          "text": "Strengthen what is weak."
+        },
+        {
+          "kind": "text",
+          "text": "Purify what is divided."
+        },
+        {
+          "kind": "text",
+          "text": "Make my soul fruitful for the Father."
+        },
+        {
+          "kind": "text",
+          "text": "I place into Your hands every person I prayed for today:"
+        },
+        {
+          "kind": "text",
+          "text": "My family."
+        },
+        {
+          "kind": "text",
+          "text": "My friends."
+        },
+        {
+          "kind": "text",
+          "text": "Priests and religious."
+        },
+        {
+          "kind": "text",
+          "text": "The sick."
+        },
+        {
+          "kind": "text",
+          "text": "The dying."
+        },
+        {
+          "kind": "text",
+          "text": "Souls in Purgatory."
+        },
+        {
+          "kind": "text",
+          "text": "Those away from God."
+        },
+        {
+          "kind": "text",
+          "text": "Those who have hurt me."
+        },
+        {
+          "kind": "text",
+          "text": "Those I have hurt."
+        },
+        {
+          "kind": "text",
+          "text": "All my personal intentions."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, hold them in Your mercy tonight."
+        },
+        {
+          "kind": "text",
+          "text": "Prepare me for tomorrow."
+        },
+        {
+          "kind": "text",
+          "text": "Give me rest that restores the body and recollects the soul."
+        },
+        {
+          "kind": "text",
+          "text": "Guard me from temptation, anxiety, discouragement, and spiritual attack."
+        },
+        {
+          "kind": "text",
+          "text": "Let my sleep be peaceful and my heart remain turned toward You."
+        },
+        {
+          "kind": "text",
+          "text": "Mary, Mother of Jesus, pray for me."
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, guard me."
+        },
+        {
+          "kind": "text",
+          "text": "My guardian angel, watch over me."
+        },
+        {
+          "kind": "text",
+          "text": "All holy saints of God, intercede for me."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I trust in You."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I belong to You."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, keep me abiding in You through the night."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ],
+      "prayer": true,
+      "dayEnd": true
+    },
+    {
+      "id": "day-2-holy-spirit",
+      "chapter": "day-2",
+      "title": "Begin with the Holy Spirit",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/25-invocation-holy-spirit.webp",
+      "imageAlt": "A white dove in a beam of chapel light",
+      "intro": "Make the Sign of the Cross. Settle into silence and ask for the grace of this day.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Come, Holy Spirit, Spouse of the Blessed Virgin Mary.\n Form in me a pure and surrendered heart.\n Teach me to say with Mary, “Be it done to me according to thy word.”"
+        },
+        {
+          "kind": "text",
+          "text": "Purify my thoughts, desires, imagination, words, memories, and intentions.\n Guard me from every disordered attachment and every false comfort.\n Help me receive God’s will with humility, trust, and love."
+        },
+        {
+          "kind": "text",
+          "text": "Holy Spirit, overshadow my soul with grace.\n Lead me through Mary to Jesus, and make my heart a place where Christ is welcomed, loved, and obeyed."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ],
+      "prayer": true
+    },
+    {
+      "id": "day-2-offering",
+      "chapter": "day-2",
+      "title": "Offer this day",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/09-morning-offering.webp",
+      "imageAlt": "An empty chapel kneeler in morning light",
+      "intro": "Remember your retreat intentions and offer today’s prayer, fasting, work, and relationships to Jesus.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "O Jesus, through the Immaculate Heart of Mary, I offer You my prayers, works, joys, sufferings, hunger, and sacrifices of this day for the intentions of Your Sacred Heart, in union with the Holy Sacrifice of the Mass throughout the world, for the salvation of souls, the reparation of sin, the reunion of all Christians, and the intentions of the Holy Father. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Today’s fasting intention"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I offer this fast for the intentions You place on my heart: for my soul, my family, those in need of conversion, the sick, the dying, souls in Purgatory, and all who have asked for prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Receive every hunger, sacrifice, restraint, and discomfort today. Unite this fast to Your Cross, purify my heart, strengthen me against sin, and let this sacrifice become love for souls."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer for today"
+        },
+        {
+          "kind": "text",
+          "text": "Mary, Mother Most Pure, teach me to say yes to God with a clean and undivided heart. Guard my thoughts, my eyes, my desires, my words, and my imagination. Lead me always to Jesus. Help me surrender every attachment that keeps me from loving Him fully. Amen"
+        }
+      ]
+    },
+    {
+      "id": "day-2-scripture",
+      "chapter": "day-2",
+      "title": "Receive the word",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/10-scripture-lectio-divina.webp",
+      "imageAlt": "An open Bible beside a candle",
+      "intro": "Read slowly. Notice one word or phrase, speak with God about it, and rest in His presence.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Read Luke 1:26–38."
+        },
+        {
+          "kind": "text",
+          "text": "Focus on:"
+        },
+        {
+          "kind": "text",
+          "text": "“Be it done to me according to thy word.”"
+        },
+        {
+          "kind": "text",
+          "text": "Ask:"
+        },
+        {
+          "kind": "text",
+          "text": "Where is God asking for my yes?\nWhat fear keeps me from surrender?\nWhat does Mary teach me about purity?\nWhat attachment must I surrender?"
+        }
+      ],
+      "scripture": "day-2",
+      "silence": true
+    },
+    {
+      "id": "day-2-gifts",
+      "chapter": "day-2",
+      "title": "Receive the gifts of God",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/25-invocation-holy-spirit.webp",
+      "imageAlt": "A white dove in a beam of chapel light",
+      "intro": "Seek greater holiness, humility, obedience, and love. Let every gift serve Christ and His Church.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Heavenly Father, I surrender myself completely to You. Through the Holy Spirit, reveal the gifts You have placed within me from my baptism and confirmation. Increase in me the gifts of wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord. If it is Your holy will, awaken every grace, virtue, and charism You desire me to use for the building up of Your Church and the salvation of souls. Remove anything that hinders Your work in me. Help me seek not extraordinary experiences, but greater holiness, humility, obedience, and love. May everything You reveal draw me closer to Jesus and bear fruit for Your glory alone. Through Christ our Lord. Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Today’s focus:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord, reveal gifts only in humility, purity, obedience, and love."
+        }
+      ],
+      "prayer": true
+    },
+    {
+      "id": "day-2-recollection",
+      "chapter": "day-2",
+      "title": "Return to prayer",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/11-hourly-recollection.webp",
+      "imageAlt": "A quiet path through olive trees",
+      "intro": "Pause during ordinary tasks. Offer this hour for one person on your prayer list.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "At 9 AM, 10 AM, 11 AM, 1 PM, and 4 PM, pray:"
+        },
+        {
+          "kind": "text",
+          "text": "Mary, keep my heart pure.\nJesus, Bread of Life, purify my heart."
+        },
+        {
+          "kind": "text",
+          "text": "Offer this hour for:"
+        }
+      ]
+    },
+    {
+      "id": "day-2-angelus",
+      "chapter": "day-2",
+      "title": "The Angelus",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/12-angelus.webp",
+      "imageAlt": "A stone chapel bell tower in daylight",
+      "intro": "At noon, or when you can pause, remember the Incarnation and thank God for His gifts.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Pray the Angelus slowly."
+        },
+        {
+          "kind": "text",
+          "text": "Pause at:"
+        },
+        {
+          "kind": "text",
+          "text": "“Be it done to me according to thy word.”"
+        },
+        {
+          "kind": "text",
+          "text": "Ask Mary for surrender."
+        }
+      ],
+      "companion": "angelus"
+    },
+    {
+      "id": "day-2-mass",
+      "chapter": "day-2",
+      "title": "Mass & Spiritual Communion",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/13-mass-spiritual-communion.webp",
+      "imageAlt": "A chalice and paten on an altar",
+      "intro": "If possible, attend Mass according to your parish schedule. If you cannot receive sacramentally, make an act of Spiritual Communion.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Before Mass:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus,"
+        },
+        {
+          "kind": "text",
+          "text": "I come to this Holy Mass through the Immaculate Heart of Mary."
+        },
+        {
+          "kind": "text",
+          "text": "Mary, Mother Most Pure, help me offer myself with your humility, purity, obedience, and trust."
+        },
+        {
+          "kind": "text",
+          "text": "Teach me to say with you: “Be it done to me according to thy word.”"
+        },
+        {
+          "kind": "text",
+          "text": "Lord, I place on the altar my thoughts, desires, memories, imagination, words, relationships, wounds, and every disordered attachment."
+        },
+        {
+          "kind": "text",
+          "text": "Purify my heart and make it undivided."
+        },
+        {
+          "kind": "text",
+          "text": "As the bread and wine are offered, I offer my whole self to You."
+        },
+        {
+          "kind": "text",
+          "text": "As the sacrifice of Christ is made present, unite my fast to Your Cross."
+        },
+        {
+          "kind": "text",
+          "text": "As I receive or desire Holy Communion, make my soul a pure dwelling place for You."
+        },
+        {
+          "kind": "text",
+          "text": "Mary, lead me to Jesus."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, Bread of Life, purify my heart."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ]
+    },
+    {
+      "id": "day-2-adoration",
+      "chapter": "day-2",
+      "title": "Remain with Jesus",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/14-eucharistic-adoration.webp",
+      "imageAlt": "The Blessed Sacrament in a gold monstrance",
+      "intro": "Carry today’s intention into prayer before the Blessed Sacrament. Use the companion for a guided Holy Hour.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Adore Jesus through Mary’s Immaculate Heart."
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Mary, bring me close to Jesus. Teach me reverence, silence, purity, and love before His Eucharistic Presence."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer Before Adoration"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I come before You through the Immaculate Heart of Mary. Mary, Mother Most Pure, teach me to adore your Son with purity, reverence, humility, and love. Help me say yes to God with an undivided heart. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Scripture for Adoration"
+        },
+        {
+          "kind": "text",
+          "text": "Luke 1:26–38\n John 6"
+        },
+        {
+          "kind": "heading",
+          "text": "Meditation"
+        },
+        {
+          "kind": "text",
+          "text": "Mary’s heart was completely open to God. She received the Word with humility and purity. She teaches us how to say:"
+        },
+        {
+          "kind": "text",
+          "text": "Be it done to me according to thy word."
+        },
+        {
+          "kind": "text",
+          "text": "In Adoration, ask Mary to lead you to Jesus. Ask her to help you surrender every disordered attachment, every false comfort, every impure desire, and every fear."
+        },
+        {
+          "kind": "text",
+          "text": "Mary does not keep the soul focused on herself. She always leads the soul to Jesus."
+        },
+        {
+          "kind": "heading",
+          "text": "Marian Prayer Before Jesus"
+        },
+        {
+          "kind": "text",
+          "text": "Mary, Mother Most Pure, kneel with me before Jesus.\n Teach me purity of heart, purity of intention, purity of desire, and purity of love.\n Help me receive Jesus with reverence.\n Help me surrender to the Father’s will.\n Lead me always to your Son.\n Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Adoration Prayer"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, Bread of Life, purify my heart.\n Cleanse my thoughts, my desires, my imagination, my memories, and my choices.\n Feed me with Yourself.\n Make my heart wholly Yours.\n Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Intercession Focus"
+        },
+        {
+          "kind": "text",
+          "text": "Pray for:"
+        },
+        {
+          "kind": "text",
+          "text": "Purity of heart\n Freedom from shame and addiction\n Healing from wounds\n Children and young people\n Marriages and families\n Those struggling with impurity\n Those who need Mary’s motherly care\n All retreat participants"
+        },
+        {
+          "kind": "heading",
+          "text": "Silence Prayer"
+        },
+        {
+          "kind": "text",
+          "text": "Inhale: Mary, lead me\n Exhale: to Jesus"
+        },
+        {
+          "kind": "text",
+          "text": "Or:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, Bread of Life, purify my heart."
+        },
+        {
+          "kind": "heading",
+          "text": "Closing Prayer for Day 2"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, through Mary’s Immaculate Heart, I offer You this day. Purify my soul, heal my desires, and teach me to say yes to the Father. Amen."
+        }
+      ],
+      "companion": "adoration",
+      "silence": true
+    },
+    {
+      "id": "day-2-mercy",
+      "chapter": "day-2",
+      "title": "Jesus, I trust in You",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/24-divine-mercy.webp",
+      "imageAlt": "A devotional image of Jesus with the rays of Divine Mercy",
+      "intro": "At 3 p.m., or another suitable time, intercede for the sick, the dying, and all in need of mercy.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Jesus, I trust in You. Have mercy on me, on my family, on the Church, on the sick and dying, and on all souls in need of Your mercy. Amen."
+        }
+      ],
+      "companion": "divine-mercy",
+      "optional": true
+    },
+    {
+      "id": "day-2-charity",
+      "chapter": "day-2",
+      "title": "Let prayer become charity",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/19-work-of-mercy.webp",
+      "imageAlt": "A loaf of bread offered to an elderly neighbor",
+      "intro": "Guard your speech from gossip and unnecessary criticism. Offer one peaceful act of encouragement, reconciliation, or service.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Choose one small, concrete action. Let it be quiet, generous, and appropriate to the person’s needs."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, let this fast become love. Show me one soul I can help carry today. Amen."
+        }
+      ]
+    },
+    {
+      "id": "day-2-rosary",
+      "chapter": "day-2",
+      "title": "Pray with Mary",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/15-rosary.webp",
+      "imageAlt": "Rosary beads and a crucifix on ivory linen",
+      "intro": "Bring the day’s theme and the people on your prayer list into the mysteries of Christ.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Link"
+        },
+        {
+          "kind": "text",
+          "text": "Offer for:"
+        },
+        {
+          "kind": "text",
+          "text": "Purity\nConversion\nHealing\nFamily holiness\nThe gifts God wants to reveal"
+        },
+        {
+          "kind": "text",
+          "text": "Prayer before the Rosary:"
+        },
+        {
+          "kind": "text",
+          "text": "Mary, Mother Most Pure, take my prayers into your Immaculate Heart and present them to Jesus. Amen."
+        }
+      ],
+      "companion": "rosary"
+    },
+    {
+      "id": "day-2-litany",
+      "chapter": "day-2",
+      "title": "Litany of Loreto",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/17-litany-loreto.webp",
+      "imageAlt": "Mary in prayer, wearing an ivory veil and blue mantle",
+      "intro": "With Mary, ask for a pure heart and the grace to surrender to God’s will.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Move slowly through the invocations. Ask for the grace to carry this day’s virtue into the people and responsibilities entrusted to you."
+        }
+      ],
+      "companion": "loreto",
+      "optional": true
+    },
+    {
+      "id": "day-2-conversion",
+      "chapter": "day-2",
+      "title": "Choose the way of life",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/10-scripture-lectio-divina.webp",
+      "imageAlt": "An open Bible beside a candle",
+      "intro": "Return to Scripture and consider one concrete step away from sin and toward love.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Matthew 6:22–24."
+        },
+        {
+          "kind": "text",
+          "text": "Ask:"
+        },
+        {
+          "kind": "text",
+          "text": "What am I allowing my eyes to look at that darkens my soul?"
+        },
+        {
+          "kind": "text",
+          "text": "What images, memories, websites, shows, conversations, or habits lead me toward sin?"
+        },
+        {
+          "kind": "text",
+          "text": "Do my eyes help my soul remain in the light of Christ?"
+        },
+        {
+          "kind": "text",
+          "text": "What do I need to stop looking at, watching, reading, or revisiting?"
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, purify my eyes. Let nothing enter through them that darkens my soul. Guard my imagination, memory, and desires. Give me the grace to turn away quickly from every occasion of sin. Amen."
+        }
+      ],
+      "scripture": "day-2-evening"
+    },
+    {
+      "id": "day-2-examen",
+      "chapter": "day-2",
+      "title": "Look back with mercy",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/20-evening-examen.webp",
+      "imageAlt": "A journal and crucifix beside a candle at dusk",
+      "intro": "Give thanks for grace received. Review your day honestly and without despair. A fuller examination is available in the companion.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "1. Presence"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, I place myself in Your presence. Help me see this day with truth and peace."
+        },
+        {
+          "kind": "text",
+          "text": "2. Gratitude"
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for every grace, prayer, hunger, sacrifice, and blessing of this day."
+        },
+        {
+          "kind": "text",
+          "text": "3. Light"
+        },
+        {
+          "kind": "text",
+          "text": "Holy Spirit, show me where I loved well and where I failed to love."
+        },
+        {
+          "kind": "text",
+          "text": "4. Review"
+        },
+        {
+          "kind": "text",
+          "text": "Where did I follow grace today?"
+        },
+        {
+          "kind": "text",
+          "text": "Where did I resist grace?"
+        },
+        {
+          "kind": "text",
+          "text": "Did I offer my hunger and sacrifices to Jesus?"
+        },
+        {
+          "kind": "text",
+          "text": "Did I live today’s virtue?"
+        },
+        {
+          "kind": "text",
+          "text": "5. Repentance"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I am sorry for my sins today. Forgive me, heal me, and give me a clean heart."
+        },
+        {
+          "kind": "text",
+          "text": "6. Tomorrow"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, prepare me for tomorrow. Help me begin again with humility, trust, and love."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Pray the Act of Contrition."
+        }
+      ],
+      "companion": "examination"
+    },
+    {
+      "id": "day-2-night",
+      "chapter": "day-2",
+      "title": "Surrender the day",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/21-night-prayer.webp",
+      "imageAlt": "A quiet room with a candle at night",
+      "intro": "Receive what was good, ask forgiveness for what was sinful, and rest in the care of God.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Lord Jesus,"
+        },
+        {
+          "kind": "text",
+          "text": "I come to You at the end of this second day of fasting and prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for carrying me through this day."
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for every hunger offered, every temptation resisted, every prayer spoken, every moment of silence, every act of surrender, and every grace You gave through the intercession of Mary."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I surrender this day to You."
+        },
+        {
+          "kind": "text",
+          "text": "Receive what was pure."
+        },
+        {
+          "kind": "text",
+          "text": "Receive every sincere prayer, every holy desire, every act of restraint, every effort to guard my eyes, thoughts, words, imagination, and heart."
+        },
+        {
+          "kind": "text",
+          "text": "Receive every hidden sacrifice I offered for souls."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive what was sinful."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive every impure thought, careless glance, disordered desire, selfish motive, distraction, complaint, attachment, and failure to trust You."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive the moments when I sought comfort apart from You."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive the times I resisted Your grace or delayed my surrender."
+        },
+        {
+          "kind": "text",
+          "text": "Heal what was wounded."
+        },
+        {
+          "kind": "text",
+          "text": "Heal my memory."
+        },
+        {
+          "kind": "text",
+          "text": "Heal my imagination."
+        },
+        {
+          "kind": "text",
+          "text": "Heal my desires."
+        },
+        {
+          "kind": "text",
+          "text": "Heal every place in my heart where shame, fear, loneliness, disappointment, or past wounds have led me away from You."
+        },
+        {
+          "kind": "text",
+          "text": "Purify what is confused."
+        },
+        {
+          "kind": "text",
+          "text": "Strengthen what is weak."
+        },
+        {
+          "kind": "text",
+          "text": "Restore what has been damaged by sin."
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, Bread of Life,"
+        },
+        {
+          "kind": "text",
+          "text": "make my heart clean and undivided."
+        },
+        {
+          "kind": "text",
+          "text": "Let me hunger for You above every false comfort."
+        },
+        {
+          "kind": "text",
+          "text": "Let me desire holiness more than pleasure, purity more than indulgence, and obedience more than control."
+        },
+        {
+          "kind": "text",
+          "text": "Mary, Mother Most Pure,"
+        },
+        {
+          "kind": "text",
+          "text": "pray for me tonight."
+        },
+        {
+          "kind": "text",
+          "text": "Cover me with your maternal protection."
+        },
+        {
+          "kind": "text",
+          "text": "Guard my eyes, my thoughts, my dreams, my imagination, my emotions, and my desires."
+        },
+        {
+          "kind": "text",
+          "text": "Keep me close to your Son."
+        },
+        {
+          "kind": "text",
+          "text": "Teach me to say with you:"
+        },
+        {
+          "kind": "text",
+          "text": "“Be it done to me according to thy word.”"
+        },
+        {
+          "kind": "text",
+          "text": "I place into the Sacred Heart of Jesus every person I prayed for today:"
+        },
+        {
+          "kind": "text",
+          "text": "My family."
+        },
+        {
+          "kind": "text",
+          "text": "My friends."
+        },
+        {
+          "kind": "text",
+          "text": "Priests and religious."
+        },
+        {
+          "kind": "text",
+          "text": "The sick."
+        },
+        {
+          "kind": "text",
+          "text": "The dying."
+        },
+        {
+          "kind": "text",
+          "text": "Souls in Purgatory."
+        },
+        {
+          "kind": "text",
+          "text": "Those away from God."
+        },
+        {
+          "kind": "text",
+          "text": "Those wounded by impurity, shame, addiction, loneliness, or despair."
+        },
+        {
+          "kind": "text",
+          "text": "Those who have hurt me."
+        },
+        {
+          "kind": "text",
+          "text": "Those I have hurt."
+        },
+        {
+          "kind": "text",
+          "text": "All my personal intentions."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, hold them in Your mercy."
+        },
+        {
+          "kind": "text",
+          "text": "Mary, present them to your Son."
+        },
+        {
+          "kind": "text",
+          "text": "Prepare me for tomorrow."
+        },
+        {
+          "kind": "text",
+          "text": "Give me peaceful rest."
+        },
+        {
+          "kind": "text",
+          "text": "Protect me from temptation, discouragement, anxiety, and spiritual attack."
+        },
+        {
+          "kind": "text",
+          "text": "Let my sleep be pure, my heart be still, and my soul remain turned toward Jesus."
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, guardian of purity, pray for me."
+        },
+        {
+          "kind": "text",
+          "text": "My guardian angel, watch over me."
+        },
+        {
+          "kind": "text",
+          "text": "All holy saints of God, intercede for me."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I trust in You."
+        },
+        {
+          "kind": "text",
+          "text": "Mary, keep me close to Jesus."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, make my heart wholly Yours."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Litany of the Blessed Virgin Mary, Mother of Life"
+        }
+      ],
+      "prayer": true,
+      "dayEnd": true
+    },
+    {
+      "id": "day-3-holy-spirit",
+      "chapter": "day-3",
+      "title": "Begin with the Holy Spirit",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/25-invocation-holy-spirit.webp",
+      "imageAlt": "A white dove in a beam of chapel light",
+      "intro": "Make the Sign of the Cross. Settle into silence and ask for the grace of this day.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Come, Holy Spirit, Spirit of charity and peace."
+        },
+        {
+          "kind": "text",
+          "text": "Fill my heart, my home, my family, and my vocation with Your grace."
+        },
+        {
+          "kind": "text",
+          "text": "Teach me to love as Jesus, Mary, and Joseph loved in the Holy Family of Nazareth."
+        },
+        {
+          "kind": "text",
+          "text": "Give me the charity to serve, the courage to protect, the patience to forgive, and the humility to obey."
+        },
+        {
+          "kind": "text",
+          "text": "Heal family wounds. Restore peace where there is division. Strengthen marriages, parents, children, and all those entrusted to prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Holy Spirit, send me forth from this retreat with love."
+        },
+        {
+          "kind": "text",
+          "text": "Let the graces received bear fruit in my daily duties, my relationships, my work, and my mission."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ],
+      "prayer": true
+    },
+    {
+      "id": "day-3-offering",
+      "chapter": "day-3",
+      "title": "Offer this day",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/09-morning-offering.webp",
+      "imageAlt": "An empty chapel kneeler in morning light",
+      "intro": "Remember your retreat intentions and offer today’s prayer, fasting, work, and relationships to Jesus.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, teach me faithful obedience today. Holy Family, make my heart and home a place where Jesus is welcomed. Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Morning Offering:"
+        },
+        {
+          "kind": "text",
+          "text": "O Jesus, through the Immaculate Heart of Mary, I offer You my prayers, works, joys, sufferings, hunger, and sacrifices of this day for the intentions of Your Sacred Heart, in union with the Holy Sacrifice of the Mass throughout the world, for the salvation of souls, the reparation of sin, the reunion of all Christians, and the intentions of the Holy Father. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Today’s fasting intention"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I offer this fast for the intentions You place on my heart: for my soul, my family, those in need of conversion, the sick, the dying, souls in Purgatory, and all who have asked for prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Receive every hunger, sacrifice, restraint, and discomfort today. Unite this fast to Your Cross, purify my heart, strengthen me against sin, and let this sacrifice become love for souls."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer for today"
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, guardian of Jesus and Mary, protect my family, my soul, my work, and the fruits of this retreat. Teach me obedience, silence, courage, purity, humility, and faithful service. Holy Family of Nazareth, heal my family, strengthen our love, and make our home a place where Jesus is welcomed, loved, and obeyed. Amen."
+        }
+      ]
+    },
+    {
+      "id": "day-3-scripture",
+      "chapter": "day-3",
+      "title": "Listen, then act",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/10-scripture-lectio-divina.webp",
+      "imageAlt": "An open Bible beside a candle",
+      "intro": "Read slowly. Notice one word or phrase, speak with God about it, and rest in His presence.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Read Matthew 1:18–25."
+        },
+        {
+          "kind": "text",
+          "text": "Ask:"
+        },
+        {
+          "kind": "text",
+          "text": "Where is God asking me to obey?\nHow can I protect my family spiritually?\nWhat does St. Joseph teach me about silence and action?\nHow can my home become more like Nazareth?"
+        }
+      ],
+      "scripture": "day-3",
+      "silence": true
+    },
+    {
+      "id": "day-3-gifts",
+      "chapter": "day-3",
+      "title": "Receive the gifts of God",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/25-invocation-holy-spirit.webp",
+      "imageAlt": "A white dove in a beam of chapel light",
+      "intro": "Seek greater holiness, humility, obedience, and love. Let every gift serve Christ and His Church.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Heavenly Father, I surrender myself completely to You. Through the Holy Spirit, reveal the gifts You have placed within me from my baptism and confirmation. Increase in me the gifts of wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord. If it is Your holy will, awaken every grace, virtue, and charism You desire me to use for the building up of Your Church and the salvation of souls. Remove anything that hinders Your work in me. Help me seek not extraordinary experiences, but greater holiness, humility, obedience, and love. May everything You reveal draw me closer to Jesus and bear fruit for Your glory alone. Through Christ our Lord. Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Today’s focus:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord, reveal gifts that help me serve my family, parish, work, vocation, and mission."
+        }
+      ],
+      "prayer": true
+    },
+    {
+      "id": "day-3-recollection",
+      "chapter": "day-3",
+      "title": "Return to prayer",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/11-hourly-recollection.webp",
+      "imageAlt": "A quiet path through olive trees",
+      "intro": "Pause during ordinary tasks. Offer this hour for one person on your prayer list.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "At 9 AM, 10 AM, 11 AM, 1 PM, and 4 PM, pray:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, Mary, and Joseph, make my heart like your home."
+        },
+        {
+          "kind": "text",
+          "text": "Offer this hour for:"
+        }
+      ]
+    },
+    {
+      "id": "day-3-angelus",
+      "chapter": "day-3",
+      "title": "The Angelus",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/12-angelus.webp",
+      "imageAlt": "A stone chapel bell tower in daylight",
+      "intro": "At noon, or when you can pause, remember the Incarnation and thank God for His gifts.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Pray the Angelus."
+        },
+        {
+          "kind": "text",
+          "text": "Contemplate the Incarnation within the Holy Family."
+        }
+      ],
+      "companion": "angelus"
+    },
+    {
+      "id": "day-3-mass",
+      "chapter": "day-3",
+      "title": "Mass & Spiritual Communion",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/13-mass-spiritual-communion.webp",
+      "imageAlt": "A chalice and paten on an altar",
+      "intro": "If possible, attend Mass according to your parish schedule. If you cannot receive sacramentally, make an act of Spiritual Communion.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Lord Jesus,"
+        },
+        {
+          "kind": "text",
+          "text": "I come to this Holy Mass with St. Joseph and the Holy Family in my heart."
+        },
+        {
+          "kind": "text",
+          "text": "I place on the altar my family, my home, my work, my vocation, my responsibilities, and every person entrusted to my prayer."
+        },
+        {
+          "kind": "text",
+          "text": "I offer You the joys, wounds, divisions, needs, hopes, and burdens of my family."
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, guardian of Jesus and Mary, teach me obedience, silence, courage, purity, humility, and faithful service."
+        },
+        {
+          "kind": "text",
+          "text": "Holy Family of Nazareth, make my heart and home a place where Jesus is welcomed, loved, and obeyed."
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, let this Mass strengthen me to live the graces of this retreat."
+        },
+        {
+          "kind": "text",
+          "text": "Let my fasting become charity."
+        },
+        {
+          "kind": "text",
+          "text": "Let my prayer become service."
+        },
+        {
+          "kind": "text",
+          "text": "Let my sacrifice bear fruit in healing, protection, peace, and holiness."
+        },
+        {
+          "kind": "text",
+          "text": "I offer this Mass for my family, the Church, the sick, the dying, souls in Purgatory, and all who have asked for prayer."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, Mary, and Joseph, make my heart and home holy."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ]
+    },
+    {
+      "id": "day-3-adoration",
+      "chapter": "day-3",
+      "title": "Remain with Jesus",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/14-eucharistic-adoration.webp",
+      "imageAlt": "The Blessed Sacrament in a gold monstrance",
+      "intro": "Carry today’s intention into prayer before the Blessed Sacrament. Use the companion for a guided Holy Hour.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Intercede for each family member and loved one by name."
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I place [name or intention] into Your Sacred Heart."
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, protect [name or intention]."
+        },
+        {
+          "kind": "text",
+          "text": "Holy Family, heal [name or intention]."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer Before Adoration"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I come before You with St. Joseph and the Holy Family in my heart. Teach me charity, obedience, protection, silence, service, and faithful love. May the fruits of this retreat bless my home, family, vocation, and daily life. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Scripture for Adoration"
+        },
+        {
+          "kind": "text",
+          "text": "Matthew 1:18–25\n Luke 2:41–52\n Optional: John 17"
+        },
+        {
+          "kind": "heading",
+          "text": "Meditation"
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph heard the word of God and obeyed. He protected Jesus and Mary. He served in silence. He loved through action."
+        },
+        {
+          "kind": "text",
+          "text": "The Holy Family teaches that holiness is lived in ordinary places: home, work, meals, duties, relationships, and hidden sacrifices."
+        },
+        {
+          "kind": "text",
+          "text": "As the retreat closes, bring your family and your mission before Jesus. Ask Him to make your home a place where He is welcomed, loved, and obeyed."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer to St. Joseph Before Jesus"
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, guardian of Jesus and Mary, pray for me before the Eucharistic Lord.\n Teach me obedience, silence, courage, purity, humility, work, and faithful service.\n Protect my family, my soul, my vocation, and the fruits of this retreat.\n Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Prayer to the Holy Family"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, Mary, and Joseph, Holy Family of Nazareth, heal my family and make my home holy. Strengthen our love, restore peace, protect us from sin, and teach us to welcome Jesus in every part of daily life. Amen."
+        },
+        {
+          "kind": "heading",
+          "text": "Intercession Focus"
+        },
+        {
+          "kind": "text",
+          "text": "Pray for:"
+        },
+        {
+          "kind": "text",
+          "text": "Your family by name\n Marriages\n Parents\n Children\n Fathers\n Mothers\n Those without family support\n The sick and elderly\n The dying\n Souls in Purgatory\n Your vocation and work\n The fruit of the retreat"
+        },
+        {
+          "kind": "heading",
+          "text": "Eucharistic Intercession"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I place my family into Your Eucharistic Heart."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, bless ____________________.\n Jesus, heal ____________________.\n Jesus, protect ____________________.\n Jesus, convert ____________________.\n Jesus, guide ____________________.\n Jesus, restore peace in ____________________.\n Jesus, make our home holy."
+        },
+        {
+          "kind": "heading",
+          "text": "Silence Prayer"
+        },
+        {
+          "kind": "text",
+          "text": "Inhale: Jesus, Mary, and Joseph\n Exhale: make my heart a holy home"
+        },
+        {
+          "kind": "heading",
+          "text": "Closing Prayer for Day 3"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, receive the fruits of this retreat. Through the prayers of Mary and St. Joseph, make my fasting bear fruit in charity, family healing, protection, mission, and holiness. Help me carry Your Presence into my home and daily life. Amen."
+        }
+      ],
+      "companion": "adoration",
+      "silence": true
+    },
+    {
+      "id": "day-3-mercy",
+      "chapter": "day-3",
+      "title": "Jesus, I trust in You",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/24-divine-mercy.webp",
+      "imageAlt": "A devotional image of Jesus with the rays of Divine Mercy",
+      "intro": "At 3 p.m., or another suitable time, intercede for the sick, the dying, and all in need of mercy.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Jesus, I trust in You. Have mercy on me, on my family, on the Church, on the sick and dying, and on all souls in need of Your mercy. Amen."
+        }
+      ],
+      "companion": "divine-mercy",
+      "optional": true
+    },
+    {
+      "id": "day-3-charity",
+      "chapter": "day-3",
+      "title": "Let prayer become charity",
+      "period": "Throughout the Day",
+      "image": "/images/fasting-retreat/19-work-of-mercy.webp",
+      "imageAlt": "A loaf of bread offered to an elderly neighbor",
+      "intro": "Pray for your family by name. Complete one practical work of mercy and choose how you will continue it.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Choose one:"
+        },
+        {
+          "kind": "text",
+          "text": "Call someone lonely\nEncourage a family member\nServe quietly at home\nForgive someone in prayer\nGive to someone in need\nOffer a hidden sacrifice\nMake peace if possible"
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, let this fast become love. Show me one soul I can help carry today. Amen."
+        }
+      ]
+    },
+    {
+      "id": "day-3-rosary",
+      "chapter": "day-3",
+      "title": "Pray with Mary",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/15-rosary.webp",
+      "imageAlt": "Rosary beads and a crucifix on ivory linen",
+      "intro": "Bring the day’s theme and the people on your prayer list into the mysteries of Christ.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Offer for:"
+        },
+        {
+          "kind": "text",
+          "text": "Family healing\nProtection\nVocations\nHoliness in the home\nThe Church\nSouls in Purgatory"
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, Mary, and Joseph, bless our families and make our homes holy. Amen."
+        }
+      ],
+      "companion": "rosary"
+    },
+    {
+      "id": "day-3-litany",
+      "chapter": "day-3",
+      "title": "Litany of St. Joseph",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/18-litany-saint-joseph.webp",
+      "imageAlt": "St. Joseph holding lilies in his workshop",
+      "intro": "Ask St. Joseph to guard the fruits of this retreat and help your prayer become faithful service.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Move slowly through the invocations. Ask for the grace to carry this day’s virtue into the people and responsibilities entrusted to you."
+        }
+      ],
+      "companion": "saint-joseph",
+      "optional": true
+    },
+    {
+      "id": "day-3-conversion",
+      "chapter": "day-3",
+      "title": "Choose the way of life",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/10-scripture-lectio-divina.webp",
+      "imageAlt": "An open Bible beside a candle",
+      "intro": "Return to Scripture and consider one concrete step away from sin and toward love.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Matthew 7:13–14."
+        },
+        {
+          "kind": "text",
+          "text": "Ask:"
+        },
+        {
+          "kind": "text",
+          "text": "What “wide road” am I tempted to walk?"
+        },
+        {
+          "kind": "text",
+          "text": "Where do I make excuses for sin?"
+        },
+        {
+          "kind": "text",
+          "text": "What narrow gate is Jesus asking me to enter today?"
+        },
+        {
+          "kind": "text",
+          "text": "What habit, attachment, or near occasion of sin must I leave behind?"
+        },
+        {
+          "kind": "text",
+          "text": "What sacrifice is necessary for holiness?"
+        },
+        {
+          "kind": "text",
+          "text": "Am I choosing the way that leads to life?"
+        },
+        {
+          "kind": "text",
+          "text": "Prayer:"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, help me enter by the narrow gate. Give me courage to reject sin, resist temptation, and stop making excuses for what keeps me from You. Strengthen me to choose the hard road of holiness, even when it costs me comfort, pride, or pleasure. Amen."
+        }
+      ],
+      "scripture": "day-3-evening"
+    },
+    {
+      "id": "day-3-examen",
+      "chapter": "day-3",
+      "title": "Look back with mercy",
+      "period": "Evening",
+      "image": "/images/fasting-retreat/20-evening-examen.webp",
+      "imageAlt": "A journal and crucifix beside a candle at dusk",
+      "intro": "Give thanks for grace received. Review your day honestly and without despair. A fuller examination is available in the companion.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "1. Presence"
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, I place myself in Your presence. Help me see this day with truth and peace."
+        },
+        {
+          "kind": "text",
+          "text": "2. Gratitude"
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for every grace, prayer, hunger, sacrifice, and blessing of this day."
+        },
+        {
+          "kind": "text",
+          "text": "3. Light"
+        },
+        {
+          "kind": "text",
+          "text": "Holy Spirit, show me where I loved well and where I failed to love."
+        },
+        {
+          "kind": "text",
+          "text": "4. Review"
+        },
+        {
+          "kind": "text",
+          "text": "Where did I follow grace today?"
+        },
+        {
+          "kind": "text",
+          "text": "Where did I resist grace?"
+        },
+        {
+          "kind": "text",
+          "text": "Did I offer my hunger and sacrifices to Jesus?"
+        },
+        {
+          "kind": "text",
+          "text": "Did I live today’s virtue?"
+        },
+        {
+          "kind": "text",
+          "text": "5. Repentance"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I am sorry for my sins today. Forgive me, heal me, and give me a clean heart."
+        },
+        {
+          "kind": "text",
+          "text": "6. Tomorrow"
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, prepare me for tomorrow. Help me begin again with humility, trust, and love."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        },
+        {
+          "kind": "text",
+          "text": "Pray the Act of Contrition."
+        }
+      ],
+      "companion": "examination"
+    },
+    {
+      "id": "closing-consecration",
+      "chapter": "closing",
+      "title": "Jesus, I give myself to You again",
+      "period": "Thanksgiving",
+      "image": "/images/fasting-retreat/22-closing-consecration.webp",
+      "imageAlt": "A chapel prepared for thanksgiving and prayer",
+      "intro": "Close the third day with gratitude. Entrust the whole retreat and every person you carried to the mercy of Jesus.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Lord Jesus Christ,"
+        },
+        {
+          "kind": "text",
+          "text": "I come before You at the close of this retreat and fast with gratitude, humility, and trust."
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for every grace You have given, seen and unseen."
+        },
+        {
+          "kind": "text",
+          "text": "Thank You for every moment of prayer, every hunger offered, every temptation resisted, every act of mercy, every word of Scripture, every Rosary, every Chaplet, every moment before You in the Eucharist, and every hidden movement of grace in my soul."
+        },
+        {
+          "kind": "text",
+          "text": "I place the whole retreat into Your Sacred Heart."
+        },
+        {
+          "kind": "text",
+          "text": "Receive what was faithful."
+        },
+        {
+          "kind": "text",
+          "text": "Forgive what was weak."
+        },
+        {
+          "kind": "text",
+          "text": "Heal what remains wounded."
+        },
+        {
+          "kind": "text",
+          "text": "Purify what was imperfect."
+        },
+        {
+          "kind": "text",
+          "text": "Complete what You have begun."
+        },
+        {
+          "kind": "text",
+          "text": "If I prayed poorly, receive my desire."
+        },
+        {
+          "kind": "text",
+          "text": "If I fasted imperfectly, receive my intention."
+        },
+        {
+          "kind": "text",
+          "text": "If I was distracted, receive my effort."
+        },
+        {
+          "kind": "text",
+          "text": "If I failed in charity, grant me repentance."
+        },
+        {
+          "kind": "text",
+          "text": "If I grew in grace, keep me humble."
+        },
+        {
+          "kind": "text",
+          "text": "Lord Jesus, do not let the fruits of this retreat be lost."
+        },
+        {
+          "kind": "text",
+          "text": "Guard every grace You have planted."
+        },
+        {
+          "kind": "text",
+          "text": "Protect me from returning to old sins, old attachments, old distractions, and old patterns of selfishness."
+        },
+        {
+          "kind": "text",
+          "text": "Teach me to continue living what You have shown me."
+        },
+        {
+          "kind": "text",
+          "text": "Let this retreat become a new beginning, not a passing moment."
+        },
+        {
+          "kind": "text",
+          "text": "Let my prayer become more faithful."
+        },
+        {
+          "kind": "text",
+          "text": "Let my fasting become charity."
+        },
+        {
+          "kind": "text",
+          "text": "Let my repentance become conversion."
+        },
+        {
+          "kind": "text",
+          "text": "Let my love become action."
+        },
+        {
+          "kind": "text",
+          "text": "Let my home become more holy."
+        },
+        {
+          "kind": "text",
+          "text": "Let my life become more fully Yours."
+        },
+        {
+          "kind": "text",
+          "text": "I renew my surrender to You."
+        },
+        {
+          "kind": "text",
+          "text": "I choose You above sin."
+        },
+        {
+          "kind": "text",
+          "text": "I choose You above comfort."
+        },
+        {
+          "kind": "text",
+          "text": "I choose You above pride."
+        },
+        {
+          "kind": "text",
+          "text": "I choose You above fear."
+        },
+        {
+          "kind": "text",
+          "text": "I choose You above every false attachment."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, preserve in me the graces of contrition, humility, purity, charity, perseverance, and trust."
+        },
+        {
+          "kind": "text",
+          "text": "I entrust every person on my prayer list to Your mercy."
+        },
+        {
+          "kind": "text",
+          "text": "For my family, bring healing and protection."
+        },
+        {
+          "kind": "text",
+          "text": "For those far from You, bring conversion."
+        },
+        {
+          "kind": "text",
+          "text": "For the sick, bring comfort."
+        },
+        {
+          "kind": "text",
+          "text": "For the dying, bring peace and final perseverance."
+        },
+        {
+          "kind": "text",
+          "text": "For souls in Purgatory, bring eternal rest."
+        },
+        {
+          "kind": "text",
+          "text": "For the Church, bring holiness and unity."
+        },
+        {
+          "kind": "text",
+          "text": "For those who hurt me, bring mercy and healing."
+        },
+        {
+          "kind": "text",
+          "text": "For those I have hurt, bring restoration and peace."
+        },
+        {
+          "kind": "text",
+          "text": "Mary, Mother of Jesus, keep me close to your Son."
+        },
+        {
+          "kind": "text",
+          "text": "St. Joseph, protect my home and help me serve faithfully."
+        },
+        {
+          "kind": "text",
+          "text": "Holy angels, guard the graces of this retreat."
+        },
+        {
+          "kind": "text",
+          "text": "All holy saints of God, continue to intercede for me."
+        },
+        {
+          "kind": "text",
+          "text": "Lord, send me forth from this retreat as a witness of Your mercy."
+        },
+        {
+          "kind": "text",
+          "text": "Help me carry Your Presence into my home, my work, my parish, my friendships, and every hidden duty of daily life."
+        },
+        {
+          "kind": "text",
+          "text": "May every grace received become fruit for the Kingdom."
+        },
+        {
+          "kind": "text",
+          "text": "May every sacrifice offered become love for souls."
+        },
+        {
+          "kind": "text",
+          "text": "May every prayer rise for the glory of the Father."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I thank You."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I trust in You."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, I give myself to You again."
+        },
+        {
+          "kind": "text",
+          "text": "Amen."
+        }
+      ],
+      "prayer": true
+    },
+    {
+      "id": "closing-rule-of-life",
+      "chapter": "closing",
+      "title": "Carry it into ordinary life",
+      "period": "Carry It Forward",
+      "image": "/images/fasting-retreat/23-carry-it-forward.webp",
+      "imageAlt": "A family walking into morning light beyond a chapel doorway",
+      "intro": "Choose a few practices you can sustain. Let the fruits of the retreat become patient, faithful love.",
+      "blocks": [
+        {
+          "kind": "heading",
+          "text": "One prayer to continue"
+        },
+        {
+          "kind": "text",
+          "text": "Choose a daily prayer or a short passage of Scripture. Give it a regular place in your day."
+        },
+        {
+          "kind": "heading",
+          "text": "One change to practice"
+        },
+        {
+          "kind": "text",
+          "text": "Name one habit or near occasion of sin to leave behind. Choose a practical way to grow in the opposite virtue."
+        },
+        {
+          "kind": "heading",
+          "text": "One recurring act of charity"
+        },
+        {
+          "kind": "text",
+          "text": "Choose a person to encourage or a work of mercy to continue. Make the next step small and specific."
+        },
+        {
+          "kind": "heading",
+          "text": "Stay rooted"
+        },
+        {
+          "kind": "text",
+          "text": "Continue Sunday Mass, regular Confession, and a brief evening examination. Consider spiritual direction or a trusted person for accountability. Review your commitments in seven or thirty days."
+        },
+        {
+          "kind": "text",
+          "text": "Jesus, keep me faithful to the good You have begun in me. Amen."
+        }
+      ],
+      "dayEnd": true
+    }
+  ]
+}

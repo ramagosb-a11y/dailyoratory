@@ -5,7 +5,7 @@ export function TabernacleGuide() {
     <section id="tabernacle" className="scroll-mt-28 border-t border-stone/70 pt-10">
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">The Tabernacle</p>
       <h2 className="mt-2 font-display text-4xl font-semibold text-navy sm:text-5xl">
-        Christ's abiding Eucharistic presence
+        Christ’s abiding Eucharistic presence
       </h2>
       <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_0.95fr]">
         <article className="card p-6">

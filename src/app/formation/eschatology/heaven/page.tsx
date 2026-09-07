@@ -43,7 +43,7 @@ export default function EschatologyHeavenPage() {
       <section className="card-parchment p-6 sm:p-8">
         <h2 className="font-display text-4xl font-semibold text-navy">The Beatific Vision</h2>
         <p className="daily-readable mt-5 text-base leading-8 text-muted">
-          The Beatific Vision means seeing God face to face. In Heaven, the soul's deepest longing is fulfilled
+          The Beatific Vision means seeing God face to face. In Heaven, the soul’s deepest longing is fulfilled
           in direct union with the Lord.
         </p>
       </section>
@@ -58,8 +58,8 @@ export default function EschatologyHeavenPage() {
         <article className="card-parchment p-6 sm:p-8">
           <h2 className="font-display text-4xl font-semibold text-navy">The end of sorrow, pain, and death</h2>
           <p className="daily-readable mt-5 text-base leading-8 text-muted">
-            In the fulfillment of God's Kingdom, sorrow, pain, and death will be no more. Christian hope rests
-            in God's promise, not mere imagination.
+            In the fulfillment of God’s Kingdom, sorrow, pain, and death will be no more. Christian hope rests
+            in God’s promise, not mere imagination.
           </p>
         </article>
       </section>
@@ -74,7 +74,7 @@ export default function EschatologyHeavenPage() {
         <article className="card-parchment p-6 sm:p-8">
           <h2 className="font-display text-4xl font-semibold text-navy">Hope without presumption</h2>
           <p className="daily-readable mt-5 text-base leading-8 text-muted">
-            Christian hope is not presumption. It trusts in God's mercy while taking seriously the need for
+            Christian hope is not presumption. It trusts in God’s mercy while taking seriously the need for
             conversion and perseverance in grace.
           </p>
         </article>

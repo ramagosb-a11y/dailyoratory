@@ -26,7 +26,7 @@ export function AngelsInCreation() {
       </div>
       <div className="card-parchment mt-6 p-5">
         <p className="text-sm leading-7 text-muted">
-          Belief in angels should increase wonder, humility, and trust in God's providence.
+          Belief in angels should increase wonder, humility, and trust in God’s providence.
         </p>
       </div>
     </section>

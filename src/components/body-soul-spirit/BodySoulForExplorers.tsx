@@ -33,7 +33,7 @@ export function BodySoulForExplorers() {
           <p className="text-sm leading-7 text-muted">
             Body and soul worship together in Catholic life: kneeling, standing, listening,
             receiving, fasting, confessing, serving, and praying. The Church teaches that grace
-            is not an escape from ordinary life, but God's life within the person for the healing
+            is not an escape from ordinary life, but God’s life within the person for the healing
             of the whole human heart.
           </p>
           <div className="mt-6">

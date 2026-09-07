@@ -19,16 +19,16 @@ export function GuardianAngelsSection() {
       <SectionHeader
         eyebrow="Guardian angels"
         title="Guardian Angels"
-        summary="Catholics believe God entrusts each person to the care of angels. Guardian angels remind us that God's providence is personal and loving."
+        summary="Catholics believe God entrusts each person to the care of angels. Guardian angels remind us that God’s providence is personal and loving."
       />
       <div className="mt-7 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="card-parchment p-6 sm:p-8">
           <p className="text-sm leading-7 text-muted">
-            Guardian angels are signs of God's care. They help guard, guide, and assist us according
-            to God's will.
+            Guardian angels are signs of God’s care. They help guard, guide, and assist us according
+            to God’s will.
           </p>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-muted">
-            <li>Guardian angels are signs of God's care.</li>
+            <li>Guardian angels are signs of God’s care.</li>
             <li>They do not replace God.</li>
             <li>They do not remove human freedom.</li>
             <li>They help us toward holiness.</li>

@@ -13,7 +13,7 @@ export function EschatologyWithoutFear() {
       <h2 className="font-display text-4xl font-semibold text-navy">How Catholics Should Approach the Last Things</h2>
       <p className="daily-readable mt-5 text-base leading-8 text-muted">
         The last things are serious, but they are not meant to paralyze the soul. Catholic teaching on death,
-        judgment, Heaven, Hell, Purgatory, resurrection, and Christ's return should lead us to live
+        judgment, Heaven, Hell, Purgatory, resurrection, and Christ’s return should lead us to live
         differently today: with repentance, love, prayer, mercy, and hope.
       </p>
       <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">

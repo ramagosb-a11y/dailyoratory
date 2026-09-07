@@ -8,7 +8,7 @@ export function BeforeConfessionPsalms() {
       <h2 className="font-display text-4xl font-semibold text-navy">Pray the Penitential Psalms Before Confession</h2>
       <p className="daily-readable mt-5 text-base leading-8 text-muted">
         The Penitential Psalms can help prepare the heart for the Sacrament of Reconciliation. They do not
-        replace Confession, but they can lead the soul into honesty, contrition, humility, and trust in God's
+        replace Confession, but they can lead the soul into honesty, contrition, humility, and trust in God’s
         mercy.
       </p>
       <ol className="daily-card-readable mt-5 list-decimal space-y-3 pl-5 text-base leading-7 text-muted">

@@ -42,7 +42,7 @@ export default function EucharisticMiraclesPage() {
               </div>
               <p className="mt-7 text-xs font-bold uppercase tracking-[0.18em] text-gold-soft">Eucharistic miracles</p>
               <h1 className="font-display mt-3 text-4xl font-semibold leading-tight text-ivory sm:text-6xl">
-                Contemplate signs of Christ's Eucharistic presence.
+                Contemplate signs of Christ’s Eucharistic presence.
               </h1>
               <p className="mt-5 max-w-3xl text-lg leading-8 text-stone-soft">
                 Daily Oratory links to the Eucharistic miracles catalog as a quiet doorway for prayerful study. These
@@ -86,7 +86,7 @@ export default function EucharisticMiraclesPage() {
           <ol className="grid list-decimal gap-3 pl-5 text-sm leading-7 text-muted">
             <li>Choose one Eucharistic miracle account and read it slowly.</li>
             <li>Pause over the place, date, witness, and what the account invites you to consider.</li>
-            <li>Pray an act of faith: "My Lord and my God."</li>
+            <li>Pray an act of faith: “My Lord and my God.”</li>
             <li>Return to the Mass and Eucharistic Adoration with renewed gratitude.</li>
           </ol>
         </section>

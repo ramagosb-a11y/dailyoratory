@@ -1,0 +1,861 @@
+{
+  "note": "Inventory of existing raster assets. None of these PNG/JPEG files is referenced by the new retreat route; its 25 assets are WebP. Linked apps retain their existing artwork.",
+  "files": [
+    {
+      "file": "public\\images\\morning-prayers\\prayer-for-mother-and-father.png",
+      "bytes": 3241334
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-witnesses-of-love.png",
+      "bytes": 3202603
+    },
+    {
+      "file": "public\\images\\morning-prayers\\st-michael.png",
+      "bytes": 3009518
+    },
+    {
+      "file": "public\\images\\morning-prayers\\fasting-prayer.png",
+      "bytes": 3008859
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-foundations-of-the-church.png",
+      "bytes": 2994564
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy-name-crown-of-all-saints.png",
+      "bytes": 2994515
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-cry-for-mercy.png",
+      "bytes": 2973489
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-petitions-for-the-church.png",
+      "bytes": 2972797
+    },
+    {
+      "file": "public\\images\\morning-prayers\\prayer-for-spouse.png",
+      "bytes": 2962654
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-fathers-of-faith.png",
+      "bytes": 2947034
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-bishops-and-doctors.png",
+      "bytes": 2942524
+    },
+    {
+      "file": "public\\images\\morning-prayers\\prayer-for-children.png",
+      "bytes": 2934565
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-monks-and-missionaries.png",
+      "bytes": 2933412
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\loreto-queen-of-all-saints.png",
+      "bytes": 2930382
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\loreto-help-of-christians.png",
+      "bytes": 2905899
+    },
+    {
+      "file": "public\\images\\morning-prayers\\act-of-contrition.png",
+      "bytes": 2877994
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-heart-of-the-son.png",
+      "bytes": 2863504
+    },
+    {
+      "file": "public\\images\\night-prayer\\guardian-angel-protection.png",
+      "bytes": 2862937
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy-name-light-of-the-father.png",
+      "bytes": 2843255
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy-name-good-shepherd.png",
+      "bytes": 2826198
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-mercy-and-life.png",
+      "bytes": 2809380
+    },
+    {
+      "file": "public\\images\\personal-devotions\\saint-darby-watchful-servants-prayer-card.png",
+      "bytes": 2790493
+    },
+    {
+      "file": "public\\images\\morning-prayers\\prayer-for-holy-father-and-priests.png",
+      "bytes": 2788800
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-queen-of-the-heavenly-host.png",
+      "bytes": 2781281
+    },
+    {
+      "file": "public\\images\\sacred-heart\\sacred-heart-symbols.png",
+      "bytes": 2768284
+    },
+    {
+      "file": "public\\images\\morning-prayers\\guardian-angel.png",
+      "bytes": 2766709
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\loreto-gateway-to-heaven.png",
+      "bytes": 2762575
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\precious-blood-pledge-of-eternal-life.png",
+      "bytes": 2760785
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-receive-his-peace.png",
+      "bytes": 2757173
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-deliver-us-o-lord.png",
+      "bytes": 2752243
+    },
+    {
+      "file": "public\\images\\body-soul-spirit\\interior-temple-bright.png",
+      "bytes": 2747794
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\precious-blood-refuge-of-the-burdened.png",
+      "bytes": 2745695
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints-holy-martyrs.png",
+      "bytes": 2738827
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saint-joseph-tender-and-devoted-father.png",
+      "bytes": 2734257
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\humility-freedom-from-fear.png",
+      "bytes": 2732255
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saint-joseph-worker-of-nazareth.png",
+      "bytes": 2727237
+    },
+    {
+      "file": "public\\images\\night-prayer\\guardian-angel-protection-girl.png",
+      "bytes": 2725178
+    },
+    {
+      "file": "public\\images\\holy-week\\palm-sunday.png",
+      "bytes": 2723237
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy-name-sun-of-justice.png",
+      "bytes": 2720288
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saint-joseph-heir-of-promise.png",
+      "bytes": 2711860
+    },
+    {
+      "file": "public\\images\\morning-prayers\\prayer-for-special-intentions.png",
+      "bytes": 2710235
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy-name-mighty-god.png",
+      "bytes": 2701152
+    },
+    {
+      "file": "public\\images\\morning-prayers\\sign-of-the-cross.png",
+      "bytes": 2696820
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-furnace-of-charity.png",
+      "bytes": 2688439
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-turn-your-heart-toward-his.png",
+      "bytes": 2686422
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\precious-blood-sweat-of-blood-and-surrender.png",
+      "bytes": 2679599
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\precious-blood-new-covenant.png",
+      "bytes": 2669205
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\precious-blood-the-passion.png",
+      "bytes": 2658348
+    },
+    {
+      "file": "public\\images\\morning-prayers\\detachment-from-sin.png",
+      "bytes": 2655147
+    },
+    {
+      "file": "public\\images\\holy-week\\emmaus.png",
+      "bytes": 2649836
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\humility-holiness-in-truth.png",
+      "bytes": 2649065
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saint-joseph-patron-of-the-dying.png",
+      "bytes": 2648148
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\loreto-mother-of-god.png",
+      "bytes": 2645256
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-place-your-trust-in-him.png",
+      "bytes": 2642047
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saint-joseph-protector-of-the-church.png",
+      "bytes": 2638444
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\precious-blood-eternal-covenant.png",
+      "bytes": 2636178
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\humility-rejoicing-in-others.png",
+      "bytes": 2615726
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\loreto-mystical-rose.png",
+      "bytes": 2609582
+    },
+    {
+      "file": "public\\images\\morning-prayers\\morning-offering.png",
+      "bytes": 2607587
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy-name-author-of-life.png",
+      "bytes": 2596565
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\loreto-seat-of-wisdom.png",
+      "bytes": 2590484
+    },
+    {
+      "file": "public\\images\\holy-week\\mary-name.png",
+      "bytes": 2587301
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-enter-his-heart.png",
+      "bytes": 2580470
+    },
+    {
+      "file": "public\\images\\morning-prayers\\offering-of-indulgences.png",
+      "bytes": 2543227
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\loreto-purity-and-steadfastness.png",
+      "bytes": 2534690
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saint-joseph-strength-in-silence.png",
+      "bytes": 2526630
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saint-joseph-defender-in-danger.png",
+      "bytes": 2505246
+    },
+    {
+      "file": "public\\images\\sacred-heart\\sacred-heart-jesus.png",
+      "bytes": 2483948
+    },
+    {
+      "file": "public\\images\\morning-prayers\\act-of-spiritual-communion.png",
+      "bytes": 2482029
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\humility-deliverance-from-acclaim.png",
+      "bytes": 2479686
+    },
+    {
+      "file": "public\\images\\holy-week\\gethsemane.png",
+      "bytes": 2471945
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-07-second-fall.png",
+      "bytes": 2462233
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy-name-meek-and-humble-of-heart.png",
+      "bytes": 2449292
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-remain-with-him-at-the-cross.png",
+      "bytes": 2438072
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\precious-blood-pierced-side.png",
+      "bytes": 2435815
+    },
+    {
+      "file": "public\\images\\adoration\\holy-hour-guide-background.png",
+      "bytes": 2429507
+    },
+    {
+      "file": "public\\images\\holy-week\\sacred-silence.png",
+      "bytes": 2426924
+    },
+    {
+      "file": "public\\images\\holy-week\\pilate-herod.png",
+      "bytes": 2408020
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-10-stripped.png",
+      "bytes": 2407650
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\humility-grace-of-humility.png",
+      "bytes": 2382613
+    },
+    {
+      "file": "public\\images\\personal-devotions\\saint-darby-devotional-portrait.png",
+      "bytes": 2382301
+    },
+    {
+      "file": "public\\images\\morning-prayers\\act-of-spiritual-communion-v2.png",
+      "bytes": 2380910
+    },
+    {
+      "file": "public\\images\\holy-week\\carries-cross.png",
+      "bytes": 2376222
+    },
+    {
+      "file": "public\\images\\holy-week\\betrayed-arrested.png",
+      "bytes": 2354688
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-05-simon.png",
+      "bytes": 2330262
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-03-first-fall.png",
+      "bytes": 2327172
+    },
+    {
+      "file": "public\\images\\holy-week\\easter-dawn.png",
+      "bytes": 2323050
+    },
+    {
+      "file": "public\\images\\holy-week\\empty-tomb.png",
+      "bytes": 2310524
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-09-third-fall.png",
+      "bytes": 2310084
+    },
+    {
+      "file": "public\\images\\prophecy-series\\prophecy-fulfilled.png",
+      "bytes": 2305535
+    },
+    {
+      "file": "public\\images\\holy-week\\laid-tomb.png",
+      "bytes": 2297852
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-08-women.png",
+      "bytes": 2294818
+    },
+    {
+      "file": "public\\images\\way-of-cross\\opening-jerusalem.png",
+      "bytes": 2285065
+    },
+    {
+      "file": "public\\images\\holy-week\\holy-monday.png",
+      "bytes": 2266534
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-02-carries-cross.png",
+      "bytes": 2265107
+    },
+    {
+      "file": "public\\images\\holy-week\\scourged-crowned.png",
+      "bytes": 2221117
+    },
+    {
+      "file": "public\\images\\divine-mercy\\three-pm-hour-of-mercy-v1.0.2.png",
+      "bytes": 2190397
+    },
+    {
+      "file": "public\\images\\holy-week\\peace-be-to-you.png",
+      "bytes": 2174245
+    },
+    {
+      "file": "public\\images\\adoration\\adoration-responsive.png",
+      "bytes": 2156936
+    },
+    {
+      "file": "public\\images\\holy-week\\crucifixion-begins.png",
+      "bytes": 2155761
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred-heart-hero-v2.png",
+      "bytes": 2136640
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-14-tomb.png",
+      "bytes": 2125815
+    },
+    {
+      "file": "public\\images\\holy-week\\last-supper.png",
+      "bytes": 2125187
+    },
+    {
+      "file": "public\\images\\holy-week\\taken-down.png",
+      "bytes": 2113876
+    },
+    {
+      "file": "public\\images\\adoration\\adoration-open-chapel-day-mobile.png",
+      "bytes": 2107374
+    },
+    {
+      "file": "public\\images\\holy-week\\annas-caiaphas.png",
+      "bytes": 2104441
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-06-veronica.png",
+      "bytes": 2096505
+    },
+    {
+      "file": "public\\images\\holy-week\\descends-dead.png",
+      "bytes": 2076365
+    },
+    {
+      "file": "public\\images\\holy-week\\peter-denies.png",
+      "bytes": 2070431
+    },
+    {
+      "file": "public\\images\\divine-mercy\\chaplet-immersive-v1.0.2.png",
+      "bytes": 2058649
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-04-meets-mary.png",
+      "bytes": 2036918
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-11-nailed.png",
+      "bytes": 2021964
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-13-taken-down.png",
+      "bytes": 1976587
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-12-crucifixion.png",
+      "bytes": 1935339
+    },
+    {
+      "file": "public\\images\\way-of-cross\\station-01-condemned.png",
+      "bytes": 1925076
+    },
+    {
+      "file": "public\\images\\chapel-library-hero.png",
+      "bytes": 1904497
+    },
+    {
+      "file": "public\\images\\divine-mercy\\christ-rays-v1.0.1.png",
+      "bytes": 1882687
+    },
+    {
+      "file": "public\\images\\adoration\\monstrance-adoration-night.png",
+      "bytes": 1861399
+    },
+    {
+      "file": "public\\images\\holy-week\\holy-tuesday.png",
+      "bytes": 1846540
+    },
+    {
+      "file": "public\\images\\holy-week\\mocked-night.png",
+      "bytes": 1842469
+    },
+    {
+      "file": "public\\images\\sacred-hours\\sacred-hours-hourglass.png",
+      "bytes": 1811400
+    },
+    {
+      "file": "public\\images\\holy-week\\calvary.png",
+      "bytes": 1803161
+    },
+    {
+      "file": "public\\images\\adoration\\adoration-wide-3x1.png",
+      "bytes": 1791889
+    },
+    {
+      "file": "public\\images\\adoration\\adoration-open-chapel-day.png",
+      "bytes": 1780172
+    },
+    {
+      "file": "public\\images\\holy-week\\spy-wednesday.png",
+      "bytes": 1768719
+    },
+    {
+      "file": "public\\images\\body-soul-spirit\\interior-temple-dim.png",
+      "bytes": 1760481
+    },
+    {
+      "file": "public\\images\\divine-mercy\\divine-mercy-home-chapel-v1.0.2.png",
+      "bytes": 1752202
+    },
+    {
+      "file": "public\\images\\examination-confessional-hero.png",
+      "bytes": 1700580
+    },
+    {
+      "file": "public\\images\\holy-week\\darkness-land.png",
+      "bytes": 1596363
+    },
+    {
+      "file": "public\\images\\holy-week\\jesus-dies.png",
+      "bytes": 1501217
+    },
+    {
+      "file": "public\\images\\adoration\\eucharistic-adoration-guide-transparent-v2.png",
+      "bytes": 1313041
+    },
+    {
+      "file": "public\\images\\adoration\\eucharistic-adoration-guide-transparent.png",
+      "bytes": 1313041
+    },
+    {
+      "file": "public\\images\\daily-examen\\last-light-candle-v2.png",
+      "bytes": 1262242
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saints_hero_1788196988693.jpg",
+      "bytes": 1154783
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\loreto_hero_1788196976232.jpg",
+      "bytes": 1038209
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\precious_blood_hero_1788196962982.jpg",
+      "bytes": 1016199
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\hope_saints_1788195078354.jpg",
+      "bytes": 1005319
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\consolation_peace_1788195068059.jpg",
+      "bytes": 986845
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\incarnate_word_1788194993519.jpg",
+      "bytes": 980849
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\sacred_heart_hero_1788195097087.jpg",
+      "bytes": 973174
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\mercy_fountain_1788195027601.jpg",
+      "bytes": 961102
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy_temple_1788195005378.jpg",
+      "bytes": 951668
+    },
+    {
+      "file": "public\\images\\litanies\\carved-walnut-prayer-shelf.png",
+      "bytes": 931882
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\king_center_1788195043680.jpg",
+      "bytes": 923703
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\holy_name_hero_1788196946386.jpg",
+      "bytes": 913101
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\furnace_charity_1788195016713.jpg",
+      "bytes": 898175
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\pierced_heart_1788195056243.jpg",
+      "bytes": 887668
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\saint_joseph_preview_1788195107772.jpg",
+      "bytes": 878643
+    },
+    {
+      "file": "public\\images\\contemplative-litanies\\humility_hero_1788197000998.jpg",
+      "bytes": 778959
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\03_proclamation\\03_panoramic_galilee_vista.jpg",
+      "bytes": 496656
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\04_carrying_cross\\03_down_via_dolorosa.jpg",
+      "bytes": 468318
+    },
+    {
+      "file": "public\\images\\litanies\\carved-walnut-prayer-shelf-trimmed.png",
+      "bytes": 467589
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\02_ascension\\02_eyes_ascending_lord.jpg",
+      "bytes": 457528
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\04_assumption\\03_gates_heavenly_jerusalem.jpg",
+      "bytes": 451184
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\01_baptism\\03_descent_heavenly_light.jpg",
+      "bytes": 450225
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\03_pentecost\\03_descent_mighty_wind.jpg",
+      "bytes": 449522
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\02_visitation\\02_judean_mountain_vista.jpg",
+      "bytes": 443689
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\04_assumption\\01_tomb_blooming_lilies.jpg",
+      "bytes": 441366
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\05_coronation\\01_assembly_of_saints.jpg",
+      "bytes": 436201
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\01_resurrection\\02_mary_magdalene_garden.jpg",
+      "bytes": 425377
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\02_cana\\03_bridegrooms_banquet_table.jpg",
+      "bytes": 410473
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\03_crowning\\03_beside_pilate_ecce_homo.jpg",
+      "bytes": 404066
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\02_ascension\\01_circle_kneeling_apostles.jpg",
+      "bytes": 391256
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\03_proclamation\\01_among_seated_crowds.jpg",
+      "bytes": 390457
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\01_baptism\\01_john_the_baptists_hand.jpg",
+      "bytes": 384524
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\04_presentation\\02_grand_temple_portico.jpg",
+      "bytes": 382098
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\01_resurrection\\03_angel_rolled_stone.jpg",
+      "bytes": 381595
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\01_baptism\\02_reeds_of_riverbank.jpg",
+      "bytes": 378080
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\03_nativity\\04_bethlehem_star_heavenly_view.jpg",
+      "bytes": 377917
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\05_coronation\\03_pilgrim_earth.jpg",
+      "bytes": 371556
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\05_finding_in_temple\\03_eyes_of_youthful_christ.jpg",
+      "bytes": 371085
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\01_annunciation\\02_archangel_gabriels_vantage.jpg",
+      "bytes": 370062
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\05_coronation\\02_beside_throne_christ.jpg",
+      "bytes": 367943
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\02_ascension\\03_two_angels_in_white.jpg",
+      "bytes": 364796
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\03_nativity\\02_shepherd_at_cave_entrance.jpg",
+      "bytes": 360602
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\01_annunciation\\04_descent_of_the_dove.jpg",
+      "bytes": 358171
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\02_cana\\02_beside_our_ladys_shoulder.jpg",
+      "bytes": 354978
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\02_cana\\01_from_servants_ladle.jpg",
+      "bytes": 350726
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\01_resurrection\\01_inside_empty_tomb.jpg",
+      "bytes": 349991
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\03_pentecost\\02_saint_peters_transformed_eyes.jpg",
+      "bytes": 347889
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\04_assumption\\02_among_angelic_host.jpg",
+      "bytes": 346778
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\04_transfiguration\\02_beside_moses_elijah.jpg",
+      "bytes": 340075
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\04_carrying_cross\\01_simon_cyrenes_shoulder.jpg",
+      "bytes": 339505
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\glorious\\03_pentecost\\01_beside_our_lady_cenacle.jpg",
+      "bytes": 338997
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\01_annunciation\\03_through_quiet_workshop_archway.jpg",
+      "bytes": 334881
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\02_visitation\\01_through_elizabeths_eyes.jpg",
+      "bytes": 334447
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\04_transfiguration\\01_peters_prostrate_view.jpg",
+      "bytes": 326356
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\04_carrying_cross\\02_from_veronicas_veil.jpg",
+      "bytes": 323195
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\03_proclamation\\02_eyes_forgiven_penitent.jpg",
+      "bytes": 320275
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\05_finding_in_temple\\02_among_seated_scribes.jpg",
+      "bytes": 314888
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\01_agony\\02_sleeping_disciples_shadows.jpg",
+      "bytes": 314108
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\04_presentation\\01_from_simeons_arms.jpg",
+      "bytes": 313927
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\02_scourging\\03_through_sobs_of_mother.jpg",
+      "bytes": 313902
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\05_crucifixion\\02_roman_centurions_eyes.jpg",
+      "bytes": 313074
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\02_visitation\\03_zechariahs_silent_watch.jpg",
+      "bytes": 311064
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\05_finding_in_temple\\01_mary_joseph_chamber_doors.jpg",
+      "bytes": 308026
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\03_nativity\\03_saint_joseph_protective_eyes.jpg",
+      "bytes": 306117
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\01_agony\\01_consoling_angels_stance.jpg",
+      "bytes": 306002
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\04_presentation\\03_anna_prophetess_looking_on.jpg",
+      "bytes": 299383
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\01_annunciation\\01_from_marys_prie_dieu.jpg",
+      "bytes": 298442
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\01_agony\\03_beside_rock_of_agony.jpg",
+      "bytes": 297861
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\joyful\\03_nativity\\01_from_inside_the_manger.jpg",
+      "bytes": 297140
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\03_crowning\\01_direct_gaze_ecce_homo.jpg",
+      "bytes": 291185
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\02_scourging\\01_base_marble_pillar.jpg",
+      "bytes": 290883
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\02_scourging\\02_pilates_shadowed_archway.jpg",
+      "bytes": 286131
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\04_transfiguration\\03_inside_luminous_cloud.jpg",
+      "bytes": 281100
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\05_eucharist\\01_saint_johns_stance.jpg",
+      "bytes": 274414
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\05_eucharist\\03_focus_elevated_chalice.jpg",
+      "bytes": 264052
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\luminous\\05_eucharist\\02_across_passover_table.jpg",
+      "bytes": 261574
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\05_crucifixion\\01_foot_cross_saint_john.jpg",
+      "bytes": 254321
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\05_crucifixion\\03_calvary_panoramic.jpg",
+      "bytes": 233409
+    },
+    {
+      "file": "public\\images\\rosary\\viewpoints\\sorrowful\\03_crowning\\02_circle_mocking_soldiers.jpg",
+      "bytes": 225952
+    },
+    {
+      "file": "public\\images\\adoration\\monstrance-button.png",
+      "bytes": 184103
+    },
+    {
+      "file": "public\\images\\adoration\\eucharistic-adoration-guide-cta.png",
+      "bytes": 26833
+    }
+  ]
+}

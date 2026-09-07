@@ -24,7 +24,7 @@ export default function EschatologyHellPage() {
       ]}
       title={topic.title}
       subtitle={topic.subtitle}
-      summary="The Church speaks about Hell soberly, not to produce panic or fascination, but to call souls to repentance, prayer, and trust in Christ's mercy."
+      summary="The Church speaks about Hell soberly, not to produce panic or fascination, but to call souls to repentance, prayer, and trust in Christ’s mercy."
       ctas={[
         { label: "Go to Confession", href: "/confession" },
         { label: "Resist Temptation", href: "/sin-and-temptation/resisting-temptation", variant: "secondary" },
@@ -56,7 +56,7 @@ export default function EschatologyHellPage() {
         <article className="card-parchment p-6 sm:p-8">
           <h2 className="font-display text-4xl font-semibold text-navy">Mortal sin, repentance, and mercy</h2>
           <p className="daily-readable mt-5 text-base leading-8 text-muted">
-            Mortal sin is serious because it turns the soul away from God. Yet Christ's mercy is greater than
+            Mortal sin is serious because it turns the soul away from God. Yet Christ’s mercy is greater than
             sin, and Confession remains the ordinary way back to grace.
           </p>
         </article>

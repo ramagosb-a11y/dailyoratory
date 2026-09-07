@@ -1,6 +1,5 @@
-{
-const { readFileSync, readdirSync, statSync } = require("node:fs");
-const { join, relative } = require("node:path");
+import { readFileSync, readdirSync, statSync } from "node:fs";
+import { join, relative } from "node:path";
 
 type Finding = {
   file: string;
@@ -72,5 +71,4 @@ function* walk(directory: string): Generator<string> {
       yield fullPath;
     }
   }
-}
 }

@@ -13,7 +13,7 @@ export function RelicsHero() {
           </p>
           <p className="mt-5 max-w-3xl text-sm leading-8 text-muted">
             Relics are physical objects connected with Christ or the saints. Catholics do not worship
-            relics. We venerate them because they remind us that God's grace transforms real human
+            relics. We venerate them because they remind us that God’s grace transforms real human
             lives, that the saints are alive in Christ, and that our bodies are called to resurrection.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

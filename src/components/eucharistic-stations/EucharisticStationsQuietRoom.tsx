@@ -155,7 +155,7 @@ function StationsGuide({ quietMode }: { quietMode: boolean }) {
         </h2>
         <p className={`mt-4 text-sm leading-7 ${quietMode ? "text-stone-soft" : "text-muted"}`}>
           This devotional meditation is inspired by Catholic Eucharistic tradition, including the spirituality of St.
-          Peter Julian Eymard and the Church's long-standing devotion to the Real Presence of Christ in the Holy
+          Peter Julian Eymard and the Church’s long-standing devotion to the Real Presence of Christ in the Holy
           Eucharist.
         </p>
         <p className={`mt-3 text-sm leading-7 ${quietMode ? "text-stone-soft" : "text-muted"}`}>

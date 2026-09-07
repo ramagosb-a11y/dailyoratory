@@ -1,6 +1,5 @@
-{
-const { existsSync, readFileSync } = require("node:fs");
-const { join } = require("node:path");
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 
 const root = process.cwd();
 const manifestPath = join(root, ".next", "prerender-manifest.json");
@@ -154,4 +153,3 @@ if (
 }
 
 console.log("Rendering strategy audit passed.");
-}

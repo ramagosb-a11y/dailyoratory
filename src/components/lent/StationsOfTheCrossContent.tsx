@@ -1,6 +1,7 @@
 "use client";
 
 import { stationsOfTheCross } from "@/data/lent";
+import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 
 function buildStationsGuide() {
@@ -91,15 +92,15 @@ export function StationsOfTheCrossContent() {
       <section className="card-parchment p-6 sm:p-8">
         <h2 className="font-display text-4xl font-semibold text-navy">Related Sorrowful Mysteries links</h2>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <a href="/devotions/holy-rosary/sorrowful-mysteries" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          <Link href="/devotions/holy-rosary/sorrowful-mysteries" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Sorrowful Mysteries
-          </a>
-          <a href="/devotions/holy-rosary/sorrowful-mysteries/carrying-of-the-cross" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          </Link>
+          <Link href="/devotions/holy-rosary/sorrowful-mysteries/carrying-of-the-cross" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Carrying of the Cross
-          </a>
-          <a href="/devotions/holy-rosary/sorrowful-mysteries/crucifixion" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+          </Link>
+          <Link href="/devotions/holy-rosary/sorrowful-mysteries/crucifixion" className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
             Crucifixion
-          </a>
+          </Link>
         </div>
       </section>
 

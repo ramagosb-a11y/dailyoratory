@@ -26,7 +26,7 @@ export function RelicsOfChrist() {
       <p className="mt-6 rounded-2xl border border-gold/30 bg-ivory/85 p-5 text-sm leading-7 text-muted">
         Use careful language here: relics may be <span className="font-semibold text-navy">traditionally associated with</span>,
         <span className="font-semibold text-navy"> venerated as</span>, or <span className="font-semibold text-navy">historically connected with</span>
-        Christ's Passion. Avoid sensational claims and keep the focus on His saving death and Resurrection.
+        Christ’s Passion. Avoid sensational claims and keep the focus on His saving death and Resurrection.
       </p>
       <RelicLinkRow
         links={[

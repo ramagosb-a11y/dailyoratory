@@ -24,7 +24,7 @@ export default function EschatologyPurgatoryPage() {
       ]}
       title={topic.title}
       subtitle={topic.subtitle}
-      summary="Purgatory is not a rival to mercy, but one expression of it: God's final purification for those who die in His grace and friendship yet still need healing."
+      summary="Purgatory is not a rival to mercy, but one expression of it: God’s final purification for those who die in His grace and friendship yet still need healing."
       ctas={[
         { label: "Learn About Indulgences", href: "/indulgences" },
         { label: "Indulgence Prayers and Devotions", href: "/indulgences/prayers-and-devotions", variant: "secondary" },
@@ -35,7 +35,7 @@ export default function EschatologyPurgatoryPage() {
       <section className="card-parchment p-6 sm:p-8">
         <h2 className="font-display text-4xl font-semibold text-navy">What is Purgatory?</h2>
         <p className="daily-readable mt-5 text-base leading-8 text-muted">
-          Purgatory is the final purification of those who die in God's grace and friendship but still need to be
+          Purgatory is the final purification of those who die in God’s grace and friendship but still need to be
           made fully ready for Heaven.
         </p>
       </section>
@@ -66,7 +66,7 @@ export default function EschatologyPurgatoryPage() {
         <article className="card-parchment p-6 sm:p-8">
           <h2 className="font-display text-4xl font-semibold text-navy">Common misunderstandings</h2>
           <p className="daily-readable mt-5 text-base leading-8 text-muted">
-            Purgatory is not a second chance after death. It is for those who die in God's grace but still need
+            Purgatory is not a second chance after death. It is for those who die in God’s grace but still need
             purification before the vision of Heaven.
           </p>
         </article>

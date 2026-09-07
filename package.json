@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node --experimental-strip-types scripts/assert-deploy-source.ts && node --experimental-strip-types scripts/audit-client-stores.ts",
+    "prebuild": "node --experimental-strip-types scripts/assert-deploy-source.ts && node --experimental-strip-types scripts/audit-client-stores.ts && npm run images:check",
     "build": "next build",
     "postbuild": "node --experimental-strip-types scripts/audit-rendering-strategy.ts",
     "start": "next start",
@@ -15,7 +15,11 @@
     "audit:citations": "node --experimental-strip-types scripts/audit-citations.ts",
     "validate:urls": "node --experimental-strip-types scripts/validate-urls.ts",
     "check:priority-pages": "node --experimental-strip-types scripts/check-priority-pages.ts",
-    "seo:preflight": "node --experimental-strip-types scripts/seo-preflight.ts"
+    "seo:preflight": "node --experimental-strip-types scripts/seo-preflight.ts",
+    "images:retreat": "node scripts/optimize-fasting-retreat-images.mjs",
+    "images:check": "node scripts/optimize-fasting-retreat-images.mjs --check",
+    "test:retreat": "node --experimental-strip-types --test scripts/fasting-retreat.test.mjs",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

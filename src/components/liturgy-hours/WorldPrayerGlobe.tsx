@@ -15,7 +15,8 @@ export function WorldPrayerGlobe() {
   const [now, setNow] = useState<Date | null>(null);
 
   useEffect(() => {
-    setNow(new Date());
+    const timer = window.setTimeout(() => setNow(new Date()), 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   const suggestion = useMemo(() => (now ? getSuggestedHourForCurrentTime(now) : null), [now]);

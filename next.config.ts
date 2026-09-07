@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import { legacyRedirects } from "./src/data/redirects";
 
 const nextConfig: NextConfig = {
+  images: { qualities: [75, 85] },
   async redirects() {
     return [
       {

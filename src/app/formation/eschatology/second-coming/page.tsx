@@ -24,7 +24,7 @@ export default function EschatologySecondComingPage() {
       ]}
       title={topic.title}
       subtitle={topic.subtitle}
-      summary="Catholic teaching on Christ's return is meant to awaken vigilance, repentance, and hope, not panic, conspiracy, or date-setting."
+      summary="Catholic teaching on Christ’s return is meant to awaken vigilance, repentance, and hope, not panic, conspiracy, or date-setting."
       ctas={[
         { label: "Watch the Prophecy Series", href: "/prophecy-series" },
         { label: "Open Advent", href: "/liturgical-living/advent", variant: "secondary" },
@@ -35,14 +35,14 @@ export default function EschatologySecondComingPage() {
         <h2 className="font-display text-4xl font-semibold text-navy">What Catholics believe about the Second Coming</h2>
         <p className="daily-readable mt-5 text-base leading-8 text-muted">
           Catholics believe that Jesus Christ will come again in glory to judge the living and the dead and to
-          bring God's Kingdom to its fullness.
+          bring God’s Kingdom to its fullness.
         </p>
       </section>
       <section className="grid gap-5 lg:grid-cols-2">
         <article className="card-parchment p-6 sm:p-8">
           <h2 className="font-display text-4xl font-semibold text-navy">Christ is Lord of history</h2>
           <p className="daily-readable mt-5 text-base leading-8 text-muted">
-            History is not random or outside God's providence. Christ remains Lord, and His return will reveal
+            History is not random or outside God’s providence. Christ remains Lord, and His return will reveal
             the victory of His Kingdom.
           </p>
         </article>

@@ -10,12 +10,12 @@ export function AngelsHero() {
             Angels and the Invisible World
           </h1>
           <p className="mt-5 text-lg leading-8 text-muted">
-            God's messengers, worshipers, and servants in the mystery of creation and salvation.
+            God’s messengers, worshipers, and servants in the mystery of creation and salvation.
           </p>
           <p className="mt-5 max-w-3xl text-sm leading-8 text-muted">
             The Catholic faith teaches that angels are real spiritual creatures created by God. They
             worship Him, serve His plan, guard His people, appear throughout Scripture, and join the
-            Church's worship in the Mass.
+            Church’s worship in the Mass.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link href="#what-are-angels" className="btn liturgical-button focus-ring justify-center">

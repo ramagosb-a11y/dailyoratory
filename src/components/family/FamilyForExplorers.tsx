@@ -13,7 +13,7 @@ export function FamilyForExplorers() {
         <p className="text-sm leading-8 text-muted">
           Catholic family life may include Sunday Mass, blessings, saints, family prayer, confession, holy days, and
           devotions. You can begin simply by learning what Catholics believe about the family, attending Mass, asking
-          questions, and praying for the Holy Spirit's guidance.
+          questions, and praying for the Holy Spirit’s guidance.
         </p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           <Link href="/ocia" className="btn liturgical-button focus-ring justify-center">

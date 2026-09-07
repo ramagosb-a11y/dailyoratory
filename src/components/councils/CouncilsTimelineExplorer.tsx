@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { getChurchCouncils, getCouncilTimelineFilters } from "@/lib/councils";
 import { trackEvent } from "@/lib/analytics";
@@ -12,10 +12,7 @@ export function CouncilsTimelineExplorer() {
   const [selectedFilter, setSelectedFilter] = useState(filters[0]?.slug ?? "");
 
   const activeFilter = filters.find((filter) => filter.slug === selectedFilter) ?? filters[0];
-  const filteredCouncils = useMemo(
-    () => councils.filter((council) => activeFilter?.councilIds.includes(council.id)),
-    [activeFilter, councils],
-  );
+  const filteredCouncils = councils.filter((council) => activeFilter?.councilIds.includes(council.id));
 
   return (
     <section>

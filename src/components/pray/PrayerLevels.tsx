@@ -11,7 +11,7 @@ export function PrayerLevels() {
       </h2>
       <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
         Prayer often deepens from words to recollection, reflection, loving response, and quiet
-        resting in God's presence.
+        resting in God’s presence.
       </p>
 
       <div className="mt-7 grid gap-5 md:grid-cols-2">

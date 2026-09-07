@@ -5,7 +5,7 @@ export function RealPresenceSection() {
     <section id="real-presence" className="scroll-mt-28 border-t border-stone/70 pt-10">
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">The Real Presence</p>
       <h2 className="mt-2 font-display text-4xl font-semibold text-navy sm:text-5xl">
-        Transubstantiation and the mystery of Christ's presence
+        Transubstantiation and the mystery of Christ’s presence
       </h2>
       <div className="mt-6 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
         <article className="card p-6">

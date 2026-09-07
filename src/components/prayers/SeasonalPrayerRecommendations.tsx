@@ -11,7 +11,7 @@ export function SeasonalPrayerRecommendations() {
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Prayer for this season</p>
       <h2 className="font-display mt-3 text-4xl font-semibold text-navy">{season} prayer recommendations</h2>
       <p className="daily-readable-muted mt-4 max-w-4xl text-base leading-8 text-muted">
-        Let the Church's season shape your prayer gently. These are simple starting points for this time of year.
+        Let the Church’s season shape your prayer gently. These are simple starting points for this time of year.
       </p>
       <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         {items.map((item) => (
