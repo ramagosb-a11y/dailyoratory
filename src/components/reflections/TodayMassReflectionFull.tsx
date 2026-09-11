@@ -4,9 +4,9 @@ import { MassReflectionTypeBadge } from "@/components/reflections/MassReflection
 import { formatDate } from "@/lib/format";
 import type { MassReadingsReflection } from "@/types/massReadingsReflections";
 
-export function TodayMassReflectionFull({ reflection }: { reflection: MassReadingsReflection }) {
+export function TodayMassReflectionFull({ reflection, manuscript = false }: { reflection: MassReadingsReflection; manuscript?: boolean }) {
   return (
-    <section className="card-parchment mt-5 p-6 sm:p-8">
+    <section className="card-parchment mt-5 p-6 sm:p-8" data-manuscript={manuscript || undefined}>
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Full reflection</p>
       <div className="mt-4 flex flex-wrap gap-2">
         <MassReflectionTypeBadge type={reflection.reflectionType} />
@@ -17,14 +17,15 @@ export function TodayMassReflectionFull({ reflection }: { reflection: MassReadin
       <h2 className="font-display mt-5 text-4xl font-semibold leading-tight text-navy sm:text-5xl">
         {reflection.title}
       </h2>
-      <p className="mt-4 text-sm font-semibold uppercase tracking-normal text-burgundy">
-        {reflection.liturgicalDay}
-        {reflection.lectionaryNumber ? ` - Lectionary: ${reflection.lectionaryNumber}` : ""}
-      </p>
-      <p className="mt-5 max-w-4xl text-base leading-8 text-muted">{reflection.shortDescription}</p>
+      {(!manuscript || reflection.liturgicalDay !== reflection.title || reflection.lectionaryNumber) && <p className="mt-4 text-sm font-semibold uppercase tracking-normal text-burgundy">
+        {manuscript && reflection.liturgicalDay === reflection.title ? "" : reflection.liturgicalDay}
+        {reflection.lectionaryNumber ? ` Lectionary: ${reflection.lectionaryNumber}` : ""}
+      </p>}
+      {(!manuscript || reflection.shortDescription !== reflection.title) && <p className="mt-5 max-w-4xl text-base leading-8 text-muted">{reflection.shortDescription}</p>}
 
       <div className="mt-6 rounded-md border border-gold/60 bg-ivory/80 p-5">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Mass readings</p>
+        {manuscript && reflection.readings.length === 0 && <p className="mt-3 text-sm leading-7 text-muted">Use the official readings link below alongside this reflection.</p>}
         <ul className="mt-3 grid gap-2 text-sm leading-7 text-navy">
           {reflection.readings.map((reading) => (
             <li key={`${reading.label}-${reading.reference}`}>
@@ -56,7 +57,7 @@ export function TodayMassReflectionFull({ reflection }: { reflection: MassReadin
       </p>
 
       <div className="content-prose resource-markdown mt-8 space-y-6">
-        <MassReflectionRichBody paragraphs={reflection.body} />
+        <MassReflectionRichBody paragraphs={reflection.body} variant={manuscript ? "manuscript" : "default"} />
       </div>
     </section>
   );

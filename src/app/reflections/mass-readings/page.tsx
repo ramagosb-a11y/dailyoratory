@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { MassReadingsReflectionHero } from "@/components/reflections/MassReadingsReflectionHero";
+import styles from "./reflection.module.css";
+import { ReflectionPageNavigation, ReflectionBackLink, ReflectionAnchor } from "@/components/reflections/ReflectionPageNavigation";
 import { MassReadingsGoogleCalendarEmbed } from "@/components/reflections/MassReadingsGoogleCalendarEmbed";
 import { CurrentMassReflectionSection } from "@/components/reflections/CurrentMassReflectionSection";
 import { MassReadingsFilteredResultsClient } from "@/components/reflections/MassReadingsFilteredResultsClient";
@@ -22,7 +23,7 @@ import {
   getSundayMassReflectionsData,
 } from "@/lib/massReadingsReflections";
 import { createPageMetadata } from "@/lib/metadata";
-import { getCurrentSiteIsoDate, selectMassReflectionForIsoDate } from "@/lib/staticDailyContent";
+import { getCurrentSiteIsoDate } from "@/lib/staticDailyContent";
 
 export const revalidate = 86400;
 
@@ -43,30 +44,46 @@ export default async function MassReadingsReflectionsPage() {
     getMassReadingsReflectionsData(),
   ]);
   const initialReferenceDate = getCurrentSiteIsoDate();
-  const initialSelection = selectMassReflectionForIsoDate(allReflections, initialReferenceDate);
   const filterableReflections = filterMassReadingsReflections({}, { includeScheduled: true }, allReflections);
 
   return (
-    <div className="paper-texture">
-      <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
+    <div className={styles.page}>
+      <div className={styles.main} data-reflection-page-content>
+        <header className={styles.introduction}>
+          <p className={styles.eyebrow}>Read · Reflect · Pray</p>
+          <h1 id="page-navigation" tabIndex={-1}>Mass Readings Reflections</h1>
+          <p>Listen to the Word, make room for prayer, and carry the Gospel into your day.</p>
+          <ReflectionPageNavigation />
+        </header>
+        <ReflectionAnchor id="current-reflection" />
         <CurrentMassReflectionSection
           reflections={allReflections}
           initialReferenceDate={initialReferenceDate}
         />
 
-        <div className="mt-10">
-          <DailyReturnPrompt
-            eyebrow="Reading habit"
-            title="Come back with tomorrow's readings."
-            summary="Let the daily Mass readings become a steady rhythm: read, pray, carry one word into the day, and return for the next reflection."
-            primaryHref="/today"
-            primaryLabel="Open Today's Guide"
-            secondaryHref="/reflections/mass-readings/calendar"
-            secondaryLabel="View Calendar"
-          />
-        </div>
 
+
+        <ReflectionBackLink />
+        <ReflectionAnchor id="find-reflection" />
+        <section className="mt-14">
+          <SectionHeader
+            eyebrow="Search and filter"
+            title="Find a Mass reading reflection"
+            summary="Browse by daily Mass, Sunday Mass, solemnity, feast day, liturgical season, year cycle, lectionary number, or reading reference."
+          />
+          <Suspense fallback={<div className="dashboard-card mt-7 min-h-48 p-5" />}>
+            <MassReadingsFilteredResultsClient
+              reflections={filterableReflections}
+              facets={facets}
+              action="/reflections/mass-readings"
+            />
+          </Suspense>
+        </section>
+        <ReflectionBackLink />
+        <ReflectionAnchor id="reflection-calendar" />
         <MassReadingsGoogleCalendarEmbed />
+        <ReflectionBackLink />
+        <ReflectionAnchor id="upcoming-reflections" />
 
         <section className="mt-14">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -89,14 +106,17 @@ export default async function MassReadingsReflectionsPage() {
           </div>
         </section>
 
-        <div className="mt-14">
-          <MassReadingsReflectionHero
-            primaryHref={initialSelection?.reflection ? `/reflections/mass-readings/${initialSelection.reflection.slug}` : "/reflections/mass-readings/calendar"}
-          />
-        </div>
+        <ReflectionBackLink />
+        <ReflectionAnchor id="sunday-reflections" />
 
         <SundayMassReflectionsSection reflections={sunday} />
-        <DailyMassReflectionsSection reflections={daily} />
+        {sunday.length === 0 && <section><h2>Sunday reflections</h2><p>Sunday reflections will appear here when available.</p></section>}
+        <ReflectionBackLink />
+        <ReflectionAnchor id="daily-reflections" />
+        <DailyMassReflectionsSection reflections={daily} featuredLabel="Featured daily reflection" />
+        {daily.length === 0 && <section><h2>Daily reflections</h2><p>Daily reflections will appear here when available.</p></section>}
+        <ReflectionBackLink />
+        <ReflectionAnchor id="archive-reflections" />
 
         <section className="mt-14">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
@@ -121,6 +141,7 @@ export default async function MassReadingsReflectionsPage() {
           </div>
         </section>
 
+        <ReflectionBackLink />
         <section className="mt-14">
           <SectionHeader
             eyebrow="Read with the Church"
@@ -135,22 +156,20 @@ export default async function MassReadingsReflectionsPage() {
         </section>
 
         <ExternalReflectionResources />
-
-        <section className="mt-14">
-          <SectionHeader
-            eyebrow="Search and filter"
-            title="Find a Mass reading reflection"
-            summary="Browse by daily Mass, Sunday Mass, solemnity, feast day, liturgical season, year cycle, lectionary number, or reading reference."
+        <div className="mt-10">
+          <DailyReturnPrompt
+            eyebrow="Reading habit"
+            title="Come back with tomorrow's readings."
+            summary="Let the daily Mass readings become a steady rhythm: read, pray, carry one word into the day, and return for the next reflection."
+            primaryHref="/today"
+            primaryLabel="Open Today's Guide"
+            secondaryHref="/reflections/mass-readings/calendar"
+            secondaryLabel="View Calendar"
           />
-          <Suspense fallback={<div className="dashboard-card mt-7 min-h-48 p-5" />}>
-            <MassReadingsFilteredResultsClient
-              reflections={filterableReflections}
-              facets={facets}
-              action="/reflections/mass-readings"
-            />
-          </Suspense>
-        </section>
-      </main>
+        </div>
+
+
+      </div>
     </div>
   );
 }

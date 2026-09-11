@@ -99,7 +99,7 @@
         },
         {
           "kind": "text",
-          "text": "The Rosary, Adoration, Examination, and litany sections link to the existing prayer companions. Your retreat place is saved in this browser. Personal intentions and examination answers are not collected by this retreat."
+          "text": "The Rosary, Adoration, Examination, and litany sections link to the existing prayer companions. Your retreat place is saved in this browser. Intentions are saved only in this browser, not synchronized or sent to a server. Examination answers are not collected."
         },
         {
           "kind": "heading",
@@ -109,7 +109,8 @@
           "kind": "text",
           "text": "You do not need to finish every optional devotion. A sincere prayer, an adapted fast, and a hidden act of love belong here."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "welcome-fasting",
@@ -162,7 +163,8 @@
           "label": "Health guidance for fasting with diabetes",
           "href": "https://www.niddk.nih.gov/health-information/professionals/diabetes-discoveries-practice/fasting-safely-with-diabetes"
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "welcome-indulgences",
@@ -196,7 +198,8 @@
           "label": "Read the Apostolic Penitentiary’s guidance",
           "href": "https://www.vatican.va/roman_curia/tribunals/apost_penit/documents/rc_trib_appen_pro_20000129_indulgence_en.html"
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "preparation-holy-spirit",
@@ -239,12 +242,13 @@
           "kind": "text",
           "text": "Amen."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "preparation-saints",
       "chapter": "preparation",
-      "title": "With the saints",
+      "title": "Litany of the Saints",
       "period": "Preparation",
       "image": "/images/fasting-retreat/03-preparation-communion-of-saints.webp",
       "imageAlt": "A devotional gathering of saints in prayer",
@@ -268,7 +272,10 @@
         }
       ],
       "companion": "saints",
-      "scripture": "preparation"
+      "scripture": "preparation",
+      "passageIds": [
+        "preparation"
+      ]
     },
     {
       "id": "preparation-confession",
@@ -308,7 +315,8 @@
           "text": "Prayer Before Mass"
         }
       ],
-      "companion": "examination"
+      "companion": "examination",
+      "passageIds": []
     },
     {
       "id": "preparation-mass",
@@ -367,7 +375,8 @@
           "kind": "text",
           "text": "Amen."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "preparation-intentions",
@@ -410,7 +419,9 @@
           "kind": "text",
           "text": "Amen."
         }
-      ]
+      ],
+      "intentions": "preparation",
+      "passageIds": []
     },
     {
       "id": "preparation-adoration",
@@ -499,7 +510,11 @@
         }
       ],
       "companion": "adoration",
-      "silence": true
+      "silence": true,
+      "passageIds": [
+        "preparation-psalm",
+        "preparation-hebrews"
+      ]
     },
     {
       "id": "preparation-consecration",
@@ -640,7 +655,8 @@
         }
       ],
       "prayer": true,
-      "dayEnd": true
+      "dayEnd": true,
+      "passageIds": []
     },
     {
       "id": "day-1-holy-spirit",
@@ -668,7 +684,8 @@
           "text": "Amen."
         }
       ],
-      "prayer": true
+      "prayer": true,
+      "passageIds": []
     },
     {
       "id": "day-1-offering",
@@ -739,7 +756,27 @@
           "kind": "text",
           "text": "Lord Jesus, True Vine, teach me to abide in You. Strip away pride, self-reliance, vanity, fear, and the desire for control. Let every hunger and weakness draw me closer to Your Sacred Heart. Without You I can do nothing. With You, I can bear fruit for eternal life. Amen."
         }
+      ],
+      "passageIds": [
+        "morning-psalm"
       ]
+    },
+    {
+      "id": "day-1-intentions",
+      "chapter": "day-1",
+      "title": "Today I Offer This Day For",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/02-fasting-and-intentions.webp",
+      "imageAlt": "Simple bread, water and a prayer book on a modest table",
+      "intro": "Name the people you will carry in prayer and sacrifice today.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Remain with Jesus for a moment after writing your intentions."
+        }
+      ],
+      "intentions": "day-1",
+      "passageIds": []
     },
     {
       "id": "day-1-scripture",
@@ -780,7 +817,10 @@
         }
       ],
       "scripture": "day-1",
-      "silence": true
+      "silence": true,
+      "passageIds": [
+        "abide-chapter"
+      ]
     },
     {
       "id": "day-1-gifts",
@@ -796,7 +836,8 @@
           "text": "Heavenly Father, I surrender myself completely to You. Through the Holy Spirit, reveal the gifts You have placed within me from my baptism and confirmation. Increase in me the gifts of wisdom, understanding, counsel, fortitude, knowledge, piety, and fear of the Lord. If it is Your holy will, awaken every grace, virtue, and charism You desire me to use for the building up of Your Church and the salvation of souls. Remove anything that hinders Your work in me. Help me seek not extraordinary experiences, but greater holiness, humility, obedience, and love. May everything You reveal draw me closer to Jesus and bear fruit for Your glory alone. Through Christ our Lord. Amen."
         }
       ],
-      "prayer": true
+      "prayer": true,
+      "passageIds": []
     },
     {
       "id": "day-1-recollection",
@@ -819,7 +860,8 @@
           "kind": "text",
           "text": "Offer the hour for:"
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-1-angelus",
@@ -839,7 +881,8 @@
           "text": "Then thank Jesus for five blessings:"
         }
       ],
-      "companion": "angelus"
+      "companion": "angelus",
+      "passageIds": []
     },
     {
       "id": "day-1-mass",
@@ -918,7 +961,8 @@
           "kind": "text",
           "text": "My Jesus, I believe that You are present in the Most Holy Sacrament. I love You above all things, and I desire to receive You into my soul. Since I cannot now receive You sacramentally, come at least spiritually into my heart. I embrace You as if You were already there and unite myself wholly to You. Never permit me to be separated from You. Amen."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-1-adoration",
@@ -1023,7 +1067,11 @@
         }
       ],
       "companion": "adoration",
-      "silence": true
+      "silence": true,
+      "passageIds": [
+        "abide-chapter",
+        "morning-psalm"
+      ]
     },
     {
       "id": "day-1-mercy",
@@ -1040,7 +1088,8 @@
         }
       ],
       "companion": "divine-mercy",
-      "optional": true
+      "optional": true,
+      "passageIds": []
     },
     {
       "id": "day-1-charity",
@@ -1059,7 +1108,8 @@
           "kind": "text",
           "text": "Jesus, let this fast become love. Show me one soul I can help carry today. Amen."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-1-rosary",
@@ -1079,7 +1129,8 @@
           "text": "Family\nThe Church\nThe sick and suffering\nSouls in Purgatory\nPersonal intentions"
         }
       ],
-      "companion": "rosary"
+      "companion": "rosary",
+      "passageIds": []
     },
     {
       "id": "day-1-litany",
@@ -1096,7 +1147,8 @@
         }
       ],
       "companion": "sacred-heart",
-      "optional": true
+      "optional": true,
+      "passageIds": []
     },
     {
       "id": "day-1-conversion",
@@ -1128,7 +1180,10 @@
           "text": "Lord Jesus, I renounce pride and every sin that separates me from You. I choose humility, obedience, repentance, and love. Amen."
         }
       ],
-      "scripture": "day-1-evening"
+      "scripture": "day-1-evening",
+      "passageIds": [
+        "day-1-evening"
+      ]
     },
     {
       "id": "day-1-examen",
@@ -1208,7 +1263,8 @@
           "text": "Pray the Act of Contrition."
         }
       ],
-      "companion": "examination"
+      "companion": "examination",
+      "passageIds": []
     },
     {
       "id": "day-1-night",
@@ -1413,7 +1469,8 @@
         }
       ],
       "prayer": true,
-      "dayEnd": true
+      "dayEnd": true,
+      "passageIds": []
     },
     {
       "id": "day-2-holy-spirit",
@@ -1441,7 +1498,8 @@
           "text": "Amen."
         }
       ],
-      "prayer": true
+      "prayer": true,
+      "passageIds": []
     },
     {
       "id": "day-2-offering",
@@ -1480,7 +1538,25 @@
           "kind": "text",
           "text": "Mary, Mother Most Pure, teach me to say yes to God with a clean and undivided heart. Guard my thoughts, my eyes, my desires, my words, and my imagination. Lead me always to Jesus. Help me surrender every attachment that keeps me from loving Him fully. Amen"
         }
-      ]
+      ],
+      "passageIds": []
+    },
+    {
+      "id": "day-2-intentions",
+      "chapter": "day-2",
+      "title": "Today I Offer This Day For",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/02-fasting-and-intentions.webp",
+      "imageAlt": "Simple bread, water and a prayer book on a modest table",
+      "intro": "Name the people you will carry in prayer and sacrifice today.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Remain with Jesus for a moment after writing your intentions."
+        }
+      ],
+      "intentions": "day-2",
+      "passageIds": []
     },
     {
       "id": "day-2-scripture",
@@ -1513,7 +1589,10 @@
         }
       ],
       "scripture": "day-2",
-      "silence": true
+      "silence": true,
+      "passageIds": [
+        "day-2"
+      ]
     },
     {
       "id": "day-2-gifts",
@@ -1537,7 +1616,8 @@
           "text": "Lord, reveal gifts only in humility, purity, obedience, and love."
         }
       ],
-      "prayer": true
+      "prayer": true,
+      "passageIds": []
     },
     {
       "id": "day-2-recollection",
@@ -1560,7 +1640,8 @@
           "kind": "text",
           "text": "Offer this hour for:"
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-2-angelus",
@@ -1588,7 +1669,8 @@
           "text": "Ask Mary for surrender."
         }
       ],
-      "companion": "angelus"
+      "companion": "angelus",
+      "passageIds": []
     },
     {
       "id": "day-2-mass",
@@ -1651,7 +1733,8 @@
           "kind": "text",
           "text": "Amen."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-2-adoration",
@@ -1764,7 +1847,11 @@
         }
       ],
       "companion": "adoration",
-      "silence": true
+      "silence": true,
+      "passageIds": [
+        "day-2",
+        "bread-of-life"
+      ]
     },
     {
       "id": "day-2-mercy",
@@ -1781,7 +1868,8 @@
         }
       ],
       "companion": "divine-mercy",
-      "optional": true
+      "optional": true,
+      "passageIds": []
     },
     {
       "id": "day-2-charity",
@@ -1800,7 +1888,8 @@
           "kind": "text",
           "text": "Jesus, let this fast become love. Show me one soul I can help carry today. Amen."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-2-rosary",
@@ -1832,7 +1921,8 @@
           "text": "Mary, Mother Most Pure, take my prayers into your Immaculate Heart and present them to Jesus. Amen."
         }
       ],
-      "companion": "rosary"
+      "companion": "rosary",
+      "passageIds": []
     },
     {
       "id": "day-2-litany",
@@ -1849,7 +1939,8 @@
         }
       ],
       "companion": "loreto",
-      "optional": true
+      "optional": true,
+      "passageIds": []
     },
     {
       "id": "day-2-conversion",
@@ -1893,7 +1984,10 @@
           "text": "Lord Jesus, purify my eyes. Let nothing enter through them that darkens my soul. Guard my imagination, memory, and desires. Give me the grace to turn away quickly from every occasion of sin. Amen."
         }
       ],
-      "scripture": "day-2-evening"
+      "scripture": "day-2-evening",
+      "passageIds": [
+        "day-2-evening"
+      ]
     },
     {
       "id": "day-2-examen",
@@ -1973,7 +2067,8 @@
           "text": "Pray the Act of Contrition."
         }
       ],
-      "companion": "examination"
+      "companion": "examination",
+      "passageIds": []
     },
     {
       "id": "day-2-night",
@@ -2214,7 +2309,8 @@
         }
       ],
       "prayer": true,
-      "dayEnd": true
+      "dayEnd": true,
+      "passageIds": []
     },
     {
       "id": "day-3-holy-spirit",
@@ -2258,7 +2354,8 @@
           "text": "Amen."
         }
       ],
-      "prayer": true
+      "prayer": true,
+      "passageIds": []
     },
     {
       "id": "day-3-offering",
@@ -2309,7 +2406,25 @@
           "kind": "text",
           "text": "St. Joseph, guardian of Jesus and Mary, protect my family, my soul, my work, and the fruits of this retreat. Teach me obedience, silence, courage, purity, humility, and faithful service. Holy Family of Nazareth, heal my family, strengthen our love, and make our home a place where Jesus is welcomed, loved, and obeyed. Amen."
         }
-      ]
+      ],
+      "passageIds": []
+    },
+    {
+      "id": "day-3-intentions",
+      "chapter": "day-3",
+      "title": "Today I Offer This Day For",
+      "period": "Morning",
+      "image": "/images/fasting-retreat/02-fasting-and-intentions.webp",
+      "imageAlt": "Simple bread, water and a prayer book on a modest table",
+      "intro": "Name the people you will carry in prayer and sacrifice today.",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Remain with Jesus for a moment after writing your intentions."
+        }
+      ],
+      "intentions": "day-3",
+      "passageIds": []
     },
     {
       "id": "day-3-scripture",
@@ -2334,7 +2449,10 @@
         }
       ],
       "scripture": "day-3",
-      "silence": true
+      "silence": true,
+      "passageIds": [
+        "day-3"
+      ]
     },
     {
       "id": "day-3-gifts",
@@ -2358,7 +2476,8 @@
           "text": "Lord, reveal gifts that help me serve my family, parish, work, vocation, and mission."
         }
       ],
-      "prayer": true
+      "prayer": true,
+      "passageIds": []
     },
     {
       "id": "day-3-recollection",
@@ -2381,7 +2500,8 @@
           "kind": "text",
           "text": "Offer this hour for:"
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-3-angelus",
@@ -2401,7 +2521,8 @@
           "text": "Contemplate the Incarnation within the Holy Family."
         }
       ],
-      "companion": "angelus"
+      "companion": "angelus",
+      "passageIds": []
     },
     {
       "id": "day-3-mass",
@@ -2464,7 +2585,8 @@
           "kind": "text",
           "text": "Amen."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-3-adoration",
@@ -2585,7 +2707,12 @@
         }
       ],
       "companion": "adoration",
-      "silence": true
+      "silence": true,
+      "passageIds": [
+        "day-3",
+        "finding-jesus",
+        "priestly-prayer"
+      ]
     },
     {
       "id": "day-3-mercy",
@@ -2602,7 +2729,8 @@
         }
       ],
       "companion": "divine-mercy",
-      "optional": true
+      "optional": true,
+      "passageIds": []
     },
     {
       "id": "day-3-charity",
@@ -2629,7 +2757,8 @@
           "kind": "text",
           "text": "Jesus, let this fast become love. Show me one soul I can help carry today. Amen."
         }
-      ]
+      ],
+      "passageIds": []
     },
     {
       "id": "day-3-rosary",
@@ -2657,7 +2786,8 @@
           "text": "Jesus, Mary, and Joseph, bless our families and make our homes holy. Amen."
         }
       ],
-      "companion": "rosary"
+      "companion": "rosary",
+      "passageIds": []
     },
     {
       "id": "day-3-litany",
@@ -2674,7 +2804,8 @@
         }
       ],
       "companion": "saint-joseph",
-      "optional": true
+      "optional": true,
+      "passageIds": []
     },
     {
       "id": "day-3-conversion",
@@ -2726,7 +2857,10 @@
           "text": "Lord Jesus, help me enter by the narrow gate. Give me courage to reject sin, resist temptation, and stop making excuses for what keeps me from You. Strengthen me to choose the hard road of holiness, even when it costs me comfort, pride, or pleasure. Amen."
         }
       ],
-      "scripture": "day-3-evening"
+      "scripture": "day-3-evening",
+      "passageIds": [
+        "day-3-evening"
+      ]
     },
     {
       "id": "day-3-examen",
@@ -2806,7 +2940,8 @@
           "text": "Pray the Act of Contrition."
         }
       ],
-      "companion": "examination"
+      "companion": "examination",
+      "passageIds": []
     },
     {
       "id": "closing-consecration",
@@ -3038,7 +3173,8 @@
           "text": "Amen."
         }
       ],
-      "prayer": true
+      "prayer": true,
+      "passageIds": []
     },
     {
       "id": "closing-rule-of-life",
@@ -3086,7 +3222,8 @@
           "text": "Jesus, keep me faithful to the good You have begun in me. Amen."
         }
       ],
-      "dayEnd": true
+      "dayEnd": true,
+      "passageIds": []
     }
   ]
 }

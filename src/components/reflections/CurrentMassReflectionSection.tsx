@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { TodayMassReflectionCard } from "@/components/reflections/TodayMassReflectionCard";
+import Link from "next/link";
 import { TodayMassReflectionFull } from "@/components/reflections/TodayMassReflectionFull";
 import {
   getCurrentSiteIsoDate,
@@ -34,10 +34,10 @@ export function CurrentMassReflectionSection({
     return () => window.clearInterval(intervalId);
   }, [reflections]);
 
-  if (!selection?.reflection) return null;
+  if (!selection?.reflection) return <section data-current-reflection><h2>No current reflection is available</h2><p>Find another reflection or browse the calendar while the next reading is prepared.</p><Link href="#find-reflection">Find a reflection</Link>{" · "}<Link href="/reflections/mass-readings/calendar">Browse calendar</Link></section>;
 
   return (
-    <section>
+    <section data-current-reflection>
       {selection.mode === "today" ? null : (
         <div className="mb-5 rounded-md border border-gold/50 bg-parchment px-4 py-3 text-sm leading-7 text-muted">
           {selection.mode === "fallback"
@@ -45,8 +45,8 @@ export function CurrentMassReflectionSection({
             : "The next scheduled Mass readings reflection is shown until today's reflection is available in the static build."}
         </div>
       )}
-      <TodayMassReflectionCard reflection={selection.reflection} mode={selection.mode} />
-      <TodayMassReflectionFull reflection={selection.reflection} />
+
+      <TodayMassReflectionFull reflection={selection.reflection} manuscript />
     </section>
   );
 }

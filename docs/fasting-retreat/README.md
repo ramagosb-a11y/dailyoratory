@@ -6,9 +6,9 @@ Open http://localhost:3000/fasting-retreat after running the local server.
 
 Combines the daily overview from mockup 2 with the mobile prayer companion from mockup 5. Navy, warm gold, ivory serif headings, and the selected cinematic artwork carry through the overview, prayer reader, section drawer, and companion links.
 
-Six chapters contain 56 sections: Welcome, Preparation, Day 1 with Jesus, Day 2 with Mary, Day 3 with St. Joseph and the Holy Family, and Closing. Each day follows Morning / Throughout the Day / Evening. Day endings stop at the next chapter overview.
+Six chapters contain 59 sections: Welcome, Preparation, Day 1 with Jesus, Day 2 with Mary, Day 3 with St. Joseph and the Holy Family, and Closing. Each day follows Morning / Throughout the Day / Evening. Day endings stop at the next chapter overview.
 
-The section drawer allows free navigation. Browser Back and deep links work. A versioned local bookmark saves the last section, reading position, and text size. The retreat does not store personal intentions, journal entries, or examination answers. The optional silence timer supports 1, 3, and 5 minutes with pause and reset.
+The section drawer allows free navigation. Browser Back and deep links work. A versioned local bookmark saves the last section, reading position, and text size. Optional daily and group intentions are saved only in this browser in a separate versioned record; they are not synchronized or sent to a server. Clearing intentions does not clear the navigation bookmark. Journal entries and examination answers are not collected. The optional silence timer supports 1, 3, and 5 minutes with pause and reset.
 
 Rosary, Adoration, Examination, four litanies, Angelus, and Divine Mercy open the existing application routes. A contextual return banner leads back to the retreat. Visiting a prayer is not treated as proof of completion.
 
@@ -16,7 +16,7 @@ Rosary, Adoration, Examination, four litanies, Angelus, and Divine Mercy open th
 
 Primary source: the opening edition of the user's [retreat document](https://docs.google.com/document/d/1LErqoZoh6CqF2OGTMtruZZvy2jy1n7bOLFc065VM5Lg/edit), with its day-specific Adoration guides. The simpler revised edition informed navigation and daily rhythm. Long prayers remain accessible in separate reading sections.
 
-Scripture quotations use the public-domain [Douay–Rheims 1899 American Edition](https://ebible.org/engDRA/copyright.htm). Full chapter links accompany readings; the John 15 selection is explicitly identified as an excerpt. Psalm references follow Douay–Rheims numbering.
+Scripture quotations use the public-domain [Douay–Rheims 1899 American Edition](https://ebible.org/engDRA/copyright.htm). All referenced ranges and chapters are embedded in full with numbered verses, source links, and edition attribution. John 15 includes the original 1–11 range and the remainder of the chapter. Psalm references follow Douay–Rheims numbering.
 
 The fasting page includes a modest optional Lenten-style pattern and a non-food alternative, with health cautions. The optional indulgence section links to Vatican guidance and distinguishes sacramental Communion from spiritual Communion. No claim is made that opening an app fulfills an indulgence.
 
@@ -44,4 +44,3 @@ All 25 artworks are original generated compositions from the chosen image style.
 No deployment, commit, push, or production changes were made. The new route is marked noindex while it is a local review preview. The existing /three-day-catholic-fasting-retreat page remains available.
 
 The full-repository lint command currently reports 72 errors and 33 warnings in existing files outside the feature. New and modified feature files pass targeted ESLint. Deployment remains blocked until the repository-wide validation gate passes.
-

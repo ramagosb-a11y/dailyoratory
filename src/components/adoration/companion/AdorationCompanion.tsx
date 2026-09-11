@@ -2,18 +2,18 @@
 
 import { useCallback, useMemo, useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { companionArtwork } from '@/data/companionArtwork';
+import { ContemplationArtwork } from './ContemplationArtwork';
 import {
   catechismGuides,
   companionNavigation,
   companionPrayers,
-  meditationParts,
-  scriptureReadings,
   scriptureThemes,
   type CompanionPrayer,
   type CompanionSection,
-  type MeditationPart,
 } from "@/data/adorationCompanion";
+import { companionMeditations as meditationParts, companionReadings as scriptureReadings, passageForReference, type CompanionMeditationPart as MeditationPart } from "@/data/companionReadings";
+import { CompanionPassage } from './CompanionPassage';
 import { getHolyHourGuide } from "@/lib/adoration";
 import type { HolyHourGuideBlock } from "@/types/adoration";
 import styles from "./AdorationCompanion.module.css";
@@ -38,12 +38,8 @@ function getPrayerCopy(prayer: CompanionPrayer, language: LanguageMode) {
 }
 
 export function AdorationCompanion() {
-  const [section, setSection] = useState<CompanionSection>(() => {
-    if (typeof window !== "undefined" && new URLSearchParams(window.location.search).get("mode") === "holy-hour") {
-      return "silence";
-    }
-    return "meditation";
-  });
+  const [section, setSection] = useState<CompanionSection>('meditation');
+  const [timerOpen, setTimerOpen] = useState(false);
   const [guidedMode, setGuidedMode] = useState(true);
   const [partIndex, setPartIndex] = useState(0);
   const [theme, setTheme] = useState("all");
@@ -61,7 +57,6 @@ export function AdorationCompanion() {
     if (new URLSearchParams(window.location.search).get("mode") === "holy-hour") {
       window.requestAnimationFrame(() => setSection("silence"));
     }
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, []);
 
   const playChime = useCallback(() => {
@@ -135,6 +130,7 @@ export function AdorationCompanion() {
     setSection(nextSection);
     window.requestAnimationFrame(() => {
       document.getElementById("companion-content")?.focus({ preventScroll: true });
+      document.getElementById("companion-content")?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
     });
   }
 
@@ -156,11 +152,11 @@ export function AdorationCompanion() {
           <h1>Adoration Companion</h1>
           <p>Scripture, prayer, sacred silence, and faithful Catholic guidance for time before the Eucharistic Lord.</p>
         </div>
-        <span className={styles.version}>Adoration Companion v1.0.2</span>
+        <div className={styles.homeLinks}><Link href="/">Home</Link></div>
       </header>
 
-      <nav className={styles.focusNav} aria-label="Primary adoration practices">
-        {companionNavigation.filter((item) => item.id === "meditation" || item.id === "silence").map((item) => (
+      <nav className={styles.focusNav} aria-label="Adoration Companion sections">
+        {companionNavigation.map((item) => (
           <button
             key={item.id}
             type="button"
@@ -168,27 +164,13 @@ export function AdorationCompanion() {
             aria-current={section === item.id ? "page" : undefined}
             className={section === item.id ? styles.modeActive : undefined}
           >
-            <span aria-hidden="true">{item.icon}</span>
             <span className={styles.longLabel}>{item.label}</span>
             <span className={styles.shortLabel}>{item.shortLabel}</span>
           </button>
         ))}
       </nav>
 
-      <nav className={styles.modeNav} aria-label="Additional Adoration Companion sections">
-        {companionNavigation.filter((item) => item.id !== "meditation" && item.id !== "silence").map((item) => (
-          <button
-            key={item.id}
-            type="button"
-            onClick={() => chooseSection(item.id)}
-            aria-current={section === item.id ? "page" : undefined}
-            className={section === item.id ? styles.modeActive : undefined}
-          >
-            <span aria-hidden="true">{item.icon}</span>
-            <span className={styles.longLabel}>{item.label}</span>
-            <span className={styles.shortLabel}>{item.shortLabel}</span>
-          </button>
-        ))}
+      <div className={styles.externalLinks}>
         <a href={USCCB_MASS_READINGS_URL} target="_blank" rel="noreferrer">
           <span aria-hidden="true">↗</span>
           <span className={styles.longLabel}>Today&apos;s Mass Readings</span>
@@ -196,9 +178,9 @@ export function AdorationCompanion() {
           <span className={styles.externalBadge}>USCCB</span>
           <span className="sr-only"> (opens the USCCB website in a new tab)</span>
         </a>
-      </nav>
+      </div>
 
-      <div className={styles.workspace}>
+      <div className={`${styles.workspace} ${section === 'silence' ? styles.fullReadingWorkspace : ''}`}>
         <main id="companion-content" tabIndex={-1} className={styles.content}>
           {section === "meditation" ? (
             <MeditationView
@@ -206,6 +188,7 @@ export function AdorationCompanion() {
               partIndex={partIndex}
               onModeChange={setGuidedMode}
               onPartChange={setPartIndex}
+              onFinish={() => chooseSection('silence')}
             />
           ) : null}
           {section === "scripture" ? (
@@ -239,24 +222,20 @@ export function AdorationCompanion() {
           {section === "catechism" ? (
             <CatechismView query={cccQuery} onQueryChange={setCccQuery} guides={filteredCatechism} />
           ) : null}
+          <section className={styles.sessionNote}><p>Devotional note</p><span>Original Daily Oratory meditations support personal prayer. They are not private revelation and do not claim to record words spoken directly by Jesus.</span></section>
         </main>
 
         <aside className={styles.sidebar} aria-label="Prayer timer and session tools">
-          {section !== "silence" ? <TimerCard
+          {section !== "silence" ? <div className={styles.timerTools}>
+          <button className={styles.timerDisclosure} onClick={() => setTimerOpen(!timerOpen)} aria-expanded={timerOpen} aria-controls="companion-timer"><span>Prayer timer · {formatTime(timerSeconds)} · {timerRunning ? 'Running' : 'Paused'}</span><span>{timerOpen ? 'Hide' : 'Show'}</span></button>
+          <div id="companion-timer" className={timerOpen ? styles.timerExpanded : styles.timerCollapsed}><TimerCard
             seconds={timerSeconds}
             running={timerRunning}
             onPreset={chooseTimer}
             onToggle={() => setTimerRunning((value) => !value)}
             onReset={() => chooseTimer(30)}
             onChime={playChime}
-          /> : null}
-          <section className={styles.sessionNote}>
-            <p>Devotional note</p>
-            <span>
-              Original Daily Oratory meditations support personal prayer. They are not private revelation and do not
-              claim to record words spoken directly by Jesus.
-            </span>
-          </section>
+          /></div></div> : null}
         </aside>
       </div>
 
@@ -290,18 +269,24 @@ function MeditationView({
   partIndex,
   onModeChange,
   onPartChange,
+  onFinish,
 }: {
   guidedMode: boolean;
   partIndex: number;
   onModeChange: (guided: boolean) => void;
   onPartChange: (index: number) => void;
+  onFinish: () => void;
 }) {
   const displayedParts = guidedMode ? [meditationParts[partIndex]] : meditationParts;
 
-  useEffect(() => {
-    if (!guidedMode) return;
-    document.getElementById("meditation-part-top")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [guidedMode, partIndex]);
+  function navigatePart(index: number) {
+    onPartChange(index);
+    window.requestAnimationFrame(() => {
+      const heading = document.getElementById(`part-heading-${meditationParts[index].id}`);
+      heading?.focus({ preventScroll: true });
+      document.getElementById(`part-${meditationParts[index].id}`)?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
+    });
+  }
 
   return (
     <div>
@@ -322,73 +307,62 @@ function MeditationView({
         </div>
       </section>
 
+      <label className={styles.partSelector}>Choose a meditation part<select value={partIndex} onChange={event => navigatePart(Number(event.target.value))}>{meditationParts.map((part, index) => <option key={part.id} value={index}>{index + 1}. {part.title}</option>)}</select></label>
+
       <div id="meditation-part-top" className={styles.stack}>
         {displayedParts.map((part) => (
           <MeditationPartCard
             key={part.id}
             part={part}
             partNumber={meditationParts.findIndex((item) => item.id === part.id) + 1}
+            onNavigate={navigatePart}
+            onFinish={onFinish}
           />
         ))}
       </div>
 
-      {guidedMode ? (
-        <nav className={styles.partNav} aria-label="Meditation part navigation">
-          <button type="button" disabled={partIndex === 0} onClick={() => onPartChange(partIndex - 1)}>
-            ← Previous Part
-          </button>
-          <span>Part {partIndex + 1} of {meditationParts.length}</span>
-          <button
-            type="button"
-            disabled={partIndex === meditationParts.length - 1}
-            onClick={() => onPartChange(partIndex + 1)}
-            className={styles.goldButton}
-          >
-            Continue to Next Part →
-          </button>
-        </nav>
-      ) : null}
     </div>
   );
+}
+
+function PartNavigation({ index, position, onNavigate, onFinish }: { index: number; position: 'top' | 'bottom'; onNavigate: (index: number) => void; onFinish: () => void }) {
+  const last = index === meditationParts.length - 1;
+  return <nav className={styles.partNav} aria-label={`Part ${index + 1} ${position} navigation`}>
+    <button type="button" disabled={index === 0} onClick={() => onNavigate(index - 1)}>← Previous</button>
+    <span>Part {index + 1} of {meditationParts.length}</span>
+    <button type="button" className={styles.goldButton} onClick={() => last ? onFinish() : onNavigate(index + 1)}>{last ? 'Continue to Holy Hour →' : 'Next Part →'}</button>
+  </nav>;
 }
 
 function MeditationPartCard({
   part,
   partNumber,
+  onNavigate,
+  onFinish,
 }: {
   part: MeditationPart;
   partNumber: number;
+  onNavigate: (index: number) => void;
+  onFinish: () => void;
 }) {
   return (
-    <article className={styles.featureCard}>
-      <div className={styles.meditationVisual}>
-        <Image
-          src="/images/adoration/monstrance-adoration-night.png"
-          alt="A golden monstrance holding the Eucharist in quiet nighttime adoration"
-          fill
-          sizes="(max-width: 760px) 100vw, 760px"
-          className={styles.meditationVisualImage}
-        />
-        <div className={styles.meditationVisualShade} aria-hidden="true" />
-        <div className={styles.meditationVisualCopy}>
-          <p className={styles.visualKicker}>Part {partNumber} of {meditationParts.length}</p>
-          <h3>Remain with Jesus</h3>
-          <p>Let His peace settle in your heart as you prepare to rest.</p>
-        </div>
-      </div>
+    <article id={`part-${part.id}`} className={styles.featureCard}>
+      <PartNavigation index={partNumber - 1} position="top" onNavigate={onNavigate} onFinish={onFinish} />
+      <ContemplationArtwork artwork={companionArtwork[part.id]} title={part.title} />
       <header className={styles.cardHeader}>
         <div>
           <p className={styles.eyebrow}>Part {partNumber} of {meditationParts.length}</p>
-          <h3>{part.title}</h3>
+          <h3 id={`part-heading-${part.id}`} tabIndex={-1}>{part.title}</h3>
           <em>{part.subtitle}</em>
         </div>
         <span>{part.duration}</span>
       </header>
 
       <div className={styles.referenceRow}>
-        <a href="https://ebible.org/engDRA/index.htm" target="_blank" rel="noreferrer">▤ {part.scriptureReference}</a>
-        <a href="https://www.vatican.va/content/catechism/en.html" target="_blank" rel="noreferrer">▣ {part.catechismReference}</a>
+        <a href="https://www.vatican.va/content/catechism/en.html" target="_blank" rel="noreferrer">{part.catechismReference} · Vatican ↗</a>
       </div>
+
+      <CompanionPassage passageId={part.scripturePassageId} />
 
       <section className={styles.meditationText}>
         <p className={styles.eyebrow}>Jesus Speaks to Your Heart</p>
@@ -408,6 +382,7 @@ function MeditationPartCard({
       <div className={styles.pauseRow}>
         <div><strong>Suggested silent time</strong><span>Rest in quiet adoration for a few minutes before continuing.</span></div>
       </div>
+      <PartNavigation index={partNumber - 1} position="bottom" onNavigate={onNavigate} onFinish={onFinish} />
     </article>
   );
 }
@@ -438,7 +413,11 @@ function ScriptureView({
       </section>
 
       <div className={styles.libraryLayout}>
-        <aside className={styles.libraryNav}>
+        <div className={styles.mobileReadingSelector}>
+          <label>Scripture theme<select aria-label="Scripture theme" value={theme} onChange={event => onThemeChange(event.target.value)}>{scriptureThemes.map(item => <option key={item.id} value={item.id}>{item.label}</option>)}</select></label>
+          <label>Choose a passage<select aria-label="Choose a passage" value={readingId} onChange={event => onReadingChange(event.target.value)}>{filteredReadings.map(item => <option key={item.id} value={item.id}>{item.reference} · {item.title}</option>)}</select></label>
+        </div>
+        <aside className={`${styles.libraryNav} ${styles.scriptureLibrary}`}>
           <p className={styles.eyebrow}>Themes of the Eucharist</p>
           {scriptureThemes.map((item) => {
             const count = item.id === "all" ? scriptureReadings.length : scriptureReadings.filter((reading) => reading.theme === item.id).length;
@@ -466,11 +445,7 @@ function ScriptureView({
             <p className={styles.eyebrow}>Introductory Prayer</p>
             <blockquote>“{selectedReading.prayer}”</blockquote>
           </section>
-          <section className={styles.scriptureText} aria-label={`${selectedReading.reference}, Douay-Rheims 1899`}>
-            <p className={styles.eyebrow}>Sacred Scripture Passage</p>
-            {selectedReading.verses.map((verse) => <p key={verse.number}><sup>{verse.number}</sup>{verse.text}</p>)}
-          </section>
-          <p className={styles.sourceLine}>Douay–Rheims 1899 American Edition · Public domain · <a href={selectedReading.sourceUrl} target="_blank" rel="noreferrer">Verify at eBible.org</a></p>
+          <CompanionPassage passageId={selectedReading.passageId} />
           <section className={styles.contemplationCard}>
             <p className={styles.eyebrow}>Concluding Contemplative Question</p>
             <blockquote>“{selectedReading.question}”</blockquote>
@@ -520,7 +495,8 @@ function PrayerView({
       </section>
 
       <div className={styles.libraryLayout}>
-        <aside className={styles.libraryNav}>
+        <div className={styles.mobileReadingSelector}><label>Choose prayer or hymn<select aria-label="Choose prayer or hymn" value={prayerId} onChange={event => onPrayerChange(event.target.value)}>{companionPrayers.map(item => <option key={item.id} value={item.id}>{item.title}</option>)}</select></label></div>
+        <aside className={`${styles.libraryNav} ${styles.scriptureLibrary}`}>
           <p className={styles.eyebrow}>Select Prayer or Hymn</p>
           {companionPrayers.map((item) => (
             <button key={item.id} type="button" className={prayerId === item.id ? styles.passageActive : styles.passageButton} onClick={() => onPrayerChange(item.id)}>
@@ -535,7 +511,7 @@ function PrayerView({
           <header className={styles.cardHeader}>
             <div><p className={styles.eyebrow}>{prayer.whenToUse}</p><h3>{prayer.title}</h3>{prayer.latinTitle ? <em>{prayer.latinTitle}</em> : null}</div>
             <div className={styles.iconActions}>
-              <button type="button" onClick={onChime} aria-label="Play a gentle generated chime">♬ Chime</button>
+              <button type="button" onClick={onChime} aria-label="Play a gentle generated chime">Chime</button>
               <button type="button" onClick={onCopy}>{copied ? "Copied" : "Copy"}</button>
             </div>
           </header>
@@ -574,7 +550,7 @@ function HolyHourView() {
             <summary><span>{segment.startMinute}-{segment.endMinute} minutes</span><strong>{segment.title}</strong><em>View prayer details</em></summary>
             <div>
               {segment.sourceNote ? <p className={styles.quietNote}>{segment.sourceNote}</p> : null}
-              {segment.scripture ? <blockquote className={styles.holyHourScripture}><strong>{segment.scripture.reference}</strong><span>“{segment.scripture.text}”</span></blockquote> : null}
+              {segment.scripture ? <CompanionPassage passageId={passageForReference(segment.scripture.reference).id} /> : null}
               <div className={styles.holyHourBlocks}>{(segment.guide ?? []).map((block, blockIndex) => <HolyHourBlock key={`${segment.id}-${blockIndex}`} block={block} />)}</div>
             </div>
           </details>
@@ -593,7 +569,7 @@ function HolyHourBlock({ block }: { block: HolyHourGuideBlock }) {
     case "paragraph": return <p>{block.text}</p>;
     case "breath": return <div className={styles.holyHourBreath}><span><b>Inhale slowly</b>“{block.inhale}”</span><span><b>Exhale slowly</b>“{block.exhale}”</span>{block.repeat ? <em>{block.repeat}</em> : null}</div>;
     case "prayer": return <blockquote className={styles.holyHourPrayer}>{block.title ? <b>{block.title}</b> : null}<span>“{block.text}”</span></blockquote>;
-    case "scripture": return <blockquote className={styles.holyHourScripture}><strong>{block.reference}</strong><span>“{block.text}”</span></blockquote>;
+    case "scripture": return <CompanionPassage passageId={passageForReference(block.reference).id} />;
     case "reflect": return <div><b>{block.title ?? "Reflect"}</b><ul>{block.prompts.map((prompt) => <li key={prompt}>{prompt}</li>)}</ul></div>;
     case "list": return <div><b>{block.title}</b><ul>{block.items.map((item) => <li key={item}>{item}</li>)}</ul></div>;
     case "invocation": return <blockquote className={styles.holyHourPrayer}>{block.title ? <b>{block.title}</b> : null}{block.lines.map((line) => <span key={line}>“{line}”</span>)}</blockquote>;

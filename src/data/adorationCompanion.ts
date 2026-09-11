@@ -25,11 +25,9 @@ export type ScriptureReading = {
   reference: string;
   title: string;
   description: string;
-  verses: Array<{ number: number; text: string }>;
   prayer: string;
   question: string;
   insight: string;
-  sourceUrl: string;
 };
 
 export type CompanionPrayer = {
@@ -219,24 +217,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "John 6:35, 48–58",
     title: "The Bread of Life Discourse",
     description: "Jesus reveals Himself as the living Bread come down from heaven.",
-    verses: [
-      { number: 35, text: "And Jesus said to them: I am the bread of life: he that cometh to me shall not hunger: and he that believeth in me shall never thirst." },
-      { number: 48, text: "I am the bread of life." },
-      { number: 49, text: "Your fathers did eat manna in the desert, and are dead." },
-      { number: 50, text: "This is the bread which cometh down from heaven; that if any man eat of it, he may not die." },
-      { number: 51, text: "I am the living bread which came down from heaven." },
-      { number: 52, text: "If any man eat of this bread, he shall live for ever; and the bread that I will give, is my flesh, for the life of the world." },
-      { number: 53, text: "The Jews therefore strove among themselves, saying: How can this man give us his flesh to eat?" },
-      { number: 54, text: "Then Jesus said to them: Amen, amen I say unto you: Except you eat the flesh of the Son of man, and drink his blood, you shall not have life in you." },
-      { number: 55, text: "He that eateth my flesh, and drinketh my blood, hath everlasting life: and I will raise him up in the last day." },
-      { number: 56, text: "For my flesh is meat indeed: and my blood is drink indeed." },
-      { number: 57, text: "He that eateth my flesh, and drinketh my blood, abideth in me, and I in him." },
-      { number: 58, text: "As the living Father hath sent me, and I live by the Father; so he that eateth me, the same also shall live by me." },
-    ],
     prayer: "Lord Jesus, deepen my faith in Your Eucharistic presence and make my life a grateful response to Your gift.",
     question: "Where is Christ asking me to move from curiosity toward deeper faith and communion?",
     insight: "The discourse joins faith, divine life, sacrifice, and abiding communion. Read it slowly within the whole sacramental faith of the Church.",
-    sourceUrl: "https://ebible.org/engDRA/JHN06.htm",
   },
   {
     id: "luke-24",
@@ -244,20 +227,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "Luke 24:28–35",
     title: "The Road to Emmaus",
     description: "The risen Lord is recognized in the breaking of bread.",
-    verses: [
-      { number: 28, text: "And they drew nigh to the town, whither they were going: and he made as though he would go farther." },
-      { number: 29, text: "But they constrained him; saying: Stay with us, because it is towards evening, and the day is now far spent. And he went in with them." },
-      { number: 30, text: "And it came to pass, whilst he was at table with them, he took bread, and blessed, and brake, and gave to them." },
-      { number: 31, text: "And their eyes were opened, and they knew him: and he vanished out of their sight." },
-      { number: 32, text: "And they said one to the other: Was not our heart burning within us, whilst he spoke in this way, and opened to us the scriptures?" },
-      { number: 33, text: "And rising up, the same hour, they went back to Jerusalem: and they found the eleven gathered together, and those that were staying with them," },
-      { number: 34, text: "Saying: The Lord is risen indeed, and hath appeared to Simon." },
-      { number: 35, text: "And they told what things were done in the way; and how they knew him in the breaking of the bread." },
-    ],
     prayer: "Stay with me, Lord. Open the Scriptures and teach me to recognize Your presence.",
     question: "What disappointment needs to be re-read in the light of the risen Christ?",
     insight: "Emmaus holds Word, sacramental recognition, communion, and mission together in one movement.",
-    sourceUrl: "https://ebible.org/engDRA/LUK24.htm",
   },
   {
     id: "first-corinthians-11",
@@ -265,16 +237,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "1 Corinthians 11:23–26",
     title: "The Mystery of the Sacred Meal",
     description: "Saint Paul transmits the apostolic memorial of the Lord’s self-gift.",
-    verses: [
-      { number: 23, text: "For I have received of the Lord that which also I delivered unto you, that the Lord Jesus, the same night in which he was betrayed, took bread." },
-      { number: 24, text: "And giving thanks, broke, and said: Take ye, and eat: this is my body, which shall be delivered for you: this do for the commemoration of me." },
-      { number: 25, text: "In like manner also the chalice, after he had supped, saying: This chalice is the new testament in my blood: this do ye, as often as you shall drink, for the commemoration of me." },
-      { number: 26, text: "For as often as you shall eat this bread, and drink the chalice, you shall shew the death of the Lord, until he come." },
-    ],
     prayer: "Jesus, teach me to receive the mystery You entrusted to the Church with faith, reverence, and thanksgiving.",
     question: "How can my participation in the Eucharist become a more faithful proclamation of Christ’s sacrifice?",
     insight: "Paul presents the Eucharist as received tradition, covenant memorial, and proclamation of the Lord’s death until He comes.",
-    sourceUrl: "https://ebible.org/engDRA/1CO11.htm",
   },
   {
     id: "exodus-16",
@@ -282,18 +247,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "Exodus 16:2–4, 13–15",
     title: "The Manna in the Desert",
     description: "Bread from heaven prepares Israel to trust God one day at a time.",
-    verses: [
-      { number: 2, text: "And all the congregation of the children of Israel murmured against Moses and Aaron in the wilderness." },
-      { number: 3, text: "And the children of Israel said to them: Would to God we had died by the hand of the Lord in the land of Egypt, when we sat over the flesh pots, and ate bread to the full. Why have you brought us into this desert, that you might destroy all the multitude with famine?" },
-      { number: 4, text: "And the Lord said to Moses: Behold I will rain bread from heaven for you: let the people go forth, and gather what is sufficient for every day: that I may prove them whether they will walk in my law, or not." },
-      { number: 13, text: "So it came to pass in the evening, that quails coming up, covered the camp: and in the morning, a dew lay round about the camp." },
-      { number: 14, text: "And when it had covered the face of the earth, it appeared in the wilderness small, and as it were beaten with a pestle, like unto the hoar frost on the ground." },
-      { number: 15, text: "And when the children of Israel saw it, they said one to another: Manhu! which signifieth: What is this! for they knew not what it was. And Moses said to them: This is the bread, which the Lord hath given you to eat." },
-    ],
     prayer: "Father, free me from murmuring and teach me to receive today’s grace with trust.",
     question: "Where am I demanding certainty instead of receiving daily bread?",
     insight: "Manna forms a people in dependence. Christian tradition reads it as preparation for the fuller gift of Christ.",
-    sourceUrl: "https://ebible.org/engDRA/EXO16.htm",
   },
   {
     id: "matthew-26",
@@ -301,18 +257,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "Matthew 26:36–41",
     title: "The Holy Hour in Gethsemane",
     description: "Jesus asks His friends to remain and watch with Him.",
-    verses: [
-      { number: 36, text: "Then Jesus came with them into a country place which is called Gethsemani; and he said to his disciples: Sit you here, till I go yonder and pray." },
-      { number: 37, text: "And taking with him Peter and the two sons of Zebedee, he began to grow sorrowful and to be sad." },
-      { number: 38, text: "Then he saith to them: My soul is sorrowful even unto death: stay you here, and watch with me." },
-      { number: 39, text: "And going a little further, he fell upon his face, praying, and saying: My Father, if it be possible, let this chalice pass from me. Nevertheless not as I will, but as thou wilt." },
-      { number: 40, text: "And he cometh to his disciples, and findeth them asleep, and he saith to Peter: What? Could you not watch one hour with me?" },
-      { number: 41, text: "Watch ye, and pray that ye enter not into temptation. The spirit indeed is willing, but the flesh weak." },
-    ],
     prayer: "Jesus, keep me near You in sorrow and strengthen me to pray, ‘Not my will, but Yours.’",
     question: "Where is Christ asking me to remain faithful instead of escaping discomfort?",
     insight: "The traditional Holy Hour responds to Christ’s invitation to watch and pray in Gethsemane.",
-    sourceUrl: "https://ebible.org/engDRA/MAT26.htm",
   },
   {
     id: "revelation-5",
@@ -320,18 +267,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "Revelation 5:6–14",
     title: "The Lamb Upon the Throne",
     description: "Heaven’s worship centers upon the Lamb who was slain.",
-    verses: [
-      { number: 6, text: "And I saw: and behold in the midst of the throne and of the four living creatures, and in the midst of the ancients, a Lamb standing as it were slain, having seven horns and seven eyes: which are the seven Spirits of God, sent forth into all the earth." },
-      { number: 8, text: "And when he had opened the book, the four living creatures, and the four and twenty ancients fell down before the Lamb, having every one of them harps, and golden vials full of odours, which are the prayers of saints:" },
-      { number: 9, text: "And they sung a new canticle, saying: Thou art worthy, O Lord, to take the book, and to open the seals thereof; because thou wast slain, and hast redeemed us to God, in thy blood, out of every tribe, and tongue, and people, and nation." },
-      { number: 12, text: "Saying with a loud voice: The Lamb that was slain is worthy to receive power, and divinity, and wisdom, and strength, and honour, and glory, and benediction." },
-      { number: 13, text: "And every creature, which is in heaven, and on the earth, and under the earth, and such as are in the sea, and all that are in them: I heard all saying: To him that sitteth on the throne, and to the Lamb, benediction, and honour, and glory, and power, for ever and ever." },
-      { number: 14, text: "And the four living creatures said: Amen. And the four and twenty ancients fell down on their faces, and adored him that liveth for ever and ever." },
-    ],
     prayer: "Lamb of God, unite my small act of adoration with the worship of heaven.",
     question: "What changes when I remember that earthly worship participates in heavenly praise?",
     insight: "The slain and living Lamb reveals victory through sacrificial love and gathers all creation into worship.",
-    sourceUrl: "https://ebible.org/engDRA/REV05.htm",
   },
   {
     id: "psalm-22",
@@ -339,18 +277,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "Psalm 22 (23):1–6",
     title: "The Prepared Table",
     description: "The Good Shepherd leads, restores, accompanies, and prepares a table.",
-    verses: [
-      { number: 1, text: "A psalm for David. The Lord ruleth me: and I shall want nothing." },
-      { number: 2, text: "He hath set me in a place of pasture. He hath brought me up, on the water of refreshment:" },
-      { number: 3, text: "He hath converted my soul. He hath led me on the paths of justice, for his own name’s sake." },
-      { number: 4, text: "For though I should walk in the midst of the shadow of death, I will fear no evils, for thou art with me. Thy rod and thy staff, they have comforted me." },
-      { number: 5, text: "Thou hast prepared a table before me against them that afflict me. Thou hast anointed my head with oil; and my chalice which inebriateth me, how goodly is it!" },
-      { number: 6, text: "And thy mercy will follow me all the days of my life. And that I may dwell in the house of the Lord unto length of days." },
-    ],
     prayer: "Good Shepherd, lead me through fear into trust and keep me near Your table.",
     question: "Which line of this psalm names what my heart needs from God today?",
     insight: "Douay–Rheims follows the traditional Vulgate numbering, so this psalm is numbered 22 while many modern Bibles number it 23.",
-    sourceUrl: "https://ebible.org/engDRA/PSA022.htm",
   },
   {
     id: "psalm-62",
@@ -358,20 +287,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "Psalm 62 (63):2–9",
     title: "Thirsting for the Living God",
     description: "A soul longs for God and rejoices beneath the shelter of His wings.",
-    verses: [
-      { number: 2, text: "O God, my God, to thee do I watch at break of day. For thee my soul hath thirsted; for thee my flesh, O how many ways!" },
-      { number: 3, text: "In a desert land, and where there is no way, and no water: so in the sanctuary have I come before thee, to see thy power and thy glory." },
-      { number: 4, text: "For thy mercy is better than lives: thee my lips shall praise." },
-      { number: 5, text: "Thus will I bless thee all my life long: and in thy name I will lift up my hands." },
-      { number: 6, text: "Let my soul be filled as with marrow and fatness: and my mouth shall praise thee with joyful lips." },
-      { number: 7, text: "If I have remembered thee upon my bed, I will meditate on thee in the morning:" },
-      { number: 8, text: "Because thou hast been my helper. And I will rejoice under the covert of thy wings:" },
-      { number: 9, text: "My soul hath stuck close to thee: thy right hand hath received me." },
-    ],
     prayer: "God of my desire, purify what I seek and draw my soul close to You.",
     question: "What lesser desire is masking my deeper thirst for God?",
     insight: "The psalm teaches that spiritual thirst can become praise, memory, trust, and steadfast attachment to God.",
-    sourceUrl: "https://ebible.org/engDRA/PSA062.htm",
   },
   {
     id: "first-kings-19",
@@ -379,17 +297,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "1 Kings 19:4–8",
     title: "Food for the Journey: Elijah",
     description: "God meets exhaustion with rest, nourishment, and strength for the road.",
-    verses: [
-      { number: 4, text: "And he went forward, one day’s journey into the desert. And when he was there, and sat under a juniper tree, he requested for his soul that he might die, and said: It is enough for me, Lord, take away my soul: for I am no better than my fathers." },
-      { number: 5, text: "And he cast himself down, and slept in the shadow of the juniper tree: and behold an angel of the Lord touched him, and said to him: Arise and eat." },
-      { number: 6, text: "He looked, and behold there was at his head a hearth cake, and a vessel of water: and he ate and drank, and he fell asleep again." },
-      { number: 7, text: "And the angel of the Lord came again the second time, and touched him, and said to him: Arise, eat: for thou hast yet a great way to go." },
-      { number: 8, text: "And he arose, and ate, and drank, and walked in the strength of that food forty days and forty nights, unto the mount of God, Horeb." },
-    ],
     prayer: "Lord, meet me in weariness and give me the grace needed for the next faithful step.",
     question: "Am I trying to solve spiritually what also requires rest, nourishment, or human support?",
     insight: "God’s care for Elijah is both bodily and spiritual. Grace restores the whole person for renewed mission.",
-    sourceUrl: "https://ebible.org/engDRA/1KI19.htm",
   },
   {
     id: "john-15",
@@ -397,17 +307,9 @@ export const scriptureReadings: ScriptureReading[] = [
     reference: "John 15:1–5",
     title: "Abiding in the True Vine",
     description: "Spiritual fruitfulness comes from remaining attached to Christ.",
-    verses: [
-      { number: 1, text: "I am the true vine; and my Father is the husbandman." },
-      { number: 2, text: "Every branch in me, that beareth not fruit, he will take away: and every one that beareth fruit, he will purge it, that it may bring forth more fruit." },
-      { number: 3, text: "Now you are clean by reason of the word, which I have spoken to you." },
-      { number: 4, text: "Abide in me, and I in you. As the branch cannot bear fruit of itself, unless it abide in the vine, so neither can you, unless you abide in me." },
-      { number: 5, text: "I am the vine: you the branches: he that abideth in me, and I in him, the same beareth much fruit: for without me you can do nothing." },
-    ],
     prayer: "Jesus, true Vine, keep me united to You and bring forth the fruit that pleases the Father.",
     question: "What practice will help me abide in Christ when consolation fades?",
     insight: "Christian fruitfulness is received before it is achieved: disciples act from living communion with Christ.",
-    sourceUrl: "https://ebible.org/engDRA/JHN15.htm",
   },
 ];
 

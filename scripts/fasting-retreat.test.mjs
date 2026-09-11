@@ -12,6 +12,32 @@ const { chapters, steps } = JSON.parse(
 const ids = new Set(steps.map((s) => s.id)),
   chapterIds = new Set(chapters.map((c) => c.id)),
   mapping = new Map(steps.map((s) => [s.id, s.chapter]));
+
+test("each daily intention step follows the offering without changing existing IDs", () => {
+  for (const day of ["day-1", "day-2", "day-3"]) {
+    const index = steps.findIndex(s => s.id === day + "-offering");
+    assert.equal(steps[index + 1].id, day + "-intentions");
+    assert.equal(steps[index + 1].intentions, day);
+  }
+  assert.equal(steps.find(s => s.id === "preparation-saints").title, "Litany of the Saints");
+});
+
+test("all Scripture mappings resolve to complete numbered local passages", () => {
+  const data = JSON.parse(readFileSync("src/content/fasting-retreat-scripture.json", "utf8"));
+  for (const step of steps) {
+    for (const slot of step.passageIds) {
+      const p = data.passages[data.slots[slot]];
+      assert.ok(p, step.id + ":" + slot);
+      assert.ok(p.verses.length);
+      assert.deepEqual(p.verses.map(v => v.number), p.verseNumbers);
+      assert.equal(new Set(p.verseNumbers).size, p.verseNumbers.length);
+      assert.ok(p.verses.every(v => v.text && !v.text.includes("…")));
+    }
+  }
+  for (const [slot, length] of [["day-1",11],["day-1-evening",48],["day-2-evening",34],["day-3-evening",2]]) {
+    assert.equal(data.passages[data.slots[slot]].verses.length,length);
+  }
+});
 test("malformed and stale bookmarks cannot break the reader", () => {
   for (const raw of [
     "bad json",

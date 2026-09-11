@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   chapters,
   steps,
@@ -21,6 +21,8 @@ import {
   type RetreatRoute,
 } from "@/lib/fastingRetreatState";
 import s from "./retreat.module.css";
+import { RetreatIntentions, useRetreatIntentions } from "./RetreatIntentions";
+import { RetreatPassage } from "./RetreatPassage";
 
 const validSteps = new Set(steps.map((x) => x.id));
 const stepChapters = new Map(steps.map((x) => [x.id, x.chapter]));
@@ -127,6 +129,7 @@ function Silence() {
   );
 }
 export default function FastingRetreat() {
+  const intentions = useRetreatIntentions();
   const [route, setRoute] = useState<RetreatRoute>({
     chapter: "welcome",
     step: null,
@@ -136,6 +139,13 @@ export default function FastingRetreat() {
   const [saving, setSaving] = useState(true),
     [ready, setReady] = useState(false);
   const [outline, setOutline] = useState(false);
+  const pendingNavigation = useRef<number | null>(null);
+  useLayoutEffect(() => {
+    if (pendingNavigation.current === null) return;
+    document.getElementById("retreat-title")?.focus({ preventScroll: true });
+    window.scrollTo({ top: pendingNavigation.current, behavior: "instant" });
+    pendingNavigation.current = null;
+  }, [route]);
   const progressRef = useRef<RetreatProgress>(empty),
     routeRef = useRef(route),
     dialog = useRef<HTMLDialogElement>(null);
@@ -167,21 +177,12 @@ export default function FastingRetreat() {
   }
   function navigate(next: RetreatRoute, restore = false) {
     savePosition();
+    pendingNavigation.current = restore && next.step ? progressRef.current.positions[next.step] || 0 : 0;
     routeRef.current = next;
     setRoute(next);
     history.pushState(null, "", makeRouteHash(next));
     setOutline(false);
     if (next.step) persist({ ...progressRef.current, lastStep: next.step });
-    requestAnimationFrame(() => {
-      document.getElementById("retreat-title")?.focus({ preventScroll: true });
-      window.scrollTo({
-        top:
-          restore && next.step
-            ? progressRef.current.positions[next.step] || 0
-            : 0,
-        behavior: "instant",
-      });
-    });
   }
   function openStep(step: RetreatStep, restore = false) {
     navigate(
@@ -349,20 +350,18 @@ export default function FastingRetreat() {
     }
     openStep(next);
   }
-  const reading = active?.scripture ? readings[active.scripture] : null;
+  const continueLabel = activeIndex === steps.length - 1 ? "Retreat overview" : active?.dayEnd ? "Close this day" : "Continue";
   return (
     <div className={s.app + " " + (progress.largeText ? s.largeText : "")}>
       <header className={s.header}>
         <Link href="/" className={s.brand}>
-          <span aria-hidden className={s.cross}>
-            ✝
-          </span>
           <span>
             DAILY ORATORY<small>A place for the soul</small>
           </span>
         </Link>
         <span className={s.headerTitle}>The Fasting Retreat</span>
         <div className={s.headerActions}>
+          <Link href="/" className={s.homeLink}>Home</Link>
           <button
             aria-label={
               progress.largeText
@@ -377,14 +376,13 @@ export default function FastingRetreat() {
               })
             }
           >
-            Aa
+            Text size
           </button>
           <button
             onClick={() => setOutline(true)}
             aria-label="Open retreat sections"
           >
-            <span aria-hidden>☰</span>
-            <span className={s.desktopLabel}> Sections</span>
+            Sections
           </button>
         </div>
       </header>
@@ -401,7 +399,7 @@ export default function FastingRetreat() {
         ))}
       </nav>
       {active ? (
-        <div className={s.reader} key={active.id}>
+        <div className={s.reader} key={active.id} data-active-step={active.id}>
           <aside className={s.readerArt}>
             <Art src={active.image} alt={active.imageAlt} priority />
             <div className={s.artCaption}>
@@ -423,27 +421,13 @@ export default function FastingRetreat() {
             <h1 id="retreat-title" tabIndex={-1}>
               {active.title}
             </h1>
+            <nav className={s.topControls} aria-label="Top reading navigation">
+              <button className={s.nextControl} onClick={continueReader}>{continueLabel} →</button>
+              <button disabled={activeIndex <= 0} onClick={() => openStep(steps[activeIndex - 1])}>← Previous</button>
+            </nav>
             <p className={s.intro}>{active.intro}</p>
-            {reading && (
-              <section className={s.scripture}>
-                <span className={s.eyebrow}>The Word of God</span>
-                <h2>{reading.reference}</h2>
-                {reading.note && (
-                  <p className={s.readingNote}>{reading.note}</p>
-                )}
-                {reading.verses.map((v) => (
-                  <p key={v.number}>
-                    <sup>{v.number}</sup> {v.text}
-                  </p>
-                ))}
-                <a href={reading.sourceUrl} target="_blank" rel="noreferrer">
-                  Read the full chapter ↗
-                </a>
-                <small>
-                  Douay–Rheims · 1899 American Edition · Public domain
-                </small>
-              </section>
-            )}
+            {active.intentions && <RetreatIntentions day={active.intentions} state={intentions} />}
+            {active.passageIds?.map(id => <RetreatPassage key={id} id={id} />)}
             {active.companion && companions[active.companion] && (
               <aside className={s.handoff}>
                 <span className={s.eyebrow}>Pray with a companion</span>
@@ -485,7 +469,6 @@ export default function FastingRetreat() {
             {active.silence && <Silence />}
             {active.dayEnd && (
               <div className={s.dayEnd}>
-                <span aria-hidden>✧</span>
                 <h2>
                   {chapter.id === "closing"
                     ? "Carry this peace into your day"
@@ -614,39 +597,19 @@ export default function FastingRetreat() {
                   </p>
                 </div>
                 <div className={s.pathList}>
-                  {[...new Set(chapterSteps.map((x) => x.period))].map(
-                    (period, i) => {
-                      const group = chapterSteps.filter(
-                        (x) => x.period === period,
-                      );
-                      return (
-                        <button
-                          className={s.pathCard}
-                          key={period}
-                          onClick={() => openStep(group[0])}
-                        >
-                          <Art src={group[0].image} alt="" sizes="70px" />
-                          <span className={s.pathNumber}>0{i + 1}</span>
-                          <span className={s.pathText}>
-                            <strong>{period}</strong>
-                            <span>
-                              {group[0].title}
-                              {group.length > 1
-                                ? " · " + group.length + " sections"
-                                : ""}
-                            </span>
-                          </span>
-                          <span aria-hidden>→</span>
-                        </button>
-                      );
-                    },
-                  )}
+                  {[...new Set(chapterSteps.map(step => step.period))].map(period => <section key={period} className={s.pathGroup} aria-label={period + " path"}>
+                    <h3>{period}</h3>
+                    {chapterSteps.filter(step => step.period === period).map(step => <button
+                      className={s.pathCard} key={step.id} onClick={() => openStep(step)}
+                      aria-label={step.title} data-step-id={step.id}>
+                      <span className={s.pathNumber}>{String(chapterSteps.indexOf(step) + 1).padStart(2, "0")}</span>
+                      <span className={s.pathText}><strong>{step.title}</strong><span>{step.optional ? "Optional · " : ""}{step.id === progress.lastStep ? "Saved place" : step.companion ? "Prayer companion" : step.intentions ? "Your personal offering" : "Read and pray"}</span></span>
+                      <span aria-hidden>→</span>
+                    </button>)}
+                  </section>)}
                 </div>
               </section>
               <aside className={s.graceCard}>
-                <span className={s.ornament} aria-hidden>
-                  ✧
-                </span>
                 <span className={s.eyebrow}>The grace to ask for</span>
                 <h2>{chapter.grace}</h2>
                 <div className={s.divider} />
@@ -720,9 +683,7 @@ export default function FastingRetreat() {
               {prayerCards()}
             </section>
             <footer className={s.footer}>
-              <span aria-hidden>✝</span>
-              <p>“Draw nigh to God, and he will draw nigh to you.”</p>
-              <small>James 4:8 · Douay–Rheims</small>
+              <RetreatPassage id="footer" />
               <div>
                 <button
                   onClick={() => openStep(stepById.get("welcome-fasting")!)}
@@ -773,14 +734,14 @@ export default function FastingRetreat() {
               aria-current={route.view === "overview" ? "page" : undefined}
               onClick={() => overview()}
             >
-              ⌂ <span>Overview</span>
+              <span>Overview</span>
             </button>
             <button
               onClick={() =>
                 last ? openStep(last, true) : openStep(chapterSteps[0])
               }
             >
-              ▤ <span>{last ? "My place" : "Begin"}</span>
+              <span>{last ? "My place" : "Begin"}</span>
             </button>
             <button
               aria-current={route.view === "prayers" ? "page" : undefined}
@@ -788,7 +749,7 @@ export default function FastingRetreat() {
                 navigate({ chapter: chapter.id, step: null, view: "prayers" })
               }
             >
-              ✧ <span>Prayer apps</span>
+              <span>Prayer apps</span>
             </button>
           </>
         )}
@@ -811,7 +772,7 @@ export default function FastingRetreat() {
               aria-label="Close sections"
               onClick={() => setOutline(false)}
             >
-              ×
+              Close
             </button>
           </header>
           <p>
@@ -854,9 +815,7 @@ export default function FastingRetreat() {
             </details>
           ))}
           <p className={s.quiet}>
-            Only your position and text size are saved in this browser. No
-            personal intentions or examination answers are stored by the
-            retreat.
+            Your position, text size, and intentions are saved only in this browser. Intentions are not synchronized or sent to a server. Examination answers are not stored by the retreat.
           </p>
         </div>
       </dialog>

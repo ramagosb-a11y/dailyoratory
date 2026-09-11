@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-export function MassReflectionRichBody({ paragraphs }: { paragraphs: string[] }) {
+export function MassReflectionRichBody({ paragraphs, variant = "default" }: { paragraphs: string[]; variant?: "default" | "manuscript" }) {
   return (
     <>
       {paragraphs.map((paragraph, index) => {
@@ -12,6 +12,8 @@ export function MassReflectionRichBody({ paragraphs }: { paragraphs: string[] })
         if (!trimmed) return null;
 
         const numberedHeading = trimmed.match(/^(\d+)\.\s+(.+)$/);
+        if (numberedHeading && variant === "manuscript") return <h3 key={key} data-manuscript-heading>{numberedHeading[1]}. {renderInlineFormatting(numberedHeading[2])}</h3>;
+        if (variant === "manuscript" && /^(Prayer|For reflection|Reflection|Meditation)$/i.test(trimmed)) return <h3 key={key} data-manuscript-heading>{renderInlineFormatting(trimmed)}</h3>;
         if (numberedHeading) {
           return (
             <section
@@ -57,7 +59,7 @@ export function MassReflectionRichBody({ paragraphs }: { paragraphs: string[] })
           <p
             key={key}
             className={
-              index === 0
+              variant === "manuscript" ? "manuscript-paragraph" : index === 0
                 ? "rounded-md border-l-4 border-gold/70 bg-parchment/55 px-5 py-4 font-display text-[1.45rem] leading-10 text-navy sm:text-[1.7rem]"
                 : previousWasHeading
                   ? "text-[1.12rem] leading-9 text-navy"

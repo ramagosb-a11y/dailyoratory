@@ -12,6 +12,8 @@ export type RetreatStep = {
   blocks: RetreatBlock[];
   companion?: string;
   scripture?: string;
+  passageIds?: string[];
+  intentions?: string;
   silence?: boolean;
   prayer?: boolean;
   optional?: boolean;
@@ -81,7 +83,7 @@ export const companions: Record<
   },
   "sacred-heart": {
     title: "Litany of the Sacred Heart",
-    action: "Pray the Sacred Heart Litany",
+    action: "Pray the Litany of the Sacred Heart",
     href: "/prayers/litanies/sacred-heart",
     image: "16-litany-sacred-heart",
     description: "Draw near to the Heart of Jesus.",

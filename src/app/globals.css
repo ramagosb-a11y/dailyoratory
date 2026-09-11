@@ -1558,15 +1558,30 @@ a {
 .sacred-artwork > img { z-index: 0; }
 .sacred-artwork-overlay { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.72)); }
 .sacred-artwork:before { content: ""; position: absolute; inset: 12%; border: 1px solid color-mix(in srgb, var(--sh-accent) 50%, transparent); border-radius: 50%; opacity: .45; }
-.sacred-artwork-symbol { position: absolute; z-index: 2; top: 42%; left: 50%; transform: translate(-50%,-50%); color: var(--sh-accent); font-size: 5rem; opacity: .7; }
+.sacred-artwork-fullscreen-button { position: absolute; z-index: 3; right: 1rem; bottom: 1rem; min-height: 2.25rem; padding: .55rem .8rem; border: 1px solid rgba(255,253,247,.55); border-radius: .45rem; background: rgba(7,13,21,.78); color: #fffdf7; font-size: .78rem; font-weight: 700; letter-spacing: .02em; line-height: 1.2; box-shadow: 0 8px 24px rgba(0,0,0,.28); backdrop-filter: blur(8px); }
+.sacred-artwork-fullscreen-button:hover { background: rgba(7,13,21,.94); color: #fffdf7; }
+.sacred-artwork:fullscreen { width: 100vw; height: 100vh; min-height: 100vh; border: 0; border-radius: 0; }
+.sacred-artwork:fullscreen > img { object-fit: contain !important; }
+.sacred-artwork:fullscreen .sacred-artwork-overlay { background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.82)); }
+.sacred-artwork:fullscreen p { max-width: 52rem; padding-right: 12rem; font-size: clamp(.95rem, 1.8vw, 1.2rem); }
+.sacred-artwork:fullscreen .sacred-artwork-fullscreen-button { top: 1.25rem; right: 1.25rem; bottom: auto; }
 .sacred-artwork p { position: relative; z-index: 2; max-width: 30rem; color: rgba(255,253,247,.75); font-size: .8rem; line-height: 1.6; }
 .sacred-content { padding: .5rem 0 3rem; }
 .sacred-content h2 { margin-top: .5rem; color: var(--sh-ink); font-size: clamp(3rem, 6vw, 5.4rem); line-height: .95; }
 .sacred-theme { margin: .75rem 0 1.75rem; color: var(--sh-accent); font-family: var(--font-heading); font-size: 1.5rem; }
+.sacred-moment-meta { display: grid; gap: .45rem; margin: 0 0 2rem; border: 1px solid color-mix(in srgb, var(--sh-accent) 58%, transparent); border-left: 6px solid var(--sh-accent); padding: 1rem 1.25rem 1.15rem; background: linear-gradient(110deg, color-mix(in srgb, var(--sh-accent) 16%, transparent), rgba(255,255,255,.025)); }
+.sacred-moment-day { color: var(--sh-accent); font-size: clamp(1.05rem, 2.2vw, 1.45rem); font-weight: 900; letter-spacing: .2em; line-height: 1.2; text-transform: uppercase; }
+.sacred-moment-time { display: block; color: var(--sh-ink); font-family: var(--font-heading); font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 700; letter-spacing: .01em; line-height: .95; }
 .scripture-card > p:not(.eyebrow):not(.source-pending) { color: var(--sh-ink); font-family: var(--font-heading); font-size: 1.35rem; line-height: 1.45; }
 .scripture-card, .prayer-card, .timer-card { margin: 1.5rem 0; border: 1px solid color-mix(in srgb, var(--sh-accent) 45%, transparent); background: var(--sh-surface); padding: 1.25rem; }
 .scripture-card strong { display: block; margin-top: .4rem; color: var(--sh-ink); font-family: var(--font-heading); font-size: 1.45rem; }
+.scripture-passage + .scripture-passage { margin-top: 1.25rem; border-top: 1px solid rgba(234, 214, 167, .2); padding-top: 1.1rem; }
+.scripture-passage strong { font-size: 1.2rem; }
 .scripture-card small, .source-pending { color: var(--sh-muted); font-size: .82rem; }
+.devotional-section { margin-top: 2rem; }
+.opening-prayer, .virtue-prayer { border-left: 2px solid var(--sh-accent); padding-left: 1rem; }
+.virtue-section { margin-top: 1.5rem; }
+.virtue-prayer { margin-top: 1rem; }
 .sacred-content section p, .prayer-card p { color: var(--sh-muted); line-height: 1.85; }
 .meditation-copy p { font-size: 1.12rem; }
 .meditation-copy p:first-of-type::first-letter { float: left; margin: .1rem .4rem 0 0; color: var(--sh-accent); font-family: var(--font-heading); font-size: 3.8rem; line-height: .75; }
@@ -1594,6 +1609,7 @@ a {
 .sacred-picker-item { display: flex; justify-content: space-between; gap: 1rem; width: 100%; border-bottom: 1px solid color-mix(in srgb, var(--sh-accent) 20%, transparent); padding: .9rem .5rem; color: var(--sh-ink); text-align: left; }
 .sacred-picker-item small { color: var(--sh-muted); }
 @media (max-width: 760px) { .sacred-moment-grid { grid-template-columns: 1fr; } .sacred-artwork { aspect-ratio: 4 / 3; } .sacred-hours-toolbar, .sacred-picker-item { align-items: flex-start; flex-direction: column; } .live-nav { grid-template-columns: 1fr; } .live-nav .now { border-inline: 0; border-block: 1px solid color-mix(in srgb, var(--sh-accent) 30%, transparent); padding: .8rem 0; } .sacred-nav > * { flex: 1 1 42%; } }
+@media (max-width: 760px) { .sacred-artwork-fullscreen-button { right: .75rem; bottom: .75rem; } .sacred-artwork:fullscreen p { padding-right: 1rem; padding-bottom: 3.5rem; } }
 @media (prefers-reduced-motion: reduce) { .sacred-hours { transition: none; } html { scroll-behavior: auto; } }
 
 /* Sacred Hours shares the Way of the Cross quiet-room composition. */
@@ -1715,13 +1731,36 @@ a {
 }
 
 .sacred-nav {
-  align-items: flex-start;
-  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  gap: .65rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(234, 214, 167, 0.18);
+  padding: 1.25rem;
+  border: 1px solid rgba(234, 214, 167, 0.14);
+  border-radius: .85rem;
+  background: linear-gradient(135deg, rgba(255, 253, 247, .035), rgba(255, 253, 247, .012));
 }
 
+.sacred-hours-toolbar-actions .btn, .sacred-nav .btn { white-space: nowrap; }
+
 .sacred-nav > .btn {
-  flex: 0 1 auto;
+  flex: 0 0 auto;
+  min-height: 2.75rem;
+  padding: .7rem 1rem;
+  border-radius: .55rem;
+  font-size: .82rem;
+  letter-spacing: .01em;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
 }
+
+.sacred-nav > .btn:hover:not(:disabled) { transform: translateY(-1px); }
+.sacred-nav > .btn-primary { min-width: 12rem; border-color: transparent; background: linear-gradient(135deg, #b78a3b, #8f6425); color: #fffdf7; box-shadow: 0 8px 22px rgba(0, 0, 0, .2); }
+.sacred-nav > .btn-primary:hover:not(:disabled) { background: linear-gradient(135deg, #c79b4d, #a8752d); }
+.sacred-nav > .btn-outline { border-color: rgba(234, 214, 167, .38); background: rgba(255, 253, 247, .035); }
+.sacred-nav > .btn-outline:hover:not(:disabled) { border-color: var(--sh-accent); background: rgba(234, 214, 167, .1); }
+.sacred-nav > .btn-outline:last-child { border-color: rgba(234, 214, 167, .2); color: var(--sh-muted); }
 
 @media (max-width: 760px) {
   .sacred-hours-toolbar-actions {
@@ -1739,6 +1778,12 @@ a {
   }
 }
 
+@media (max-width: 560px) {
+  .sacred-nav { grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .sacred-nav > .btn, .sacred-nav > .btn-primary { min-width: 0; width: 100%; }
+  .sacred-nav > .btn-primary { grid-column: 1 / -1; }
+}
+
 @media (max-width: 760px) {
   .sacred-hours-root { padding: 0; }
   .sacred-hours { border-inline: 0; border-radius: 0; }
@@ -1746,4 +1791,106 @@ a {
   .sacred-moment-grid { grid-template-columns: 1fr; }
   .sacred-artwork { height: auto; min-height: 0; aspect-ratio: 16 / 9; border-right: 0; border-bottom: 1px solid rgba(234, 214, 167, 0.24); }
   .sacred-content { padding-inline: 0; }
+}
+.scripture-card .scripture-edition { font-size: .875rem; line-height: 1.5; }
+.scripture-card .scripture-passage + .scripture-passage { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #ffffff40; }
+.scripture-card .scripture-passage h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+.scripture-card .scripture-verse { font-size: 1.0625rem; line-height: 1.8; margin: 0 0 .8rem; overflow-wrap: anywhere; }
+.scripture-verse sup { font-size: .75rem; font-weight: 700; margin-right: .3rem; }
+.scripture-passage a { font-size: .875rem; }
+
+/* Sacred Hours reading room: scoped typography, surfaces and controls. */
+.sacred-hours { overflow-x: clip; --sh-muted: #d5d1c8; }
+.sacred-hours-hero { padding-block: clamp(2.5rem, 5vw, 4.5rem) 1.75rem; }
+.sacred-hours-hero:after { display: none; }
+.sacred-hours-title { margin-top: .8rem; line-height: 1.05; }
+.sacred-hours-intro { line-height: 1.75; }
+.sacred-hours-journey { flex-wrap: wrap; white-space: normal; gap: .65rem; line-height: 1.8; }
+.sacred-hours-journey .active { border-bottom: 2px solid var(--sh-accent); padding-bottom: .25rem; }
+.sacred-hours-notice { border-radius: .75rem; border-color: #ead6a72b; background: #ffffff04; font-size: .875rem; line-height: 1.8; }
+.sacred-hours .btn { display: inline-flex; justify-content: center; align-items: center; min-height: 44px; border-radius: .65rem; padding: .7rem 1rem; font-weight: 600; font-size: .875rem; line-height: 1.45; text-align: center; text-transform: none; letter-spacing: 0; transition: background .18s ease, border-color .18s ease; }
+.sacred-hours .btn-primary { background: #ead6a7; color: #172033; border: 1px solid #ead6a7; box-shadow: 0 4px 16px #00000018; }
+.sacred-hours .btn-primary:hover:not(:disabled) { background: #f5e5c2; color: #172033; }
+.sacred-hours .btn-secondary, .sacred-hours .btn-outline { color: #f4ecda; background: #ffffff06; border: 1px solid #ead6a745; }
+.sacred-hours .btn-secondary:hover:not(:disabled), .sacred-hours .btn-outline:hover:not(:disabled) { background: #ead6a715; border-color: #ead6a7; }
+.sacred-hours .btn:disabled { opacity: .4; cursor: not-allowed; box-shadow: none; }
+.sacred-hours :is(button,a):focus-visible { outline: 3px solid #f5d78f; outline-offset: 4px; }
+.sacred-hours-toolbar { flex-wrap: wrap; padding-block: 1.25rem; gap: 1.25rem; margin-bottom: 1.75rem; }
+.sacred-hours-toolbar > div:first-child { flex: 1 0 11rem; }
+.sacred-hours-toolbar-actions { gap: .5rem; }
+.sacred-hours-toolbar-actions .btn { font-size: .8rem; padding: .65rem .85rem; }
+.sacred-progress { height: 4px; width: min(100%, 15rem); border-radius: 4px; margin-top: .75rem; }
+.sacred-moment-grid { grid-template-columns: minmax(0, .65fr) minmax(0, 1.35fr); gap: clamp(1.5rem, 3vw, 3rem); }
+.sacred-artwork { position: sticky; top: 1.5rem; height: min(36rem, calc(100dvh - 3rem)); min-height: 0; border: 1px solid #ead6a72b; border-radius: 1rem; padding: 1.25rem; }
+.sacred-artwork:before { display: none; }
+.sacred-artwork-overlay { background: linear-gradient(180deg, #00000008 45%, #000000b8); }
+.sacred-artwork p { color: #fff7e8; font-size: .8125rem; line-height: 1.6; }
+.sacred-hours .sacred-artwork-fullscreen-button { top: .85rem; right: .85rem; bottom: auto; width: auto; max-width: calc(100% - 1.7rem); min-height: 44px; padding: .6rem .8rem; font-size: .75rem; background: #07101de6; border-color: #ffffff80; color: #fffdf7; }
+.sacred-artwork:fullscreen { inset: 0; background: #05080c; }
+.sacred-artwork:fullscreen .sacred-artwork-overlay { background: linear-gradient(180deg, transparent 78%, #000a); }
+.sacred-artwork:fullscreen p { padding: .75rem 1rem; background: #0009; border-radius: .5rem; }
+.sacred-content { padding: 0 0 2rem; background: transparent; }
+.sacred-content h2 { max-width: 20ch; font-size: clamp(2.6rem, 4.5vw, 4.25rem); line-height: 1.05; }
+.sacred-moment-meta { border-radius: .75rem; border-left-width: 4px; padding: 1.15rem 1.35rem; margin-bottom: 1.5rem; }
+.sacred-moment-day { font-size: 1.1rem; letter-spacing: .14em; line-height: 1.5; }
+.sacred-moment-time { font-size: clamp(2.75rem, 5vw, 4.5rem); line-height: 1.1; }
+.sacred-moment-range { color: var(--sh-accent); font-size: .9rem; }
+.sacred-moment-detail { font-size: .875rem; line-height: 1.7; }
+.sacred-theme { margin-bottom: 2rem; line-height: 1.45; }
+.sacred-hours :is(.scripture-card,.prayer-card,.timer-card) { padding: clamp(1.25rem, 2.5vw, 2rem); border-radius: 1rem; border-color: #ead6a730; }
+.sacred-hours .scripture-card { background: #ffffff05; }
+.sacred-hours .scripture-card > p.scripture-edition { font-family: var(--font-body); font-size: .8125rem; color: var(--sh-muted); margin-top: .5rem; line-height: 1.6; }
+.sacred-hours .scripture-passage h3 { font-size: 1.65rem; margin-top: 1.75rem; }
+.sacred-hours .scripture-verse { color: #ece7dc; line-height: 1.85; padding-left: 1.75rem; position: relative; }
+.sacred-hours .scripture-verse sup { position: absolute; left: 0; top: .35rem; line-height: 1; color: var(--sh-accent); font-variant-numeric: tabular-nums; }
+.sacred-hours .scripture-passage a { display: inline-block; color: var(--sh-accent); padding-block: .65rem; text-underline-offset: .25rem; }
+.sacred-hours .devotional-section { margin-top: 2.75rem; }
+.sacred-hours .devotional-section h3 { margin: 0 0 1rem; font-size: 2.1rem; }
+.sacred-hours .meditation-copy > .eyebrow { font-size: .7rem; margin-bottom: .4rem; }
+.sacred-hours .meditation-copy > p:not(.eyebrow) { font-size: 1.1rem; line-height: 1.9; margin-bottom: 1.35rem; }
+.sacred-hours .meditation-copy p:first-of-type::first-letter { float: none; font: inherit; margin: 0; }
+.sacred-hours .opening-prayer { border-left-width: 3px; padding: .25rem 0 .25rem 1.4rem; }
+.sacred-hours .reflection { margin-top: 2.75rem; border: 1px solid #ead6a730; border-radius: 1rem; padding: 1.5rem; background: #ead6a707; counter-reset: reflection; }
+.sacred-hours .reflection h3 { margin: 0 0 1.25rem; font-size: 1.9rem; }
+.sacred-hours .reflection p { position: relative; padding-left: 2.25rem; font-family: var(--font-body); font-size: 1rem; line-height: 1.75; margin-top: 1rem; }
+.sacred-hours .reflection p:before { counter-increment: reflection; content: counter(reflection, decimal-leading-zero); position: absolute; left: 0; top: .1rem; color: var(--sh-accent); font-size: .75rem; font-weight: 700; }
+.sacred-hours .prayer-card { margin-block: 2rem; background: linear-gradient(120deg, #ead6a70c, #ffffff03); }
+.sacred-hours .prayer-card > p + p { margin-top: 1rem; font-size: 1.05rem; }
+.sacred-hours .virtue strong { display: block; color: var(--sh-accent); font-family: var(--font-heading); font-size: 1.75rem; margin-bottom: .5rem; }
+.sacred-hours .virtue-prayer { margin-top: 1.5rem; padding-left: 1.4rem; }
+.sacred-hours .virtue-prayer p + p { margin-top: .8rem; }
+.sacred-hours .sacred-nav { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; padding: 1.25rem; gap: .65rem; margin-top: 3rem; }
+.sacred-hours .sacred-nav > .btn { width: 100%; min-width: 0; white-space: normal; }
+.sacred-hours .sacred-nav > .btn-primary { grid-column: 1 / -1; min-height: 52px; }
+.sacred-hours .about-sacred-hours { max-width: 48rem; margin: 2rem auto 0; font-size: .875rem; line-height: 1.8; }
+.sacred-hours .about-sacred-hours p { margin-top: 1rem; }
+.sacred-hours .about-sacred-hours h2 { font-size: 2rem; }
+.sacred-hours .sacred-picker { border: 1px solid #ead6a745; border-radius: 1rem; box-shadow: 0 24px 80px #0008; }
+.sacred-picker-item:hover { background: #ead6a712; }
+@media (max-width: 1023px) {
+  .sacred-moment-grid { grid-template-columns: minmax(0, 1fr); }
+  .sacred-artwork { position: relative; top: auto; height: auto; aspect-ratio: 16 / 9; }
+  .sacred-content { width: min(100%, 44rem); margin-inline: auto; }
+}
+@media (max-width: 760px) {
+  .sacred-hours-toolbar > div:first-child { flex: none; width: 100%; }
+}
+@media (max-width: 560px) {
+  .sacred-hours-hero { padding: 2rem 1.25rem 1.25rem; }
+  .sacred-hours-main { padding-inline: 1rem; }
+  .sacred-hours-actions { display: grid; grid-template-columns: 1fr; }
+  .sacred-hours-toolbar-actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .sacred-hours-toolbar-actions > :nth-child(3) { grid-column: 1 / -1; grid-row: 1; }
+  .sacred-hours-toolbar-actions .btn { white-space: normal; }
+  .sacred-hours-journey { font-size: .65rem; gap: .4rem; }
+  .sacred-artwork { aspect-ratio: 4 / 3; padding: 1rem; }
+  .sacred-artwork p { font-size: .75rem; }
+  .sacred-content h2 { font-size: 2.7rem; }
+  .sacred-moment-meta { padding: 1rem; }
+  .sacred-moment-day { letter-spacing: .1em; }
+  .sacred-hours .reflection { padding: 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sacred-hours .btn, .sacred-progress span { transition: none; }
+  .sacred-hours .sacred-nav > .btn:hover { transform: none; }
 }

@@ -3,8 +3,10 @@ import type { MassReadingsReflection } from "@/types/massReadingsReflections";
 
 export function DailyMassReflectionsSection({
   reflections,
+  featuredLabel = "Today's daily reflection",
 }: {
   reflections: MassReadingsReflection[];
+  featuredLabel?: string;
 }) {
   if (reflections.length === 0) return null;
 
@@ -25,7 +27,7 @@ export function DailyMassReflectionsSection({
             key={reflection.id}
             reflection={reflection}
             emphasis={index === 0}
-            highlightLabel={index === 0 ? "Today's daily reflection" : undefined}
+            highlightLabel={index === 0 ? featuredLabel : undefined}
           />
         ))}
       </div>

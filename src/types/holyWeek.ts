@@ -6,16 +6,23 @@ export type SacredMoment = {
   sequence: number;
   liturgicalDay: string;
   displayTime?: string;
+  location?: string;
+  event?: string;
+  timeRange?: string;
+  timelineLabel?: string;
   timeCertainty: TimeCertainty;
   title: string;
   subtitle: string;
   scriptureReference: string;
-  shortScriptureExcerpt?: string;
+  scripturePassages: { reference: string; verses: { number: number; text: string }[]; sourceUrl: string }[];
   theme: string;
   virtue: string;
   meditation: string[];
   reflectionQuestions: string[];
   responsePrayer: string;
+  openingPrayer?: string;
+  virtueDescription?: string;
+  virtuePrayer?: string;
   imageDescription: string;
   imageAlt: string;
   imageSrc?: string;
@@ -26,5 +33,3 @@ export type SacredMoment = {
   minute?: number;
   dayOffset?: number;
 };
-
-

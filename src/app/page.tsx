@@ -47,12 +47,16 @@ const featuredContentCards = [
     description:
       "Understand the parts of the Mass, its sacred signs, and the mystery of Christ's Eucharistic sacrifice.",
     href: "/mass",
+    image: "/images/home/holy-mass.webp",
+    imageAlt: "Devotional illustration of a priest elevating the Host above a chalice during Holy Mass",
   },
   {
     title: "Eucharistic Miracles",
     description:
       "Discover remarkable Eucharistic miracles and what they reveal about Christ's Real Presence.",
-    href: "/eucharistic-miracles",
+    href: "https://www.miracolieucaristici.org/en/liste/list.html",
+    image: "/images/home/eucharistic-miracles.webp",
+    imageAlt: "Devotional illustration of the Eucharistic Host in a gold monstrance between altar candles",
   },
 ];
 
@@ -82,12 +86,12 @@ export default function Home() {
           <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {featuredContentCards.map((card) => (
               <article key={card.href} className={`liturgical-home-card rounded-3xl p-5${"image" in card ? " sacred-hours-home-card" : ""}`}>
-                {"image" in card ? <div className="-mx-5 -mt-5 mb-5 overflow-hidden rounded-t-3xl"><Image src={card.image!} alt={card.imageAlt!} width={1672} height={941} sizes="(max-width: 1279px) 50vw, 25vw" className="aspect-video w-full object-cover" style={{ objectPosition: "imagePosition" in card ? card.imagePosition : "center" }} /></div> : null}
+                {"image" in card ? <div className="-mx-5 -mt-5 mb-5 overflow-hidden rounded-t-3xl"><Image src={card.image!} alt={card.imageAlt!} width={1672} height={941} sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 25vw" className="aspect-video w-full object-cover" style={{ objectPosition: "imagePosition" in card ? card.imagePosition : "center" }} /></div> : null}
                 <h3 className="font-display text-2xl font-semibold text-navy">{card.title}</h3>
                 <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.description}</p>
                 <div className="mt-5">
-                  <Link href={card.href} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
-                    Explore
+                  <Link href={card.href} aria-label={`Explore ${card.title}${card.href.startsWith("https://") ? " (external website)" : ""}`} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
+                    Explore{card.href.startsWith("https://") ? " ↗" : ""}
                   </Link>
                 </div>
               </article>

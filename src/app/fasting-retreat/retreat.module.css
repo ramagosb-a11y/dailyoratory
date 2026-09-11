@@ -1306,3 +1306,73 @@
 .app h1:focus {
   outline: none;
 }
+
+/* Reading-first retreat: shared Sacred Hours typography and clear controls. */
+.app { font-family: var(--font-body); font-size: 16px; --muted: #c0c8d2; }
+.app button, .app a { min-height: 44px; }
+.app button { white-space: normal; }
+.header { flex-wrap: wrap; gap: 12px; }
+.headerActions { flex-wrap: wrap; align-items: center; }
+.headerActions button, .homeLink { display: inline-flex; align-items: center; justify-content: center; padding: 9px 12px; border: 1px solid #d2b67b66; border-radius: 8px; font-size: 14px; }
+.brand small, .headerTitle { font-family: var(--font-body); }
+.chapterNav { flex-wrap: wrap; gap: 8px; padding: 12px 20px; overflow: visible; }
+.chapterNav button { padding: 10px 18px; border: 1px solid #d2b67b33; border-radius: 8px; font-size: 14px; }
+.chapterNav button.selected { background: var(--gold); color: #0b1420; border-color: var(--gold); font-weight: 700; }
+.reader { grid-template-columns: minmax(0, 30%) minmax(0, 70%); }
+.reading { max-width: 780px; }
+.reading h1 { font-size: clamp(34px, 4vw, 48px); }
+.readerMeta > span:last-child, .backLink { font-size: 13px !important; color: var(--muted); }
+.prayerText, .scripture > p { font-family: var(--font-body); font-size: 18px; line-height: 1.85; }
+.scripture { background: #142438; border: 1px solid #d2b67b66; border-radius: 10px; }
+.scripture small, .scripture .readingNote, .saved { font-family: var(--font-body); font-size: 13px; color: var(--muted); }
+.scripture sup { font-size: 12px; margin-right: 5px; }
+.scripture p { overflow-wrap: anywhere; }
+.topControls { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px; }
+.topControls button, .intentionActions button { padding: 12px 18px; background: #142438; border: 1px solid #d2b67b77; border-radius: 8px; }
+.topControls .nextControl { background: var(--gold); color: #0b1420; font-weight: 700; }
+.pathGroup { display: grid; gap: 10px; margin-bottom: 24px; min-width: 0; }
+.pathGroup h3 { font-family: var(--font-body); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+.pathCard { width: 100%; min-height: 80px; padding: 16px; border: 1px solid #d2b67b44; border-radius: 10px; gap: 16px; text-align: left; }
+.pathNumber { display: block; font-size: 14px; color: var(--gold); flex-shrink: 0; }
+.pathText { min-width: 0; flex: 1; }
+.pathText strong { font-family: var(--font-body); font-size: 17px; line-height: 1.45; }
+.pathText > span { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.pathCard:hover { background: #1b3045; border-color: var(--gold); }
+.graceCard { align-self: start; }
+.intentions { margin: 24px 0; padding: 24px; border: 1px solid #d2b67b66; background: #142438; border-radius: 12px; }
+.intentions h2 { font-size: 29px; margin: 20px 0 16px; }
+.intentions label { display: grid; gap: 8px; font-size: 15px; font-weight: 600; margin-bottom: 18px; }
+.intentions textarea { width: 100%; min-height: 88px; resize: vertical; padding: 12px; border: 1px solid #c6ae7a99; border-radius: 8px; background: #081522; color: var(--cream); font: 16px/1.6 var(--font-body); scroll-margin-block: 120px; }
+.intentions .privacy, .intentions [role="status"] { font-size: 13px; color: var(--muted); }
+.intentionActions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.intentionActions button { font-size: 14px; }
+.groupIntention { border-left: 2px solid var(--gold); padding-left: 16px; margin-bottom: 28px; }
+.groupIntention p { white-space: pre-wrap; overflow-wrap: anywhere; }
+.dialog header button { font-size: 15px; padding: 10px; border-radius: 8px; }
+.bottomBar button { font-size: 14px; border-radius: 8px; }
+.footer .scripture { text-align: left; max-width: 760px; margin: 25px auto; }
+.footer .scripture p { font-style: normal; }
+@media (max-width: 700px) {
+  .header { padding: 12px 16px; }
+  .brand { font-size: 12px; }
+  .headerActions { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .chapterNav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 12px 16px; }
+  .chapterNav button { padding: 8px; font-size: 13px; }
+  .hero { min-height: 440px; }
+  .heroContent { padding: 135px 20px 24px; }
+  .heroContent > p { font-size: 15px; }
+  .hero h1 { font-size: 40px; }
+  .reader { display: flex; flex-direction: column; }
+  .readerArt { position: relative; top: auto; width: 100%; height: 165px; min-height: 0; }
+  .artCaption p { display: none; }
+  .reading { width: 100%; padding: 10px 20px 30px; }
+  .topControls { display: grid; grid-template-columns: 1fr; }
+  .topControls .nextControl { order: -1; }
+  .scripture { padding: 20px 16px; }
+  .prayerText, .scripture > p { font-size: 17px; }
+  .intentions { padding: 18px 14px; }
+  .intentionActions { display: grid; }
+  .bottomBar[aria-label="Retreat navigation"] button span { font-size: 13px; }
+  .app:has(textarea:focus) .bottomBar { position: static; }
+  .sectionHeading p, .handoff p { font-size: 15px; }
+}

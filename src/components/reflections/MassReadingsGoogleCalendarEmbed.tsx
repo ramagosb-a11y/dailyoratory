@@ -38,9 +38,8 @@ export function MassReadingsGoogleCalendarEmbed() {
             Upcoming reflection calendar
           </h2>
           <p className="daily-readable-muted mt-4 max-w-3xl">
-            View upcoming Daily Oratory Mass Readings reflections in a month calendar layout. If the
-            calendar is meant for public visitors, make sure this Google Calendar remains publicly
-            shareable in Google Calendar settings.
+            Browse upcoming reflections by date. Select an event for details, or open the calendar
+            in Google Calendar for more viewing options.
           </p>
         </div>
         <Link
