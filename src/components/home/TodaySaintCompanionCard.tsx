@@ -20,7 +20,7 @@ export function TodaySaintCompanionCard({
   cardLinkClassName,
   entry,
 }: TodaySaintCompanionCardProps) {
-  const destination = entry ? `/saints/saint-of-the-day?date=${entry.dateKey}` : "/saints/saint-of-the-day";
+  const destination = "https://www.franciscanmedia.org/saint-of-the-day/";
 
   return (
     <article className={`rounded-md border p-4 ${cardClassName}`}>
@@ -31,6 +31,8 @@ export function TodaySaintCompanionCard({
       </p>
       <TrackedLink
         href={destination}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`focus-ring mt-5 inline-flex items-center justify-center rounded-md border border-gold bg-gold px-4 py-3 text-sm font-semibold text-navy transition hover:bg-gold-soft ${cardLinkClassName}`}
         eventName="saint_of_day_learn_more_click"
         eventParams={{
@@ -41,7 +43,7 @@ export function TodaySaintCompanionCard({
           date_key: entry?.dateKey,
         }}
       >
-        Learn About Today&apos;s Saint
+        Learn About Today&apos;s Saint — external site
       </TrackedLink>
     </article>
   );

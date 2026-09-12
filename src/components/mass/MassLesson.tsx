@@ -25,7 +25,7 @@ export function MassLesson({ lesson }: {
       </ul><p className="mass-small">These original teaching summaries are not liturgical texts or an official ecclesiastical publication. Follow the guidance of your parish and local bishop, particularly for posture and accessibility. Embedded biblical readings use the public-domain Douay-Rheims, Challoner revision, 1899 American Edition from eBible.org. They are study readings, not replacements for the appointed readings or approved liturgical texts at Mass.</p>
     </details>
     <MassScripture lesson={lesson} />
-    <section className="mass-heavenly-liturgy" aria-labelledby={"heavenly-" + lesson.id}>
+    {lesson.id === "prepare" ? <section className="mass-heavenly-liturgy" aria-labelledby={"heavenly-" + lesson.id}>
       <h3 id={"heavenly-" + lesson.id}>The Heavenly Liturgy: United with the Angels and Saints</h3>
       <p>At every Mass, the Church on earth joins the worship of heaven. Through Jesus Christ, our risen High Priest, and in the Holy Spirit, we offer praise to the Father with the angels, the Blessed Virgin Mary, and all the saints. We worship God with them; we do not worship them. Even a small parish congregation participates in a communion far greater than those we can see.</p>
       <p>The Preface and Sanctus make this union especially clear. Apocalypse (Revelation) 4:8–11 and 5:11–14 describe heavenly praise around God’s throne and the Lamb. At the Great Amen, we give our assent to the Eucharistic Prayer and its praise of the Father through Christ. This is participation in Christ’s one saving sacrifice, not another Crucifixion or a scene we must physically see.</p>
@@ -37,6 +37,7 @@ export function MassLesson({ lesson }: {
         <li><a href="https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_3/i_the_eucharist_source_and_summit_of_ecclesial_life.index.html">Catechism 1326: sharing in the heavenly liturgy</a></li>
         <li><a href="https://www.vatican.va/content/catechism/en/part_two/section_two/chapter_one/article_3/vii_the_eucharist_pledge_of_the_glory_to_come.index.html">Catechism 1402–1405: a foretaste of heavenly glory</a></li>
       </ul>
-    </section>
+    </section> : null}
+    {["entrance", "readings", "creed-prayer", "gifts", "consecration", "communion", "going-forth"].includes(lesson.id) ? <p className="mass-lay-link"><a href="/mass?view=guide#lay-faithful">Learn how the lay faithful participate in this moment</a></p> : null}
   </article>;
 }

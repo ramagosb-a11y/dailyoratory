@@ -132,7 +132,7 @@ export function MassJourneyShell({ steps, chapters, lessons, guide }: {
     function go(id?: string, view?: "guide") {
         dialog.current?.close();
         const url = view ? "/mass?view=guide" : id ? "/mass?step=" + id : "/mass";
-        pendingFocus.current = view ? "mass-guide-heading" : id ? "lesson-" + id : "mass-welcome-heading";
+        pendingFocus.current = view ? "mass-guide-heading" : id ? "mass-step-start" : "mass-welcome-heading";
         window.history.pushState(null, "", url);
         if (id)
             save({ lastStep: id });
@@ -170,7 +170,7 @@ export function MassJourneyShell({ steps, chapters, lessons, guide }: {
       <label className="mass-selector">Choose a moment<select value={step?.id ?? ""} onChange={e => go(e.target.value || undefined)}><option value="">Journey overview</option>{chapters.map(([id, label]) => <optgroup key={id} label={label}>{steps.filter(item => item.chapter === id).map(item => <option key={item.id} value={item.id}>{steps.indexOf(item) + 1}. {item.title}</option>)}</optgroup>)}</select></label>
       <div className="mass-active" hidden={!step}>
       {step ? <>
-        <p className="mass-chapter-banner">{chapters.find(chapter => chapter[0] === step.chapter)?.[1]}</p>
+        <p id="mass-step-start" tabIndex={-1} className="mass-chapter-banner">{chapters.find(chapter => chapter[0] === step.chapter)?.[1]}</p>
         {navigation("Top")}
         <div className="mass-reading-grid">
           <figure className="mass-artwork"><Image key={step.id} src={step.artwork.src} width={step.artwork.width} height={step.artwork.height} alt={step.artwork.alt} loading="lazy"/>

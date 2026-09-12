@@ -1894,3 +1894,14 @@ a {
   .sacred-hours .btn, .sacred-progress span { transition: none; }
   .sacred-hours .sacred-nav > .btn:hover { transform: none; }
 }
+
+/* Sacred Hours: leave artwork unobscured on phone screens. */
+.sacred-artwork-frame { min-width: 0; }
+.sacred-artwork-mobile-action { display: none; }
+@media (max-width: 760px) {
+  .sacred-artwork-frame { display: grid; gap: .75rem; }
+  .sacred-hours .sacred-artwork-frame .sacred-artwork-fullscreen-button { display: none; }
+  .sacred-hours .sacred-artwork-frame .sacred-artwork:fullscreen .sacred-artwork-fullscreen-button { display: inline-flex; }
+  .sacred-artwork-mobile-action { display: block; }
+  .sacred-artwork-mobile-action .btn { width: 100%; min-height: 48px; }
+}

@@ -27,15 +27,21 @@ export function Hero() {
           <p className="mt-6 max-w-[30ch] text-base leading-8 text-stone-soft sm:max-w-2xl">
             Daily Oratory is a sanctuary for prayer, Scripture, liturgy, silence, and spiritual formation.
           </p>
-          <div className="mt-8 flex w-full max-w-[22rem] flex-col gap-3 sm:mt-10 sm:max-w-none sm:flex-row">
+          <div className="mt-8 flex w-full max-w-[22rem] flex-col gap-3 sm:mt-10 sm:max-w-5xl sm:flex-row sm:flex-wrap">
             <Link href="/morning-prayer" className="btn btn-gold focus-ring w-full sm:w-auto">
-              Begin in Prayer
+              Morning Prayer
+            </Link>
+            <Link href="/prayers/angelus" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
+              Midday Prayer — Angelus
             </Link>
             <Link href="/divine-mercy/three-pm-prayer" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
               3 pm Prayer
             </Link>
-            <Link href="/daily-examen/nightly" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
-              End in Prayer
+            <a href="/daily-examen/nightly" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
+              Daily Examen
+            </a>
+            <Link href="/night-prayer" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
+              Night Prayer
             </Link>
           </div>
         </div>

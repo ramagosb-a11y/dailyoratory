@@ -102,6 +102,9 @@ export function ExaminationCompanion() {
     return [...standardItems, ...customItems];
   }, [store.customReflections, store.noteByPromptId, store.sinDetailsByPromptId, store.statusByPromptId]);
   const lastConfessionSummary = formatLastConfession(store.lastConfessionDate);
+  const lastConfessionDateLabel = store.lastConfessionDate
+    ? new Date(`${store.lastConfessionDate}T12:00:00`).toLocaleDateString(undefined, { month: "long", day: "numeric", year: "numeric" })
+    : null;
 
   function changeGuide(guideId: CompanionGuideId) {
     updateStore((current) => ({ ...current, activeGuideId: guideId }));
@@ -235,11 +238,17 @@ export function ExaminationCompanion() {
       <header className="overflow-hidden rounded-2xl border border-gold/25 bg-navy text-ivory shadow-[0_18px_45px_rgba(2,14,30,0.3)]">
         <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
           <div className="min-w-0">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded border border-gold/40 bg-gold/15 px-3 py-1.5 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-gold-light">
-                ◷ Interval: {lastConfessionSummary}
-              </span>
-              <span className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-ivory/60">V1.0 preview</span>
+            <div className="flex flex-wrap items-stretch gap-3">
+              <div className="min-w-[14rem] rounded-xl border border-gold/70 bg-gold/20 px-4 py-3 shadow-[0_8px_22px_rgba(0,0,0,0.16)]">
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-gold-light">Last Confession</p>
+                <p className="mt-1 font-display text-2xl font-semibold leading-tight text-ivory sm:text-3xl">{lastConfessionDateLabel ?? "Not recorded"}</p>
+              </div>
+              <div className="rounded-xl border border-ivory/25 bg-ivory/10 px-4 py-3">
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-ivory/70">Time since last Confession</p>
+                <p className="mt-1 text-lg font-bold leading-tight text-ivory">{store.lastConfessionDate ? lastConfessionSummary : "Not yet recorded"}</p>
+                <p className="mt-1 text-xs leading-5 text-ivory/70">The interval is the time elapsed since the saved date.</p>
+              </div>
+              <span className="self-center text-[0.65rem] font-bold uppercase tracking-[0.16em] text-ivory/60">V1.0 preview</span>
             </div>
             <p className="font-display mt-3 border-l-2 border-gold pl-4 text-lg italic leading-8 text-ivory sm:text-xl">
               “Bless me, Father, for I have sinned. It has been {formatConfessionInterval(store.lastConfessionDate)} since my last confession.”

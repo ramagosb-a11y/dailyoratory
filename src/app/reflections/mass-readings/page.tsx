@@ -60,9 +60,7 @@ export default async function MassReadingsReflectionsPage() {
           reflections={allReflections}
           initialReferenceDate={initialReferenceDate}
         />
-
-
-
+        <ExternalReflectionResources />
         <ReflectionBackLink />
         <ReflectionAnchor id="find-reflection" />
         <section className="mt-14">
@@ -155,7 +153,6 @@ export default async function MassReadingsReflectionsPage() {
           </div>
         </section>
 
-        <ExternalReflectionResources />
         <div className="mt-10">
           <DailyReturnPrompt
             eyebrow="Reading habit"

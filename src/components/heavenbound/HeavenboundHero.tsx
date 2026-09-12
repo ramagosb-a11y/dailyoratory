@@ -12,8 +12,8 @@ export function HeavenboundHero() {
           Choose a Catholic spiritual path for today and continue the journey with the Heavenbound guide.
         </p>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a href="#choose-path" className="btn btn-gold focus-ring justify-center">
-            Choose a Path
+          <a href="https://notebook.google.com/notebook/24faf824-e6ff-4a7c-b7f8-fd1d51ee32f0?authuser=1" target="_blank" rel="noopener noreferrer" className="btn btn-gold focus-ring justify-center">
+            NotebookLM Library — external site
           </a>
           <OpenHeavenboundButton className="btn btn-outline-inverse focus-ring justify-center" />
         </div>

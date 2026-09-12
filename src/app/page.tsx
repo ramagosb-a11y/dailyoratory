@@ -91,7 +91,7 @@ export default function Home() {
                 <p className="daily-card-readable mt-3 text-sm leading-7 text-muted">{card.description}</p>
                 <div className="mt-5">
                   <Link href={card.href} aria-label={`Explore ${card.title}${card.href.startsWith("https://") ? " (external website)" : ""}`} className="btn btn-secondary focus-ring daily-button-readable min-h-12 justify-center">
-                    Explore{card.href.startsWith("https://") ? " ↗" : ""}
+                    {card.href.startsWith("https://") ? "Explore external site" : "Explore"}
                   </Link>
                 </div>
               </article>

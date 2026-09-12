@@ -412,7 +412,7 @@ const artworkDescriptions = [
 export const massJourneySteps: MassJourneyStep[] = massJourney.map((lesson, i) => ({
     ...lesson,
     scripture: scripturePlan.filter(p => p.step === lesson.id).map(p => ({ passageId: p.id, connection: p.connection })),
-    artwork: { src: "/images/mass/journey/" + lesson.id + ".webp", alt: artworkDescriptions[i], width: 1536, height: 1024, caption: "AI-generated illustrative scene. Church arrangements, vestments, and local customs vary." },
+    artwork: { src: lesson.id === "gloria" ? "/images/mass/journey/gloria-facing-altar.webp" : "/images/mass/journey/" + lesson.id + ".webp", alt: lesson.id === "gloria" ? "A diverse congregation stands facing the altar and sings the Gloria during Mass." : artworkDescriptions[i], width: 1536, height: 1024, caption: "AI-generated illustrative scene. Church arrangements, vestments, and local customs vary." },
     sources: [
         { label: "General Instruction of the Roman Missal, " + lesson.girm, href: "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20030317_ordinamento-messale_en.html" },
         { label: "USCCB: Order of Mass", href: "https://www.usccb.org/prayer-and-worship/the-mass/order-of-mass" },

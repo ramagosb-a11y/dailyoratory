@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { OpenHeavenboundButton } from "@/components/heavenbound/OpenHeavenboundButton";
 
 export function HomeHeavenboundSpotlight() {
   return (
@@ -15,12 +15,18 @@ export function HomeHeavenboundSpotlight() {
           </p>
 
           <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/tools/heavenbound"
+            <OpenHeavenboundButton
               className="focus-ring inline-flex min-h-12 items-center justify-center rounded-md border border-gold bg-gold px-5 py-3 text-sm font-semibold text-navy transition hover:bg-gold-soft"
+              label="Open Heavenbound"
+            />
+            <a
+              href="https://notebook.google.com/notebook/24faf824-e6ff-4a7c-b7f8-fd1d51ee32f0?authuser=1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="focus-ring inline-flex min-h-12 items-center justify-center rounded-md border border-gold/70 bg-transparent px-5 py-3 text-sm font-semibold text-ivory transition hover:border-gold hover:bg-navy/20"
             >
-              Open Heavenbound
-            </Link>
+              NotebookLM Library
+            </a>
           </div>
         </div>
       </div>

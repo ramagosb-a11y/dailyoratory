@@ -55,13 +55,12 @@ export const companionNavigation: Array<{
   id: CompanionSection;
   label: string;
   shortLabel: string;
-  icon: string;
 }> = [
-  { id: "meditation", label: "Meditation", shortLabel: "Meditation", icon: "✦" },
-  { id: "scripture", label: "Guided Scripture", shortLabel: "Scripture", icon: "▤" },
-  { id: "prayers", label: "Prayers & Hymns", shortLabel: "Prayers", icon: "♩" },
-  { id: "silence", label: "Holy Hour Guide", shortLabel: "Holy Hour", icon: "✦" },
-  { id: "catechism", label: "Catechism Guide", shortLabel: "CCC Guide", icon: "▣" },
+  { id: "meditation", label: "Meditation", shortLabel: "Meditation" },
+  { id: "scripture", label: "Guided Scripture", shortLabel: "Scripture" },
+  { id: "prayers", label: "Prayers & Hymns", shortLabel: "Prayers" },
+  { id: "silence", label: "Holy Hour Guide", shortLabel: "Holy Hour" },
+  { id: "catechism", label: "Catechism Guide", shortLabel: "CCC Guide" },
 ];
 
 export const meditationParts: MeditationPart[] = [

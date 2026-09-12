@@ -7,6 +7,7 @@ import type { MassReadingsReflection } from "@/types/massReadingsReflections";
 export function TodayMassReflectionFull({ reflection, manuscript = false }: { reflection: MassReadingsReflection; manuscript?: boolean }) {
   return (
     <section className="card-parchment mt-5 p-6 sm:p-8" data-manuscript={manuscript || undefined}>
+      {manuscript ? <div className="manuscript-reading-rail" aria-hidden="true"><span /></div> : null}
       <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Full reflection</p>
       <div className="mt-4 flex flex-wrap gap-2">
         <MassReflectionTypeBadge type={reflection.reflectionType} />

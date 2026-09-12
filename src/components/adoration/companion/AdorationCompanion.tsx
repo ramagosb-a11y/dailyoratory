@@ -172,10 +172,9 @@ export function AdorationCompanion() {
 
       <div className={styles.externalLinks}>
         <a href={USCCB_MASS_READINGS_URL} target="_blank" rel="noreferrer">
-          <span aria-hidden="true">↗</span>
           <span className={styles.longLabel}>Today&apos;s Mass Readings</span>
           <span className={styles.shortLabel}>Mass Readings</span>
-          <span className={styles.externalBadge}>USCCB</span>
+          <span className={styles.externalBadge}>USCCB · external site</span>
           <span className="sr-only"> (opens the USCCB website in a new tab)</span>
         </a>
       </div>

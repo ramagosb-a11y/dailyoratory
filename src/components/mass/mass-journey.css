@@ -52,6 +52,8 @@ body:has(.mass-experience) .site-header .invisible{right:0;left:auto}
 .mass-journey-ui .mass-chapter-banner{font-family:var(--font-cormorant),Georgia,serif;font-size:clamp(1.625rem,3vw,2.125rem);font-weight:600;line-height:1.2;color:#efd3a0;background:linear-gradient(100deg,#8e6d2b26,transparent 75%),#152b3c;border:1px solid #b99a6180;border-left:5px solid var(--mass-gold);border-radius:3px;padding:18px 24px;margin:0 0 4px;overflow-wrap:anywhere}
 .mass-journey-ui .mass-lesson-title{font-size:clamp(2.125rem,3.4vw,3rem);line-height:1.12;letter-spacing:-.015em;background:#1a3041;border:1px solid #b99a6155;border-radius:4px;padding:24px;margin:0 0 28px;overflow-wrap:anywhere}
 .mass-lesson-title::after{content:"";display:block;width:64px;height:3px;background:var(--mass-gold);margin-top:20px}
+.mass-lay-link{margin-top:30px!important;padding:16px 18px!important;border-left:3px solid var(--mass-gold);background:#142a3b;color:#dce6e6}
+.mass-lay-link a{font-weight:650}
 .mass-scripture{background:#122535;border:1px solid #b99a6170;border-radius:4px;padding:clamp(18px,2vw,28px)}
 .mass-lesson details + .mass-scripture{margin-top:30px}
 .mass-heavenly-liturgy{border-top:3px solid var(--mass-gold);background:#152b3c;padding:clamp(18px,2vw,28px);border-radius:4px}
