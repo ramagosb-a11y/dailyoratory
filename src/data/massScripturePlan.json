@@ -1,0 +1,290 @@
+[
+  {
+    "step": "prepare",
+    "reference": "Psalm 83 (84):2–5",
+    "book": "PSA",
+    "chapter": 83,
+    "range": "2-5",
+    "connection": "The psalmist longs for God's dwelling. Before Mass, let that longing shape your attention: you are coming to worship, not to watch a performance. Psalm 83 follows Douay-Rheims numbering; it is Psalm 84 in many modern Bibles.",
+    "id": "psa-83-2-5"
+  },
+  {
+    "step": "entrance",
+    "reference": "Matthew 18:19–20",
+    "book": "MAT",
+    "chapter": 18,
+    "range": "19-20",
+    "connection": "Christ promises His presence to those gathered in His name. The opening rites form us into a praying assembly; His presence in the gathered Church is distinct from His substantial presence in the Eucharist.",
+    "id": "mat-18-19-20"
+  },
+  {
+    "step": "entrance",
+    "reference": "Apocalypse (Revelation) 7:9–12",
+    "book": "REV",
+    "chapter": 7,
+    "range": "9-12",
+    "connection": "The multitude from every nation helps us see the Church's universal calling. Our worship joins the praise of heaven; John's vision is not a literal description of the church building or a set of liturgical rubrics.",
+    "id": "rev-7-9-12"
+  },
+  {
+    "step": "penitential",
+    "reference": "1 John 1:8–9",
+    "book": "1JN",
+    "chapter": 1,
+    "range": "8-9",
+    "connection": "Acknowledging sin opens us to God's mercy. The Penitential Act is a truthful beginning to worship, not a substitute for sacramental confession when that is required.",
+    "id": "1jn-1-8-9"
+  },
+  {
+    "step": "gloria",
+    "reference": "Luke 2:13–14",
+    "book": "LUK",
+    "chapter": 2,
+    "range": "13-14",
+    "connection": "The angels' praise at Christ's birth echoes in the Gloria. We praise God for who He is and for His saving gift, rather than making every prayer a request.",
+    "id": "luk-2-13-14"
+  },
+  {
+    "step": "gloria",
+    "reference": "Apocalypse (Revelation) 19:4–6",
+    "book": "REV",
+    "chapter": 19,
+    "range": "4-6",
+    "connection": "Heaven's praise widens our own thanksgiving. The Gloria belongs to the Church's appointed celebrations; it is omitted in certain seasons and on many weekdays.",
+    "id": "rev-19-4-6"
+  },
+  {
+    "step": "collect",
+    "reference": "1 John 5:14–15",
+    "book": "1JN",
+    "chapter": 5,
+    "range": "14-15",
+    "connection": "Christian prayer trusts the Father's will. During the silence before the Collect, offer your needs; then unite yourself to the prayer spoken by the priest.",
+    "id": "1jn-5-14-15"
+  },
+  {
+    "step": "collect",
+    "reference": "Apocalypse (Revelation) 8:3–4",
+    "book": "REV",
+    "chapter": 8,
+    "range": "3-4",
+    "connection": "The image of incense with the saints' prayers expresses prayer offered before God. It illuminates the Church's worship without requiring incense at every Mass.",
+    "id": "rev-8-3-4"
+  },
+  {
+    "step": "readings",
+    "reference": "Hebrews 4:12–13",
+    "book": "HEB",
+    "chapter": 4,
+    "range": "12-13",
+    "connection": "God's word searches and awakens the heart. Listen to the readings as a living summons to conversion, not merely as information about the past.",
+    "id": "heb-4-12-13"
+  },
+  {
+    "step": "acclamation",
+    "reference": "2 Timothy 3:14–17",
+    "book": "2TI",
+    "chapter": 3,
+    "range": "14-17",
+    "connection": "Inspired Scripture forms us for faithful living. The apostolic readings teach and encourage the Church, and the Gospel Acclamation prepares us to welcome Christ speaking in the Gospel.",
+    "id": "2ti-3-14-17"
+  },
+  {
+    "step": "gospel",
+    "reference": "John 1:1–5, 14",
+    "book": "JHN",
+    "chapter": 1,
+    "range": "1-5,14",
+    "connection": "The eternal Word became flesh. Standing for the Gospel honors Christ whom the Gospel proclaims; reverence for the book directs us toward the living Lord.",
+    "id": "jhn-1-1-5_14"
+  },
+  {
+    "step": "homily",
+    "reference": "Luke 24:27–32",
+    "book": "LUK",
+    "chapter": 24,
+    "range": "27-32",
+    "connection": "Jesus opens the Scriptures to His disciples and turns their hearts toward recognition. The homily helps us understand the proclaimed word and live it within the mystery being celebrated.",
+    "id": "luk-24-27-32"
+  },
+  {
+    "step": "creed-intercessions",
+    "reference": "Ephesians 4:4–6",
+    "book": "EPH",
+    "chapter": 4,
+    "range": "4-6",
+    "connection": "The Creed voices the faith shared by the Church. Our profession is more than a private opinion: it joins us to one Lord and one baptism.",
+    "id": "eph-4-4-6"
+  },
+  {
+    "step": "creed-intercessions",
+    "reference": "1 Timothy 2:1–4",
+    "book": "1TI",
+    "chapter": 2,
+    "range": "1-4",
+    "connection": "The Church prays beyond her own immediate needs. The Universal Prayer brings the world, its leaders, the suffering, and the community before God's saving mercy.",
+    "id": "1ti-2-1-4"
+  },
+  {
+    "step": "gifts",
+    "reference": "Romans 12:1–2",
+    "book": "ROM",
+    "chapter": 12,
+    "range": "1-2",
+    "connection": "As bread and wine are brought forward, offer your life with them. Daily work, service, and freely chosen sacrifices can become a response to God's mercy, united to Christ's offering.",
+    "id": "rom-12-1-2"
+  },
+  {
+    "step": "preface",
+    "reference": "Isaiah 6:1–3",
+    "book": "ISA",
+    "chapter": 6,
+    "range": "1-3",
+    "connection": "Isaiah's vision reveals God's holiness. The Sanctus joins earthly voices to heavenly praise as the Church enters the Eucharistic Prayer.",
+    "id": "isa-6-1-3"
+  },
+  {
+    "step": "preface",
+    "reference": "Apocalypse (Revelation) 4:8–11",
+    "book": "REV",
+    "chapter": 4,
+    "range": "8-11",
+    "connection": "Heaven worships the Creator without ceasing. The Preface and Sanctus draw our thanksgiving into that praise; the vision illuminates worship rather than prescribing separate ceremonies.",
+    "id": "rev-4-8-11"
+  },
+  {
+    "step": "epiclesis",
+    "reference": "John 14:16–17, 26",
+    "book": "JHN",
+    "chapter": 14,
+    "range": "16-17,26",
+    "connection": "Jesus promises the Holy Spirit, who teaches and abides with His disciples. In the epiclesis the Church invokes the Spirit over the gifts and for the unity of those who receive; these verses illuminate that prayer rather than quote its liturgical text.",
+    "id": "jhn-14-16-17_26"
+  },
+  {
+    "step": "consecration",
+    "reference": "1 Corinthians 11:23–26",
+    "book": "1CO",
+    "chapter": 11,
+    "range": "23-26",
+    "connection": "Paul hands on the Lord's institution of the Eucharist. Within the one Eucharistic Prayer, Christ's sacrifice is made sacramentally present: He is not crucified again. This biblical account is distinct from the approved words of the Roman Missal.",
+    "id": "1co-11-23-26"
+  },
+  {
+    "step": "consecration",
+    "reference": "Ephesians 5:25–32",
+    "book": "EPH",
+    "chapter": 5,
+    "range": "25-32",
+    "connection": "Christ the Bridegroom gives Himself for the Church, His Bride. His covenant love helps us understand the Eucharistic gift of Himself. Each Mass does not create a new marriage: it makes present His one saving sacrifice and nourishes the Church's enduring union with Him.",
+    "id": "eph-5-25-32"
+  },
+  {
+    "step": "memorial",
+    "reference": "Hebrews 9:24–28",
+    "book": "HEB",
+    "chapter": 9,
+    "range": "24-28",
+    "connection": "Christ's offering is once for all. The Church's memorial is not a new sacrifice alongside Calvary, but sacramental participation in that same saving offering as we await His return.",
+    "id": "heb-9-24-28"
+  },
+  {
+    "step": "great-amen",
+    "reference": "Apocalypse (Revelation) 5:11–14",
+    "book": "REV",
+    "chapter": 5,
+    "range": "11-14",
+    "connection": "All creation praises the Lamb. The Great Amen is the assembly's assent to the Eucharistic Prayer and its praise of the Father, through Christ, in the Holy Spirit.",
+    "id": "rev-5-11-14"
+  },
+  {
+    "step": "our-father",
+    "reference": "Matthew 6:9–13",
+    "book": "MAT",
+    "chapter": 6,
+    "range": "9-13",
+    "connection": "Jesus teaches His disciples to pray as children of the Father, asking for bread, forgiveness, and deliverance. This is the Douay-Rheims biblical text, not a replacement for the approved wording, embolism, or doxology used at Mass.",
+    "id": "mat-6-9-13"
+  },
+  {
+    "step": "peace",
+    "reference": "John 20:19–23",
+    "book": "JHN",
+    "chapter": 20,
+    "range": "19-23",
+    "connection": "The risen Lord gives peace and sends His disciples. The Sign of Peace expresses ecclesial communion and charity, not simply a social greeting or a pause in worship.",
+    "id": "jhn-20-19-23"
+  },
+  {
+    "step": "lamb-of-god",
+    "reference": "John 1:29–34",
+    "book": "JHN",
+    "chapter": 1,
+    "range": "29-34",
+    "connection": "John the Baptist points away from himself toward Jesus, the Lamb of God. The liturgical invocation and invitation direct our attention to the same Savior who takes away sin.",
+    "id": "jhn-1-29-34"
+  },
+  {
+    "step": "lamb-of-god",
+    "reference": "Apocalypse (Revelation) 19:6–9",
+    "book": "REV",
+    "chapter": 19,
+    "range": "6-9",
+    "connection": "The marriage supper of the Lamb reveals the fulfillment of Christ's covenant with His Bride, the Church. The Eucharist is a foretaste of that heavenly feast, not a new marriage at each celebration. The invitation calls for grateful faith and the Church's preparation for receiving Communion.",
+    "id": "rev-19-6-9"
+  },
+  {
+    "step": "communion",
+    "reference": "John 6:54–59",
+    "book": "JHN",
+    "chapter": 6,
+    "range": "54-59",
+    "connection": "Jesus promises life through communion with Him. Receiving His Body and Blood deepens our union with Christ and His Church, His Bride, and anticipates the heavenly banquet. This does not remove the Church's conditions for reception; those not receiving can remain in prayer. Verse numbers here follow Douay-Rheims.",
+    "id": "jhn-6-54-59"
+  },
+  {
+    "step": "communion-silence",
+    "reference": "John 15:4–11",
+    "book": "JHN",
+    "chapter": 15,
+    "range": "4-11",
+    "connection": "Christ invites His disciples to abide in Him and bear fruit in love. Silence after Communion gives space for thanksgiving and for the grace received to shape our choices.",
+    "id": "jhn-15-4-11"
+  },
+  {
+    "step": "blessing",
+    "reference": "Numbers 6:22–27",
+    "book": "NUM",
+    "chapter": 6,
+    "range": "22-27",
+    "connection": "God's blessing places His people under His gracious care. This ancient priestly blessing helps us receive the concluding blessing with trust; it is not necessarily the formula used at this Mass.",
+    "id": "num-6-22-27"
+  },
+  {
+    "step": "going-forth",
+    "reference": "Matthew 28:18–20",
+    "book": "MAT",
+    "chapter": 28,
+    "range": "18-20",
+    "connection": "The risen Christ sends His disciples to make disciples of all nations. Dismissal sends us into daily life as witnesses; worship bears fruit in service, mercy, and faithful proclamation.",
+    "id": "mat-28-18-20"
+  },
+  {
+    "step": "thanksgiving",
+    "reference": "Apocalypse (Revelation) 21:1–4",
+    "book": "REV",
+    "chapter": 21,
+    "range": "1-4",
+    "connection": "The holy city appears as a bride prepared for her husband: God's dwelling with His people reaches its fulfillment. Thanksgiving after Mass looks toward that promised communion, while the Eucharist sustains the Church on her pilgrimage.",
+    "id": "rev-21-1-4"
+  },
+  {
+    "step": "thanksgiving",
+    "reference": "Apocalypse (Revelation) 22:17, 20–21",
+    "book": "REV",
+    "chapter": 22,
+    "range": "17,20-21",
+    "connection": "The Spirit and the Bride long for the Lord's coming. The Church's Eucharistic hope becomes a way of living: receive grace, practice charity, and await Christ with trust rather than treating Mass as an isolated event.",
+    "id": "rev-22-17_20-21"
+  }
+]

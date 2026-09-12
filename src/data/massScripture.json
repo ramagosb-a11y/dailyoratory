@@ -1,0 +1,1004 @@
+{
+  "edition": "Douay-Rheims · Challoner revision · 1899 American Edition",
+  "source": "eBible.org engDRA",
+  "editionUrl": "https://ebible.org/engDRA/copyright.htm",
+  "passages": {
+    "psa-83-2-5": {
+      "id": "psa-83-2-5",
+      "reference": "Psalm 83 (84):2–5",
+      "book": "PSA",
+      "chapter": 83,
+      "verseNumbers": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "verses": [
+        {
+          "number": 2,
+          "text": "How lovely are thy tabernacles, O Lord of host!"
+        },
+        {
+          "number": 3,
+          "text": "My soul longeth and fainteth for the courts of the Lord. My heart and my flesh have rejoiced in the living God."
+        },
+        {
+          "number": 4,
+          "text": "For the sparrow hath found herself a house, and the turtle a nest for herself where she may lay her young ones: Thy altars, O Lord of hosts, my king and my God."
+        },
+        {
+          "number": 5,
+          "text": "Blessed are they that dwell in thy house, O Lord: they shall praise thee for ever and ever."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/PSA083.htm#V2"
+    },
+    "mat-18-19-20": {
+      "id": "mat-18-19-20",
+      "reference": "Matthew 18:19–20",
+      "book": "MAT",
+      "chapter": 18,
+      "verseNumbers": [
+        19,
+        20
+      ],
+      "verses": [
+        {
+          "number": 19,
+          "text": "Again I say to you, that if two of you shall consent upon earth, concerning any thing whatsoever they shall ask, it shall be done to them by my Father who is in heaven."
+        },
+        {
+          "number": 20,
+          "text": "For where there are two or three gathered together in my name, there am I in the midst of them."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/MAT18.htm#V19"
+    },
+    "rev-7-9-12": {
+      "id": "rev-7-9-12",
+      "reference": "Apocalypse (Revelation) 7:9–12",
+      "book": "REV",
+      "chapter": 7,
+      "verseNumbers": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "verses": [
+        {
+          "number": 9,
+          "text": "After this I saw a great multitude, which no man could number, of all nations, and tribes, and peoples, and tongues, standing before the throne, and in sight of the Lamb, clothed with white robes, and palms in their hands:"
+        },
+        {
+          "number": 10,
+          "text": "And they cried with a loud voice, saying: Salvation to our God, who sitteth upon the throne, and to the Lamb."
+        },
+        {
+          "number": 11,
+          "text": "And all the angels stood round about the throne, and the ancients, and the four living creatures; and they fell down before the throne upon their faces, and adored God,"
+        },
+        {
+          "number": 12,
+          "text": "Saying: Amen. Benediction, and glory, and wisdom, and thanksgiving, honour, and power, and strength to our God for ever and ever. Amen."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV07.htm#V9"
+    },
+    "1jn-1-8-9": {
+      "id": "1jn-1-8-9",
+      "reference": "1 John 1:8–9",
+      "book": "1JN",
+      "chapter": 1,
+      "verseNumbers": [
+        8,
+        9
+      ],
+      "verses": [
+        {
+          "number": 8,
+          "text": "If we say that we have no sin, we deceive ourselves, and the truth is not in us."
+        },
+        {
+          "number": 9,
+          "text": "If we confess our sins, he is faithful and just, to forgive us our sins, and to cleanse us from all iniquity."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/1JN01.htm#V8"
+    },
+    "luk-2-13-14": {
+      "id": "luk-2-13-14",
+      "reference": "Luke 2:13–14",
+      "book": "LUK",
+      "chapter": 2,
+      "verseNumbers": [
+        13,
+        14
+      ],
+      "verses": [
+        {
+          "number": 13,
+          "text": "And suddenly there was with the angel a multitude of the heavenly army, praising God, and saying:"
+        },
+        {
+          "number": 14,
+          "text": "Glory to God in the highest; and on earth peace to men of good will."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/LUK02.htm#V13"
+    },
+    "rev-19-4-6": {
+      "id": "rev-19-4-6",
+      "reference": "Apocalypse (Revelation) 19:4–6",
+      "book": "REV",
+      "chapter": 19,
+      "verseNumbers": [
+        4,
+        5,
+        6
+      ],
+      "verses": [
+        {
+          "number": 4,
+          "text": "And the four and twenty ancients, and the four living creatures fell down and adored God that sitteth upon the throne, saying: Amen; Alleluia."
+        },
+        {
+          "number": 5,
+          "text": "And a voice came out from the throne, saying: Give praise to our God, all ye his servants; and you that fear him, little and great."
+        },
+        {
+          "number": 6,
+          "text": "And I heard as it were the voice of a great multitude, and as the voice of many waters, and as the voice of great thunders, saying, Alleluia: for the Lord our God the Almighty hath reigned."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV19.htm#V4"
+    },
+    "1jn-5-14-15": {
+      "id": "1jn-5-14-15",
+      "reference": "1 John 5:14–15",
+      "book": "1JN",
+      "chapter": 5,
+      "verseNumbers": [
+        14,
+        15
+      ],
+      "verses": [
+        {
+          "number": 14,
+          "text": "And this is the confidence which we have towards him: That, whatsoever we shall ask according to his will, he heareth us."
+        },
+        {
+          "number": 15,
+          "text": "And we know that he heareth us whatsoever we ask: we know that we have the petitions which we request of him."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/1JN05.htm#V14"
+    },
+    "rev-8-3-4": {
+      "id": "rev-8-3-4",
+      "reference": "Apocalypse (Revelation) 8:3–4",
+      "book": "REV",
+      "chapter": 8,
+      "verseNumbers": [
+        3,
+        4
+      ],
+      "verses": [
+        {
+          "number": 3,
+          "text": "And another angel came, and stood before the altar, having a golden censer; and there was given to him much incense, that he should offer of the prayers of all saints upon the golden altar, which is before the throne of God."
+        },
+        {
+          "number": 4,
+          "text": "And the smoke of the incense of the prayers of the saints ascended up before God from the hand of the angel."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV08.htm#V3"
+    },
+    "heb-4-12-13": {
+      "id": "heb-4-12-13",
+      "reference": "Hebrews 4:12–13",
+      "book": "HEB",
+      "chapter": 4,
+      "verseNumbers": [
+        12,
+        13
+      ],
+      "verses": [
+        {
+          "number": 12,
+          "text": "For the word of God is living and effectual, and more piercing than any two edged sword; and reaching unto the division of the soul and the spirit, of the joints also and the marrow, and is a discerner of the thoughts and intents of the heart."
+        },
+        {
+          "number": 13,
+          "text": "Neither is there any creature invisible in his sight: but all things are naked and open to his eyes, to whom our speech is."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/HEB04.htm#V12"
+    },
+    "2ti-3-14-17": {
+      "id": "2ti-3-14-17",
+      "reference": "2 Timothy 3:14–17",
+      "book": "2TI",
+      "chapter": 3,
+      "verseNumbers": [
+        14,
+        15,
+        16,
+        17
+      ],
+      "verses": [
+        {
+          "number": 14,
+          "text": "But continue thou in those things which thou hast learned, and which have been committed to thee: knowing of whom thou hast learned them;"
+        },
+        {
+          "number": 15,
+          "text": "And because from thy infancy thou hast known the holy scriptures, which can instruct thee to salvation, by the faith which is in Christ Jesus."
+        },
+        {
+          "number": 16,
+          "text": "All scripture, inspired of God, is profitable to teach, to reprove, to correct, to instruct in justice,"
+        },
+        {
+          "number": 17,
+          "text": "That the man of God may be perfect, furnished to every good work."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/2TI03.htm#V14"
+    },
+    "jhn-1-1-5_14": {
+      "id": "jhn-1-1-5_14",
+      "reference": "John 1:1–5, 14",
+      "book": "JHN",
+      "chapter": 1,
+      "verseNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        14
+      ],
+      "verses": [
+        {
+          "number": 1,
+          "text": "In the beginning was the Word, and the Word was with God, and the Word was God."
+        },
+        {
+          "number": 2,
+          "text": "The same was in the beginning with God."
+        },
+        {
+          "number": 3,
+          "text": "All things were made by him: and without him was made nothing that was made."
+        },
+        {
+          "number": 4,
+          "text": "In him was life, and the life was the light of men."
+        },
+        {
+          "number": 5,
+          "text": "And the light shineth in darkness, and the darkness did not comprehend it."
+        },
+        {
+          "number": 14,
+          "text": "And the Word was made flesh, and dwelt among us, (and we saw his glory, the glory as it were of the only begotten of the Father,) full of grace and truth."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN01.htm#V1"
+    },
+    "luk-24-27-32": {
+      "id": "luk-24-27-32",
+      "reference": "Luke 24:27–32",
+      "book": "LUK",
+      "chapter": 24,
+      "verseNumbers": [
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "verses": [
+        {
+          "number": 27,
+          "text": "And beginning at Moses and all the prophets, he expounded to them in all the scriptures, the things that were concerning him."
+        },
+        {
+          "number": 28,
+          "text": "And they drew night to the town, whither they were going: and he made as though he would go farther."
+        },
+        {
+          "number": 29,
+          "text": "But they constrained him; saying: Stay with us, because it is towards evening, and the day is now far spent. And he went in with them."
+        },
+        {
+          "number": 30,
+          "text": "And it came to pass, whilst he was at table with them, he took bread, and blessed, and brake, and gave to them."
+        },
+        {
+          "number": 31,
+          "text": "And their eyes were opened, and they knew him: and he vanished out of their sight."
+        },
+        {
+          "number": 32,
+          "text": "And they said one to the other: Was not our heart burning within us, whilst he spoke in this way, and opened to us the scriptures?"
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/LUK24.htm#V27"
+    },
+    "eph-4-4-6": {
+      "id": "eph-4-4-6",
+      "reference": "Ephesians 4:4–6",
+      "book": "EPH",
+      "chapter": 4,
+      "verseNumbers": [
+        4,
+        5,
+        6
+      ],
+      "verses": [
+        {
+          "number": 4,
+          "text": "One body and one Spirit; as you are called in one hope of your calling."
+        },
+        {
+          "number": 5,
+          "text": "One Lord, one faith, one baptism."
+        },
+        {
+          "number": 6,
+          "text": "One God and Father of all, who is above all, and through all, and in us all."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/EPH04.htm#V4"
+    },
+    "1ti-2-1-4": {
+      "id": "1ti-2-1-4",
+      "reference": "1 Timothy 2:1–4",
+      "book": "1TI",
+      "chapter": 2,
+      "verseNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verses": [
+        {
+          "number": 1,
+          "text": "I desire therefore, first of all, that supplications, prayers, intercessions, and thanksgivings be made for all men:"
+        },
+        {
+          "number": 2,
+          "text": "For kings, and for all that are in high station: that we may lead a quiet and a peaceable life in all piety and chastity."
+        },
+        {
+          "number": 3,
+          "text": "For this is good and acceptable in the sight of God our Saviour,"
+        },
+        {
+          "number": 4,
+          "text": "Who will have all men to be saved, and to come to the knowledge of the truth."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/1TI02.htm#V1"
+    },
+    "rom-12-1-2": {
+      "id": "rom-12-1-2",
+      "reference": "Romans 12:1–2",
+      "book": "ROM",
+      "chapter": 12,
+      "verseNumbers": [
+        1,
+        2
+      ],
+      "verses": [
+        {
+          "number": 1,
+          "text": "I BESEECH you therefore, brethren, by the mercy of God, that you present your bodies a living sacrifice, holy, pleasing unto God, your reasonable service."
+        },
+        {
+          "number": 2,
+          "text": "And be not conformed to this world; but be reformed in the newness of your mind, that you may prove what is the good, and the acceptable, and the perfect will of God."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/ROM12.htm#V1"
+    },
+    "isa-6-1-3": {
+      "id": "isa-6-1-3",
+      "reference": "Isaiah 6:1–3",
+      "book": "ISA",
+      "chapter": 6,
+      "verseNumbers": [
+        1,
+        2,
+        3
+      ],
+      "verses": [
+        {
+          "number": 1,
+          "text": "In the year that king Ozias died, I saw the Lord sitting upon a throne high and elevated: and his train filled the temple."
+        },
+        {
+          "number": 2,
+          "text": "Upon it stood the seraphims: the one had six wings, and the other had six wings: with two they covered his face, and with two they covered his feet, and with two they hew."
+        },
+        {
+          "number": 3,
+          "text": "And they cried one to another, and said: Holy, holy, holy, the Lord God of hosts, all the earth is full of his glory."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/ISA06.htm#V1"
+    },
+    "rev-4-8-11": {
+      "id": "rev-4-8-11",
+      "reference": "Apocalypse (Revelation) 4:8–11",
+      "book": "REV",
+      "chapter": 4,
+      "verseNumbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "verses": [
+        {
+          "number": 8,
+          "text": "And the four living creatures had each of them six wings; and round about and within they are full of eyes. And they rested not day and night, saying: Holy, holy, holy, Lord God Almighty, who was, and who is, and who is to come."
+        },
+        {
+          "number": 9,
+          "text": "And when those living creatures gave glory, and honour, and benediction to him that sitteth on the throne, who liveth for ever and ever;"
+        },
+        {
+          "number": 10,
+          "text": "The four and twenty ancients fell down before him that sitteth on the throne, and adored him that liveth for ever and ever, and cast their crowns before the throne, saying:"
+        },
+        {
+          "number": 11,
+          "text": "Thou art worthy, O Lord our God, to receive glory, and honour, and power: because thou hast created all things; and for thy will they were, and have been created."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV04.htm#V8"
+    },
+    "jhn-14-16-17_26": {
+      "id": "jhn-14-16-17_26",
+      "reference": "John 14:16–17, 26",
+      "book": "JHN",
+      "chapter": 14,
+      "verseNumbers": [
+        16,
+        17,
+        26
+      ],
+      "verses": [
+        {
+          "number": 16,
+          "text": "And I will ask the Father, and he shall give you another Paraclete, that he may abide with you for ever."
+        },
+        {
+          "number": 17,
+          "text": "The spirit of truth, whom the world cannot receive, because it seeth him not, nor knoweth him: but you shall know him; because he shall abide with you, and shall be in you."
+        },
+        {
+          "number": 26,
+          "text": "But the Paraclete, the Holy Ghost, whom the Father will send in my name, he will teach you all things, and bring all things to your mind, whatsoever I shall have said to you."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN14.htm#V16"
+    },
+    "1co-11-23-26": {
+      "id": "1co-11-23-26",
+      "reference": "1 Corinthians 11:23–26",
+      "book": "1CO",
+      "chapter": 11,
+      "verseNumbers": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "verses": [
+        {
+          "number": 23,
+          "text": "For I have received of the Lord that which also I delivered unto you, that the Lord Jesus, the same night in which he was betrayed, took bread."
+        },
+        {
+          "number": 24,
+          "text": "And giving thanks, broke, and said: Take ye, and eat: this is my body, which shall be delivered for you: this do for the commemoration of me."
+        },
+        {
+          "number": 25,
+          "text": "In like manner also the chalice, after he had supped, saying: This chalice is the new testament in my blood: this do ye, as often as you shall drink, for the commemoration of me."
+        },
+        {
+          "number": 26,
+          "text": "For as often as you shall eat this bread, and drink the chalice, you shall shew the death of the Lord, until he come."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/1CO11.htm#V23"
+    },
+    "eph-5-25-32": {
+      "id": "eph-5-25-32",
+      "reference": "Ephesians 5:25–32",
+      "book": "EPH",
+      "chapter": 5,
+      "verseNumbers": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "verses": [
+        {
+          "number": 25,
+          "text": "Husbands, love your wives, as Christ also loved the church, and delivered himself up for it:"
+        },
+        {
+          "number": 26,
+          "text": "That he might sanctify it, cleansing it by the laver of water in the word of life:"
+        },
+        {
+          "number": 27,
+          "text": "That he might present it to himself a glorious church, not having spot or wrinkle, or any; such thing; but that it should be holy, and without blemish."
+        },
+        {
+          "number": 28,
+          "text": "So also ought men to love their wives as their own bodies. He that loveth his wife, loveth himself."
+        },
+        {
+          "number": 29,
+          "text": "For no man ever hated his own flesh; but nourisheth and cherisheth it, as also Christ doth the church:"
+        },
+        {
+          "number": 30,
+          "text": "Because we are members of his body, of his flesh, and of his bones."
+        },
+        {
+          "number": 31,
+          "text": "For this cause shall a man leave his father and mother, and shall cleave to his wife, and they shall be two in one flesh."
+        },
+        {
+          "number": 32,
+          "text": "This is a great sacrament; but I speak in Christ and in the church."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/EPH05.htm#V25"
+    },
+    "heb-9-24-28": {
+      "id": "heb-9-24-28",
+      "reference": "Hebrews 9:24–28",
+      "book": "HEB",
+      "chapter": 9,
+      "verseNumbers": [
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "verses": [
+        {
+          "number": 24,
+          "text": "For Jesus is not entered into the holies made with hands, the patterns of the true: but into heaven itself, that he may appear now in the presence of God for us."
+        },
+        {
+          "number": 25,
+          "text": "Nor yet that he should offer himself often, as the high priest entereth into the holies, every year with the blood of others:"
+        },
+        {
+          "number": 26,
+          "text": "For then he ought to have suffered often from the beginning of the world: but now once at the end of ages, he hath appeared for the destruction of sin, by the sacrifice of himself."
+        },
+        {
+          "number": 27,
+          "text": "And as it is appointed unto men once to die, and after this the judgment:"
+        },
+        {
+          "number": 28,
+          "text": "So also Christ was offered once to exhaust the sins of many; the second time he shall appear without sin to them that expect him unto salvation."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/HEB09.htm#V24"
+    },
+    "rev-5-11-14": {
+      "id": "rev-5-11-14",
+      "reference": "Apocalypse (Revelation) 5:11–14",
+      "book": "REV",
+      "chapter": 5,
+      "verseNumbers": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "verses": [
+        {
+          "number": 11,
+          "text": "And I beheld, and I heard the voice of many angels round about the throne, and the living creatures, and the ancients; and the number of them was thousands of thousands,"
+        },
+        {
+          "number": 12,
+          "text": "Saying with a loud voice: The Lamb that was slain is worthy to receive power, and divinity, and wisdom, and strength, and honour, and glory, and benediction."
+        },
+        {
+          "number": 13,
+          "text": "And every creature, which is in heaven, and on the earth, and under the earth, and such as are in the sea, and all that are in them: I heard all saying: To him that sitteth on the throne, and to the Lamb, benediction, and honour, and glory, and power, for ever and ever."
+        },
+        {
+          "number": 14,
+          "text": "And the four living creatures said: Amen. And the four and twenty ancients fell down on their faces, and adored him that liveth for ever and ever."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV05.htm#V11"
+    },
+    "mat-6-9-13": {
+      "id": "mat-6-9-13",
+      "reference": "Matthew 6:9–13",
+      "book": "MAT",
+      "chapter": 6,
+      "verseNumbers": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "verses": [
+        {
+          "number": 9,
+          "text": "Thus therefore shall you pray: Our Father who art in heaven, hallowed be thy name."
+        },
+        {
+          "number": 10,
+          "text": "Thy kingdom come. Thy will be done on earth as it is in heaven."
+        },
+        {
+          "number": 11,
+          "text": "Give us this day our supersubstantial bread."
+        },
+        {
+          "number": 12,
+          "text": "And forgive us our debts, as we also forgive our debtors."
+        },
+        {
+          "number": 13,
+          "text": "And lead us not into temptation. But deliver us from evil. Amen."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V9"
+    },
+    "jhn-20-19-23": {
+      "id": "jhn-20-19-23",
+      "reference": "John 20:19–23",
+      "book": "JHN",
+      "chapter": 20,
+      "verseNumbers": [
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "verses": [
+        {
+          "number": 19,
+          "text": "Now when it was late that same day, the first of the week, and the doors were shut, where the disciples were gathered together, for fear of the Jews, Jesus came and stood in the midst, and said to them: Peace be to you."
+        },
+        {
+          "number": 20,
+          "text": "And when he had said this, he shewed them his hands and his side. The disciples therefore were glad, when they saw the Lord."
+        },
+        {
+          "number": 21,
+          "text": "He said therefore to them again: Peace be to you. As the Father hath sent me, I also send you."
+        },
+        {
+          "number": 22,
+          "text": "When he had said this, he breathed on them; and he said to them: Receive ye the Holy Ghost."
+        },
+        {
+          "number": 23,
+          "text": "Whose sins you shall forgive, they are forgiven them; and whose sins you shall retain, they are retained."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN20.htm#V19"
+    },
+    "jhn-1-29-34": {
+      "id": "jhn-1-29-34",
+      "reference": "John 1:29–34",
+      "book": "JHN",
+      "chapter": 1,
+      "verseNumbers": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "verses": [
+        {
+          "number": 29,
+          "text": "The next day, John saw Jesus coming to him, and he saith: Behold the Lamb of God, behold him who taketh away the sin of the world."
+        },
+        {
+          "number": 30,
+          "text": "This is he, of whom I said: After me there cometh a man, who is preferred before me: because he was before me."
+        },
+        {
+          "number": 31,
+          "text": "And I knew him not, but that he may be made manifest in Israel, therefore am I come baptizing with water."
+        },
+        {
+          "number": 32,
+          "text": "And John gave testimony, saying: I saw the Spirit coming down, as a dove from heaven, and he remained upon him."
+        },
+        {
+          "number": 33,
+          "text": "And I knew him not; but he who sent me to baptize with water, said to me: He upon whom thou shalt see the Spirit descending, and remaining upon him, he it is that baptizeth with the Holy Ghost."
+        },
+        {
+          "number": 34,
+          "text": "And I saw, and I gave testimony, that this is the Son of God."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN01.htm#V29"
+    },
+    "rev-19-6-9": {
+      "id": "rev-19-6-9",
+      "reference": "Apocalypse (Revelation) 19:6–9",
+      "book": "REV",
+      "chapter": 19,
+      "verseNumbers": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "verses": [
+        {
+          "number": 6,
+          "text": "And I heard as it were the voice of a great multitude, and as the voice of many waters, and as the voice of great thunders, saying, Alleluia: for the Lord our God the Almighty hath reigned."
+        },
+        {
+          "number": 7,
+          "text": "Let us be glad and rejoice, and give glory to him; for the marriage of the Lamb is come, and his wife hath prepared herself."
+        },
+        {
+          "number": 8,
+          "text": "And it is granted to her that she should clothe herself with fine linen, glittering and white. For the fine linen are the justifications of saints."
+        },
+        {
+          "number": 9,
+          "text": "And he said to me: Write: Blessed are they that are called to the marriage supper of the Lamb. And he saith to me: These words of God are true."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV19.htm#V6"
+    },
+    "jhn-6-54-59": {
+      "id": "jhn-6-54-59",
+      "reference": "John 6:54–59",
+      "book": "JHN",
+      "chapter": 6,
+      "verseNumbers": [
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "verses": [
+        {
+          "number": 54,
+          "text": "Then Jesus said to them: Amen, amen I say unto you: Except you eat the flesh of the Son of man, and drink his blood, you shall not have life in you."
+        },
+        {
+          "number": 55,
+          "text": "He that eateth my flesh, and drinketh my blood, hath everlasting life: and I will raise him up in the last day."
+        },
+        {
+          "number": 56,
+          "text": "For my flesh is meat indeed: and my blood is drink indeed."
+        },
+        {
+          "number": 57,
+          "text": "He that eateth my flesh, and drinketh my blood, abideth in me, and I in him."
+        },
+        {
+          "number": 58,
+          "text": "As the living Father hath sent me, and I live by the Father; so he that eateth me, the same also shall live by me."
+        },
+        {
+          "number": 59,
+          "text": "This is the bread that came down from heaven. Not as your fathers did eat manna, and are dead. He that eateth this bread, shall live for ever."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN06.htm#V54"
+    },
+    "jhn-15-4-11": {
+      "id": "jhn-15-4-11",
+      "reference": "John 15:4–11",
+      "book": "JHN",
+      "chapter": 15,
+      "verseNumbers": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "verses": [
+        {
+          "number": 4,
+          "text": "Abide in me, and I in you. As the branch cannot bear fruit of itself, unless it abide in the vine, so neither can you, unless you abide in me."
+        },
+        {
+          "number": 5,
+          "text": "I am the vine: you the branches: he that abideth in me, and I in him, the same beareth much fruit: for without me you can do nothing."
+        },
+        {
+          "number": 6,
+          "text": "If any one abide not in me, he shall be cast forth as a branch, and shall wither, and they shall gather him up, and case him into the fire, and be burneth."
+        },
+        {
+          "number": 7,
+          "text": "If you abide in me, and my words abide in you, you shall ask whatever you will, and it shall be done unto you."
+        },
+        {
+          "number": 8,
+          "text": "In this is my Father glorified; that you bring forth very much fruit, and become my disciples."
+        },
+        {
+          "number": 9,
+          "text": "As the Father hath loved me, I also have loved you."
+        },
+        {
+          "number": 10,
+          "text": "If you keep my commandments, you shall abide in my love; as I also have kept my Father’s commandments, and do abide in his love."
+        },
+        {
+          "number": 11,
+          "text": "These things I have spoken to you, that my joy may be in you, and your joy may be filled."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN15.htm#V4"
+    },
+    "num-6-22-27": {
+      "id": "num-6-22-27",
+      "reference": "Numbers 6:22–27",
+      "book": "NUM",
+      "chapter": 6,
+      "verseNumbers": [
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "verses": [
+        {
+          "number": 22,
+          "text": "And the Lord spoke to Moses, saying:"
+        },
+        {
+          "number": 23,
+          "text": "Say to Aaron and his sons: Thus shall you bless the children of Israel, and you shall say to them:"
+        },
+        {
+          "number": 24,
+          "text": "The Lord bless thee, and keep thee."
+        },
+        {
+          "number": 25,
+          "text": "The Lord shew his face to thee, and have mercy on thee."
+        },
+        {
+          "number": 26,
+          "text": "The Lord turn his countenance to thee, and give thee peace."
+        },
+        {
+          "number": 27,
+          "text": "And they shall invoke my name upon the children of Israel, and I will bless them."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/NUM06.htm#V22"
+    },
+    "mat-28-18-20": {
+      "id": "mat-28-18-20",
+      "reference": "Matthew 28:18–20",
+      "book": "MAT",
+      "chapter": 28,
+      "verseNumbers": [
+        18,
+        19,
+        20
+      ],
+      "verses": [
+        {
+          "number": 18,
+          "text": "And Jesus coming, spoke to them, saying: All power is given to me in heaven and in earth."
+        },
+        {
+          "number": 19,
+          "text": "Going therefore, teach ye all nations; baptizing them in the name of the Father, and of the Son, and of the Holy Ghost."
+        },
+        {
+          "number": 20,
+          "text": "Teaching them to observe all things whatsoever I have commanded you: and behold I am with you all days, even to the consummation of the world."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/MAT28.htm#V18"
+    },
+    "rev-21-1-4": {
+      "id": "rev-21-1-4",
+      "reference": "Apocalypse (Revelation) 21:1–4",
+      "book": "REV",
+      "chapter": 21,
+      "verseNumbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "verses": [
+        {
+          "number": 1,
+          "text": "And I saw a new heaven and a new earth. For the first heaven and the first earth was gone, and the sea is now no more."
+        },
+        {
+          "number": 2,
+          "text": "And I John saw the holy city, the new Jerusalem, coming down out of heaven from God, prepared as a bride adorned for her husband."
+        },
+        {
+          "number": 3,
+          "text": "And I heard a great voice from the throne, saying: Behold the tabernacle of God with men, and he will dwell with them. And they shall be his people; and God himself with them shall be their God."
+        },
+        {
+          "number": 4,
+          "text": "And God shall wipe away all tears from their eyes: and death shall be no more, nor mourning, nor crying, nor sorrow shall be any more, for the former things are passed away."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV21.htm#V1"
+    },
+    "rev-22-17_20-21": {
+      "id": "rev-22-17_20-21",
+      "reference": "Apocalypse (Revelation) 22:17, 20–21",
+      "book": "REV",
+      "chapter": 22,
+      "verseNumbers": [
+        17,
+        20,
+        21
+      ],
+      "verses": [
+        {
+          "number": 17,
+          "text": "And the spirit and the bride say: Come. And he that heareth, let him say: Come. And he that thirsteth, let him come: and he that will, let him take the water of life, freely."
+        },
+        {
+          "number": 20,
+          "text": "He that giveth testimony of these things, saith, Surely I come quickly: Amen. Come, Lord Jesus."
+        },
+        {
+          "number": 21,
+          "text": "The grace of our Lord Jesus Christ be with you all. Amen."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV22.htm#V17"
+    }
+  }
+}
