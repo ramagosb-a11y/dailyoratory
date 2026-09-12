@@ -34,7 +34,7 @@ export function CurrentMassReflectionSection({
     return () => window.clearInterval(intervalId);
   }, [reflections]);
 
-  if (!selection?.reflection) return <section data-current-reflection><h2>No current reflection is available</h2><p>Find another reflection or browse the calendar while the next reading is prepared.</p><Link href="#find-reflection">Find a reflection</Link>{" · "}<Link href="/reflections/mass-readings/calendar">Browse calendar</Link></section>;
+  if (!selection?.reflection) return <section data-current-reflection><h2>No current reflection is available</h2><p>Browse the archive or calendar while the next reading is prepared.</p><Link href="/reflections/mass-readings/archive">Browse the archive</Link>{" · "}<Link href="/reflections/mass-readings/calendar">Browse calendar</Link></section>;
 
   return (
     <section data-current-reflection>
