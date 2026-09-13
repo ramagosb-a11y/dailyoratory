@@ -19,6 +19,7 @@
     "images:retreat": "node scripts/optimize-fasting-retreat-images.mjs",
     "images:check": "node scripts/optimize-fasting-retreat-images.mjs --check",
     "test:retreat": "node --experimental-strip-types --test scripts/fasting-retreat.test.mjs",
+    "test:companion": "node scripts/validate-adoration-companion.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

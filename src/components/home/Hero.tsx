@@ -32,7 +32,7 @@ export function Hero() {
               Morning Prayer
             </Link>
             <Link href="/prayers/angelus" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
-              Midday Prayer — Angelus
+              Midday Prayer
             </Link>
             <Link href="/divine-mercy/three-pm-prayer" className="btn btn-outline-inverse focus-ring w-full sm:w-auto">
               3 pm Prayer

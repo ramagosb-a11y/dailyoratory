@@ -6,7 +6,7 @@ import { buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structure
 
 const pagePath = "/adoration/companion";
 const pageDescription =
-  "A Catholic Adoration companion with guided meditation, a structured Holy Hour, Douay-Rheims Scripture, Eucharistic prayers and hymns, and Catechism study links.";
+  "In the Presence of Jesus is an original Daily Oratory guided Eucharistic meditation with Douay-Rheims Scripture, sacred silence, prayers, and Catholic formation.";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Adoration Companion | Daily Oratory",

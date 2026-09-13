@@ -3,12 +3,26 @@
   "source": "eBible.org engDRA",
   "byReference": {
     "Matthew 11:28–30": "mat-11-28-29-30",
-    "1 Timothy 2:1–2": "1ti-2-1-2",
-    "Philippians 4:6–7": "php-4-6-7",
-    "Psalm 33 (34):19–20": "psa-33-19-20",
-    "1 Thessalonians 5:16–18": "1th-5-16-17-18",
-    "John 14:15, 21": "jhn-14-15-21",
+    "John 15:9": "jhn-15-9",
+    "Matthew 6:6–8": "mat-6-6-7-8",
+    "Mark 2:1–5": "mrk-2-1-2-3-4-5",
+    "John 17:20–23": "jhn-17-20-21-22-23",
+    "Matthew 5:44": "mat-5-44",
     "John 15:4–5": "jhn-15-4-5",
+    "Luke 18:13–14": "luk-18-13-14",
+    "Romans 5:3–5": "rom-5-3-4-5",
+    "Matthew 26:36–39": "mat-26-36-37-38-39",
+    "Matthew 6:25–34": "mat-6-25-26-27-28-29-30-31-32-33-34",
+    "John 14:27": "jhn-14-27",
+    "Luke 17:11–19": "luk-17-11-12-13-14-15-16-17-18-19",
+    "Psalm 102 (103)": "psa-102-1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-21-22",
+    "1 Thessalonians 5:16–18": "1th-5-16-17-18",
+    "John 14:15": "jhn-14-15",
+    "Matthew 25:35–40": "mat-25-35-36-37-38-39-40",
+    "John 13:34–35": "jhn-13-34-35",
+    "John 15:9–11": "jhn-15-9-10-11",
+    "Luke 24:29": "luk-24-29",
+    "Matthew 28:20": "mat-28-20",
     "John 6:35, 48–58": "jhn-6-35-48-49-50-51-52-53-54-55-56-57-58",
     "Luke 24:28–35": "luk-24-28-29-30-31-32-33-34-35",
     "1 Corinthians 11:23–26": "1co-11-23-24-25-26",
@@ -40,13 +54,27 @@
     "Matthew 6:26": "mat-6-26"
   },
   "slots": {
-    "meditation:invitation": "mat-11-28-29-30",
-    "meditation:intercession": "1ti-2-1-2",
-    "meditation:personal-needs": "php-4-6-7",
-    "meditation:sadness-anxiety": "psa-33-19-20",
-    "meditation:thanksgiving": "1th-5-16-17-18",
-    "meditation:resolutions": "jhn-14-15-21",
-    "meditation:departure": "jhn-15-4-5",
+    "meditation:invitation:0": "mat-11-28-29-30",
+    "meditation:invitation:1": "jhn-15-9",
+    "meditation:invitation:2": "mat-6-6-7-8",
+    "meditation:intercession:0": "mrk-2-1-2-3-4-5",
+    "meditation:intercession:1": "jhn-17-20-21-22-23",
+    "meditation:intercession:2": "mat-5-44",
+    "meditation:personal-needs:0": "jhn-15-4-5",
+    "meditation:personal-needs:1": "luk-18-13-14",
+    "meditation:personal-needs:2": "rom-5-3-4-5",
+    "meditation:sadness-anxiety:0": "mat-26-36-37-38-39",
+    "meditation:sadness-anxiety:1": "mat-6-25-26-27-28-29-30-31-32-33-34",
+    "meditation:sadness-anxiety:2": "jhn-14-27",
+    "meditation:thanksgiving:0": "luk-17-11-12-13-14-15-16-17-18-19",
+    "meditation:thanksgiving:1": "psa-102-1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-21-22",
+    "meditation:thanksgiving:2": "1th-5-16-17-18",
+    "meditation:resolutions:0": "jhn-14-15",
+    "meditation:resolutions:1": "mat-25-35-36-37-38-39-40",
+    "meditation:resolutions:2": "jhn-13-34-35",
+    "meditation:departure:0": "jhn-15-9-10-11",
+    "meditation:departure:1": "luk-24-29",
+    "meditation:departure:2": "mat-28-20",
     "reading:john-6": "jhn-6-35-48-49-50-51-52-53-54-55-56-57-58",
     "reading:luke-24": "luk-24-28-29-30-31-32-33-34-35",
     "reading:first-corinthians-11": "1co-11-23-24-25-26",
@@ -104,68 +132,483 @@
       ],
       "sourceUrl": "https://ebible.org/engDRA/MAT11.htm#V28"
     },
-    "1ti-2-1-2": {
-      "id": "1ti-2-1-2",
-      "reference": "1 Timothy 2:1–2",
-      "book": "1TI",
-      "chapter": 2,
+    "jhn-15-9": {
+      "id": "jhn-15-9",
+      "reference": "John 15:9",
+      "book": "JHN",
+      "chapter": 15,
       "verseNumbers": [
-        1,
-        2
+        9
       ],
       "verses": [
         {
-          "number": 1,
-          "text": "I desire therefore, first of all, that supplications, prayers, intercessions, and thanksgivings be made for all men:"
-        },
-        {
-          "number": 2,
-          "text": "For kings, and for all that are in high station: that we may lead a quiet and a peaceable life in all piety and chastity."
+          "number": 9,
+          "text": "As the Father hath loved me, I also have loved you."
         }
       ],
-      "sourceUrl": "https://ebible.org/engDRA/1TI02.htm#V1"
+      "sourceUrl": "https://ebible.org/engDRA/JHN15.htm#V9"
     },
-    "php-4-6-7": {
-      "id": "php-4-6-7",
-      "reference": "Philippians 4:6–7",
-      "book": "PHP",
-      "chapter": 4,
+    "mat-6-6-7-8": {
+      "id": "mat-6-6-7-8",
+      "reference": "Matthew 6:6–8",
+      "book": "MAT",
+      "chapter": 6,
       "verseNumbers": [
         6,
-        7
+        7,
+        8
       ],
       "verses": [
         {
           "number": 6,
-          "text": "Be nothing solicitous; but in every thing, by prayer and supplication, with thanksgiving, let your petitions be made known to God."
+          "text": "But thou when thou shalt pray, enter into thy chamber, and having shut the door, pray to thy Father in secret: and thy Father who seeth in secret will repay thee."
         },
         {
           "number": 7,
-          "text": "And the peace of God, which surpasseth all understanding, keep your hearts and minds in Christ Jesus."
+          "text": "And when you are praying, speak not much, as the heathens. For they think that in their much speaking they may be heard."
+        },
+        {
+          "number": 8,
+          "text": "Be not you therefore like to them, for your Father knoweth what is needful for you, before you ask him."
         }
       ],
-      "sourceUrl": "https://ebible.org/engDRA/PHP04.htm#V6"
+      "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V6"
     },
-    "psa-33-19-20": {
-      "id": "psa-33-19-20",
-      "reference": "Psalm 33 (34):19–20",
-      "book": "PSA",
-      "chapter": 33,
+    "mrk-2-1-2-3-4-5": {
+      "id": "mrk-2-1-2-3-4-5",
+      "reference": "Mark 2:1–5",
+      "book": "MRK",
+      "chapter": 2,
       "verseNumbers": [
-        19,
-        20
+        1,
+        2,
+        3,
+        4,
+        5
       ],
       "verses": [
         {
+          "number": 1,
+          "text": "And again he entered into Capharnaum after some days."
+        },
+        {
+          "number": 2,
+          "text": "And it was heard that he was in the house, and many came together, so that there was no room; no, not even at the door; and he spoke to them the word."
+        },
+        {
+          "number": 3,
+          "text": "And they came to him, bringing one sick of the palsy, who was carried by four."
+        },
+        {
+          "number": 4,
+          "text": "And when they could not offer him unto him for the multitude, they uncovered the roof where he was; and opening it, they let down the bed wherein the man sick of the palsy lay."
+        },
+        {
+          "number": 5,
+          "text": "And when Jesus had seen their faith, he saith to the sick of the palsy: Son, thy sins are forgiven thee."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/MRK02.htm#V1"
+    },
+    "jhn-17-20-21-22-23": {
+      "id": "jhn-17-20-21-22-23",
+      "reference": "John 17:20–23",
+      "book": "JHN",
+      "chapter": 17,
+      "verseNumbers": [
+        20,
+        21,
+        22,
+        23
+      ],
+      "verses": [
+        {
+          "number": 20,
+          "text": "And not for them only do I pray, but for them also who through their word shall believe in me;"
+        },
+        {
+          "number": 21,
+          "text": "That they all may be one, as thou, Father, in me, and I in thee; that they also may be one in us; that the world may believe that thou hast sent me."
+        },
+        {
+          "number": 22,
+          "text": "And the glory which thou hast given me, I have given to them; that they may be one, as we also are one:"
+        },
+        {
+          "number": 23,
+          "text": "I in them, and thou in me; that they may be made perfect in one: and the world may know that thou hast sent me, and hast loved them, as thou hast also loved me."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN17.htm#V20"
+    },
+    "mat-5-44": {
+      "id": "mat-5-44",
+      "reference": "Matthew 5:44",
+      "book": "MAT",
+      "chapter": 5,
+      "verseNumbers": [
+        44
+      ],
+      "verses": [
+        {
+          "number": 44,
+          "text": "But I say to you, Love your enemies: do good to them that hate you: and pray for them that persecute and calumniate you:"
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/MAT05.htm#V44"
+    },
+    "jhn-15-4-5": {
+      "id": "jhn-15-4-5",
+      "reference": "John 15:4-5",
+      "book": "JHN",
+      "chapter": 15,
+      "verseNumbers": [
+        4,
+        5
+      ],
+      "verses": [
+        {
+          "number": 4,
+          "text": "Abide in me, and I in you. As the branch cannot bear fruit of itself, unless it abide in the vine, so neither can you, unless you abide in me."
+        },
+        {
+          "number": 5,
+          "text": "I am the vine: you the branches: he that abideth in me, and I in him, the same beareth much fruit: for without me you can do nothing."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN15.htm#V4"
+    },
+    "luk-18-13-14": {
+      "id": "luk-18-13-14",
+      "reference": "Luke 18:13–14",
+      "book": "LUK",
+      "chapter": 18,
+      "verseNumbers": [
+        13,
+        14
+      ],
+      "verses": [
+        {
+          "number": 13,
+          "text": "And the publican, standing afar off, would not so much as lift up his eyes towards heaven; but struck his breast, saying: O god, be merciful to me a sinner."
+        },
+        {
+          "number": 14,
+          "text": "I say to you, this man went down into his house justified rather that the other: because every one that exalteth himself, shall be humbled: and he that humbleth himself, shall be exalted."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/LUK18.htm#V13"
+    },
+    "rom-5-3-4-5": {
+      "id": "rom-5-3-4-5",
+      "reference": "Romans 5:3–5",
+      "book": "ROM",
+      "chapter": 5,
+      "verseNumbers": [
+        3,
+        4,
+        5
+      ],
+      "verses": [
+        {
+          "number": 3,
+          "text": "And not only so; but we glory also in tribulations, knowing that tribulation worketh patience;"
+        },
+        {
+          "number": 4,
+          "text": "And patience trial; and trial hope;"
+        },
+        {
+          "number": 5,
+          "text": "And hope confoundeth not: because the charity of God is poured forth in our hearts, by the Holy Ghost, who is given to us."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/ROM05.htm#V3"
+    },
+    "mat-26-36-37-38-39": {
+      "id": "mat-26-36-37-38-39",
+      "reference": "Matthew 26:36–39",
+      "book": "MAT",
+      "chapter": 26,
+      "verseNumbers": [
+        36,
+        37,
+        38,
+        39
+      ],
+      "verses": [
+        {
+          "number": 36,
+          "text": "Then Jesus came with them into a country place which is called Gethsemani; and he said to his disciples: Sit you here, till I go yonder and pray."
+        },
+        {
+          "number": 37,
+          "text": "And taking with him Peter and the two sons of Zebedee, he began to grow sorrowful and to be sad."
+        },
+        {
+          "number": 38,
+          "text": "Then he saith to them: My soul is sorrowful even unto death: stay you here, and watch with me."
+        },
+        {
+          "number": 39,
+          "text": "And going a little further, he fell upon his face, praying, and saying: My Father, if it be possible, let this chalice pass from me. Nevertheless not as I will, but as thou wilt."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/MAT26.htm#V36"
+    },
+    "mat-6-25-26-27-28-29-30-31-32-33-34": {
+      "id": "mat-6-25-26-27-28-29-30-31-32-33-34",
+      "reference": "Matthew 6:25–34",
+      "book": "MAT",
+      "chapter": 6,
+      "verseNumbers": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "verses": [
+        {
+          "number": 25,
+          "text": "Therefore I say to you, be not solicitous for your life, what you shall eat, nor for your body, what you shall put on. Is not the life more than the meat: and the body more than the raiment?"
+        },
+        {
+          "number": 26,
+          "text": "Behold the birds of the air, for they neither sow, nor do they reap, nor gather into barns: and your heavenly Father feedeth them. Are not you of much more value than they?"
+        },
+        {
+          "number": 27,
+          "text": "And which of you by taking thought, can add to his stature by one cubit?"
+        },
+        {
+          "number": 28,
+          "text": "And for raiment why are you solicitous? Consider the lilies of the field, how they grow: they labour not, neither do they spin."
+        },
+        {
+          "number": 29,
+          "text": "But I say to you, that not even Solomon in all his glory was arrayed as one of these."
+        },
+        {
+          "number": 30,
+          "text": "And if the grass of the field, which is today, and tomorrow is cast into the oven, God doth so clothe: how much more you, O ye of little faith?"
+        },
+        {
+          "number": 31,
+          "text": "Be not solicitous therefore, saying, What shall we eat: or what shall we drink, or wherewith shall we be clothed?"
+        },
+        {
+          "number": 32,
+          "text": "For after all these things do the heathens seek. For your Father knoweth that you have need of all these things."
+        },
+        {
+          "number": 33,
+          "text": "Seek ye therefore first the kingdom of God, and his justice, and all these things shall be added unto you."
+        },
+        {
+          "number": 34,
+          "text": "Be not therefore solicitous for tomorrow; for the morrow will be solicitous for itself. Sufficient for the day is the evil thereof."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V25"
+    },
+    "jhn-14-27": {
+      "id": "jhn-14-27",
+      "reference": "John 14:27",
+      "book": "JHN",
+      "chapter": 14,
+      "verseNumbers": [
+        27
+      ],
+      "verses": [
+        {
+          "number": 27,
+          "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, do I give unto you. Let not your heart be troubled, nor let it be afraid."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN14.htm#V27"
+    },
+    "luk-17-11-12-13-14-15-16-17-18-19": {
+      "id": "luk-17-11-12-13-14-15-16-17-18-19",
+      "reference": "Luke 17:11–19",
+      "book": "LUK",
+      "chapter": 17,
+      "verseNumbers": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "verses": [
+        {
+          "number": 11,
+          "text": "And it came to pass, as he was going to Jerusalem, he passed through the midst of Samaria and Galilee."
+        },
+        {
+          "number": 12,
+          "text": "And as he entered into a certain town, there met him ten men that were lepers, who stood afar off;"
+        },
+        {
+          "number": 13,
+          "text": "And lifted up their voice, saying: Jesus, master, have mercy on us."
+        },
+        {
+          "number": 14,
+          "text": "Whom when he saw, he said: Go, shew yourselves to the priests. And it came to pass, as they went, they were made clean."
+        },
+        {
+          "number": 15,
+          "text": "And one of them, when he saw that he was made clean, went back, with a loud voice glorifying God."
+        },
+        {
+          "number": 16,
+          "text": "And he fell on his face before his feet, giving thanks: and this was a Samaritan."
+        },
+        {
+          "number": 17,
+          "text": "And Jesus answering, said, Were not ten made clean? and where are the nine?"
+        },
+        {
+          "number": 18,
+          "text": "There is no one found to return and give glory to God, but this stranger."
+        },
+        {
           "number": 19,
-          "text": "The Lord is nigh unto them that are of a contrite heart: and he will save the humble of spirit."
+          "text": "And he said to him: Arise, go thy way; for thy faith hath made thee whole."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/LUK17.htm#V11"
+    },
+    "psa-102-1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-21-22": {
+      "id": "psa-102-1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18-19-20-21-22",
+      "reference": "Psalm 102 (103)",
+      "book": "PSA",
+      "chapter": 102,
+      "verseNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "verses": [
+        {
+          "number": 1,
+          "text": "For David himself. Bless the Lord, O my soul: and let all that is within me bless his holy name."
+        },
+        {
+          "number": 2,
+          "text": "Bless the Lord, O my soul, and never forget all he hath done for thee."
+        },
+        {
+          "number": 3,
+          "text": "Who forgiveth all thy iniquities: who healeth all thy diseases."
+        },
+        {
+          "number": 4,
+          "text": "Who redeemeth thy life from destruction: who crowneth thee with mercy and compassion."
+        },
+        {
+          "number": 5,
+          "text": "Who satisfieth thy desire with good things: thy youth shall be renewed like the eagle’s."
+        },
+        {
+          "number": 6,
+          "text": "The Lord doth mercies, and judgment for all that suffer wrong."
+        },
+        {
+          "number": 7,
+          "text": "He hath made his ways known to Moses: his wills to the children of Israel."
+        },
+        {
+          "number": 8,
+          "text": "The ford is compassionate and merciful: longsuffering and plenteous in mercy."
+        },
+        {
+          "number": 9,
+          "text": "He will not always be angry: nor will he threaten for ever."
+        },
+        {
+          "number": 10,
+          "text": "He hath not dealt with us according to our sins: nor rewarded us according to our iniquities."
+        },
+        {
+          "number": 11,
+          "text": "For according to the height of the heaven above the earth: he hath strengthened his mercy towards them that fear him."
+        },
+        {
+          "number": 12,
+          "text": "As far as the east is from the west, so far hath he removed our iniquities from us."
+        },
+        {
+          "number": 13,
+          "text": "As a father hath compassion on his children, so hath the Lord compassion on them that fear him:"
+        },
+        {
+          "number": 14,
+          "text": "For he knoweth our frame. He remembereth that we are dust:"
+        },
+        {
+          "number": 15,
+          "text": "Man’s days are as grass, as the flower of the field so shall he flourish."
+        },
+        {
+          "number": 16,
+          "text": "For the spirit shall pass in him, and he shall not be: and he shall know his place no more."
+        },
+        {
+          "number": 17,
+          "text": "But the mercy of the Lord is from eternity and unto eternity upon them that fear him: And his justice unto children’s children,"
+        },
+        {
+          "number": 18,
+          "text": "To such as keep his covenant, And are mindful of his commandments to do them."
+        },
+        {
+          "number": 19,
+          "text": "The Lord hath prepared his throne in heaven: and his kingdom shall rule over all."
         },
         {
           "number": 20,
-          "text": "Many are the afflictions of the just; but out of them all will the Lord deliver them."
+          "text": "Bless the Lord, all ye his angels: you that are mighty in strength, and execute his word, hearkening to the voice of his orders."
+        },
+        {
+          "number": 21,
+          "text": "Bless the Lord, all ye his hosts: you ministers of his that do his will."
+        },
+        {
+          "number": 22,
+          "text": "Bless the Lord, all his works: in every place of his dominion, O my soul, bless thou the Lord."
         }
       ],
-      "sourceUrl": "https://ebible.org/engDRA/PSA033.htm#V19"
+      "sourceUrl": "https://ebible.org/engDRA/PSA102.htm#V1"
     },
     "1th-5-16-17-18": {
       "id": "1th-5-16-17-18",
@@ -193,47 +636,141 @@
       ],
       "sourceUrl": "https://ebible.org/engDRA/1TH05.htm#V16"
     },
-    "jhn-14-15-21": {
-      "id": "jhn-14-15-21",
-      "reference": "John 14:15, 21",
+    "jhn-14-15": {
+      "id": "jhn-14-15",
+      "reference": "John 14:15",
       "book": "JHN",
       "chapter": 14,
       "verseNumbers": [
-        15,
-        21
+        15
       ],
       "verses": [
         {
           "number": 15,
           "text": "If you love me, keep my commandments."
-        },
-        {
-          "number": 21,
-          "text": "He that hath my commandments, and keepeth them; he it is that loveth me. And he that loveth me, shall be loved of my Father: and I will love him, and will manifest myself to him."
         }
       ],
       "sourceUrl": "https://ebible.org/engDRA/JHN14.htm#V15"
     },
-    "jhn-15-4-5": {
-      "id": "jhn-15-4-5",
-      "reference": "John 15:4-5",
-      "book": "JHN",
-      "chapter": 15,
+    "mat-25-35-36-37-38-39-40": {
+      "id": "mat-25-35-36-37-38-39-40",
+      "reference": "Matthew 25:35–40",
+      "book": "MAT",
+      "chapter": 25,
       "verseNumbers": [
-        4,
-        5
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
       ],
       "verses": [
         {
-          "number": 4,
-          "text": "Abide in me, and I in you. As the branch cannot bear fruit of itself, unless it abide in the vine, so neither can you, unless you abide in me."
+          "number": 35,
+          "text": "For I was hungry, and you gave me to eat; I was thirsty, and you gave me to drink; I was a stranger, and you took me in:"
         },
         {
-          "number": 5,
-          "text": "I am the vine: you the branches: he that abideth in me, and I in him, the same beareth much fruit: for without me you can do nothing."
+          "number": 36,
+          "text": "Naked, and you covered me: sick, and you visited me: I was in prison, and you came to me."
+        },
+        {
+          "number": 37,
+          "text": "Then shall the just answer him, saying: Lord, when did we see thee hungry, and fed thee; thirsty, and gave thee drink?"
+        },
+        {
+          "number": 38,
+          "text": "And when did we see thee a stranger, and took thee in? or naked, and covered thee?"
+        },
+        {
+          "number": 39,
+          "text": "Or when did we see thee sick or in prison, and came to thee?"
+        },
+        {
+          "number": 40,
+          "text": "And the king answering, shall say to them: Amen I say to you, as long as you did it to one of these my least brethren, you did it to me."
         }
       ],
-      "sourceUrl": "https://ebible.org/engDRA/JHN15.htm#V4"
+      "sourceUrl": "https://ebible.org/engDRA/MAT25.htm#V35"
+    },
+    "jhn-13-34-35": {
+      "id": "jhn-13-34-35",
+      "reference": "John 13:34–35",
+      "book": "JHN",
+      "chapter": 13,
+      "verseNumbers": [
+        34,
+        35
+      ],
+      "verses": [
+        {
+          "number": 34,
+          "text": "A new commandment I give unto you: That you love one another, as I have loved you, that you also love one another."
+        },
+        {
+          "number": 35,
+          "text": "By this shall all men know that you are my disciples, if you have love one for another."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN13.htm#V34"
+    },
+    "jhn-15-9-10-11": {
+      "id": "jhn-15-9-10-11",
+      "reference": "John 15:9–11",
+      "book": "JHN",
+      "chapter": 15,
+      "verseNumbers": [
+        9,
+        10,
+        11
+      ],
+      "verses": [
+        {
+          "number": 9,
+          "text": "As the Father hath loved me, I also have loved you."
+        },
+        {
+          "number": 10,
+          "text": "If you keep my commandments, you shall abide in my love; as I also have kept my Father’s commandments, and do abide in his love."
+        },
+        {
+          "number": 11,
+          "text": "These things I have spoken to you, that my joy may be in you, and your joy may be filled."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/JHN15.htm#V9"
+    },
+    "luk-24-29": {
+      "id": "luk-24-29",
+      "reference": "Luke 24:29",
+      "book": "LUK",
+      "chapter": 24,
+      "verseNumbers": [
+        29
+      ],
+      "verses": [
+        {
+          "number": 29,
+          "text": "But they constrained him; saying: Stay with us, because it is towards evening, and the day is now far spent. And he went in with them."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/LUK24.htm#V29"
+    },
+    "mat-28-20": {
+      "id": "mat-28-20",
+      "reference": "Matthew 28:20",
+      "book": "MAT",
+      "chapter": 28,
+      "verseNumbers": [
+        20
+      ],
+      "verses": [
+        {
+          "number": 20,
+          "text": "Teaching them to observe all things whatsoever I have commanded you: and behold I am with you all days, even to the consummation of the world."
+        }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/MAT28.htm#V20"
     },
     "jhn-6-35-48-49-50-51-52-53-54-55-56-57-58": {
       "id": "jhn-6-35-48-49-50-51-52-53-54-55-56-57-58",

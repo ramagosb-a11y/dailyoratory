@@ -1214,6 +1214,155 @@
 .shell :is(.cardHeader em, .cardHeader > span, .libraryNav em, .libraryCount) { font-family: var(--font-body); font-size: .875rem; font-style: normal; line-height: 1.6; }
 .shell .libraryNav > button > strong { font-family: var(--font-body); font-size: .95rem; text-transform: none; letter-spacing: 0; }
 
+.hero > .meditationSubtitle {
+  margin-top: .55rem;
+  color: var(--companion-gold);
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+  font-style: normal;
+  letter-spacing: .025em;
+}
+
+.introduction {
+  display: grid;
+  max-width: 44rem;
+  margin: 1.6rem 0 0;
+  gap: .85rem;
+  border: 1px solid var(--companion-border);
+  border-left: 3px solid var(--companion-gold);
+  border-radius: .9rem;
+  background: linear-gradient(145deg, #ffffff08, #ead6a705);
+  padding: clamp(1.15rem, 3vw, 1.75rem);
+  color: var(--companion-ink);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.introduction .editorialNote {
+  margin-top: .35rem;
+  border-top: 1px solid var(--companion-border);
+  padding-top: .9rem;
+  color: var(--companion-muted);
+  font-size: .8rem;
+  line-height: 1.65;
+}
+
+.pausePrompts {
+  display: grid;
+  margin-top: .75rem;
+  gap: .65rem;
+  color: var(--companion-ink);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.gratitudeList {
+  display: grid;
+  margin: 1rem 0 0;
+  padding: 0;
+  gap: .75rem;
+  list-style: none;
+  counter-reset: gratitude;
+}
+
+.gratitudeList li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .25rem .75rem;
+  border: 1px solid var(--companion-border);
+  border-radius: .75rem;
+  background: #ffffff04;
+  padding: .9rem 1rem;
+  counter-increment: gratitude;
+}
+
+.gratitudeList li::before {
+  grid-row: 1 / 3;
+  color: var(--companion-gold);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  content: counter(gratitude);
+}
+
+.gratitudeList span {
+  color: var(--companion-muted);
+  font-size: .9rem;
+}
+
+.gratitudeList strong {
+  color: var(--companion-gold);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.prayerPrompt blockquote {
+  max-width: 44rem;
+  white-space: pre-line;
+}
+
+.scriptureCollection {
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--companion-border);
+  padding-top: 1.5rem;
+}
+
+.scriptureCollectionHeader {
+  display: grid;
+  max-width: 44rem;
+  gap: .35rem;
+}
+
+.scriptureCollectionHeader > p:last-child {
+  color: var(--companion-muted);
+  font-size: .85rem;
+  line-height: 1.65;
+}
+
+.scriptureCollection .completePassage {
+  margin-block: 1rem 0;
+}
+
+.aboutMeditation {
+  margin-top: 1.5rem;
+  overflow: hidden;
+  border: 1px solid var(--companion-border);
+  border-radius: .9rem;
+  background: #ffffff03;
+}
+
+.aboutMeditation summary {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  cursor: pointer;
+  color: var(--companion-gold);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  padding: .85rem 1rem;
+}
+
+.aboutMeditation > div {
+  display: grid;
+  gap: .85rem;
+  border-top: 1px solid var(--companion-border);
+  padding: 1rem;
+  color: var(--companion-muted);
+  font-size: .82rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 760px) {
+  .introduction {
+    font-size: 1rem;
+  }
+
+  .pausePrompts {
+    font-size: 1.1rem;
+  }
+}
+
 .contemplationArtwork { margin: 0; }
 .artworkPreview { display: block; width: 100%; padding: 0; border: 1px solid var(--companion-border); border-radius: .85rem; overflow: hidden; background: #050b12; cursor: zoom-in; }
 .artworkPreview img { display: block; width: 100%; height: auto; }

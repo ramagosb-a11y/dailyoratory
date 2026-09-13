@@ -221,7 +221,6 @@ export function AdorationCompanion() {
           {section === "catechism" ? (
             <CatechismView query={cccQuery} onQueryChange={setCccQuery} guides={filteredCatechism} />
           ) : null}
-          <section className={styles.sessionNote}><p>Devotional note</p><span>Original Daily Oratory meditations support personal prayer. They are not private revelation and do not claim to record words spoken directly by Jesus.</span></section>
         </main>
 
         <aside className={styles.sidebar} aria-label="Prayer timer and session tools">
@@ -291,11 +290,17 @@ function MeditationView({
     <div>
       <section className={styles.hero}>
         <p className={styles.eyebrow}>The Blessed Sacrament Meditation</p>
-        <h2>A Conversation With Jesus</h2>
-        <blockquote>
-          “It is not necessary, My child, to know much in order to please Me; it is enough that you love Me much.
-          Speak to Me here as you would with your most intimate friend.”
-        </blockquote>
+        <h2>In the Presence of Jesus</h2>
+        <p className={styles.meditationSubtitle}>A Guided Eucharistic Meditation</p>
+        <div className={styles.introduction}>
+          <p>Remain here for a while.</p>
+          <p>You do not need to accomplish anything. You do not need to find perfect words. You have come before Jesus Christ, truly present in the Blessed Sacrament.</p>
+          <p>Allow the noise within you to become quiet.</p>
+          <p>Look toward Him.</p>
+          <p>Let Him look upon you.</p>
+          <p>The reflections that follow are written as a prayerful meditation in the voice of Jesus, inspired by Sacred Scripture and the Catholic tradition of Eucharistic adoration. Receive them slowly. Pause whenever something touches your heart.</p>
+          <p className={styles.editorialNote}>The words presented in the voice of Jesus are devotional reflections and are not private revelation.</p>
+        </div>
         <div className={styles.segmented} aria-label="Meditation reading mode">
           <button type="button" className={guidedMode ? styles.segmentedActive : undefined} onClick={() => onModeChange(true)}>
             Guided Steps
@@ -320,7 +325,22 @@ function MeditationView({
         ))}
       </div>
 
+      {(guidedMode ? partIndex === meditationParts.length - 1 : true) ? <AboutMeditation /> : null}
+
     </div>
+  );
+}
+
+function AboutMeditation() {
+  return (
+    <details className={styles.aboutMeditation}>
+      <summary>About This Meditation</summary>
+      <div>
+        <p>This Eucharistic meditation is original Daily Oratory devotional material, prayerfully inspired by Sacred Scripture and the Catholic tradition of Eucharistic adoration.</p>
+        <p>The passages written in the voice of Jesus are intended as guided meditation and should not be understood as private revelation, additional Scripture, or literal words spoken by Christ beyond those recorded in Sacred Scripture.</p>
+        <p>Scripture used by Daily Oratory should use the public-domain Douay-Rheims Bible unless otherwise indicated.</p>
+      </div>
+    </details>
   );
 }
 
@@ -352,35 +372,49 @@ function MeditationPartCard({
         <div>
           <p className={styles.eyebrow}>Part {partNumber} of {meditationParts.length}</p>
           <h3 id={`part-heading-${part.id}`} tabIndex={-1}>{part.title}</h3>
-          <em>{part.subtitle}</em>
         </div>
-        <span>{part.duration}</span>
       </header>
 
       <div className={styles.referenceRow}>
         <a href="https://www.vatican.va/content/catechism/en.html" target="_blank" rel="noreferrer">{part.catechismReference} · Vatican ↗</a>
       </div>
 
-      <CompanionPassage passageId={part.scripturePassageId} />
-
       <section className={styles.meditationText}>
-        <p className={styles.eyebrow}>Jesus Speaks to Your Heart</p>
+        <p className={styles.eyebrow}>Remain With Me</p>
         {part.meditation.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
       </section>
 
       <section className={styles.questions}>
-        <p className={styles.eyebrow}>Questions for Heartfelt Contemplation</p>
-        <ul>{part.questions.map((question) => <li key={question}>{question}</li>)}</ul>
+        <p className={styles.eyebrow}>Pause With Jesus</p>
+        <div className={styles.pausePrompts}>{part.pausePrompts.map((prompt) => <p key={prompt}>{prompt}</p>)}</div>
+        {part.gratitudeResponses ? (
+          <ol className={styles.gratitudeList}>
+            {Array.from({ length: part.gratitudeResponses }, (_, index) => (
+              <li key={index}>
+                <span>Name one gift quietly before Jesus.</span>
+                <strong>Thank You, Jesus.</strong>
+              </li>
+            ))}
+          </ol>
+        ) : null}
       </section>
 
       <section className={styles.prayerPrompt}>
-        <p className={styles.eyebrow}>Suggested Vocal or Mental Prayer</p>
-        <blockquote>“{part.prayer}”</blockquote>
+        <p className={styles.eyebrow}>{part.id === "departure" ? "Final Prayer" : "Prayer"}</p>
+        <blockquote>{part.prayer}</blockquote>
       </section>
 
       <div className={styles.pauseRow}>
         <div><strong>Suggested silent time</strong><span>Rest in quiet adoration for a few minutes before continuing.</span></div>
       </div>
+
+      <section className={styles.scriptureCollection} aria-label={`Scripture for ${part.title}`}>
+        <div className={styles.scriptureCollectionHeader}>
+          <p className={styles.eyebrow}>Sacred Scripture</p>
+          <p>Read these passages slowly in the approved public-domain Douay-Rheims translation.</p>
+        </div>
+        {part.scripturePassageIds.map(passageId => <CompanionPassage key={passageId} passageId={passageId} />)}
+      </section>
       <PartNavigation index={partNumber - 1} position="bottom" onNavigate={onNavigate} onFinish={onFinish} />
     </article>
   );
