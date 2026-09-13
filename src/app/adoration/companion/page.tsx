@@ -21,7 +21,14 @@ export const metadata: Metadata = createPageMetadata({
   ],
 });
 
-export default function AdorationCompanionPage() {
+export default async function AdorationCompanionPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ mode?: string | string[] }>;
+}) {
+  const params = await searchParams;
+  const initialSection = params.mode === "holy-hour" ? "silence" : "meditation";
+
   return (
     <div className="paper-texture companion-page">
       <StructuredDataScript
@@ -37,7 +44,7 @@ export default function AdorationCompanionPage() {
           ]),
         ]}
       />
-      <AdorationCompanion />
+      <AdorationCompanion initialSection={initialSection} />
     </div>
   );
 }

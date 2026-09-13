@@ -786,28 +786,114 @@
 }
 
 .holyHourGrid article blockquote { margin-top: 0.8rem; border-left: 2px solid var(--companion-gold); padding-left: 0.75rem; color: var(--companion-ink); font-family: var(--font-heading); font-style: italic; line-height: 1.55; }
-.holyHourDetails { display: grid; gap: 0.75rem; margin-top: 1.25rem; }
-.holyHourDetails details { overflow: hidden; border: 1px solid var(--companion-border); border-radius: 0.9rem; background: var(--companion-panel); }
-.holyHourDetails summary { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0.8rem; cursor: pointer; list-style: none; padding: 1rem 1.1rem; }
-.holyHourDetails summary::-webkit-details-marker { display: none; }
-.holyHourDetails summary span, .holyHourDetails summary em { color: var(--companion-gold); font-size: 0.72rem; font-style: normal; text-transform: uppercase; letter-spacing: 0.08em; }
-.holyHourDetails summary strong { color: var(--companion-ink); font-family: var(--font-heading); font-size: 1.2rem; }
-.holyHourDetails summary em { color: var(--companion-muted); text-align: right; }
-.holyHourDetails details > div { border-top: 1px solid var(--companion-border); padding: 1rem 1.1rem 1.25rem; }
-.holyHourBlocks { display: grid; gap: 0.8rem; color: var(--companion-muted); font-size: 0.92rem; line-height: 1.7; }
-.holyHourBlocks h4 { color: var(--companion-ink); font-family: var(--font-heading); font-size: 1.15rem; }
-.holyHourBlocks b { display: block; color: var(--companion-gold); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
-.holyHourBlocks ul { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+.holyHourBlocks {
+  display: grid;
+  gap: 1.25rem;
+  color: var(--companion-ink);
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+
+.holyHourBlocks > p,
+.holyHourBlocks > div,
+.holyHourBlocks > blockquote {
+  width: min(100%, 70ch);
+  margin-inline: auto;
+}
+
+.holyHourBlocks h4 {
+  width: min(100%, 70ch);
+  margin: 1rem auto 0;
+  border-bottom: 1px solid var(--companion-border);
+  padding-bottom: 0.55rem;
+  color: var(--companion-ink);
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  line-height: 1.2;
+}
+
+.holyHourBlocks b {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: var(--companion-gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.holyHourBlocks > div:not(.holyHourBreath) {
+  border-left: 3px solid var(--companion-gold);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1rem 1.15rem;
+}
+
+.holyHourBlocks ul { margin: 0.45rem 0 0; padding-left: 1.35rem; }
+.holyHourBlocks li + li { margin-top: 0.4rem; }
 .holyHourBlocks li::marker { color: var(--companion-gold); }
-.holyHourPrayer, .holyHourScripture { display: grid; gap: 0.35rem; border: 1px solid var(--companion-border); border-radius: 0.65rem; background: rgba(55, 42, 23, 0.34); padding: 0.8rem 0.9rem; color: var(--companion-ink); font-family: var(--font-heading); font-style: italic; }
-.holyHourPrayer b, .holyHourScripture strong { color: var(--companion-gold); font-family: var(--font-body); font-size: 0.7rem; font-style: normal; letter-spacing: 0.08em; text-transform: uppercase; }
-.holyHourBreath { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
-.holyHourBreath span { display: grid; gap: 0.25rem; border: 1px solid var(--companion-border); border-radius: 0.65rem; padding: 0.7rem; }
-.holyHourBreath em { grid-column: 1 / -1; color: var(--companion-muted); font-size: 0.8rem; }
-.holyHourPause { color: var(--companion-gold); font-family: var(--font-heading); font-style: italic; }
-.holyHourActions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+
+.holyHourPrayer,
+.holyHourScripture {
+  display: grid;
+  gap: 0.55rem;
+  border: 1px solid var(--companion-border);
+  border-left: 4px solid var(--companion-gold);
+  border-radius: 0.8rem;
+  background: linear-gradient(135deg, rgba(234, 214, 167, 0.09), rgba(255, 255, 255, 0.025));
+  padding: clamp(1rem, 3vw, 1.45rem);
+  color: var(--companion-ink);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.75;
+}
+
+.holyHourPrayer b,
+.holyHourScripture strong {
+  color: var(--companion-gold);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-style: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.holyHourBreath {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.holyHourBreath span {
+  display: grid;
+  gap: 0.35rem;
+  border: 1px solid var(--companion-border);
+  border-radius: 0.8rem;
+  background: #10243a;
+  padding: 1rem;
+  color: var(--companion-ink);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+.holyHourBreath em {
+  grid-column: 1 / -1;
+  color: var(--companion-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.holyHourPause {
+  padding-block: 1.25rem;
+  color: var(--companion-gold);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.holyHourActions { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; }
 .holyHourActions button,
-.holyHourActions a { border: 1px solid var(--companion-border); border-radius: 0.65rem; background: var(--companion-panel); color: var(--companion-ink); padding: 0.75rem 1rem; text-decoration: none; }
+.holyHourActions a { min-height: 44px; border: 1px solid var(--companion-border); border-radius: 0.65rem; background: var(--companion-panel); color: var(--companion-ink); padding: 0.75rem 1rem; text-decoration: none; }
 
 .cccGrid a {
   display: inline-block;
@@ -993,43 +1079,464 @@
     padding: 0.65rem 0.45rem;
   }
 
-  .holyHourDetails summary {
-    grid-template-columns: 1fr auto;
-  }
-
-  .holyHourDetails summary strong {
-    grid-column: 1 / -1;
-    grid-row: 1;
-  }
-
-  .holyHourDetails summary span { grid-row: 2; }
-  .holyHourDetails summary em { grid-row: 2; }
   .holyHourBreath { grid-template-columns: 1fr; }
 }
 
 .holyHourView {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.holyHourInteractive,
+.holyHourNoScript {
+  display: grid;
+  min-width: 0;
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.holyHourHero {
   position: relative;
-  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  min-height: clamp(23rem, 46vw, 29rem);
   overflow: hidden;
+  border: 1px solid rgba(210, 169, 88, 0.45);
   border-radius: 1.25rem;
-  padding: 0.5rem;
+  background: #061321;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.34);
 }
 
-.holyHourView::before {
+.holyHourHeroImage,
+.holyHourHeroShade {
   position: absolute;
-  z-index: -1;
   inset: 0;
-  background-color: #071526;
-  background-image: linear-gradient(rgba(5, 15, 27, 0.76), rgba(5, 15, 27, 0.93)), url("/images/adoration/holy-hour-guide-background.png");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  content: "";
 }
 
-.holyHourView > * {
-  position: relative;
+.holyHourHeroArtwork {
+  object-fit: cover;
+  object-position: center top;
 }
+
+.holyHourHeroShade {
+  background:
+    linear-gradient(180deg, transparent 42%, rgba(4, 12, 22, 0.34) 67%, rgba(4, 12, 22, 0.94) 100%),
+    linear-gradient(90deg, rgba(4, 12, 22, 0.55), transparent 58%);
+}
+
+.holyHourHeroCopy {
+  position: absolute;
+  z-index: 1;
+  right: clamp(1.25rem, 4vw, 3rem);
+  bottom: clamp(1.25rem, 4vw, 3rem);
+  left: clamp(1.25rem, 4vw, 3rem);
+  max-width: 42rem;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.8);
+}
+
+.holyHourHeroCopy h2 {
+  margin-top: 0.35rem;
+  color: #fff8e8;
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 6vw, 4.4rem);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.holyHourHeroCopy > p:last-child {
+  max-width: 38rem;
+  margin-top: 0.85rem;
+  color: #f4ead7;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+}
+
+.holyHourOverview {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 1rem;
+  border: 1px solid var(--companion-border);
+  border-radius: 1rem;
+  background: rgba(13, 32, 56, 0.78);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.holyHourOverview nav {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.holyHourOverviewHeader h3 {
+  margin-top: 0.25rem;
+  color: var(--companion-ink);
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 4vw, 2.35rem);
+}
+
+.holyHourOverviewHeader h3:focus,
+.holyHourStageHeader h3:focus,
+.holyHourCompletion h3:focus {
+  outline: 3px solid var(--companion-gold);
+  outline-offset: 0.35rem;
+}
+
+.holyHourTimeline {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  gap: 0.65rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+}
+
+.holyHourTimeline button {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 7.25rem;
+  align-content: start;
+  gap: 0.32rem;
+  overflow: hidden;
+  border: 1px solid rgba(210, 169, 88, 0.25);
+  border-radius: 0.8rem;
+  background: #0a1c30;
+  color: var(--companion-ink);
+  cursor: pointer;
+  padding: 0.9rem 0.9rem 0.85rem 3.1rem;
+  text-align: left;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.holyHourTimeline button:hover {
+  border-color: var(--companion-gold);
+  background: #112a46;
+  transform: translateY(-1px);
+}
+
+.holyHourTimeline .holyHourTimelineActive {
+  border-color: #e7c679;
+  background: linear-gradient(140deg, #ead6a7, #c99b49);
+  color: #13263a;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+.holyHourTimelineNumber {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.85rem;
+  display: grid;
+  width: 1.65rem;
+  height: 1.65rem;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.holyHourTimelineMinutes {
+  color: var(--companion-gold);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.holyHourTimelineActive .holyHourTimelineMinutes { color: #653223; }
+
+.holyHourTimeline strong {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  line-height: 1.15;
+}
+
+.holyHourStagePanel {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(210, 169, 88, 0.62);
+  border-radius: 1.1rem;
+  background: #081a2d;
+  color: var(--companion-ink);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.3);
+}
+
+.holyHourStageHeader {
+  position: relative;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  border-bottom: 1px solid var(--companion-border);
+  background:
+    radial-gradient(circle at 100% 0, rgba(234, 214, 167, 0.1), transparent 20rem),
+    linear-gradient(145deg, #102740, #0a1c30);
+}
+
+.holyHourStageHeader > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.holyHourStageKicker,
+.holyHourStageMinutes {
+  margin: 0;
+  color: var(--companion-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.holyHourStageHeader h3 {
+  max-width: 18ch;
+  margin-top: 0.65rem;
+  scroll-margin-top: 1.25rem;
+  color: var(--companion-ink);
+  font-family: var(--font-heading);
+  font-size: clamp(2.35rem, 6vw, 4rem);
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.holyHourStageHeader > p:last-child {
+  max-width: 62ch;
+  margin-top: 0.8rem;
+  color: var(--companion-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.holyHourStageNav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem clamp(1rem, 3vw, 1.5rem);
+  background: #102740;
+}
+
+.holyHourStageNav button {
+  min-height: 48px;
+  border: 1px solid rgba(234, 214, 167, 0.44);
+  border-radius: 0.7rem;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+}
+
+.holyHourPrevious {
+  justify-self: start;
+  background: transparent;
+  color: #f4ead7;
+}
+
+.holyHourContinue {
+  justify-self: end;
+  background: #ead6a7;
+  color: #13263a;
+}
+
+.holyHourStageStatus {
+  color: #d8c8ad;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.holyHourStageBody {
+  background: linear-gradient(180deg, #081a2d, #071526);
+  padding: clamp(1.1rem, 4vw, 2.5rem);
+}
+
+.holyHourStagePanel .completePassage {
+  width: min(100%, 70ch);
+  margin: 0 auto 1.75rem;
+  border-color: var(--companion-border);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.holyHourStagePanel .completePassage .eyebrow,
+.holyHourStagePanel .completePassage h4,
+.holyHourStagePanel .completePassage > a,
+.holyHourStagePanel .numberedVerse sup {
+  color: var(--companion-gold);
+}
+
+.holyHourStagePanel .completePassage .editionLabel { color: var(--companion-muted); }
+.holyHourStagePanel .completePassage .numberedVerse { color: #eee8dc; }
+
+.holyHourScriptureMoment {
+  width: min(100%, 70ch);
+  margin-inline: auto;
+}
+
+.holyHourScriptureMoment > .completePassage {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.holyHourScriptureConnection {
+  margin: 0;
+  border: 1px solid var(--companion-border);
+  border-top: 0;
+  border-left: 3px solid var(--companion-gold);
+  border-radius: 0 0 0.8rem 0.8rem;
+  background: rgba(234, 214, 167, 0.055);
+  padding: 1rem 1.15rem 1.1rem;
+}
+
+.holyHourScriptureConnection > p:last-child {
+  margin-top: 0.45rem;
+  color: var(--companion-ink);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.holyHourRelated {
+  width: min(100%, 70ch);
+  margin: 2rem auto 0;
+}
+
+.holyHourRelated details {
+  overflow: hidden;
+  border: 1px solid rgba(234, 214, 167, 0.32);
+  border-radius: 0.9rem;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.holyHourRelated summary {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  list-style: none;
+  cursor: pointer;
+  padding: 0.9rem 1rem;
+  color: var(--companion-ink);
+}
+
+.holyHourRelated summary::-webkit-details-marker { display: none; }
+
+.holyHourRelated summary > span:first-child {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.holyHourRelated summary b {
+  color: var(--companion-gold);
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  line-height: 1.15;
+}
+
+.holyHourRelated summary small {
+  color: var(--companion-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.holyHourRelatedAction {
+  flex: 0 0 auto;
+  border: 1px solid var(--companion-border);
+  border-radius: 0.55rem;
+  padding: 0.5rem 0.7rem;
+  color: var(--companion-ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.holyHourRelated details[open] .holyHourRelatedAction {
+  font-size: 0;
+}
+
+.holyHourRelated details[open] .holyHourRelatedAction::after {
+  content: "Close readings";
+  font-size: 0.75rem;
+}
+
+.holyHourRelatedReadings {
+  display: grid;
+  gap: 1.75rem;
+  border-top: 1px solid var(--companion-border);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.holyHourRelatedPrint { display: none; }
+
+.holyHourSourceNote {
+  width: min(100%, 70ch);
+  margin: 2rem auto 0;
+  border-top: 1px solid var(--companion-border);
+  padding-top: 1rem;
+  color: var(--companion-muted);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.holyHourCompletion {
+  border: 1px solid var(--companion-border);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(122, 37, 51, 0.3), rgba(13, 32, 56, 0.92));
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  text-align: center;
+}
+
+.holyHourCompletion h3 {
+  margin-top: 0.35rem;
+  color: var(--companion-ink);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.holyHourNoScript > section {
+  border: 1px solid var(--companion-border);
+  border-radius: 1rem;
+  background: #081a2d;
+  padding: clamp(1rem, 4vw, 2rem);
+  color: var(--companion-ink);
+}
+
+.holyHourNoScript > section > header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--companion-border);
+  padding-bottom: 1.25rem;
+}
+
+.holyHourNoScript > section > header > p:first-child {
+  color: var(--companion-gold);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.holyHourNoScript > section > header h3 {
+  margin-top: 0.45rem;
+  color: var(--companion-ink);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.holyHourNoScript > section > header > p:last-child {
+  margin-top: 0.6rem;
+  color: var(--companion-muted);
+  line-height: 1.7;
+}
+
+.holyHourNoScript .completePassage {
+  border-color: var(--companion-border);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.holyHourNoScript .completePassage :is(.eyebrow, h4, a, sup) { color: var(--companion-gold); }
+.holyHourNoScript .completePassage .editionLabel { color: var(--companion-muted); }
+.holyHourNoScript .completePassage .numberedVerse { color: #eee8dc; }
 
 .meditationVisual {
   position: relative;
@@ -1214,37 +1721,9 @@
 .shell :is(.cardHeader em, .cardHeader > span, .libraryNav em, .libraryCount) { font-family: var(--font-body); font-size: .875rem; font-style: normal; line-height: 1.6; }
 .shell .libraryNav > button > strong { font-family: var(--font-body); font-size: .95rem; text-transform: none; letter-spacing: 0; }
 
-.hero > .meditationSubtitle {
-  margin-top: .55rem;
-  color: var(--companion-gold);
-  font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
-  font-style: normal;
-  letter-spacing: .025em;
-}
-
-.introduction {
-  display: grid;
-  max-width: 44rem;
-  margin: 1.6rem 0 0;
-  gap: .85rem;
-  border: 1px solid var(--companion-border);
-  border-left: 3px solid var(--companion-gold);
-  border-radius: .9rem;
-  background: linear-gradient(145deg, #ffffff08, #ead6a705);
-  padding: clamp(1.15rem, 3vw, 1.75rem);
-  color: var(--companion-ink);
-  font-size: 1.0625rem;
-  line-height: 1.8;
-}
-
-.introduction .editorialNote {
-  margin-top: .35rem;
-  border-top: 1px solid var(--companion-border);
-  padding-top: .9rem;
-  color: var(--companion-muted);
-  font-size: .8rem;
-  line-height: 1.65;
+.meditationMode {
+  margin-top: 0;
+  margin-bottom: .75rem;
 }
 
 .pausePrompts {
@@ -1354,10 +1833,6 @@
 }
 
 @media (max-width: 760px) {
-  .introduction {
-    font-size: 1rem;
-  }
-
   .pausePrompts {
     font-size: 1.1rem;
   }
@@ -1380,8 +1855,106 @@
   .contemplationArtwork figcaption button { width: 100%; }
 }
 
+@media (max-width: 900px) and (min-width: 761px) {
+  .holyHourTimeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .holyHourHero {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .holyHourHeroImage {
+    position: relative;
+    height: clamp(13.75rem, 64vw, 16.25rem);
+  }
+
+  .holyHourHeroArtwork { object-position: center top; }
+
+  .holyHourHeroShade {
+    background: linear-gradient(180deg, transparent 65%, rgba(4, 12, 22, 0.28));
+  }
+
+  .holyHourHeroCopy {
+    position: relative;
+    inset: auto;
+    max-width: none;
+    border-top: 1px solid rgba(210, 169, 88, 0.32);
+    background: linear-gradient(145deg, #0d2038, #071526);
+    padding: 1.2rem 1rem 1.35rem;
+    text-shadow: none;
+  }
+
+  .holyHourHeroCopy h2 { font-size: clamp(2.3rem, 12vw, 3.25rem); }
+  .holyHourHeroCopy > p:last-child { font-size: 1rem; line-height: 1.65; }
+
+  .holyHourRelated summary {
+    align-items: flex-start;
+  }
+
+  .holyHourRelatedAction {
+    margin-top: 0.15rem;
+  }
+
+  .holyHourOverview { padding: 1rem 0; }
+  .holyHourOverviewHeader { padding-inline: 1rem; }
+
+  .holyHourTimeline {
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    grid-auto-columns: minmax(11.5rem, 72vw);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 0 1rem 0.75rem;
+    scroll-padding-inline: 1rem;
+    scroll-snap-type: x proximity;
+    scrollbar-width: thin;
+  }
+
+  .holyHourTimeline li { scroll-snap-align: start; }
+  .holyHourTimeline button { min-height: 6.6rem; }
+
+  .holyHourStageHeader { padding: 1.25rem 1rem 1.4rem; }
+  .holyHourStageHeader h3 { font-size: clamp(2.2rem, 11vw, 3rem); }
+  .holyHourStageHeader > p:last-child { font-size: 1rem; }
+
+  .holyHourStageNav {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.55rem;
+    padding: 0.85rem;
+  }
+
+  .holyHourStageNav button { width: 100%; justify-self: stretch; }
+  .holyHourContinue { grid-row: 1; }
+  .holyHourStageStatus { grid-row: 2; text-align: center; }
+  .holyHourPrevious { grid-row: 3; }
+  .holyHourNavSpacer { display: none; }
+
+  .holyHourStageBody { padding: 1rem 0.85rem 1.35rem; }
+  .holyHourStagePanel .completePassage { padding: 1rem; }
+  .holyHourBlocks { font-size: 1rem; line-height: 1.8; }
+  .holyHourPrayer, .holyHourScripture { font-size: 1.05rem; }
+  .holyHourBreath { grid-template-columns: minmax(0, 1fr); }
+  .holyHourBreath em { grid-column: 1; }
+
+  .holyHourActions { flex-direction: column; }
+  .holyHourActions button, .holyHourActions a { width: 100%; text-align: center; }
+}
+
 @media print {
-  .artworkDialog, .contemplationArtwork figcaption button { display: none !important; }
+  .artworkDialog,
+  .contemplationArtwork figcaption button,
+  .holyHourHero,
+  .holyHourOverview,
+  .holyHourStageNav,
+  .holyHourCompletion,
+  .holyHourActions,
+  .externalLinks { display: none !important; }
   .modeNav,
   .sidebar,
   .partNav,
@@ -1401,5 +1974,39 @@
     border-color: #bbb !important;
     background: #fff !important;
     color: #111 !important;
+  }
+
+  .holyHourStagePanel,
+  .holyHourStageHeader,
+  .holyHourStageBody,
+  .holyHourBlocks,
+  .holyHourBlocks h4,
+  .holyHourBlocks > div:not(.holyHourBreath),
+  .holyHourBreath span,
+  .holyHourBreath em,
+  .holyHourPrayer,
+  .holyHourScripture,
+  .holyHourSourceNote,
+  .holyHourStageKicker,
+  .holyHourStageMinutes,
+  .holyHourStageHeader > p:last-child,
+  .holyHourStagePanel .completePassage,
+  .holyHourStagePanel .completePassage :is(.eyebrow, h4, a, sup, .editionLabel),
+  .holyHourStagePanel .completePassage .numberedVerse {
+    border-color: #bbb !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    color: #111 !important;
+  }
+
+  .holyHourStageHeader { display: block !important; }
+
+  .holyHourRelated details { display: none !important; }
+  .holyHourRelatedPrint {
+    display: block !important;
+    margin: 1rem 0 0;
+    border-top: 1px solid #bbb;
+    padding: 0.75rem 0 0 1.25rem;
+    color: #111;
   }
 }

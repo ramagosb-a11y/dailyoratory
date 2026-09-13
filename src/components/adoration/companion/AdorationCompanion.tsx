@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useMemo, useState, useEffect } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { companionArtwork } from '@/data/companionArtwork';
 import { ContemplationArtwork } from './ContemplationArtwork';
@@ -15,7 +16,7 @@ import {
 import { companionMeditations as meditationParts, companionReadings as scriptureReadings, passageForReference, type CompanionMeditationPart as MeditationPart } from "@/data/companionReadings";
 import { CompanionPassage } from './CompanionPassage';
 import { getHolyHourGuide } from "@/lib/adoration";
-import type { HolyHourGuideBlock } from "@/types/adoration";
+import type { HolyHourGuideBlock, HolyHourSegment } from "@/types/adoration";
 import styles from "./AdorationCompanion.module.css";
 
 const USCCB_MASS_READINGS_URL = "https://bible.usccb.org/daily-bible-reading";
@@ -37,8 +38,12 @@ function getPrayerCopy(prayer: CompanionPrayer, language: LanguageMode) {
   return `${prayer.title}\n\n${prayer.english}`;
 }
 
-export function AdorationCompanion() {
-  const [section, setSection] = useState<CompanionSection>('meditation');
+export function AdorationCompanion({
+  initialSection = "meditation",
+}: {
+  initialSection?: CompanionSection;
+}) {
+  const [section, setSection] = useState<CompanionSection>(initialSection);
   const [timerOpen, setTimerOpen] = useState(false);
   const [guidedMode, setGuidedMode] = useState(true);
   const [partIndex, setPartIndex] = useState(0);
@@ -52,12 +57,6 @@ export function AdorationCompanion() {
   const [journalText, setJournalText] = useState("");
   const [copied, setCopied] = useState(false);
   const [cccQuery, setCccQuery] = useState("");
-
-  useEffect(() => {
-    if (new URLSearchParams(window.location.search).get("mode") === "holy-hour") {
-      window.requestAnimationFrame(() => setSection("silence"));
-    }
-  }, []);
 
   const playChime = useCallback(() => {
     const AudioContextClass = window.AudioContext ??
@@ -288,28 +287,14 @@ function MeditationView({
 
   return (
     <div>
-      <section className={styles.hero}>
-        <p className={styles.eyebrow}>The Blessed Sacrament Meditation</p>
-        <h2>In the Presence of Jesus</h2>
-        <p className={styles.meditationSubtitle}>A Guided Eucharistic Meditation</p>
-        <div className={styles.introduction}>
-          <p>Remain here for a while.</p>
-          <p>You do not need to accomplish anything. You do not need to find perfect words. You have come before Jesus Christ, truly present in the Blessed Sacrament.</p>
-          <p>Allow the noise within you to become quiet.</p>
-          <p>Look toward Him.</p>
-          <p>Let Him look upon you.</p>
-          <p>The reflections that follow are written as a prayerful meditation in the voice of Jesus, inspired by Sacred Scripture and the Catholic tradition of Eucharistic adoration. Receive them slowly. Pause whenever something touches your heart.</p>
-          <p className={styles.editorialNote}>The words presented in the voice of Jesus are devotional reflections and are not private revelation.</p>
-        </div>
-        <div className={styles.segmented} aria-label="Meditation reading mode">
-          <button type="button" className={guidedMode ? styles.segmentedActive : undefined} onClick={() => onModeChange(true)}>
-            Guided Steps
-          </button>
-          <button type="button" className={!guidedMode ? styles.segmentedActive : undefined} onClick={() => onModeChange(false)}>
-            Continuous Reading
-          </button>
-        </div>
-      </section>
+      <div className={`${styles.segmented} ${styles.meditationMode}`} aria-label="Meditation reading mode">
+        <button type="button" className={guidedMode ? styles.segmentedActive : undefined} onClick={() => onModeChange(true)}>
+          Guided Steps
+        </button>
+        <button type="button" className={!guidedMode ? styles.segmentedActive : undefined} onClick={() => onModeChange(false)}>
+          Continuous Reading
+        </button>
+      </div>
 
       <label className={styles.partSelector}>Choose a meditation part<select value={partIndex} onChange={event => navigatePart(Number(event.target.value))}>{meditationParts.map((part, index) => <option key={part.id} value={index}>{index + 1}. {part.title}</option>)}</select></label>
 
@@ -568,31 +553,249 @@ function PrayerView({
 }
 
 function HolyHourView() {
-  const segments = getHolyHourGuide();
+  const segments = useMemo(() => getHolyHourGuide(), []);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [completed, setCompleted] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
+  const stageHeadingRef = useRef<HTMLHeadingElement>(null);
+  const overviewHeadingRef = useRef<HTMLHeadingElement>(null);
+  const completionHeadingRef = useRef<HTMLHeadingElement>(null);
+  const timelineButtonRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const navigationRequestedRef = useRef(false);
+  const activeSegment = segments[activeIndex];
+
+  const focusAndReveal = useCallback((element: HTMLElement | null) => {
+    if (!element) return;
+    element.focus({ preventScroll: true });
+    element.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      block: "start",
+    });
+  }, []);
+
+  const revealTimelineStage = useCallback((index: number) => {
+    timelineButtonRefs.current[index]?.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!navigationRequestedRef.current) return;
+    navigationRequestedRef.current = false;
+    revealTimelineStage(activeIndex);
+    focusAndReveal(stageHeadingRef.current);
+  }, [activeIndex, focusAndReveal, revealTimelineStage]);
+
+  function navigateStage(index: number) {
+    if (index < 0 || index >= segments.length) return;
+    setCompleted(false);
+    setAnnouncement(`Stage ${index + 1} of ${segments.length}: ${segments[index].title}`);
+
+    if (index === activeIndex) {
+      revealTimelineStage(index);
+      focusAndReveal(stageHeadingRef.current);
+      return;
+    }
+
+    navigationRequestedRef.current = true;
+    setActiveIndex(index);
+  }
+
+  function completeHolyHour() {
+    setCompleted(true);
+    setAnnouncement("Holy Hour complete");
+    window.requestAnimationFrame(() => focusAndReveal(completionHeadingRef.current));
+  }
+
+  function returnToOverview() {
+    setCompleted(false);
+    setActiveIndex(0);
+    setAnnouncement("Returned to the Holy Hour overview");
+    window.requestAnimationFrame(() => {
+      revealTimelineStage(0);
+      focusAndReveal(overviewHeadingRef.current);
+    });
+  }
 
   return (
     <div className={styles.holyHourView}>
-      <section className={styles.hero}>
-        <p className={styles.eyebrow}>Eucharistic Adoration</p>
-        <h2>A Simple Holy Hour Guide</h2>
-        <p>A peaceful structure for spending one hour with Jesus through adoration, thanksgiving, mercy, Scripture, intercession, and surrender.</p>
+      <section className={styles.holyHourHero}>
+        <div className={styles.holyHourHeroImage}>
+          <Image
+            src="/images/adoration/holy-hour-guide-background.webp"
+            alt="Devotional illustration of Eucharistic adoration before a monstrance."
+            fill
+            fetchPriority="high"
+            quality={85}
+            sizes="(max-width: 760px) 100vw, 54rem"
+            className={styles.holyHourHeroArtwork}
+          />
+          <span className={styles.holyHourHeroShade} aria-hidden="true" />
+        </div>
+        <div className={styles.holyHourHeroCopy}>
+          <p className={styles.eyebrow}>Eucharistic Adoration</p>
+          <h2>A Simple Holy Hour Guide</h2>
+          <p>A peaceful structure for spending one hour with Jesus through adoration, thanksgiving, mercy, Scripture, intercession, and surrender.</p>
+        </div>
       </section>
-      <div className={styles.holyHourDetails}>
-        {segments.map((segment) => (
-          <details key={`${segment.id}-details`} open>
-            <summary><span>{segment.startMinute}-{segment.endMinute} minutes</span><strong>{segment.title}</strong><em>View prayer details</em></summary>
-            <div>
-              {segment.sourceNote ? <p className={styles.quietNote}>{segment.sourceNote}</p> : null}
-              {segment.scripture ? <CompanionPassage passageId={passageForReference(segment.scripture.reference).id} /> : null}
-              <div className={styles.holyHourBlocks}>{(segment.guide ?? []).map((block, blockIndex) => <HolyHourBlock key={`${segment.id}-${blockIndex}`} block={block} />)}</div>
-            </div>
-          </details>
-        ))}
+
+      <div className={styles.holyHourInteractive} data-holy-hour-interactive>
+        <section className={styles.holyHourOverview} aria-labelledby="holy-hour-overview-heading">
+          <div className={styles.holyHourOverviewHeader}>
+            <p className={styles.eyebrow}>The hour at a glance</p>
+            <h3 id="holy-hour-overview-heading" ref={overviewHeadingRef} tabIndex={-1}>Six movements of prayer</h3>
+          </div>
+          <nav aria-label="Holy Hour stages">
+            <ol className={styles.holyHourTimeline}>
+              {segments.map((segment, index) => (
+                <li key={segment.id}>
+                  <button
+                    type="button"
+                    ref={(node) => { timelineButtonRefs.current[index] = node; }}
+                    className={index === activeIndex ? styles.holyHourTimelineActive : undefined}
+                    aria-current={index === activeIndex ? "step" : undefined}
+                    onClick={() => navigateStage(index)}
+                  >
+                    <span className={styles.holyHourTimelineNumber}>{index + 1}</span>
+                    <span className={styles.holyHourTimelineMinutes}>{segment.startMinute}-{segment.endMinute} min</span>
+                    <strong>{segment.title}</strong>
+                  </button>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </section>
+
+      <article className={styles.holyHourStagePanel} aria-labelledby={`holy-hour-stage-${activeSegment.id}`}>
+        <header className={styles.holyHourStageHeader}>
+          <div>
+            <p className={styles.holyHourStageKicker}>Stage {activeIndex + 1} of {segments.length}</p>
+            <p className={styles.holyHourStageMinutes}>{activeSegment.startMinute}-{activeSegment.endMinute} minutes</p>
+          </div>
+          <h3 id={`holy-hour-stage-${activeSegment.id}`} ref={stageHeadingRef} tabIndex={-1}>{activeSegment.title}</h3>
+          <p>{activeSegment.description}</p>
+        </header>
+
+        <HolyHourStageNavigation
+          index={activeIndex}
+          segments={segments}
+          position="top"
+          onNavigate={navigateStage}
+          onComplete={completeHolyHour}
+        />
+
+        <div className={styles.holyHourStageBody}>
+          {activeSegment.scripture ? (
+            <HolyHourScripture
+              reference={activeSegment.scripture.reference}
+              connection={activeSegment.scripture.connection}
+            />
+          ) : null}
+          <div className={styles.holyHourBlocks}>
+            {(activeSegment.guide ?? []).map((block, blockIndex) => (
+              <HolyHourBlock key={`${activeSegment.id}-${blockIndex}`} block={block} />
+            ))}
+          </div>
+          <HolyHourRelatedScriptures
+            key={activeSegment.id}
+            title={activeSegment.title}
+            scriptures={activeSegment.relatedScriptures}
+          />
+          {activeSegment.sourceNote ? <p className={styles.holyHourSourceNote}>{activeSegment.sourceNote}</p> : null}
+        </div>
+
+        <HolyHourStageNavigation
+          index={activeIndex}
+          segments={segments}
+          position="bottom"
+          onNavigate={navigateStage}
+          onComplete={completeHolyHour}
+        />
+      </article>
+
+      {completed ? (
+        <section className={styles.holyHourCompletion} aria-labelledby="holy-hour-completion-heading">
+          <p className={styles.eyebrow}>Remain as long as you wish</p>
+          <h3 id="holy-hour-completion-heading" ref={completionHeadingRef} tabIndex={-1}>Holy Hour complete</h3>
+          <div className={styles.holyHourActions}>
+            <button type="button" onClick={returnToOverview}>Return to Holy Hour overview</button>
+            <Link href="/" className={styles.goldButton}>Return to Homepage</Link>
+          </div>
+        </section>
+      ) : null}
+
+      <p className="sr-only" aria-live="polite" aria-atomic="true">{announcement}</p>
       </div>
-      <div className={styles.holyHourActions}>
-        <Link href="/" className={styles.goldButton}>Return to Homepage</Link>
-      </div>
+
+      <noscript>
+        <style>{"[data-holy-hour-interactive]{display:none!important}"}</style>
+        <HolyHourNoScript segments={segments} />
+      </noscript>
     </div>
+  );
+}
+
+function HolyHourNoScript({ segments }: { segments: ReturnType<typeof getHolyHourGuide> }) {
+  return (
+    <div className={styles.holyHourNoScript}>
+      <p className={styles.eyebrow}>Complete Holy Hour Guide</p>
+      {segments.map((segment, index) => (
+        <section key={`${segment.id}-no-script`} aria-labelledby={`${segment.id}-no-script-heading`}>
+          <header>
+            <p>Stage {index + 1} of {segments.length} · {segment.startMinute}-{segment.endMinute} minutes</p>
+            <h3 id={`${segment.id}-no-script-heading`}>{segment.title}</h3>
+            <p>{segment.description}</p>
+          </header>
+          {segment.scripture ? (
+            <HolyHourScripture reference={segment.scripture.reference} connection={segment.scripture.connection} />
+          ) : null}
+          <div className={styles.holyHourBlocks}>
+            {(segment.guide ?? []).map((block, blockIndex) => (
+              <HolyHourBlock key={`${segment.id}-no-script-${blockIndex}`} block={block} />
+            ))}
+          </div>
+          <HolyHourRelatedScriptures title={segment.title} scriptures={segment.relatedScriptures} />
+          {segment.sourceNote ? <p className={styles.holyHourSourceNote}>{segment.sourceNote}</p> : null}
+        </section>
+      ))}
+    </div>
+  );
+}
+
+function HolyHourStageNavigation({
+  index,
+  segments,
+  position,
+  onNavigate,
+  onComplete,
+}: {
+  index: number;
+  segments: ReturnType<typeof getHolyHourGuide>;
+  position: "top" | "bottom";
+  onNavigate: (index: number) => void;
+  onComplete: () => void;
+}) {
+  const last = index === segments.length - 1;
+  const nextLabel = last ? "Complete Holy Hour" : `Continue to ${segments[index + 1].title}`;
+
+  return (
+    <nav className={styles.holyHourStageNav} aria-label={`Holy Hour stage ${position} navigation`}>
+      {index > 0 ? (
+        <button type="button" className={styles.holyHourPrevious} onClick={() => onNavigate(index - 1)}>
+          Previous
+        </button>
+      ) : <span className={styles.holyHourNavSpacer} aria-hidden="true" />}
+      <span className={styles.holyHourStageStatus}>Stage {index + 1} of {segments.length}</span>
+      <button
+        type="button"
+        className={styles.holyHourContinue}
+        onClick={() => last ? onComplete() : onNavigate(index + 1)}
+      >
+        {nextLabel}
+      </button>
+    </nav>
   );
 }
 
@@ -602,12 +805,58 @@ function HolyHourBlock({ block }: { block: HolyHourGuideBlock }) {
     case "paragraph": return <p>{block.text}</p>;
     case "breath": return <div className={styles.holyHourBreath}><span><b>Inhale slowly</b>“{block.inhale}”</span><span><b>Exhale slowly</b>“{block.exhale}”</span>{block.repeat ? <em>{block.repeat}</em> : null}</div>;
     case "prayer": return <blockquote className={styles.holyHourPrayer}>{block.title ? <b>{block.title}</b> : null}<span>“{block.text}”</span></blockquote>;
-    case "scripture": return <CompanionPassage passageId={passageForReference(block.reference).id} />;
+    case "scripture": return <HolyHourScripture reference={block.reference} connection={block.connection} />;
     case "reflect": return <div><b>{block.title ?? "Reflect"}</b><ul>{block.prompts.map((prompt) => <li key={prompt}>{prompt}</li>)}</ul></div>;
     case "list": return <div><b>{block.title}</b><ul>{block.items.map((item) => <li key={item}>{item}</li>)}</ul></div>;
     case "invocation": return <blockquote className={styles.holyHourPrayer}>{block.title ? <b>{block.title}</b> : null}{block.lines.map((line) => <span key={line}>“{line}”</span>)}</blockquote>;
     case "pause": return <p className={styles.holyHourPause}>{block.text ?? "Pause in silence."}</p>;
   }
+}
+
+function HolyHourScripture({ reference, connection }: { reference: string; connection: string }) {
+  return (
+    <section className={styles.holyHourScriptureMoment} aria-label={`${reference} and connection to this movement`}>
+      <CompanionPassage passageId={passageForReference(reference).id} />
+      <aside className={styles.holyHourScriptureConnection}>
+        <p className={styles.eyebrow}>Connection to this movement</p>
+        <p>{connection}</p>
+      </aside>
+    </section>
+  );
+}
+
+function HolyHourRelatedScriptures({
+  title,
+  scriptures,
+}: {
+  title: string;
+  scriptures: HolyHourSegment["relatedScriptures"];
+}) {
+  return (
+    <section className={styles.holyHourRelated} aria-label={`Related Scripture for ${title}`}>
+      <details>
+        <summary>
+          <span>
+            <b>Continue with Sacred Scripture</b>
+            <small>Two additional readings for unhurried prayer</small>
+          </span>
+          <span className={styles.holyHourRelatedAction} aria-hidden="true">Open readings</span>
+        </summary>
+        <div className={styles.holyHourRelatedReadings}>
+          {scriptures.map((scripture) => (
+            <HolyHourScripture
+              key={scripture.reference}
+              reference={scripture.reference}
+              connection={scripture.connection}
+            />
+          ))}
+        </div>
+      </details>
+      <ul className={styles.holyHourRelatedPrint} aria-hidden="true">
+        {scriptures.map((scripture) => <li key={`${scripture.reference}-print`}>{scripture.reference}</li>)}
+      </ul>
+    </section>
+  );
 }
 
 function CatechismView({ query, onQueryChange, guides }: { query: string; onQueryChange: (query: string) => void; guides: typeof catechismGuides }) {

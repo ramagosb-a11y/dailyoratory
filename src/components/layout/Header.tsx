@@ -1,15 +1,107 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { brand } from "@/config/brand";
-import { desktopMegaMenu, mobileDrawerNavigation } from "@/config/navigation";
+import {
+  desktopMegaMenu,
+  mobileDrawerNavigation,
+  type NavigationItem,
+  type NavigationSection,
+} from "@/config/navigation";
 
-function isActive(pathname: string, href: string) {
-  const hrefPath = href.split("?")[0] || href;
-  if (hrefPath === "/") return pathname === hrefPath;
-  return pathname === hrefPath || pathname.startsWith(`${hrefPath}/`);
+function isActive(pathname: string, currentSearch: string, href: string) {
+  if (href.startsWith("http")) return false;
+
+  const [hrefPath, hrefSearch = ""] = href.split("?");
+  const pathMatches = hrefPath === "/"
+    ? pathname === hrefPath
+    : pathname === hrefPath || pathname.startsWith(`${hrefPath}/`);
+
+  if (!pathMatches) return false;
+
+  const requiredSearch = new URLSearchParams(hrefSearch);
+  const activeSearch = new URLSearchParams(currentSearch);
+  if (hrefSearch) {
+    return Array.from(requiredSearch.entries()).every(
+      ([key, value]) => activeSearch.get(key) === value,
+    );
+  }
+
+  if (hrefPath === "/adoration/companion" && activeSearch.get("mode") === "holy-hour") {
+    return false;
+  }
+
+  return true;
+}
+
+function sectionContainsActiveLink(
+  section: NavigationSection,
+  pathname: string,
+  currentSearch: string,
+) {
+  return section.groups.some((group) =>
+    group.children.some((item) => isActive(pathname, currentSearch, item.href)),
+  );
+}
+
+function ExternalIndicator() {
+  return (
+    <span className="ml-2 inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.1em] text-burgundy">
+      External site
+      <svg aria-hidden="true" viewBox="0 0 16 16" className="h-3 w-3 fill-none stroke-current stroke-[1.6]">
+        <path d="M6 3H3.75A1.75 1.75 0 0 0 2 4.75v7.5C2 13.22 2.78 14 3.75 14h7.5A1.75 1.75 0 0 0 13 12.25V10M9 2h5v5M14 2 7.5 8.5" />
+      </svg>
+    </span>
+  );
+}
+
+function NavigationDestination({
+  item,
+  pathname,
+  currentSearch,
+  onNavigate,
+  className,
+}: {
+  item: NavigationItem;
+  pathname: string;
+  currentSearch: string;
+  onNavigate: () => void;
+  className: string;
+}) {
+  const active = !item.external && isActive(pathname, currentSearch, item.href);
+  const content = (
+    <span className="flex min-w-0 items-center justify-between gap-2">
+      <span>{item.label}</span>
+      {item.external ? <ExternalIndicator /> : null}
+    </span>
+  );
+
+  if (item.external) {
+    return (
+      <a
+        href={item.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onNavigate}
+        className={className}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={item.href}
+      aria-current={active ? "page" : undefined}
+      onClick={onNavigate}
+      className={`${className} ${active ? "bg-parchment liturgical-accent-text" : ""}`}
+    >
+      {content}
+    </Link>
+  );
 }
 
 function Logo({ onNavigate }: { onNavigate?: () => void }) {
@@ -35,10 +127,23 @@ function Logo({ onNavigate }: { onNavigate?: () => void }) {
 
 export function Header() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentSearch = searchParams.toString();
   const [open, setOpen] = useState(false);
+  const [desktopOpen, setDesktopOpen] = useState<string | null>(null);
+  const [mobileSectionOpen, setMobileSectionOpen] = useState<string | null>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const desktopNavRef = useRef<HTMLElement>(null);
+  const desktopButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+
+  const activeSectionId = useMemo(
+    () => desktopMegaMenu.find(
+      (section) => sectionContainsActiveLink(section, pathname, currentSearch),
+    )?.id ?? null,
+    [pathname, currentSearch],
+  );
 
   function closeMenu({ returnFocus = false }: { returnFocus?: boolean } = {}) {
     setOpen(false);
@@ -46,6 +151,40 @@ export function Header() {
       window.requestAnimationFrame(() => menuButtonRef.current?.focus());
     }
   }
+
+  function closeDesktopMenu({ returnFocus = false }: { returnFocus?: boolean } = {}) {
+    const sectionId = desktopOpen;
+    setDesktopOpen(null);
+    if (returnFocus && sectionId) {
+      window.requestAnimationFrame(() => desktopButtonRefs.current[sectionId]?.focus());
+    }
+  }
+
+  useEffect(() => {
+    if (!desktopOpen) return;
+    const openSectionId = desktopOpen;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setDesktopOpen(null);
+        window.requestAnimationFrame(() => desktopButtonRefs.current[openSectionId]?.focus());
+      }
+    }
+
+    function handlePointerDown(event: PointerEvent) {
+      if (!desktopNavRef.current?.contains(event.target as Node)) {
+        setDesktopOpen(null);
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
+    };
+  }, [desktopOpen]);
 
   useEffect(() => {
     if (!open) return;
@@ -98,116 +237,112 @@ export function Header() {
     <>
       <header className="site-header sticky top-0 z-40 border-b border-stone bg-ivory/95 backdrop-blur">
         <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8 lg:px-10">
-        <Logo onNavigate={() => closeMenu()} />
-        <nav aria-label="Primary navigation" className="hidden items-center gap-0.5 lg:flex">
-          {desktopMegaMenu.map((section, index) => {
-            const menuPosition =
-              index < 2
-                ? "left-0"
-                : index > desktopMegaMenu.length - 3
-                  ? "right-0"
-                  : "left-1/2 -translate-x-1/2";
+          <Logo onNavigate={() => closeMenu()} />
+          <nav
+            ref={desktopNavRef}
+            aria-label="Primary navigation"
+            className="hidden items-center gap-1 lg:flex"
+          >
+            {desktopMegaMenu.map((section, index) => {
+              const isOpen = desktopOpen === section.id;
+              const isCurrent = section.id === activeSectionId;
+              const menuPosition = index < 2 ? "left-0" : "right-0";
+              const groupColumns = section.groups.length === 1
+                ? "md:grid-cols-1"
+                : section.groups.length === 2
+                  ? "md:grid-cols-2"
+                  : "md:grid-cols-3";
 
-            return (
-            <div key={section.href} className="group relative">
-              <Link
-                href={section.href}
-                aria-current={isActive(pathname, section.href) ? "page" : undefined}
-                className={`focus-ring liturgical-nav-link rounded-md px-2.5 py-2 text-sm font-semibold transition xl:px-3 ${
-                  isActive(pathname, section.href)
-                    ? "liturgical-nav-active"
-                    : "text-navy hover:bg-parchment"
-                }`}
-              >
-                {section.label}
-              </Link>
-              <div
-                className={`invisible absolute top-full w-[min(760px,calc(100vw-4rem))] translate-y-2 rounded-md border border-stone bg-ivory p-5 opacity-0 shadow-xl transition group-hover:visible group-hover:translate-y-3 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-3 group-focus-within:opacity-100 ${menuPosition}`}
-              >
-                <div className={`grid max-h-[calc(100vh-140px)] gap-5 overflow-y-auto ${section.hideMenuIntro ? "" : "md:grid-cols-[0.72fr_1.28fr]"}`}>
-                  {!section.hideMenuIntro ? (
-                    <div className="border-r border-stone pr-5">
-                      <p className="font-display text-3xl font-semibold text-navy">{section.label}</p>
-                      <p className="mt-2 text-sm leading-6 text-muted">{section.description}</p>
-                      <Link
-                        href={section.href}
-                        className="btn btn-liturgical focus-ring mt-4"
-                      >
-                        Open section
-                      </Link>
+              return (
+                <div key={section.id} className="relative">
+                  <button
+                    ref={(element) => { desktopButtonRefs.current[section.id] = element; }}
+                    id={`desktop-menu-button-${section.id}`}
+                    type="button"
+                    aria-controls={`desktop-menu-${section.id}`}
+                    aria-expanded={isOpen}
+                    onClick={() => setDesktopOpen(isOpen ? null : section.id)}
+                    className={`focus-ring liturgical-nav-link inline-flex min-h-11 items-center gap-1 rounded-md px-2.5 py-2 text-sm font-semibold transition xl:px-3 ${
+                      isCurrent || isOpen
+                        ? "liturgical-nav-active"
+                        : "text-navy hover:bg-parchment"
+                    }`}
+                  >
+                    {section.label}
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 12 12"
+                      className={`h-3 w-3 fill-none stroke-current stroke-2 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    >
+                      <path d="m2.5 4.5 3.5 3 3.5-3" />
+                    </svg>
+                  </button>
+                  {isOpen ? (
+                    <div
+                      id={`desktop-menu-${section.id}`}
+                      aria-labelledby={`desktop-menu-button-${section.id}`}
+                      className={`absolute top-full mt-2 w-[min(820px,calc(100vw-4rem))] rounded-lg border border-stone bg-ivory p-5 shadow-xl ${menuPosition}`}
+                    >
+                      <p className="mb-4 max-w-2xl text-sm leading-6 text-muted">{section.description}</p>
+                      <div className={`grid gap-4 ${groupColumns}`}>
+                        {section.groups.map((group) => (
+                          <section
+                            key={`${section.id}-${group.title}`}
+                            className="rounded-md border border-stone/70 bg-parchment/35 p-3"
+                          >
+                            <h2 className="text-[11px] font-bold uppercase tracking-[0.14em] text-burgundy">
+                              {group.title}
+                            </h2>
+                            <ul className="mt-2 grid gap-1">
+                              {group.children.map((item) => (
+                                <li key={`${section.id}-${group.title}-${item.href}`}>
+                                  <NavigationDestination
+                                    item={item}
+                                    pathname={pathname}
+                                    currentSearch={currentSearch}
+                                    onNavigate={() => closeDesktopMenu()}
+                                    className="focus-ring liturgical-nav-link block min-h-11 rounded-md px-3 py-3 text-sm font-bold text-navy transition hover:bg-ivory"
+                                  />
+                                </li>
+                              ))}
+                            </ul>
+                          </section>
+                        ))}
+                      </div>
                     </div>
                   ) : null}
-                  {section.groups?.length ? (
-                    <div className="grid gap-4 sm:grid-cols-2">
-                      {section.groups.map((group) => (
-                        <div key={`${section.href}-${group.title}`} className="rounded-md border border-stone/70 bg-parchment/40 p-3">
-                          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-burgundy">{group.title}</p>
-                          <ul className="mt-2 grid gap-1.5">
-                            {group.children.map((link) => (
-                              <li key={`${section.href}-${group.title}-${link.href}-${link.label}`}>
-                                <Link
-                                  href={link.href}
-                                  aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                                  className="focus-ring liturgical-nav-link block rounded-md px-3 py-2 transition hover:bg-parchment"
-                                >
-                                  <span className="block text-sm font-bold text-navy">{link.label}</span>
-                                  {link.description ? (
-                                    <span className="mt-1 block text-xs leading-5 text-muted">{link.description}</span>
-                                  ) : null}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  ) : (
-                    <ul className="grid gap-2 sm:grid-cols-2">
-                      {section.children.map((link) => (
-                        <li key={`${section.href}-${link.href}-${link.label}`}>
-                          <Link
-                            href={link.href}
-                            aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                            className="focus-ring liturgical-nav-link block rounded-md px-3 py-2.5 transition hover:bg-parchment"
-                          >
-                            <span className="block text-sm font-bold text-navy">{link.label}</span>
-                            {link.description ? (
-                              <span className="mt-1 block text-xs leading-5 text-muted">{link.description}</span>
-                            ) : null}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
                 </div>
-              </div>
-            </div>
-          );
-          })}
-        </nav>
-        <button
-          ref={menuButtonRef}
-          type="button"
-          aria-controls="mobile-menu"
-          aria-expanded={open}
-          aria-label={open ? `Close ${brand.platformName} menu` : `Open ${brand.platformName} menu`}
-          onClick={() => setOpen((value) => !value)}
-          className="focus-ring ml-auto inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-stone bg-ivory text-navy lg:hidden"
-        >
-          <span className="sr-only">{open ? "Close" : "Open"} {brand.platformName} menu</span>
-          {open ? (
-            <span aria-hidden="true" className="relative block h-5 w-5">
-              <span className="absolute left-0 top-1/2 block h-0.5 w-5 rotate-45 bg-current" />
-              <span className="absolute left-0 top-1/2 block h-0.5 w-5 -rotate-45 bg-current" />
-            </span>
-          ) : (
-            <span aria-hidden="true" className="grid gap-1">
-              <span className="block h-0.5 w-5 bg-current" />
-              <span className="block h-0.5 w-5 bg-current" />
-              <span className="block h-0.5 w-5 bg-current" />
-            </span>
-          )}
-        </button>
+              );
+            })}
+          </nav>
+          <button
+            ref={menuButtonRef}
+            type="button"
+            aria-controls="mobile-menu"
+            aria-expanded={open}
+            aria-label={open ? `Close ${brand.platformName} menu` : `Open ${brand.platformName} menu`}
+            onClick={() => {
+              setOpen((value) => {
+                if (!value) setMobileSectionOpen(activeSectionId);
+                return !value;
+              });
+            }}
+            className="focus-ring ml-auto inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border border-stone bg-ivory text-navy lg:hidden"
+          >
+            <span className="sr-only">{open ? "Close" : "Open"} {brand.platformName} menu</span>
+            {open ? (
+              <span aria-hidden="true" className="relative block h-5 w-5">
+                <span className="absolute left-0 top-1/2 block h-0.5 w-5 rotate-45 bg-current" />
+                <span className="absolute left-0 top-1/2 block h-0.5 w-5 -rotate-45 bg-current" />
+              </span>
+            ) : (
+              <span aria-hidden="true" className="grid gap-1">
+                <span className="block h-0.5 w-5 bg-current" />
+                <span className="block h-0.5 w-5 bg-current" />
+                <span className="block h-0.5 w-5 bg-current" />
+              </span>
+            )}
+          </button>
         </div>
       </header>
       {open ? (
@@ -215,7 +350,7 @@ export function Header() {
           role="dialog"
           aria-modal="true"
           aria-labelledby="mobile-menu-title"
-          className="fixed inset-x-0 bottom-0 top-20 z-50 border-t border-stone lg:hidden"
+          className="fixed inset-0 z-50 lg:hidden"
         >
           <button
             type="button"
@@ -246,58 +381,61 @@ export function Header() {
                 </span>
               </button>
             </div>
-            <div className="grid gap-4">
-              {mobileDrawerNavigation.map((section) => (
-                <section key={section.href} className="border-t border-stone pt-4">
-                  <Link
-                    href={section.href}
-                    aria-current={isActive(pathname, section.href) ? "page" : undefined}
-                    onClick={() => closeMenu()}
-                    className={`focus-ring block rounded-md text-base font-bold ${
-                      isActive(pathname, section.href) ? "liturgical-accent-text" : "text-navy"
-                    }`}
-                  >
-                    {section.label}
-                  </Link>
-                  <p className="mt-1 text-xs leading-5 text-muted">{section.description}</p>
-                  {section.groups?.length ? (
-                    <div className="mt-3 grid gap-2">
-                      {section.groups.map((group) => (
-                        <details key={`${section.href}-${group.title}`} className="rounded-md border border-stone/70 bg-parchment/30 p-3">
-                          <summary className="cursor-pointer list-none text-sm font-bold text-navy">{group.title}</summary>
-                          <div className="mt-3 grid gap-1">
-                            {group.children.map((link) => (
-                              <Link
-                                key={`${section.href}-${group.title}-${link.href}-${link.label}`}
-                                href={link.href}
-                                aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                                onClick={() => closeMenu()}
-                                className="focus-ring liturgical-nav-link rounded-md px-3 py-2 text-sm font-semibold text-navy hover:bg-parchment"
-                              >
-                                {link.label}
-                              </Link>
-                            ))}
-                          </div>
-                        </details>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className="mt-3 grid gap-1">
-                      {section.children.map((link) => (
-                        <Link
-                          key={`${section.href}-${link.href}-${link.label}`}
-                          href={link.href}
-                          aria-current={isActive(pathname, link.href) ? "page" : undefined}
-                          onClick={() => closeMenu()}
-                          className="focus-ring liturgical-nav-link rounded-md px-3 py-2 text-sm font-semibold text-navy hover:bg-parchment"
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </section>
-              ))}
+            <div className="grid gap-3">
+              {mobileDrawerNavigation.map((section) => {
+                const isSectionOpen = mobileSectionOpen === section.id;
+                const isCurrent = activeSectionId === section.id;
+
+                return (
+                  <section key={section.id} className="rounded-md border border-stone bg-parchment/20">
+                    <button
+                      type="button"
+                      aria-controls={`mobile-section-${section.id}`}
+                      aria-expanded={isSectionOpen}
+                      onClick={() => setMobileSectionOpen(isSectionOpen ? null : section.id)}
+                      className={`focus-ring flex min-h-12 w-full items-center justify-between gap-3 rounded-md px-4 py-3 text-left text-base font-bold ${
+                        isCurrent ? "liturgical-accent-text" : "text-navy"
+                      }`}
+                    >
+                      {section.label}
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 12 12"
+                        className={`h-4 w-4 shrink-0 fill-none stroke-current stroke-2 transition-transform ${isSectionOpen ? "rotate-180" : ""}`}
+                      >
+                        <path d="m2.5 4.5 3.5 3 3.5-3" />
+                      </svg>
+                    </button>
+                    {isSectionOpen ? (
+                      <div id={`mobile-section-${section.id}`} className="border-t border-stone px-3 pb-3">
+                        <p className="px-1 py-3 text-xs leading-5 text-muted">{section.description}</p>
+                        <div className="grid gap-3">
+                          {section.groups.map((group) => (
+                            <div key={`${section.id}-${group.title}`}>
+                              <h2 className="px-1 text-[11px] font-bold uppercase tracking-[0.14em] text-burgundy">
+                                {group.title}
+                              </h2>
+                              <ul className="mt-1 grid gap-1">
+                                {group.children.map((item) => (
+                                  <li key={`${section.id}-${group.title}-${item.href}`}>
+                                    <NavigationDestination
+                                      item={item}
+                                      pathname={pathname}
+                                      currentSearch={currentSearch}
+                                      onNavigate={() => closeMenu()}
+                                      className="focus-ring liturgical-nav-link block min-h-11 rounded-md px-3 py-3 text-sm font-semibold text-navy hover:bg-parchment"
+                                    />
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+                  </section>
+                );
+              })}
             </div>
           </nav>
         </div>

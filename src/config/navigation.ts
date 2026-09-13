@@ -2,6 +2,7 @@ export type NavigationItem = {
   label: string;
   href: string;
   description?: string;
+  external?: boolean;
 };
 
 export type NavigationGroup = {
@@ -11,209 +12,126 @@ export type NavigationGroup = {
 
 export { legacyRedirects, redirectMap, type RedirectRule } from "@/data/redirects";
 
-export type NavigationSection = NavigationItem & {
-  children: NavigationItem[];
-  groups?: NavigationGroup[];
-  hideMenuIntro?: boolean;
+export type NavigationSection = {
+  id: string;
+  label: string;
+  description: string;
+  groups: NavigationGroup[];
 };
 
 const navigationSections: NavigationSection[] = [
   {
+    id: "pray",
     label: "Pray",
-    href: "/prayers",
-    description: "Begin in prayer and keep a daily Catholic rhythm.",
-    hideMenuIntro: true,
-    children: [
-      { label: "Morning Prayers", href: "/morning-prayer", description: "Enter a guided morning prayer experience with sacred imagery, quiet reflection, and a steady daily rhythm." },
-      { label: "Prayer Library", href: "/prayers", description: "Find Catholic prayers for daily life, Confession, the Rosary, the dead, and more." },
-      { label: "Litanies", href: "/prayers/litanies", description: "Learn what Catholic litanies are, how to pray them, and which traditional litanies fit different needs." },
-      { label: "The Angelus", href: "/prayers/angelus", description: "A traditional Marian prayer for morning, noon, and evening outside the Easter season." },
-      { label: "Regina Caeli", href: "/prayers/regina-caeli", description: "The Easter Marian prayer traditionally prayed from Easter through Pentecost." },
-      { label: "Devotions", href: "/devotions", description: "Discover Catholic devotions ordered to Christ, the sacraments, and daily fidelity." },
-      { label: "Scripture Prayer", href: "/library/scripture-prayer", description: "Pray with the Word of God through Scripture, Mass readings, and Lectio Divina." },
-      { label: "Daily Examen", href: "/daily-examen/nightly", description: "End the day with gratitude, mercy, reflection, and peaceful trust in God." },
-      { label: "Liturgy of the Hours", href: "/liturgy-of-the-hours", description: "Learn the Divine Office and pray the Church's daily hours." },
-      { label: "The Holy Mass", href: "/mass", description: "Understand the Mass as sacrifice, worship, communion, and heaven touching earth." },
-      { label: "Divine Mercy Chaplet", href: "/divine-mercy/chaplet", description: "A quiet Chaplet room for mercy and trust." },
-      { label: "Way of the Cross", href: "/way-of-cross", description: "Pray the Stations of the Cross with Christ." },
-      { label: "Adoration Companion", href: "/adoration/companion", description: "Meditation, Scripture, Eucharistic prayers and hymns, silence, and Catechism guidance in one place." },
-      { label: "Live Adoration", href: "/adoration", description: "Enter Adoration with reverence." },
-    ],
-  },
-  {
-    label: "Learn",
-    href: "/learn",
-    description: "Grow in Catholic teaching, devotion, and sacramental life.",
+    description: "Begin in prayer and keep a peaceful Catholic rhythm throughout the day.",
     groups: [
       {
-        title: "Start Here",
+        title: "Prayer Through the Day",
         children: [
-          { label: "Explore the Catholic Faith", href: "/explore", description: "A gentle starting point for questions and first steps." },
-          { label: "Catholic Life Roadmap", href: "/catholic-life", description: "A simple map through Catholic prayer, sacraments, formation, and daily life." },
-          { label: "Becoming Catholic", href: "/ocia", description: "OCIA and the parish path into full communion." },
-          { label: "Returning Catholics", href: "/returning", description: "A calm guide for coming home to the Church." },
-          { label: "First Time at Mass", href: "/explore/first-time-at-mass", description: "What to expect and how to participate respectfully." },
-          { label: "Glossary", href: "/glossary", description: "Simple Catholic terms in plain English." },
+          { label: "Morning Prayer", href: "/morning-prayer" },
+          { label: "Midday Prayer", href: "/prayers/angelus" },
+          { label: "3 pm Prayer", href: "/divine-mercy/three-pm-prayer" },
+          { label: "Daily Examen", href: "/daily-examen/nightly" },
+          { label: "Night Prayer", href: "/night-prayer" },
         ],
       },
       {
-        title: "Core Faith",
+        title: "Devotions",
         children: [
-          { label: "Bible", href: "/bible", description: "Learn how Catholics read Sacred Scripture with the Church." },
-          { label: "Body, Soul, and Spirit", href: "/body-soul-spirit", description: "Understand the human person, grace, sin, Confession, and the soul as an interior temple of God." },
-          { label: "Catechism", href: "/catechism", description: "What the Church teaches and how to use it." },
-          { label: "The Holy Mass", href: "/mass", description: "The shape and meaning of Catholic worship." },
-          { label: "Sacraments", href: "/sacraments", description: "The seven sacraments and how Christ acts through them." },
-          { label: "Sacramentals", href: "/sacramentals", description: "Holy water, rosaries, medals, scapulars, crucifixes, blessings, and daily Catholic life." },
-          { label: "Relics", href: "/relics", description: "Learn what relics are, why Catholics venerate them, and why they must never be treated superstitiously." },
-          { label: "Sacred Tradition", href: "/tradition", description: "How the apostolic faith is handed on in the Church." },
-          { label: "The Pope", href: "/pope", description: "The Petrine ministry and visible unity of the Church." },
+          { label: "Pray the Rosary", href: "/rosary/visual-meditation" },
+          { label: "Pray a Litany", href: "/prayers/litanies" },
+          { label: "Divine Mercy Chaplet", href: "/divine-mercy/chaplet" },
+          { label: "The Way of the Cross", href: "/way-of-cross" },
         ],
-      },
-      {
-        title: "Church Life and History",
-        children: [
-          { label: "Councils of the Church", href: "/councils", description: "How councils clarified doctrine and guided the Church." },
-          { label: "The Vatican", href: "/vatican", description: "Vatican City, Saint Peter's Basilica, and official Vatican resources." },
-          { label: "Church Fathers", href: "/church-fathers", description: "Early Christian witnesses to Scripture, worship, and doctrine." },
-          { label: "Catholic News", href: "/news", description: "Faithful news and official Church sources." },
-          { label: "Scripture Prayer", href: "/library/scripture-prayer", description: "How Catholics pray with the Word of God." },
-          { label: "Homilies", href: "/homilies", description: "Catholic homilies, reflections, and preaching playlists for prayer and formation." },
-          { label: "Media Library", href: "/media", description: "Videos, playlists, slides, images, and Catholic formation resources." },
-        ],
-      },
-      {
-        title: "Spiritual Growth",
-        children: [
-          { label: "Formation", href: "/formation", description: "Doctrine, virtue, prayer, and steady discipleship." },
-          { label: "Grace", href: "/formation/grace", description: "Learn about sanctifying grace, actual grace, sacramental grace, charisms, and cooperation with grace." },
-          { label: "Catholic Eschatology", href: "/formation/eschatology", description: "A hopeful guide to death, judgment, Heaven, Hell, Purgatory, resurrection, and Christ's return." },
-          { label: "Catholic Burial", href: "/formation/catholic-burial", description: "Burial, cremation, funeral rites, prayers for the dead, and planning with hope in the resurrection." },
-          { label: "Sin & Temptation", href: "/sin-and-temptation", description: "Understand sin, resist temptation, seek mercy, and grow in healing and virtue." },
-          { label: "Spiritual Warfare", href: "/spiritual-warfare", description: "A calm Catholic guide to spiritual warfare, deliverance, and when to seek parish or diocesan help." },
-          { label: "Angels", href: "/angels", description: "Learn what the Church teaches about angels, guardian angels, and the invisible world." },
-          { label: "Relics", href: "/relics", description: "A reverent guide to relics, reliquaries, and the communion of saints." },
-          { label: "Saints", href: "/saints", description: "Holy men and women who still encourage the Church." },
-          { label: "Catholic Devotions", href: "/devotions", description: "Traditional devotions ordered toward Christ." },
-          { label: "Family and Domestic Church", href: "/family", description: "Prayer and formation in Catholic family life." },
-          { label: "Indulgences", href: "/indulgences", description: "A practical guide to indulgences and their conditions." },
-          { label: "Detachment from Sin", href: "/indulgences/detachment-from-sin", description: "A gentle guide to the interior freedom sought in conversion and plenary indulgences." },
-          { label: "Indulgence Prayers and Devotions", href: "/indulgences/prayers-and-devotions", description: "Traditional Catholic prayers and devout works associated with indulgences under the Church's norms." },
-          { label: "Daily Rule of Life", href: "/rule-of-life", description: "A simple Catholic rhythm of prayer and mercy." },
-          { label: "Spiritual Growth Pathways", href: "/pathways", description: "Guided tracks for formation and conversion." },
-          { label: "Heavenbound Companion", href: "/tools/heavenbound", description: "An external Catholic spiritual companion in ChatGPT." },
-        ],
-      },
-    ],
-    children: [
-      { label: "Spiritual Growth Pathways", href: "/pathways", description: "Guided Catholic formation tracks." },
-      { label: "Heavenbound Companion", href: "/tools/heavenbound", description: "Choose a Catholic spiritual path and open Heavenbound in ChatGPT." },
-      { label: "Daily Rule of Life", href: "/rule-of-life", description: "Prayer, Scripture, virtue, sacraments, and mercy." },
-      { label: "Explore the Catholic Faith", href: "/explore", description: "A welcoming starting place for anyone curious about Catholic belief, prayer, worship, and spiritual life." },
-      { label: "Catholic Life Roadmap", href: "/catholic-life", description: "A master start-here guide to prayer, Mass, Confession, Scripture, grace, family faith, and hope." },
-      { label: "Indulgences", href: "/indulgences", description: "A practical Catholic guide to indulgences, the usual conditions, and special grace years." },
-      { label: "Detachment from Sin", href: "/indulgences/detachment-from-sin", description: "A gentle guide to complete detachment from sin, conversion, and spiritual freedom." },
-      { label: "Indulgence Prayers and Devotions", href: "/indulgences/prayers-and-devotions", description: "A guide to prayers, Scripture reading, and devotions traditionally associated with indulgences." },
-      { label: "Catholic Devotions", href: "/devotions", description: "Learn the meaning, purpose, and practice of traditional Catholic devotions." },
-      { label: "Church Fathers", href: "/church-fathers", description: "Discover the early witnesses of the Church and learn how they taught Scripture, sacraments, prayer, virtue, and doctrine." },
-      { label: "Bible", href: "/bible", description: "Learn how Catholics read the Bible, pray with Mass readings, and choose Catholic translations." },
-      { label: "Body, Soul, and Spirit", href: "/body-soul-spirit", description: "Understand the human person, grace, sin, Confession, and the soul as an interior temple of God." },
-      { label: "Catechism", href: "/catechism", description: "Learn what the Church teaches, how the Catechism is organized, and how to use it for prayer, study, and formation." },
-      { label: "Sacred Tradition", href: "/tradition", description: "Understand how the Catholic faith is handed on through Scripture, apostolic teaching, worship, sacraments, saints, and the guidance of the Holy Spirit." },
-      { label: "Councils of the Church", href: "/councils", description: "Learn how the bishops of the Church gathered in councils to defend the faith, clarify doctrine, guide worship, address errors, and help the Church follow Christ through history." },
-      { label: "Family and Domestic Church", href: "/family", description: "Build a Catholic home of prayer, mercy, virtue, sacramental life, and family formation." },
-      { label: "Angels and the Invisible World", href: "/angels", description: "Learn what the Church teaches about angels, guardian angels, worship, and spiritual protection." },
-      { label: "The Pope", href: "/pope", description: "Understand the Pope's role as Bishop of Rome, successor of Saint Peter, and visible sign of unity in the Church." },
-      { label: "The Vatican", href: "/vatican", description: "Explore Vatican City, Saint Peter's Basilica, Vatican history, sacred art, virtual tours, and official Vatican media." },
-      { label: "Sacraments", href: "/sacraments", description: "Prepare for grace with parish guidance." },
-      { label: "Sacramentals", href: "/sacramentals", description: "Learn how blessed signs and objects help daily life become prayer." },
-      { label: "Relics", href: "/relics", description: "Learn how relics connect the saints, the body, and the hope of resurrection." },
-      { label: "Becoming Catholic", href: "/ocia", description: "Learn about OCIA, the parish journey for adults exploring the Catholic faith or preparing for initiation." },
-      { label: "Saints", href: "/saints", description: "Meet the holy men and women who followed Christ and still encourage the Church." },
-      { label: "Catholic News", href: "/news", description: "Follow Catholic news, official Church sources, and faith updates with prayerful discernment." },
-      { label: "Scripture Prayer", href: "/library/scripture-prayer", description: "Learn how Catholics read, pray, and live the Word of God." },
-      { label: "Media Library", href: "/media", description: "Explore Catholic videos, slides, images, playlists, and formation resources." },
-      { label: "The Holy Mass", href: "/mass", description: "Learn the parts of the Mass, sacred spaces, Real Presence, and prayerful participation." },
-      { label: "Formation", href: "/formation", description: "Grow in doctrine, virtue, prayer, and daily discipleship." },
-      { label: "Grace", href: "/formation/grace", description: "Understand God’s gift of divine life, healing, help, and holiness." },
-      { label: "Catholic Eschatology", href: "/formation/eschatology", description: "A hopeful Catholic guide to the last things and eternal life in Christ." },
-      { label: "Catholic Burial", href: "/formation/catholic-burial", description: "A gentle guide to burial, cremation, funeral rites, and prayers for the dead." },
-      { label: "Sin & Temptation", href: "/sin-and-temptation", description: "A Catholic guide to sin, temptation, confession, healing, and conversion." },
-      { label: "Spiritual Warfare", href: "/spiritual-warfare", description: "A calm Catholic guide to spiritual warfare, deliverance, and when to seek parish or diocesan help." },
-    ],
-  },
-  {
-    label: "Media",
-    href: "/media",
-    description: "Videos, slides, images, and Catholic formation resources.",
-    children: [
-      { label: "Media Library", href: "/media", description: "Browse Catholic videos, slides, images, playlists, and formation resources." },
-      { label: "Prophecy Series", href: "/prophecy-series", description: "Follow the 12-part Sunday evening Prophecy Series with playlist, schedule, and discernment notes." },
-      { label: "Homilies", href: "/homilies", description: "Homilies, preaching playlists, and audio reflections." },
-      { label: "Formation", href: "/formation", description: "Grow in doctrine, virtue, prayer, and daily discipleship." },
-      { label: "The Holy Mass", href: "/mass", description: "Learn the parts of the Mass, sacred spaces, and prayerful participation." },
-      { label: "Adoration", href: "/adoration", description: "Pray before Jesus in Eucharistic Adoration." },
-      { label: "Scripture Prayer", href: "/library/scripture-prayer", description: "Pray with the Word of God through Scripture and reflection." },
-      { label: "Explore the Catholic Faith", href: "/explore", description: "A gentle place to begin if you are curious about Catholicism." },
-    ],
-  },
-  {
-    label: "Liturgical Year",
-    href: "/liturgical-living",
-    description: "Live the liturgical year with the Church.",
-    children: [
-      { label: "Today in the Church", href: "/today", description: "Seasonal focus for prayer and life." },
-      { label: "Faith News", href: "/news", description: "Follow the life of the Church with prayer, charity, and discernment." },
-      {
-        label: "Liturgical Living Dashboard",
-        href: "/liturgical-living",
-        description: "Calendar, colors, seasons, and practices.",
-      },
-      { label: "Calendar", href: "/liturgical-living/calendar", description: "Follow feasts and seasons." },
-      { label: "Seasons", href: "/liturgical-living/seasons", description: "Advent, Lent, Easter, and Ordinary Time." },
-      { label: "O Antiphons", href: "/liturgical-living/advent/o-antiphons", description: "Pray the ancient Advent titles of Christ from December 17–23." },
-      { label: "Lent", href: "/liturgical-living/lent", description: "Prayer, fasting, repentance, and preparation for Easter." },
-      { label: "Christmas Season", href: "/liturgical-living/christmas", description: "Celebrate the Incarnation through Christmas, Epiphany, and the Lord's light." },
-      { label: "Epiphany", href: "/liturgical-living/christmas/epiphany", description: "Follow the Magi, worship Christ, and bless the home during Epiphany." },
-      { label: "Saint of the Day", href: "/saints/saint-of-the-day", description: "Meet today’s saint and continue in prayer." },
-      { label: "Holy Days", href: "/liturgical-living/holy-days", description: "Mark solemn days with prayer." },
-      {
-        label: "Family Liturgical Living",
-        href: "/liturgical-living/family",
-        description: "Simple domestic Church practices.",
       },
     ],
   },
   {
-    label: "Library",
-    href: "/library",
-    description: "Search all Daily Oratory resources.",
-    children: [
-      { label: "All Resources", href: "/library", description: "Search the full Catholic library." },
-      { label: "Bible", href: "/bible", description: "A Catholic guide to Scripture, translations, Mass readings, and Bible prayer." },
-      { label: "Scripture Prayer", href: "/library/scripture-prayer", description: "Read the Bible with the Church and pray with the Word of God." },
-      { label: "Prayer Resources", href: "/library?q=prayer", description: "Prayers, Rosary, Adoration, and devotion." },
-      { label: "Formation Resources", href: "/library?q=formation", description: "Virtue, doctrine, and spiritual growth." },
-      { label: "Sacramental Resources", href: "/library?q=sacraments", description: "Mass, confession, Eucharist, and preparation." },
-      { label: "Seasonal Resources", href: "/library?q=liturgical%20year", description: "Advent, Lent, Easter, and Church seasons." },
+    id: "mass-adoration",
+    label: "Mass & Adoration",
+    description: "Enter more deeply into the Mass, Eucharistic Adoration, and preparation of heart.",
+    groups: [
+      {
+        title: "Mass and the Word",
+        children: [
+          { label: "Daily Scripture Reflections", href: "/reflections/mass-readings" },
+          { label: "The Holy Mass", href: "/mass" },
+        ],
+      },
+      {
+        title: "Eucharistic Adoration",
+        children: [
+          { label: "Adoration Meditation", href: "/adoration/companion" },
+          { label: "Holy Hour Meditation", href: "/adoration/companion?mode=holy-hour" },
+        ],
+      },
+      {
+        title: "Retreat and Preparation",
+        children: [
+          { label: "The Sacred Hours", href: "/holy-week" },
+          { label: "Three-Day Fasting Retreat", href: "/fasting-retreat" },
+          { label: "Guided Examination of Conscience", href: "/confession/examination-companion" },
+        ],
+      },
     ],
   },
   {
-    label: "About",
-    href: "/about",
-    description: "The mission and editorial posture of Daily Oratory.",
-    children: [
-      { label: "Mission", href: "/mission", description: "How the Church prays, forms vocations, and serves in charity." },
-      { label: "Contact", href: "/contact", description: "Corrections, contributions, and event inquiries." },
+    id: "learn",
+    label: "Learn",
+    description: "Grow in Scripture, Tradition, the Church Fathers, and the Catechism.",
+    groups: [
+      {
+        title: "Foundations of the Faith",
+        children: [
+          { label: "The Bible and Sacred Scripture", href: "/bible" },
+          { label: "Sacred Tradition", href: "/tradition" },
+          { label: "Church Fathers", href: "/church-fathers" },
+          { label: "Catechism of the Catholic Church", href: "/catechism" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "external-resources",
+    label: "External Resources",
+    description: "Trusted resources that open outside Daily Oratory.",
+    groups: [
+      {
+        title: "Read and Discover",
+        children: [
+          { label: "Today's Daily Readings", href: "https://bible.usccb.org/daily-bible-reading", external: true },
+          { label: "Today's Saint", href: "https://www.franciscanmedia.org/saint-of-the-day/", external: true },
+          { label: "Eucharistic Miracles", href: "https://www.miracolieucaristici.org/en/liste/list.html", external: true },
+        ],
+      },
+      {
+        title: "Spiritual Companions",
+        children: [
+          { label: "Heavenbound", href: "https://chatgpt.com/g/g-68858af32c348191bd1d17ae4c8bda79-heavenbound", external: true },
+          { label: "NotebookLM Library", href: "https://notebook.google.com/notebook/24faf824-e6ff-4a7c-b7f8-fd1d51ee32f0?authuser=1", external: true },
+        ],
+      },
+      {
+        title: "Find a Mass",
+        children: [
+          { label: "Catholic Mass Times", href: "https://catholicmasstimes.com/", external: true },
+          { label: "MassTimes.org", href: "https://masstimes.org/", external: true },
+        ],
+      },
     ],
   },
 ];
 
-export const siteNavigation = navigationSections.filter(
-  (section) => section.label !== "Learn" && section.label !== "Library" && section.label !== "About",
-);
+export const siteNavigation = navigationSections;
 
-export const primaryNavigation = siteNavigation.map(({ label, href }) => ({ label, href }));
+export const primaryNavigation = Array.from(
+  new Map(
+    navigationSections
+      .flatMap((section) => section.groups.flatMap((group) => group.children))
+      .filter((item) => !item.external)
+      .map((item) => [item.href, { label: item.label, href: item.href }]),
+  ).values(),
+);
 
 export const desktopMegaMenu = siteNavigation;
 

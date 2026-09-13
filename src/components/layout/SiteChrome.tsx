@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { Suspense } from "react";
 import { Header } from "@/components/layout/Header";
 import { LiturgicalPageTheme } from "@/components/LiturgicalPageTheme";
 import RetreatReturnBanner from "@/components/RetreatReturnBanner";
@@ -24,7 +25,18 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   return (
     <>
       <RetreatReturnBanner />
-      {!hideSiteChrome && <Header />}
+      {!hideSiteChrome ? (
+        <Suspense
+          fallback={(
+            <div
+              aria-hidden="true"
+              className="site-header h-20 border-b border-stone bg-ivory"
+            />
+          )}
+        >
+          <Header />
+        </Suspense>
+      ) : null}
       <main
         id="main-content"
         className={immersivePrayerRoute ? "flex-1 way-of-cross-page-shell" : "flex-1"}

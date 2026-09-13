@@ -135,7 +135,7 @@ export type HolyHourGuideBlock =
   | { kind: "paragraph"; text: string }
   | { kind: "breath"; inhale: string; exhale: string; repeat?: string }
   | { kind: "prayer"; title?: string; text: string }
-  | { kind: "scripture"; reference: string; text: string }
+  | { kind: "scripture"; reference: string; text: string; connection: string }
   | { kind: "reflect"; title?: string; prompts: string[] }
   | { kind: "list"; title?: string; items: string[] }
   | { kind: "invocation"; title?: string; lines: string[] }
@@ -152,7 +152,12 @@ export type HolyHourSegment = {
   scripture?: {
     reference: string;
     text: string;
+    connection: string;
   };
+  relatedScriptures: {
+    reference: string;
+    connection: string;
+  }[];
   guide?: HolyHourGuideBlock[];
   sortOrder: number;
 };

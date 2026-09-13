@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { alphonsusStations, closingPrayer, openingPrayer, stations } from "@/content/way-of-cross";
 
@@ -17,15 +18,14 @@ export function WayOfCrossQuietRoom() {
     if (typeof window === "undefined") return -1;
     try { const saved = Number(window.localStorage.getItem(stationKey)); return Number.isInteger(saved) && saved >= -1 && saved <= 14 ? saved : -1; } catch { return -1; }
   });
-  const [quiet, setQuiet] = useState(true);
   const [largeText, setLargeText] = useState(false);
   const [silence, setSilence] = useState(0);
   const active = form === "daily" ? stations : alphonsusStations;
   const current = index >= 0 && index < 14 ? active[index] : null;
   const opening = index === -1;
   const closing = index === 14;
-  const dark = quiet ? "bg-navy text-ivory" : "border border-stone bg-parchment text-navy";
-  const muted = quiet ? "text-stone-soft" : "text-muted";
+  const dark = "bg-navy text-ivory";
+  const muted = "text-stone-soft";
 
   useEffect(() => {
     try { window.localStorage.setItem(formKey, form); window.localStorage.setItem(stationKey, String(index)); } catch { /* Optional resume state. */ }
@@ -39,7 +39,7 @@ export function WayOfCrossQuietRoom() {
 
   return <div className={`way-of-cross-shell overflow-hidden rounded-[1.25rem] ${dark}`}>
     <header className="way-cross-header border-b border-gold-soft/30 px-5 py-7 sm:px-10 sm:py-9">
-      <div className="flex flex-wrap items-center justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-soft">A contemplative prayer experience</p><h1 className="font-display mt-2 text-4xl font-semibold leading-tight sm:text-6xl">The Way of the Cross</h1></div><button type="button" onClick={() => setQuiet(!quiet)} aria-pressed={quiet} className="btn btn-outline-inverse focus-ring">{quiet ? "Leave quiet mode" : "Quiet mode"}</button></div>
+      <div className="flex flex-wrap items-center justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-soft">A contemplative prayer experience</p><h1 className="font-display mt-2 text-4xl font-semibold leading-tight sm:text-6xl">The Way of the Cross</h1></div><Link href="/" className="btn btn-outline-inverse focus-ring">Home</Link></div>
       <div className="mt-6 grid gap-2 sm:flex" role="tablist" aria-label="Prayer form"><button type="button" role="tab" aria-selected={form === "daily"} onClick={() => { setForm("daily"); go(-1); }} className={`focus-ring rounded-md border px-4 py-3 text-left text-sm font-bold ${form === "daily" ? "border-gold bg-burgundy text-ivory" : "border-gold-soft/40 text-gold-soft"}`}>Daily Oratory meditation</button><button type="button" role="tab" aria-selected={form === "alphonsus"} onClick={() => { setForm("alphonsus"); go(-1); }} className={`focus-ring rounded-md border px-4 py-3 text-left text-sm font-bold ${form === "alphonsus" ? "border-gold bg-burgundy text-ivory" : "border-gold-soft/40 text-gold-soft"}`}>St. Alphonsus · 1887 edition</button></div>
       <nav className="way-cross-progress mt-7 flex flex-wrap gap-2" aria-label="Stations"><button type="button" onClick={() => go(-1)} className={`focus-ring rounded-full px-3 py-2 text-xs ${opening ? "bg-gold text-navy" : "text-gold-soft"}`}>Opening</button>{active.map((item, i) => <button key={item.number} type="button" onClick={() => go(i)} aria-label={`Go to Station ${item.roman}: ${item.title}`} aria-current={i === index ? "step" : undefined} className={`focus-ring rounded-full px-3 py-2 text-xs ${i === index ? "bg-gold text-navy" : "text-gold-soft"}`}>{item.roman}</button>)}<button type="button" onClick={() => go(14)} className={`focus-ring rounded-full px-3 py-2 text-xs ${closing ? "bg-gold text-navy" : "text-gold-soft"}`}>Closing</button></nav>
     </header>

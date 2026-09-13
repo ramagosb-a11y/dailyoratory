@@ -51,7 +51,18 @@
     "Matthew 11:28": "mat-11-28",
     "Luke 23:46": "luk-23-46",
     "John 15:13": "jhn-15-13",
-    "Matthew 6:26": "mat-6-26"
+    "Matthew 6:26": "mat-6-26",
+    "Psalm 83 (84):2–5": "psa-83-2-5",
+    "Apocalypse (Revelation) 4:8–11": "rev-4-8-11",
+    "Apocalypse (Revelation) 5:11–14": "rev-5-11-14",
+    "Apocalypse (Revelation) 7:9–12": "rev-7-9-12",
+    "1 John 1:8–9": "1jn-1-8-9",
+    "Hebrews 4:14–16": "heb-4-14-16",
+    "Hebrews 4:12–13": "heb-4-12-13",
+    "Apocalypse (Revelation) 8:3–4": "rev-8-3-4",
+    "Hebrews 7:24–25": "heb-7-24-25",
+    "Apocalypse (Revelation) 19:6–9": "rev-19-6-9",
+    "Romans 12:1–2": "rom-12-1-2"
   },
   "slots": {
     "meditation:invitation:0": "mat-11-28-29-30",
@@ -103,7 +114,19 @@
     "holy-hour-intercession:block:45": "mat-11-28",
     "holy-hour-surrender:scripture": "luk-23-46",
     "holy-hour-surrender:block:10": "jhn-15-13",
-    "holy-hour-surrender:block:21": "mat-6-26"
+    "holy-hour-surrender:block:21": "mat-6-26",
+    "holy-hour-arrive:related:0": "psa-83-2-5",
+    "holy-hour-arrive:related:1": "rev-4-8-11",
+    "holy-hour-thanksgiving:related:0": "rev-5-11-14",
+    "holy-hour-thanksgiving:related:1": "rev-7-9-12",
+    "holy-hour-mercy:related:0": "1jn-1-8-9",
+    "holy-hour-mercy:related:1": "heb-4-14-16",
+    "holy-hour-scripture:related:0": "luk-24-28-29-30-31-32-33-34-35",
+    "holy-hour-scripture:related:1": "heb-4-12-13",
+    "holy-hour-intercession:related:0": "rev-8-3-4",
+    "holy-hour-intercession:related:1": "heb-7-24-25",
+    "holy-hour-surrender:related:0": "rev-19-6-9",
+    "holy-hour-surrender:related:1": "rom-12-1-2"
   },
   "passages": {
     "mat-11-28-29-30": {
@@ -1574,6 +1597,149 @@
         }
       ],
       "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V26"
+    },
+    "psa-83-2-5": {
+      "id": "psa-83-2-5",
+      "reference": "Psalm 83 (84):2–5",
+      "book": "PSA",
+      "chapter": 83,
+      "verseNumbers": [2, 3, 4, 5],
+      "verses": [
+        { "number": 2, "text": "How lovely are thy tabernacles, O Lord of host!" },
+        { "number": 3, "text": "My soul longeth and fainteth for the courts of the Lord. My heart and my flesh have rejoiced in the living God." },
+        { "number": 4, "text": "For the sparrow hath found herself a house, and the turtle a nest for herself where she may lay her young ones: Thy altars, O Lord of hosts, my king and my God." },
+        { "number": 5, "text": "Blessed are they that dwell in thy house, O Lord: they shall praise thee for ever and ever." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/PSA083.htm#V2"
+    },
+    "rev-4-8-11": {
+      "id": "rev-4-8-11",
+      "reference": "Apocalypse (Revelation) 4:8–11",
+      "book": "REV",
+      "chapter": 4,
+      "verseNumbers": [8, 9, 10, 11],
+      "verses": [
+        { "number": 8, "text": "And the four living creatures had each of them six wings; and round about and within they are full of eyes. And they rested not day and night, saying: Holy, holy, holy, Lord God Almighty, who was, and who is, and who is to come." },
+        { "number": 9, "text": "And when those living creatures gave glory, and honour, and benediction to him that sitteth on the throne, who liveth for ever and ever;" },
+        { "number": 10, "text": "The four and twenty ancients fell down before him that sitteth on the throne, and adored him that liveth for ever and ever, and cast their crowns before the throne, saying:" },
+        { "number": 11, "text": "Thou art worthy, O Lord our God, to receive glory, and honour, and power: because thou hast created all things; and for thy will they were, and have been created." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV04.htm#V8"
+    },
+    "rev-5-11-14": {
+      "id": "rev-5-11-14",
+      "reference": "Apocalypse (Revelation) 5:11–14",
+      "book": "REV",
+      "chapter": 5,
+      "verseNumbers": [11, 12, 13, 14],
+      "verses": [
+        { "number": 11, "text": "And I beheld, and I heard the voice of many angels round about the throne, and the living creatures, and the ancients; and the number of them was thousands of thousands," },
+        { "number": 12, "text": "Saying with a loud voice: The Lamb that was slain is worthy to receive power, and divinity, and wisdom, and strength, and honour, and glory, and benediction." },
+        { "number": 13, "text": "And every creature, which is in heaven, and on the earth, and under the earth, and such as are in the sea, and all that are in them: I heard all saying: To him that sitteth on the throne, and to the Lamb, benediction, and honour, and glory, and power, for ever and ever." },
+        { "number": 14, "text": "And the four living creatures said: Amen. And the four and twenty ancients fell down on their faces, and adored him that liveth for ever and ever." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV05.htm#V11"
+    },
+    "rev-7-9-12": {
+      "id": "rev-7-9-12",
+      "reference": "Apocalypse (Revelation) 7:9–12",
+      "book": "REV",
+      "chapter": 7,
+      "verseNumbers": [9, 10, 11, 12],
+      "verses": [
+        { "number": 9, "text": "After this I saw a great multitude, which no man could number, of all nations, and tribes, and peoples, and tongues, standing before the throne, and in sight of the Lamb, clothed with white robes, and palms in their hands:" },
+        { "number": 10, "text": "And they cried with a loud voice, saying: Salvation to our God, who sitteth upon the throne, and to the Lamb." },
+        { "number": 11, "text": "And all the angels stood round about the throne, and the ancients, and the four living creatures; and they fell down before the throne upon their faces, and adored God," },
+        { "number": 12, "text": "Saying: Amen. Benediction, and glory, and wisdom, and thanksgiving, honour, and power, and strength to our God for ever and ever. Amen." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV07.htm#V9"
+    },
+    "1jn-1-8-9": {
+      "id": "1jn-1-8-9",
+      "reference": "1 John 1:8–9",
+      "book": "1JN",
+      "chapter": 1,
+      "verseNumbers": [8, 9],
+      "verses": [
+        { "number": 8, "text": "If we say that we have no sin, we deceive ourselves, and the truth is not in us." },
+        { "number": 9, "text": "If we confess our sins, he is faithful and just, to forgive us our sins, and to cleanse us from all iniquity." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/1JN01.htm#V8"
+    },
+    "heb-4-14-16": {
+      "id": "heb-4-14-16",
+      "reference": "Hebrews 4:14–16",
+      "book": "HEB",
+      "chapter": 4,
+      "verseNumbers": [14, 15, 16],
+      "verses": [
+        { "number": 14, "text": "Having therefore a great high priest that hath passed into the heavens, Jesus the Son of God: let us hold fast our confession." },
+        { "number": 15, "text": "For we have not a high priest, who can not have compassion on our infirmities: but one tempted in all things like as we are, without sin." },
+        { "number": 16, "text": "Let us go therefore with confidence to the throne of grace: that we may obtain mercy, and find grace in seasonable aid." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/HEB04.htm#V14"
+    },
+    "heb-4-12-13": {
+      "id": "heb-4-12-13",
+      "reference": "Hebrews 4:12–13",
+      "book": "HEB",
+      "chapter": 4,
+      "verseNumbers": [12, 13],
+      "verses": [
+        { "number": 12, "text": "For the word of God is living and effectual, and more piercing than any two edged sword; and reaching unto the division of the soul and the spirit, of the joints also and the marrow, and is a discerner of the thoughts and intents of the heart." },
+        { "number": 13, "text": "Neither is there any creature invisible in his sight: but all things are naked and open to his eyes, to whom our speech is." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/HEB04.htm#V12"
+    },
+    "rev-8-3-4": {
+      "id": "rev-8-3-4",
+      "reference": "Apocalypse (Revelation) 8:3–4",
+      "book": "REV",
+      "chapter": 8,
+      "verseNumbers": [3, 4],
+      "verses": [
+        { "number": 3, "text": "And another angel came, and stood before the altar, having a golden censer; and there was given to him much incense, that he should offer of the prayers of all saints upon the golden altar, which is before the throne of God." },
+        { "number": 4, "text": "And the smoke of the incense of the prayers of the saints ascended up before God from the hand of the angel." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV08.htm#V3"
+    },
+    "heb-7-24-25": {
+      "id": "heb-7-24-25",
+      "reference": "Hebrews 7:24–25",
+      "book": "HEB",
+      "chapter": 7,
+      "verseNumbers": [24, 25],
+      "verses": [
+        { "number": 24, "text": "But this, for that he continueth for ever, hath an everlasting priesthood," },
+        { "number": 25, "text": "Whereby he is able also to save for ever them that come to God by him; always living to make intercession for us." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/HEB07.htm#V24"
+    },
+    "rev-19-6-9": {
+      "id": "rev-19-6-9",
+      "reference": "Apocalypse (Revelation) 19:6–9",
+      "book": "REV",
+      "chapter": 19,
+      "verseNumbers": [6, 7, 8, 9],
+      "verses": [
+        { "number": 6, "text": "And I heard as it were the voice of a great multitude, and as the voice of many waters, and as the voice of great thunders, saying, Alleluia: for the Lord our God the Almighty hath reigned." },
+        { "number": 7, "text": "Let us be glad and rejoice, and give glory to him; for the marriage of the Lamb is come, and his wife hath prepared herself." },
+        { "number": 8, "text": "And it is granted to her that she should clothe herself with fine linen, glittering and white. For the fine linen are the justifications of saints." },
+        { "number": 9, "text": "And he said to me: Write: Blessed are they that are called to the marriage supper of the Lamb. And he saith to me: These words of God are true." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/REV19.htm#V6"
+    },
+    "rom-12-1-2": {
+      "id": "rom-12-1-2",
+      "reference": "Romans 12:1–2",
+      "book": "ROM",
+      "chapter": 12,
+      "verseNumbers": [1, 2],
+      "verses": [
+        { "number": 1, "text": "I BESEECH you therefore, brethren, by the mercy of God, that you present your bodies a living sacrifice, holy, pleasing unto God, your reasonable service." },
+        { "number": 2, "text": "And be not conformed to this world; but be reformed in the newness of your mind, that you may prove what is the good, and the acceptable, and the perfect will of God." }
+      ],
+      "sourceUrl": "https://ebible.org/engDRA/ROM12.htm#V1"
     }
   }
 }

@@ -31,6 +31,7 @@ export const holyHourGuide: HolyHourSegment[] = [
     scripture: {
       reference: "Psalm 45:11 (Douay-Rheims)",
       text: "Be still and know that I am God.",
+      connection: "This invitation to stillness prepares the heart for adoration. Before the Eucharistic Lord, silence is not emptiness but attentive faith: we stop striving, acknowledge that He is God, and allow our whole person to rest in His presence.",
     },
     guide: [
       { kind: "paragraph", text: "As you enter into prayer, gently place yourself before Jesus truly present in the Most Holy Eucharist." },
@@ -75,6 +76,16 @@ export const holyHourGuide: HolyHourSegment[] = [
       },
       { kind: "paragraph", text: "Remain peacefully in His Presence." },
     ],
+    relatedScriptures: [
+      {
+        reference: "Psalm 83 (84):2–5",
+        connection: "The psalmist longs for the courts and altars of the Lord. Eucharistic Adoration gives that longing a concrete place of prayer, drawing us near to Christ while deepening our desire to worship with the whole Church at Mass.",
+      },
+      {
+        reference: "Apocalypse (Revelation) 4:8–11",
+        connection: "The unceasing praise around God’s throne reveals the worship into which every Christian prayer is gathered. In Adoration, the Church on earth joins the angels and saints in honoring the living God, even though heavenly realities remain hidden from our sight.",
+      },
+    ],
     sortOrder: 10,
   },
   {
@@ -88,6 +99,7 @@ export const holyHourGuide: HolyHourSegment[] = [
     scripture: {
       reference: "Psalm 117:1 (Douay-Rheims)",
       text: "Give thanks to the Lord, for He is good: for His mercy endureth for ever.",
+      connection: "Thanksgiving begins with God’s enduring goodness rather than with our changing circumstances. Before the Blessed Sacrament, we thank the Father above all for His mercy and for the gift of His Son, whose Eucharistic presence remains with the Church.",
     },
     guide: [
       { kind: "paragraph", text: "Sit quietly before Jesus in the Blessed Sacrament." },
@@ -138,6 +150,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "Luke 17:15-16",
         text: "And one of them, when he saw that he was made clean, went back, with a loud voice glorifying God. And he fell on his face before his feet, giving thanks.",
+        connection: "The healed man returns, glorifies God, and gives thanks at the feet of Jesus. His response teaches us to recognize grace, return to its divine source, and let gratitude become reverent worship rather than a passing feeling.",
       },
       { kind: "pause", text: "Remain in silence for a moment." },
       { kind: "heading", text: "Thanksgiving for the Cross" },
@@ -173,6 +186,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "John 6:35",
         text: "I am the bread of life. He that cometh to me shall not hunger.",
+        connection: "Jesus does not merely give a blessing; He gives Himself as the Bread of Life. Adoration prolongs our Eucharistic thanksgiving and awakens deeper hunger for sacramental Communion, which belongs within the Church’s celebration of the Mass.",
       },
       { kind: "pause", text: "Rest quietly in His Presence." },
       { kind: "heading", text: "Closing Thanksgiving and Offering" },
@@ -192,6 +206,16 @@ export const holyHourGuide: HolyHourSegment[] = [
         text: "Most Holy Trinity, Father, Son, and Holy Spirit, I thank You for the infinite love revealed in the Eucharist. May every heartbeat become an act of gratitude and praise. Blessed Virgin Mary, Woman of the Eucharist, teach me to adore Jesus with your heart. Amen.",
       },
     ],
+    relatedScriptures: [
+      {
+        reference: "Apocalypse (Revelation) 5:11–14",
+        connection: "Heaven’s thanksgiving is centered on the Lamb who was slain and now lives in glory. Adoration turns our gratitude toward Christ’s one saving sacrifice and joins our praise to the worship offered by angels, saints, and all creation.",
+      },
+      {
+        reference: "Apocalypse (Revelation) 7:9–12",
+        connection: "The countless multitude and the angels praise God and the Lamb with thanksgiving. This vision reminds us that Eucharistic worship is never isolated: even a quiet hour before the tabernacle belongs to the prayer of the universal Church.",
+      },
+    ],
     sortOrder: 20,
   },
   {
@@ -205,6 +229,7 @@ export const holyHourGuide: HolyHourSegment[] = [
     scripture: {
       reference: "Psalm 50:3 (Douay-Rheims)",
       text: "Have mercy on me, O God, according to thy great mercy.",
+      connection: "The psalm teaches honest repentance founded on confidence in God’s mercy. Before Jesus in the Eucharist, we can name our sins without despair, ask for a changed heart, and prepare to seek sacramental Reconciliation when it is needed.",
     },
     guide: [
       { kind: "heading", text: "Entering into the Presence of Mercy" },
@@ -224,11 +249,13 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "Isaiah 53:5",
         text: "But he was wounded for our iniquities, he was bruised for our sins.",
+        connection: "Isaiah directs our repentance toward the suffering Servant who bears sin for others. In Adoration we stand before the risen Christ whose once-for-all sacrifice is made sacramentally present at Mass; we do not imagine a new Crucifixion.",
       },
       {
         kind: "scripture",
         reference: "John 19:34",
         text: "One of the soldiers with a spear opened his side, and immediately there came out blood and water.",
+        connection: "The pierced side of Christ reveals the depth of His self-giving love and has long led the Church to contemplate the sacramental life flowing from Him. It invites us to bring sin and woundedness to the mercy of His open Heart.",
       },
       {
         kind: "list",
@@ -280,6 +307,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "Ezekiel 36:26",
         text: "And I will give you a new heart, and put a new spirit within you.",
+        connection: "Conversion is more than self-improvement; it is God’s work of renewing the heart by grace. Adoration disposes us to receive that grace and to cooperate with the Holy Spirit in concrete choices after we leave the chapel.",
       },
       {
         kind: "prayer",
@@ -297,6 +325,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "John 8:11",
         text: "Neither will I condemn thee. Go, and now sin no more.",
+        connection: "Christ’s mercy neither humiliates the sinner nor treats sin as unimportant. His forgiveness opens a new path, so this time of prayer should lead toward trust, conversion, and the sacrament of Confession whenever serious sin is present.",
       },
       {
         kind: "prayer",
@@ -304,6 +333,16 @@ export const holyHourGuide: HolyHourSegment[] = [
         text: "Merciful Jesus, thank You for loving me even in my weakness. Thank You for Your patience and forgiveness. Draw me closer to Your Eucharistic Heart and help me walk in holiness. May Your mercy transform my life and lead me to Heaven. Amen.",
       },
       { kind: "invocation", title: "Closing Invocation", lines: ["Jesus, I trust in You."] },
+    ],
+    relatedScriptures: [
+      {
+        reference: "1 John 1:8–9",
+        connection: "Saint John joins truthful confession with confidence in God’s fidelity. We come before Christ without hiding our need for mercy, trusting that grace cleanses and restores rather than leaving us trapped in shame.",
+      },
+      {
+        reference: "Hebrews 4:14–16",
+        connection: "Jesus is the compassionate High Priest who has entered heaven and understands human weakness. Before His Eucharistic presence, we approach the throne of grace with confidence, asking for mercy and the timely help needed for conversion.",
+      },
     ],
     sortOrder: 30,
   },
@@ -318,6 +357,7 @@ export const holyHourGuide: HolyHourSegment[] = [
     scripture: {
       reference: "1 Kings 3:10 (Douay-Rheims)",
       text: "Speak, Lord, for thy servant heareth.",
+      connection: "Samuel’s response gives this movement its posture of receptive listening. We read Scripture before the Eucharistic Lord not to force a private message, but to receive God’s inspired Word with faith, attention, and readiness to obey.",
     },
     guide: [
       { kind: "heading", text: "Becoming Still Before Jesus" },
@@ -335,6 +375,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "John 15:4-5",
         text: "Abide in me: and I in you. As the branch cannot bear fruit of itself, unless it abide in the vine, so neither can you, unless you abide in me.\n\nI am the vine: you the branches. He that abideth in me, and I in him, the same beareth much fruit: for without me you can do nothing.",
+        connection: "Christ calls His disciples to a communion that bears fruit through dependence on Him. Eucharistic Adoration is one privileged way of remaining with Jesus, deepening the grace received in the sacraments and allowing His life to shape ours.",
       },
       { kind: "paragraph", text: "Read the passage again slowly." },
       {
@@ -384,6 +425,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "Psalm 62",
         text: "O God, my God, to thee do I watch at break of day.\n\nFor thee my soul hath thirsted; for thee my flesh, O how many ways!\n\nIn a desert land, and where there is no way, and no water:\n\nSo in the sanctuary have I come before thee, to see thy power and thy glory.",
+        connection: "The psalm gives words to the soul’s thirst for God and its desire to seek Him in the sanctuary. That longing helps us listen with more than the intellect: we receive Scripture as people who hunger for communion with the living God.",
       },
       { kind: "pause", text: "Pause." },
       { kind: "paragraph", text: "Offer Jesus your desire to know Him more deeply." },
@@ -394,6 +436,16 @@ export const holyHourGuide: HolyHourSegment[] = [
       },
       { kind: "invocation", title: "Final Invocation", lines: ["Speak, Lord, for Thy servant heareth."] },
       { kind: "paragraph", text: "Remain a few moments longer in silence if you desire." },
+    ],
+    relatedScriptures: [
+      {
+        reference: "Luke 24:28–35",
+        connection: "On the road to Emmaus, Christ opens the Scriptures and is recognized in the breaking of bread. The passage holds Word and Eucharist together and teaches us to listen for the risen Lord within the sacramental life of His Church.",
+      },
+      {
+        reference: "Hebrews 4:12–13",
+        connection: "God’s Word is living, active, and able to uncover the intentions of the heart. In silent Adoration, Scripture is allowed to examine us, console us, and call us to conversion instead of remaining only information we have read.",
+      },
     ],
     sortOrder: 40,
   },
@@ -408,6 +460,7 @@ export const holyHourGuide: HolyHourSegment[] = [
     scripture: {
       reference: "Galatians 6:2",
       text: "Bear ye one another's burdens; and so you shall fulfil the law of Christ.",
+      connection: "Intercession is one way Christians bear the burdens of others in love. Before the Eucharistic Lord, we bring persons and needs to Christ without pretending that we control the outcome, entrusting each one to His wisdom and mercy.",
     },
     guide: [
       { kind: "heading", text: "Entering into Christ's Presence" },
@@ -438,6 +491,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "John 17:15",
         text: "I pray not that thou shouldst take them out of the world, but that thou shouldst keep them from evil.",
+        connection: "Jesus Himself intercedes for His disciples, asking the Father to guard them amid the trials of the world. Our prayer for the Church and her ministers participates in this pattern of faithful, protective love.",
       },
       {
         kind: "prayer",
@@ -456,6 +510,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "Joshua 24:15",
         text: "But as for me and my house, we will serve the Lord.",
+        connection: "Joshua’s declaration turns prayer for family into a commitment to serve God within the home. Intercession asks for grace for those we love while also inviting us to become instruments of faithfulness, forgiveness, and charity among them.",
       },
       { kind: "pause", text: "Pause in silence." },
       { kind: "heading", text: "Prayer for the Sick and Suffering" },
@@ -490,6 +545,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "Matthew 11:28",
         text: "Come to me, all you that labour, and are burdened, and I will refresh you.",
+        connection: "Christ welcomes the weary and burdened, including every person we carry in prayer. Intercession places those burdens in His hands and trusts that His help may come through healing, endurance, conversion, human care, or a providence we cannot yet see.",
       },
       {
         kind: "prayer",
@@ -497,6 +553,16 @@ export const holyHourGuide: HolyHourSegment[] = [
         text: "Lord Jesus, I entrust every soul to Your infinite mercy. Receive these prayers offered in love before Your Eucharistic Presence. May Your Kingdom come, Your will be done, and Your peace reign in every heart. Amen.",
       },
       { kind: "invocation", title: "Closing Invocation", lines: ["Jesus, I trust in You."] },
+    ],
+    relatedScriptures: [
+      {
+        reference: "Apocalypse (Revelation) 8:3–4",
+        connection: "The prayers of the saints rise before God with the incense offered by an angel at the heavenly altar. This vision gives hope to earthly intercession: the Church’s prayer is gathered into the worship of heaven and presented before God.",
+      },
+      {
+        reference: "Hebrews 7:24–25",
+        connection: "Christ’s priesthood is everlasting, and He lives forever to intercede for those who come to God through Him. Every petition offered in Adoration depends on His perfect mediation rather than on the strength or eloquence of our own prayer.",
+      },
     ],
     sortOrder: 50,
   },
@@ -511,6 +577,7 @@ export const holyHourGuide: HolyHourSegment[] = [
     scripture: {
       reference: "Luke 23:46",
       text: "Father, into thy hands I commend my spirit.",
+      connection: "Jesus completes His earthly sacrifice with an act of loving trust in the Father. His words become a pattern for surrender: we place our lives in God’s hands while remembering that Christ’s sacrifice was offered once for all and is not repeated in Adoration.",
     },
     guide: [
       { kind: "heading", text: "Resting Before Jesus" },
@@ -539,6 +606,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "John 15:13",
         text: "Greater love than this no man hath, that a man lay down his life for his friends.",
+        connection: "The Cross reveals the measure of Christ’s love and gives Christian surrender its form. We offer ourselves in response to the One who first gave Himself for us, asking that His charity become visible in our choices and relationships.",
       },
       {
         kind: "prayer",
@@ -574,6 +642,7 @@ export const holyHourGuide: HolyHourSegment[] = [
         kind: "scripture",
         reference: "Matthew 6:26",
         text: "Behold the birds of the air... your heavenly Father feedeth them.",
+        connection: "Jesus directs anxious hearts toward the Father’s providential care. Surrender does not deny responsibility or suffering; it entrusts what lies beyond our control to the Father who knows our needs and calls us to faithful action today.",
       },
       {
         kind: "list",
@@ -621,6 +690,16 @@ export const holyHourGuide: HolyHourSegment[] = [
         text: "Hail Mary, full of grace, the Lord is with thee; blessed art thou amongst women and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners now and at the hour of our death. Amen.",
       },
       { kind: "invocation", title: "Final Invocation", lines: ["Jesus, I trust in You."] },
+    ],
+    relatedScriptures: [
+      {
+        reference: "Apocalypse (Revelation) 19:6–9",
+        connection: "The marriage supper of the Lamb reveals the final communion of Christ the Bridegroom with His Bride, the Church. The Eucharist is a foretaste of that promised feast; Adoration deepens our longing for it without becoming a new marriage or another sacrifice.",
+      },
+      {
+        reference: "Romans 12:1–2",
+        connection: "Saint Paul calls believers to offer their whole lives as worship pleasing to God. Our surrender before the Eucharist is therefore meant to continue in transformed thoughts, embodied obedience, and daily charity united to Christ’s perfect self-offering.",
+      },
     ],
     sortOrder: 60,
   },
