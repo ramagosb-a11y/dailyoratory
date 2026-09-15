@@ -12,30 +12,31 @@ import {
 import { trackEvent } from "@/lib/analytics";
 import type { NightlyExamenDraft, NightlyExamenPace, NightlyExamenSession } from "@/types/dailyExamen";
 import styles from "./NightlyExamenExperience.module.css";
+import { nightlyDeepIntro, nightlyExamenContent } from "@/data/nightlyExamenContent";
 
 type ExperienceView = "welcome" | "prayer" | "complete" | "grace-map";
 
 const paceOptions: Array<{ id: NightlyExamenPace; title: string; time: string; description: string }> = [
-  { id: "rest", title: "Rest", time: "about 2 minutes", description: "A quiet prayer without writing." },
-  { id: "review", title: "Review", time: "about 7 minutes", description: "A gentle guided review of the day." },
-  { id: "discern", title: "Discern", time: "about 12 minutes", description: "Stay longer with one significant movement." },
+  { id: "rest", title: "A brief examen", time: "about 5 minutes", description: "A quiet prayer without writing." },
+  { id: "review", title: "A fuller examen", time: "about 10 minutes", description: "A gentle guided review with optional writing." },
+  { id: "discern", title: "A fuller examen", time: "about 15 minutes", description: "Stay longer with one significant movement." },
 ];
 
 const stepMeta = [
-  { id: "arrive", eyebrow: "Arrive", title: "Bring this day into the light." },
-  { id: "gratitude", eyebrow: "Give thanks", title: "Receive the day as a gift." },
-  { id: "review", eyebrow: "Review", title: "Walk backward through your day." },
-  { id: "notice", eyebrow: "Notice", title: "What was moving within you?" },
-  { id: "mercy", eyebrow: "Mercy", title: "Let truth meet the love of Christ." },
+  { id: "arrive", eyebrow: "Become present", title: "Come before the God who is already here." },
+  { id: "gratitude", eyebrow: "Give thanks", title: "Receive the day with gratitude." },
+  { id: "review", eyebrow: "Review the day", title: "Walk back through the day with God." },
+  { id: "notice", eyebrow: "Notice the movements", title: "What was moving within your heart?" },
+  { id: "mercy", eyebrow: "Rest in mercy", title: "Let truth meet the love of Christ." },
   { id: "tomorrow", eyebrow: "Tomorrow", title: "Ask for one grace and entrust the night." },
 ] as const;
 
 type StepId = (typeof stepMeta)[number]["id"];
 
 const gratitudeAreas = ["Relationships", "Daily bread", "Work", "Creation", "Protection", "Perseverance"];
-const towardLove = ["Peace", "Gratitude", "Courage", "Connection"];
-const towardUnrest = ["Agitation", "Fear", "Resistance", "Isolation"];
-const tomorrowGraces = ["Faith", "Hope", "Charity", "Patience", "Courage", "Humility", "Wisdom", "Peace"];
+const towardLove = ["Peace", "Gratitude", "Courage", "Connection", "Compassion", "Generosity", "Patience", "Trust"];
+const towardUnrest = ["Agitation", "Fear", "Resistance", "Isolation", "Resentment", "Discouragement", "Pride", "Envy"];
+const tomorrowGraces = ["Faith", "Hope", "Charity", "Patience", "Courage", "Humility", "Wisdom", "Peace", "Purity", "Forgiveness", "Perseverance", "Gentleness", "Trust"];
 
 export function NightlyExamenExperience({ standalone = false }: { standalone?: boolean }) {
   const store = useNightlyExamenStore();
@@ -239,11 +240,11 @@ function WelcomeView({
 
       <div className={`${styles.stepMarker} mt-2`}>
         <span aria-hidden="true" />
-        <p className={styles.eyebrow}>Arrive · 1 of 6</p>
+        <p className={styles.eyebrow}>Become present · 1 of 6</p>
         <span aria-hidden="true" />
       </div>
       <h2 id="nightly-examen-title" className={`${styles.heading} mt-5`}>
-        Bring this day into the light.
+        Come before the God who is already here.
       </h2>
       <div className={styles.headingOrnament} aria-hidden="true"><span>✦</span></div>
       <p className={`${styles.body} mt-5 max-w-2xl`}>
@@ -335,8 +336,10 @@ function ArriveStep({ pace }: { pace: NightlyExamenPace }) {
           Make the Sign of the Cross. Take one slow breath and become aware that God is already here.
         </p>
         <p className={`${styles.body} mt-4`}>
-          Holy Spirit, help me see this day with God&apos;s eyes—with truth, gratitude, and mercy.
+          Lord, I know that I am in Your presence. Help me see this day with Your light—with truth, gratitude, and mercy.
         </p>
+        <DeepReflection step="presence" />
+        <PrayerCard>{nightlyExamenContent.presence.prayer}</PrayerCard>
         {pace === "discern" ? (
           <p className="mt-4 text-sm leading-7 text-gold-soft">Remain in silence until you feel ready to look back.</p>
         ) : null}
@@ -349,8 +352,9 @@ function GratitudeStep({ draft, onUpdate }: { draft: NightlyExamenDraft; onUpdat
   return (
     <div className={styles.stepStack}>
       <p className={styles.body}>
-        What gift might have passed unnoticed—a person, a protection, daily bread, beauty, or strength to endure?
+        Where did God give me life, help, protection, beauty, or love today? What gift might have passed unnoticed?
       </p>
+      <DeepReflection step="gratitude" />
       <div className="flex flex-wrap gap-2">
         {gratitudeAreas.map((area) => (
           <ChoiceChip key={area} label={area} selected={draft.gratitudeArea === area} onClick={() => onUpdate({ gratitudeArea: area })} />
@@ -383,9 +387,11 @@ function ReviewStep({ draft, onUpdate }: { draft: NightlyExamenDraft; onUpdate: 
       </div>
       <div className={styles.card}>
         <p className="font-display text-2xl leading-9 text-ivory">Recall one moment that still carries gratitude, tension, joy, or sorrow.</p>
-        <p className={`${styles.body} mt-3`}>
-          Do not analyze the whole day. Stay with the one scene that seems to ask for prayer.
+      <p className={`${styles.body} mt-3`}>
+          Walk slowly through the day with God. Do not try to evaluate everything at once. Notice the people, conversations, decisions, interruptions, joys, frustrations, and quiet moments that still carry some weight.
         </p>
+        <p className="mt-3 text-sm leading-7 text-gold-soft">Do not attempt to solve the moment yet. Simply place yourself there again and allow God to be present within it.</p>
+        <DeepReflection step="review" />
         {draft.writingEnabled ? (
           <textarea
             value={draft.significantMoment}
@@ -404,11 +410,12 @@ function NoticeStep({ draft, onToggle }: { draft: NightlyExamenDraft; onToggle: 
   return (
     <div className={styles.stepStack}>
       <p className={styles.body}>
-        Notice what the moment stirred and where it seemed to lead. These are invitations to prayer, not scores or final judgments.
+        Now notice what the moment stirred within you. Feelings are not verdicts. They can reveal wounds, desires, temptations, needs, graces, or invitations. Ask where the movement seemed to lead you.
       </p>
       <MovementGroup title="Toward faith, hope, and love" items={towardLove} selected={draft.movementTags} onToggle={onToggle} />
       <MovementGroup title="Toward withdrawal or unrest" items={towardUnrest} selected={draft.movementTags} onToggle={onToggle} />
       <p className="text-sm leading-7 text-ivory/55">Choose up to two, or simply notice them silently.</p>
+      <DeepReflection step="notice" />
     </div>
   );
 }
@@ -419,6 +426,7 @@ function MercyStep({ draft, onUpdate }: { draft: NightlyExamenDraft; onUpdate: (
       <PrayerCard>
         Jesus, show me where I received love, where I offered it, and where I resisted it. Let what is true lead me toward Your mercy, never away from it.
       </PrayerCard>
+      <DeepReflection step="mercy" />
       <p className={styles.body}>
         If something needs forgiveness or repair, name it simply. You do not need to rehearse it or punish yourself.
       </p>
@@ -434,8 +442,9 @@ function MercyStep({ draft, onUpdate }: { draft: NightlyExamenDraft; onUpdate: (
         </label>
       ) : null}
       <p className="text-sm leading-7 text-ivory/55">
-        This Examen does not determine mortal or venial sin. Bring serious concerns to Confession and ask a priest when unsure.
+        This nightly prayer is not a determination of mortal or venial sin. Bring serious concerns to sacramental Confession, and ask a priest when you are unsure.
       </p>
+      {draft.pace === "discern" ? <PrayerCard>Jesus, Son of God, have mercy on me. Receive my sorrow and help me begin again.</PrayerCard> : null}
     </div>
   );
 }
@@ -446,15 +455,17 @@ function TomorrowStep({ draft, onUpdate }: { draft: NightlyExamenDraft; onUpdate
       <p className={styles.body}>
         Look gently toward what awaits you. Ask for one grace—not a perfect plan—and place everything unfinished in God&apos;s care.
       </p>
+      <DeepReflection step="tomorrow" />
       <div className="flex flex-wrap gap-2">
         {tomorrowGraces.map((grace) => (
           <ChoiceChip key={grace} label={grace} selected={draft.tomorrowGrace === grace} onClick={() => onUpdate({ tomorrowGrace: grace })} />
         ))}
       </div>
       <PrayerCard>
-        Father, give me the grace I need tomorrow. Into Your hands I place my work, my worries, the people I love, and this night.
+        Father, give me the grace I need tomorrow. Into Your hands I place my work, my worries, the people I love, and this night. Jesus, I trust in You.
       </PrayerCard>
       <p className="text-center font-display text-2xl text-gold-soft">Jesus, I trust in You.</p>
+      <p className="text-sm leading-7 text-ivory/60">You have asked for the grace you need. You do not have to solve tomorrow tonight.</p>
     </div>
   );
 }
@@ -476,12 +487,19 @@ function CompleteView({
       <p className="mt-6 font-display text-2xl leading-9 text-gold-soft">
         Into Your hands, Lord,<br />{" "}I place this day and this night.
       </p>
+      <div className="mt-7 max-w-2xl text-center">
+        <h3 className={`${styles.subheading} text-3xl`}>Rest in God</h3>
+        <p className={`${styles.body} mt-3`}>The day is finished. What was good has been received with gratitude. What was sinful has been entrusted to mercy. What remains unfinished belongs now to God.</p>
+        <p className="mt-4 font-display text-xl leading-8 text-gold-soft">Into thy hands I commend my spirit.<br /><span className="font-sans text-xs uppercase tracking-[0.12em] text-ivory/50">Luke 23:46 · Douay-Rheims</span></p>
+        <p className="mt-4 font-display text-xl leading-8 text-gold-soft">Lord Jesus Christ, remain with me through this night. Guard those I love. Forgive my sins, quiet my heart, and grant me peaceful rest. If tomorrow is given to me, let me rise ready to love You and serve You again. Amen.</p>
+      </div>
       <p className="mt-7 text-xs font-bold uppercase tracking-[0.18em] text-ivory/50">
         Examen complete · {session.durationMinutes} {session.durationMinutes === 1 ? "minute" : "minutes"}
       </p>
       <div className="mt-8 flex w-full flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
         <button type="button" onClick={onOpenMap} className={`${styles.goldButton} focus-ring`}>View my Grace Map</button>
         <Link href="/night-prayer" className={`${styles.quietButton} focus-ring inline-flex items-center justify-center`}>Continue to Night Prayer</Link>
+        <Link href="/prayers/litanies/humility" className={`${styles.quietButton} focus-ring inline-flex items-center justify-center`}>Pray the Litany of Humility</Link>
         <Link href="/" className={`${styles.quietButton} focus-ring inline-flex items-center justify-center`}>Return to Home Page</Link>
       </div>
       <p className="mt-6 text-xs leading-6 text-ivory/48" aria-live="polite">
@@ -548,6 +566,19 @@ function ChoiceChip({ label, selected, onClick }: { label: string; selected: boo
 
 function PrayerCard({ children }: { children: React.ReactNode }) {
   return <blockquote className={`${styles.parchmentCard} font-display text-2xl leading-9`}>{children}</blockquote>;
+}
+
+function DeepReflection({ step }: { step: keyof typeof nightlyExamenContent }) {
+  const content = nightlyExamenContent[step];
+  const daySeed = Math.floor(Date.now() / 86400000);
+  const questions = content.deeper.map((_, index) => content.deeper[(index + daySeed) % content.deeper.length]).slice(0, 4);
+  return (
+    <details className={`${styles.deepReflection} mt-4`}>
+      <summary className={`${styles.deepReflectionSummary} focus-ring`}>Go deeper <span aria-hidden="true" /></summary>
+      <p className="mt-2 text-ivory/60">{nightlyDeepIntro}</p>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-ivory/75">{questions.map((prompt) => <li key={prompt}>{prompt}</li>)}</ul>
+    </details>
+  );
 }
 
 function StepVisual({ step }: { step: StepId }) {
