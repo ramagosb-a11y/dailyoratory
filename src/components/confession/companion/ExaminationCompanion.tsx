@@ -190,11 +190,6 @@ export function ExaminationCompanion() {
 
   function finishConfession() {
     if (!selectedItems.length) return;
-    const confirmed = window.confirm(
-      "Finish this confession? This will add a private summary to history, set today as your last confession date, and clear the active confession list.",
-    );
-    if (!confirmed) return;
-
     const completedAt = new Date().toISOString();
     const guideTitles = Array.from(new Set(selectedItems.map((item) => item.guideTitle)));
     updateStore((current) => ({
@@ -235,6 +230,16 @@ export function ExaminationCompanion() {
 
   return (
     <div className="mx-auto w-full max-w-7xl px-4 pb-32 pt-6 sm:px-6 sm:pt-8 md:pb-12 lg:px-10">
+      <div className="mb-4 flex justify-end">
+        <Link
+          href="/"
+          aria-label="Return to Daily Oratory home"
+          className="focus-ring inline-flex min-h-11 items-center gap-2 rounded-full border border-gold/40 bg-navy px-4 py-2 text-sm font-bold text-ivory shadow-sm transition hover:border-gold hover:bg-navy-soft"
+        >
+          <span aria-hidden="true" className="text-gold-light">⌂</span>
+          Home
+        </Link>
+      </div>
       <header className="overflow-hidden rounded-2xl border border-gold/25 bg-navy text-ivory shadow-[0_18px_45px_rgba(2,14,30,0.3)]">
         <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
           <div className="min-w-0">
@@ -519,39 +524,10 @@ function ExamineView({
         </button>
       </section>
 
-      <section className="dashboard-card min-w-0 p-4 sm:p-6">
-        <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-          <label className="grid gap-2">
-            <span className="form-label">Search this guide</span>
-            <input
-              type="search"
-              value={search}
-              onChange={(event) => onSearchChange(event.target.value)}
-              placeholder="Search prayer, Mass, speech, charity…"
-              className="form-field focus-ring min-h-12 w-full"
-            />
-          </label>
-          <p className="text-sm font-semibold text-navy" aria-live="polite">
-            Reviewed {reviewedCount} of {totalCount}
-          </p>
-        </div>
-        <div className="mt-4 flex gap-2 overflow-x-auto pb-2" aria-label="Filter prompts">
-          {(["all", "unreviewed", "confess", "clear"] as PromptFilter[]).map((value) => (
-            <button
-              key={value}
-              type="button"
-              onClick={() => onFilterChange(value)}
-              aria-pressed={filter === value}
-              className={`focus-ring min-h-11 shrink-0 rounded-full border px-4 text-sm font-semibold capitalize ${
-                filter === value ? "border-navy bg-navy text-ivory" : "border-stone bg-ivory text-navy"
-              }`}
-            >
-              {value === "all" ? `All (${totalCount})` : value}
-            </button>
-          ))}
-        </div>
+      {/* Search and filters are intentionally omitted here so the examination can stay focused on the prompts. */}
+      <section className="sr-only" aria-live="polite">
+        Reviewed {reviewedCount} of {totalCount}
       </section>
-
       {visibleSections.length ? (
         visibleSections.map((section) => (
           <section key={section.id} className="dashboard-card min-w-0 overflow-hidden">
@@ -802,6 +778,8 @@ function ConfessionalView({ confessedIds, items, lastConfessionSummary, onFinish
   onFinish: () => void;
   onToggle: (id: string) => void;
 }) {
+  const [confirmFinish, setConfirmFinish] = useState(false);
+
   const confessionInterval = lastConfessionSummary === "Date not set" ? "some time" : lastConfessionSummary;
 
   return (
@@ -838,9 +816,19 @@ function ConfessionalView({ confessedIds, items, lastConfessionSummary, onFinish
           <summary className="focus-ring min-h-11 cursor-pointer py-2 font-semibold text-gold-light">Act of Contrition</summary>
           <p className="mt-3 text-sm leading-7 text-ivory/80">{actOfContrition}</p>
         </details>
-        <button type="button" onClick={onFinish} disabled={!items.length} className="focus-ring mt-6 min-h-14 w-full rounded-xl bg-gold px-5 py-3 font-bold text-navy disabled:cursor-not-allowed disabled:opacity-50">
-          Finish confession and clear list
-        </button>
+        {confirmFinish ? (
+          <div className="mt-6 rounded-xl border border-gold/50 bg-gold/10 p-4" role="alert">
+            <p className="text-sm leading-6 text-ivory">Finish this confession? Your private summary will be saved to history and the active confession list will be cleared.</p>
+            <div className="mt-3 grid gap-2 sm:grid-cols-2">
+              <button type="button" onClick={onFinish} className="focus-ring min-h-14 w-full rounded-xl bg-gold px-5 py-3 font-bold text-navy">Yes, finish and clear</button>
+              <button type="button" onClick={() => setConfirmFinish(false)} className="focus-ring min-h-14 w-full rounded-xl border border-ivory/30 px-5 py-3 font-bold text-ivory">Go back</button>
+            </div>
+          </div>
+        ) : (
+          <button type="button" onClick={() => setConfirmFinish(true)} disabled={!items.length} className="focus-ring mt-6 min-h-14 w-full rounded-xl bg-gold px-5 py-3 font-bold text-navy disabled:cursor-not-allowed disabled:opacity-50">
+            Finish confession and clear list
+          </button>
+        )}
       </div>
     </section>
   );

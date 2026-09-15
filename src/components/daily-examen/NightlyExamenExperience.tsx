@@ -170,6 +170,10 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
       className={`${standalone ? styles.standalone : ""} scroll-mt-24`}
     >
       <div className={styles.shell}>
+        <Link href="/" className={`${styles.homeLink} focus-ring`} aria-label="Return to Daily Oratory home">
+          <span aria-hidden="true">⌂</span>
+          Home
+        </Link>
         <div className={styles.content}>
           {view === "welcome" ? (
             <WelcomeView

@@ -87,6 +87,7 @@ const navigationSections: NavigationSection[] = [
           { label: "Sacred Tradition", href: "/tradition" },
           { label: "Church Fathers", href: "/church-fathers" },
           { label: "Catechism of the Catholic Church", href: "/catechism" },
+          { label: "Media", href: "/media" },
         ],
       },
     ],

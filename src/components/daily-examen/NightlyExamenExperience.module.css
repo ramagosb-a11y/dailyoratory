@@ -37,6 +37,39 @@
   padding: clamp(1.5rem, 5vw, 3.75rem);
 }
 
+.homeLink {
+  position: absolute;
+  top: clamp(1rem, 3vw, 1.5rem);
+  right: clamp(1rem, 3vw, 1.5rem);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid rgba(234, 214, 167, 0.3);
+  border-radius: 999px;
+  background: rgba(5, 16, 27, 0.62);
+  color: rgba(255, 253, 247, 0.78);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.homeLink span {
+  color: #d3ad62;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.homeLink:hover {
+  border-color: rgba(234, 214, 167, 0.68);
+  background: rgba(255, 253, 247, 0.09);
+  color: #fff8e8;
+}
+
 .eyebrow {
   color: #d3ad62;
   font-size: 0.72rem;
