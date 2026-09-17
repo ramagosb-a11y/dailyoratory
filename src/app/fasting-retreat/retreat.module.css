@@ -644,6 +644,48 @@
   overflow-wrap: anywhere;
   margin-bottom: 1.2em;
 }
+.prayerPanel {
+  margin: 32px 0;
+  padding: 28px 30px 30px;
+  border: 2px solid #d2b67b;
+  border-radius: 1.25rem;
+  background: #fffdf7f5;
+  color: #0d2038;
+  box-shadow: 0 18px 55px #0309123d;
+}
+.prayerPanel > .eyebrow {
+  color: #a66f1d;
+  margin-bottom: 18px;
+}
+.prayerPanelBody {
+  max-width: 68ch;
+}
+.prayerPanel h2 {
+  color: #0d2038;
+  font-size: clamp(26px, 3vw, 34px);
+  line-height: 1.2;
+  margin: 32px 0 16px;
+}
+.prayerPanel h2:first-child {
+  margin-top: 0;
+}
+.prayerPanel p {
+  color: #0d2038;
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-size: 20px;
+  line-height: 1.72;
+  margin: 0 0 1.15rem;
+  overflow-wrap: anywhere;
+}
+.prayerPanel p:last-child {
+  margin-bottom: 0;
+}
+.prayerPanel .prayerResponse {
+  border-left: 2px solid #bd8a2f99;
+  color: #1f4e79;
+  font-style: italic;
+  padding-left: 18px;
+}
 .prayerText h2 {
   font-size: 29px;
   line-height: 1.25;
@@ -1370,6 +1412,9 @@
   .topControls .nextControl { order: -1; }
   .scripture { padding: 20px 16px; }
   .prayerText, .scripture > p { font-size: 17px; }
+  .prayerPanel { margin: 26px 0; padding: 22px 18px; border-radius: 1rem; }
+  .prayerPanel p { font-size: 18px; line-height: 1.7; }
+  .prayerPanel h2 { font-size: 27px; margin-top: 26px; }
   .intentions { padding: 18px 14px; }
   .intentionActions { display: grid; }
   .bottomBar[aria-label="Retreat navigation"] button span { font-size: 13px; }

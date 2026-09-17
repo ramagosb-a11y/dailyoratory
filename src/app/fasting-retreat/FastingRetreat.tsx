@@ -23,6 +23,7 @@ import {
 import s from "./retreat.module.css";
 import { RetreatIntentions, useRetreatIntentions } from "./RetreatIntentions";
 import { RetreatPassage } from "./RetreatPassage";
+import { RetreatPrayerPanel } from "./RetreatPrayerPanel";
 
 const validSteps = new Set(steps.map((x) => x.id));
 const stepChapters = new Map(steps.map((x) => [x.id, x.chapter]));
@@ -445,15 +446,7 @@ export default function FastingRetreat() {
                 </a>
               </aside>
             )}
-            <div className={s.prayerText}>
-              {active.blocks.map((block, i) =>
-                block.kind === "heading" ? (
-                  <h2 key={i}>{block.text}</h2>
-                ) : (
-                  <p key={i}>{block.text}</p>
-                ),
-              )}
-            </div>
+            <RetreatPrayerPanel blocks={active.blocks} />
             {active.links?.map((link) => (
               <p key={link.href}>
                 <a
