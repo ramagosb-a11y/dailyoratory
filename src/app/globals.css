@@ -1546,7 +1546,7 @@ a {
 .sacred-hours-lede { margin-top: 1rem; color: var(--sh-accent); font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2.4rem); }
 .sacred-hours-intro { max-width: 42rem; margin-top: 1rem; color: var(--sh-muted); font-size: 1.1rem; }
 .sacred-hours-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
-.sacred-hours-journey { display: flex; gap: .5rem; overflow-x: auto; margin-top: 3rem; padding-bottom: .5rem; color: var(--sh-muted); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.sacred-hours-journey { display: flex; gap: .5rem; margin-top: 3rem; padding-bottom: .5rem; color: var(--sh-muted); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 .sacred-hours-journey .active { color: var(--sh-accent); font-weight: 800; }
 .sacred-hours-notice { margin-bottom: 1.5rem; border: 1px solid color-mix(in srgb, var(--sh-accent) 45%, transparent); padding: 1rem 1.25rem; color: var(--sh-muted); }
 .sacred-hours-notice button, .sacred-hours-notice a, .text-link { color: var(--sh-accent); font-weight: 700; text-decoration: underline; }

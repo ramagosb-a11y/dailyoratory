@@ -162,7 +162,7 @@ export function HomeFeaturedMediaSection({
 
         <div
           ref={scrollerRef}
-          className="mt-6 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          className="mt-6 flex snap-x snap-mandatory gap-5 overflow-x-hidden touch-[pan-y_pinch-zoom] pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
           {items.map((item) => (
             <div

@@ -143,7 +143,7 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
 
       <div
         aria-label="Contemplative litany prayer cards"
-        className="overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        className="overflow-x-hidden touch-[pan-y_pinch-zoom] scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
         onKeyDown={handleKeyDown}
         onScroll={updateActiveLitany}
         ref={railRef}

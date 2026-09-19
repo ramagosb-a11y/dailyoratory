@@ -92,7 +92,6 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
   const [bookLanguage, setBookLanguage] = useState<"both" | "english" | "latin">("both");
   const [speaking, setSpeaking] = useState(false);
   const prayerPlayerRef = useRef<HTMLElement>(null);
-  const activeBeadRef = useRef<HTMLButtonElement>(null);
   const senseContentRef = useRef<HTMLElement>(null);
 
   const orderedGroups = useMemo(() => [...groups].sort((a, b) => a.sortOrder - b.sortOrder), [groups]);
@@ -109,13 +108,6 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
   const currentPrayer = prayers.find((item) => item.slug === step?.prayerSlug);
   const latinText = currentPrayer?.latin ?? (step?.prayerSlug ? latinPrayerFallbacks[step.prayerSlug] : undefined);
 
-  useEffect(() => {
-    const bead = activeBeadRef.current;
-    const beadRow = bead?.parentElement;
-    if (!bead || !beadRow) return;
-    const left = bead.offsetLeft - (beadRow.clientWidth - bead.offsetWidth) / 2;
-    beadRow.scrollTo({ behavior: "smooth", left: Math.max(0, left) });
-  }, [stepIndex]);
   useEffect(() => { if (!galleryOpen && !bookOpen) return; const previous = document.body.style.overflow; document.body.style.overflow = "hidden"; return () => { document.body.style.overflow = previous; }; }, [bookOpen, galleryOpen]);
 
   const goToStep = (index: number) => {
@@ -269,7 +261,7 @@ export function VisualRosaryExperience({ groups, mysteries, prayers, viewpoints 
 
         <section id="bead-strand" className={`${styles.panel} ${styles.strand}`}>
           <div className={styles.sectionHeading}><div><p>Interactive Rosary bead strand</p><h2>Prayer map</h2></div><span>Progress: <strong>{stepIndex + 1}</strong> / {sequence.length} prayers ({Math.round(((stepIndex + 1) / sequence.length) * 100)}%)</span></div>
-          {sections.map((section) => { const indexed = sequence.map((item, index) => ({ item, index })).filter(({ item }) => item.section === section); const active = indexed.some(({ index }) => index === stepIndex); return <details key={section} open={active} className={active ? styles.activeStrand : ""}><summary>{section}<span>{active ? step.title : `${indexed.length} prayers`}</span></summary><div>{indexed.map(({ item, index }) => <button ref={index === stepIndex ? activeBeadRef : undefined} key={item.id} type="button" onClick={() => goToStep(index)} className={index === stepIndex ? styles.currentBead : index < stepIndex ? styles.completeBead : ""} aria-label={`Prayer ${index + 1}: ${item.title}`}><span className={styles.beadFace}>{item.id === "intro-creed" ? <span className={styles.beadCross} aria-hidden="true" /> : item.beadLabel}</span></button>)}</div></details>; })}
+          {sections.map((section) => { const indexed = sequence.map((item, index) => ({ item, index })).filter(({ item }) => item.section === section); const active = indexed.some(({ index }) => index === stepIndex); return <details key={section} open={active} className={active ? styles.activeStrand : ""}><summary>{section}<span>{active ? step.title : `${indexed.length} prayers`}</span></summary><div>{indexed.map(({ item, index }) => <button key={item.id} type="button" onClick={() => goToStep(index)} className={index === stepIndex ? styles.currentBead : index < stepIndex ? styles.completeBead : ""} aria-label={`Prayer ${index + 1}: ${item.title}`}><span className={styles.beadFace}>{item.id === "intro-creed" ? <span className={styles.beadCross} aria-hidden="true" /> : item.beadLabel}</span></button>)}</div></details>; })}
         </section>
       </div>
 

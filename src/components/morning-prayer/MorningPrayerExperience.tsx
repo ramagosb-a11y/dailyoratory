@@ -7,7 +7,6 @@ import { morningPrayers } from "@/data/morningPrayer";
 
 const stages = ["Presence", "Offering", "Purification", "Communion", "Protection", "Intercession"] as const;
 
-type TouchPoint = { x: number; y: number } | null;
 
 function Arrow({ direction = "right" }: { direction?: "left" | "right" }) {
   return (
@@ -21,7 +20,6 @@ export function MorningPrayerExperience() {
   const [currentPrayer, setCurrentPrayer] = useState(-1);
   const [silenceSeconds, setSilenceSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
-  const touchStart = useRef<TouchPoint>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
   const isIntro = currentPrayer === -1;
@@ -76,23 +74,6 @@ export function MorningPrayerExperience() {
   function beginSilence(minutes: number) {
     setSilenceSeconds(minutes * 60);
     setTimerRunning(true);
-  }
-
-  function handleTouchStart(event: React.TouchEvent) {
-    const touch = event.touches[0];
-    touchStart.current = { x: touch.clientX, y: touch.clientY };
-  }
-
-  function handleTouchEnd(event: React.TouchEvent) {
-    if (!touchStart.current || isIntro || isSilence) return;
-    const touch = event.changedTouches[0];
-    const deltaX = touchStart.current.x - touch.clientX;
-    const deltaY = touchStart.current.y - touch.clientY;
-    touchStart.current = null;
-
-    if (Math.abs(deltaX) < 72 || Math.abs(deltaX) < Math.abs(deltaY) * 1.35) return;
-    if (deltaX > 0) next();
-    else previous();
   }
 
   if (isIntro) {
@@ -187,7 +168,7 @@ export function MorningPrayerExperience() {
   if (!prayer) return null;
 
   return (
-    <div className="min-h-[100svh] bg-[#0D2038] text-[#0D2038]" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+    <div className="min-h-[100svh] bg-[#0D2038] text-[#0D2038]">
       <header className="sticky top-0 z-40 flex min-h-16 items-center justify-between border-b border-[#BD8A2F]/25 bg-[#0D2038]/95 px-4 py-3 text-[#FFFDF7] backdrop-blur sm:px-6 lg:px-10">
         <span className="font-serif text-sm uppercase tracking-[0.18em] text-[#D6AA54] sm:text-lg">Daily Oratory</span>
         <Link href="/" className="focus-ring rounded-md px-2 py-2 text-sm font-semibold text-[#FFFDF7]/80 hover:text-white">Exit Prayer</Link>
@@ -227,7 +208,6 @@ export function MorningPrayerExperience() {
               <h1 ref={headingRef} tabIndex={-1} className="mt-7 font-serif text-4xl font-semibold leading-[1.03] text-[#0D2038] outline-none sm:text-5xl xl:text-6xl">{prayer.title}</h1>
               <div className="my-7 flex items-center gap-3" aria-hidden="true"><span className="h-px flex-1 bg-[#D8CDB9]" /><span className="text-[#BD8A2F]">✦</span><span className="h-px flex-1 bg-[#D8CDB9]" /></div>
               <p className="whitespace-pre-line font-serif text-[1.35rem] leading-[1.75] text-[#172033] sm:text-[1.55rem] sm:leading-[1.8] xl:text-[1.65rem]">{prayer.text}</p>
-              <p className="mt-10 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[#8B7655] lg:hidden">Swipe sideways or use the buttons below</p>
             </div>
           </article>
 

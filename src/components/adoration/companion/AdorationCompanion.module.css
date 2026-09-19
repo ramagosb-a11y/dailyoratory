@@ -139,7 +139,7 @@
   max-width: 90rem;
   margin: 0 auto 1.75rem;
   gap: 0.2rem;
-  overflow-x: auto;
+  flex-wrap: wrap;
   border: 1px solid rgba(210, 169, 88, 0.28);
   border-radius: 0.9rem;
   background: rgba(16, 36, 61, 0.96);
@@ -244,7 +244,7 @@
   max-width: 100%;
   margin: 1.2rem auto 0;
   gap: 0.35rem;
-  overflow-x: auto;
+  flex-wrap: wrap;
   border: 1px solid var(--companion-border);
   border-radius: 0.65rem;
   background: rgba(255, 255, 255, 0.015);
@@ -1905,18 +1905,10 @@
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    grid-auto-columns: minmax(11.5rem, 72vw);
-    grid-auto-flow: column;
-    grid-template-columns: none;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
+    grid-template-columns: minmax(0, 1fr);
     padding: 0 1rem 0.75rem;
-    scroll-padding-inline: 1rem;
-    scroll-snap-type: x proximity;
-    scrollbar-width: thin;
   }
 
-  .holyHourTimeline li { scroll-snap-align: start; }
   .holyHourTimeline button { min-height: 6.6rem; }
 
   .holyHourStageHeader { padding: 1.25rem 1rem 1.4rem; }

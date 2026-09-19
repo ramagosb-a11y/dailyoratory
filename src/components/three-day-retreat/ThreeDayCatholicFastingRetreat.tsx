@@ -283,7 +283,7 @@ function SectionNav() {
       aria-label="Retreat sections"
       className="no-print sticky top-0 z-30 -mx-5 mt-6 border-y border-stone bg-ivory/95 px-5 py-3 shadow-hairline backdrop-blur sm:-mx-8 sm:px-8 lg:top-0 lg:mx-0 lg:rounded-xl lg:border"
     >
-      <div className="flex gap-2 overflow-x-auto pb-1">
+      <div className="flex flex-wrap gap-2 pb-1">
         {navItems.map(([id, label]) => (
           <a
             key={id}

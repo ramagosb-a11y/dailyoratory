@@ -24,7 +24,6 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
   // Step (N + 2): Concluding prayer ("Lamb of God" & Collect)
   // Step (N + 3): Final Silence screen
   const [currentStep, setCurrentStep] = useState<number>(0);
-  const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [showAboutPrayer, setShowAboutPrayer] = useState<boolean>(false);
   const prayerTextRef = useRef<HTMLDivElement>(null);
 
@@ -62,26 +61,6 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
     setCurrentStep(0);
   };
 
-  // Touch swipe support for mobile
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStartX(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (touchStartX === null) return;
-    const touchEndX = e.changedTouches[0].clientX;
-    const diff = touchStartX - touchEndX;
-
-    if (diff > 60 && currentStep >= 1 && currentStep <= closingStep) {
-      // Swiped left -> next
-      handleNext();
-    } else if (diff < -60 && currentStep > 1 && currentStep <= closingStep) {
-      // Swiped right -> previous
-      handlePrevious();
-    }
-    setTouchStartX(null);
-  };
-
   // If on final silence screen, render quiet dark contemplative experience
   if (currentStep === silenceStep) {
     return (
@@ -114,8 +93,6 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
   return (
     <div
       className="min-h-[calc(100vh-4rem)] flex flex-col justify-between bg-[#FFFDF7] text-[#0D2038]"
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
     >
       {/* Step 0: Intro Screen */}
       {currentStep === 0 && (

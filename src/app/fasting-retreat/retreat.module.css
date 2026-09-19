@@ -1013,9 +1013,8 @@
   .chapterNav {
     justify-content: flex-start;
     gap: 24px;
-    overflow-x: auto;
+    flex-wrap: wrap;
     padding: 0 20px;
-    scrollbar-width: none;
   }
   .chapterNav button {
     font-size: 11px;
