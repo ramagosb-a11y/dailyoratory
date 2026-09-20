@@ -1,52 +1,26 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { StructuredDataScript } from "@/components/seo/StructuredDataScript";
-import { BibleAndHomilies } from "@/components/bible/BibleAndHomilies";
-import { BibleAndLiturgyHours } from "@/components/bible/BibleAndLiturgyHours";
-import { BibleAndPrayer } from "@/components/bible/BibleAndPrayer";
-import { BibleAtMass } from "@/components/bible/BibleAtMass";
-import { BibleCopyrightNote } from "@/components/bible/BibleCopyrightNote";
-import { BibleForExplorers } from "@/components/bible/BibleForExplorers";
-import { BibleForFamilies } from "@/components/bible/BibleForFamilies";
 import { BibleHero } from "@/components/bible/BibleHero";
-import { BibleReadingPlans } from "@/components/bible/BibleReadingPlans";
-import { BibleResources } from "@/components/bible/BibleResources";
-import { BibleStudyVsPrayer } from "@/components/bible/BibleStudyVsPrayer";
-import { BibleTranslationFinder } from "@/components/bible/BibleTranslationFinder";
-import { BibleTranslations } from "@/components/bible/BibleTranslations";
-import { BibleWordJournalTool } from "@/components/bible/BibleWordJournalTool";
+import { BibleBookInvitations } from "@/components/bible/BibleBookInvitations";
 import { BooksOfBibleOverview } from "@/components/bible/BooksOfBibleOverview";
-import { CatholicViewBible } from "@/components/bible/CatholicViewBible";
-import { CommonBibleMistakes } from "@/components/bible/CommonBibleMistakes";
-import { DailyReadingsMethod } from "@/components/bible/DailyReadingsMethod";
-import { DeuterocanonicalBooks } from "@/components/bible/DeuterocanonicalBooks";
-import { DifficultBiblePassages } from "@/components/bible/DifficultBiblePassages";
-import { GatherAWordFromReadings } from "@/components/bible/GatherAWordFromReadings";
 import { HowToReadBibleCatholic } from "@/components/bible/HowToReadBibleCatholic";
 import { LectioDivinaSection } from "@/components/bible/LectioDivinaSection";
-import { RelatedBibleTools } from "@/components/bible/RelatedBibleTools";
-import { ScriptureTraditionMagisterium } from "@/components/bible/ScriptureTraditionMagisterium";
-import { WhereToStartBible } from "@/components/bible/WhereToStartBible";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildArticleStructuredData, buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structuredData";
 
 const baseMetadata = createPageMetadata({
   title: "The Bible and Sacred Scripture | Daily Oratory",
   description:
-    "Learn how Catholics read the Bible, pray with daily Mass readings, choose Catholic Bible translations, gather a word from Scripture, and understand Scripture with Tradition and the Church.",
+    "A calm, welcoming guide for beginning, returning to, and understanding the Bible one passage at a time.",
   path: "/bible",
   keywords: [
-    "Catholic Bible",
     "Sacred Scripture",
-    "how Catholics read the Bible",
+    "how to read the Bible",
     "daily Mass readings",
-    "USCCB Bible",
-    "Catholic Bible translations",
     "Lectio Divina",
-    "Bible reading plan",
-    "Scripture and Tradition",
-    "deuterocanonical books",
-    "Catholic Scripture prayer",
+    "books of the Bible",
+    "Bible for beginners",
   ],
 });
 
@@ -56,32 +30,32 @@ export const metadata: Metadata = {
     ...baseMetadata.openGraph,
     title: "The Bible",
     description:
-      "A Catholic guide to Sacred Scripture, daily Mass readings, Bible translations, Lectio Divina, Scripture prayer, and reading the Bible with the Church.",
+      "A calm, welcoming guide for beginning, returning to, and understanding the Bible one passage at a time.",
   },
   twitter: {
     ...baseMetadata.twitter,
     title: "The Bible",
     description:
-      "A Catholic guide to Sacred Scripture, daily Mass readings, Bible translations, Lectio Divina, Scripture prayer, and reading the Bible with the Church.",
+      "A calm, welcoming guide for beginning, returning to, and understanding the Bible one passage at a time.",
   },
 };
 
 export default function BiblePage() {
   return (
-    <div className="paper-texture">
+    <div className="paper-texture bg-[radial-gradient(circle_at_50%_35%,rgba(201,162,39,0.08),transparent_34rem)]">
       <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
         <StructuredDataScript
           data={[
             buildWebPageStructuredData({
               name: "The Bible and Sacred Scripture",
               description:
-                "Learn how Catholics read the Bible, pray with daily Mass readings, choose Catholic Bible translations, gather a word from Scripture, and understand Scripture with Tradition and the Church.",
+                "A calm, welcoming guide for beginning, returning to, and understanding the Bible one passage at a time.",
               path: "/bible",
             }),
             buildArticleStructuredData({
               headline: "The Bible and Sacred Scripture",
               description:
-                "Learn how Catholics read the Bible, pray with daily Mass readings, choose Catholic Bible translations, gather a word from Scripture, and understand Scripture with Tradition and the Church.",
+                "A calm, welcoming guide for beginning, returning to, and understanding the Bible one passage at a time.",
               path: "/bible",
               keywords: baseMetadata.keywords as string[] | undefined,
             }),
@@ -97,28 +71,14 @@ export default function BiblePage() {
           <BibleHero />
         </div>
 
-        <div className="mt-14">
-          <CatholicViewBible />
-        </div>
-
-        <div className="mt-14">
-          <ScriptureTraditionMagisterium />
-        </div>
-
-        <div className="mt-14">
-          <BibleAtMass />
-        </div>
+        <nav aria-label="Bible reading path" className="mt-5 flex flex-wrap gap-x-4 gap-y-2 px-1 text-sm font-semibold text-navy sm:gap-x-7">
+          <a href="#how-to-begin" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">1. Begin with care</a>
+          <a href="#lectio-divina" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">2. Read slowly</a>
+          <a href="#books-of-the-bible" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">3. Find a book</a>
+        </nav>
 
         <div className="mt-14">
           <HowToReadBibleCatholic />
-        </div>
-
-        <div className="mt-14">
-          <GatherAWordFromReadings />
-        </div>
-
-        <div className="mt-14">
-          <DailyReadingsMethod />
         </div>
 
         <div className="mt-14">
@@ -126,75 +86,11 @@ export default function BiblePage() {
         </div>
 
         <div className="mt-14">
-          <BibleTranslations />
-        </div>
-
-        <div className="mt-14">
-          <BibleTranslationFinder />
-        </div>
-
-        <div className="mt-14">
-          <DeuterocanonicalBooks />
-        </div>
-
-        <div className="mt-14">
-          <WhereToStartBible />
-        </div>
-
-        <div className="mt-14">
           <BooksOfBibleOverview />
         </div>
 
         <div className="mt-14">
-          <BibleAndPrayer />
-        </div>
-
-        <div className="mt-14">
-          <BibleAndLiturgyHours />
-        </div>
-
-        <div className="mt-14">
-          <BibleAndHomilies />
-        </div>
-
-        <div className="mt-14">
-          <BibleStudyVsPrayer />
-        </div>
-
-        <div className="mt-14">
-          <CommonBibleMistakes />
-        </div>
-
-        <div className="mt-14">
-          <DifficultBiblePassages />
-        </div>
-
-        <div className="mt-14">
-          <BibleForFamilies />
-        </div>
-
-        <div className="mt-14">
-          <BibleForExplorers />
-        </div>
-
-        <div className="mt-14">
-          <BibleReadingPlans />
-        </div>
-
-        <div className="mt-14">
-          <BibleWordJournalTool />
-        </div>
-
-        <div className="mt-14">
-          <BibleResources />
-        </div>
-
-        <div className="mt-14">
-          <RelatedBibleTools />
-        </div>
-
-        <div className="mt-14">
-          <BibleCopyrightNote />
+          <BibleBookInvitations />
         </div>
       </main>
     </div>
