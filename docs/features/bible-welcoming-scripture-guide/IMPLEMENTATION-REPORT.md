@@ -1,7 +1,7 @@
 # IMPLEMENTATION-REPORT — Welcoming Scripture Guide
 
 Feature ID: `bible-welcoming-scripture-guide`
-Spec revision: `SPEC-R6`
+Spec revision: `SPEC-R7`
 Implementer/date/git revision: Codex / 2026-09-19 / `5c080a52bc4dc3ef63c9f195596ad6a503f5263d`
 Status: implemented-awaiting-human-review
 
@@ -19,6 +19,7 @@ Owner implementation authorization evidence: The owner’s 2026-09-19 requests e
 - Catholic-canon expansion: `SPEC-R4` expands the reviewed starter set to all 73 books of the Catholic canon. Every doorway retains its original-paraphrase summary, editorial starting prompt, safe new-tab USCCB link, and no-data-flow behavior.
 - Context and navigation expansion: `SPEC-R5` adds nine clickable canonical collections to the overview plus an initially closed native “Before you begin” panel on all 73 cards. The panels use source-reviewed literary form and careful time/setting guidance, related in-page book links, and the matching official USCCB introduction—without client state, storage, or new network behavior.
 - Orientation expansion: `SPEC-R6` adds an original guiding question and key people/place anchor for each book, then supplies collection-specific story placement, book shape, what-to-notice, gentle first-visit, and careful-reading guidance. These expand the existing native disclosures only; they add no new data flow or always-visible card density.
+- Control polish: `SPEC-R7` replaces the emoji-like external-arrow marks on both official USCCB links with text-only actions. The first-passage link is now a prominent navy/gold button, while “Before you begin” is a roomy native disclosure surface with a concise purpose line and explicit “Open guide” / “Close guide” state. The 73 existing orientation guides, destinations, and new-tab announcements remain unchanged.
 
 ## Acceptance and validation
 
@@ -35,6 +36,8 @@ Owner implementation authorization evidence: The owner’s 2026-09-19 requests e
 | AC-9 complete Catholic canon | Source-reviewed data/order audit and local narrow-browser inspection | Passed | Exactly 73 unique cards render from Genesis through Revelation, with 73 official USCCB book links. At 390px there is no horizontal overflow; every external link has `_blank`, `noopener`, and `noreferrer`. |
 | AC-10 optional context/navigation | Local DOM/AX/browser inspection | Passed | Nine overview collection cards expose 73 direct book anchors. All 73 book cards contain an initially closed native disclosure and matching USCCB-introduction link; there is no horizontal overflow. |
 | AC-11 complete orientation guides | Source-reviewed data audit and local browser inspection | Passed | All 73 disclosures contain the eight core orientation labels with no undefined content; cards remain closed on load and there is no horizontal overflow. |
+| AC-12 book-opening action polish | Local source/AX/mobile-browser inspection | Passed | Each card has a text-only, 48px-tall first-passage button; all existing official destinations and screen-reader new-tab announcements remain present. |
+| AC-13 guide-control polish | Local source/AX/mobile-browser inspection | Passed | The native disclosure hides its browser marker, retains a book-qualified accessible name, and visibly changes from “Open guide” to “Close guide” when expanded. |
 | Changed-file lint | `npx eslint` on the seven changed application files | Passed / 0 | No lint findings in the feature files. |
 | Type check | `npm run typecheck` | Passed / 0 | `tsc --noEmit` completed successfully. |
 | Production build | `npm run build` | Passed / 0 | Prebuild client-store/image guards, Next build, static `/bible` generation, and rendering-strategy audit all passed. |

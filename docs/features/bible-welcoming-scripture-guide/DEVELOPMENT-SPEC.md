@@ -2,10 +2,10 @@
 
 ## Identity and authorization
 - Feature ID: `bible-welcoming-scripture-guide`.
-- Spec revision/date: `SPEC-R6` / 2026-09-19.
+- Spec revision/date: `SPEC-R7` / 2026-09-19.
 - Status: approved-for-implementation.
 - Owner: Brent.
-- Implementation approval: The owner approved the proposed expanded pre-reading guide on 2026-09-19. This authorizes the exact `SPEC-R6` local addition of book-specific big questions, story placement, key figures/places, book shape, what-to-notice guidance, gentle first visits, and carefully scoped reading notes inside the existing native disclosures.
+- Implementation approval: The owner approved the proposed expanded pre-reading guide on 2026-09-19, then explicitly requested that the browser-style external-link glyphs be removed, each book link become a stronger visual button, and the “Before you begin” control receive a more polished treatment. This authorizes the exact `SPEC-R7` local presentation update: replace the glyph-bearing inline book link with a text-only button and restyle the existing native disclosure without changing its content, route, or data behavior.
 - Required review artifacts and reviewed revisions: `IDEA.md`; `REVIEWS.md` for `BIBLE-REFRAME-CONTENT-R1`, `BIBLE-BOOK-INVITATIONS-R2`, `BIBLE-BOOK-CONTEXT-R1`, `BIBLE-BOOK-ORIENTATION-R1`, UX review `BIBLE-REFRAME-UX-R1`, independent theology, SEO/privacy decisions, and the `BIBLE-THEME-R1` visual review.
 - Production authorization: **not authorized**.
 - Re-review triggers: substantive scope, public content meaning, route or data-flow changes.
@@ -22,6 +22,7 @@
 - `SPEC-R4` content scope: Expand the existing book-doorway data from the reviewed starter ten to all 73 books of the Catholic canon. Each card retains the same original-paraphrase format—book name, a concise encounter summary, an editorial “Begin here if” prompt, and a specific first-passage link to the USCCB NABRE. No Bible text, quotation, new user state, or new external provider is added.
 - `SPEC-R5` information scope: Add nine canonical collection records with original descriptions, literary-form guidance, carefully qualified time/setting context, and book membership. Make the overview’s collection and book names clickable anchors. Add a native collapsed “Before you begin” disclosure on every card with literary form, time/setting context, up to three related in-page books, and a fixed official USCCB introduction link. No disclosure state is stored or sent.
 - `SPEC-R6` information scope: Enrich each existing disclosure with original, source-reviewed book-level orientation: a guiding question; a concise place in the larger biblical story; key figures and places; a high-level book-shape map; reader-notice prompts; a first-visit reading path; and a “read with care” note only where literary form, length, or difficult subject matter makes it useful. These are reading aids, not doctrinal conclusions, promises, or a substitute for a study Bible.
+- `SPEC-R7` presentation scope: Replace each emoji-like external-link arrow with a clearly labeled, text-only USCCB Bible action button. Replace the default disclosure marker with a roomy, two-line native summary that introduces the existing material as “Before you begin” and “Context, setting & a gentle first visit,” with an explicit text state for opening or closing the guide. Expanded content remains unchanged.
 - Explicit non-goals: Do not change other routes, introduce images, reproduce Scripture, retain local-input/copy/print tools, or replace the dedicated Mass reflections route.
 
 ## Content contract
@@ -57,6 +58,8 @@
 | AC-9 | Choose a doorway includes every book of the Catholic canon, each with original, source-reviewed guide copy and a usable official first-passage link. | Data count/order audit; source/theology review; local AX/browser inspection. | 73 distinct cards render in canonical Catholic order; all links use `bible.usccb.org`, open safely in a new tab, and contain no reproduced Scripture text. |
 | AC-10 | The overview is useful navigation and every card offers optional pre-reading context without overwhelming the initial scan. | Local keyboard/AX/browser inspection at desktop and ~390px. | Nine collection cards expose book-count, purpose, book anchors, and collection anchors; every book has a closed native disclosure with literary form, qualified time/setting, related-book anchors, and USCCB-introduction link. |
 | AC-11 | Every book has an expandable, source-reviewed orientation guide that helps readers begin without replacing the actual text. | Content/source review; data completeness audit; desktop and ~390px browser inspection. | All 73 disclosures contain a unique guiding question, story placement, key figures/places, book shape, what-to-notice prompts, gentle first-visit path, and an appropriate reading note where needed. |
+| AC-12 | Book-opening links are unmistakable, text-only buttons rather than inline links with an emoji-like external-arrow glyph. | Source audit; local desktop and ~390px browser/keyboard review. | Every card has one 44px-or-taller button carrying the existing book label; the USCCB destination and safe new-tab announcement remain available to screen readers. |
+| AC-13 | “Before you begin” is a polished native disclosure, not a browser-default marker row. | Source audit; local desktop and ~390px keyboard/visual review. | Each closed guide presents the title, concise purpose, and text action; the visible action changes to “Close guide” when open, and the unchanged guide content remains keyboard accessible. |
 
 - Automated test scope and commands: `npm run lint`; `npm run typecheck`; `npm run build`; `npm run validate:urls`; `npm run seo:preflight`.
 - Manual/browser checks and synthetic fixtures: Local `/bible` on desktop and ~390px, tab through CTAs, inspect headings and focus, verify the Mass-reflections link, and use no personal data.

@@ -54,17 +54,27 @@ export function BibleBookInvitations() {
                         href={book.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="focus-ring mt-6 inline-flex min-h-11 items-center text-sm font-semibold text-navy underline-offset-4 hover:text-burgundy hover:underline"
+                        className="focus-ring mt-6 inline-flex min-h-12 items-center justify-center rounded-xl bg-navy px-5 py-3 text-sm font-bold text-ivory shadow-[0_8px_18px_rgba(14,42,70,0.2)] transition duration-200 hover:-translate-y-0.5 hover:bg-gold hover:text-navy hover:shadow-[0_12px_24px_rgba(165,112,26,0.24)]"
                       >
-                        {book.linkLabel} <span aria-hidden="true">↗</span>
+                        {book.linkLabel}
                         <span className="sr-only"> (opens USCCB Bible in a new tab)</span>
                       </a>
 
-                      <details className="mt-5 border-t border-stone/80 pt-4">
-                        <summary aria-label={`Before you begin ${book.title}`} className="focus-ring min-h-11 cursor-pointer content-center text-sm font-semibold text-navy marker:text-gold hover:text-burgundy">
-                          Before you begin
+                      <details className="mt-6 rounded-xl border border-stone/80 bg-ivory/70 p-2 shadow-[0_5px_14px_rgba(83,61,29,0.05)] [&[open]_.book-guide-closed]:hidden [&:not([open])_.book-guide-open]:hidden">
+                        <summary
+                          aria-label={`Before you begin ${book.title}`}
+                          className="focus-ring flex min-h-16 cursor-pointer list-none items-center justify-between gap-4 rounded-lg px-4 py-3 transition hover:bg-white/70 [&::-webkit-details-marker]:hidden"
+                        >
+                          <span className="min-w-0">
+                            <span className="block text-sm font-bold text-navy">Before you begin</span>
+                            <span className="mt-1 block text-xs leading-5 text-muted">Context, setting &amp; a gentle first visit</span>
+                          </span>
+                          <span className="shrink-0 rounded-full border border-gold/60 bg-white/80 px-3 py-1.5 text-xs font-bold text-navy transition hover:border-gold hover:bg-gold/15">
+                            <span className="book-guide-closed">Open guide</span>
+                            <span className="book-guide-open">Close guide</span>
+                          </span>
                         </summary>
-                        <div className="mt-4 space-y-4 text-sm leading-7 text-muted">
+                        <div className="mt-2 border-t border-stone/80 px-4 pb-4 pt-5 space-y-4 text-sm leading-7 text-muted">
                           <div>
                             <p className="font-semibold text-navy">The big question</p>
                             <p>{orientation.bigQuestion}</p>
@@ -121,7 +131,7 @@ export function BibleBookInvitations() {
                             rel="noopener noreferrer"
                             className="focus-ring inline-flex min-h-11 items-center font-semibold text-navy underline-offset-4 hover:text-burgundy hover:underline"
                           >
-                            Read the USCCB introduction <span aria-hidden="true">↗</span>
+                            Read the USCCB introduction
                             <span className="sr-only"> (opens USCCB Bible in a new tab)</span>
                           </a>
                         </div>

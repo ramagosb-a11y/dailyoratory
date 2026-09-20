@@ -128,3 +128,14 @@ Verdict: ready.
 - Key people/place lines are compact literary anchors. Catholic-canon books—including Tobit, Judith, Wisdom, Sirach, Baruch, 1–2 Maccabees, Esther, and Daniel—remain naturally framed without polemic or overstatement.
 - Story placement, book-shape, what-to-notice, first-visit, and careful-reading guidance retain the existing historical and literary cautions: the Torah distinguishes text formation from story setting; wisdom honors genre; letters address real communities; and Revelation is symbolic/pastoral rather than a future timetable.
 - All new copy is original summary content. It includes no reproduced Scripture, study-Bible, or USCCB text, and no new schema, provider, analytics, data state, or safety risk.
+
+## Book-card control polish — SPEC-R7
+
+Reviewer: `/root/ux_review` (independent of implementation)
+Date: 2026-09-19
+Verdict: ready.
+
+- The first-passage external link is now a text-only navy/gold action button with the visible book-specific label, safe new-tab behavior, and the existing screen-reader announcement. Its 48px minimum height exceeds the 44px touch-target requirement.
+- The emoji-like external-arrow glyph is removed from both the first-passage link and official introduction link.
+- The existing native `<details>/<summary>` interaction is preserved. Its unique accessible name remains “Before you begin [Book],” the default marker is suppressed, and the replacement two-line summary gives a concise purpose without adding a heading level.
+- The open/close label is derived from native `[open]` state, so it creates no client state, stored data, analytics, or behavioral regression. The 64px guide summary remains keyboard-operable on phone widths.
