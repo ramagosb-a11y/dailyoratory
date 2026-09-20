@@ -1,0 +1,47 @@
+.lessonToggle {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #0d2038;
+  border-radius: 12px;
+  background: #0d2038;
+  padding: 12px 22px;
+  color: #fffdf7;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  list-style: none;
+  box-shadow: 0 3px 8px rgb(13 32 56 / 8%);
+  transition: background-color 160ms, border-color 160ms;
+}
+
+.lessonToggle::-webkit-details-marker,
+.lessonToggle::marker {
+  display: none;
+  content: "";
+}
+
+.lessonToggle:hover {
+  background: #244458;
+  border-color: #244458;
+}
+
+details[open] > .lessonToggle {
+  background: #fffdf7;
+  color: #0d2038;
+}
+
+details[open] > .lessonToggle:hover {
+  background: #f5efdf;
+}
+
+@media (max-width: 639px) {
+  .lessonToggle { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lessonToggle { transition: none; }
+}

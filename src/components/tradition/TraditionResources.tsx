@@ -6,7 +6,7 @@ export function TraditionResources() {
   const resources = getTraditionResources();
 
   return (
-    <section>
+    <section id="tradition-resources" className="scroll-mt-28">
       <SectionHeader
         eyebrow="Sources"
         title="Official and Study Resources"

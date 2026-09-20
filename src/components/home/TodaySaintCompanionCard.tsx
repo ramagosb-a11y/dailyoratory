@@ -1,6 +1,7 @@
 "use client";
 
 import { TrackedLink } from "@/components/analytics/TrackedLink";
+import { todayActionClassName } from "@/components/home/todayActionStyles";
 import type { SaintOfTheDayEntry } from "@/types/saintOfTheDay";
 
 type TodaySaintCompanionCardProps = {
@@ -31,9 +32,10 @@ export function TodaySaintCompanionCard({
       </p>
       <TrackedLink
         href={destination}
+        external
         target="_blank"
         rel="noopener noreferrer"
-        className={`focus-ring mt-5 inline-flex items-center justify-center rounded-md border border-gold bg-gold px-4 py-3 text-sm font-semibold text-navy transition hover:bg-gold-soft ${cardLinkClassName}`}
+        className={`${todayActionClassName} mt-5 w-full sm:w-auto ${cardLinkClassName}`}
         eventName="saint_of_day_learn_more_click"
         eventParams={{
           destination,
@@ -43,7 +45,7 @@ export function TodaySaintCompanionCard({
           date_key: entry?.dateKey,
         }}
       >
-        Learn About Today&apos;s Saint — external site
+        Learn About Today&apos;s Saint
       </TrackedLink>
     </article>
   );

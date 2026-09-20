@@ -1,0 +1,13 @@
+# Visual polish — revision 3
+
+2026-09-20. Owner explicitly requested a sleeker Tradition page, attractive full-lesson buttons, four generated Grow in the Faith card images matching Featured Content, button CTAs and no iPhone-looking icons. This authorizes local UI/image work. Production publication remains unauthorized.
+
+Scope: preserve all reviewed Tradition copy and homepage card copy/destinations. Native lesson disclosure summaries become navy text-only buttons, inverse when open, minimum 48px, visible keyboard focus, mobile full width. No emojis, app tiles or decorative control icons. Refine lesson panel borders/shadows. Four Grow cards gain 16:9 image panels, balanced 1/2/4-column responsive layout matching Featured Content, aligned navy CTA links styled as buttons, and visible descriptive text at every width. No nested interactive elements, new state, tracking or dependencies.
+
+Files: TraditionGuide.tsx + scoped CSS module; GrowInFaithSection.tsx; four optimized public/images/home/grow-faith-*.webp; documentation/evidence. Avoid changing the shared HomeSectionCard or unrelated featured media carousel. Existing primary role review instructions and image workflow apply. New images are generic editorial illustrations, not historical documentation or portraits of named saints. No new doctrinal copy. UX/Engineering required; source/theology text review not reopened because exact words unchanged. Image representation checked separately. Source destinations/routes and data flows unchanged; no new privacy collection.
+
+Image policy: built-in generation, four separate prompts. Original PNGs stay in .codex/generated_images outside repository/deployment. sharp WebP quality 85, effort 6, original 1672x941 dimensions and framing preserved, no upscale. Only optimized files referenced by next/image; quality 85, responsive sizes and lazy default. See IMAGE-PROVENANCE.md and output/playwright/grow-faith-image-sizes.json. No full-size source files copied into public. No reconversion of existing WebP.
+
+Also exclude output/playwright in .vercelignore: local screenshots/test evidence have no runtime or build references (searched src/package/config). This keeps QA images out of Vercel source uploads without deleting evidence.
+
+Acceptance: four card assets load locally with image/webp and no 404; text-only CTAs navigate existing destinations; images do not overflow or crop key subject; styled disclosure controls toggle with keyboard and without JS; multiple readings stay open; narrow/desktop views have no horizontal overflow; changed-file lint/type/build pass, known full-lint baseline disclosed; independent review completed; optimized savings reported. Preserve prior user work. No push/deploy.

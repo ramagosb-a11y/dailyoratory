@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { TodaySaintCompanionCard } from "@/components/home/TodaySaintCompanionCard";
+import { todayActionClassName } from "@/components/home/todayActionStyles";
 import { homeLiturgicalSurfaceThemes } from "@/components/home/homeLiturgicalSurface";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { LiturgicalThemeBadge } from "@/components/theme/LiturgicalThemeBadge";
@@ -60,11 +61,11 @@ export function TodayInTheChurchClient({
             {today.title}
           </h2>
           <p className={`mt-3 max-w-[32ch] text-sm leading-7 sm:max-w-2xl ${theme.copyClassName}`}>{today.description}</p>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <TrackedLink
               href="https://bible.usccb.org/daily-bible-reading"
               external
-              className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.primaryButtonClassName}`}
+              className={`${todayActionClassName} ${theme.primaryButtonClassName}`}
               eventName="external_resource_click"
               eventParams={{
                 resource_name: "USCCB Daily Bible Reading",
@@ -77,7 +78,7 @@ export function TodayInTheChurchClient({
             </TrackedLink>
             <TrackedLink
               href="/reflections/mass-readings"
-              className={`focus-ring inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold transition ${theme.secondaryButtonClassName}`}
+              className={`${todayActionClassName} ${theme.primaryButtonClassName}`}
               eventName="reflection_open"
               eventParams={{
                 reflection_slug: "mass-readings-index",
@@ -95,7 +96,7 @@ export function TodayInTheChurchClient({
             cardEyebrowClassName={theme.cardEyebrowClassName}
             cardHeadingClassName={theme.cardHeadingClassName}
             cardCopyClassName={theme.cardCopyClassName}
-            cardLinkClassName={theme.cardLinkClassName}
+            cardLinkClassName={theme.primaryButtonClassName}
           />
         </div>
       </div>

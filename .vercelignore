@@ -6,6 +6,7 @@ node_modules
 .tmp-edge-profile
 .playwright-cli
 qa
+output/playwright
 
 # Local logs and preview output.
 dev-server.log
