@@ -24,6 +24,7 @@ export function PrayerCard({
   printEnabled?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
+  const currentCopyLabel = copied ? copiedLabel : copyLabel;
 
   async function handleCopy() {
     try {
@@ -48,8 +49,8 @@ export function PrayerCard({
         {prayer}
       </PrayerText>
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <button type="button" onClick={handleCopy} className="btn btn-secondary focus-ring w-full justify-center sm:w-auto">
-          {copied ? copiedLabel : copyLabel}
+        <button type="button" onClick={handleCopy} aria-label={title?.trim() ? `${currentCopyLabel}: ${title}` : currentCopyLabel} className="btn btn-secondary focus-ring w-full justify-center sm:w-auto">
+          {currentCopyLabel}
         </button>
         {printEnabled ? (
           <button type="button" onClick={() => window.print()} className="btn btn-secondary focus-ring w-full justify-center sm:w-auto">

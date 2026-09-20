@@ -28,7 +28,11 @@ Daily Oratory helps Catholics pray daily, follow the liturgical year, grow in vi
 - Local TypeScript data files
 - No paid CMS and no unnecessary runtime dependencies
 
-## Getting Started
+## AI-assisted development and editorial workflow
+
+Start with [the agent workflow](docs/agents/README.md), [repository audit](docs/agents/REPOSITORY-AUDIT.md), and [feature templates](docs/features/README.md). The approved DEVELOPMENT-SPEC is the engineering contract. The [PrayerCard accessibility pilot](docs/features/prayer-card-copy-label/IDEA.md) demonstrates planning without changing production behavior. Work stops at implementation or PR-ready for human review; production publication requires explicit authorization.
+
+## Local development
 
 ```bash
 npm install

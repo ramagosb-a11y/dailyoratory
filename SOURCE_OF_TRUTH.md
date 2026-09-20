@@ -47,6 +47,8 @@ Every production deploy must satisfy these invariants:
 
 ## Single Working Release Workflow
 
+**Approval gate:** This is a release sequence, not an automatic feature-development sequence. Follow [docs/features/README.md](docs/features/README.md) and stop at a reviewed local implementation or PR-ready state until the owner explicitly authorizes production publication of that change. Never automatically publish theological or devotional changes. A push to main can trigger production; stage only intended files after inspecting the diff and preserve unrelated work. The commands below apply only after that authorization.
+
 Use this one sequence for normal Daily Oratory work:
 
 ```powershell

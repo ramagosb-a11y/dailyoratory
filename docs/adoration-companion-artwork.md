@@ -1,12 +1,12 @@
 # Adoration Companion artwork
 
-Seven original AI-generated devotional illustrations, created with the built-in image generation tool. These are contemplative illustrations, not historical photographs. Generated originals were preserved; project copies are in `public/images/adoration/companion/`.
+Seven original AI-generated devotional illustrations, created with the built-in image generation tool. These are contemplative illustrations, not historical photographs. Optimized project copies are served from `public/images/adoration/companion/`; the generated PNG masters are preserved in `assets/source-images/adoration-companion/` outside the deployment path.
 
 Images are presented without cropping or text overlays. Each can be opened in an accessible viewport-sized contemplation dialog.
 
 ## Generation prompts
 
-Delivery: full-resolution 1536 × 1024 WebP copies (quality 90, approximately 239–430 KiB each) are served directly to avoid a stalled local image-optimizer request. PNG originals remain available. No cropping or artistic changes were made during format conversion.
+Delivery: full-resolution 1536 × 1024 WebP copies (quality 90, approximately 239–430 KiB each) are served directly to avoid a stalled local image-optimizer request. PNG originals remain in the tracked source-assets folder. No cropping or artistic changes were made during format conversion.
 
 Verification: all seven image mappings and viewer interactions passed at 360, 390, 768, and 1440px, including image loading, viewport fit, Escape, close control, keyboard focus, and continuous-mode selection. Companion content/navigation regression checks and type checking passed. Production build passed; no browser runtime errors were observed.
 
