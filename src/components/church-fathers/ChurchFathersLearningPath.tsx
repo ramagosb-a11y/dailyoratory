@@ -66,6 +66,22 @@ const primaryWritings = [
   },
 ] as const;
 
+const directoryGroups = [
+  { title: "Apostolic Fathers", qualifier: "Named individuals", names: ["Clement of Rome", "Ignatius of Antioch", "Polycarp of Smyrna"] },
+  { title: "Greek and Byzantine Fathers", qualifier: "A study map", names: ["Justin Martyr", "Irenaeus of Lyons", "Athanasius of Alexandria", "Basil of Caesarea", "Gregory of Nazianzus", "Gregory of Nyssa", "John Chrysostom", "Cyril of Jerusalem", "Cyril of Alexandria", "John Damascene", "Maximus the Confessor"] },
+  { title: "Latin Fathers", qualifier: "A study map", names: ["Cyprian of Carthage", "Hilary of Poitiers", "Ambrose of Milan", "Jerome", "Augustine of Hippo", "Leo the Great", "Gregory the Great", "Isidore of Seville"] },
+  { title: "Syriac Christian writers", qualifier: "A study map", names: ["Ephrem the Syrian", "Aphrahat"] },
+] as const;
+
+const earlyChristianWritings = ["The Didache", "The Shepherd of Hermas", "Letter to Diognetus"] as const;
+
+const documentLinks: Record<string, string> = {
+  "Clement of Rome": "https://www.newadvent.org/fathers/1010.htm", "Ignatius of Antioch": "https://www.newadvent.org/fathers/0109.htm", "Polycarp of Smyrna": "https://www.newadvent.org/fathers/0136.htm",
+  "Justin Martyr": "https://www.newadvent.org/fathers/0126.htm", "Irenaeus of Lyons": "https://www.newadvent.org/fathers/0103.htm", "Athanasius of Alexandria": "https://www.newadvent.org/fathers/2802.htm", "Basil of Caesarea": "https://www.newadvent.org/fathers/3202.htm", "Gregory of Nazianzus": "https://www.newadvent.org/fathers/3102.htm", "Gregory of Nyssa": "https://www.ccel.org/ccel/schaff/npnf205", "John Chrysostom": "https://www.newadvent.org/fathers/2001.htm", "Cyril of Jerusalem": "https://www.newadvent.org/fathers/3101.htm", "Cyril of Alexandria": "https://www.tertullian.org/fathers/", "John Damascene": "https://www.newadvent.org/fathers/3304.htm", "Maximus the Confessor": "https://www.myriobiblos.gr/texts/contents_maximos_en.html",
+  "Cyprian of Carthage": "https://www.newadvent.org/fathers/0506.htm", "Hilary of Poitiers": "https://www.newadvent.org/fathers/3302.htm", "Ambrose of Milan": "https://www.newadvent.org/fathers/3404.htm", "Jerome": "https://www.newadvent.org/fathers/3001.htm", "Augustine of Hippo": "https://www.newadvent.org/fathers/12021.htm", "Leo the Great": "https://www.newadvent.org/fathers/3604.htm", "Gregory the Great": "https://www.newadvent.org/fathers/3602.htm", "Isidore of Seville": "https://penelope.uchicago.edu/Thayer/E/Roman/Texts/Isidore/home.html",
+  "Ephrem the Syrian": "https://www.ccel.org/ccel/schaff/npnf213", "Aphrahat": "https://www.ccel.org/ccel/schaff/npnf213", "The Didache": "https://www.newadvent.org/fathers/0714.htm", "The Shepherd of Hermas": "https://www.ccel.org/ccel/schaff/anf02.vi.i.html", "Letter to Diognetus": "https://www.newadvent.org/fathers/0101.htm",
+};
+
 export function ChurchFathersLearningPath() {
   return (
     <>
@@ -89,8 +105,9 @@ export function ChurchFathersLearningPath() {
       <nav aria-label="Church Fathers learning path" className="mt-5 flex flex-wrap gap-x-4 gap-y-2 px-1 text-sm font-semibold text-navy sm:gap-x-7">
         <a href="#orientation" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">1. Get oriented</a>
         <a href="#questions" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">2. Explore a question</a>
-        <a href="#primary-writings" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">3. Find a primary writing</a>
-        <a href="#first-reading" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">4. Read a first work</a>
+        <a href="#directory" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">3. Find your bearings</a>
+        <a href="#primary-writings" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">4. Find a primary writing</a>
+        <a href="#first-reading" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">5. Read a first work</a>
       </nav>
 
       <section id="orientation" className="mt-14 scroll-mt-28 rounded-[1.5rem] border border-stone bg-[linear-gradient(135deg,rgba(255,253,247,0.98),rgba(247,238,220,0.9))] p-6 shadow-[0_12px_30px_rgba(83,61,29,0.08)] sm:p-9">
@@ -121,6 +138,28 @@ export function ChurchFathersLearningPath() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section id="directory" className="mt-14 scroll-mt-28 rounded-[1.5rem] border border-gold/35 bg-[linear-gradient(135deg,rgba(250,244,229,0.98),rgba(255,253,247,0.98))] p-6 shadow-[0_12px_30px_rgba(83,61,29,0.08)] sm:p-9">
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Find your bearings</p>
+        <h2 className="font-display mt-3 max-w-3xl text-4xl font-semibold leading-tight text-navy sm:text-5xl">A map of the Church Fathers</h2>
+        <p className="mt-5 max-w-3xl text-base leading-8 text-muted">A map for further study, not a complete catalogue or a ranking. Read each writer in context, alongside Scripture and the Church&apos;s living teaching.</p>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">Each name opens an external text, collection, or index. These repositories use particular editions and translations; they are study aids, not an official Church Fathers edition.</p>
+        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+          {directoryGroups.map((group) => (
+            <article key={group.title} className="rounded-2xl border border-stone bg-ivory/85 p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-burgundy">{group.qualifier}</p>
+              <h3 className="font-display mt-3 text-3xl font-semibold leading-tight text-navy">{group.title}</h3>
+              <ul className="mt-5 grid gap-x-5 gap-y-2 text-sm leading-7 text-muted sm:grid-cols-2">{group.names.map((name) => <li key={name} className="flex gap-2"><span aria-hidden="true" className="mt-3 size-1.5 shrink-0 rounded-full bg-gold" /><a href={documentLinks[name]} target="_blank" rel="noopener noreferrer" className="focus-ring underline-offset-4 hover:text-burgundy hover:underline">{name}<span className="sr-only"> (read online; opens in a new tab)</span></a></li>)}</ul>
+            </article>
+          ))}
+        </div>
+        <article className="mt-4 rounded-2xl border border-navy/15 bg-navy p-6 text-ivory">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-gold">A distinct companion shelf</p>
+          <h3 className="font-display mt-3 text-3xl font-semibold leading-tight">Early Christian writings alongside the Fathers</h3>
+          <p className="mt-3 max-w-2xl text-sm leading-7 text-ivory/80">The last group contains writings, not named Church Fathers.</p>
+          <ul className="mt-5 flex flex-wrap gap-2">{earlyChristianWritings.map((writing) => <li key={writing}><a href={documentLinks[writing]} target="_blank" rel="noopener noreferrer" className="focus-ring inline-flex min-h-10 items-center rounded-full border border-ivory/20 px-3 py-1.5 text-sm text-ivory/90 hover:border-gold hover:bg-ivory/10">{writing}<span className="sr-only"> (read online; opens in a new tab)</span></a></li>)}</ul>
+        </article>
       </section>
 
       <section id="primary-writings" className="mt-14 scroll-mt-28 rounded-[1.5rem] border border-stone bg-[linear-gradient(135deg,rgba(255,253,247,0.98),rgba(247,238,220,0.9))] p-6 shadow-[0_12px_30px_rgba(83,61,29,0.08)] sm:p-9">
