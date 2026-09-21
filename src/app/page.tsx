@@ -30,7 +30,7 @@ const featuredContentCards = [
     description:
       "A guided journey through the final hours of Christ's earthly life.",
     href: "/holy-week",
-    image: "/images/sacred-hours/sacred-hours-hourglass.png",
+    image: "/images/sacred-hours/sacred-hours-hourglass.webp",
     imageAlt: "Antique hourglass with falling sand in a candlelit chapel",
   },
   {

@@ -15,7 +15,7 @@ export default function ExaminationCompanionPage() {
     <div className="min-h-screen bg-[#071a31]">
       <div className="relative h-44 overflow-hidden border-b border-gold/40 shadow-[0_10px_30px_rgba(2,14,30,0.35)] sm:h-64">
         <Image
-          src="/images/examination-confessional-hero.png"
+          src="/images/examination-confessional-hero.webp"
           alt="A quiet chapel prepared for prayer"
           fill
           priority

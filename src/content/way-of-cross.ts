@@ -132,7 +132,7 @@ export const stations: Station[] = titles.map((title, index) => ({
   traditionNote: [2, 3, 5, 6, 8].includes(index) ? "Traditional devotional station; not directly narrated as a complete event in the Gospel accounts." : undefined,
   meditation: dailyMeditations[index],
   prayer: dailyPrayers[index],
-  artwork: `/images/way-of-cross/station-${String(index + 1).padStart(2, "0")}-${["condemned", "carries-cross", "first-fall", "meets-mary", "simon", "veronica", "second-fall", "women", "third-fall", "stripped", "nailed", "crucifixion", "taken-down", "tomb"][index]}.png`,
+  artwork: `/images/way-of-cross/station-${String(index + 1).padStart(2, "0")}-${["condemned", "carries-cross", "first-fall", "meets-mary", "simon", "veronica", "second-fall", "women", "third-fall", "stripped", "nailed", "crucifixion", "taken-down", "tomb"][index]}.webp`,
   imageAlt: `${title}, sacred artwork for the Way of the Cross`,
 }));
 

@@ -9,7 +9,7 @@ export function SacredHeartMeditationFeature() {
       <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="bg-[#1f1208] p-4 sm:p-6">
           <Image
-            src="/images/sacred-heart/sacred-heart-symbols.png"
+            src="/images/sacred-heart/sacred-heart-symbols.webp"
             alt="Sacred Heart symbol guide showing the flame, cross, crown of thorns, blood, wounds, and radiance."
             width={1254}
             height={1254}

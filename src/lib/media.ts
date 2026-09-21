@@ -257,7 +257,7 @@ export function getMediaThumbnail(item: MediaItem) {
   const videoId = item.youtubeVideoId ?? extractYouTubeVideoId(item.youtubeUrl);
   if (videoId) return `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
-  return "/images/chapel-library-hero.png";
+  return "/images/chapel-library-hero.webp";
 }
 
 export function getMediaTypeLabel(mediaType: MediaType) {

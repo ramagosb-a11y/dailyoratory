@@ -5,7 +5,7 @@ export function FooterCta() {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-ivory">
       <Image
-        src="/images/adoration/adoration-wide-3x1.png"
+        src="/images/adoration/adoration-wide-3x1.webp"
         alt="An open chapel leading toward the Eucharist in a monstrance"
         fill
         sizes="100vw"

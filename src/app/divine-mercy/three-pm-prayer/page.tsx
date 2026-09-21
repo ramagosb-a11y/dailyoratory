@@ -23,7 +23,7 @@ export default function ThreePmPrayerPage() {
   return (
     <main className={styles.page}>
       <Image
-        src="/images/divine-mercy/three-pm-hour-of-mercy-v1.0.2.png"
+        src="/images/divine-mercy/three-pm-hour-of-mercy-v1.0.2.webp"
         alt="A crucifix in a quiet chapel at the Hour of Great Mercy"
         fill
         priority
@@ -36,7 +36,7 @@ export default function ThreePmPrayerPage() {
         <div className={styles.prayerLayout}>
           <aside className={styles.imagePanel} aria-label="The Hour of Great Mercy devotional image">
             <Image
-              src="/images/divine-mercy/three-pm-hour-of-mercy-v1.0.2.png"
+              src="/images/divine-mercy/three-pm-hour-of-mercy-v1.0.2.webp"
               alt="A crucifix in a quiet chapel at the Hour of Great Mercy"
               fill
               sizes="(min-width: 860px) 42vw, 100vw"

@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section className="liturgical-home-hero relative overflow-hidden bg-navy text-ivory">
       <Image
-        src="/images/chapel-library-hero.png"
+        src="/images/chapel-library-hero.webp"
         alt="A quiet Catholic chapel library with a prayer journal and rosary"
         fill
         priority

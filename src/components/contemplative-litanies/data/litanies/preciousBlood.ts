@@ -55,7 +55,7 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'I · BLOOD OF THE INCARNATE WORD',
       title: 'The Eternal Covenant',
       reflection: 'The Blood of the only-begotten Son took flesh in the womb of Mary, uniting heaven and earth in an eternal testament of love.',
-      image: '/images/contemplative-litanies/precious-blood-eternal-covenant.png',
+      image: '/images/contemplative-litanies/precious-blood-eternal-covenant.webp',
       imageAlt: 'Mary kneeling before the Lamb and chalice beneath Trinitarian light',
       invocations: [
         { prompt: 'Blood of Christ, only-begotten Son of the Eternal Father,', response: 'save us.' },
@@ -69,7 +69,7 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'II · GETHSEMANE',
       title: 'Sweat of Blood and Surrender',
       reflection: 'In the darkness of the olive garden, Christ knelt in prayer, offering His whole will to the Father: ‘Not My will, but Thine be done.’',
-      image: '/images/contemplative-litanies/precious-blood-sweat-of-blood-and-surrender.png',
+      image: '/images/contemplative-litanies/precious-blood-sweat-of-blood-and-surrender.webp',
       imageAlt: 'Christ surrendering to the Father in the moonlit Garden of Gethsemane',
       invocations: [
         { prompt: 'Blood of Christ, falling upon the earth in the Agony,', response: 'save us.' },
@@ -82,7 +82,7 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'III · THE PASSION',
       title: 'Scourging and Thorns',
       reflection: 'Behold the King of Love crowned with thorns, wounded for our transgressions, and healing our infirmities by His stripes.',
-      image: '/images/contemplative-litanies/precious-blood-the-passion.png',
+      image: '/images/contemplative-litanies/precious-blood-the-passion.webp',
       imageAlt: 'Christ in solemn prayer beneath a darkened Passion sky',
       invocations: [
         { prompt: 'Blood of Christ, flowing profusely in the Scourging,', response: 'save us.' },
@@ -96,7 +96,7 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'IV · CALVARY',
       title: 'The Pierced Side',
       reflection: 'From the pierced side of the Crucified Savior flowed blood and water—the fountainhead of the Sacraments and the birth of the Church.',
-      image: '/images/contemplative-litanies/precious-blood-pierced-side.png',
+      image: '/images/contemplative-litanies/precious-blood-pierced-side.webp',
       imageAlt: 'Blood and water flowing symbolically from the pierced side of Christ',
       invocations: [
         { prompt: 'Blood of Christ, price of our salvation,', response: 'save us.' },
@@ -110,7 +110,7 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'V · BLOOD OF THE NEW COVENANT',
       title: 'Stream of Divine Mercy',
       reflection: 'In the Holy Eucharist, the Precious Blood is truly present, strengthening the faithful, empowering martyrs, and defeating the darkness.',
-      image: '/images/contemplative-litanies/precious-blood-new-covenant.png',
+      image: '/images/contemplative-litanies/precious-blood-new-covenant.webp',
       imageAlt: 'A Eucharistic chalice and bread illuminated upon a quiet altar',
       invocations: [
         { prompt: 'Blood of Christ, stream of mercy,', response: 'save us.' },
@@ -124,7 +124,7 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'VI · MERCY AND PURIFICATION',
       title: 'Refuge of the Burdened',
       reflection: 'Bring your weariness and burdens to Christ. His Precious Blood cleanses every conscience and sustains all who are in peril.',
-      image: '/images/contemplative-litanies/precious-blood-refuge-of-the-burdened.png',
+      image: '/images/contemplative-litanies/precious-blood-refuge-of-the-burdened.webp',
       imageAlt: 'Christ receiving weary families beneath His mantle of mercy',
       invocations: [
         { prompt: 'Blood of Christ, comfort of confessors,', response: 'save us.' },
@@ -139,7 +139,7 @@ export const preciousBloodLitany: LitanyData = {
       eyebrow: 'VII · VICTORY AND SALVATION',
       title: 'Pledge of Eternal Life',
       reflection: 'Rejoice in the final victory of the Lamb: He who died is alive forevermore, offering hope in death and eternal peace in heaven.',
-      image: '/images/contemplative-litanies/precious-blood-pledge-of-eternal-life.png',
+      image: '/images/contemplative-litanies/precious-blood-pledge-of-eternal-life.webp',
       imageAlt: 'The risen Christ and Lamb offering resurrection hope at dawn',
       invocations: [
         { prompt: 'Blood of Christ, solace in sorrow,', response: 'save us.' },

@@ -234,7 +234,7 @@ function WelcomeView({
 
       <div className={styles.photoScene} aria-hidden="true">
         <Image
-          src="/images/daily-examen/last-light-candle-v2.png"
+          src="/images/daily-examen/last-light-candle-v2.webp"
           alt=""
           fill
           priority
@@ -606,7 +606,7 @@ function StepVisual({ step }: { step: StepId }) {
   return (
     <div className={`${styles.stepVisual} ${visualClass}`} aria-hidden="true">
       <Image
-        src="/images/daily-examen/last-light-candle-v2.png"
+        src="/images/daily-examen/last-light-candle-v2.webp"
         alt=""
         fill
         sizes="(max-width: 520px) 100vw, 430px"

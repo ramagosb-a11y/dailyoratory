@@ -47,7 +47,7 @@ export default function DivineMercyPage() {
               <p className="mt-5 text-sm leading-6 text-stone-soft">No account is needed. Optional intentions remain only in the current prayer session and are never saved or sent.</p>
             </div>
             <div className="relative min-h-[28rem] border-t border-gold-soft/20 lg:border-l lg:border-t-0">
-              <Image src="/images/divine-mercy/christ-rays-v1.0.1.png" alt="Original devotional artwork of Christ in sacred light with red and pale rays" fill sizes="(max-width: 1024px) 100vw, 46vw" className="object-cover object-top" preload />
+              <Image src="/images/divine-mercy/christ-rays-v1.0.1.webp" alt="Original devotional artwork of Christ in sacred light with red and pale rays" fill sizes="(max-width: 1024px) 100vw, 46vw" className="object-cover object-top" preload />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
               <p className="absolute inset-x-0 bottom-5 px-5 text-center font-display text-lg text-gold-soft">Jesus, I trust in You.</p>
             </div>

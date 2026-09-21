@@ -7,7 +7,7 @@ export function HomeWayOfCrossCta() {
   return (
     <section aria-labelledby="home-way-of-cross-heading" className="home-way-cross relative isolate overflow-hidden bg-[#070d15] text-ivory">
       <Image
-        src="/images/way-of-cross/station-02-carries-cross.png"
+        src="/images/way-of-cross/station-02-carries-cross.webp"
         alt="Jesus carrying the Cross through the streets of Jerusalem"
         fill
         sizes="(min-width: 1024px) 50vw, 100vw"

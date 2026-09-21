@@ -207,7 +207,7 @@ export function DivineMercyChaplet() {
                   <h1 ref={stepHeadingRef} tabIndex={-1}>{currentStep.title}</h1>
                 </div>
                 <div className={styles.currentPrayerImage}>
-                  <Image src="/images/divine-mercy/chaplet-immersive-v1.0.2.png" alt="Divine Mercy image" fill sizes="88px" className={styles.imageCover} />
+                  <Image src="/images/divine-mercy/chaplet-immersive-v1.0.2.webp" alt="Divine Mercy image" fill sizes="88px" className={styles.imageCover} />
                 </div>
               </header>
 
@@ -290,7 +290,7 @@ function StartScreen({
       {mercyHour ? <div className={styles.mercyHourLive}><strong>The Hour of Great Mercy</strong><span>Pause with the Passion of Christ at three o’clock.</span></div> : null}
       <div className={styles.startExperience}>
         <aside className={styles.startArt} aria-label="Divine Mercy devotional image">
-          <Image src="/images/divine-mercy/chaplet-immersive-v1.0.2.png" alt="Jesus of Divine Mercy in a sunlit chapel" fill sizes="(min-width: 860px) 44vw, 100vw" className={styles.imageCover} priority />
+          <Image src="/images/divine-mercy/chaplet-immersive-v1.0.2.webp" alt="Jesus of Divine Mercy in a sunlit chapel" fill sizes="(min-width: 860px) 44vw, 100vw" className={styles.imageCover} priority />
           <div className={styles.startArtVeil} />
           <div className={styles.startArtPrayer}><p>Jesus, I trust in You.</p><small>For the whole world</small></div>
         </aside>
@@ -397,7 +397,7 @@ function PrayerControls({ stepIndex, stepCount, autoAdvance, autoProgress, speed
 function CompletionScreen({ intention, onSilence, onAgain }: { intention: string; onSilence: () => void; onAgain: () => void }) {
   return (
     <main className={styles.completion}>
-      <div className={styles.completionImage}><Image src="/images/divine-mercy/christ-rays-v1.0.1.png" alt="Original devotional artwork of Christ with red and pale rays" fill sizes="280px" className={styles.imageCover} /></div>
+      <div className={styles.completionImage}><Image src="/images/divine-mercy/christ-rays-v1.0.1.webp" alt="Original devotional artwork of Christ with red and pale rays" fill sizes="280px" className={styles.imageCover} /></div>
       <p className={styles.eyebrow}>The Chaplet is complete</p><h1>Jesus, I trust in You.</h1>
       {intention ? <p className={styles.completedIntention}><strong>Offered for</strong><span>{intention}</span></p> : null}
       <p>Remain with Christ in silence, pray again, or return to the Divine Mercy guide.</p>

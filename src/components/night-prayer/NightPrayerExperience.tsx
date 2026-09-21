@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const nightPrayerImage = "/images/night-prayer/guardian-angel-protection-girl.png";
+const nightPrayerImage = "/images/night-prayer/guardian-angel-protection-girl.webp";
 
 const nightPrayers = [
   {

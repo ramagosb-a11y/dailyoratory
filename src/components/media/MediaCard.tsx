@@ -29,7 +29,7 @@ export function MediaCard({
             alt={item.altText}
             className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.01]"
             loading="lazy"
-            onError={() => setThumbnail("/images/chapel-library-hero.png")}
+            onError={() => setThumbnail("/images/chapel-library-hero.webp")}
           />
         ) : (
           <div className="flex h-full items-center justify-center bg-parchment px-6 text-center">

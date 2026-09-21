@@ -15,7 +15,7 @@ export const brand = {
   ogDescription:
     "A Catholic prayer and formation home inspired by the Holy Spirit, welcoming anyone who wants to pray, learn, and grow through the riches of the Catholic faith.",
   supportEmail: "support@dailyoratory.faith",
-  socialImage: "/images/chapel-library-hero.png",
+  socialImage: "/images/chapel-library-hero.webp",
   homepageHeadline: "A Catholic home for prayer and spiritual growth.",
   homepageSubheadline:
     "Begin in prayer, learn the Catholic faith at your own pace, pray with the Church, live the liturgical year, and ask the Holy Spirit to grow the Fruits of grace in daily life.",

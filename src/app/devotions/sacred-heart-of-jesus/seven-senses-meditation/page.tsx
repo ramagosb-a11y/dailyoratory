@@ -11,8 +11,8 @@ const pagePath = "/devotions/sacred-heart-of-jesus/seven-senses-meditation";
 const pageTitle = "Sacred Heart of Jesus Seven Senses Meditation";
 const pageDescription =
   "A 20-minute guided Sacred Heart of Jesus meditation journey through Calvary, the pierced Heart of Christ, and personal surrender.";
-const heroImagePath = "/images/sacred-heart/sacred-heart-jesus.png";
-const symbolImagePath = "/images/sacred-heart/sacred-heart-symbols.png";
+const heroImagePath = "/images/sacred-heart/sacred-heart-jesus.webp";
+const symbolImagePath = "/images/sacred-heart/sacred-heart-symbols.webp";
 const heroImageAlt = "Sacred Heart of Jesus with Christ holding His radiant Heart.";
 
 const pageKeywords = [

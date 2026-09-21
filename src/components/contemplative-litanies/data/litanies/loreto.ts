@@ -55,7 +55,7 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'I · HOLY MARY',
       title: 'Mother of God',
       reflection: 'Contemplate Mary’s divine maternity: through her humble ‘Fiat’, the Word took flesh and dwelt among us.',
-      image: '/images/contemplative-litanies/loreto-mother-of-god.png',
+      image: '/images/contemplative-litanies/loreto-mother-of-god.webp',
       imageAlt: 'The Archangel Gabriel greeting Mary at the Annunciation beneath the Holy Spirit',
       invocations: [
         { prompt: 'Holy Mary,', response: 'pray for us.' },
@@ -83,7 +83,7 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'II · VIRGIN MOST FAITHFUL',
       title: 'Purity and Steadfastness',
       reflection: 'Reflect on Mary’s steadfast fidelity at the Annunciation, in the trials of Bethlehem and Egypt, and standing faithful beneath the Cross.',
-      image: '/images/contemplative-litanies/loreto-purity-and-steadfastness.png',
+      image: '/images/contemplative-litanies/loreto-purity-and-steadfastness.webp',
       imageAlt: 'Mary standing faithfully beneath the Cross',
       invocations: [
         { prompt: 'Virgin most prudent,', response: 'pray for us.' },
@@ -100,7 +100,7 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'III · MIRROR AND SEAT OF WISDOM',
       title: 'Vessel of Honor',
       reflection: 'Mary is the mirror reflecting the light of Christ, and the throne upon which Eternal Wisdom rests.',
-      image: '/images/contemplative-litanies/loreto-seat-of-wisdom.png',
+      image: '/images/contemplative-litanies/loreto-seat-of-wisdom.webp',
       imageAlt: 'Mary seated as the Seat of Wisdom with an open book',
       invocations: [
         { prompt: 'Mirror of justice,', response: 'pray for us.' },
@@ -117,7 +117,7 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'IV · MYSTICAL ROSE',
       title: 'Tower of David',
       reflection: 'The fragrance of Mary’s holiness unfurls like a mystical rose, and her intercession stands strong as a fortress tower in spiritual combat.',
-      image: '/images/contemplative-litanies/loreto-mystical-rose.png',
+      image: '/images/contemplative-litanies/loreto-mystical-rose.webp',
       imageAlt: 'Mary praying among luminous white roses',
       invocations: [
         { prompt: 'Mystical rose,', response: 'pray for us.' },
@@ -132,7 +132,7 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'V · ARK AND GATE',
       title: 'Gateway to Heaven',
       reflection: 'As the Ark carried the living presence of God, Mary bore Christ within her womb and shines as the Morning Star heralding the Dawn of salvation.',
-      image: '/images/contemplative-litanies/loreto-gateway-to-heaven.png',
+      image: '/images/contemplative-litanies/loreto-gateway-to-heaven.webp',
       imageAlt: 'Mary with the Ark of the Covenant beneath the Morning Star',
       invocations: [
         { prompt: 'Ark of the covenant,', response: 'pray for us.' },
@@ -146,7 +146,7 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'VI · HELP OF CHRISTIANS',
       title: 'Refuge and Consolation',
       reflection: 'Bring your sickness, sorrow, and wanderings to Mary. She is the refuge of sinners and comforter of the afflicted.',
-      image: '/images/contemplative-litanies/loreto-help-of-christians.png',
+      image: '/images/contemplative-litanies/loreto-help-of-christians.webp',
       imageAlt: 'Mary sheltering families and pilgrims beneath her mantle',
       invocations: [
         { prompt: 'Health of the sick,', response: 'pray for us.' },
@@ -162,7 +162,7 @@ export const loretoLitany: LitanyData = {
       eyebrow: 'VII · QUEEN',
       title: 'Queen of All Saints',
       reflection: 'Contemplate Mary crowned in heavenly glory, interceding as Queen of peace and Mother of the entire human family.',
-      image: '/images/contemplative-litanies/loreto-queen-of-all-saints.png',
+      image: '/images/contemplative-litanies/loreto-queen-of-all-saints.webp',
       imageAlt: 'Mary crowned as Queen of All Saints among the heavenly communion',
       invocations: [
         { prompt: 'Queen of Angels,', response: 'pray for us.' },

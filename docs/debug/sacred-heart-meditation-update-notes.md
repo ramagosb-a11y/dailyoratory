@@ -20,8 +20,8 @@ Add the Sacred Heart of Jesus Seven Senses Deep Meditation Journey as a dedicate
 - `src/data/devotions.ts`
 - `src/data/searchIndex.ts`
 - `src/app/sitemap.ts`
-- `public/images/sacred-heart/sacred-heart-jesus.png`
-- `public/images/sacred-heart/sacred-heart-symbols.png`
+- `public/images/sacred-heart/sacred-heart-jesus.webp`
+- `public/images/sacred-heart/sacred-heart-symbols.webp`
 - `docs/debug/sacred-heart-meditation-update-notes.md`
 
 ### Checks Completed Before Deploy
@@ -81,8 +81,8 @@ Re-run the requested deploy checklist for the Sacred Heart meditation update, do
 - Relevant local smoke routes on `http://localhost:3002`:
   - `/devotions/sacred-heart-of-jesus` - 200.
   - `/devotions/sacred-heart-of-jesus/seven-senses-meditation` - 200.
-  - `/images/sacred-heart/sacred-heart-jesus.png` - 200.
-  - `/images/sacred-heart/sacred-heart-symbols.png` - 200.
+  - `/images/sacred-heart/sacred-heart-jesus.webp` - 200.
+  - `/images/sacred-heart/sacred-heart-symbols.webp` - 200.
   - Sacred Heart overview contains the meditation link.
   - Meditation page contains the title, closing prayer, and hero image marker.
 

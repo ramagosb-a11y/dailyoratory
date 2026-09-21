@@ -1,6 +1,6 @@
 import type { LitanyData } from "../../types";
 
-const darbyImage = "/images/personal-devotions/saint-darby-watchful-servants-prayer-card.png";
+const darbyImage = "/images/personal-devotions/saint-darby-watchful-servants-prayer-card.webp";
 
 export const saintDarbyLitany: LitanyData = {
   id: "saint-darby-personal-devotion",

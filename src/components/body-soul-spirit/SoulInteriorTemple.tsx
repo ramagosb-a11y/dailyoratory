@@ -32,7 +32,7 @@ export function SoulInteriorTemple() {
             <figure className="overflow-hidden rounded-[1.4rem] border border-gold/30 bg-ivory shadow-oratory">
               <div className="relative aspect-[4/5]">
                 <Image
-                  src="/images/body-soul-spirit/interior-temple-bright.png"
+                  src="/images/body-soul-spirit/interior-temple-bright.webp"
                   alt="A bright interior sanctuary with a glowing tabernacle, symbolizing the heart alive with grace and open to God."
                   fill
                   className="object-cover"
@@ -52,7 +52,7 @@ export function SoulInteriorTemple() {
             <figure className="overflow-hidden rounded-[1.4rem] border border-burgundy/25 bg-[#221911] shadow-oratory">
               <div className="relative aspect-square sm:aspect-[4/5]">
                 <Image
-                  src="/images/body-soul-spirit/interior-temple-dim.png"
+                  src="/images/body-soul-spirit/interior-temple-dim.webp"
                   alt="A darkened interior sanctuary with an empty tabernacle space, symbolizing the soul dimmed by sin and in need of mercy."
                   fill
                   className="object-cover"

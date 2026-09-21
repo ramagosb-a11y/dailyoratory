@@ -55,7 +55,7 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'I · THE INCARNATE WORD',
       title: 'The Heart of the Son',
       reflection: 'Behold the Heart of Christ: eternally from the Father, truly human through Mary, and filled with the Holy Spirit.',
-      image: '/images/contemplative-litanies/sacred-heart-heart-of-the-son.png',
+      image: '/images/contemplative-litanies/sacred-heart-heart-of-the-son.webp',
       imageAlt: 'Christ revealing His Sacred Heart beneath the Father and the Holy Spirit',
       invocations: [
         {
@@ -82,7 +82,7 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'II · THE HOLY TEMPLE',
       title: 'Enter His Heart',
       reflection: 'Approach the Heart of Jesus as sanctuary, tabernacle, and doorway into the life of God.',
-      image: '/images/contemplative-litanies/sacred-heart-enter-his-heart.png',
+      image: '/images/contemplative-litanies/sacred-heart-enter-his-heart.webp',
       imageAlt: 'The Sacred Heart of Christ opening into a luminous chapel sanctuary',
       invocations: [
         {
@@ -105,7 +105,7 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'III · THE FURNACE OF CHARITY',
       title: 'Rest in His Love',
       reflection: 'Let the fire of His Heart illuminate what is cold, divided, or wounded within you.',
-      image: '/images/contemplative-litanies/sacred-heart-furnace-of-charity.png',
+      image: '/images/contemplative-litanies/sacred-heart-furnace-of-charity.webp',
       imageAlt: 'Christ revealing His radiant Sacred Heart beside the open Scriptures',
       invocations: [
         {
@@ -136,7 +136,7 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'IV · KING AND CENTER',
       title: 'Turn Your Heart Toward His',
       reflection: 'All wisdom, truth, and divine fullness meet in Christ. Let Him become the center rather than one concern among many.',
-      image: '/images/contemplative-litanies/sacred-heart-turn-your-heart-toward-his.png',
+      image: '/images/contemplative-litanies/sacred-heart-turn-your-heart-toward-his.webp',
       imageAlt: 'Christ inviting a searching soul to turn from distraction toward His Heart',
       invocations: [
         {
@@ -167,7 +167,7 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'V · MERCY AND LIFE',
       title: 'Come to the Fountain',
       reflection: 'Bring Him your need without hiding it. His patience is greater than your weakness.',
-      image: '/images/contemplative-litanies/sacred-heart-mercy-and-life.png',
+      image: '/images/contemplative-litanies/sacred-heart-mercy-and-life.webp',
       imageAlt: 'Christ with His Sacred Heart beside a clear fountain and white lilies',
       invocations: [
         {
@@ -194,7 +194,7 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'VI · THE PIERCED HEART',
       title: 'Remain With Him at the Cross',
       reflection: 'Do not rush past His suffering. Receive the love revealed in His obedience, sacrifice, and pierced Heart.',
-      image: '/images/contemplative-litanies/sacred-heart-remain-with-him-at-the-cross.png',
+      image: '/images/contemplative-litanies/sacred-heart-remain-with-him-at-the-cross.webp',
       imageAlt: 'Mary and the beloved disciple remaining beside Christ on the Cross',
       invocations: [
         {
@@ -225,7 +225,7 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'VII · CONSOLATION AND PEACE',
       title: 'Receive His Peace',
       reflection: 'The wounded Heart is also the risen Heart. Let Christ meet your grief with consolation and your division with reconciliation.',
-      image: '/images/contemplative-litanies/sacred-heart-receive-his-peace.png',
+      image: '/images/contemplative-litanies/sacred-heart-receive-his-peace.webp',
       imageAlt: 'The risen Christ offering peace and reconciliation to gathered families',
       invocations: [
         {
@@ -252,7 +252,7 @@ export const sacredHeartLitany: LitanyData = {
       eyebrow: 'VIII · HOPE OF THE SAINTS',
       title: 'Place Your Trust in Him',
       reflection: 'The final movement of the litany is toward trust: in life, at death, and in the communion of the saints.',
-      image: '/images/contemplative-litanies/sacred-heart-place-your-trust-in-him.png',
+      image: '/images/contemplative-litanies/sacred-heart-place-your-trust-in-him.webp',
       imageAlt: 'Christ receiving a kneeling soul in trust among the communion of saints',
       invocations: [
         {

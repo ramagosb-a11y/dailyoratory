@@ -53,7 +53,7 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'I · FROM THE DESIRE OF ESTEEM',
       title: 'Deliverance from Acclaim',
       reflection: 'Contemplate Jesus hidden in Nazareth for thirty years. Pray to be freed from the constant craving for praise, honor, and human applause.',
-      image: '/images/contemplative-litanies/humility-deliverance-from-acclaim.png',
+      image: '/images/contemplative-litanies/humility-deliverance-from-acclaim.webp',
       imageAlt: 'Christ working quietly at a carpenter’s bench in Nazareth',
       invocations: [
         { prompt: 'From the desire of being esteemed,', response: 'Deliver me, Jesus.' },
@@ -72,7 +72,7 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'II · FROM THE FEAR OF HUMILIATION',
       title: 'Deliverance from Fear',
       reflection: 'Behold Christ silent before Pilate, bruised and ridiculed for our sake. Surrender the dread of being forgotten or misunderstood.',
-      image: '/images/contemplative-litanies/humility-freedom-from-fear.png',
+      image: '/images/contemplative-litanies/humility-freedom-from-fear.webp',
       imageAlt: 'Christ guiding a fearful soul from a storm into light',
       invocations: [
         { prompt: 'From the fear of being humiliated,', response: 'Deliver me, Jesus.' },
@@ -91,7 +91,7 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'III · JESUS, GRANT ME THE GRACE',
       title: 'Turning Toward Charity',
       reflection: 'Humility is not self-hatred, but freedom from self-absorption. We turn from fear of injury toward the joy of selfless charity.',
-      image: '/images/contemplative-litanies/humility-grace-of-humility.png',
+      image: '/images/contemplative-litanies/humility-grace-of-humility.webp',
       imageAlt: 'Christ washing a disciple’s feet before the apostles',
       invocations: [
         { prompt: 'That others may be loved more than I,', response: 'Jesus, grant me the grace to desire it.' },
@@ -104,7 +104,7 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'IV · THAT OTHERS MAY BE LOVED MORE',
       title: 'Rejoicing in Others',
       reflection: 'Like Saint John the Baptist: ‘He must increase, but I must decrease.’ Rejoice genuinely when others are chosen, praised, and preferred.',
-      image: '/images/contemplative-litanies/humility-rejoicing-in-others.png',
+      image: '/images/contemplative-litanies/humility-rejoicing-in-others.webp',
       imageAlt: 'Saint John the Baptist directing his disciples toward Christ across the Jordan',
       invocations: [
         { prompt: 'That, in the opinion of the world, others may increase and I may decrease,', response: 'Jesus, grant me the grace to desire it.' },
@@ -119,7 +119,7 @@ export const humilityLitany: LitanyData = {
       eyebrow: 'V · THAT I MAY BECOME HOLY',
       title: 'Holiness in Truth',
       reflection: 'Pray not for comparison, but for true sanctity: that others may become holier than you, provided that you become as holy as God desires.',
-      image: '/images/contemplative-litanies/humility-holiness-in-truth.png',
+      image: '/images/contemplative-litanies/humility-holiness-in-truth.webp',
       imageAlt: 'Christ blessing humble souls gathered before Him',
       invocations: [
         { prompt: 'That others may become holier than I, provided that I may become as holy as I should,', response: 'Jesus, grant me the grace to desire it.' },

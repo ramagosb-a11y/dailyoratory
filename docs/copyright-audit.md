@@ -33,7 +33,7 @@ The site generally avoids copying full USCCB daily readings and instead uses Scr
 
 | Item | Files | Concern | Recommended Action |
 | --- | --- | --- | --- |
-| Chapel hero image | `public/images/chapel-library-hero.png` | No creator/source/license in repo. | Add media attribution or replace with original/licensed/public-domain image. |
+| Chapel hero image | `public/images/chapel-library-hero.webp` | No creator/source/license in repo. | Add media attribution or replace with original/licensed/public-domain image. |
 | Saint biographies | `src/data/saints.ts` | Short summaries appear original, but factual source bibliography is absent. | Add source bibliography and mark as original summaries after owner confirmation. |
 | Legacy content references | `src/data/contentRecords.ts`, `src/data/redirects.ts`, `docs/migration-plan.md` | Legacy ownership/provenance needs confirmation. | Confirm Daily Oratory controls or has permission to reuse legacy text. |
 | User-supplied devotional additions | Several quiet-room components | Source may be typed from external pages or prayer books. | Record source/edition/permission before treating as safe. |
@@ -109,7 +109,7 @@ For embedded videos:
 
 ## Open Questions
 
-- Who created `public/images/chapel-library-hero.png`, and under what license?
+- Who created `public/images/chapel-library-hero.webp`, and under what license?
 - If the owner wants to restore the full Eucharistic Stations text credited to Fr. Jonathan Meyer, is written permission available?
 - Which editions/sources were used for the Rosary, Adoration hymns, Divine Mercy, and Way of the Cross texts?
 - Which legacy Brotherhood of Ascension content is owned by the site owner and safe to republish?

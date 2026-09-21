@@ -80,7 +80,7 @@ export function MorningPrayerExperience() {
     return (
       <div className="relative min-h-[100svh] overflow-hidden bg-[#0D2038] text-[#FFFDF7]">
         <Image
-          src="/images/morning-prayers/sign-of-the-cross.png"
+          src="/images/morning-prayers/sign-of-the-cross.webp"
           alt=""
           fill
           priority

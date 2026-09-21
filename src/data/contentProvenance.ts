@@ -43,7 +43,7 @@ export const contentProvenanceRegistry: ContentProvenanceRegistryItem[] = [
     id: "homepage-hero-image",
     title: "Chapel Library Hero Image",
     contentType: "image",
-    filePath: "public/images/chapel-library-hero.png",
+    filePath: "public/images/chapel-library-hero.webp",
     sourceType: "unknown",
     creator: "Unknown",
     copyrightStatus: "needs-review",

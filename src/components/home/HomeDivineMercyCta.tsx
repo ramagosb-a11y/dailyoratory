@@ -5,7 +5,7 @@ export function HomeDivineMercyCta() {
   return (
     <section className="relative isolate overflow-hidden bg-navy text-ivory">
       <Image
-        src="/images/divine-mercy/divine-mercy-home-chapel-v1.0.2.png"
+        src="/images/divine-mercy/divine-mercy-home-chapel-v1.0.2.webp"
         alt="A Divine Mercy image in a peaceful, sunlit chapel"
         fill
         sizes="100vw"
