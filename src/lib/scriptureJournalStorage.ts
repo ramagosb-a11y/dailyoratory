@@ -73,8 +73,8 @@ export function saveScriptureJournalEntry(
   if (snapshot.status !== "ready") return { ok: false, reason: snapshot.status };
 
   const date = input.date;
-  const wordOrPhrase = input.wordOrPhrase.trim().slice(0, 60);
-  const reflection = input.reflection.trim().slice(0, 500);
+  const wordOrPhrase = input.wordOrPhrase.trim().slice(0, 120);
+  const reflection = input.reflection.trim().slice(0, 700);
   if (!isValidDateKey(date) || (!wordOrPhrase && !reflection)) return { ok: false, reason: "unavailable" };
 
   const now = new Date().toISOString();
@@ -130,9 +130,9 @@ function isValidEntry(date: string, value: unknown): value is ScriptureJournalEn
     isRecord(value) &&
     value.date === date &&
     typeof value.wordOrPhrase === "string" &&
-    value.wordOrPhrase.length <= 60 &&
+    value.wordOrPhrase.length <= 120 &&
     typeof value.reflection === "string" &&
-    value.reflection.length <= 500 &&
+    value.reflection.length <= 700 &&
     isValidTimestamp(value.createdAt) &&
     isValidTimestamp(value.updatedAt)
   );

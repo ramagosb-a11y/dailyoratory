@@ -166,12 +166,12 @@ export function DailyScriptureJournalEditor() {
               <div className={styles.field}>
                 <label htmlFor="my-word-or-phrase">My Word or Phrase</label>
                 <span className={styles.fieldPrompt}>What word or phrase stays with me?</span>
-                <input id="my-word-or-phrase" name="wordOrPhrase" type="text" maxLength={60} placeholder="Enter the word or phrase that stayed with you…" value={wordOrPhrase} onChange={(event) => { setWordOrPhrase(event.target.value); setSaveMessage(""); }} />
+                <input id="my-word-or-phrase" name="wordOrPhrase" type="text" maxLength={120} placeholder="Enter the word or phrase that stayed with you…" value={wordOrPhrase} onChange={(event) => { setWordOrPhrase(event.target.value); setSaveMessage(""); }} />
               </div>
               <div className={styles.field}>
                 <label htmlFor="my-reflection">My Reflection</label>
                 <span className={styles.fieldPrompt}>What do I notice about God? What might God be inviting me to notice, receive, or do today?</span>
-                <textarea id="my-reflection" name="reflection" maxLength={500} rows={3} placeholder="What might God be inviting you to notice, receive, or do today?" value={reflection} onChange={(event) => { setReflection(event.target.value); setSaveMessage(""); }} />
+                <textarea id="my-reflection" name="reflection" maxLength={700} rows={3} placeholder="What might God be inviting you to notice, receive, or do today?" value={reflection} onChange={(event) => { setReflection(event.target.value); setSaveMessage(""); }} />
               </div>
               <div className={styles.saveRow}>
                 <button type="submit" className="btn btn-primary focus-ring" disabled={!today || storageUnavailable || (!wordOrPhrase.trim() && !reflection.trim())}>
