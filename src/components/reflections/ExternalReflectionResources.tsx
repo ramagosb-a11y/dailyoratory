@@ -2,7 +2,9 @@ import { reflectionExternalResources } from "@/data/reflectionExternalResources"
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { SectionHeader } from "@/components/section-header";
 
-export function ExternalReflectionResources() {
+export function ExternalReflectionResources({ excludeResourceIds = [] }: { excludeResourceIds?: string[] }) {
+  const resources = reflectionExternalResources.filter((resource) => !excludeResourceIds.includes(resource.id));
+
   return (
     <section className="mt-14">
       <SectionHeader
@@ -12,7 +14,7 @@ export function ExternalReflectionResources() {
       />
 
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        {reflectionExternalResources.map((resource) => (
+        {resources.map((resource) => (
           <article key={resource.id} className="card-parchment liturgical-card-accent flex h-full flex-col p-5">
             <div className="flex items-start justify-between gap-3">
               <h3 className="font-display text-2xl font-semibold leading-tight text-navy">{resource.title}</h3>

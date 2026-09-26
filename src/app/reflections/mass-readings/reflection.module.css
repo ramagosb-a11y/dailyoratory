@@ -13,7 +13,7 @@
 .main { max-width: 1180px; margin: auto; padding: 0 32px; }
 .introduction { padding: 36px 40px 30px; border: 1px solid #b39967; border-top: 4px solid #b9934e; border-radius: 12px; margin-bottom: 40px; background: radial-gradient(ellipse at top right, #31404a, transparent 65%), #112635; box-shadow: 0 12px 32px #17212a20; }
 .eyebrow { color: #edcf92; letter-spacing: .2em; text-transform: uppercase; font-size: 12px; font-weight: 700; }
-.introduction h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(40px, 5.2vw, 66px); font-weight: 600; line-height: 1.02; margin: 16px 0; color: #fff6e4; max-width: 22ch; }
+.introduction :is(h1,h2) { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(40px, 5.2vw, 66px); font-weight: 600; line-height: 1.02; margin: 16px 0; color: #fff6e4; max-width: 22ch; }
 .introduction > p:last-of-type { font-size: 17px; line-height: 1.8; color: #dfdfd4; max-width: 65ch; }
 .page :is(a,button,input,select):focus-visible { outline: 3px solid #845521; outline-offset: 4px; }
 .page :is(h1,h2,h3,[data-jump-marker]) { scroll-margin-top: 110px; }
@@ -90,8 +90,8 @@
 .page [data-manuscript] > div:has(> ul) { background: #f3ead7; border: 1px solid #cfbea0; border-left: 4px solid #a78343; border-radius: 6px; }
 .page [data-manuscript] a:first-child { background: #792b38; color: #fff8eb; border-color: #792b38; }
 .page [data-manuscript] a:first-child:hover { background: #5a202c; }
-.main > section:not([data-current-reflection]) { border-top: 2px solid #b29869; padding-top: 32px; }
-.main > section:not([data-current-reflection]) h2 { color: #542735; }
+.main > section:not([data-current-reflection]):not([data-guided-flow-card]) { border-top: 2px solid #b29869; padding-top: 32px; }
+.main > section:not([data-current-reflection]):not([data-guided-flow-card]) h2 { color: #542735; }
 .page :global(.season-pill) { background: #f4ebd9; border-color: #cbb996; color: #514a3a; font-size: 12px; }
 .page :global(.resource-card) { background: #fffcf5; border: 1px solid #cabb9c; border-top: 3px solid #a78343; border-radius: 9px; box-shadow: 0 5px 16px #4b3a210c; }
 .page :global(.resource-card) h3 { font-size: 28px; line-height: 1.2; }

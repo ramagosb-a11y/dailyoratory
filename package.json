@@ -25,6 +25,7 @@
     "test:navigation": "node scripts/check-homepage-menu.cjs",
     "test:life-of-jesus": "node --experimental-strip-types scripts/validate-life-of-jesus.mjs",
     "test:life-of-jesus-scripture": "node --experimental-strip-types scripts/validate-life-of-jesus-douay-rheims.mjs",
+    "test:reading-and-reflections": "node --experimental-strip-types --test scripts/reading-and-reflections.test.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

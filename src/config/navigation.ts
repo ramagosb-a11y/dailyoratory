@@ -54,6 +54,7 @@ const navigationSections: NavigationSection[] = [
       {
         title: "Mass and the Word",
         children: [
+          { label: "Reading and Reflections", href: "/reflections/reading-and-reflections", description: "Read the daily Scriptures, keep a private journal, and explore Catholic study resources." },
           { label: "Daily Scripture Reflections", href: "/reflections/mass-readings" },
           { label: "The Holy Mass", href: "/mass" },
         ],
