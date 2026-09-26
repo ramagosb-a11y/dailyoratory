@@ -1520,6 +1520,320 @@ a {
   }
 }
 
+/* Concept 3 visual refinement: the content remains the reviewed static route, but its
+   visual grammar is now a cinematic, winding pilgrimage rather than a document index. */
+.life-jesus-hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(34rem, 70vw, 46rem);
+  margin-top: 1.5rem;
+  overflow: hidden;
+  isolation: isolate;
+  border: 0;
+  border-radius: 1.4rem;
+  padding: clamp(2rem, 7vw, 5.5rem);
+  background: var(--navy);
+  box-shadow: 0 1.5rem 4rem rgba(7, 26, 45, 0.2);
+}
+
+.life-jesus-hero-image {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  z-index: -2;
+  border: 0;
+  border-radius: 0;
+}
+
+.life-jesus-hero-image::after {
+  background:
+    linear-gradient(90deg, rgba(7, 26, 45, 0.94) 0%, rgba(7, 26, 45, 0.68) 38%, rgba(7, 26, 45, 0.08) 78%),
+    linear-gradient(0deg, rgba(7, 26, 45, 0.72), transparent 50%);
+}
+
+.life-jesus-hero-copy {
+  position: relative;
+  z-index: 2;
+  align-self: end;
+  max-width: 48rem;
+  color: var(--ivory);
+}
+
+.life-jesus-hero-copy h1,
+.life-jesus-hero-copy p,
+.life-jesus-hero-copy .life-jesus-independent-note {
+  color: var(--ivory);
+}
+
+.life-jesus-hero-copy h1 {
+  max-width: 12ch;
+  margin-top: 0.6rem;
+  font-size: clamp(3rem, 8vw, 7rem);
+  line-height: 0.92;
+  text-wrap: balance;
+}
+
+.life-jesus-hero-copy .page-subtitle,
+.life-jesus-hero-copy > p:not(.life-jesus-independent-note) {
+  max-width: 42rem;
+  margin-top: 1.35rem;
+  color: color-mix(in srgb, var(--ivory) 88%, transparent);
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  line-height: 1.65;
+}
+
+.life-jesus-hero-copy .page-eyebrow,
+.life-jesus-hero-copy > p:first-child {
+  color: var(--gold-light, #e3c16f);
+}
+
+.life-jesus-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1.75rem;
+}
+
+.life-jesus-hero-actions > span {
+  color: color-mix(in srgb, var(--ivory) 78%, transparent);
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.life-jesus-hero-actions .btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.2);
+}
+
+.life-jesus-independent-note {
+  max-width: 38rem;
+  margin-top: 1.4rem;
+  color: var(--muted);
+}
+
+.life-jesus-hero-caption {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.1rem;
+  z-index: 2;
+  color: color-mix(in srgb, var(--ivory) 78%, transparent);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.life-jesus-hero-route {
+  position: absolute;
+  right: 10%;
+  bottom: -4rem;
+  width: 14rem;
+  height: 16rem;
+  border: 2px solid color-mix(in srgb, var(--gold) 82%, transparent);
+  border-bottom: 0;
+  border-radius: 50% 50% 0 0;
+  opacity: 0.76;
+  transform: rotate(-18deg);
+}
+
+.life-jesus-reading-note,
+.life-jesus-legend {
+  position: relative;
+  z-index: 1;
+}
+
+.life-jesus-layout {
+  position: relative;
+  margin-top: clamp(3rem, 8vw, 7rem);
+}
+
+.life-jesus-timeline {
+  position: relative;
+}
+
+.life-jesus-era {
+  position: relative;
+  padding-bottom: clamp(5rem, 12vw, 9rem);
+}
+
+.life-jesus-era + .life-jesus-era {
+  border-top: 0;
+}
+
+.life-jesus-era-header {
+  position: relative;
+  z-index: 2;
+  max-width: 58rem;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+  text-align: left;
+}
+
+.life-jesus-era-header h2 {
+  max-width: 14ch;
+  font-size: clamp(2.4rem, 6vw, 5.6rem);
+}
+
+.life-jesus-era-interlude {
+  min-height: clamp(17rem, 42vw, 32rem);
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  border: 0;
+  border-radius: 1.2rem;
+  box-shadow: 0 1rem 3rem rgba(7, 26, 45, 0.14);
+}
+
+.life-jesus-era-interlude::after {
+  background: linear-gradient(180deg, transparent 28%, rgba(7, 26, 45, 0.88));
+}
+
+.life-jesus-era-track::before {
+  position: absolute;
+  inset: 0 11%;
+  z-index: 0;
+  content: "";
+  border-left: 2px solid color-mix(in srgb, var(--gold) 66%, transparent);
+  border-right: 2px solid color-mix(in srgb, var(--gold) 66%, transparent);
+  border-radius: 48% / 6%;
+  opacity: 0.62;
+}
+
+.life-jesus-pilgrim-rail {
+  z-index: 1;
+  background: linear-gradient(180deg, var(--gold), var(--burgundy) 48%, var(--gold));
+  box-shadow: 0 0 0 0.3rem rgba(189, 138, 47, 0.07);
+}
+
+.life-jesus-chapter-header {
+  border: 0;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--navy), #173b57);
+  box-shadow: 0 0.8rem 2rem rgba(7, 26, 45, 0.16);
+}
+
+.life-jesus-chapter-header h3,
+.life-jesus-chapter-header > p {
+  color: var(--ivory);
+}
+
+.life-jesus-stop > article {
+  border: 1px solid color-mix(in srgb, var(--gold) 36%, var(--stone));
+  border-top: 0;
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--ivory) 92%, transparent);
+  box-shadow: 0 0.8rem 2.4rem rgba(7, 26, 45, 0.09);
+}
+
+.life-jesus-stop-marker {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 1.7rem;
+  background: var(--gold);
+  box-shadow: 0 0 0 0.25rem var(--ivory), 0 0 0 0.4rem var(--burgundy);
+}
+
+.life-jesus-milestone-strip {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+}
+
+.life-jesus-milestone {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  background: var(--navy);
+  box-shadow: 0 0.8rem 2rem rgba(7, 26, 45, 0.14);
+}
+
+.life-jesus-milestone > div {
+  position: relative;
+  aspect-ratio: 16 / 9;
+}
+
+.life-jesus-milestone figcaption {
+  padding: 0.7rem 0.85rem 0.8rem;
+  color: var(--ivory);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+}
+
+@media (min-width: 720px) {
+  .life-jesus-milestone-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .life-jesus-hero {
+    min-height: min(48rem, calc(100vh - 8rem));
+  }
+
+  .life-jesus-layout {
+    grid-template-columns: 14rem minmax(0, 1fr);
+  }
+
+  .life-jesus-era-header {
+    margin-left: 5%;
+  }
+
+  .life-jesus-era-interlude {
+    width: 92%;
+    margin-left: 4%;
+  }
+
+  .life-jesus-era-track::before {
+    inset: 0 18%;
+    border-radius: 50% / 5%;
+  }
+}
+
+@media (max-width: 719px) {
+  .life-jesus-hero {
+    min-height: 40rem;
+    padding: 1.5rem;
+  }
+
+  .life-jesus-hero-copy {
+    align-self: end;
+  }
+
+  .life-jesus-hero-caption {
+    right: 1.25rem;
+    bottom: 0.75rem;
+    max-width: 13rem;
+    text-align: right;
+  }
+
+  .life-jesus-hero-route {
+    right: -3rem;
+    width: 10rem;
+    height: 11rem;
+  }
+
+  .life-jesus-era-track::before {
+    inset: 0 0.55rem;
+    border-right: 0;
+    border-radius: 0;
+  }
+
+  .life-jesus-milestone-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .life-jesus-hero-route {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1778,6 +2092,379 @@ a {
   }
 }
 
+/* Final Concept 3 cascade overrides (kept last so shared module rules cannot flatten the route). */
+.life-jesus-hero { position: relative; display: grid; min-height: clamp(34rem, 70vw, 46rem); margin-top: 1.5rem; overflow: hidden; isolation: isolate; border: 0; border-radius: 1.4rem; padding: clamp(2rem, 7vw, 5.5rem); background: var(--navy); box-shadow: 0 1.5rem 4rem rgba(7,26,45,.2); }
+.life-jesus-hero-image { position: absolute; inset: 0; z-index: -2; min-height: 0; border: 0; border-radius: 0; }
+.life-jesus-hero-image::after { background: linear-gradient(90deg,rgba(7,26,45,.94) 0%,rgba(7,26,45,.68) 38%,rgba(7,26,45,.08) 78%),linear-gradient(0deg,rgba(7,26,45,.72),transparent 50%); }
+.life-jesus-hero-copy { position: relative; z-index: 2; align-self: end; max-width: 48rem; color: var(--ivory); }
+.life-jesus-hero-copy h1 { max-width: 12ch; margin-top: .6rem; color: var(--ivory); font-size: clamp(3rem,8vw,7rem); line-height: .92; text-wrap: balance; }
+.life-jesus-hero-copy .page-subtitle { max-width: 42rem; margin-top: 1.35rem; color: color-mix(in srgb,var(--ivory) 88%,transparent); font-size: clamp(1.05rem,2.2vw,1.35rem); line-height: 1.65; }
+.life-jesus-hero-copy .page-eyebrow { color: var(--gold); }
+.life-jesus-hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.75rem; }
+.life-jesus-hero-actions > span { color: color-mix(in srgb,var(--ivory) 78%,transparent); font-size: .8rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.life-jesus-hero-actions .btn-primary { background: var(--gold); color: var(--navy); }
+.life-jesus-hero-copy .life-jesus-independent-note { max-width: 38rem; margin-top: 1.4rem; color: color-mix(in srgb,var(--ivory) 68%,transparent) !important; }
+.life-jesus-hero-caption { position: absolute; right: 1.25rem; bottom: 1.1rem; z-index: 2; color: color-mix(in srgb,var(--ivory) 78%,transparent); font-size: .7rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }
+.life-jesus-hero-route { position: absolute; right: 10%; bottom: -4rem; width: 14rem; height: 16rem; border: 2px solid color-mix(in srgb,var(--gold) 82%,transparent); border-bottom: 0; border-radius: 50% 50% 0 0; opacity: .76; transform: rotate(-18deg); }
+.life-jesus-layout { position: relative; margin-top: clamp(3rem,8vw,7rem); }
+.life-jesus-era { position: relative; padding-bottom: clamp(5rem,12vw,9rem); }
+.life-jesus-era + .life-jesus-era { border-top: 0; }
+.life-jesus-era-header { position: relative; z-index: 2; max-width: 58rem; margin-bottom: 1.5rem; padding: 0 1rem; text-align: left; }
+.life-jesus-era-header h2 { max-width: 14ch; font-size: clamp(2.4rem,6vw,5.6rem); }
+.life-jesus-era-interlude { min-height: clamp(17rem,42vw,32rem); margin-bottom: clamp(2.5rem,6vw,4.5rem); border: 0; border-radius: 1.2rem; box-shadow: 0 1rem 3rem rgba(7,26,45,.14); }
+.life-jesus-era-interlude::after { background: linear-gradient(180deg,transparent 28%,rgba(7,26,45,.88)); }
+.life-jesus-era-track::before { position: absolute; inset: 0 11%; z-index: 0; content: ""; border-left: 2px solid color-mix(in srgb,var(--gold) 66%,transparent); border-right: 2px solid color-mix(in srgb,var(--gold) 66%,transparent); border-radius: 48% / 6%; opacity: .62; }
+.life-jesus-pilgrim-rail { z-index: 1; background: linear-gradient(180deg,var(--gold),var(--burgundy) 48%,var(--gold)); box-shadow: 0 0 0 .3rem rgba(189,138,47,.07); }
+.life-jesus-chapter-header { border: 0; border-radius: 1rem; background: linear-gradient(135deg,var(--navy),#173b57); box-shadow: 0 .8rem 2rem rgba(7,26,45,.16); }
+.life-jesus-chapter-header h3,.life-jesus-chapter-header > p { color: var(--ivory); }
+.life-jesus-stop > article { border: 1px solid color-mix(in srgb,var(--gold) 36%,var(--stone)); border-top: 0; border-radius: 1rem; background: color-mix(in srgb,var(--ivory) 92%,transparent); box-shadow: 0 .8rem 2.4rem rgba(7,26,45,.09); }
+.life-jesus-stop-marker { width: 1.05rem; height: 1.05rem; margin-top: 1.7rem; background: var(--gold); box-shadow: 0 0 0 .25rem var(--ivory),0 0 0 .4rem var(--burgundy); }
+.life-jesus-milestone-strip { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 2.5rem 0 0; }
+.life-jesus-milestone { margin: 0; overflow: hidden; border-radius: .9rem; background: var(--navy); box-shadow: 0 .8rem 2rem rgba(7,26,45,.14); }
+.life-jesus-milestone > div { position: relative; aspect-ratio: 16 / 9; }
+.life-jesus-milestone figcaption { padding: .7rem .85rem .8rem; color: var(--ivory); font-family: var(--font-heading); font-size: 1rem; }
+@media (min-width: 720px) { .life-jesus-milestone-strip { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (min-width: 1100px) { .life-jesus-hero { min-height: min(48rem,calc(100vh - 8rem)); } .life-jesus-era-header { margin-left: 5%; } .life-jesus-era-interlude { width: 92%; margin-left: 4%; } .life-jesus-era-track::before { inset: 0 18%; border-radius: 50% / 5%; } }
+@media (max-width: 719px) { .life-jesus-hero { min-height: 40rem; padding: 1.5rem; } .life-jesus-hero-route { right: -3rem; width: 10rem; height: 11rem; } .life-jesus-era-track::before { inset: 0 .55rem; border-right: 0; border-radius: 0; } .life-jesus-milestone-strip { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .life-jesus-hero-route { display: none; } }
+
+/* Final responsive navigation and image-scale corrections. */
+@media (max-width: 1099px) {
+  .life-jesus-mobile-outline { display: block !important; }
+  .life-jesus-desktop-outline { display: none !important; }
+}
+.life-jesus-era-interlude { min-height: clamp(13rem,24vw,20rem); }
+
+/* Final responsive navigation override: keep an era jump control on mobile/tablet. */
+@media (max-width: 1099px) {
+  .life-jesus-mobile-outline { display: block !important; margin: 0 0 1rem; border: 1px solid color-mix(in srgb,var(--gold) 42%,var(--stone)); border-radius: .9rem; background: color-mix(in srgb,var(--ivory) 96%,transparent); box-shadow: 0 .5rem 1.25rem rgba(7,26,45,.08); }
+  .life-jesus-mobile-outline summary { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 3.25rem; padding: .8rem 1rem; color: var(--navy); cursor: pointer; list-style: none; }
+  .life-jesus-mobile-outline summary::-webkit-details-marker { display: none; }
+  .life-jesus-mobile-outline summary span { color: var(--burgundy); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .life-jesus-mobile-outline summary strong { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 500; }
+  .life-jesus-mobile-outline nav { display: grid; gap: .25rem; padding: .15rem .65rem .7rem; }
+  .life-jesus-mobile-outline .life-jesus-outline-link { min-height: 2.75rem; align-items: center; border-radius: .55rem; padding: .5rem .6rem; }
+  .life-jesus-mobile-outline .life-jesus-outline-link[aria-current="location"] { background: var(--liturgical-primary-soft); }
+  .life-jesus-desktop-outline { display: none !important; }
+}
+
+/* Keep era artwork as a visual anchor, not a second hero. */
+.life-jesus-era-interlude { min-height: clamp(13rem,24vw,20rem); }
+
+/* The illustrated portal opens the complete path without front-loading the method notes. */
+.life-jesus-journey-shell { margin-top: clamp(1.6rem, 4vw, 3rem); }
+.life-jesus-journey-toggle {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 42%);
+  min-height: 13rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--gold) 48%, var(--stone));
+  border-top: 3px solid var(--gold);
+  border-radius: 1.1rem;
+  background: var(--navy);
+  color: var(--ivory);
+  cursor: pointer;
+  list-style: none;
+  box-shadow: 0 1rem 2.5rem rgba(7, 26, 45, .16);
+}
+.life-jesus-journey-toggle::-webkit-details-marker { display: none; }
+.life-jesus-journey-toggle::before { content: none; }
+.life-jesus-journey-toggle-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: .6rem;
+  min-width: 0;
+  padding: 1.6rem 2rem;
+  background: linear-gradient(135deg, var(--navy), #173b57);
+}
+.life-jesus-journey-toggle-copy small {
+  color: #f0c76c;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.life-jesus-journey-toggle-copy strong {
+  max-width: 18ch;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+.life-jesus-journey-toggle-copy > span {
+  color: color-mix(in srgb, var(--ivory) 78%, transparent);
+  font-size: .69rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.life-jesus-journey-visuals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+  min-height: 13rem;
+}
+.life-jesus-journey-visual { display: block; min-width: 0; overflow: hidden; border-left: 1px solid rgba(255, 253, 247, .3); }
+.life-jesus-journey-visual img { transition: transform .45s ease; }
+.life-jesus-journey-toggle:hover .life-jesus-journey-visual img { transform: scale(1.04); }
+.life-jesus-journey-toggle-action {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid #f0c76c;
+  border-radius: 50%;
+  background: var(--navy);
+}
+.life-jesus-journey-toggle-action::after { content: "↓"; color: #f0c76c; font-size: 1.35rem; line-height: 1; }
+.life-jesus-journey-shell[open] .life-jesus-journey-toggle-action::after { content: "↑"; }
+.life-jesus-journey-shell[open] > .life-jesus-journey-toggle { border-bottom-right-radius: .55rem; border-bottom-left-radius: .55rem; }
+.life-jesus-method {
+  width: min(100%, 68rem);
+  margin: 1.15rem auto 0;
+  overflow: hidden;
+  border: 1px solid var(--stone);
+  border-radius: .85rem;
+  background: color-mix(in srgb, var(--ivory) 96%, transparent);
+}
+.life-jesus-method-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 3.5rem;
+  padding: .8rem 1.1rem;
+  color: var(--navy);
+  cursor: pointer;
+  list-style: none;
+}
+.life-jesus-method-toggle::-webkit-details-marker { display: none; }
+.life-jesus-method-toggle small { display: block; color: var(--burgundy); font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.life-jesus-method-toggle strong { display: block; margin-top: .15rem; font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; line-height: 1.2; }
+.life-jesus-method-toggle-action { display: grid; width: 2.2rem; height: 2.2rem; flex: 0 0 auto; place-items: center; border: 1px solid var(--stone); border-radius: 50%; }
+.life-jesus-method-toggle-action::after { content: "+"; color: var(--burgundy); font-size: 1.25rem; line-height: 1; }
+.life-jesus-method[open] .life-jesus-method-toggle-action::after { content: "−"; }
+.life-jesus-method-body { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(16rem, 1fr); gap: 1rem; padding: 1rem; border-top: 1px solid var(--stone); }
+.life-jesus-method .life-jesus-reading-note { margin: 0; padding: 1.4rem; box-shadow: none; }
+.life-jesus-method .life-jesus-legend { margin: 0; background: var(--parchment); }
+@media (max-width: 719px) {
+  .life-jesus-journey-toggle { grid-template-columns: 1fr; min-height: 0; }
+  .life-jesus-journey-visuals { grid-row: 1; height: 8.5rem; min-height: 0; }
+  .life-jesus-journey-toggle-copy { grid-row: 2; gap: .45rem; padding: 1.2rem 4rem 1.2rem 1.2rem; }
+  .life-jesus-journey-toggle-copy strong { font-size: clamp(1.35rem, 6vw, 1.75rem); }
+  .life-jesus-journey-toggle-action { right: .9rem; bottom: 1.2rem; }
+  .life-jesus-method-body { grid-template-columns: 1fr; padding: .7rem; }
+  .life-jesus-method .life-jesus-reading-note, .life-jesus-method .life-jesus-legend { padding: 1.1rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .life-jesus-journey-visual img { transition: none; }
+  .life-jesus-journey-toggle:hover .life-jesus-journey-visual img { transform: none; }
+}
+
+/* The compact disclosure is the navigation pattern below desktop width. */
+@media (max-width:1099px) {
+  .life-jesus-mobile-outline {
+    display:block !important;
+    margin:0 0 1rem;
+    border:1px solid color-mix(in srgb,var(--gold) 42%,var(--stone));
+    border-radius:.9rem;
+    background:color-mix(in srgb,var(--ivory) 96%,transparent);
+    box-shadow:0 .5rem 1.25rem rgba(7,26,45,.08);
+  }
+  .life-jesus-mobile-outline summary {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:.75rem;
+    min-height:3.25rem;
+    padding:.8rem 1rem;
+    color:var(--navy);
+    cursor:pointer;
+    list-style:none;
+  }
+  .life-jesus-mobile-outline summary::-webkit-details-marker { display:none; }
+  .life-jesus-mobile-outline summary span { color:var(--burgundy); font-size:.7rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+  .life-jesus-mobile-outline summary strong { font-family:var(--font-heading); font-size:1.05rem; font-weight:500; }
+  .life-jesus-mobile-outline nav { display:grid; gap:.25rem; padding:.15rem .65rem .7rem; }
+  .life-jesus-mobile-outline .life-jesus-outline-link { min-height:2.75rem; align-items:center; border-radius:.55rem; padding:.5rem .6rem; }
+  .life-jesus-mobile-outline .life-jesus-outline-link[aria-current="location"] { background:var(--liturgical-primary-soft); }
+  .life-jesus-desktop-outline { display:none !important; }
+}
+
+/* Let the era artwork support the module instead of overpowering it. */
+.life-jesus-era-interlude { min-height:clamp(13rem,24vw,20rem); }
+
+/* Stations-style module pass: one progress rail and one readable pilgrimage spine. */
+.life-jesus-layout {
+  display: block;
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.life-jesus-mobile-outline {
+  display: none !important;
+}
+
+.life-jesus-desktop-outline {
+  position: sticky;
+  top: 5.25rem;
+  z-index: 8;
+  display: block;
+  max-height: none;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  overflow: hidden;
+  padding: .7rem .85rem .8rem;
+  border: 1px solid color-mix(in srgb, var(--gold) 38%, var(--stone));
+  border-top: 3px solid var(--burgundy);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--ivory) 96%, transparent);
+  box-shadow: 0 .75rem 2rem rgba(7, 26, 45, .12);
+}
+
+.life-jesus-desktop-outline .life-jesus-outline-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: .45rem;
+}
+
+.life-jesus-desktop-outline nav {
+  display: flex;
+  gap: .35rem;
+  overflow-x: auto;
+  padding: .1rem .1rem .2rem;
+  scrollbar-width: thin;
+}
+
+.life-jesus-desktop-outline .life-jesus-outline-link {
+  display: grid;
+  grid-template-columns: auto minmax(8.5rem, 1fr);
+  min-width: 11rem;
+  flex: 0 0 auto;
+  border: 1px solid transparent;
+  border-radius: .7rem;
+  padding: .55rem .65rem;
+  background: color-mix(in srgb, var(--parchment) 60%, transparent);
+}
+
+.life-jesus-desktop-outline .life-jesus-outline-link[aria-current="location"] {
+  border-color: color-mix(in srgb, var(--gold) 60%, var(--stone));
+  background: var(--liturgical-primary-soft);
+}
+
+.life-jesus-timeline {
+  width: min(100%, 68rem);
+  margin-inline: auto;
+}
+
+.life-jesus-stop,
+.life-jesus-stop:nth-child(even) {
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  max-width: 58rem;
+  margin-inline: auto;
+}
+
+.life-jesus-stop > article,
+.life-jesus-stop:nth-child(even) > article,
+.life-jesus-stop--cluster > article,
+.life-jesus-stop--cluster:nth-child(even) > article,
+.life-jesus-stop--intercalation > article,
+.life-jesus-stop--intercalation:nth-child(even) > article {
+  grid-column: 2;
+  width: auto;
+  justify-self: stretch;
+}
+
+.life-jesus-pilgrim-rail {
+  left: 1.25rem;
+}
+
+.life-jesus-stop-marker {
+  margin-top: 1.25rem;
+}
+
+.life-jesus-stop > article {
+  box-shadow: 0 .55rem 1.4rem rgba(7, 26, 45, .1), var(--shadow-inset);
+}
+
+.life-jesus-chapter-header {
+  margin-left: 2.75rem;
+}
+
+@media (max-width: 719px) {
+  .life-jesus-desktop-outline {
+    top: .5rem;
+    margin-inline: -.15rem;
+    padding-inline: .65rem;
+  }
+
+  .life-jesus-desktop-outline .life-jesus-outline-link {
+    min-width: 9.75rem;
+    grid-template-columns: auto minmax(0, 1fr);
+    font-size: .76rem;
+  }
+
+  .life-jesus-timeline {
+    width: 100%;
+  }
+
+  .life-jesus-stop,
+  .life-jesus-stop:nth-child(even) {
+    grid-template-columns: 2.3rem minmax(0, 1fr);
+  }
+
+  .life-jesus-chapter-header {
+    margin-left: 2.3rem;
+  }
+}
+
+.life-jesus-douay-disclosure { margin-top: .65rem; overflow: hidden; border: 1px solid color-mix(in srgb,var(--gold) 42%,#31465a); border-radius: .85rem; background: #0d1b2a; color: var(--ivory); box-shadow: 0 .6rem 1.5rem rgba(7,26,45,.12); }
+.life-jesus-douay-disclosure summary { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 3.6rem; padding: .55rem 1rem; color: var(--ivory); cursor: pointer; list-style: none; }
+.life-jesus-douay-disclosure summary::-webkit-details-marker { display: none; }
+.life-jesus-douay-summary-copy { display: grid; gap: .25rem; }
+.life-jesus-douay-summary-kicker,.life-jesus-douay-edition { color: #f0c76c; font-size: .66rem; font-weight: 850; letter-spacing: .13em; text-transform: uppercase; }
+.life-jesus-douay-summary-copy strong { color: var(--ivory); font-family: var(--font-heading); font-size: 1.08rem; font-weight: 600; }
+.life-jesus-douay-summary-icon { display: grid; width: 2.75rem; height: 2.75rem; flex: 0 0 auto; place-items: center; border: 1px solid color-mix(in srgb,var(--gold) 60%,#31465a); border-radius: 50%; }
+.life-jesus-douay-summary-icon::before { content: "+"; color: #f0c76c; font-size: 1.3rem; line-height: 1; }
+.life-jesus-douay-disclosure[open] .life-jesus-douay-summary-icon::before { content: "−"; }
+.life-jesus-douay-disclosure summary:focus-visible { outline: 3px solid #f5d78f; outline-offset: 3px; }
+.life-jesus-douay-disclosure[open] summary { min-height: 2.75rem; padding: .35rem .65rem .15rem; }
+.life-jesus-douay-disclosure[open] .life-jesus-douay-summary-translation { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.life-jesus-douay-disclosure[open] .life-jesus-douay-summary-copy strong { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.life-jesus-douay-text { margin: 0; padding: 1.55rem 1.6rem 1.35rem; border-top: 1px solid color-mix(in srgb,var(--gold) 34%,#31465a); background: linear-gradient(145deg,#102235,#0b1724); color: var(--ivory); font-size: .95rem; line-height: 1.75; }
+.life-jesus-douay-reference { margin: .95rem 0 1rem; color: #f4d27e; font-size: clamp(1.45rem,3vw,2rem); line-height: 1.1; }
+.life-jesus-douay-numbering-note { margin: -.25rem 0 1rem; padding: .65rem .75rem; border-left: 2px solid #f0c76c; color: var(--ivory); font-size: .85rem; line-height: 1.5; }
+.life-jesus-douay-verse { display: grid; grid-template-columns: minmax(1.6rem,max-content) minmax(0,1fr); gap: .35rem; margin: 0 0 1rem; }
+.life-jesus-douay-verse sup { color: #f0c76c; font-size: .7em; font-weight: 850; }
+.life-jesus-douay-attribution { margin: 1.45rem 0 .35rem !important; color: #f0c76c; font-size: .82rem; font-weight: 700; }
+.life-jesus-douay-attribution a { display: inline-flex; min-height: 2.75rem; align-items: center; padding: 0 .2rem; color: #f0c76c; font-weight: 800; text-decoration: underline; text-underline-offset: .18em; }
+.life-jesus-douay-provenance { display: block; color: color-mix(in srgb,var(--ivory) 58%,transparent); font-size: .68rem; line-height: 1.45; }
+@media (max-width: 719px) { .life-jesus-douay-disclosure summary { min-height: 3.35rem; padding: .45rem .75rem; } .life-jesus-douay-summary-copy strong { font-size: .96rem; } .life-jesus-douay-text { padding: 1.2rem 1rem 1.05rem; font-size: .9rem; } }
+@media (max-width: 359px) { .life-jesus-douay-disclosure summary { gap: .4rem; padding: .4rem .5rem; } .life-jesus-douay-summary-icon { width: 2.15rem; height: 2.15rem; } .life-jesus-douay-summary-copy strong { font-size: .85rem; letter-spacing: -.01em; } .life-jesus-douay-read-verb { display: none; } }
+
+.life-jesus-outline-toolbar { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.life-jesus-outline-toolbar p { margin: 0; }
+.life-jesus-outline-toggle { display: inline-flex; width: 2rem; height: 2rem; align-items: center; justify-content: center; border: 1px solid var(--stone); border-radius: 999px; background: var(--ivory); color: var(--navy); cursor: pointer; font-size: 1.25rem; line-height: 1; }
+.life-jesus-outline-toggle:hover { border-color: var(--gold); background: var(--liturgical-primary-soft); }
+.life-jesus-outline-collapsed-label { writing-mode: vertical-rl; color: var(--burgundy); font-size: .68rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.life-jesus-desktop-outline.is-collapsed { padding: .65rem .45rem; }
+.life-jesus-desktop-outline.is-collapsed .life-jesus-outline-toolbar { flex-direction: column; }
+.life-jesus-desktop-outline.is-collapsed nav { display: none; }
+@media (min-width: 1100px) {
+  .life-jesus-layout:has(.life-jesus-desktop-outline.is-collapsed) { grid-template-columns: 4rem minmax(0, 1fr); }
+}
+
 @media (max-width: 560px) {
   .sacred-nav { grid-template-columns: 1fr 1fr; gap: .6rem; }
   .sacred-nav > .btn, .sacred-nav > .btn-primary { min-width: 0; width: 100%; }
@@ -1895,6 +2582,1005 @@ a {
   .sacred-hours .sacred-nav > .btn:hover { transform: none; }
 }
 
+/* Life of Jesus: The Pilgrim's Path. Scoped to preserve the shared visual system. */
+.life-jesus-page {
+  min-height: 100svh;
+}
+
+.life-jesus-hero {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: clamp(2rem, 6vw, 4.5rem);
+  border: 1px solid var(--stone);
+  border-top: 4px solid var(--liturgical-border);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(189, 138, 47, 0.14), transparent 22rem),
+    linear-gradient(145deg, rgba(255, 253, 247, 0.98), rgba(243, 234, 216, 0.88));
+  box-shadow: var(--shadow-lifted), var(--shadow-inset);
+}
+
+.life-jesus-independent-note {
+  max-width: 48rem;
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.life-jesus-hero-visual {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.life-jesus-hero-image,
+.life-jesus-era-interlude {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--gold) 58%, var(--stone));
+  border-radius: var(--radius-lg);
+  background: var(--navy);
+  box-shadow: var(--shadow-oratory);
+}
+
+.life-jesus-hero-image {
+  min-height: 15rem;
+}
+
+.life-jesus-hero-image::after,
+.life-jesus-era-interlude::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 46%, rgba(7, 26, 45, 0.76));
+}
+
+.life-jesus-hero-image > p {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  bottom: 0.8rem;
+  left: 1rem;
+  color: var(--ivory);
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.life-jesus-journey-counts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-self: end;
+  overflow: hidden;
+  border: 1px solid var(--stone);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 247, 0.78);
+}
+
+.life-jesus-journey-counts div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column-reverse;
+  padding: 1rem 0.75rem;
+  text-align: center;
+}
+
+.life-jesus-journey-counts div + div {
+  border-left: 1px solid var(--stone);
+}
+
+.life-jesus-journey-counts dt {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.life-jesus-journey-counts dd {
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.life-jesus-reading-note {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-left: 4px solid var(--burgundy);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  background: rgba(255, 253, 247, 0.76);
+  box-shadow: var(--shadow-hairline);
+}
+
+.life-jesus-note-kicker,
+.life-jesus-era-kicker,
+.life-jesus-chapter-header > p,
+.life-jesus-stop-kind,
+.life-jesus-passages > p,
+.life-jesus-teachings > h5,
+.life-jesus-source-cluster > header > p:first-child,
+.life-jesus-panel-source,
+.life-jesus-desktop-outline > p {
+  color: var(--burgundy);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.life-jesus-reading-note h2 {
+  margin-top: 0.35rem;
+  color: var(--navy);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.life-jesus-reading-note div:last-child {
+  display: grid;
+  gap: 0.85rem;
+  color: var(--muted);
+}
+
+.life-jesus-legend {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--stone);
+  border-radius: var(--radius-lg);
+  background: rgba(243, 234, 216, 0.64);
+}
+
+.life-jesus-legend h2 {
+  color: var(--navy);
+  font-size: 1.65rem;
+  font-weight: 600;
+}
+
+.life-jesus-legend ul {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.life-jesus-legend li {
+  display: grid;
+  gap: 0.1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.life-jesus-legend strong {
+  color: var(--navy);
+}
+
+.life-jesus-layout {
+  display: grid;
+  gap: 2rem;
+  margin-top: clamp(2.5rem, 7vw, 5rem);
+}
+
+.life-jesus-mobile-outline {
+  scroll-margin-top: 6rem;
+  border: 1px solid var(--stone);
+  border-top: 3px solid var(--liturgical-border);
+  border-radius: var(--radius-lg);
+  background: var(--ivory);
+  box-shadow: var(--shadow-oratory);
+}
+
+.life-jesus-mobile-outline summary {
+  display: grid;
+  gap: 0.2rem;
+  padding: 1rem 1.15rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.life-jesus-mobile-outline summary::-webkit-details-marker {
+  display: none;
+}
+
+.life-jesus-mobile-outline summary span {
+  color: var(--burgundy);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.life-jesus-mobile-outline summary strong {
+  color: var(--navy);
+}
+
+.life-jesus-mobile-outline nav,
+.life-jesus-desktop-outline nav {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.life-jesus-mobile-outline nav {
+  padding: 0 0.75rem 0.75rem;
+}
+
+.life-jesus-desktop-outline {
+  display: none;
+}
+
+.life-jesus-outline-link {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: baseline;
+  border-radius: var(--radius-md);
+  padding: 0.55rem 0.65rem;
+  color: var(--navy);
+  font-size: 0.83rem;
+  font-weight: 650;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.life-jesus-outline-link > span {
+  color: var(--burgundy);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+
+.life-jesus-outline-link:hover,
+.life-jesus-outline-link[aria-current="location"] {
+  background: var(--liturgical-primary-soft);
+  color: var(--navy);
+}
+
+.life-jesus-timeline {
+  min-width: 0;
+}
+
+.life-jesus-era {
+  scroll-margin-top: 7rem;
+  padding-bottom: clamp(4rem, 10vw, 7rem);
+}
+
+.life-jesus-era + .life-jesus-era {
+  padding-top: clamp(2rem, 5vw, 3rem);
+  border-top: 1px solid var(--stone);
+}
+
+.life-jesus-era-header {
+  max-width: 52rem;
+  margin: 0 auto clamp(2rem, 6vw, 3.5rem);
+  text-align: center;
+}
+
+.life-jesus-era-interlude {
+  min-height: clamp(16rem, 38vw, 28rem);
+  margin: 0 auto clamp(2rem, 6vw, 3.5rem);
+}
+
+.life-jesus-era-interlude figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 1rem;
+  bottom: 0.85rem;
+  left: 1rem;
+  display: grid;
+  gap: 0.15rem;
+  color: var(--ivory);
+  line-height: 1.35;
+}
+
+.life-jesus-era-interlude figcaption span {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.life-jesus-era-interlude figcaption small {
+  color: color-mix(in srgb, var(--ivory) 82%, transparent);
+  font-size: 0.72rem;
+}
+
+.life-jesus-era-header h2 {
+  margin-top: 0.55rem;
+  color: var(--navy);
+  font-size: clamp(2.25rem, 6vw, 4.5rem);
+  font-weight: 600;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.life-jesus-era-theme {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.life-jesus-era-period {
+  margin-top: 0.75rem;
+  color: var(--navy-soft);
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.life-jesus-era-track {
+  position: relative;
+}
+
+.life-jesus-pilgrim-rail {
+  position: absolute;
+  top: 1rem;
+  bottom: 0;
+  left: 1.1rem;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--gold-muted), var(--burgundy-soft) 48%, var(--gold-muted));
+  opacity: 0.72;
+}
+
+.life-jesus-chapter {
+  position: relative;
+  scroll-margin-top: 7rem;
+}
+
+.life-jesus-chapter + .life-jesus-chapter {
+  margin-top: clamp(3rem, 8vw, 5rem);
+}
+
+.life-jesus-chapter-header {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 1.5rem 3rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid var(--stone);
+  border-left: 4px solid var(--burgundy);
+  border-radius: var(--radius-md);
+  background: var(--ivory);
+  box-shadow: var(--shadow-hairline);
+}
+
+.life-jesus-chapter-header h3 {
+  margin-top: 0.25rem;
+  color: var(--navy);
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.life-jesus-stops {
+  display: grid;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.life-jesus-stop {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.3rem minmax(0, 1fr);
+  scroll-margin-top: 7rem;
+}
+
+.life-jesus-stop-marker {
+  z-index: 2;
+  grid-column: 1;
+  align-self: start;
+  justify-self: center;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-top: 1.6rem;
+  border: 3px solid var(--ivory);
+  border-radius: 50%;
+  background: var(--burgundy);
+  box-shadow: 0 0 0 2px var(--gold-muted);
+}
+
+.life-jesus-stop > article {
+  grid-column: 2;
+  min-width: 0;
+  padding: clamp(1.1rem, 4vw, 1.6rem);
+  border: 1px solid var(--stone);
+  border-top: 3px solid var(--liturgical-border);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 247, 0.96);
+  box-shadow: var(--shadow-oratory), var(--shadow-inset);
+}
+
+.life-jesus-stop-heading {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: start;
+}
+
+.life-jesus-stop-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.2rem;
+  min-height: 2.35rem;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--ivory);
+  font-size: 0.76rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+
+.life-jesus-stop-heading h4 {
+  margin-top: 0.25rem;
+  color: var(--navy);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.life-jesus-stop-summary {
+  margin-top: 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.life-jesus-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.life-jesus-labels span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  border: 1px solid var(--stone);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  color: var(--navy);
+  font-size: 0.74rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.life-jesus-certainty--explicit {
+  border-color: rgba(49, 82, 59, 0.45) !important;
+  background: rgba(49, 82, 59, 0.09);
+}
+
+.life-jesus-certainty--strong-inference,
+.life-jesus-certainty--traditional-harmony {
+  border-color: rgba(189, 138, 47, 0.5) !important;
+  background: rgba(189, 138, 47, 0.1);
+}
+
+.life-jesus-certainty--uncertain {
+  border-color: rgba(122, 37, 51, 0.42) !important;
+  background: rgba(122, 37, 51, 0.08);
+}
+
+.life-jesus-classification {
+  background: var(--parchment);
+}
+
+.life-jesus-labels--compact {
+  margin-top: 0.75rem;
+}
+
+.life-jesus-passages {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--stone);
+}
+
+.life-jesus-passages ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  list-style: none;
+}
+
+.life-jesus-passages li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  flex: 1 1 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.life-jesus-passages li > .life-jesus-douay-disclosure {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.life-jesus-passages .life-jesus-passage-reference {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  border-radius: var(--radius-md);
+  padding: 0.4rem 0.65rem;
+  background: var(--navy);
+  color: var(--ivory);
+  font-size: 0.86rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.life-jesus-passages .life-jesus-passage-reference {
+  color: var(--ivory);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.life-jesus-passages li > span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-transform: capitalize;
+}
+
+.life-jesus-passages--compact {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+}
+
+.life-jesus-chronology-note {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--burgundy);
+  background: var(--parchment);
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.life-jesus-chronology-note strong {
+  color: var(--navy);
+}
+
+.life-jesus-teachings,
+.life-jesus-source-cluster {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--stone);
+}
+
+.life-jesus-teachings > div {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.life-jesus-teaching-unit,
+.life-jesus-source-panels > article {
+  padding: 1rem;
+  border: 1px solid var(--stone);
+  border-radius: var(--radius-md);
+  background: rgba(243, 234, 216, 0.56);
+}
+
+.life-jesus-teaching-unit > p:first-child,
+.life-jesus-panel-relationship {
+  color: var(--burgundy);
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+.life-jesus-teaching-unit h6,
+.life-jesus-source-panels h6 {
+  margin-top: 0.25rem;
+  color: var(--navy);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.life-jesus-teaching-unit h6 + p,
+.life-jesus-source-panels h6 + p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.life-jesus-source-cluster > header h5 {
+  margin-top: 0.35rem;
+  color: var(--navy);
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+.life-jesus-source-cluster > header > p:not(:first-child) {
+  margin-top: 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.life-jesus-source-panels {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.life-jesus-panel-relationship {
+  margin-top: 0.2rem;
+}
+
+.life-jesus-back-to-eras {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  margin: 1.25rem 0 0 2.5rem;
+  border-radius: var(--radius-sm);
+  color: var(--navy);
+  font-size: 0.86rem;
+  font-weight: 750;
+}
+
+.life-jesus-page-footer {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-top: 1px solid var(--stone);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.life-jesus-page-footer a {
+  width: fit-content;
+  color: var(--navy);
+  font-weight: 750;
+}
+
+.life-jesus-passion-safeguard,
+.life-jesus-late-ministry {
+  margin: 2rem 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--stone);
+  border-top: 4px solid var(--burgundy);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 247, 0.94);
+  box-shadow: var(--shadow-oratory);
+}
+
+.life-jesus-passion-safeguard h2,
+.life-jesus-late-ministry > header h3 {
+  margin-top: 0.35rem;
+  color: var(--navy);
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.life-jesus-passion-safeguard > p:not(:first-child),
+.life-jesus-late-ministry > header > p:not(:first-child),
+.life-jesus-final-approach > p {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.life-jesus-passion-safeguard > a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  margin-top: 1rem;
+  color: var(--navy);
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--gold) 75%, transparent);
+  text-underline-offset: 0.25rem;
+}
+
+.life-jesus-late-ministry-lanes {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.life-jesus-late-ministry-lane {
+  scroll-margin-top: 7rem;
+  padding: 1rem;
+  border: 1px solid var(--stone);
+  border-radius: var(--radius-md);
+  background: rgba(243, 234, 216, 0.45);
+}
+
+.life-jesus-late-ministry-chapter > p:first-child {
+  color: var(--burgundy);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.life-jesus-late-ministry-chapter > p:last-child {
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.life-jesus-late-ministry-lanes h4,
+.life-jesus-final-approach h4 {
+  color: var(--navy);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.life-jesus-late-ministry-lane > div {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.life-jesus-late-ministry-lanes article,
+.life-jesus-final-approach article {
+  padding: 1rem;
+  border: 1px solid var(--stone);
+  border-radius: var(--radius-md);
+  background: var(--ivory);
+}
+
+.life-jesus-late-ministry-lanes article h5,
+.life-jesus-final-approach article h5 {
+  margin-top: 0.3rem;
+  color: var(--navy);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.life-jesus-late-ministry-lanes article h5 + p,
+.life-jesus-final-approach article h5 + p {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.life-jesus-final-approach {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--stone);
+}
+
+.life-jesus-stop--intercalation > article,
+.life-jesus-stop--intercalation:nth-child(even) > article {
+  border-top-color: var(--burgundy);
+}
+
+.life-jesus-intercalation-steps {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.life-jesus-intercalation-steps > li {
+  padding: 0.9rem 1rem;
+  border-left: 3px solid var(--gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--parchment);
+  color: var(--muted);
+}
+
+.life-jesus-intercalation-steps strong,
+.life-jesus-intercalation-steps span {
+  display: block;
+}
+
+.life-jesus-intercalation-steps strong {
+  color: var(--navy);
+}
+
+.life-jesus-intercalation-steps span,
+.life-jesus-intercalation-steps p {
+  margin-top: 0.35rem;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.life-jesus-record-sources {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--stone) 80%, transparent);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 253, 247, 0.72);
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.life-jesus-record-sources strong {
+  color: var(--navy);
+}
+
+.life-jesus-record-sources ul {
+  margin-top: 0.3rem;
+  padding-left: 1.1rem;
+}
+
+.life-jesus-record-sources a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding-block: 0.35rem;
+  color: var(--burgundy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+@media (min-width: 720px) {
+  .life-jesus-hero {
+    grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 0.5fr);
+    align-items: end;
+  }
+
+  .life-jesus-reading-note {
+    grid-template-columns: minmax(14rem, 0.65fr) minmax(0, 1.35fr);
+  }
+
+  .life-jesus-legend ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .life-jesus-late-ministry-lanes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .life-jesus-layout {
+    grid-template-columns: 15rem minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .life-jesus-mobile-outline {
+    display: none;
+  }
+
+  .life-jesus-desktop-outline {
+    position: sticky;
+    top: 6rem;
+    display: block;
+    max-height: calc(100vh - 7.5rem);
+    overflow-y: auto;
+    padding: 1rem;
+    border: 1px solid var(--stone);
+    border-top: 3px solid var(--liturgical-border);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 253, 247, 0.94);
+    box-shadow: var(--shadow-oratory);
+  }
+
+  .life-jesus-desktop-outline nav {
+    margin-top: 0.7rem;
+  }
+
+  .life-jesus-pilgrim-rail {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .life-jesus-chapter-header {
+    width: min(40rem, 78%);
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .life-jesus-stop {
+    grid-template-columns: minmax(0, 1fr) 4.5rem minmax(0, 1fr);
+  }
+
+  .life-jesus-stop-marker {
+    grid-column: 2;
+  }
+
+  .life-jesus-stop > article {
+    grid-column: 1;
+  }
+
+  .life-jesus-stop:nth-child(even) > article {
+    grid-column: 3;
+  }
+
+  .life-jesus-stop--cluster > article,
+  .life-jesus-stop--cluster:nth-child(even) > article,
+  .life-jesus-stop--intercalation > article,
+  .life-jesus-stop--intercalation:nth-child(even) > article {
+    grid-column: 1 / 4;
+    width: min(100%, 64rem);
+    justify-self: center;
+  }
+
+  .life-jesus-source-panels {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .life-jesus-back-to-eras {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .life-jesus-page *,
+  .life-jesus-page *::before,
+  .life-jesus-page *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  .life-jesus-page {
+    background: white !important;
+    color: black;
+  }
+
+  .life-jesus-mobile-outline,
+  .life-jesus-desktop-outline,
+  .life-jesus-pilgrim-rail,
+  .life-jesus-stop-marker,
+  .life-jesus-back-to-eras,
+  .life-jesus-page-footer a {
+    display: none !important;
+  }
+
+  .life-jesus-hero-image,
+  .life-jesus-era-interlude {
+    display: none !important;
+  }
+
+  .life-jesus-layout,
+  .life-jesus-stop,
+  .life-jesus-reading-note,
+  .life-jesus-hero {
+    display: block;
+  }
+
+  .life-jesus-era,
+  .life-jesus-chapter,
+  .life-jesus-stop > article,
+  .life-jesus-teaching-unit,
+  .life-jesus-source-panels > article {
+    break-inside: avoid;
+  }
+
+  .life-jesus-stop > article {
+    margin-bottom: 1rem;
+    border: 1px solid #777;
+    box-shadow: none;
+  }
+
+  .life-jesus-passages a {
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    color: black;
+    text-decoration: underline;
+  }
+
+  .life-jesus-passages a::after {
+    content: " (" attr(href) ")";
+    overflow-wrap: anywhere;
+    font-size: 0.72rem;
+    font-weight: 400;
+  }
+}
+
 /* Sacred Hours: leave artwork unobscured on phone screens. */
 .sacred-artwork-frame { min-width: 0; }
 .sacred-artwork-mobile-action { display: none; }
@@ -1905,3 +3591,125 @@ a {
   .sacred-artwork-mobile-action { display: block; }
   .sacred-artwork-mobile-action .btn { width: 100%; min-height: 48px; }
 }
+
+/* Life of Jesus final visual cascade: this must remain after all shared module rules. */
+.life-jesus-hero { position: relative; display: grid; min-height: clamp(34rem,70vw,46rem); overflow: hidden; isolation: isolate; border: 0; border-radius: 1.4rem; background: var(--navy); }
+.life-jesus-hero-image { position: absolute; inset: 0; z-index: 0; min-height: 0; border: 0; border-radius: 0; }
+.life-jesus-hero-image::after { background: linear-gradient(90deg,rgba(7,26,45,.94),rgba(7,26,45,.68) 38%,rgba(7,26,45,.08) 78%),linear-gradient(0deg,rgba(7,26,45,.72),transparent 50%); }
+.life-jesus-hero-copy { position: relative; z-index: 1; align-self: end; max-width: 48rem; color: var(--ivory); }
+.life-jesus-hero-copy h1 { max-width: 12ch; margin-top: .6rem; color: var(--ivory); font-size: clamp(3rem,8vw,7rem); line-height: .92; }
+.life-jesus-hero-copy .page-subtitle { max-width: 42rem; margin-top: 1.35rem; color: color-mix(in srgb,var(--ivory) 88%,transparent); font-size: clamp(1.05rem,2.2vw,1.35rem); line-height: 1.65; }
+.life-jesus-hero-copy .page-eyebrow { color: var(--gold); }
+.life-jesus-hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 1.75rem; }
+.life-jesus-hero-actions > span { color: color-mix(in srgb,var(--ivory) 78%,transparent); font-size: .8rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.life-jesus-hero-actions .btn-primary { background: var(--gold); color: var(--navy); }
+.life-jesus-hero-intro { position: relative; z-index: 3; width: min(calc(100% - 2rem), 62rem); margin: -1.25rem auto 0; padding: 1.4rem 1.7rem; border: 1px solid var(--stone); border-top: 3px solid var(--gold); border-radius: .9rem; background: var(--ivory); box-shadow: 0 .75rem 2.25rem rgba(7,26,45,.1); }
+.life-jesus-hero-intro .life-jesus-hero-deck { max-width: 55rem; margin-top: .6rem; color: var(--navy); font-size: clamp(1rem,2vw,1.2rem); line-height: 1.6; }
+.life-jesus-hero-intro .life-jesus-independent-note { max-width: 55rem; margin-top: .85rem; color: var(--muted); font-size: .78rem; line-height: 1.5; }
+.life-jesus-hero-intro .life-jesus-hero-caption { position: static; margin: 0; color: var(--burgundy); font-size: .68rem; font-weight: 800; letter-spacing: .08em; line-height: 1.35; text-align: left; text-transform: uppercase; }
+.life-jesus-hero-route { position: absolute; right: 10%; bottom: -4rem; z-index: 2; width: 14rem; height: 16rem; border: 2px solid color-mix(in srgb,var(--gold) 82%,transparent); border-bottom: 0; border-radius: 50% 50% 0 0; opacity: .76; transform: rotate(-18deg); }
+.life-jesus-layout { position: relative; margin-top: clamp(3rem,8vw,7rem); }
+.life-jesus-era { position: relative; padding-bottom: clamp(5rem,12vw,9rem); }
+.life-jesus-era + .life-jesus-era { border-top: 0; }
+.life-jesus-era-header { position: relative; z-index: 2; max-width: 58rem; margin-bottom: 1.5rem; padding: 0 1rem; text-align: left; }
+.life-jesus-era-header h2 { max-width: 14ch; font-size: clamp(2.4rem,6vw,5.6rem); }
+.life-jesus-era-interlude { min-height: clamp(17rem,42vw,32rem); margin-bottom: clamp(2.5rem,6vw,4.5rem); border: 0; border-radius: 1.2rem; }
+.life-jesus-era-image { width: 100%; min-height: inherit; }
+.life-jesus-era-interlude::after { background: linear-gradient(180deg,transparent 28%,rgba(7,26,45,.88)); }
+.life-jesus-era-track::before { position: absolute; inset: 0 11%; z-index: 0; content: ""; border-left: 2px solid color-mix(in srgb,var(--gold) 66%,transparent); border-right: 2px solid color-mix(in srgb,var(--gold) 66%,transparent); border-radius: 48% / 6%; opacity: .62; }
+.life-jesus-pilgrim-rail { z-index: 1; background: linear-gradient(180deg,var(--gold),var(--burgundy) 48%,var(--gold)); }
+.life-jesus-chapter-header { border: 0; border-radius: 1rem; background: linear-gradient(135deg,var(--navy),#173b57); }
+.life-jesus-chapter-header h3,.life-jesus-chapter-header > p { color: var(--ivory); }
+.life-jesus-stop > article { border: 1px solid color-mix(in srgb,var(--gold) 36%,var(--stone)); border-top: 0; border-radius: 1rem; background: color-mix(in srgb,var(--ivory) 92%,transparent); }
+.life-jesus-stop-marker { width: 1.05rem; height: 1.05rem; background: var(--gold); box-shadow: 0 0 0 .25rem var(--ivory),0 0 0 .4rem var(--burgundy); }
+.life-jesus-milestone-strip { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 2.5rem 0 0; }
+.life-jesus-milestone { margin: 0; overflow: hidden; border-radius: .9rem; background: var(--navy); }
+.life-jesus-milestone > div { position: relative; aspect-ratio: 16 / 9; }
+.life-jesus-milestone figcaption { padding: .7rem .85rem .8rem; color: var(--ivory); font-family: var(--font-heading); font-size: 1rem; }
+@media (min-width: 720px) { .life-jesus-milestone-strip { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (min-width: 1100px) { .life-jesus-hero { min-height: min(48rem,calc(100vh - 8rem)); } .life-jesus-era-header { margin-left: 5%; } .life-jesus-era-interlude { width: 92%; margin-left: 4%; } .life-jesus-era-track::before { inset: 0 18%; } }
+@media (max-width: 1099px) { .life-jesus-mobile-outline { display: block !important; } .life-jesus-desktop-outline { display: none !important; } }
+@media (max-width: 719px) {
+  .life-jesus-hero {
+    min-height: clamp(28rem, 105vw, 34rem);
+    padding: 1.25rem;
+  }
+
+  .life-jesus-hero-image::after {
+    background: linear-gradient(180deg, rgba(7,26,45,.04) 12%, rgba(7,26,45,.14) 38%, rgba(7,26,45,.82) 70%, rgba(7,26,45,.98) 100%);
+  }
+
+  .life-jesus-hero-copy {
+    max-width: 100%;
+  }
+
+  .life-jesus-hero-copy h1 {
+    max-width: 10ch;
+    font-size: clamp(2.65rem, 11.5vw, 4rem);
+    line-height: .94;
+  }
+
+  .life-jesus-hero-copy .page-eyebrow {
+    max-width: 27ch;
+    font-size: .7rem;
+    letter-spacing: .12em;
+    line-height: 1.4;
+  }
+
+  .life-jesus-hero-actions {
+    align-items: stretch;
+    gap: .7rem;
+    margin-top: 1.25rem;
+  }
+
+  .life-jesus-hero-actions .btn-primary {
+    min-height: 2.75rem;
+  }
+
+  .life-jesus-hero-actions > span {
+    align-self: center;
+    font-size: .68rem;
+    line-height: 1.35;
+  }
+
+  .life-jesus-hero-intro {
+    width: calc(100% - 1rem);
+    margin-top: -.65rem;
+    padding: 1.15rem 1.1rem 1.2rem;
+  }
+
+  .life-jesus-hero-intro .life-jesus-hero-deck {
+    margin-top: .55rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .life-jesus-hero-route { right: -3rem; width: 10rem; height: 11rem; }
+  .life-jesus-layout { margin-top: 2rem; }
+  .life-jesus-era-track::before { display: none; }
+  .life-jesus-pilgrim-rail { left: .8rem; }
+  .life-jesus-stop, .life-jesus-stop:nth-child(even) { grid-template-columns: 1.6rem minmax(0, 1fr); }
+  .life-jesus-stop > article { padding: 1rem; }
+  .life-jesus-chapter-header { margin-left: 1.6rem; }
+  .life-jesus-douay-verse { grid-template-columns: minmax(1.6rem,max-content) minmax(0, 1fr); gap: .3rem; }
+  .life-jesus-milestone-strip { grid-template-columns: 1fr; }
+  .life-jesus-milestone > div { aspect-ratio: 4 / 3; }
+  .life-jesus-mobile-outline { position: sticky; top: 4.85rem; z-index: 10; background: var(--navy); }
+  .life-jesus-mobile-outline summary { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 3rem; padding: .6rem .85rem; color: var(--ivory); }
+  .life-jesus-mobile-outline summary span { display: none; }
+  .life-jesus-mobile-outline summary strong { color: var(--ivory); font-size: .95rem; font-weight: 600; }
+  .life-jesus-mobile-outline summary::after { content: "⌄"; color: var(--gold); font-size: 1.4rem; line-height: 1; }
+  .life-jesus-mobile-outline[open] summary::after { content: "⌃"; }
+  .life-jesus-mobile-outline nav { max-height: min(55svh, 25rem); overflow-y: auto; background: var(--ivory); }
+  .life-jesus-era, .life-jesus-chapter, .life-jesus-stop { scroll-margin-top: 8.75rem; }
+  .life-jesus-era-header { margin-bottom: 1rem; padding-inline: .25rem; }
+  .life-jesus-era-header h2 { max-width: 100%; font-size: clamp(1.85rem, 8vw, 2.5rem); line-height: 1.03; }
+  .life-jesus-era-interlude { display: grid; min-height: 0; margin-bottom: 2rem; }
+  .life-jesus-era-interlude::after { display: none; }
+  .life-jesus-era-image { min-height: 0; aspect-ratio: 4 / 3; }
+  .life-jesus-era-interlude figcaption { position: static; gap: .1rem; padding: .7rem .85rem .8rem; background: var(--navy); }
+  .life-jesus-era-interlude figcaption span { font-size: 1rem; }
+  .life-jesus-era-interlude figcaption small { font-size: .64rem; }
+}
+@media (min-width: 720px) { .life-jesus-era-interlude { min-height: clamp(13rem,24vw,20rem); } }
+@media (prefers-reduced-motion: reduce) { .life-jesus-hero-route { display: none; } }

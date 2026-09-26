@@ -84,6 +84,7 @@ const navigationSections: NavigationSection[] = [
         title: "Foundations of the Faith",
         children: [
           { label: "The Bible and Sacred Scripture", href: "/bible" },
+          { label: "The Life of Jesus", href: "/life-of-jesus" },
           { label: "Sacred Tradition", href: "/tradition" },
           { label: "Church Fathers", href: "/church-fathers" },
           { label: "Catechism of the Catholic Church", href: "/catechism" },
@@ -198,6 +199,7 @@ export const breadcrumbPatterns = [
   { pattern: "/reflections/[slug]", label: "Reflection" },
   { pattern: "/learn", label: "Learn" },
   { pattern: "/bible", label: "Bible" },
+  { pattern: "/life-of-jesus", label: "Life of Jesus" },
   { pattern: "/body-soul-spirit", label: "Body, Soul, and Spirit" },
   { pattern: "/sin-and-temptation", label: "Sin & Temptation" },
   { pattern: "/spiritual-warfare", label: "Spiritual Warfare" },
@@ -381,6 +383,7 @@ export const urlStructure = [
   { path: "/reflections/[slug]", purpose: "Legacy reflection detail alias redirecting to canonical Mass Readings Reflection detail" },
   { path: "/learn", purpose: "Sacraments, saints, devotions, Scripture, Mass, formation" },
   { path: "/bible", purpose: "Catholic guide to Sacred Scripture, Bible translations, daily readings, and Scripture prayer" },
+  { path: "/life-of-jesus", purpose: "A Pilgrim's Path through the life of Jesus with exact Scripture references and in-page Douay–Rheims reading" },
   { path: "/body-soul-spirit", purpose: "Catholic formation guide to the human person, grace, sin, Confession, Eucharist, and the soul as an interior temple of God" },
   { path: "/sin-and-temptation", purpose: "Catholic guide to sin, temptation, repentance, Confession, virtue, healing, and ongoing conversion" },
   { path: "/sin-and-temptation/venial-and-mortal-sin", purpose: "Pastoral guide to the distinction between venial and mortal sin" },

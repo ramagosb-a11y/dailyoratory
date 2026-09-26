@@ -23,6 +23,8 @@
     "test:retreat": "node --experimental-strip-types --test scripts/fasting-retreat.test.mjs",
     "test:companion": "node scripts/validate-adoration-companion.mjs",
     "test:navigation": "node scripts/check-homepage-menu.cjs",
+    "test:life-of-jesus": "node --experimental-strip-types scripts/validate-life-of-jesus.mjs",
+    "test:life-of-jesus-scripture": "node --experimental-strip-types scripts/validate-life-of-jesus-douay-rheims.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

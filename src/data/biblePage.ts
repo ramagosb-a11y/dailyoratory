@@ -51,6 +51,7 @@ export const scriptureTraditionMagisteriumCards: BibleCardItem[] = [
 ];
 
 export const scriptureTraditionMagisteriumLinks: BibleLink[] = [
+  { label: "Follow the Life of Jesus", href: "/life-of-jesus" },
   { label: "Sacred Tradition", href: "/tradition" },
   { label: "Church Authority", href: "/pope" },
   { label: "Catechism", href: "/catechism" },

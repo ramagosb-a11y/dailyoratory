@@ -158,7 +158,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
   const catholicLifePages: Array<{ label: string; href: string }> = [];
   const sacramentalEmergencyPages: Array<{ label: string; href: string }> = [];
-  const biblePages = [{ label: "The Bible and Sacred Scripture", href: "/bible" }];
+  const biblePages = [
+    { label: "The Bible and Sacred Scripture", href: "/bible" },
+    { label: "The Life of Jesus", href: "/life-of-jesus" },
+  ];
   const bodySoulSpiritPages = [{ label: "Body, Soul, and Spirit", href: "/body-soul-spirit" }];
   const sinAndTemptationPages = [
     { label: "Sin, Temptation, and Conversion", href: "/sin-and-temptation" },

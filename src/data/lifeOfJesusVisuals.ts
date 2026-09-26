@@ -1,0 +1,50 @@
+import type { EraVisualAnchor, LifeOfJesusImageAsset, LifeOfJesusVisualMilestone } from "@/types/lifeOfJesus";
+
+export const lifeOfJesusVisualAssets: readonly LifeOfJesusImageAsset[] = [
+  { id: "hero-galilee", src: "/images/rosary/viewpoints/luminous/03_proclamation/01_among_seated_crowds.jpg", alt: "Jesus teaching among a gathered crowd in devotional sacred art", caption: "Jesus teaching · devotional sacred-art representation", focalPosition: "62% center", treatment: "hero", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-1-promise", src: "/images/rosary/viewpoints/joyful/01_annunciation/04_descent_of_the_dove.jpg", alt: "Light descending through a quiet sacred space, evoking the promise of the Messiah", caption: "The promise · devotional sacred-art representation", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-2-nativity", src: "/images/rosary/viewpoints/joyful/03_nativity/01_from_inside_the_manger.jpg", alt: "A devotional view from within the manger at Bethlehem", caption: "Bethlehem · traditional setting of the Nativity", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-3-hidden", src: "/images/rosary/viewpoints/joyful/05_finding_in_temple/01_mary_joseph_chamber_doors.jpg", alt: "Mary and Joseph near the Temple in devotional artwork", caption: "Jerusalem · the Temple in the hidden-life narrative", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-4-jordan", src: "/images/rosary/viewpoints/luminous/01_baptism/02_reeds_of_riverbank.jpg", alt: "The Jordan riverbank in devotional artwork of Jesus’ Baptism", caption: "The Jordan · associated region of Jesus’ Baptism", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-5-cana", src: "/images/rosary/viewpoints/luminous/02_cana/03_bridegrooms_banquet_table.jpg", alt: "The wedding feast at Cana in devotional sacred art", caption: "Cana · the first sign in John’s Gospel", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-6-galilee", src: "/images/rosary/viewpoints/luminous/03_proclamation/03_panoramic_galilee_vista.jpg", alt: "A panoramic devotional view of Galilee", caption: "Galilee · associated region of the public ministry", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-7-mercy", src: "/images/rosary/viewpoints/luminous/03_proclamation/01_among_seated_crowds.jpg", alt: "A hillside crowd listening in devotional artwork", caption: "The hillsides · places associated with Jesus’ teaching", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-8-transfiguration", src: "/images/rosary/viewpoints/luminous/04_transfiguration/03_inside_luminous_cloud.jpg", alt: "A luminous cloud surrounding the disciples at the Transfiguration", caption: "The mountain · traditional setting of the Transfiguration", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-9-jerusalem-road", src: "/images/way-of-cross/opening-jerusalem.webp", alt: "A devotional view toward Jerusalem", caption: "The road to Jerusalem · associated setting of the final journey", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-10-palm", src: "/images/holy-week/palm-sunday.webp", alt: "Jesus entering Jerusalem in devotional sacred art", caption: "Jerusalem · the beginning of Holy Week", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-11-supper", src: "/images/holy-week/last-supper.webp", alt: "The Last Supper represented in devotional artwork", caption: "The Upper Room · traditional setting of the Last Supper", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-12-calvary", src: "/images/holy-week/calvary.webp", alt: "Calvary represented in devotional sacred art", caption: "Calvary · traditional sacred-art representation", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-13-silence", src: "/images/holy-week/sacred-silence.webp", alt: "The sealed tomb in the silence of Holy Saturday", caption: "Holy Saturday · sacred-art representation", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-14-tomb", src: "/images/holy-week/empty-tomb.webp", alt: "The empty tomb at Easter dawn in devotional artwork", caption: "The empty tomb · sacred-art representation", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "era-15-ascension", src: "/images/rosary/viewpoints/glorious/02_ascension/01_circle_kneeling_apostles.jpg", alt: "The apostles gathered at the Ascension in devotional artwork", caption: "The Ascension · traditional sacred-art representation", treatment: "era", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "milestone-annunciation", src: "/images/rosary/viewpoints/joyful/01_annunciation/01_from_marys_prie_dieu.jpg", alt: "The Annunciation in devotional sacred art", caption: "Annunciation · the beginning of the Gospel story", treatment: "milestone", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "milestone-baptism", src: "/images/rosary/viewpoints/luminous/01_baptism/02_reeds_of_riverbank.jpg", alt: "The Jordan at the Baptism of Jesus in devotional artwork", caption: "Baptism · the opening of public ministry", treatment: "milestone", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "milestone-transfiguration", src: "/images/rosary/viewpoints/luminous/04_transfiguration/02_beside_moses_elijah.jpg", alt: "A mountain scene evoking the Transfiguration", caption: "Transfiguration · light before the road to Jerusalem", treatment: "milestone", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "milestone-garden", src: "/images/holy-week/gethsemane.webp", alt: "Gethsemane represented in devotional sacred art", caption: "Gethsemane · the threshold of the Passion", treatment: "milestone", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "milestone-cross", src: "/images/way-of-cross/station-12-crucifixion.webp", alt: "The Crucifixion represented in devotional artwork", caption: "The Cross · sacred-art representation", treatment: "milestone", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "milestone-emmaus", src: "/images/holy-week/emmaus.webp", alt: "The road to Emmaus represented in devotional artwork", caption: "Emmaus · the risen Lord makes Himself known", treatment: "milestone", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+  { id: "milestone-ascension", src: "/images/rosary/viewpoints/glorious/02_ascension/02_eyes_ascending_lord.jpg", alt: "The apostles looking toward the ascending Lord in devotional artwork", caption: "Ascension · Christ returns to the Father", treatment: "milestone", provenance: "daily-oratory-sacred-art-library", licenseStatus: "internal-library-pending-review", iconographyReview: "pending" },
+];
+
+export const lifeOfJesusEraVisuals: readonly EraVisualAnchor[] = lifeOfJesusVisualAssets
+  .filter((asset) => asset.treatment === "era")
+  .map((asset, index) => ({
+    eraId: `life-jesus-era-${index + 1}`,
+    routePosition: index % 2 === 0 ? "left" : "right",
+    locationLabel: asset.caption.split(" · ")[0],
+    assetId: asset.id,
+  }));
+
+export const lifeOfJesusVisualMilestones: readonly LifeOfJesusVisualMilestone[] = [
+  { id: "milestone-annunciation", eraId: "life-jesus-era-2", label: "The Annunciation", assetId: "milestone-annunciation" },
+  { id: "milestone-baptism", eraId: "life-jesus-era-4", label: "The Baptism", assetId: "milestone-baptism" },
+  { id: "milestone-transfiguration", eraId: "life-jesus-era-8", label: "The Transfiguration", assetId: "milestone-transfiguration" },
+  { id: "milestone-garden", eraId: "life-jesus-era-11", label: "Gethsemane", assetId: "milestone-garden" },
+  { id: "milestone-cross", eraId: "life-jesus-era-12", label: "The Cross", assetId: "milestone-cross" },
+  { id: "milestone-emmaus", eraId: "life-jesus-era-14", label: "Emmaus", assetId: "milestone-emmaus" },
+  { id: "milestone-ascension", eraId: "life-jesus-era-15", label: "The Ascension", assetId: "milestone-ascension" },
+];
+
+export function lifeOfJesusAsset(id: string) {
+  return lifeOfJesusVisualAssets.find((asset) => asset.id === id);
+}

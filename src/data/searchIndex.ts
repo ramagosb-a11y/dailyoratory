@@ -400,6 +400,23 @@ export const featuredSearchStartingPoints = [
 
 export const staticSearchIndex: SearchItem[] = [
   {
+    id: "search-life-of-jesus",
+    title: "The Life of Jesus",
+    slug: "life-of-jesus",
+    href: "/life-of-jesus",
+    description:
+      "Walk a Pilgrim’s Path through the life of Jesus with Gospel references, transparent chronology notes, and in-page Douay–Rheims Scripture readings.",
+    content:
+      "life of Jesus timeline Gospel harmony chronology Incarnation Nativity ministry miracles teachings Holy Week Passion Resurrection Ascension Scripture USCCB",
+    category: "Learn",
+    type: "guide",
+    tags: ["Jesus", "Gospels", "Scripture", "timeline", "Gospel harmony"],
+    audience: ["Catholics", "Families", "Explorers", "Returning Catholics", "OCIA"],
+    section: "Learn",
+    priority: 112,
+    status: "approved",
+  },
+  {
     id: "search-home",
     title: "Daily Oratory",
     slug: "home",
