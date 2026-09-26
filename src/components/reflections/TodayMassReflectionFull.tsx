@@ -4,7 +4,15 @@ import { MassReflectionTypeBadge } from "@/components/reflections/MassReflection
 import { formatDate } from "@/lib/format";
 import type { MassReadingsReflection } from "@/types/massReadingsReflections";
 
-export function TodayMassReflectionFull({ reflection, manuscript = false }: { reflection: MassReadingsReflection; manuscript?: boolean }) {
+export function TodayMassReflectionFull({
+  reflection,
+  manuscript = false,
+  showReadingsPanel = true,
+}: {
+  reflection: MassReadingsReflection;
+  manuscript?: boolean;
+  showReadingsPanel?: boolean;
+}) {
   return (
     <section className="card-parchment mt-5 p-6 sm:p-8" data-manuscript={manuscript || undefined}>
       {manuscript && <ManuscriptRoll end="top" />}
@@ -24,7 +32,7 @@ export function TodayMassReflectionFull({ reflection, manuscript = false }: { re
       </p>}
       {(!manuscript || reflection.shortDescription !== reflection.title) && <p className="mt-5 max-w-4xl text-base leading-8 text-muted">{reflection.shortDescription}</p>}
 
-      <div className="mt-6 rounded-md border border-gold/60 bg-ivory/80 p-5">
+      {showReadingsPanel && <div className="mt-6 rounded-md border border-gold/60 bg-ivory/80 p-5">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Mass readings</p>
         {manuscript && reflection.readings.length === 0 && <p className="mt-3 text-sm leading-7 text-muted">Use the official readings link below alongside this reflection.</p>}
         <ul className="mt-3 grid gap-2 text-sm leading-7 text-navy">
@@ -50,12 +58,12 @@ export function TodayMassReflectionFull({ reflection, manuscript = false }: { re
             Open reflection page
           </Link>
         </div>
-      </div>
+      </div>}
 
-      <p className="mt-6 text-sm leading-7 text-muted">
+      {showReadingsPanel && <p className="mt-6 text-sm leading-7 text-muted">
         Daily Oratory uses Scripture references and original commentary. For the full lectionary readings,
         use the official Mass readings link above.
-      </p>
+      </p>}
 
       <div className="content-prose resource-markdown mt-8 space-y-6">
         <MassReflectionRichBody paragraphs={reflection.body} variant={manuscript ? "manuscript" : "default"} />

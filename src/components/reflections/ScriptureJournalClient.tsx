@@ -122,36 +122,46 @@ export function DailyScriptureJournalEditor() {
     <section className={`${styles.stepPanel} ${styles.dailyJournalPanel}`} aria-labelledby="today-journal-title" data-guided-flow-card>
       <div className={styles.bookSpine} aria-hidden="true" />
       <div className={styles.stepInner}>
-        <p className={styles.stepEyebrow}>Step 2 · Write · Remember · Return</p>
-        <h2 id="today-journal-title" className={styles.stepTitle}>My Scripture Journal for Today</h2>
-        <p className={styles.editorSummary}>One entry per local calendar day. Your words stay on this device; review past entries in your journal history.</p>
+        <details id="today-journal-disclosure" className={styles.journalDisclosure} open>
+          <summary className={`focus-ring ${styles.journalSummaryToggle}`} aria-controls="today-journal-fields">
+            <span>
+              <span className={styles.stepEyebrow}>Step 2 · Write · Remember · Return</span>
+              <span id="today-journal-title" className={styles.stepTitle}>My Scripture Journal for Today</span>
+              <span className={styles.editorSummary}>One entry per local calendar day. Your words stay on this device; review past entries in your journal history.</span>
+            </span>
+            <span className={styles.chevron} aria-hidden="true">⌄</span>
+          </summary>
 
-        {storageUnavailable && (
-          <p className={styles.storageNotice} role="status">
-            {storeSnapshot.status === "corrupt"
-              ? "Your saved journal could not be read. Saving is paused to protect its contents."
-              : "Browser storage is unavailable. You can still write here, but this journal cannot be saved on this device right now."}
-          </p>
-        )}
+          <div id="today-journal-fields" className={styles.journalFields}>
+            {storageUnavailable && (
+              <p className={styles.storageNotice} role="status">
+                {storeSnapshot.status === "corrupt"
+                  ? "Your saved journal could not be read. Saving is paused to protect its contents."
+                  : "Browser storage is unavailable. You can still write here, but this journal cannot be saved on this device right now."}
+              </p>
+            )}
 
-        <form className={styles.form} onSubmit={saveToday}>
-          <div className={styles.field}>
-            <label htmlFor="my-word-or-phrase">My Word or Phrase</label>
-            <span className={styles.fieldPrompt}>What word or phrase stays with me?</span>
-            <input id="my-word-or-phrase" name="wordOrPhrase" type="text" maxLength={60} placeholder="Enter the word or phrase that stayed with you…" value={wordOrPhrase} onChange={(event) => { setWordOrPhrase(event.target.value); setSaveMessage(""); }} />
+            <form className={styles.form} onSubmit={saveToday}>
+              <div className={styles.field}>
+                <label htmlFor="my-word-or-phrase">My Word or Phrase</label>
+                <span className={styles.fieldPrompt}>What word or phrase stays with me?</span>
+                <input id="my-word-or-phrase" name="wordOrPhrase" type="text" maxLength={60} placeholder="Enter the word or phrase that stayed with you…" value={wordOrPhrase} onChange={(event) => { setWordOrPhrase(event.target.value); setSaveMessage(""); }} />
+              </div>
+              <div className={styles.field}>
+                <label htmlFor="my-reflection">My Reflection</label>
+                <span className={styles.fieldPrompt}>What do I notice about God? What might God be inviting me to notice, receive, or do today?</span>
+                <textarea id="my-reflection" name="reflection" maxLength={500} rows={3} placeholder="What might God be inviting you to notice, receive, or do today?" value={reflection} onChange={(event) => { setReflection(event.target.value); setSaveMessage(""); }} />
+              </div>
+              <div className={styles.saveRow}>
+                <button type="submit" className="btn btn-primary focus-ring" disabled={!today || storageUnavailable || (!wordOrPhrase.trim() && !reflection.trim())}>
+                  {todayEntry ? "Update Today’s Journal" : "Save Today’s Journal"}
+                </button>
+              </div>
+              <JournalHistoryButton />
+              <p aria-live="polite" className={styles.saveStatus}>{saveMessage}</p>
+            </form>
           </div>
-          <div className={styles.field}>
-            <label htmlFor="my-reflection">My Reflection</label>
-            <span className={styles.fieldPrompt}>What do I notice about God? What might God be inviting me to notice, receive, or do today?</span>
-            <textarea id="my-reflection" name="reflection" maxLength={500} rows={3} placeholder="What might God be inviting you to notice, receive, or do today?" value={reflection} onChange={(event) => { setReflection(event.target.value); setSaveMessage(""); }} />
-          </div>
-          <div className={styles.saveRow}>
-            <button type="submit" className="btn btn-primary focus-ring" disabled={!today || storageUnavailable || (!wordOrPhrase.trim() && !reflection.trim())}>
-              {todayEntry ? "Update Today’s Journal" : "Save Today’s Journal"}
-            </button>
-            <p aria-live="polite" className={styles.saveStatus}>{saveMessage}</p>
-          </div>
-        </form>
+        </details>
         <span className={styles.edgeMark} aria-hidden="true">✣</span>
       </div>
     </section>
@@ -238,6 +248,8 @@ export function MyScriptureJournal() {
                 isToday={entry.date === today}
                 onEdit={() => {
                   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                  const editorDisclosure = document.getElementById("today-journal-disclosure");
+                  if (editorDisclosure instanceof HTMLDetailsElement) editorDisclosure.open = true;
                   document.getElementById("today-journal-title")?.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
                   window.setTimeout(() => document.getElementById("my-word-or-phrase")?.focus(), 120);
                 }}

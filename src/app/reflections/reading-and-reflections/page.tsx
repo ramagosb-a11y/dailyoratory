@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CurrentMassReflectionSection } from "@/components/reflections/CurrentMassReflectionSection";
 import { ExternalReflectionResources } from "@/components/reflections/ExternalReflectionResources";
 import { MassReadingsGoogleCalendarEmbed } from "@/components/reflections/MassReadingsGoogleCalendarEmbed";
-import { DailyReadingsJournalStep, DailyScriptureJournalEditor, JournalHistoryButton, MyScriptureJournal } from "@/components/reflections/ScriptureJournalClient";
+import { DailyReadingsJournalStep, DailyScriptureJournalEditor, MyScriptureJournal } from "@/components/reflections/ScriptureJournalClient";
 import { ScriptureStudyResources } from "@/components/reflections/ScriptureStudyResources";
 import { UpcomingMassReflections } from "@/components/reflections/UpcomingMassReflections";
 import { SectionHeader } from "@/components/section-header";
@@ -11,6 +11,7 @@ import styles from "../mass-readings/reflection.module.css";
 import { getMassReadingsReflectionsData, getScheduledMassReadingsReflectionsData } from "@/lib/massReadingsReflections";
 import { createPageMetadata } from "@/lib/metadata";
 import { getCurrentSiteIsoDate } from "@/lib/staticDailyContent";
+import { getUsccbDailyReadings } from "@/lib/usccbDailyReadings";
 
 export const revalidate = 86400;
 
@@ -22,9 +23,10 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default async function ReadingAndReflectionsReviewPage() {
-  const [scheduled, allReflections] = await Promise.all([
+  const [scheduled, allReflections, usccbDailyReadings] = await Promise.all([
     getScheduledMassReadingsReflectionsData(),
     getMassReadingsReflectionsData(),
+    getUsccbDailyReadings(),
   ]);
   const initialReferenceDate = getCurrentSiteIsoDate();
 
@@ -41,9 +43,16 @@ export default async function ReadingAndReflectionsReviewPage() {
         </header>
 
         <div id="current-reflection" data-jump-marker />
-        <CurrentMassReflectionSection reflections={allReflections} initialReferenceDate={initialReferenceDate} />
-        <JournalHistoryButton />
-        <ScriptureStudyResources reflections={allReflections} initialReferenceDate={initialReferenceDate} />
+        <CurrentMassReflectionSection
+          reflections={allReflections}
+          initialReferenceDate={initialReferenceDate}
+          showReadingsPanel={false}
+        />
+        <ScriptureStudyResources
+          reflections={allReflections}
+          initialReferenceDate={initialReferenceDate}
+          usccbDailyReadings={usccbDailyReadings}
+        />
         <ExternalReflectionResources excludeResourceIds={["usccb-daily-readings"]} />
         <MyScriptureJournal />
 

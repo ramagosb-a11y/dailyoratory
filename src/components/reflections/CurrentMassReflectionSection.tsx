@@ -14,11 +14,13 @@ import type { MassReadingsReflection } from "@/types/massReadingsReflections";
 type CurrentMassReflectionSectionProps = {
   reflections: MassReadingsReflection[];
   initialReferenceDate: ISODateString;
+  showReadingsPanel?: boolean;
 };
 
 export function CurrentMassReflectionSection({
   reflections,
   initialReferenceDate,
+  showReadingsPanel = true,
 }: CurrentMassReflectionSectionProps) {
   const [selection, setSelection] = useState<MassReflectionSelection | null>(() =>
     selectMassReflectionForIsoDate(reflections, initialReferenceDate),
@@ -46,7 +48,11 @@ export function CurrentMassReflectionSection({
         </div>
       )}
 
-      <TodayMassReflectionFull reflection={selection.reflection} manuscript />
+      <TodayMassReflectionFull
+        reflection={selection.reflection}
+        manuscript
+        showReadingsPanel={showReadingsPanel}
+      />
     </section>
   );
 }

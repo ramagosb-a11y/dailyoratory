@@ -16,6 +16,13 @@
 - v5/v6/v7 layout: Step 1 now contains only the reading guidance, prayer, and USCCB link. The single daily editor sits directly below the current Mass reflection, with the **View Journal History** button immediately beneath the reflection. History appears after Scripture resources and immediately above the month calendar, with all entries newest-first and copy controls.
 - v8 visual adjustment: Simplified the Journal History container to the Step 2 navy treatment and limited ruled notebook styling to the individual saved-entry cards, matching the owner’s screenshot annotation.
 - v9 flow update: Ordered the page as Step 1 Daily Readings, Step 2 My Scripture Journal for Today, and Step 3 Mass Readings Reflections (Read · Reflect · Pray).
+- v10 focused removal: Hid the repeated Mass Readings reference card, official-reading/reflection buttons, and the note referring to those buttons on the Reading and Reflections review route. The reflection title, liturgical/date context, introduction, and complete reflection body remain; the original `/reflections/mass-readings` route keeps the card by default.
+- Scope check: The review route opts out of the panel explicitly; the original Mass Readings route uses the shared component default. The reflection body remains rendered unconditionally.
+- v11 disclosure: Made the Step 2 editor a native, expanded-by-default disclosure. Its Step 2 heading and local-storage summary remain visible when collapsed; the journal-history edit action opens it before returning focus to the word field.
+- v12 placement: Moved **View Journal History** directly beneath the journal form actions inside Step 2 and removed its former position under Step 3. The history destination itself remains above the month calendar.
+- v13 data source: Added a server-only, once-daily cached fetch of the USCCB English Daily Readings RSS feed. The route passes only the matching day's labels, citations, title, and official source URL to the client; RSS Bible text is parsed on the server and never rendered. Explore Scripture Further now prefers USCCB references, falls back only to a same-day reflection's references, and offers the direct USCCB daily page if neither source has usable data. No additional cron job or background service was added.
+- v13 verification status: The feed response was inspected during implementation; its dated USCCB reading links and escaped HTML heading/reference structure informed the parser. One fetch returned RSS XML; a repeated manual fetch returned a USCCB anti-bot HTML challenge, which this code rejects and handles with its fallback. `git diff --check` passed. Typecheck, build, automated tests, and a production/Vercel fetch check were not run; confirm Vercel can retrieve the feed before any release.
+- v11 local check: The review route returns HTTP 200 and its browser accessibility tree exposes the journal summary as an expanded disclosure, with both writing fields present. `git diff --check` passed; automated tests and build were not run for this small UI change.
 - Added reading-reference links for Douay-Rheims and Haydock where mapped, clear Haydock book-index fallback, New Advent Genesis 1, and HeavenBound resources.
 - Left `/reflections/mass-readings` source untouched; shared CSS selector now supports both h1 and h2 for the copied hero appearance.
 
@@ -28,6 +35,7 @@
 - `npm run validate:urls` — passed.
 - `npm run seo:preflight` — passed, 13/13 priority pages.
 - `git diff --check` — passed.
+- v10 change review: Confirmed only the review route disables the repeated panel and that the reflection body rendering is unchanged.
 - Targeted ESLint on changed source and test files — passed.
 - v2 UX / Formation review — independent read-only review; recommendations were incorporated, including improved journal-heading contrast and removal of conflicting shared styling. Reviewer notes are recorded in `REVIEWS.md`.
 - `npm run build` after v2 visual changes — passed; static generation and rendering strategy audit completed.

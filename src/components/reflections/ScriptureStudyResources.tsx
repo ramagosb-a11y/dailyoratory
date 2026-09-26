@@ -5,32 +5,42 @@ import { getScriptureStudyPassages } from "@/lib/scriptureSourceLinks";
 import { getCurrentSiteIsoDate, selectMassReflectionForIsoDate } from "@/lib/staticDailyContent";
 import type { ISODateString } from "@/types/content";
 import type { MassReadingsReflection } from "@/types/massReadingsReflections";
+import type { UsccbDailyReading } from "@/lib/usccbDailyReadings";
 import styles from "./ScriptureStudyResources.module.css";
 
 const heavenBoundUrl = "https://chatgpt.com/g/g-68858af32c348191bd1d17ae4c8bda79-heavenbound";
 const newAdventGenesisUrl = "https://www.newadvent.org/bible/gen001.htm";
+const usccbDailyReadingsUrl = "https://bible.usccb.org/daily-bible-reading";
 
 export function ScriptureStudyResources({
   reflections,
   initialReferenceDate,
+  usccbDailyReadings,
 }: {
   reflections: MassReadingsReflection[];
   initialReferenceDate: ISODateString;
+  usccbDailyReadings: UsccbDailyReading[];
 }) {
-  const [reflection, setReflection] = useState(() =>
-    selectMassReflectionForIsoDate(reflections, initialReferenceDate)?.reflection,
-  );
+  const [today, setToday] = useState(initialReferenceDate);
 
   useEffect(() => {
-    function refreshReflection() {
-      setReflection(selectMassReflectionForIsoDate(reflections, getCurrentSiteIsoDate())?.reflection);
+    function refreshDate() {
+      setToday(getCurrentSiteIsoDate());
     }
-    refreshReflection();
-    const interval = window.setInterval(refreshReflection, 15 * 60 * 1000);
+    refreshDate();
+    const interval = window.setInterval(refreshDate, 15 * 60 * 1000);
     return () => window.clearInterval(interval);
-  }, [reflections]);
+  }, []);
 
-  const passages = getScriptureStudyPassages(reflection?.readings ?? []);
+  const usccbDay = usccbDailyReadings.find((day) => day.date === today && day.readings.length > 0);
+  const reflectionSelection = selectMassReflectionForIsoDate(reflections, today);
+  const sameDayReflectionReadings = reflectionSelection?.mode === "today"
+    ? reflectionSelection.reflection?.readings ?? []
+    : [];
+  const usccbPassages = getScriptureStudyPassages(usccbDay?.readings ?? []);
+  const reflectionPassages = getScriptureStudyPassages(sameDayReflectionReadings);
+  const passages = usccbPassages.length > 0 ? usccbPassages : reflectionPassages;
+  const usingUsccbReferences = usccbPassages.length > 0;
 
   return (
     <section className={styles.studySection} aria-labelledby="scripture-study-title" data-guided-flow-card>
@@ -48,7 +58,13 @@ export function ScriptureStudyResources({
             <span className={styles.sectionNumber}>01</span>
             <div>
               <h3>Today’s readings</h3>
-              <p>Choose a passage, then compare the text or open commentary.</p>
+              <p>
+                Choose a passage, then compare the text or open commentary. {usingUsccbReferences && usccbDay ? (
+                  <>References from <a href={usccbDay.sourceUrl} target="_blank" rel="noopener noreferrer">USCCB Daily Readings</a> for {usccbDay.title}.</>
+                ) : (
+                  <>References from today’s Daily Oratory reflection; <a href={usccbDailyReadingsUrl} target="_blank" rel="noopener noreferrer">verify today’s readings with USCCB</a>.</>
+                )}
+              </p>
             </div>
           </div>
           <ul className={styles.passageList}>
@@ -75,7 +91,7 @@ export function ScriptureStudyResources({
         </div>
       ) : (
         <p className={styles.fallback}>
-          A current Mass reading reference is not available. You can still explore the Bible and commentary through these source indexes.
+          Today’s reading references could not be loaded. <a className="focus-ring" href={usccbDailyReadingsUrl} target="_blank" rel="noopener noreferrer">Open today’s official USCCB readings</a> to choose a passage.
         </p>
       )}
 
