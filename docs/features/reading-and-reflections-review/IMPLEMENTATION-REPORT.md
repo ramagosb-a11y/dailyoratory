@@ -1,8 +1,8 @@
 # Implementation report — Reading and Reflections review page
 
-**Status:** Implemented locally; awaiting owner review.
+**Status:** v13 is deployed to Production; v14 visual refinement is implemented locally and awaiting owner review.
 **Route:** `/reflections/reading-and-reflections`
-**Production:** No deployment, push, merge, or production route change was made.
+**Production v13:** Commit `7a109031bb332902bd702b2686cb1e02b65d30ba`, deployment `dpl_7oYaNAiSofeT2gVhfZjEBq2tTJ4w`.
 
 ## Delivered
 
@@ -21,6 +21,9 @@
 - v11 disclosure: Made the Step 2 editor a native, expanded-by-default disclosure. Its Step 2 heading and local-storage summary remain visible when collapsed; the journal-history edit action opens it before returning focus to the word field.
 - v12 placement: Moved **View Journal History** directly beneath the journal form actions inside Step 2 and removed its former position under Step 3. The history destination itself remains above the month calendar.
 - v13 data source: Added a server-only, once-daily cached fetch of the USCCB English Daily Readings RSS feed. The route passes only the matching day's labels, citations, title, and official source URL to the client; RSS Bible text is parsed on the server and never rendered. Explore Scripture Further now prefers USCCB references, falls back only to a same-day reflection's references, and offers the direct USCCB daily page if neither source has usable data. No additional cron job or background service was added.
+- v14 visual refinement: Removed all arrow glyphs from the Explore Scripture Further passage and study links, replacing them with short text calls to action. Refined passage actions as higher-contrast, rounded buttons and gave the Further Study cards clearer spacing, depth, and explicit destination labels. No link targets, devotional copy, journal behavior, or navigation changed.
+- v14 visual check: Reloaded the local review route and inspected Explore Scripture Further at a narrow viewport. The fallback state and Further Study cards render cleanly without external-link glyphs; New Advent and HeavenBound show clear text actions. The local page had no reading references, so passage-button appearance was reviewed from its component markup and styles rather than a rendered passage sample.
+- v14 release checks: `npm run build`, `npm run audit:client-stores`, `npm run validate:urls`, `npm run seo:preflight` (13/13 priority pages), and `npm run test:reading-and-reflections` (7/7) passed. Focused ESLint for `ScriptureStudyResources.tsx` passed. Full `npm run lint` still reports 44 errors and 36 warnings in unrelated existing repository files; no changed-file errors were reported.
 - v13 verification status: The feed response was inspected during implementation; its dated USCCB reading links and escaped HTML heading/reference structure informed the parser. One fetch returned RSS XML; a repeated manual fetch returned a USCCB anti-bot HTML challenge, which this code rejects and handles with its fallback. `git diff --check` passed. Typecheck, build, automated tests, and a production/Vercel fetch check were not run; confirm Vercel can retrieve the feed before any release.
 - v11 local check: The review route returns HTTP 200 and its browser accessibility tree exposes the journal summary as an expanded disclosure, with both writing fields present. `git diff --check` passed; automated tests and build were not run for this small UI change.
 - Added reading-reference links for Douay-Rheims and Haydock where mapped, clear Haydock book-index fallback, New Advent Genesis 1, and HeavenBound resources.

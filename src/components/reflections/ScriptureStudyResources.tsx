@@ -79,10 +79,14 @@ export function ScriptureStudyResources({
                 </div>
                 <div className={styles.actions}>
                   <a className={`focus-ring ${styles.resourceLink}`} href={passage.douayHref} target="_blank" rel="noopener noreferrer">
-                    <span>Compare translation</span><strong>Douay-Rheims <span aria-hidden="true">↗</span></strong>
+                    <span>Compare translation</span>
+                    <strong>Douay-Rheims</strong>
+                    <span className={styles.linkAction}>Open passage</span>
                   </a>
                   <a className={`focus-ring ${styles.resourceLink}`} href={passage.haydockHref} target="_blank" rel="noopener noreferrer">
-                    <span>{passage.haydockDirect ? "Read traditional notes" : "Open book and chapter index"}</span><strong>Haydock Commentary <span aria-hidden="true">↗</span></strong>
+                    <span>{passage.haydockDirect ? "Traditional notes" : "Book and chapter index"}</span>
+                    <strong>Haydock Commentary</strong>
+                    <span className={styles.linkAction}>{passage.haydockDirect ? "Open commentary" : "Browse commentary"}</span>
                   </a>
                 </div>
               </li>
@@ -107,14 +111,14 @@ export function ScriptureStudyResources({
           <a className={`focus-ring ${styles.studyCard}`} href={newAdventGenesisUrl} target="_blank" rel="noopener noreferrer">
             <span className={styles.cardKicker}>Bible reference library</span>
             <strong>New Advent Catholic Bible</strong>
-            <span>Open Genesis 1</span>
-            <span className={styles.cardArrow} aria-hidden="true">↗</span>
+            <span>Explore the opening chapter of Genesis.</span>
+            <span className={styles.cardAction}>Visit New Advent</span>
           </a>
           <a className={`focus-ring ${styles.studyCard}`} href={heavenBoundUrl} target="_blank" rel="noopener noreferrer">
             <span className={styles.cardKicker}>Guided study companion</span>
             <strong>Continue with HeavenBound</strong>
             <span>Explore biblical connections, linguistic study, and traditional commentary.</span>
-            <span className={styles.cardArrow} aria-hidden="true">↗</span>
+            <span className={styles.cardAction}>Open HeavenBound</span>
           </a>
         </div>
       </div>

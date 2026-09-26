@@ -22,39 +22,39 @@
 .subheadRow h3 { margin: 0; color: #fff6e4; font-family: var(--font-cormorant), Georgia, serif; font-size: 1.75rem; font-weight: 600; line-height: 1.15; }
 .subheadRow p { margin: .25rem 0 0; color: #d5d3cb; font-size: .9rem; line-height: 1.55; }
 .passageList { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: .9rem; margin: 0; padding: 0; list-style: none; }
-.passageCard { min-width: 0; padding: 1.15rem; border: 1px solid #d1bd91; border-radius: 6px; background: linear-gradient(145deg, #fffaf0, #f0e7d5); color: #26353b; box-shadow: inset 0 0 0 3px #fffdf8a6; }
+.passageCard { min-width: 0; padding: 1.15rem; border: 1px solid #d1bd91; border-radius: 10px; background: linear-gradient(145deg, #fffaf0, #f0e7d5); color: #26353b; box-shadow: inset 0 0 0 3px #fffdf8a6, 0 5px 14px #07192720; }
 .passageHeading { display: flex; align-items: center; gap: .75rem; padding-bottom: .8rem; border-bottom: 1px solid #d8c7a6; }
 .passageIndex { display: grid; flex: 0 0 auto; width: 2rem; height: 2rem; place-items: center; border-radius: 50%; background: #173246; color: #fff0cb; font-size: .72rem; font-weight: 800; }
 .passageLabel { margin: 0; color: #745a30; font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .passageHeading h4 { margin: .1rem 0 0; color: #172e3e; font-size: 1.05rem; font-weight: 750; line-height: 1.35; overflow-wrap: anywhere; }
-.actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin-top: .85rem; }
-.resourceLink { display: flex; min-width: 0; min-height: 76px; flex-direction: column; justify-content: center; gap: .3rem; padding: .7rem .75rem; border: 1px solid #d0c09e; border-radius: 4px; background: #fffdf8; color: #34454b; text-decoration: none; transition: border-color 120ms ease, background-color 120ms ease; }
-.resourceLink span { color: #655b49; font-size: .72rem; line-height: 1.35; }
-.resourceLink strong { color: #173246; font-size: .85rem; line-height: 1.35; }
-.resourceLink:hover { border-color: #9d783e; background: #fff6e4; }
-.resourceLink strong span { color: #8c6a35; font-size: .9rem; }
+.actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin-top: 1rem; }
+.resourceLink { display: flex; min-width: 0; min-height: 118px; flex-direction: column; align-items: flex-start; justify-content: center; gap: .38rem; padding: .9rem 1rem; border: 1px solid #c9b48a; border-radius: 9px; background: linear-gradient(145deg, #fffefa, #f8f0e2); color: #34454b; text-decoration: none; box-shadow: 0 2px 5px #1126350d; transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease; }
+.resourceLink > span:first-child { color: #655b49; font-size: .7rem; font-weight: 650; letter-spacing: .025em; line-height: 1.4; }
+.resourceLink strong { color: #173246; font-size: .98rem; line-height: 1.3; }
+.linkAction { margin-top: .1rem; border-bottom: 1px solid #b9934e; color: #735622; font-size: .75rem; font-weight: 750; line-height: 1.45; }
+.resourceLink:hover { transform: translateY(-1px); border-color: #9d783e; background: #fff8e9; box-shadow: 0 5px 12px #1126351a; }
 .fallback { margin: 1rem 0 0; padding: 1rem; border: 1px dashed #b9934e; background: #1b3444; color: #fff2d5; line-height: 1.65; }
 .fallback a,
 .subheadRow a { color: #ffe1a5; font-weight: 750; text-decoration: underline; text-underline-offset: .18em; }
 .furtherStudy { margin-top: 2.25rem; padding-top: 1.6rem; border-top: 1px solid #8b7959; }
 .studyCards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
-.studyCard { position: relative; display: flex; min-width: 0; min-height: 150px; flex-direction: column; align-items: flex-start; gap: .45rem; padding: 1.2rem 3rem 1.2rem 1.2rem; border: 1px solid #526777; border-radius: 6px; background: linear-gradient(135deg, #203a4a, #1a3241); color: #f0e8d8; text-decoration: none; transition: border-color 120ms ease, transform 120ms ease; }
-.studyCard:hover { transform: translateY(-2px); border-color: var(--gold); }
+.studyCard { display: flex; min-width: 0; min-height: 178px; flex-direction: column; align-items: flex-start; gap: .5rem; padding: 1.25rem; border: 1px solid #526777; border-radius: 10px; background: linear-gradient(145deg, #233e4f, #182f3e); color: #f0e8d8; text-decoration: none; box-shadow: inset 0 1px #ffffff10, 0 5px 14px #07192724; transition: border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease; }
+.studyCard:hover { transform: translateY(-2px); border-color: var(--gold); box-shadow: 0 9px 20px #07192740; }
 .studyCard strong { color: #fff6e4; font-family: var(--font-cormorant), Georgia, serif; font-size: 1.45rem; line-height: 1.15; }
-.studyCard > span:not(.cardKicker, .cardArrow) { color: #ddd7ca; font-size: .88rem; line-height: 1.55; }
+.studyCard > span:not(.cardKicker, .cardAction) { color: #ddd7ca; font-size: .88rem; line-height: 1.55; }
 .cardKicker { color: var(--gold); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-.cardArrow { position: absolute; top: 1.1rem; right: 1.2rem; color: var(--gold); font-size: 1.2rem; }
+.cardAction { margin-top: auto; padding-top: .3rem; border-bottom: 1px solid #edcf92; color: #ffe1a5; font-size: .8rem; font-weight: 750; line-height: 1.5; }
 .studySection a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
 
 @media (max-width: 560px) {
   .studySection { padding: 22px 17px; }
   .actions { grid-template-columns: 1fr; }
-  .resourceLink { min-height: 60px; }
+  .resourceLink { min-height: 104px; }
   .studyCards { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   .resourceLink, .studyCard { transition: none; }
-  .studyCard:hover { transform: none; }
+  .resourceLink:hover, .studyCard:hover { transform: none; }
 }
 @media (forced-colors: active) {
   .studySection, .passageCard, .resourceLink, .studyCard { border: 1px solid CanvasText; }
