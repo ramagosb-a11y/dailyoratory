@@ -3,6 +3,7 @@ import type { MassReadingReference } from "@/types/massReadingsReflections";
 export type ScriptureStudyPassage = {
   label: string;
   reference: string;
+  newAdventHref: string;
   douayHref: string;
   haydockHref: string;
   haydockDirect: boolean;
@@ -175,15 +176,38 @@ const referenceAliases: Record<string, string> = {
   apoc: "revelation",
 };
 
+const newAdventBookCodes: Record<string, string> = {
+  genesis: "gen", exodus: "exo", leviticus: "lev", numbers: "num", deuteronomy: "deu",
+  joshua: "jos", judges: "jdg", ruth: "rut", "1 samuel": "1sa", "2 samuel": "2sa",
+  "1 kings": "1ki", "2 kings": "2ki", "1 chronicles": "1ch", "2 chronicles": "2ch",
+  ezra: "ezr", nehemiah: "neh", tobit: "tob", tobías: "tob", judith: "jdt", esther: "est", job: "job",
+  psalm: "psa", psalms: "psa", proverbs: "pro", ecclesiastes: "ecc", "song of songs": "son",
+  "song of solomon": "son", canticles: "son", wisdom: "wis", sirach: "sir", ecclesiasticus: "sir",
+  isaiah: "isa", jeremiah: "jer", lamentations: "lam", baruch: "bar", ezekiel: "eze", daniel: "dan",
+  hosea: "hos", joel: "joe", amos: "amo", obadiah: "oba", jonah: "jon", micah: "mic", nahum: "nah",
+  habakkuk: "hab", zephaniah: "zep", haggai: "hag", zechariah: "zec", malachi: "mal",
+  "1 maccabees": "1ma", "2 maccabees": "2ma", matthew: "mat", mark: "mar", luke: "luk", john: "joh",
+  acts: "act", "acts of the apostles": "act", romans: "rom", "1 corinthians": "1co", "2 corinthians": "2co",
+  galatians: "gal", ephesians: "eph", philippians: "phi", colossians: "col", "1 thessalonians": "1th",
+  "2 thessalonians": "2th", "1 timothy": "1ti", "2 timothy": "2ti", titus: "tit", philemon: "phm",
+  hebrews: "heb", james: "jam", "1 peter": "1pe", "2 peter": "2pe", "1 john": "1jo", "2 john": "2jo",
+  "3 john": "3jo", jude: "jud", revelation: "rev", apocalypse: "rev",
+};
+
 // These direct Haydock chapter URLs were checked against the source site's own chapter navigation.
 const haydockDirectPages: Record<string, string> = {
   "acts 1": "https://johnblood.gitlab.io/haydock/id116.html",
   "acts 12": "https://johnblood.gitlab.io/haydock/id127.html",
   "ecclesiastes 3": "https://johnblood.gitlab.io/haydock/id1129.html",
+  "ecclesiastes 11": "https://johnblood.gitlab.io/haydock/id1137.html",
+  "ecclesiastes 12": "https://johnblood.gitlab.io/haydock/id1138.html",
   "genesis 1": "https://johnblood.gitlab.io/haydock/id327.html",
   "matthew 16": "https://johnblood.gitlab.io/haydock/id34.html",
   "matthew 28": "https://johnblood.gitlab.io/haydock/id46.html",
+  "psalm 90": "https://johnblood.gitlab.io/haydock/id814.html",
   "2 timothy 4": "https://johnblood.gitlab.io/haydock/id236.html",
+  "2 timothy 1": "https://johnblood.gitlab.io/haydock/id234.html",
+  "luke 9": "https://johnblood.gitlab.io/haydock/id73.html",
 };
 
 const haydockOldTestamentIndex = "https://johnblood.gitlab.io/haydock/id330.html";
@@ -204,12 +228,16 @@ export function getScriptureStudyPassages(readings: MassReadingReference[]): Scr
     const chapter = parsed!.chapter;
     const douayChapter = parsed!.book === "psalm" ? toDouayPsalmNumber(chapter) : chapter;
     const douayHref = `https://www.drbo.org/chapter/${String(bookNumber).padStart(2, "0")}${String(douayChapter).padStart(3, "0")}.htm`;
+    const newAdventCode = newAdventBookCodes[parsed!.book];
+    const newAdventChapter = parsed!.book === "psalm" ? toDouayPsalmNumber(chapter) : chapter;
+    const newAdventHref = `https://www.newadvent.org/bible/${newAdventCode}${String(newAdventChapter).padStart(3, "0")}.htm`;
     const haydockKey = `${parsed!.book} ${chapter}`;
     const haydockHref = haydockDirectPages[haydockKey] ?? (bookNumber <= 46 ? haydockOldTestamentIndex : haydockNewTestamentIndex);
 
     return {
       label: reading.label,
       reference,
+      newAdventHref,
       douayHref,
       haydockHref,
       haydockDirect: Boolean(haydockDirectPages[haydockKey]),

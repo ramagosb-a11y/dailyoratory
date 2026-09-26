@@ -157,6 +157,7 @@
 .journalSection .journalEyebrow { color: #edcf92; }
 .copyAllButton { flex: 0 0 auto; }
 .copyAllButton:global(.btn-secondary) { border-color: #a78a55; background: #fff6e4; color: #142b3a; }
+.collapseHistoryButton:global(.btn-secondary) { flex: 0 0 auto; border-color: #a78a55; background: #fff6e4; color: #142b3a; }
 .emptyState { margin: 1.25rem 0 0; padding: 1.2rem 1.3rem; border: 1px dashed #b9934e; background: #fffaf0d9; color: #403e37; line-height: 1.7; }
 .entryList { display: grid; gap: .75rem; margin-top: 1.2rem; }
 .entryCard { position: relative; padding: 1rem 1.1rem 1rem 1.35rem; border: 1px solid #d5c49f; border-radius: 3px; background: repeating-linear-gradient(to bottom, #fffaf0 0, #fffaf0 31px, #d9d3c5 32px, #fffaf0 33px); box-shadow: 3px 4px 0 #b7955440; }

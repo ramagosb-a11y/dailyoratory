@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import {
   getLocalCalendarDate,
   saveScriptureJournalEntry,
@@ -11,6 +11,27 @@ import styles from "./ScriptureJournal.module.css";
 
 const prayerId = "prayer-before-scripture";
 const readingGuideId = "daily-scripture-reading-guide";
+const ScriptureJournalHistoryContext = createContext<{
+  expanded: boolean;
+  toggle: () => void;
+} | null>(null);
+
+export function ScriptureJournalHistoryProvider({ children }: { children: ReactNode }) {
+  const [expanded, setExpanded] = useState(false);
+  const value = useMemo(() => ({ expanded, toggle: () => setExpanded((isExpanded) => !isExpanded) }), [expanded]);
+
+  return (
+    <ScriptureJournalHistoryContext.Provider value={value}>
+      {children}
+    </ScriptureJournalHistoryContext.Provider>
+  );
+}
+
+function useJournalHistoryDisclosure() {
+  const context = useContext(ScriptureJournalHistoryContext);
+  if (!context) throw new Error("ScriptureJournalHistoryProvider is required for the journal history controls.");
+  return context;
+}
 
 export function DailyReadingsJournalStep() {
   const [expandedGuide, setExpandedGuide] = useState(false);
@@ -169,16 +190,26 @@ export function DailyScriptureJournalEditor() {
 }
 
 export function JournalHistoryButton() {
+  const { expanded, toggle } = useJournalHistoryDisclosure();
+
   return (
     <div className={styles.historyJumpRow}>
-      <a className={`btn btn-secondary focus-ring ${styles.historyLink}`} href="#journal-history">
-        View Journal History ↓
-      </a>
+      <button
+        type="button"
+        className={`btn btn-secondary focus-ring ${styles.historyLink}`}
+        id="journal-history-toggle"
+        aria-expanded={expanded}
+        aria-controls="journal-history"
+        onClick={toggle}
+      >
+        {expanded ? "Hide Journal History ↑" : "View Journal History ↓"}
+      </button>
     </div>
   );
 }
 
 export function MyScriptureJournal() {
+  const { expanded, toggle } = useJournalHistoryDisclosure();
   const snapshot = useScriptureJournalStore();
   const [today, setToday] = useState<string | null>(null);
   const [copyMessage, setCopyMessage] = useState("");
@@ -213,7 +244,7 @@ export function MyScriptureJournal() {
   }
 
   return (
-    <section className={styles.journalSection} aria-labelledby="scripture-journal-title" id="journal-history" data-guided-flow-card tabIndex={-1}>
+    <section className={styles.journalSection} aria-labelledby="scripture-journal-title" id="journal-history" data-guided-flow-card hidden={!expanded}>
       <div className={styles.historyContent}>
         <div className={styles.journalHeadingRow}>
           <div>
@@ -230,6 +261,18 @@ export function MyScriptureJournal() {
               Copy all reflections
             </button>
           )}
+          <button
+            type="button"
+            className={`btn btn-secondary focus-ring ${styles.collapseHistoryButton}`}
+            aria-expanded={expanded}
+            aria-controls="journal-history"
+            onClick={() => {
+              toggle();
+              document.getElementById("journal-history-toggle")?.focus();
+            }}
+          >
+            Collapse journal history ↑
+          </button>
         </div>
         {snapshot.status === "corrupt" && (
           <p className={styles.storageNotice} role="status">Your saved journal could not be read. Its contents have been left untouched.</p>

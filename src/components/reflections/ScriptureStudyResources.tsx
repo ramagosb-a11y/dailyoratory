@@ -78,6 +78,11 @@ export function ScriptureStudyResources({
                   </div>
                 </div>
                 <div className={styles.actions}>
+                  <a className={`focus-ring ${styles.resourceLink}`} href={passage.newAdventHref} target="_blank" rel="noopener noreferrer">
+                    <span>Read this passage</span>
+                    <strong>New Advent Bible</strong>
+                    <span className={styles.linkAction}>Open chapter</span>
+                  </a>
                   <a className={`focus-ring ${styles.resourceLink}`} href={passage.douayHref} target="_blank" rel="noopener noreferrer">
                     <span>Compare translation</span>
                     <strong>Douay-Rheims</strong>
@@ -86,7 +91,7 @@ export function ScriptureStudyResources({
                   <a className={`focus-ring ${styles.resourceLink}`} href={passage.haydockHref} target="_blank" rel="noopener noreferrer">
                     <span>{passage.haydockDirect ? "Traditional notes" : "Book and chapter index"}</span>
                     <strong>Haydock Commentary</strong>
-                    <span className={styles.linkAction}>{passage.haydockDirect ? "Open commentary" : "Browse commentary"}</span>
+                    <span className={styles.linkAction}>{passage.haydockDirect ? "Open chapter notes" : "Open book index"}</span>
                   </a>
                 </div>
               </li>

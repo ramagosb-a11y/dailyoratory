@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CurrentMassReflectionSection } from "@/components/reflections/CurrentMassReflectionSection";
 import { ExternalReflectionResources } from "@/components/reflections/ExternalReflectionResources";
 import { MassReadingsGoogleCalendarEmbed } from "@/components/reflections/MassReadingsGoogleCalendarEmbed";
-import { DailyReadingsJournalStep, DailyScriptureJournalEditor, MyScriptureJournal } from "@/components/reflections/ScriptureJournalClient";
+import { DailyReadingsJournalStep, DailyScriptureJournalEditor, MyScriptureJournal, ScriptureJournalHistoryProvider } from "@/components/reflections/ScriptureJournalClient";
 import { ScriptureStudyResources } from "@/components/reflections/ScriptureStudyResources";
 import { UpcomingMassReflections } from "@/components/reflections/UpcomingMassReflections";
 import { SectionHeader } from "@/components/section-header";
@@ -33,8 +33,10 @@ export default async function ReadingAndReflectionsReviewPage() {
   return (
     <div className={styles.page}>
       <div className={styles.main} data-reflection-page-content>
+        <ScriptureJournalHistoryProvider>
         <DailyReadingsJournalStep />
         <DailyScriptureJournalEditor />
+        <MyScriptureJournal />
 
         <header className={styles.introduction}>
           <p className={styles.eyebrow}>Step 3 · Read · Reflect · Pray</p>
@@ -54,7 +56,6 @@ export default async function ReadingAndReflectionsReviewPage() {
           usccbDailyReadings={usccbDailyReadings}
         />
         <ExternalReflectionResources excludeResourceIds={["usccb-daily-readings"]} />
-        <MyScriptureJournal />
 
         <div id="reflection-calendar" data-jump-marker />
         <MassReadingsGoogleCalendarEmbed />
@@ -80,6 +81,7 @@ export default async function ReadingAndReflectionsReviewPage() {
             <UpcomingMassReflections reflections={scheduled.slice(0, 6)} />
           </div>
         </section>
+        </ScriptureJournalHistoryProvider>
       </div>
     </div>
   );
