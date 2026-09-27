@@ -2,11 +2,217 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { morningPrayers } from "@/data/morningPrayer";
 
-const stages = ["Presence", "Offering", "Purification", "Communion", "Protection", "Intercession"] as const;
+type PersonalPrayerListKind = "deceased" | "intentions";
+type PersonalPrayerEntry = { id: string; name: string };
+type PersonalPrayerSnapshot = { entries: PersonalPrayerEntry[]; storageAvailable: boolean };
 
+const personalPrayerChangeEvent = "daily-oratory-morning-prayer-list-change";
+const personalPrayerSnapshotCache = new Map<string, { raw: string | null; snapshot: PersonalPrayerSnapshot }>();
+const emptyPersonalPrayerSnapshot: PersonalPrayerSnapshot = { entries: [], storageAvailable: true };
+
+const personalPrayerLists: Record<PersonalPrayerListKind, { storageKey: string; prompt: string; kicker: string; helper: string; label: string; placeholder: string }> = {
+  deceased: {
+    storageKey: "daily-oratory-morning-prayer-deceased-v1",
+    prompt: "Remember loved ones who have passed away",
+    kicker: "A name held in prayer",
+    helper: "Keep their names close as you pray each morning.",
+    label: "Loved one’s name",
+    placeholder: "Enter a name",
+  },
+  intentions: {
+    storageKey: "daily-oratory-morning-prayer-intentions-v1",
+    prompt: "Add someone who is in need of prayer",
+    kicker: "An intention to remember",
+    helper: "Keep those in need present in your prayer.",
+    label: "Name or intention",
+    placeholder: "Enter a name or intention",
+  },
+};
+
+function readPersonalPrayerSnapshot(key: string): PersonalPrayerSnapshot {
+  let raw: string | null;
+  try {
+    raw = window.localStorage.getItem(key);
+  } catch {
+    const cached = personalPrayerSnapshotCache.get(key);
+    if (cached?.raw === null && !cached.snapshot.storageAvailable) return cached.snapshot;
+    const snapshot = { entries: [], storageAvailable: false };
+    personalPrayerSnapshotCache.set(key, { raw: null, snapshot });
+    return snapshot;
+  }
+
+  const cached = personalPrayerSnapshotCache.get(key);
+  if (cached?.raw === raw) return cached.snapshot;
+
+  let value: unknown = [];
+  try {
+    value = JSON.parse(raw ?? "[]");
+  } catch {
+    // Ignore malformed saved data without preventing the prayer or future edits.
+  }
+  const entries = Array.isArray(value) ? value.filter((entry): entry is PersonalPrayerEntry =>
+    typeof entry?.id === "string" && typeof entry?.name === "string" && entry.name.trim().length > 0,
+  ).slice(0, 50) : [];
+  const snapshot = { entries, storageAvailable: true };
+  personalPrayerSnapshotCache.set(key, { raw, snapshot });
+  return snapshot;
+}
+
+function subscribePersonalPrayerList(key: string, onChange: () => void) {
+  function handleStorage(event: StorageEvent) {
+    if (event.key === key || event.key === null) onChange();
+  }
+  function handleLocalChange(event: Event) {
+    if ((event as CustomEvent<string>).detail === key) onChange();
+  }
+  window.addEventListener("storage", handleStorage);
+  window.addEventListener(personalPrayerChangeEvent, handleLocalChange);
+  return () => {
+    window.removeEventListener("storage", handleStorage);
+    window.removeEventListener(personalPrayerChangeEvent, handleLocalChange);
+  };
+}
+
+function emitPersonalPrayerListChange(key: string) {
+  window.dispatchEvent(new CustomEvent(personalPrayerChangeEvent, { detail: key }));
+}
+
+function PersonalPrayerList({ kind }: { kind: PersonalPrayerListKind }) {
+  const config = personalPrayerLists[kind];
+  const snapshot = useSyncExternalStore(
+    (onChange) => subscribePersonalPrayerList(config.storageKey, onChange),
+    () => readPersonalPrayerSnapshot(config.storageKey),
+    () => emptyPersonalPrayerSnapshot,
+  );
+  const { entries, storageAvailable } = snapshot;
+  const [expanded, setExpanded] = useState(false);
+  const [draft, setDraft] = useState("");
+  const [editingId, setEditingId] = useState<string | null>(null);
+
+  function persist(nextEntries: PersonalPrayerEntry[]) {
+    try {
+      window.localStorage.setItem(config.storageKey, JSON.stringify(nextEntries));
+      personalPrayerSnapshotCache.delete(config.storageKey);
+    } catch {
+      let raw: string | null = null;
+      try {
+        raw = window.localStorage.getItem(config.storageKey);
+      } catch {
+        // Keep the in-memory change visible when storage access itself is blocked.
+      }
+      personalPrayerSnapshotCache.set(config.storageKey, {
+        raw,
+        snapshot: { entries: nextEntries, storageAvailable: false },
+      });
+    }
+    emitPersonalPrayerListChange(config.storageKey);
+  }
+
+  function saveEntry(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const name = draft.trim();
+    if (!name) return;
+    if (editingId) {
+      persist(entries.map((entry) => entry.id === editingId ? { ...entry, name } : entry));
+    } else if (entries.length < 50) {
+      persist([...entries, { id: crypto.randomUUID(), name }]);
+    }
+    setDraft("");
+    setEditingId(null);
+  }
+
+  function beginEdit(entry: PersonalPrayerEntry) {
+    setEditingId(entry.id);
+    setDraft(entry.name);
+  }
+
+  function cancelEdit() {
+    setEditingId(null);
+    setDraft("");
+  }
+
+  return (
+    <section className="mt-10 overflow-hidden rounded-[1.75rem] border border-[#D8CDB9] bg-[#FFFDF7] shadow-[0_12px_32px_rgba(13,32,56,0.08)]" aria-label={config.prompt}>
+      <button
+        type="button"
+        aria-expanded={expanded}
+        onClick={() => setExpanded((value) => !value)}
+        className="focus-ring group flex min-h-12 w-full items-center justify-between gap-4 px-5 py-5 text-left transition-colors hover:bg-[#F3EAD8]/45 sm:px-6 sm:py-6"
+      >
+        <span className="flex min-w-0 items-center gap-4">
+          <span aria-hidden="true" className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-[#BD8A2F]/30 bg-[radial-gradient(circle_at_35%_30%,#fffdf7_0%,#f3ead8_72%)] shadow-inner">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#BD8A2F] shadow-[0_0_0_5px_rgba(189,138,47,0.12)]" />
+          </span>
+          <span className="min-w-0">
+            <span className="block text-[10px] font-bold uppercase tracking-[0.22em] text-[#9A6A1B]">{config.kicker}</span>
+            <span className="mt-1 block font-serif text-xl font-semibold leading-tight text-[#0D2038] sm:text-2xl">{config.prompt}</span>
+            <span className="mt-1.5 block text-sm leading-5 text-[#5B5145]">{config.helper}</span>
+          </span>
+        </span>
+        <span aria-hidden="true" className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[#D8CDB9] font-serif text-xl leading-none text-[#7A2533] transition-colors group-hover:border-[#BD8A2F] group-hover:bg-[#F3EAD8]/70">
+          {expanded ? "−" : "+"}
+        </span>
+      </button>
+      {expanded ? (
+        <div className="border-t border-[#D8CDB9]/80 bg-gradient-to-b from-[#F3EAD8]/50 to-[#FFFDF7] px-5 pb-5 pt-4 sm:px-6 sm:pb-6">
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
+            <h2 className="font-serif text-lg font-semibold text-[#0D2038]">Your prayer list</h2>
+            <span className="rounded-full border border-[#D8CDB9] bg-[#FFFDF7]/80 px-3 py-1 text-[11px] font-semibold text-[#5B5145]">
+              Saved in this browser
+            </span>
+          </div>
+          {!storageAvailable ? <p role="status" className="mb-3 rounded-xl border border-[#BD8A2F]/35 bg-[#FFFDF7] px-4 py-3 text-sm text-[#5B5145]">Browser storage is unavailable. Your changes will not be saved after you leave this page.</p> : null}
+          {entries.length > 0 ? (
+            <ul className="mb-5 space-y-2.5">
+              {entries.map((entry) => (
+                <li key={entry.id} className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#E6DDCD] bg-[#FFFDF7] px-4 py-3.5 text-[#172033] shadow-[0_3px_12px_rgba(13,32,56,0.04)] sm:px-5">
+                  <span className="flex min-w-0 flex-1 items-center gap-3 break-words font-medium">
+                    <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#F3EAD8]"><span className="h-1.5 w-1.5 rounded-full bg-[#BD8A2F]" /></span>
+                    {entry.name}
+                  </span>
+                  <span className="flex shrink-0 gap-2">
+                    <button type="button" onClick={() => beginEdit(entry)} className="focus-ring min-h-10 rounded-full px-3 text-sm font-semibold text-[#7A2533] transition-colors hover:bg-[#F3EAD8]">Edit <span className="sr-only">{entry.name}</span></button>
+                    <button type="button" onClick={() => { persist(entries.filter((item) => item.id !== entry.id)); if (editingId === entry.id) cancelEdit(); }} className="focus-ring min-h-10 rounded-full px-3 text-sm font-semibold text-[#5B5145] transition-colors hover:bg-[#F3EAD8] hover:text-[#7A2533]">Remove <span className="sr-only">{entry.name}</span></button>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="mb-5 flex items-center gap-3 rounded-2xl border border-dashed border-[#D8CDB9] bg-[#FFFDF7]/70 px-4 py-4 text-sm text-[#5B5145]">
+              <span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#F3EAD8]"><span className="h-1.5 w-1.5 rounded-full bg-[#BD8A2F]" /></span>
+              <span>Your list is ready when you are. Add a name to keep it close in prayer.</span>
+            </div>
+          )}
+          <form onSubmit={saveEntry} className="rounded-2xl border border-[#E6DDCD] bg-[#FFFDF7] p-3 shadow-[0_4px_16px_rgba(13,32,56,0.05)] sm:flex sm:items-end sm:gap-3 sm:p-4">
+            <div className="flex-1">
+              <label htmlFor={`personal-prayer-${kind}`} className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-[#5B5145]">{config.label}</label>
+              <input
+                id={`personal-prayer-${kind}`}
+                value={draft}
+                onChange={(event) => setDraft(event.target.value.slice(0, 120))}
+                maxLength={120}
+                placeholder={config.placeholder}
+                required
+                className="focus-ring min-h-12 w-full rounded-xl border border-[#C9B99E] bg-white px-4 py-3 text-base text-[#172033] placeholder:text-[#746B60] shadow-inner shadow-[#0D2038]/[0.025]"
+              />
+            </div>
+            <div className="mt-2 flex gap-2 sm:mt-0">
+              {editingId ? <button type="button" onClick={cancelEdit} className="focus-ring min-h-12 rounded-full border border-[#D8CDB9] px-5 py-3 text-sm font-semibold text-[#0D2038] transition-colors hover:bg-[#F3EAD8]">Cancel</button> : null}
+              <button type="submit" disabled={!editingId && entries.length >= 50} className="focus-ring inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full bg-[#7A2533] px-6 py-3 text-sm font-bold text-white shadow-[0_4px_12px_rgba(122,37,51,0.18)] transition hover:bg-[#65202B] hover:shadow-md disabled:cursor-not-allowed disabled:opacity-60 sm:flex-none">
+                {editingId ? "Save changes" : "Add to list"}
+              </button>
+            </div>
+          </form>
+          {entries.length >= 50 && !editingId ? <p className="mt-3 text-sm text-[#5B5145]">You can save up to 50 entries in this list.</p> : null}
+          <p className="mt-3 text-center text-xs leading-5 text-[#5B5145]">Private to this browser · Not sent to Daily Oratory</p>
+        </div>
+      ) : null}
+    </section>
+  );
+}
 
 function Arrow({ direction = "right" }: { direction?: "left" | "right" }) {
   return (
@@ -17,17 +223,16 @@ function Arrow({ direction = "right" }: { direction?: "left" | "right" }) {
 }
 
 export function MorningPrayerExperience() {
-  const [currentPrayer, setCurrentPrayer] = useState(-1);
+  const [currentPrayer, setCurrentPrayer] = useState(0);
   const [silenceSeconds, setSilenceSeconds] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
-  const isIntro = currentPrayer === -1;
   const isSilence = currentPrayer === morningPrayers.length;
-  const prayer = !isIntro && !isSilence ? morningPrayers[currentPrayer] : null;
+  const prayer = !isSilence ? morningPrayers[currentPrayer] : null;
 
   const moveTo = useCallback((index: number) => {
-    setCurrentPrayer(Math.max(-1, Math.min(index, morningPrayers.length)));
+    setCurrentPrayer(Math.max(0, Math.min(index, morningPrayers.length)));
   }, []);
 
   const next = useCallback(() => moveTo(currentPrayer + 1), [currentPrayer, moveTo]);
@@ -41,13 +246,10 @@ export function MorningPrayerExperience() {
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      if (isIntro && (event.key === "Enter" || event.key === " ")) {
-        event.preventDefault();
-        moveTo(0);
-      } else if (!isIntro && !isSilence && (event.key === "ArrowRight" || event.key === "PageDown")) {
+      if (!isSilence && (event.key === "ArrowRight" || event.key === "PageDown")) {
         event.preventDefault();
         next();
-      } else if (!isIntro && !isSilence && (event.key === "ArrowLeft" || event.key === "PageUp")) {
+      } else if (!isSilence && (event.key === "ArrowLeft" || event.key === "PageUp")) {
         event.preventDefault();
         previous();
       }
@@ -55,7 +257,7 @@ export function MorningPrayerExperience() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isIntro, isSilence, moveTo, next, previous]);
+  }, [isSilence, next, previous]);
 
   useEffect(() => {
     if (!timerRunning || silenceSeconds <= 0) return;
@@ -74,48 +276,6 @@ export function MorningPrayerExperience() {
   function beginSilence(minutes: number) {
     setSilenceSeconds(minutes * 60);
     setTimerRunning(true);
-  }
-
-  if (isIntro) {
-    return (
-      <div className="relative min-h-[100svh] overflow-hidden bg-[#0D2038] text-[#FFFDF7]">
-        <Image
-          src="/images/morning-prayers/sign-of-the-cross.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-55"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(13,32,56,0.98)_0%,rgba(13,32,56,0.84)_52%,rgba(13,32,56,0.5)_100%)]" />
-        <div className="relative flex min-h-[100svh] flex-col">
-          <div className="flex items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
-            <span className="font-serif text-lg uppercase tracking-[0.2em] text-[#D6AA54]">Daily Oratory</span>
-            <Link href="/" className="focus-ring rounded-md text-sm font-semibold text-[#FFFDF7]/80 hover:text-white">
-              Exit Prayer
-            </Link>
-          </div>
-          <main className="flex flex-1 items-center px-5 pb-16 pt-6 sm:px-8 lg:px-12">
-            <div className="max-w-2xl">
-              <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#D6AA54]">A Daily Act of Consecration</p>
-              <h1 ref={headingRef} tabIndex={-1} className="mt-5 font-serif text-5xl font-semibold leading-[0.95] outline-none sm:text-7xl lg:text-8xl">
-                Morning Prayer
-              </h1>
-              <p className="mt-6 max-w-xl font-serif text-xl leading-9 text-[#F3EAD8] sm:text-2xl">
-                Enter God’s presence. Offer the day. Receive His grace. Place those you love in His hands.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#F3EAD8]/75">
-                {stages.map((stage) => <span key={stage} className="rounded-full border border-[#D6AA54]/35 bg-[#0D2038]/55 px-3 py-1.5">{stage}</span>)}
-              </div>
-              <button onClick={() => moveTo(0)} className="focus-ring mt-10 inline-flex min-h-14 items-center gap-3 rounded-full bg-[#BD8A2F] px-8 py-4 text-sm font-bold uppercase tracking-[0.16em] text-[#0D2038] shadow-xl transition hover:bg-[#D6AA54]">
-                Begin Morning Prayer <Arrow />
-              </button>
-              <p className="mt-5 text-sm text-[#F3EAD8]/65">{morningPrayers.length} prayers · approximately 12 minutes</p>
-            </div>
-          </main>
-        </div>
-      </div>
-    );
   }
 
   if (isSilence) {
@@ -208,12 +368,14 @@ export function MorningPrayerExperience() {
               <h1 ref={headingRef} tabIndex={-1} className="mt-7 font-serif text-4xl font-semibold leading-[1.03] text-[#0D2038] outline-none sm:text-5xl xl:text-6xl">{prayer.title}</h1>
               <div className="my-7 flex items-center gap-3" aria-hidden="true"><span className="h-px flex-1 bg-[#D8CDB9]" /><span className="text-[#BD8A2F]">✦</span><span className="h-px flex-1 bg-[#D8CDB9]" /></div>
               <p className="whitespace-pre-line font-serif text-[1.35rem] leading-[1.75] text-[#172033] sm:text-[1.55rem] sm:leading-[1.8] xl:text-[1.65rem]">{prayer.text}</p>
+              {prayer.id === "offering-of-indulgences" ? <PersonalPrayerList kind="deceased" /> : null}
+              {prayer.id === "special-intentions" ? <PersonalPrayerList kind="intentions" /> : null}
             </div>
           </article>
 
           <nav aria-label="Morning prayer navigation" className="sticky bottom-0 z-30 border-t border-[#D8CDB9] bg-[#FFFDF7]/96 px-4 pt-3 shadow-[0_-12px_28px_rgba(13,32,56,0.1)] backdrop-blur [padding-bottom:calc(0.75rem+env(safe-area-inset-bottom))] sm:px-8 lg:rounded-b-[2rem] lg:px-10">
             <div className="mx-auto flex max-w-3xl gap-3">
-              <button onClick={previous} className="focus-ring inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full border border-[#BD8A2F] px-4 py-3 text-sm font-semibold text-[#0D2038] hover:bg-[#F3EAD8] sm:min-h-14 sm:px-7">
+              <button onClick={previous} disabled={currentPrayer === 0} className="focus-ring inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full border border-[#BD8A2F] px-4 py-3 text-sm font-semibold text-[#0D2038] hover:bg-[#F3EAD8] disabled:cursor-not-allowed disabled:opacity-45 sm:min-h-14 sm:px-7">
                 <Arrow direction="left" /> Previous
               </button>
               <button onClick={next} className="focus-ring inline-flex min-h-12 flex-[1.2] items-center justify-center gap-2 rounded-full bg-[#7A2533] px-4 py-3 text-sm font-bold text-white shadow-md hover:bg-[#65202B] sm:min-h-14 sm:px-8">

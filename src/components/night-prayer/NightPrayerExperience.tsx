@@ -66,8 +66,6 @@ Into Thy hands, O Lord, I commend my spirit.`,
   },
 ] as const;
 
-const stages = ["Christ", "Guardian Angel", "Our Lady", "Saint Michael"] as const;
-
 function Arrow({ direction = "right" }: { direction?: "left" | "right" }) {
   return (
     <svg aria-hidden="true" className={`h-4 w-4 ${direction === "left" ? "rotate-180" : ""}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -77,15 +75,14 @@ function Arrow({ direction = "right" }: { direction?: "left" | "right" }) {
 }
 
 export function NightPrayerExperience() {
-  const [currentPrayer, setCurrentPrayer] = useState(-1);
+  const [currentPrayer, setCurrentPrayer] = useState(0);
   const headingRef = useRef<HTMLHeadingElement>(null);
 
-  const isIntro = currentPrayer === -1;
   const isComplete = currentPrayer === nightPrayers.length;
-  const prayer = !isIntro && !isComplete ? nightPrayers[currentPrayer] : null;
+  const prayer = !isComplete ? nightPrayers[currentPrayer] : null;
 
   const moveTo = useCallback((index: number) => {
-    setCurrentPrayer(Math.max(-1, Math.min(index, nightPrayers.length)));
+    setCurrentPrayer(Math.max(0, Math.min(index, nightPrayers.length)));
   }, []);
 
   const next = useCallback(() => moveTo(currentPrayer + 1), [currentPrayer, moveTo]);
@@ -99,13 +96,10 @@ export function NightPrayerExperience() {
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      if (isIntro && (event.key === "Enter" || event.key === " ")) {
-        event.preventDefault();
-        moveTo(0);
-      } else if (!isIntro && !isComplete && (event.key === "ArrowRight" || event.key === "PageDown")) {
+      if (!isComplete && (event.key === "ArrowRight" || event.key === "PageDown")) {
         event.preventDefault();
         next();
-      } else if (!isIntro && !isComplete && (event.key === "ArrowLeft" || event.key === "PageUp")) {
+      } else if (!isComplete && (event.key === "ArrowLeft" || event.key === "PageUp")) {
         event.preventDefault();
         previous();
       }
@@ -113,41 +107,7 @@ export function NightPrayerExperience() {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [isComplete, isIntro, moveTo, next, previous]);
-
-  if (isIntro) {
-    return (
-      <div className="relative min-h-[100svh] overflow-hidden bg-[#050B14] text-[#FFFDF7]">
-        <Image src={nightPrayerImage} alt="" fill priority sizes="100vw" className="object-cover object-[center_34%] opacity-65" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,11,20,0.98)_0%,rgba(5,11,20,0.9)_45%,rgba(5,11,20,0.45)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_35%,rgba(198,151,58,0.1),transparent_35%)]" />
-        <div className="relative flex min-h-[100svh] flex-col">
-          <div className="flex items-center justify-between px-5 py-5 sm:px-8 lg:px-12">
-            <span className="font-serif text-lg uppercase tracking-[0.2em] text-[#D6AA54]">Daily Oratory</span>
-            <Link href="/" className="focus-ring rounded-md text-sm font-semibold text-[#FFFDF7]/80 hover:text-white">Exit Prayer</Link>
-          </div>
-          <div className="flex flex-1 items-center px-5 pb-16 pt-6 sm:px-8 lg:px-12">
-            <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[0.32em] text-[#D6AA54]">A Catholic Prayer Before Sleep</p>
-              <h1 ref={headingRef} tabIndex={-1} className="mt-5 font-serif text-5xl font-semibold leading-[0.94] outline-none sm:text-7xl lg:text-8xl">
-                Night Prayer
-              </h1>
-              <p className="mt-6 max-w-2xl font-serif text-xl leading-9 text-[#F3EAD8] sm:text-2xl">
-                Place yourself beneath the protection of Christ. Entrust your sleep, your dreams, and those you love to His care.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#F3EAD8]/75">
-                {stages.map((stage) => <span key={stage} className="rounded-full border border-[#D6AA54]/35 bg-[#071426]/65 px-3 py-1.5">{stage}</span>)}
-              </div>
-              <button onClick={() => moveTo(0)} className="focus-ring mt-10 inline-flex min-h-14 items-center gap-3 rounded-full bg-[#D6AA54] px-8 py-4 text-sm font-bold uppercase tracking-[0.16em] text-[#071426] shadow-xl transition hover:bg-[#E8C575]">
-                Begin Night Prayer <Arrow />
-              </button>
-              <p className="mt-5 text-sm text-[#F3EAD8]/65">3 prayer movements · approximately 6 minutes</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  }, [isComplete, next, previous]);
 
   if (isComplete) {
     return (
@@ -211,7 +171,7 @@ export function NightPrayerExperience() {
 
           <nav aria-label="Night prayer navigation" className="sticky bottom-0 z-30 border-t border-[#D8CDB9] bg-[#FFFDF7]/96 px-4 pt-3 shadow-[0_-12px_28px_rgba(13,32,56,0.1)] backdrop-blur [padding-bottom:calc(0.75rem+env(safe-area-inset-bottom))] sm:px-8 lg:rounded-b-[2rem] lg:px-10">
             <div className="mx-auto flex max-w-3xl gap-3">
-              <button onClick={previous} className="focus-ring inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full border border-[#BD8A2F] px-4 py-3 text-sm font-semibold text-[#0D2038] hover:bg-[#F3EAD8] sm:min-h-14 sm:px-7"><Arrow direction="left" /> Previous</button>
+              <button onClick={previous} disabled={currentPrayer === 0} className="focus-ring inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full border border-[#BD8A2F] px-4 py-3 text-sm font-semibold text-[#0D2038] hover:bg-[#F3EAD8] disabled:cursor-not-allowed disabled:opacity-45 sm:min-h-14 sm:px-7"><Arrow direction="left" /> Previous</button>
               <button onClick={next} className="focus-ring inline-flex min-h-12 flex-[1.2] items-center justify-center gap-2 rounded-full bg-[#7A2533] px-4 py-3 text-sm font-bold text-white shadow-md hover:bg-[#65202B] sm:min-h-14 sm:px-8">
                 {currentPrayer === nightPrayers.length - 1 ? "Entrust the Night" : "Continue"} <Arrow />
               </button>
