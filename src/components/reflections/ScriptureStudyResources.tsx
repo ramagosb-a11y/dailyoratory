@@ -78,21 +78,13 @@ export function ScriptureStudyResources({
                   </div>
                 </div>
                 <div className={styles.actions}>
-                  <a className={`focus-ring ${styles.resourceLink}`} href={passage.newAdventHref} target="_blank" rel="noopener noreferrer">
-                    <span>Read this passage</span>
-                    <strong>New Advent Bible</strong>
-                    <span className={styles.linkAction}>Open chapter</span>
-                  </a>
-                  <a className={`focus-ring ${styles.resourceLink}`} href={passage.douayHref} target="_blank" rel="noopener noreferrer">
-                    <span>Compare translation</span>
-                    <strong>Douay-Rheims</strong>
-                    <span className={styles.linkAction}>Open passage</span>
-                  </a>
-                  <a className={`focus-ring ${styles.resourceLink}`} href={passage.haydockHref} target="_blank" rel="noopener noreferrer">
-                    <span>{passage.haydockDirect ? "Traditional notes" : "Book and chapter index"}</span>
-                    <strong>Haydock Commentary</strong>
-                    <span className={styles.linkAction}>{passage.haydockDirect ? "Open chapter notes" : "Open book index"}</span>
-                  </a>
+                  <StudyLinkCard kicker="Read this passage" title="New Advent Bible" targets={passage.newAdventTargets} />
+                  <StudyLinkCard kicker="Compare translation" title="Douay-Rheims" targets={passage.douayTargets} />
+                  <StudyLinkCard
+                    kicker={passage.haydockDirect ? "Traditional notes" : "Book and chapter index"}
+                    title="Haydock Commentary"
+                    targets={passage.haydockTargets}
+                  />
                 </div>
               </li>
             ))}
@@ -128,5 +120,39 @@ export function ScriptureStudyResources({
         </div>
       </div>
     </section>
+  );
+}
+
+function StudyLinkCard({
+  kicker,
+  title,
+  targets,
+}: {
+  kicker: string;
+  title: string;
+  targets: Array<{ href: string; label: string }>;
+}) {
+  if (targets.length === 1) {
+    return (
+      <a className={`focus-ring ${styles.resourceLink}`} href={targets[0].href} target="_blank" rel="noopener noreferrer">
+        <span>{kicker}</span>
+        <strong>{title}</strong>
+        <span className={styles.linkAction}>{targets[0].label}</span>
+      </a>
+    );
+  }
+
+  return (
+    <div className={styles.resourceLink}>
+      <span>{kicker}</span>
+      <strong>{title}</strong>
+      <div className={styles.resourceTargets}>
+        {targets.map((target) => (
+          <a key={`${target.href}-${target.label}`} className={`focus-ring ${styles.linkAction}`} href={target.href} target="_blank" rel="noopener noreferrer">
+            {target.label}
+          </a>
+        ))}
+      </div>
+    </div>
   );
 }

@@ -1,11 +1,16 @@
 import type { MassReadingReference } from "@/types/massReadingsReflections";
+import haydockChapterMap from "./haydockChapterLinks.generated.json" with { type: "json" };
+
+const haydockChapterLinks: Record<string, string> = haydockChapterMap.chapters;
+
+export type ScriptureStudyTarget = { href: string; label: string };
 
 export type ScriptureStudyPassage = {
   label: string;
   reference: string;
-  newAdventHref: string;
-  douayHref: string;
-  haydockHref: string;
+  newAdventTargets: ScriptureStudyTarget[];
+  douayTargets: ScriptureStudyTarget[];
+  haydockTargets: ScriptureStudyTarget[];
   haydockDirect: boolean;
 };
 
@@ -194,22 +199,6 @@ const newAdventBookCodes: Record<string, string> = {
   "3 john": "3jo", jude: "jud", revelation: "rev", apocalypse: "rev",
 };
 
-// These direct Haydock chapter URLs were checked against the source site's own chapter navigation.
-const haydockDirectPages: Record<string, string> = {
-  "acts 1": "https://johnblood.gitlab.io/haydock/id116.html",
-  "acts 12": "https://johnblood.gitlab.io/haydock/id127.html",
-  "ecclesiastes 3": "https://johnblood.gitlab.io/haydock/id1129.html",
-  "ecclesiastes 11": "https://johnblood.gitlab.io/haydock/id1137.html",
-  "ecclesiastes 12": "https://johnblood.gitlab.io/haydock/id1138.html",
-  "genesis 1": "https://johnblood.gitlab.io/haydock/id327.html",
-  "matthew 16": "https://johnblood.gitlab.io/haydock/id34.html",
-  "matthew 28": "https://johnblood.gitlab.io/haydock/id46.html",
-  "psalm 90": "https://johnblood.gitlab.io/haydock/id814.html",
-  "2 timothy 4": "https://johnblood.gitlab.io/haydock/id236.html",
-  "2 timothy 1": "https://johnblood.gitlab.io/haydock/id234.html",
-  "luke 9": "https://johnblood.gitlab.io/haydock/id73.html",
-};
-
 const haydockOldTestamentIndex = "https://johnblood.gitlab.io/haydock/id330.html";
 const haydockNewTestamentIndex = "https://johnblood.gitlab.io/haydock/index.html";
 
@@ -225,43 +214,109 @@ export function getScriptureStudyPassages(readings: MassReadingReference[]): Scr
 
   return passages.map(({ reading, reference, parsed }) => {
     const bookNumber = douayBookNumbers[parsed!.book];
-    const chapter = parsed!.chapter;
-    const douayChapter = parsed!.book === "psalm" ? toDouayPsalmNumber(chapter) : chapter;
-    const douayHref = `https://www.drbo.org/chapter/${String(bookNumber).padStart(2, "0")}${String(douayChapter).padStart(3, "0")}.htm`;
+    const chapterTargets = parsed!.book === "psalm"
+      ? getDouayPsalmChapters(parsed!.chapter, parsed!.verses)
+      : [{ chapter: parsed!.chapter, detail: "" }];
     const newAdventCode = newAdventBookCodes[parsed!.book];
-    const newAdventChapter = parsed!.book === "psalm" ? toDouayPsalmNumber(chapter) : chapter;
-    const newAdventHref = `https://www.newadvent.org/bible/${newAdventCode}${String(newAdventChapter).padStart(3, "0")}.htm`;
-    const haydockKey = `${parsed!.book} ${chapter}`;
-    const haydockHref = haydockDirectPages[haydockKey] ?? (bookNumber <= 46 ? haydockOldTestamentIndex : haydockNewTestamentIndex);
+    const fallbackIndex = bookNumber <= 46 ? haydockOldTestamentIndex : haydockNewTestamentIndex;
+    const newAdventTargets = chapterTargets.map(({ chapter, detail }) => ({
+      href: `https://www.newadvent.org/bible/${newAdventCode}${String(chapter).padStart(3, "0")}.htm`,
+      label: getTargetLabel("newadvent", parsed!.book, parsed!.chapter, chapter, detail),
+    }));
+    const douayTargets = chapterTargets.map(({ chapter, detail }) => ({
+      href: `https://www.drbo.org/chapter/${String(bookNumber).padStart(2, "0")}${String(chapter).padStart(3, "0")}.htm`,
+      label: getTargetLabel("douay", parsed!.book, parsed!.chapter, chapter, detail),
+    }));
+    const haydockTargets = chapterTargets.map(({ chapter, detail }) => {
+      const href = haydockChapterLinks[`${parsed!.book}:${chapter}`];
+      return {
+        href: href ?? fallbackIndex,
+        label: href
+          ? getTargetLabel("haydock", parsed!.book, parsed!.chapter, chapter, detail)
+          : `Choose chapter in the ${bookNumber <= 46 ? "Old Testament" : "New Testament"} index`,
+      };
+    });
 
     return {
       label: reading.label,
       reference,
-      newAdventHref,
-      douayHref,
-      haydockHref,
-      haydockDirect: Boolean(haydockDirectPages[haydockKey]),
+      newAdventTargets,
+      douayTargets,
+      haydockTargets,
+      haydockDirect: haydockTargets.every((target) => !target.label.startsWith("Choose chapter")),
     };
   });
 }
 
 function parseReference(reference: string) {
   const normalized = reference.replace(/[–—]/g, "-").replace(/\s+/g, " ").trim();
-  const match = normalized.match(/^(.+?)\s+(\d+)(?:\s*[:.].*)?$/);
+  const match = normalized.match(/^(.+?)\s+(\d+)(?:\s*[:.]\s*(.*))?$/);
   if (!match) return null;
 
   const sourceBook = match[1].toLowerCase().replace(/\.$/, "");
   const book = referenceAliases[sourceBook] ?? sourceBook;
   if (!(book in douayBookNumbers)) return null;
-  return { book, chapter: Number(match[2]) };
+  return { book, chapter: Number(match[2]), verses: match[3] ?? "" };
 }
 
-function toDouayPsalmNumber(modernNumber: number) {
-  if (modernNumber <= 8) return modernNumber;
-  if (modernNumber <= 10) return 9;
-  if (modernNumber <= 113) return modernNumber - 1;
-  if (modernNumber <= 115) return 113;
-  if (modernNumber <= 146) return modernNumber - 1;
-  if (modernNumber === 147) return 146;
-  return modernNumber;
+function getDouayPsalmChapters(modernNumber: number, verseText: string) {
+  if (modernNumber === 116 || modernNumber === 147) {
+    const splitAt = modernNumber === 116 ? 9 : 11;
+    const firstChapter = modernNumber === 116 ? 114 : 146;
+    const secondChapter = modernNumber === 116 ? 115 : 147;
+    const ranges = parseVerseRanges(verseText);
+    if (ranges.length === 0) {
+      return [
+        { chapter: firstChapter, detail: "first part" },
+        { chapter: secondChapter, detail: "second part" },
+      ];
+    }
+    const firstPart = ranges.filter((range) => range.start <= splitAt).map((range) => ({
+      start: range.start,
+      end: Math.min(range.end, splitAt),
+    }));
+    const secondPart = ranges.filter((range) => range.end > splitAt).map((range) => ({
+      start: Math.max(range.start, splitAt + 1),
+      end: range.end,
+    }));
+    return [
+      ...(firstPart.length ? [{ chapter: firstChapter, detail: formatVerseDetail(firstPart) }] : []),
+      ...(secondPart.length ? [{ chapter: secondChapter, detail: formatVerseDetail(secondPart) }] : []),
+    ];
+  }
+
+  let chapter = modernNumber;
+  if (modernNumber >= 9 && modernNumber <= 10) chapter = 9;
+  else if (modernNumber >= 11 && modernNumber <= 113) chapter = modernNumber - 1;
+  else if (modernNumber >= 114 && modernNumber <= 115) chapter = 113;
+  else if (modernNumber >= 117 && modernNumber <= 146) chapter = modernNumber - 1;
+  return [{ chapter, detail: "" }];
+}
+
+function parseVerseRanges(verseText: string) {
+  return [...verseText.matchAll(/(\d+)(?:[a-z])?(?:\s*[-–]\s*(\d+)(?:[a-z])?)?/gi)]
+    .map((match) => ({ start: Number(match[1]), end: Number(match[2] ?? match[1]) }));
+}
+
+function formatVerseDetail(ranges: Array<{ start: number; end: number }>) {
+  return `verses ${ranges.map(({ start, end }) => start === end ? start : `${start}–${end}`).join(", ")}`;
+}
+
+function getTargetLabel(
+  source: "newadvent" | "douay" | "haydock",
+  book: string,
+  modernChapter: number,
+  sourceChapter: number,
+  detail: string,
+) {
+  if (book === "psalm") {
+    const sourceNumber = `Psalm ${sourceChapter}`;
+    const modernNumber = sourceChapter === modernChapter && !detail
+      ? ""
+      : ` (modern Psalm ${modernChapter}${detail ? `, ${detail}` : ""})`;
+    return `Open ${sourceNumber}${modernNumber}`;
+  }
+  if (source === "haydock") return "Open chapter notes";
+  if (source === "douay") return "Open passage";
+  return "Open chapter";
 }
