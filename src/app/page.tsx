@@ -51,12 +51,12 @@ const featuredContentCards = [
     imageAlt: "Devotional illustration of a priest elevating the Host above a chalice during Holy Mass",
   },
   {
-    title: "Eucharistic Miracles",
+    title: "The Life of Jesus Christ",
     description:
-      "Discover remarkable Eucharistic miracles and what they reveal about Christ's Real Presence.",
-    href: "https://www.miracolieucaristici.org/en/liste/list.html",
-    image: "/images/home/eucharistic-miracles.webp",
-    imageAlt: "Devotional illustration of the Eucharistic Host in a gold monstrance between altar candles",
+      "Walk through the life of Jesus Christ from the promises and Incarnation to the Cross, Resurrection, and Ascension.",
+    href: "/life-of-jesus",
+    image: "/images/rosary/viewpoints/luminous/03_proclamation/01_among_seated_crowds.jpg",
+    imageAlt: "Jesus teaching among a gathered crowd in devotional sacred art",
   },
 ];
 
