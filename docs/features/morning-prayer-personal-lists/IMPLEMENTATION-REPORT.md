@@ -34,3 +34,11 @@ Changes are ready for owner review at the local route. Run `npm run build` in a 
 ## Release follow-up — 2026-09-27
 
 Owner explicitly authorized committing these prayer changes to `main` and deploying them to Production. Production verification will be recorded after the deployment completes.
+
+## Production release — 2026-09-27
+
+- Commit: `0c02722f9a8b72491b0f6c1c635dc2f633de5dbc` on `main`.
+- Vercel: deployment `dpl_24MDqJbD7Qo8BsyDYetBP16qS89T`, Ready, production URL `https://daily-oratory-ha4vwbonz-ramagosb-6300s-projects.vercel.app`, aliased to `https://dailyoratory.faith`.
+- Browser verification: the local and production Morning Prayer route opens at “Sign of the Cross,” Prayer 1 of 14; the local and production Night Prayer route opens at “Prayer for Protection During Sleep,” Prayer 1 of 3. Previous is disabled on each first prayer.
+- Production smoke checks returned HTTP 200 for `/`, `/confession`, `/confession/examination`, `/prayers`, `/adoration`, `/library`, `/sacramental-emergency`, `/sitemap.xml`, `/robots.txt`, `/morning-prayer`, and `/night-prayer`.
+- Previous Ready deployment retained as rollback candidate: `dpl_5F2fhrjkkuidcF9PYbtz8hJUSxZV`.
