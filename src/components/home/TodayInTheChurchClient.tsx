@@ -63,29 +63,15 @@ export function TodayInTheChurchClient({
           <p className={`mt-3 max-w-[32ch] text-sm leading-7 sm:max-w-2xl ${theme.copyClassName}`}>{today.description}</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <TrackedLink
-              href="https://bible.usccb.org/daily-bible-reading"
-              external
-              className={`${todayActionClassName} ${theme.primaryButtonClassName}`}
-              eventName="external_resource_click"
-              eventParams={{
-                resource_name: "USCCB Daily Bible Reading",
-                resource_url: "https://bible.usccb.org/daily-bible-reading",
-                page_path: "/",
-                section: "today-in-the-church",
-              }}
-            >
-              Daily readings
-            </TrackedLink>
-            <TrackedLink
-              href="/reflections/mass-readings"
+              href="/reflections/reading-and-reflections"
               className={`${todayActionClassName} ${theme.primaryButtonClassName}`}
               eventName="reflection_open"
               eventParams={{
-                reflection_slug: "mass-readings-index",
+                reflection_slug: "reading-and-reflections-index",
                 source_section: "today-in-the-church",
               }}
             >
-              Daily Scripture reflections
+              Daily Readings and Reflections
             </TrackedLink>
           </div>
         </div>
