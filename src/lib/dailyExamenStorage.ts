@@ -52,15 +52,18 @@ export function completeNightlyExamen(session: NightlyExamenSession) {
 }
 
 export function clearNightlyExamenData() {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined") return false;
+  let cleared = false;
   try {
     window.localStorage.removeItem(nightlyExamenStorageKey);
+    cleared = true;
   } catch {
     // The in-memory experience can still reset when browser storage is unavailable.
   }
   cachedRaw = undefined;
   cachedParsed = null;
   window.dispatchEvent(new Event(changeEvent));
+  return cleared;
 }
 
 function saveStore(store: NightlyExamenStore) {
@@ -98,6 +101,10 @@ function sanitizeDraft(value: Partial<NightlyExamenDraft>): NightlyExamenDraft {
     movementTags: sanitizeList(value.movementTags, 8, 40),
     mercy: sanitizeText(value.mercy, 700),
     tomorrowGrace: sanitizeText(value.tomorrowGrace, 40),
+    notes: Array.isArray(value.notes)
+      ? Array.from({ length: 6 }, (_, index) => sanitizeText(value.notes?.[index], 5000))
+      : ["", sanitizeText(value.gratitude, 5000), sanitizeText(value.significantMoment, 5000), sanitizeText(value.mercy, 5000), "", ""],
+    resolution: sanitizeText(value.resolution, 500),
   };
 }
 
@@ -114,6 +121,8 @@ function sanitizeSession(value: Partial<NightlyExamenSession>): NightlyExamenSes
     movementTags: draft.movementTags,
     mercy: draft.mercy,
     tomorrowGrace: draft.tomorrowGrace,
+    notes: draft.notes,
+    resolution: draft.resolution,
     id: sanitizeText(value.id, 80) || `examen-${draft.localDate}`,
     completedAt: sanitizeText(value.completedAt, 40),
     durationMinutes: clampNumber(value.durationMinutes, 1, 120),

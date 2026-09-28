@@ -73,6 +73,8 @@ export type NightlyExamenDraft = {
   movementTags: string[];
   mercy: string;
   tomorrowGrace: string;
+  notes: string[];
+  resolution: string;
 };
 
 export type NightlyExamenSession = Omit<NightlyExamenDraft, "stepIndex"> & {

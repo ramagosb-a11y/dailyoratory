@@ -1,1614 +1,762 @@
+.standalone {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483646;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(66, 98, 125, 0.18), transparent 26rem),
+    linear-gradient(155deg, #081625 0%, #10273a 58%, #091521 100%);
+  overscroll-behavior: contain;
+  scroll-padding-top: env(safe-area-inset-top);
+}
+
 .shell {
   position: relative;
   isolation: isolate;
-  min-height: 42rem;
-  overflow: hidden;
-  border: 1px solid rgba(211, 173, 98, 0.52);
-  border-radius: 2rem;
-  background:
-    radial-gradient(ellipse at 50% -5%, rgba(189, 138, 47, 0.19), transparent 27rem),
-    radial-gradient(circle at 7% 78%, rgba(122, 37, 51, 0.2), transparent 22rem),
-    linear-gradient(165deg, #06111d 0%, #0a1c30 48%, #071522 100%);
-  box-shadow:
-    0 32px 90px rgba(7, 21, 35, 0.28),
-    inset 0 1px 0 rgba(255, 253, 247, 0.11),
-    inset 0 0 0 5px rgba(3, 12, 21, 0.34);
-  color: #fffdf7;
-}
-
-.shell::before {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    radial-gradient(circle at 20% 25%, rgba(234, 214, 167, 0.12) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 74% 18%, rgba(234, 214, 167, 0.1) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 62% 72%, rgba(234, 214, 167, 0.08) 0 1px, transparent 1.5px);
-  background-size: 13rem 11rem, 17rem 14rem, 19rem 16rem;
-  content: "";
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.content {
-  width: min(100%, 58rem);
-  min-height: 42rem;
-  margin-inline: auto;
-  padding: clamp(1.5rem, 5vw, 3.75rem);
+  min-height: 100svh;
+  padding: 0.75rem;
+  color: #0d2038;
 }
 
 .homeLink {
   position: absolute;
-  top: clamp(1rem, 3vw, 1.5rem);
-  right: clamp(1rem, 3vw, 1.5rem);
-  z-index: 2;
+  top: max(1rem, env(safe-area-inset-top));
+  right: clamp(1rem, 2.5vw, 2rem);
+  z-index: 5;
   display: inline-flex;
-  align-items: center;
-  gap: 0.42rem;
   min-height: 2.75rem;
-  padding: 0.55rem 0.8rem;
-  border: 1px solid rgba(234, 214, 167, 0.3);
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid rgba(239, 222, 181, 0.48);
   border-radius: 999px;
-  background: rgba(5, 16, 27, 0.62);
-  color: rgba(255, 253, 247, 0.78);
+  background: rgba(7, 20, 33, 0.78);
+  color: #fffdf7;
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 750;
-  letter-spacing: 0.04em;
-  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+  letter-spacing: 0.045em;
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease;
 }
 
 .homeLink span {
-  color: #d3ad62;
+  color: #e5c274;
   font-size: 1rem;
-  line-height: 1;
 }
 
 .homeLink:hover {
-  border-color: rgba(234, 214, 167, 0.68);
-  background: rgba(255, 253, 247, 0.09);
-  color: #fff8e8;
+  border-color: #e5c274;
+  background: #14283b;
 }
 
-.eyebrow {
-  color: #d3ad62;
-  font-size: 0.72rem;
+.welcome,
+.prayerJourney,
+.completeShell {
+  display: grid;
+  width: min(100%, 100rem);
+  min-height: calc(100svh - 1.5rem);
+  margin: 0 auto;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.photoPanel {
+  position: relative;
+  height: 39svh;
+  min-height: 16rem;
+  max-height: 27rem;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(214, 170, 84, 0.5);
+  border-radius: 1.5rem;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(196, 148, 67, 0.26), transparent 18rem),
+    linear-gradient(160deg, #172b3d 0%, #071523 100%);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.32);
+}
+
+.photo,
+.imageFallback {
+  object-fit: cover;
+  object-position: center 48%;
+}
+
+.imageFallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 56% 55%, rgba(206, 153, 63, 0.25), transparent 38%),
+    linear-gradient(150deg, #263a4a 0%, #0b1927 58%, #121f2c 100%);
+}
+
+.photoPanel::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(5, 14, 22, 0.66), transparent 40%, rgba(5, 14, 22, 0.08));
+  content: "";
+  pointer-events: none;
+}
+
+.photoCaption {
+  position: absolute;
+  z-index: 1;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  color: rgba(255, 253, 247, 0.9);
+  font-size: 0.69rem;
   font-weight: 800;
   letter-spacing: 0.2em;
+  text-align: center;
   text-transform: uppercase;
 }
 
-.heading {
-  color: #fff8e8;
-  font-family: var(--font-heading);
-  font-size: clamp(2.85rem, 8vw, 5.25rem);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 0.94;
-  text-wrap: balance;
+.photoCaption span,
+.kicker span {
+  padding-inline: 0.3rem;
+  color: #bd8a2f;
 }
 
-.subheading {
-  color: #fff8e8;
-  font-family: var(--font-heading);
-  font-size: clamp(2rem, 6vw, 3.7rem);
-  font-weight: 600;
-  line-height: 1.06;
-  text-wrap: balance;
-}
-
-.body {
-  color: rgba(255, 253, 247, 0.8);
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.brandLockup {
-  display: grid;
-  justify-items: center;
-  color: #d9b96d;
-}
-
-.sunburst {
-  display: grid;
-  width: 3.25rem;
-  height: 3.25rem;
-  place-items: center;
-  border-radius: 50%;
-  background: repeating-conic-gradient(from 0deg, rgba(211, 173, 98, 0.9) 0deg 1.8deg, transparent 1.8deg 8deg);
-}
-
-.sunburst span {
-  display: grid;
-  width: 2rem;
-  height: 2rem;
-  place-items: center;
-  border-radius: 50%;
-  background: #091a2c;
-  color: #e4c275;
-  font-size: 1.15rem;
-}
-
-.brandCross,
-.crossIcon,
-.sigilCross {
+.panel {
   position: relative;
-  display: inline-block;
-  color: currentColor;
+  z-index: 2;
+  min-width: 0;
+  margin-top: -1.5rem;
+  overflow: visible;
+  border: 1px solid rgba(189, 138, 47, 0.48);
+  border-radius: 1.75rem 1.75rem 1.25rem 1.25rem;
+  background:
+    radial-gradient(ellipse at 50% 0, rgba(243, 234, 216, 0.65), transparent 21rem),
+    #fffdf7;
+  box-shadow: 0 26px 80px rgba(0, 0, 0, 0.32), inset 0 0 0 0.35rem rgba(255, 253, 247, 0.72);
 }
 
-.brandCross::before,
-.crossIcon::before,
-.sigilCross::before,
-.brandCross::after,
-.crossIcon::after,
-.sigilCross::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 999px;
-  background: currentColor;
-  content: "";
-  transform: translate(-50%, -50%);
+.panelInner {
+  width: min(100%, 52rem);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 5vw, 3.75rem) clamp(1.25rem, 5vw, 4rem) 2rem;
 }
 
-.brandCross::before,
-.sigilCross::before {
-  width: 0.11rem;
-  height: 1.05rem;
-}
-
-.brandCross::after,
-.sigilCross::after {
-  width: 0.7rem;
-  height: 0.11rem;
-  transform: translate(-50%, -75%);
-}
-
-.crossIcon {
-  width: 1rem;
-  height: 1.1rem;
-  margin-right: 0.55rem;
-  vertical-align: -0.18rem;
-}
-
-.crossIcon::before {
-  width: 0.1rem;
-  height: 1rem;
-}
-
-.crossIcon::after {
-  width: 0.65rem;
-  height: 0.1rem;
-  transform: translate(-50%, -80%);
-}
-
-.sigilCross {
-  width: 1.5rem;
-  height: 1.7rem;
+.kicker {
+  margin: 0;
+  color: #87601e;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.21em;
+  line-height: 1.5;
+  text-transform: uppercase;
 }
 
 .brandTitle {
-  margin-top: 0.15rem;
-  color: #f1d99c;
-  font-family: var(--font-heading);
-  font-size: clamp(1.55rem, 5vw, 2.15rem);
+  margin: 0.8rem 0 0;
+  color: #0d2038;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
   font-weight: 600;
-  letter-spacing: 0.15em;
-  line-height: 1.1;
-  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  line-height: 1.08;
 }
 
 .brandSubtitle {
-  color: #d3ad62;
-  font-size: 0.63rem;
+  margin: 0.32rem 0 0;
+  color: #7a2533;
+  font-size: 0.67rem;
   font-weight: 800;
-  letter-spacing: 0.36em;
-  line-height: 1.4;
+  letter-spacing: 0.21em;
   text-transform: uppercase;
 }
 
 .brandRule {
-  display: grid;
-  width: 8rem;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 0.55rem;
+  display: flex;
   align-items: center;
-  margin-top: 0.55rem;
-  color: #d3ad62;
-  font-size: 0.42rem;
+  gap: 0.75rem;
+  margin: 1.1rem 0 1.6rem;
+  color: #bd8a2f;
+  font-size: 0.63rem;
 }
 
 .brandRule::before,
-.brandRule::after,
-.stepMarker > span {
+.brandRule::after {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(211, 173, 98, 0.65));
+  flex: 1;
+  background: linear-gradient(90deg, transparent, rgba(189, 138, 47, 0.55));
   content: "";
 }
 
 .brandRule::after {
-  background: linear-gradient(90deg, rgba(211, 173, 98, 0.65), transparent);
+  background: linear-gradient(90deg, rgba(189, 138, 47, 0.55), transparent);
 }
 
-.candleScene {
-  position: relative;
-  display: grid;
-  width: min(100%, 27rem);
-  min-height: 17.5rem;
-  place-items: center;
-  margin-top: 0.4rem;
-}
-
-.candleSceneCompact {
-  width: 11rem;
-  min-height: 12rem;
-  margin-inline: auto;
-}
-
-.archWindow {
-  position: absolute;
-  top: 0.3rem;
-  width: 13.5rem;
-  height: 14.5rem;
-  border: 1px solid rgba(211, 173, 98, 0.14);
-  border-bottom: 0;
-  border-radius: 7rem 7rem 0 0;
-  background:
-    radial-gradient(circle at 50% 68%, rgba(211, 173, 98, 0.14), transparent 4.5rem),
-    linear-gradient(180deg, rgba(4, 13, 24, 0.25), rgba(7, 23, 39, 0.03));
-  box-shadow:
-    inset 0 0 3.5rem rgba(3, 11, 20, 0.75),
-    0 0 0 0.45rem rgba(2, 10, 18, 0.18);
-}
-
-.candleSceneCompact .archWindow {
-  top: 0.75rem;
-  width: 9rem;
-  height: 9.5rem;
-  border-radius: 5rem 5rem 0 0;
-}
-
-.lightAura {
-  position: absolute;
-  top: 4.5rem;
-  width: 10rem;
-  height: 10rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(251, 190, 69, 0.26), rgba(189, 138, 47, 0.08) 38%, transparent 72%);
-  filter: blur(2px);
-}
-
-.candleSceneCompact .lightAura {
-  top: 3rem;
-  width: 7.5rem;
-  height: 7.5rem;
-}
-
-.tableSurface {
-  position: absolute;
-  right: 4%;
-  bottom: 1rem;
-  left: 4%;
-  height: 3.6rem;
-  border-top: 1px solid rgba(211, 173, 98, 0.21);
-  background: radial-gradient(ellipse at 50% 0%, rgba(211, 173, 98, 0.15), transparent 58%);
-  transform: perspective(8rem) rotateX(58deg);
-}
-
-.candleAssembly {
-  position: absolute;
-  bottom: 2.55rem;
-  left: 50%;
-  width: 8rem;
-  height: 9.5rem;
-  transform: translateX(-50%);
-}
-
-.candleSceneCompact .candleAssembly {
-  bottom: 1.8rem;
-  transform: translateX(-50%) scale(0.72);
-  transform-origin: center bottom;
-}
-
-.candle {
-  position: relative;
-  z-index: 4;
-  display: block;
-  width: 3rem;
-  height: 6.4rem;
-  margin-inline: auto;
-  border-radius: 0.45rem 0.45rem 0.8rem 0.8rem;
-  background:
-    linear-gradient(110deg, transparent 0 72%, rgba(255, 246, 198, 0.28) 73% 76%, transparent 77%),
-    linear-gradient(90deg, #b86f20, #f6d78f 42%, #d99f43 68%, #9d5719);
-  box-shadow: 0 1.2rem 2.8rem rgba(189, 138, 47, 0.22), inset 0 1px 0 rgba(255, 244, 198, 0.7);
-}
-
-.candle::before {
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% - 0.2rem);
-  width: 1.15rem;
-  height: 2.75rem;
-  border-radius: 52% 48% 55% 45%;
-  background: linear-gradient(#fff7c9 6%, #f8bb45 48%, #bd5d1e 100%);
-  box-shadow: 0 0 1.3rem #f6b941, 0 0 4.4rem rgba(246, 185, 65, 0.58);
-  content: "";
-  transform: translateX(-50%);
-  transform-origin: center bottom;
-  animation: flame 3.2s ease-in-out infinite;
-}
-
-.candle::after {
-  position: absolute;
-  left: 50%;
-  bottom: 100%;
-  width: 0.14rem;
-  height: 0.65rem;
-  border-radius: 999px;
-  background: #2e261f;
-  content: "";
-  transform: translateX(-50%);
-}
-
-.candleCup {
-  position: absolute;
-  z-index: 3;
-  right: 2.2rem;
-  bottom: 2.72rem;
-  left: 2.2rem;
-  height: 1.15rem;
-  border: 1px solid #9f6c2b;
-  border-radius: 0 0 50% 50%;
-  background: linear-gradient(180deg, #ce9b4e, #4f3015 70%, #b27c35);
-  box-shadow: inset 0 1px 0 rgba(255, 227, 159, 0.58), 0 0.35rem 0.7rem rgba(1, 7, 13, 0.55);
-}
-
-.candleTray {
-  position: absolute;
-  z-index: 2;
-  right: 0.55rem;
-  bottom: 2.28rem;
-  left: 0.55rem;
-  height: 0.7rem;
-  border: 1px solid #9f6c2b;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #d4a254, #38210f 76%);
-  box-shadow: inset 0 1px 0 rgba(255, 226, 155, 0.55), 0 0.5rem 1.1rem rgba(1, 7, 13, 0.5);
-}
-
-.candleTray::after {
-  position: absolute;
-  top: -0.22rem;
-  right: -1.55rem;
-  width: 1.7rem;
-  height: 1.05rem;
-  border: 2px solid #9f6c2b;
-  border-left-color: transparent;
-  border-radius: 50%;
-  content: "";
-  transform: rotate(-12deg);
-}
-
-.candleStem {
-  position: absolute;
-  z-index: 1;
-  bottom: 0.72rem;
-  left: 50%;
-  width: 0.72rem;
-  height: 2rem;
-  border-inline: 1px solid #9f6c2b;
-  background: linear-gradient(90deg, #38210f, #c18b42 48%, #4a2a12);
-  transform: translateX(-50%);
-}
-
-.candleFoot {
-  position: absolute;
-  z-index: 2;
-  right: 1.45rem;
-  bottom: 0.35rem;
-  left: 1.45rem;
-  height: 0.75rem;
-  border: 1px solid #9f6c2b;
-  border-radius: 50%;
-  background: linear-gradient(180deg, #bd8840, #2e1b0c 78%);
-  box-shadow: 0 0.35rem 0.8rem rgba(1, 7, 13, 0.6), inset 0 1px 0 rgba(255, 228, 165, 0.45);
-}
-
-.stepMarker {
-  display: grid;
-  width: min(100%, 27rem);
-  grid-template-columns: 1fr auto 1fr;
+.progressMeta {
+  display: flex;
+  justify-content: space-between;
   gap: 1rem;
-  align-items: center;
-}
-
-.stepMarker > span:last-child {
-  background: linear-gradient(90deg, rgba(211, 173, 98, 0.65), transparent);
-}
-
-.headingOrnament {
-  display: grid;
-  width: 8rem;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 0.5rem;
-  align-items: center;
-  margin-top: 1rem;
-  color: #d3ad62;
-  font-size: 0.8rem;
-}
-
-.headingOrnament::before,
-.headingOrnament::after {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(211, 173, 98, 0.45));
-  content: "";
-}
-
-.headingOrnament::after {
-  background: linear-gradient(90deg, rgba(211, 173, 98, 0.45), transparent);
-}
-
-.paceSelector {
-  width: min(100%, 29rem);
-  border: 1px solid rgba(211, 173, 98, 0.2);
-  border-radius: 1rem;
-  background: rgba(2, 10, 18, 0.34);
-  padding: 0.35rem;
-}
-
-.paceSelector legend {
-  margin-inline: auto;
-  padding-inline: 0.6rem;
-  color: rgba(255, 253, 247, 0.5);
-  font-size: 0.66rem;
+  color: #7a2533;
+  font-size: 0.72rem;
   font-weight: 750;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.055em;
   text-transform: uppercase;
 }
 
-.paceOption {
-  min-height: 3.5rem;
-  border: 1px solid transparent;
-  border-radius: 0.7rem;
-  color: rgba(255, 253, 247, 0.62);
-  font-family: var(--font-heading);
-  font-size: 1.12rem;
+.progressTrack {
+  display: flex;
+  width: 100%;
+  height: 0.42rem;
+  gap: 0.38rem;
+  margin-top: 0.7rem;
+}
+
+.progressSegment,
+.progressSegmentActive {
+  height: 100%;
+  flex: 1;
+  border-radius: 999px;
+  background: #e4dccd;
+}
+
+.progressSegmentActive {
+  background: #bd8a2f;
+}
+
+.welcomeTitle,
+.pageTitle {
+  margin: 1.75rem 0 0;
+  color: #0d2038;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(2.25rem, 8.1vw, 4.1rem);
   font-weight: 600;
-  line-height: 1.1;
-  transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+  letter-spacing: -0.022em;
+  line-height: 1.01;
+  text-wrap: balance;
 }
 
-.paceOption small {
-  display: block;
-  margin-top: 0.18rem;
-  color: rgba(255, 253, 247, 0.42);
-  font-family: var(--font-body);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+.welcomeTitle {
+  margin-top: 1.4rem;
 }
 
-.paceOption:hover,
-.paceOptionSelected {
-  border-color: rgba(211, 173, 98, 0.5);
-  background: linear-gradient(180deg, rgba(211, 173, 98, 0.18), rgba(189, 138, 47, 0.08));
-  color: #fff8e8;
+.welcomeTitle:focus,
+.pageTitle:focus {
+  outline: none;
 }
 
-.paceOptionSelected small {
-  color: #d9b96d;
+.welcomeTitle:focus-visible,
+.pageTitle:focus-visible {
+  outline: 2px solid #bd8a2f;
+  outline-offset: 0.3rem;
+  border-radius: 0.12rem;
 }
 
-.goldButton,
-.quietButton,
-.chip {
-  min-height: 3.25rem;
-  border-radius: 0.85rem;
-  font-weight: 750;
-  transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+.welcomeSubtitle {
+  max-width: 38rem;
+  margin: 1rem 0 0;
+  color: #4c443b;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(1.28rem, 3.7vw, 1.7rem);
+  line-height: 1.55;
 }
 
-.goldButton {
-  border: 1px solid #ead6a7;
-  background: linear-gradient(135deg, #d4a649, #bd8a2f);
-  box-shadow: inset 0 1px 0 rgba(255, 253, 247, 0.35), 0 10px 28px rgba(189, 138, 47, 0.17);
-  color: #071523;
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 650;
-  letter-spacing: 0.01em;
-  padding: 0.75rem 1.5rem;
+.pageTitle {
+  margin-top: 2.1rem;
 }
 
-.goldButton > span {
-  margin-right: 0.55rem;
-  color: #49300f;
+.guide {
+  margin: 1.1rem 0 0;
+  color: #403a34;
   font-family: var(--font-body);
   font-size: 1rem;
+  line-height: 1.85;
 }
 
-.goldButton:hover {
+.prayerCard {
+  margin: 1.6rem 0 0;
+  padding: clamp(1.25rem, 3.5vw, 2rem);
+  border: 1px solid rgba(189, 138, 47, 0.33);
+  border-left: 0.2rem solid #bd8a2f;
+  border-radius: 0.2rem 1.1rem 1.1rem 0.2rem;
+  background: linear-gradient(140deg, #f8f1e2, #fffdf7 78%);
+  color: #172b3e;
+  box-shadow: 0 10px 30px rgba(13, 32, 56, 0.065), inset 0 1px 0 white;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(1.36rem, 3.7vw, 1.7rem);
+  line-height: 1.72;
+}
+
+.prayerCard p {
+  margin: 0;
+}
+
+.deepReflection {
+  margin-top: 1.35rem;
+  border-top: 1px solid #e7dece;
+  border-bottom: 1px solid #e7dece;
+}
+
+.disclosure {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.1rem;
+  color: #692b32;
+  cursor: pointer;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.28rem;
+  font-weight: 600;
+  list-style: none;
+}
+
+.disclosure::-webkit-details-marker {
+  display: none;
+}
+
+.disclosure > span {
+  display: grid;
+  width: 1.7rem;
+  height: 1.7rem;
+  place-items: center;
+  border: 1px solid #d8cdb9;
+  border-radius: 50%;
+  color: #87601e;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: transform 180ms ease;
+}
+
+details[open] > .disclosure > span {
+  transform: rotate(45deg);
+}
+
+.deepBody {
+  padding: 0 0 1.35rem;
+}
+
+.optionalCopy {
+  margin: 0.6rem 0;
+  color: #62584b;
+  font-size: 0.89rem;
+  line-height: 1.7;
+}
+
+.questions {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+  color: #39352f;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.questions li::marker {
+  color: #9a6a1b;
+}
+
+.catholicNote {
+  margin: 1.35rem 0 0;
+  padding: 1rem 1.1rem;
+  border-left: 3px solid #7a2533;
+  background: #f5ecdf;
+  color: #3f342d;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.journalField {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.45rem;
+  color: #27364a;
+  font-size: 0.91rem;
+  font-weight: 750;
+}
+
+.journalField > span small,
+.journalField > small,
+.fieldHint {
+  color: #655b50;
+  font-size: 0.78rem;
+  font-weight: 450;
+  line-height: 1.55;
+}
+
+.journalField textarea {
+  display: block;
+  width: 100%;
+  min-height: 6.5rem;
+  resize: vertical;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #cdbd9e;
+  border-radius: 0.75rem;
+  background: #fffefb;
+  color: #172b3e;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.journalField textarea::placeholder {
+  color: #6c6257;
+  opacity: 0.85;
+}
+
+.journalField textarea:disabled {
+  min-height: 4.5rem;
+  resize: none;
+  background: #f5f1e9;
+  color: #5f574e;
+  opacity: 1;
+}
+
+.choiceGroup {
+  min-width: 0;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.choiceGroup legend,
+.suggestedHeading {
+  color: #26374b;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.16rem;
+  font-weight: 600;
+}
+
+.choiceGroup legend span {
+  color: #62584b;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 450;
+}
+
+.chipList,
+.resolutionChoices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.7rem;
+}
+
+.chip,
+.choiceButton {
+  min-height: 2.7rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid #bba984;
+  border-radius: 999px;
+  background: #fffdf7;
+  color: #28384b;
+  font-size: 0.84rem;
+  line-height: 1.4;
+  text-align: left;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.chipSelected,
+.choiceSelected {
+  border-color: #7a2533;
+  background: #7a2533;
+  color: white;
+}
+
+.legacySelections {
+  margin-top: 1.1rem;
+  padding-top: 0.2rem;
+}
+
+.fieldHint {
+  display: block;
+  margin: 0.5rem 0 0;
+}
+
+.suggestedHeading {
+  margin: 1rem 0 0;
+}
+
+.resolutionChoices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+.resolutionChoices .choiceButton {
+  border-radius: 0.8rem;
+}
+
+.paceDetails {
+  margin-top: 1.2rem;
+}
+
+.paceChoices {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0.5rem 0 1rem;
+  border: 0;
+}
+
+.paceChoices .choiceButton {
+  display: grid;
+  gap: 0.15rem;
+  border-radius: 0.8rem;
+}
+
+.paceChoices small {
+  color: inherit;
+  opacity: 0.78;
+}
+
+.actions,
+.completionActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.primaryButton,
+.secondaryButton,
+.clearButton,
+.textButton {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 750;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 150ms ease, background 150ms ease, color 150ms ease;
+}
+
+.primaryButton {
+  flex: 1 1 13rem;
+  border: 1px solid #7a2533;
+  background: #7a2533;
+  color: white;
+  box-shadow: 0 5px 16px rgba(82, 28, 38, 0.16);
+}
+
+.primaryButton:hover {
+  background: #65202b;
   transform: translateY(-1px);
-  background: linear-gradient(135deg, #dfb45b, #c79638);
 }
 
-.quietButton {
-  border: 1px solid rgba(234, 214, 167, 0.28);
-  background: rgba(255, 253, 247, 0.045);
-  color: #fff8e8;
-  padding: 0.7rem 1.2rem;
+.secondaryButton {
+  flex: 1 1 12rem;
+  border: 1px solid #bd8a2f;
+  background: #fffdf7;
+  color: #0d2038;
 }
 
-.quietButton:hover {
-  border-color: rgba(234, 214, 167, 0.6);
-  background: rgba(255, 253, 247, 0.08);
+.secondaryButton:hover {
+  background: #f3ead8;
 }
 
 .textButton {
   min-height: 2.75rem;
+  padding: 0.5rem 0.65rem;
   border: 0;
-  border-bottom: 1px solid rgba(211, 173, 98, 0.58);
-  color: #d9b96d;
-  font-size: 0.9rem;
-  font-weight: 650;
-  transition: border-color 180ms ease, color 180ms ease;
+  background: transparent;
+  color: #702b35;
+  font-size: 0.84rem;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
 }
 
 .textButton:hover {
-  border-color: #f1d99c;
-  color: #f1d99c;
+  color: #4e1a25;
 }
 
-.welcomeActions {
+.optionalCopy + .paceDetails {
+  margin-top: 0.5rem;
+}
+
+.privacyNote,
+.completionMeta {
+  margin: 1rem 0 0;
+  color: #645b50;
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.completionMeta {
+  margin-top: 1.35rem;
+  font-weight: 650;
+}
+
+.storageMessage {
+  margin: 1rem 0 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #cdbd9e;
+  border-radius: 0.7rem;
+  background: #f5ecdf;
+  color: #4a3d2f;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.navigation {
+  position: sticky;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  gap: 0.65rem;
+  padding: 0.8rem clamp(1rem, 4vw, 2rem) max(0.8rem, env(safe-area-inset-bottom));
+  border-top: 1px solid #ddd1bc;
+  background: rgba(255, 253, 247, 0.96);
+  box-shadow: 0 -12px 28px rgba(13, 32, 56, 0.09);
+  backdrop-filter: blur(12px);
+}
+
+.navigation > * {
+  min-width: 0;
+}
+
+.navigation .secondaryButton {
+  flex: 0.82 1 8rem;
+}
+
+.navigation .primaryButton {
+  flex: 1.18 1 10rem;
+}
+
+.closingPrayer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(189, 138, 47, 0.35);
+  color: #7a2533;
+  font-size: 1.55rem;
+  font-weight: 650;
+  text-align: center;
+}
+
+.signOfCross {
+  margin-top: 0.5rem !important;
+  color: #4a433b;
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.completionText {
+  margin-top: 1.1rem !important;
+  color: #403a34;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.completionActions {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.completeShell .photoPanel {
+  height: 34svh;
+}
+
+.historyShell {
+  display: grid;
+  width: min(100%, 78rem);
+  min-height: calc(100svh - 1.5rem);
+  margin: 0 auto;
   align-items: center;
 }
 
-.privacyNote {
-  max-width: 34rem;
-}
-
-@media (min-width: 900px) {
-  .welcome {
-    width: 100%;
-    grid-template-columns: minmax(18rem, 0.82fr) minmax(28rem, 1.18fr);
-    grid-template-rows: auto auto auto auto auto auto auto;
-    column-gap: clamp(2rem, 5vw, 4.5rem);
-    align-items: center;
-  }
-
-  .welcome .brandLockup {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: end;
-  }
-
-  .welcome .candleScene {
-    grid-column: 1;
-    grid-row: 2 / span 6;
-    align-self: start;
-    min-height: 24rem;
-  }
-
-  .welcome .archWindow {
-    width: 16rem;
-    height: 19rem;
-    border-radius: 8.5rem 8.5rem 0 0;
-  }
-
-  .welcome .lightAura {
-    top: 6rem;
-    width: 12rem;
-    height: 12rem;
-  }
-
-  .welcome .candleAssembly {
-    bottom: 4.4rem;
-    transform: translateX(-50%) scale(1.08);
-    transform-origin: center bottom;
-  }
-
-  .welcome .tableSurface {
-    bottom: 1.4rem;
-  }
-
-  .welcome .stepMarker,
-  .welcome .heading,
-  .welcome .headingOrnament,
-  .welcome .body,
-  .welcome .paceSelector,
-  .welcomeActions,
-  .privacyNote {
-    grid-column: 2;
-  }
-
-  .welcome .stepMarker { grid-row: 1; align-self: end; }
-  .welcome .heading { grid-row: 2; }
-  .welcome .headingOrnament { grid-row: 3; }
-  .welcome .body { grid-row: 4; }
-  .welcome .paceSelector { grid-row: 5; }
-  .welcomeActions { grid-row: 6; }
-  .privacyNote { grid-row: 7; }
-}
-
-.chip {
-  border: 1px solid rgba(234, 214, 167, 0.3);
-  background: rgba(255, 253, 247, 0.06);
-  color: rgba(255, 253, 247, 0.86);
-  padding: 0.6rem 0.9rem;
-}
-
-.chip:hover,
-.chipSelected {
-  border-color: #d3ad62;
-  background: rgba(189, 138, 47, 0.2);
-  color: #fff8e8;
-  box-shadow: 0 0 0 3px rgba(189, 138, 47, 0.09);
-}
-
-.card {
-  border: 1px solid rgba(234, 214, 167, 0.28);
-  border-radius: 1.25rem;
-  background: rgba(255, 253, 247, 0.055);
-  box-shadow: inset 0 1px 0 rgba(255, 253, 247, 0.05);
-  padding: clamp(1rem, 3vw, 1.5rem);
-}
-
-.parchmentCard {
-  border: 1px solid rgba(234, 214, 167, 0.56);
-  border-radius: 1.25rem;
-  background: linear-gradient(145deg, #fff8e8, #eadfc8);
-  box-shadow: 0 16px 40px rgba(3, 12, 21, 0.2), inset 0 1px 0 #fff;
-  color: #0d2038;
-  padding: clamp(1.1rem, 4vw, 1.75rem);
-}
-
-.field {
+.historyShell .panel {
   width: 100%;
-  min-height: 7rem;
-  resize: vertical;
-  border: 1px solid rgba(234, 214, 167, 0.4);
-  border-radius: 0.85rem;
-  background: rgba(2, 11, 20, 0.42);
-  color: #fffdf7;
-  padding: 0.9rem 1rem;
-}
-
-.field::placeholder {
-  color: rgba(255, 253, 247, 0.45);
-}
-
-.progressTrack {
-  height: 0.22rem;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(255, 253, 247, 0.1);
-}
-
-.progressFill {
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, #7a2533, #d3ad62);
-  box-shadow: 0 0 1rem rgba(211, 173, 98, 0.48);
-  transition: width 300ms ease;
-}
-
-.timeline {
-  position: relative;
-  display: grid;
-  gap: 1.2rem;
-  margin-block: 1.5rem;
-  padding-left: 2.8rem;
-}
-
-.timeline::before {
-  position: absolute;
-  top: 0.7rem;
-  bottom: 0.7rem;
-  left: 1rem;
-  width: 1px;
-  background: linear-gradient(#d3ad62, rgba(211, 173, 98, 0.12));
-  content: "";
-}
-
-.timelineItem {
-  position: relative;
-  color: rgba(255, 253, 247, 0.58);
-}
-
-.timelineItem::before {
-  position: absolute;
-  top: 0.45rem;
-  left: -2.3rem;
-  width: 0.68rem;
-  height: 0.68rem;
-  border: 1px solid #d3ad62;
-  border-radius: 50%;
-  background: #0d2038;
-  content: "";
-}
-
-.timelineActive {
-  color: #fff8e8;
-}
-
-.timelineActive::before {
-  background: #d3ad62;
-  box-shadow: 0 0 1rem rgba(211, 173, 98, 0.8);
+  margin: 0;
 }
 
 .weekMap {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 0.45rem;
-  align-items: end;
-  margin-block: 2rem;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
 }
 
 .day {
   display: grid;
-  gap: 0.55rem;
+  min-height: 4.5rem;
   justify-items: center;
-  color: rgba(255, 253, 247, 0.5);
-  font-size: 0.68rem;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  align-content: center;
+  gap: 0.5rem;
+  border: 1px solid #ded5c6;
+  border-radius: 0.85rem;
+  color: #575047;
+  font-size: 0.75rem;
 }
 
 .dayLight {
-  width: 0.7rem;
-  height: 0.7rem;
-  border: 1px solid rgba(234, 214, 167, 0.34);
+  width: 0.65rem;
+  height: 0.65rem;
+  border: 1px solid #b6a786;
   border-radius: 50%;
-  background: rgba(255, 253, 247, 0.05);
+  background: #eee7dc;
 }
 
 .dayComplete .dayLight {
-  border-color: #f1cf83;
-  background: #d3ad62;
-  box-shadow: 0 0 0.7rem rgba(211, 173, 98, 0.92), 0 0 2rem rgba(211, 173, 98, 0.42);
+  border-color: #bd8a2f;
+  background: #bd8a2f;
+  box-shadow: 0 0 0 0.23rem rgba(189, 138, 47, 0.14);
 }
 
-.dayComplete {
-  color: #ead6a7;
-}
-
-@keyframes flame {
-  0%, 100% { transform: translateX(-50%) rotate(-1deg) scale(1); }
-  50% { transform: translateX(-50%) rotate(1.4deg) scale(0.96, 1.05); }
-}
-
-@media (max-width: 520px) {
-  .shell,
-  .content {
-    min-height: 38rem;
-  }
-
-  .shell {
-    border-radius: 1.4rem;
-  }
-
-  .content {
-    padding: 1.15rem 1.45rem 1.6rem;
-  }
-
-  .sunburst {
-    width: 2.6rem;
-    height: 2.6rem;
-  }
-
-  .sunburst span {
-    width: 1.62rem;
-    height: 1.62rem;
-    font-size: 0.9rem;
-  }
-
-  .brandTitle {
-    font-size: 1.35rem;
-  }
-
-  .brandSubtitle {
-    font-size: 0.52rem;
-  }
-
-  .brandRule {
-    margin-top: 0.3rem;
-  }
-
-  .welcome .candleScene {
-    min-height: 12.8rem;
-    margin-top: 0;
-  }
-
-  .welcome .archWindow {
-    top: 0.2rem;
-    width: 10.25rem;
-    height: 10.8rem;
-    border-radius: 5.5rem 5.5rem 0 0;
-  }
-
-  .welcome .lightAura {
-    top: 2.8rem;
-    width: 8rem;
-    height: 8rem;
-  }
-
-  .welcome .candleAssembly {
-    bottom: 1.55rem;
-    transform: translateX(-50%) scale(0.72);
-    transform-origin: center bottom;
-  }
-
-  .welcome .tableSurface {
-    bottom: 0.35rem;
-    height: 2.5rem;
-  }
-
-  .welcome .heading {
-    margin-top: 0.9rem !important;
-    font-size: 2.75rem;
-  }
-
-  .welcome .headingOrnament {
-    margin-top: 0.7rem;
-  }
-
-  .welcome .body {
-    margin-top: 0.9rem !important;
-    font-size: 0.94rem;
-    line-height: 1.65;
-  }
-
-  .welcome .paceSelector {
-    margin-top: 1rem !important;
-  }
-
-  .paceOption {
-    min-height: 3.2rem;
-    font-size: 1rem;
-  }
-
-  .welcomeActions {
-    margin-top: 1rem !important;
-  }
-
-  .welcomeActions .goldButton {
-    width: 100%;
-  }
-
-  .textButton {
-    align-self: center;
-    min-height: 2.15rem;
-    width: fit-content;
-  }
-
-  .privacyNote {
-    margin-top: 1rem !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .candle::before {
-    animation: none;
-  }
-}
-
-/* The opening moment is intentionally composed like a quiet, full-screen prayer app. */
-.shell {
-  width: min(100%, 27rem);
-  min-height: 44.75rem;
-  margin-inline: auto;
-  border: 2px solid rgba(196, 156, 82, 0.24);
-  border-radius: 2.65rem;
-  background:
-    radial-gradient(circle at 50% 38%, rgba(26, 57, 83, 0.16), transparent 19rem),
-    linear-gradient(180deg, #020b15 0%, #03111e 58%, #020a13 100%);
-  box-shadow:
-    0 34px 90px rgba(0, 5, 10, 0.42),
-    inset 0 0 0 5px #01060c,
-    inset 0 0 0 6px rgba(211, 173, 98, 0.1);
-}
-
-.shell::before {
-  opacity: 0.18;
-}
-
-.content {
-  width: 100%;
-  min-height: 44.75rem;
-  padding: 2.35rem 1.65rem 1.7rem;
-}
-
-.welcome {
+.insightGrid {
   display: grid;
-  width: 100%;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  justify-items: center;
-  column-gap: 0;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
 }
 
-.welcome .brandLockup,
-.welcome .photoScene,
-.welcome .stepMarker,
-.welcome .heading,
-.welcome .headingOrnament,
-.welcome .body,
-.welcomeActions {
-  grid-column: 1;
-  grid-row: auto;
-}
-
-.sunburst {
-  width: 2.45rem;
-  height: 2.45rem;
-}
-
-.sunburst span {
-  width: 1.48rem;
-  height: 1.48rem;
-  background: #04101c;
-  font-size: 0.83rem;
-}
-
-.brandTitle {
-  margin-top: 0.08rem;
-  color: #e9d19a;
-  font-size: 1.42rem;
-  letter-spacing: 0.16em;
-  text-shadow: 0 1px 16px rgba(214, 173, 91, 0.14);
-}
-
-.brandSubtitle {
-  margin-top: 0.1rem;
-  font-size: 0.5rem;
-  letter-spacing: 0.38em;
-}
-
-.brandRule {
-  width: 6.3rem;
-  margin-top: 0.2rem;
-}
-
-.photoScene {
-  position: relative;
-  width: calc(100% + 1.5rem);
-  height: 15.25rem;
-  overflow: hidden;
-  margin-top: -0.35rem;
-  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 84%, transparent 100%);
-}
-
-.photoScene::after {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, #03101d 0%, transparent 16%, transparent 84%, #03101d 100%),
-    linear-gradient(180deg, rgba(3, 16, 29, 0.25), transparent 22%, transparent 70%, #03101d 100%);
-  content: "";
-}
-
-.photoScene img {
-  object-fit: cover;
-  object-position: center 45%;
-  filter: saturate(0.88) contrast(1.06) brightness(0.92);
-}
-
-.welcome .stepMarker {
-  width: 100%;
-  margin-top: 0.05rem !important;
-  gap: 0.85rem;
-}
-
-.welcome .eyebrow {
-  color: #d9aa4d;
-  font-size: 0.66rem;
-  letter-spacing: 0.22em;
-}
-
-.welcome .heading {
-  max-width: 22rem;
-  margin-top: 1.15rem !important;
-  color: #f0eadc;
-  font-size: 2.9rem;
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.75);
-}
-
-.welcome .headingOrnament {
-  width: 4.5rem;
-  margin-top: 0.85rem;
-}
-
-.welcome .body {
-  margin-top: 0.7rem !important;
-  color: rgba(245, 241, 232, 0.82);
-  font-size: 0.88rem;
-  font-weight: 400;
-  line-height: 1.55;
-}
-
-.welcomeActions {
-  width: 100%;
-  margin-top: 1.25rem !important;
-  gap: 0.55rem !important;
-}
-
-.welcomeActions .goldButton {
-  width: 100%;
-  min-height: 3.35rem;
-  border-radius: 0.5rem;
-  background: linear-gradient(145deg, #e1b45c, #c99337);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 246, 215, 0.52),
-    0 9px 28px rgba(180, 121, 29, 0.2);
-  font-size: 1.08rem;
-  font-weight: 500;
-}
-
-.welcomeActions .textButton {
-  min-height: 2.15rem;
-  font-size: 0.81rem;
-  font-weight: 500;
-}
-
-@media (max-width: 520px) {
-  .shell,
-  .content {
-    min-height: 44.75rem;
-  }
-
-  .content {
-    padding: 2.35rem 1.65rem 1.7rem;
-  }
-
-  .welcome .heading {
-    margin-top: 1.15rem !important;
-    font-size: 2.9rem;
-  }
-
-  .welcome .body {
-    margin-top: 0.7rem !important;
-    font-size: 0.88rem;
-    line-height: 1.55;
-  }
-
-  .welcomeActions {
-    margin-top: 1.25rem !important;
-  }
-}
-
-@media (min-width: 900px) {
-  .welcome {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-}
-
-:global(#nightly-examen:target) {
-  position: fixed;
-  inset: 0;
-  z-index: 2147483646;
-  display: grid;
-  overflow-x: hidden;
-  overflow-y: auto;
-  place-items: start center;
-  background: #01060c;
-  overscroll-behavior: contain;
-}
-
-:global(body:has(#nightly-examen:target)) {
-  overflow: hidden;
-}
-
-:global(body:has(#nightly-examen:target) header),
-:global(body:has(#nightly-examen:target) footer) {
-  display: none;
-}
-
-:global(#nightly-examen:target) .shell {
-  width: min(100%, 27rem);
-  min-height: 100svh;
-  border-radius: 0;
-}
-
-:global(#nightly-examen:target) .content {
-  min-height: 100svh;
-}
-
-@media (min-width: 520px) {
-  :global(#nightly-examen:target) {
-    padding-block: 1rem;
-  }
-
-  :global(#nightly-examen:target) .shell {
-    min-height: min(calc(100svh - 2rem), 52rem);
-    border-radius: 2.65rem;
-  }
-}
-
-/* Shared visual language for the six prayer movements. */
-.prayerView {
-  width: 100%;
-  max-width: 100%;
-}
-
-.prayerView .subheading {
-  max-width: 22rem;
-  color: #f2ecdf;
-  font-size: clamp(2.65rem, 12vw, 3.35rem);
-  font-weight: 500;
-  letter-spacing: -0.035em;
-  line-height: 0.98;
-  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.72);
-}
-
-.prayerView .body {
-  color: rgba(245, 241, 232, 0.82);
-  font-size: 0.96rem;
-  font-weight: 400;
-  line-height: 1.75;
-}
-
-.stepVisual {
-  position: relative;
-  width: calc(100% + 0.5rem);
-  height: 9.75rem;
-  overflow: hidden;
-  margin: 1.35rem -0.25rem 0;
-  border-block: 1px solid rgba(211, 173, 98, 0.22);
-  background: #020b14;
-  mask-image: linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%);
-}
-
-.stepVisual::after {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, #03101d 0%, transparent 21%, transparent 78%, #03101d 100%),
-    linear-gradient(180deg, #03101d 0%, transparent 28%, transparent 65%, #03101d 100%);
-  content: "";
-}
-
-.stepVisual img {
-  object-fit: cover;
-  object-position: center 44%;
-  filter: saturate(0.84) contrast(1.1) brightness(0.82);
-  transform: scale(1.04);
-}
-
-.stepSigil {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  right: 1.4rem;
-  display: grid;
-  width: 3.7rem;
-  height: 3.7rem;
-  place-items: center;
-  border: 1px solid rgba(227, 186, 100, 0.62);
-  border-radius: 50%;
-  background: rgba(2, 11, 20, 0.72);
-  box-shadow:
-    0 0 0 0.35rem rgba(3, 15, 27, 0.65),
-    0 0 2.4rem rgba(211, 159, 60, 0.2),
-    inset 0 0 1.2rem rgba(211, 159, 60, 0.12);
-  color: #e1b45c;
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  transform: translateY(-50%);
-}
-
-.stepVisualArrive .stepSigil {
-  display: none;
-}
-
-.stepVisualGratitude::after {
-  background:
-    radial-gradient(circle at 77% 50%, rgba(218, 166, 66, 0.2), transparent 5rem),
-    linear-gradient(90deg, #03101d 0%, transparent 20%, transparent 78%, #03101d 100%),
-    linear-gradient(180deg, #03101d 0%, transparent 30%, #03101d 100%);
-}
-
-.stepVisualReview .stepSigil {
-  right: auto;
-  left: 1.4rem;
-}
-
-.stepVisualReview img {
-  object-position: center 39%;
-  filter: saturate(0.68) contrast(1.12) brightness(0.68);
-}
-
-.stepVisualNotice .stepSigil {
-  right: 50%;
-  border-color: rgba(227, 186, 100, 0.42);
-  box-shadow:
-    0 0 0 0.7rem rgba(211, 173, 98, 0.07),
-    0 0 0 1.35rem rgba(211, 173, 98, 0.035),
-    0 0 2.8rem rgba(211, 159, 60, 0.18);
-  transform: translate(50%, -50%);
-}
-
-.stepVisualNotice img {
-  filter: saturate(0.48) contrast(1.08) brightness(0.5) blur(0.3px);
-}
-
-.stepVisualMercy .stepSigil {
-  right: 50%;
-  border: 0;
-  background: transparent;
-  box-shadow: 0 0 3rem rgba(232, 184, 90, 0.35);
-  font-size: 2.25rem;
-  transform: translate(50%, -50%);
-}
-
-.stepVisualMercy img {
-  filter: sepia(0.2) saturate(0.7) contrast(1.12) brightness(0.58);
-}
-
-.stepVisualTomorrow .stepSigil {
-  top: 34%;
-  right: 50%;
-  width: 2.8rem;
-  height: 2.8rem;
-  border: 0;
-  background: transparent;
-  box-shadow: 0 0 2.2rem rgba(232, 184, 90, 0.42);
-  font-size: 1.45rem;
-  transform: translate(50%, -50%);
-}
-
-.stepVisualTomorrow img {
-  object-position: center 35%;
-  filter: saturate(0.62) contrast(1.08) brightness(0.6);
-}
-
-.stepContent {
-  min-height: 0;
-}
-
-.stepStack,
-.arriveLayout,
-.reviewLayout {
-  display: grid;
-  gap: 1.2rem;
-}
-
-.arriveCard {
-  position: relative;
-}
-
-.arriveCard::before {
-  position: absolute;
-  top: -0.5rem;
-  left: 50%;
-  width: 2.8rem;
-  height: 1px;
-  background: #d6a64b;
-  box-shadow: 0 0 1rem rgba(214, 166, 75, 0.55);
-  content: "";
-  transform: translateX(-50%);
-}
-
-.card {
-  border-color: rgba(224, 190, 120, 0.34);
+.insightCard {
+  padding: 1rem;
+  border: 1px solid #e0d4c0;
   border-radius: 1rem;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(211, 173, 98, 0.07), transparent 10rem),
-    linear-gradient(155deg, rgba(27, 44, 57, 0.78), rgba(12, 28, 42, 0.88));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 245, 219, 0.07),
-    0 18px 48px rgba(0, 5, 10, 0.18);
+  background: #faf6ed;
 }
 
-.movementCard {
-  padding-top: 1rem;
-}
-
-.movementCard legend {
-  color: #e6c67f;
-  font-size: 1.38rem;
-  font-weight: 500;
-}
-
-.chip {
-  min-height: 3rem;
-  border-color: rgba(224, 190, 120, 0.34);
-  border-radius: 0.7rem;
-  background: linear-gradient(155deg, rgba(34, 51, 63, 0.75), rgba(17, 34, 48, 0.82));
-  color: rgba(250, 246, 238, 0.9);
-  font-size: 0.9rem;
-  font-weight: 650;
-  box-shadow: inset 0 1px 0 rgba(255, 248, 231, 0.05);
-}
-
-.chip:hover,
-.chipSelected {
-  border-color: #e0b156;
-  background: linear-gradient(145deg, #dfb45d, #b97d26);
-  color: #07131e;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 247, 219, 0.42),
-    0 0 1.5rem rgba(210, 155, 50, 0.18);
-}
-
-.parchmentCard {
-  position: relative;
-  border-color: #e6d4a9;
-  border-radius: 1rem;
-  background:
-    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.65), transparent 9rem),
-    linear-gradient(145deg, #fff8e9, #e8dcc2);
-  box-shadow:
-    0 18px 45px rgba(0, 5, 10, 0.3),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-  font-size: 1.4rem;
-  line-height: 1.55;
-}
-
-.parchmentCard::before,
-.parchmentCard::after {
-  position: absolute;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-color: rgba(126, 78, 30, 0.25);
-  content: "";
-}
-
-.parchmentCard::before {
-  top: 0.65rem;
-  left: 0.65rem;
-  border-top: 1px solid;
-  border-left: 1px solid;
-}
-
-.parchmentCard::after {
-  right: 0.65rem;
-  bottom: 0.65rem;
-  border-right: 1px solid;
-  border-bottom: 1px solid;
-}
-
-.field {
-  min-height: 7.25rem;
-  border-color: rgba(224, 190, 120, 0.42);
-  border-radius: 0.8rem;
-  background:
-    linear-gradient(180deg, rgba(1, 9, 16, 0.8), rgba(4, 17, 28, 0.76));
-  box-shadow:
-    inset 0 1px 12px rgba(0, 0, 0, 0.22),
-    0 0 0 1px rgba(0, 0, 0, 0.14);
-  font-size: 0.96rem;
-  line-height: 1.65;
-}
-
-.field:focus {
-  border-color: #dfb45d;
-  box-shadow: 0 0 0 3px rgba(223, 180, 93, 0.13);
-  outline: none;
-}
-
-.progressTrack {
-  height: 0.18rem;
-  background: rgba(236, 227, 206, 0.12);
-}
-
-.progressFill {
-  background: linear-gradient(90deg, #8f3140, #d6a64b 82%, #f0d18c);
-  box-shadow: 0 0 0.8rem rgba(220, 175, 87, 0.42);
-}
-
-.reviewLayout .timeline {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.35rem;
-  margin: 0.8rem 0 0;
-  padding: 1.6rem 0 0;
-}
-
-.reviewLayout .timeline::before {
-  top: 0.45rem;
-  right: 1.5rem;
-  bottom: auto;
-  left: 1.5rem;
-  width: auto;
-  height: 1px;
-  background: linear-gradient(90deg, #d7a84e, rgba(215, 168, 78, 0.18));
-}
-
-.reviewLayout .timelineItem {
-  padding-inline: 0.15rem;
-  text-align: center;
-}
-
-.reviewLayout .timelineItem::before {
-  top: -1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.reviewLayout .timelineItem strong {
-  font-size: 0.86rem;
-}
-
-.reviewLayout .timelineItem span {
+.insightCard p {
+  margin: 0;
+  color: #7a2533;
   font-size: 0.69rem;
-  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.prayerActions {
-  display: grid;
-  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-  gap: 0.75rem;
-  align-items: stretch;
-  margin-top: 2rem;
+.insightCard strong {
+  display: block;
+  margin-top: 0.35rem;
+  color: #0d2038;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
-.prayerActions > * {
-  width: 100%;
-  min-width: 0;
+.clearButton {
+  margin-top: 1.2rem;
+  border: 1px solid #7a2533;
+  background: #fffdf7;
+  color: #7a2533;
 }
 
-.prayerActions .goldButton,
-.prayerActions .quietButton {
-  min-height: 3.55rem;
-  border-radius: 0.72rem;
-  padding-inline: 0.75rem;
-}
-
-.deepReflection {
-  color: rgba(245, 241, 232, 0.84);
-  font-size: 0.92rem;
-  line-height: 1.75;
-}
-
-.deepReflectionSummary {
-  display: inline-flex;
-  min-height: 2.9rem;
-  align-items: center;
-  gap: 0.55rem;
-  position: relative;
-  border: 1px solid rgba(224, 190, 120, 0.62);
-  border-radius: 0.65rem;
-  background: linear-gradient(135deg, rgba(211, 173, 98, 0.2), rgba(16, 34, 48, 0.72));
-  padding: 0.55rem 0.85rem;
-  color: #f0d18c;
-  cursor: pointer;
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  list-style: none;
-  box-shadow: inset 0 1px 0 rgba(255, 246, 215, 0.12), 0 5px 18px rgba(0, 0, 0, 0.16);
-  transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-}
-
-.deepReflectionSummary::before {
-  width: 0.38rem;
-  height: 0.38rem;
-  border-radius: 50%;
-  background: #f0d18c;
-  box-shadow: 0 0 0.7rem rgba(240, 209, 140, 0.8);
-  content: "";
-}
-
-.deepReflectionSummary:hover {
-  border-color: #f0d18c;
-  background: linear-gradient(135deg, rgba(211, 173, 98, 0.3), rgba(16, 34, 48, 0.82));
-  box-shadow: inset 0 1px 0 rgba(255, 246, 215, 0.16), 0 8px 24px rgba(0, 0, 0, 0.22);
-  transform: translateY(-1px);
-}
-
-.deepReflectionSummary::-webkit-details-marker {
-  display: none;
-}
-
-.deepReflectionSummary span {
-  position: relative;
-  display: inline-grid;
-  width: 1.25rem;
-  height: 1.25rem;
-  place-items: center;
-  border: 1px solid rgba(240, 209, 140, 0.72);
-  border-radius: 50%;
-  color: #fff2c9;
-  font-size: 0;
-  line-height: 1;
-  transition: transform 160ms ease;
-}
-
-.deepReflectionSummary span::before,
-.deepReflectionSummary span::after {
-  position: absolute;
-  width: 0.48rem;
-  height: 1px;
-  background: #fff2c9;
-  box-shadow: 0 0 0.45rem rgba(255, 242, 201, 0.9);
-  content: "";
-}
-
-.deepReflectionSummary span::after {
-  transform: rotate(90deg);
-}
-
-.deepReflectionSummary span {
-  box-shadow: 0 0 0.85rem rgba(240, 209, 140, 0.48), inset 0 0 0.45rem rgba(240, 209, 140, 0.18);
-}
-
-.deepReflection[open] .deepReflectionSummary {
-  border-color: #e0b156;
-  background: linear-gradient(135deg, rgba(211, 173, 98, 0.28), rgba(16, 34, 48, 0.82));
-}
-
-.deepReflection[open] .deepReflectionSummary span {
-  transform: rotate(180deg);
-}
-
-.deepReflection > p {
-  max-width: 34rem;
-  margin-top: 0.75rem;
-  color: rgba(245, 241, 232, 0.68);
-}
-
-.deepReflection ul {
-  max-width: 36rem;
-  margin-top: 0.5rem;
-  padding-left: 1.25rem;
-  color: rgba(245, 241, 232, 0.86);
-}
-
-.prayerActions .goldButton {
-  font-size: 1.05rem;
-  font-weight: 550;
-}
-
-.prayerActions .quietButton {
-  font-size: 0.86rem;
-  font-weight: 650;
-}
-
-@media (max-width: 360px) {
-  .prayerActions {
-    grid-template-columns: 1fr;
-  }
-
-  .prayerActions .quietButton {
-    grid-row: 2;
-  }
-}
-
-/* Dedicated app route: own the viewport and never inherit article scroll or site chrome. */
-.standalone {
-  position: fixed;
-  inset: 0;
-  z-index: 2147483646;
-  display: grid;
-  overflow-x: hidden;
-  overflow-y: auto;
-  place-items: start center;
-  background: #01060c;
-  overscroll-behavior: contain;
-  scroll-padding-top: env(safe-area-inset-top);
-}
-
-.standalone .shell {
-  width: min(100%, 27rem);
-  min-height: 100svh;
-  border-radius: 0;
-}
-
-.standalone .content {
-  min-height: 100svh;
-  padding-top: max(1.5rem, calc(env(safe-area-inset-top) + 0.75rem));
-  padding-bottom: max(1.7rem, calc(env(safe-area-inset-bottom) + 1rem));
+.clearButton:hover {
+  background: #f6e9e7;
 }
 
 :global(body):has(.standalone) {
   overflow: hidden;
-  background: #01060c;
+  background: #081625;
 }
 
 :global(body):has(.standalone) header,
@@ -1616,192 +764,174 @@
   display: none;
 }
 
-@media (min-width: 520px) {
-  .standalone {
-    padding-block: 1rem;
+@media (min-width: 680px) {
+  .shell {
+    padding: 1rem;
   }
 
-  .standalone .shell {
-    min-height: min(calc(100svh - 2rem), 52rem);
-    border-radius: 2.65rem;
+  .welcome,
+  .prayerJourney,
+  .completeShell {
+    min-height: calc(100svh - 2rem);
+  }
+
+  .photoPanel {
+    height: 44svh;
+    border-radius: 1.8rem;
+  }
+
+  .panel {
+    margin-top: -1.9rem;
+    border-radius: 2rem 2rem 1.5rem 1.5rem;
+  }
+
+  .actions {
+    max-width: 38rem;
+  }
+
+  .insightGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-/* Desktop prayer room: preserve the phone composition below 900px. */
 @media (min-width: 900px) {
   .standalone {
-    padding: clamp(1.5rem, 4vh, 3rem) clamp(1.5rem, 4vw, 4.5rem);
-    place-items: center;
-    background:
-      radial-gradient(circle at 19% 34%, rgba(124, 75, 30, 0.16), transparent 25rem),
-      radial-gradient(circle at 82% 65%, rgba(24, 61, 91, 0.2), transparent 31rem),
-      linear-gradient(145deg, #01060b 0%, #020a12 48%, #01050a 100%);
-  }
-
-  .standalone .shell {
-    width: min(100%, 72rem);
-    min-height: min(54rem, calc(100svh - clamp(3rem, 8vh, 6rem)));
-    border-radius: 2rem;
-    background:
-      radial-gradient(circle at 21% 48%, rgba(174, 113, 36, 0.12), transparent 24rem),
-      radial-gradient(circle at 78% 20%, rgba(31, 67, 96, 0.18), transparent 26rem),
-      linear-gradient(145deg, #020b15 0%, #061523 55%, #020a13 100%);
-    box-shadow:
-      0 42px 120px rgba(0, 0, 0, 0.62),
-      inset 0 0 0 5px #01060c,
-      inset 0 0 0 6px rgba(211, 173, 98, 0.12);
-  }
-
-  .standalone .content {
-    min-height: inherit;
-    padding: clamp(2.5rem, 4vw, 4.25rem);
-  }
-
-  .standalone .welcome {
-    min-height: calc(min(54rem, 100svh - clamp(3rem, 8vh, 6rem)) - clamp(5rem, 8vw, 8.5rem));
-    grid-template-columns: minmax(15rem, 0.88fr) minmax(21rem, 1.12fr);
-    grid-template-rows: auto auto auto auto auto 1fr;
-    column-gap: clamp(2rem, 5vw, 6.5rem);
-    align-items: center;
-  }
-
-  .standalone .welcome .brandLockup {
-    grid-column: 1;
-    grid-row: 1;
-    align-self: end;
-  }
-
-  .standalone .welcome .photoScene {
-    width: calc(100% + 2rem);
-    height: clamp(25rem, 52vh, 31rem);
-    margin: -1.5rem -1rem 0;
-    grid-column: 1;
-    grid-row: 2 / span 5;
-    align-self: start;
-  }
-
-  .standalone .welcome .photoScene img {
-    object-position: center 47%;
-  }
-
-  .standalone .welcome .stepMarker,
-  .standalone .welcome .heading,
-  .standalone .welcome .headingOrnament,
-  .standalone .welcome .body,
-  .standalone .welcomeActions {
-    width: 100%;
-    grid-column: 2;
-    justify-self: stretch;
-  }
-
-  .standalone .welcome .stepMarker {
-    grid-row: 1;
-    align-self: end;
-  }
-
-  .standalone .welcome .heading {
-    max-width: 34rem;
-    margin-top: 1.75rem !important;
-    grid-row: 2;
-    font-size: clamp(3.8rem, 5.1vw, 5.4rem);
-    line-height: 0.93;
-  }
-
-  .standalone .welcome .headingOrnament {
-    margin-top: 1.2rem;
-    grid-row: 3;
-  }
-
-  .standalone .welcome .body {
-    margin-top: 1.25rem !important;
-    grid-row: 4;
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-
-  .standalone .welcomeActions {
-    margin-top: 2rem !important;
-    grid-row: 5;
-    align-self: start;
-  }
-
-  .standalone .welcomeActions .goldButton {
-    width: auto;
-    min-width: 19rem;
-    min-height: 3.8rem;
-  }
-
-  .standalone .prayerView {
     display: grid;
-    min-height: calc(min(54rem, 100svh - clamp(3rem, 8vh, 6rem)) - clamp(5rem, 8vw, 8.5rem));
-    grid-template-columns: minmax(16rem, 0.88fr) minmax(22rem, 1.12fr);
-    grid-template-areas:
-      "meta meta"
-      "progress progress"
-      "title content"
-      "visual content"
-      ". actions";
-    grid-template-rows: auto auto auto 1fr auto;
-    column-gap: clamp(2rem, 5vw, 6rem);
-    align-items: start;
+    place-items: center;
+    padding: clamp(0.8rem, 2vh, 1.5rem) clamp(1rem, 2.5vw, 2.5rem);
+    background:
+      radial-gradient(circle at 17% 42%, rgba(124, 75, 30, 0.16), transparent 27rem),
+      radial-gradient(circle at 83% 62%, rgba(24, 61, 91, 0.23), transparent 33rem),
+      linear-gradient(145deg, #01070d, #081522 60%, #020910);
   }
 
-  .standalone .prayerMeta {
-    grid-area: meta;
-  }
-
-  .standalone .progressTrack {
-    grid-area: progress;
-  }
-
-  .standalone .prayerView .subheading {
-    max-width: 31rem;
-    margin-top: clamp(2.75rem, 6vh, 4.5rem) !important;
-    grid-area: title;
-    align-self: end;
-    font-size: clamp(3.7rem, 4.6vw, 5rem);
-    line-height: 0.94;
-  }
-
-  .standalone .stepVisual {
+  .shell {
     width: 100%;
-    height: clamp(17rem, 34vh, 22rem);
-    margin: 2rem 0 0;
-    grid-area: visual;
-    align-self: start;
-    border: 1px solid rgba(211, 173, 98, 0.2);
-    border-radius: 1.25rem;
-    mask-image: linear-gradient(90deg, transparent 0%, black 7%, black 93%, transparent 100%);
+    min-height: 0;
+    padding: 0;
   }
 
-  .standalone .stepContent {
+  .homeLink {
+    top: 1.3rem;
+    right: 1.5rem;
+  }
+
+  .welcome,
+  .prayerJourney,
+  .completeShell {
+    min-height: min(58rem, calc(100svh - clamp(1.6rem, 4vh, 3rem)));
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 0;
+    overflow: visible;
+    border: 1px solid rgba(214, 170, 84, 0.37);
+    border-radius: 2.2rem;
+    background: #fffdf7;
+    box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6), inset 0 0 0 0.35rem rgba(255, 253, 247, 0.72);
+  }
+
+  .photoPanel,
+  .completeShell .photoPanel {
+    position: sticky;
+    top: 0;
     width: 100%;
-    max-width: 34rem;
-    margin-top: clamp(2.75rem, 6vh, 4.5rem) !important;
-    grid-area: content;
-    align-self: start;
+    height: min(58rem, calc(100svh - clamp(1.6rem, 4vh, 3rem)));
+    min-height: 35rem;
+    max-height: none;
+    border: 0;
+    border-radius: 2.1rem 0 0 2.1rem;
+    box-shadow: none;
   }
 
-  .standalone .stepStack,
-  .standalone .arriveLayout,
-  .standalone .reviewLayout {
-    gap: 1.5rem;
+  .photo {
+    object-position: center 48%;
   }
 
-  .standalone .card,
-  .standalone .parchmentCard {
-    padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  .panel,
+  .historyShell .panel {
+    display: flex;
+    min-height: min(58rem, calc(100svh - clamp(1.6rem, 4vh, 3rem)));
+    flex-direction: column;
+    margin: 0;
+    border: 0;
+    border-radius: 0 2.1rem 2.1rem 0;
+    background:
+      radial-gradient(ellipse at 50% 0, rgba(243, 234, 216, 0.48), transparent 22rem),
+      #fffdf7;
+    box-shadow: inset 1px 0 0 rgba(189, 138, 47, 0.38);
   }
 
-  .standalone .field {
-    min-height: 9rem;
+  .panelInner {
+    width: min(100%, 54rem);
+    padding: clamp(2rem, 4vw, 3.65rem) clamp(2rem, 4.5vw, 4.25rem) 2rem;
   }
 
-  .standalone .prayerActions {
+  .welcome .panelInner {
+    margin-block: auto;
+  }
+
+  .welcomeTitle {
+    max-width: 42rem;
+    margin-top: 1.55rem;
+    font-size: clamp(3.25rem, 4.5vw, 5rem);
+    line-height: 0.98;
+  }
+
+  .pageTitle {
+    max-width: 43rem;
+    margin-top: clamp(2rem, 5vh, 3.8rem);
+    font-size: clamp(3rem, 4.1vw, 4.65rem);
+    line-height: 0.98;
+  }
+
+  .guide {
+    font-size: 1.02rem;
+  }
+
+  .prayerCard {
+    margin-top: 1.8rem;
+    padding: clamp(1.5rem, 2.4vw, 2.1rem);
+    font-size: clamp(1.5rem, 2.15vw, 1.85rem);
+  }
+
+  .navigation {
+    margin-top: auto;
+    border-radius: 0 0 2.1rem 0;
+    padding: 0.9rem clamp(2rem, 4.5vw, 4.25rem) max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .historyShell {
+    min-height: min(58rem, calc(100svh - clamp(1.6rem, 4vh, 3rem)));
+  }
+
+  .historyShell .panel {
+    border-radius: 2rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .navigation {
+    flex-direction: column-reverse;
+  }
+
+  .navigation > * {
+    flex-basis: auto !important;
     width: 100%;
-    max-width: 34rem;
-    margin-top: 1.75rem;
-    grid-area: actions;
-    align-self: end;
+  }
+
+  .homeLink {
+    top: max(0.7rem, env(safe-area-inset-top));
+    right: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homeLink,
+  .disclosure > span,
+  .chip,
+  .choiceButton,
+  .primaryButton,
+  .secondaryButton {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
   }
 }

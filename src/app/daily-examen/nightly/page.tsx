@@ -2,12 +2,11 @@ import { NightlyExamenExperience } from "@/components/daily-examen/NightlyExamen
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
-  title: "The Last Light | A Nightly Examen",
-  description:
-    "End the day with a guided Catholic Examen of gratitude, honest review, mercy, discernment, and trust in God.",
+  title: "The Last Light: A Catholic Nightly Examen",
+  description: "A guided Catholic examination of conscience and evening prayer",
   path: "/daily-examen/nightly",
-  image: "/images/daily-examen/last-light-candle-v2.webp",
-  imageAlt: "A candle burning in a quiet room for The Last Light nightly Examen",
+  image: "/images/daily-examen/presence.webp",
+  imageAlt: "A candle and simple cross in the stillness of a chapel at night",
   keywords: ["nightly Examen", "Daily Examen", "Catholic night prayer", "Ignatian Examen"],
 });
 
