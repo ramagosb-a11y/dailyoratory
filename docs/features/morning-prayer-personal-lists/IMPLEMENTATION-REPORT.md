@@ -1,5 +1,16 @@
 # IMPLEMENTATION-REPORT — Morning prayer personal lists
 
+## v5 mobile layout follow-up — 2026-09-28
+
+- Spec: DEVELOPMENT-SPEC v5; owner approved the implementation plan on 2026-09-28.
+- Change: in both personal prayer lists, the Add/Edit form now appears before the saved entries. At narrow widths each entry name wraps in its own row and Edit/Remove appear below with a divider; at wider widths the existing inline layout remains.
+- Edit behavior: selecting an entry preloads the form, scrolls the field into view, and focuses it; smooth scrolling is disabled when reduced motion is preferred.
+- Data/privacy: no changes to localStorage keys or schema, limits, analytics, network requests, content, or routes.
+- Release: local implementation only; this follow-up has not been committed, pushed, or deployed. Prior v4 production release record below refers only to its already released scope.
+- Verification: focused `npx eslint src/components/morning-prayer/MorningPrayerExperience.tsx`, `npm run typecheck`, `npm run audit:client-stores`, and `git diff --check` passed. `npm run build` reached Next.js compilation but failed resolving `@vercel/turbopack-next/internal/font/google/font` for existing `next/font/google` declarations in `src/app/layout.tsx`; this is unrelated to the changed component and prevents build completion in this environment.
+- Local browser: the development page loaded at `http://localhost:3014/morning-prayer`. Opened the Offering of Indulgences list, confirmed the add form precedes the entries, added a synthetic long-name entry, selected Edit and confirmed the field receives focus, then removed the synthetic entry. The intentions list uses the same component and layout path. Source classes and independent UX review confirm mobile action separation and wider inline layout; narrow-device emulation was unavailable in this browser session.
+- Independent review: UX reviewer identified and verified the `sm:w-auto` responsive fix; no remaining issue in the requested scope. No personal data was used.
+
 - Feature/spec: `morning-prayer-personal-lists`, DEVELOPMENT-SPEC v4 (visual refinement, mobile icon simplification, and direct entry to Prayer 1).
 - Status: implemented locally; awaiting human review. No production publication authorized.
 - Authorization: owner request dated 2026-09-27 for collapsible personal lists on the two specified prayer steps with browser persistence and add/edit/remove.

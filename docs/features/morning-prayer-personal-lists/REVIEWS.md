@@ -2,6 +2,16 @@
 
 Feature: `morning-prayer-personal-lists`, DEVELOPMENT-SPEC v4, 2026-09-27.
 
+## UX / Formation — v5 mobile layout follow-up
+
+**Decision: ready after independent UX review.** Scope is limited to list layout and edit focus behavior in `src/components/morning-prayer/MorningPrayerExperience.tsx`.
+
+- Move the complete add/edit form ahead of the saved-entry list so the primary action is immediately available.
+- On narrow viewports, keep the saved name on its own wrapping row and place Edit/Remove in a distinct action row below. At the existing `sm` breakpoint and above, retain the compact inline layout.
+- When Edit is selected, populate the top form, bring its field into view, and focus it. Respect reduced-motion preference for scrolling.
+- Preserve native buttons, input label, focus ring, local-only storage, entry order, data format, existing touch target sizing, and both separate list variants.
+- Independent reviewer confirmed the name wrapper needs `sm:w-auto` so the wider horizontal list can place actions beside the name; that correction is included. Review found no remaining issue in the requested layout/focus scope. Long names retain `min-w-0` and `overflow-wrap:anywhere`.
+
 ## UX / Formation
 
 **Decision: ready, self-review.** Route/component inspected: `src/components/morning-prayer/MorningPrayerExperience.tsx`; screen references supplied by owner.

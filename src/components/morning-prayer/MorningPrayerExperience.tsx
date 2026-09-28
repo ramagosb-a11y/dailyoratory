@@ -91,6 +91,19 @@ function PersonalPrayerList({ kind }: { kind: PersonalPrayerListKind }) {
   const [expanded, setExpanded] = useState(false);
   const [draft, setDraft] = useState("");
   const [editingId, setEditingId] = useState<string | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!editingId) return;
+    const frame = window.requestAnimationFrame(() => {
+      const input = inputRef.current;
+      if (!input) return;
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      input.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+      input.focus({ preventScroll: true });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [editingId]);
 
   function persist(nextEntries: PersonalPrayerEntry[]) {
     try {
@@ -165,31 +178,11 @@ function PersonalPrayerList({ kind }: { kind: PersonalPrayerListKind }) {
             </span>
           </div>
           {!storageAvailable ? <p role="status" className="mb-3 rounded-xl border border-[#BD8A2F]/35 bg-[#FFFDF7] px-4 py-3 text-sm text-[#5B5145]">Browser storage is unavailable. Your changes will not be saved after you leave this page.</p> : null}
-          {entries.length > 0 ? (
-            <ul className="mb-5 space-y-2.5">
-              {entries.map((entry) => (
-                <li key={entry.id} className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#E6DDCD] bg-[#FFFDF7] px-4 py-3.5 text-[#172033] shadow-[0_3px_12px_rgba(13,32,56,0.04)] sm:px-5">
-                  <span className="flex min-w-0 flex-1 items-center gap-3 break-words font-medium">
-                    <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#F3EAD8]"><span className="h-1.5 w-1.5 rounded-full bg-[#BD8A2F]" /></span>
-                    {entry.name}
-                  </span>
-                  <span className="flex shrink-0 gap-2">
-                    <button type="button" onClick={() => beginEdit(entry)} className="focus-ring min-h-10 rounded-full px-3 text-sm font-semibold text-[#7A2533] transition-colors hover:bg-[#F3EAD8]">Edit <span className="sr-only">{entry.name}</span></button>
-                    <button type="button" onClick={() => { persist(entries.filter((item) => item.id !== entry.id)); if (editingId === entry.id) cancelEdit(); }} className="focus-ring min-h-10 rounded-full px-3 text-sm font-semibold text-[#5B5145] transition-colors hover:bg-[#F3EAD8] hover:text-[#7A2533]">Remove <span className="sr-only">{entry.name}</span></button>
-                  </span>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <div className="mb-5 flex items-center gap-3 rounded-2xl border border-dashed border-[#D8CDB9] bg-[#FFFDF7]/70 px-4 py-4 text-sm text-[#5B5145]">
-              <span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#F3EAD8]"><span className="h-1.5 w-1.5 rounded-full bg-[#BD8A2F]" /></span>
-              <span>Your list is ready when you are. Add a name to keep it close in prayer.</span>
-            </div>
-          )}
-          <form onSubmit={saveEntry} className="rounded-2xl border border-[#E6DDCD] bg-[#FFFDF7] p-3 shadow-[0_4px_16px_rgba(13,32,56,0.05)] sm:flex sm:items-end sm:gap-3 sm:p-4">
+          <form onSubmit={saveEntry} className="mb-5 rounded-2xl border border-[#E6DDCD] bg-[#FFFDF7] p-3 shadow-[0_4px_16px_rgba(13,32,56,0.05)] sm:flex sm:items-end sm:gap-3 sm:p-4">
             <div className="flex-1">
               <label htmlFor={`personal-prayer-${kind}`} className="mb-1.5 block text-[11px] font-bold uppercase tracking-[0.12em] text-[#5B5145]">{config.label}</label>
               <input
+                ref={inputRef}
                 id={`personal-prayer-${kind}`}
                 value={draft}
                 onChange={(event) => setDraft(event.target.value.slice(0, 120))}
@@ -206,6 +199,27 @@ function PersonalPrayerList({ kind }: { kind: PersonalPrayerListKind }) {
               </button>
             </div>
           </form>
+          {entries.length > 0 ? (
+            <ul className="mb-5 space-y-2.5">
+              {entries.map((entry) => (
+                <li key={entry.id} className="flex flex-col gap-2.5 rounded-2xl border border-[#E6DDCD] bg-[#FFFDF7] px-4 py-3.5 text-[#172033] shadow-[0_3px_12px_rgba(13,32,56,0.04)] sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-3 sm:px-5">
+                  <span className="flex min-w-0 w-full items-start gap-3 font-medium [overflow-wrap:anywhere] sm:w-auto sm:flex-1">
+                    <span aria-hidden="true" className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-[#F3EAD8]"><span className="h-1.5 w-1.5 rounded-full bg-[#BD8A2F]" /></span>
+                    <span className="min-w-0 flex-1 pt-1">{entry.name}</span>
+                  </span>
+                  <span className="flex w-full justify-end gap-2 border-t border-[#E6DDCD] pt-2 sm:w-auto sm:shrink-0 sm:border-0 sm:pt-0">
+                    <button type="button" onClick={() => beginEdit(entry)} className="focus-ring min-h-10 rounded-full px-3 text-sm font-semibold text-[#7A2533] transition-colors hover:bg-[#F3EAD8]">Edit <span className="sr-only">{entry.name}</span></button>
+                    <button type="button" onClick={() => { persist(entries.filter((item) => item.id !== entry.id)); if (editingId === entry.id) cancelEdit(); }} className="focus-ring min-h-10 rounded-full px-3 text-sm font-semibold text-[#5B5145] transition-colors hover:bg-[#F3EAD8] hover:text-[#7A2533]">Remove <span className="sr-only">{entry.name}</span></button>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="mb-5 flex items-center gap-3 rounded-2xl border border-dashed border-[#D8CDB9] bg-[#FFFDF7]/70 px-4 py-4 text-sm text-[#5B5145]">
+              <span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-[#F3EAD8]"><span className="h-1.5 w-1.5 rounded-full bg-[#BD8A2F]" /></span>
+              <span>Your list is ready when you are. Add a name to keep it close in prayer.</span>
+            </div>
+          )}
           {entries.length >= 50 && !editingId ? <p className="mt-3 text-sm text-[#5B5145]">You can save up to 50 entries in this list.</p> : null}
           <p className="mt-3 text-center text-xs leading-5 text-[#5B5145]">Private to this browser · Not sent to Daily Oratory</p>
         </div>
