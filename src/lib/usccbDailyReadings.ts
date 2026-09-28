@@ -4,7 +4,7 @@ import type { ISODateString } from "@/types/content";
 import type { MassReadingReference } from "@/types/massReadingsReflections";
 
 const USCCB_READINGS_FEED_URL = "https://www.usccb.org/bible/readings/rss/index.cfm";
-const FEED_REVALIDATE_SECONDS = 60 * 60 * 24;
+const FEED_REVALIDATE_SECONDS = 60 * 60;
 
 export type UsccbDailyReading = {
   date: ISODateString;

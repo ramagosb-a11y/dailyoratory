@@ -13,7 +13,9 @@ import { createPageMetadata } from "@/lib/metadata";
 import { getCurrentSiteIsoDate } from "@/lib/staticDailyContent";
 import { getUsccbDailyReadings } from "@/lib/usccbDailyReadings";
 
-export const revalidate = 86400;
+// Refresh the date-sensitive USCCB reference list hourly so it does not remain
+// on yesterday's readings after the visitor's local calendar date changes.
+export const revalidate = 3600;
 
 export const metadata: Metadata = createPageMetadata({
   title: "Reading and Reflections",

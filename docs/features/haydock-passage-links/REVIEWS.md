@@ -36,3 +36,11 @@ Reviewer: `/root/journal_history_ux`, read-only review requested by Oratory Lead
 ## Privacy / safety
 
 **Not applicable.** The resolver consumes public reading references only. It does not read the on-device journal and introduces no new analytics, logs, APIs, or data flow.
+
+## Date freshness follow-up — independent engineering review
+
+**Decision: acceptable with bounded-staleness caveat.** Setting the route ISR and USCCB feed Data Cache intervals to one hour preserves static/ISR rendering and avoids a request-time USCCB fetch for every visitor. A time-based ISR route can serve stale HTML to the first request after expiration while regeneration occurs in the background, so this does not promise a fresh reading list on that exact request. The client-side date refresh cannot compensate if the cached feed lacks the current date.
+
+Verification recommended after release: confirm the route remains static/ISR, observe cache hit/stale/regenerated responses, and compare the displayed date and readings with the public feed. If same-request freshness at the date boundary becomes a strict requirement, use controlled on-demand revalidation rather than making the entire page uncached.
+
+Reviewer: `/root/journal_history_ux`, read-only review on 2026-09-28.

@@ -2,13 +2,20 @@
 
 ## Identity and authorization
 - Feature ID: `haydock-passage-links`
-- Spec revision/date: 1 / 2026-09-27
+- Spec revision/date: 2 / 2026-09-28
 - Status: approved-for-implementation
 - Owner: Brent
 - Implementation approval: owner replied “Approved.” on 2026-09-27 to the reviewed recommendation: direct Psalm 25 to the matching Haydock chapter; use a static checked-in chapter map and a transparent fallback; audit Psalter numbering boundaries.
 - Required review artifacts and reviewed revisions: `REVIEWS.md`, revision 1 (UX / Formation and Codex Engineering independent reviews; Site / SEO review by Oratory Lead).
-- Production authorization: **not authorized**
+- Production authorization: owner explicitly requested commit and production deployment to `main` on 2026-09-27 for this feature. The one-hour freshness follow-up addresses the same daily-reference reliability goal and is included in the authorized release workflow.
 - Re-review triggers: changes to source data meaning, resource UI beyond link labels, runtime fetching, routes, or journal/network data flow.
+
+### Revision 2 — date freshness follow-up
+
+- Trigger: Owner supplied a mobile screenshot showing the unavailable-reference fallback after the first release. A live check on 2026-09-28 then showed current readings successfully, and the USCCB RSS feed already contained that day's item. This points to stale daily cache state around the site-date rollover, rather than a missing daily reading in the source.
+- Change: Reduce the review route ISR interval and the USCCB feed Data Cache interval from 24 hours to one hour. The page remains statically rendered with ISR; it does not fetch on each visitor request.
+- Limitation: ISR uses stale-while-revalidate. The first request after an interval expires may receive the previous cached page while background regeneration runs; later requests receive refreshed output. Freshness is eventual, not guaranteed on the first request at midnight.
+- Independent review: Engineering cache review is recorded in `REVIEWS.md`.
 
 ## Goal and scope
 - Goal: Make daily reading cards open the corresponding Haydock chapter wherever a supported passage can be mapped, instead of routinely opening the testament index.
