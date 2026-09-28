@@ -62,4 +62,4 @@
 - [x] Appropriate checks and manual verification reported truthfully.
 - [x] Focused diff reviewed; unrelated work preserved.
 - [x] Implementation report complete; the v5 change is local and awaiting owner review.
-- [ ] Publication of v5 only after separate explicit owner authorization.
+- [x] Publication of v5 only after separate explicit owner authorization; user authorized commit, push to `main`, and Production on 2026-09-28.
