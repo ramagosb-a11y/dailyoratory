@@ -23,6 +23,8 @@
 | UX/accessibility | | | |
 | Site/SEO | | | |
 | Privacy/safety | | | |
+| Vercel efficiency | | | |
+| Automation architecture | | | |
 | Engineering and verification | Required | | |
 | Code/diff review | Required | | |
 | Human review | Required | | |

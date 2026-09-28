@@ -11,6 +11,8 @@ Start with [the repository audit](REPOSITORY-AUDIT.md), [root instructions](../.
 | [UX / Formation](UX-FORMATION.md) | Calm accessible interaction | UX-SPEC |
 | [Site / SEO](SITE-SEO.md) | Existing route fit and discovery | SEO-REVIEW |
 | [Privacy / Safety](PRIVACY-SAFETY.md) | Personal information and network boundaries | PRIVACY-REVIEW |
+| [Vercel Efficiency](VERCEL-EFFICIENCY.md) | Keep relevant work inside the Vercel Hobby/free operating envelope | VERCEL-EFFICIENCY-REVIEW |
+| [Automation Architect](AUTOMATION-ARCHITECT.md) | Design and, after approved scope, implement low-usage automation | AUTOMATION-DESIGN |
 | [Codex Engineering](CODEX-ENGINEERING.md) | Approved specification to verified change | IMPLEMENTATION-REPORT |
 
 ## Common handoff

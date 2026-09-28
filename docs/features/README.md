@@ -32,6 +32,8 @@ Record not-applicable stages in IDEA with evidence and a reason. Return findings
 | User journey, controls, visual or spoken UI | UX/accessibility review; unchanged theology can be not-applicable with a content-preservation check |
 | New/changed routes, metadata, navigation, links, redirects, schema or discoverability | Site/SEO review before route creation |
 | Journals, examination answers, intentions, reflections, spiritual progress, analytics, APIs, storage, logs, exports or embeds | Privacy review of affected data flow; no exemption merely because storage is local |
+| Rendering, functions, caching, revalidation, images, analytics, cron, middleware, Vercel configuration or traffic-heavy routes | Vercel Efficiency review; use current Vercel plan and Usage evidence when available; preserve a lower-usage alternative |
+| Scheduled work, recurring synchronization, reminders, monitoring, notifications, maintenance or background processing | Automation Architecture review; Privacy review for affected data; Vercel Efficiency review when Vercel resources are involved |
 | Instructions/docs-only with no public copy or runtime change | Link/path/diff validation; record why app tests/build are omitted, or run them as a labeled baseline |
 
 ## Approval record
