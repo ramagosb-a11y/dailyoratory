@@ -1,3 +1,10 @@
+import {
+  getAnalyticsPagePath,
+  isSensitiveAnalyticsPath,
+  sanitizeAnalyticsUrl,
+  sanitizeAnalyticsEventParams,
+} from "@/lib/analyticsPrivacy";
+
 export type AnalyticsEventName =
   | "page_view"
   | "external_resource_click"
@@ -192,31 +199,37 @@ export type AnalyticsParams = Record<string, string | number | boolean | null | 
 declare global {
   interface Window {
     dataLayer?: unknown[];
-    gtag?: (
-      command: "config" | "event",
-      targetIdOrEventName: string,
-      params?: Record<string, string | number | boolean>,
-    ) => void;
+    gtag?: {
+      (
+        command: "config" | "event",
+        targetIdOrEventName: string,
+        params?: Record<string, string | number | boolean>,
+      ): void;
+      (command: "set", fieldName: string, value: string): void;
+    };
   }
-}
-
-function cleanParams(params: AnalyticsParams = {}) {
-  return Object.fromEntries(
-    Object.entries(params).filter(
-      (entry): entry is [string, string | number | boolean] =>
-        entry[1] !== undefined && entry[1] !== null,
-    ),
-  );
 }
 
 export function trackEvent(eventName: AnalyticsEventName, params: AnalyticsParams = {}) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-  window.gtag("event", eventName, cleanParams(params));
+  if (isSensitiveAnalyticsPath(window.location.pathname)) return;
+  window.gtag("event", eventName, sanitizeAnalyticsEventParams(params));
 }
 
-export function trackPageView(pagePath: string, pageTitle?: string) {
-  trackEvent("page_view", {
-    page_path: pagePath,
-    page_title: pageTitle,
+export function trackPageView(pagePath: string, pageTitle?: string, pageReferrer?: string) {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  const sensitive = isSensitiveAnalyticsPath(pagePath);
+  const safePath = getAnalyticsPagePath(new URL(pagePath, window.location.origin).pathname);
+  const safeLocation = `${window.location.origin}${safePath}`;
+  const referrer = pageReferrer ?? document.referrer;
+  const safeReferrer = referrer ? sanitizeAnalyticsUrl(referrer, window.location.origin) : "";
+
+  window.gtag("set", "page_location", safeLocation);
+  window.gtag("set", "page_referrer", safeReferrer);
+  window.gtag("event", "page_view", {
+    page_path: safePath,
+    page_location: safeLocation,
+    page_referrer: safeReferrer,
+    ...(sensitive || !pageTitle ? {} : { page_title: pageTitle }),
   });
 }

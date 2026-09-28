@@ -1,25 +1,26 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { trackPageView } from "@/lib/analytics";
+import { getAnalyticsPagePath } from "@/lib/analyticsPrivacy";
 
 export function AnalyticsPageTracker() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const hasMountedRef = useRef(false);
+  const previousPathRef = useRef<string | null>(null);
 
   useEffect(() => {
-    const query = searchParams.toString();
-    const pagePath = query ? `${pathname}?${query}` : pathname;
+    const pagePath = getAnalyticsPagePath(pathname);
+    const previousPath = previousPathRef.current;
+    if (previousPath === pagePath) return;
 
-    if (!hasMountedRef.current) {
-      hasMountedRef.current = true;
-      return;
-    }
+    const referrer = previousPath
+      ? `${window.location.origin}${previousPath}`
+      : document.referrer;
 
-    trackPageView(pagePath, document.title);
-  }, [pathname, searchParams]);
+    trackPageView(pagePath, document.title, referrer);
+    previousPathRef.current = pagePath;
+  }, [pathname]);
 
   return null;
 }

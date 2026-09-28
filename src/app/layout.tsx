@@ -108,7 +108,30 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${googleAnalyticsId}');
+            var campaignParams = new URLSearchParams(window.location.search);
+            var safeCampaignValue = function(value, allowedValues) {
+              var normalized = value && value.toLowerCase();
+              return normalized && value.length <= 40 && /^[a-z0-9][a-z0-9._-]*$/i.test(value) && allowedValues.indexOf(normalized) !== -1
+                ? normalized
+                : undefined;
+            };
+            var campaignSource = safeCampaignValue(campaignParams.get('utm_source'),
+              ['google', 'bing', 'yahoo', 'duckduckgo', 'facebook', 'instagram', 'youtube', 'tiktok', 'x', 'newsletter', 'parish', 'email', 'referral', 'qr', 'direct']);
+            var campaignMedium = safeCampaignValue(campaignParams.get('utm_medium'),
+              ['organic', 'cpc', 'paid', 'social', 'email', 'newsletter', 'referral', 'qr', 'none', 'affiliate', 'display']);
+            var safePageReferrer = '';
+            try {
+              var referrerUrl = new URL(document.referrer);
+              safePageReferrer = referrerUrl.origin + referrerUrl.pathname;
+            } catch {}
+            gtag('config', '${googleAnalyticsId}', Object.assign({
+              send_page_view: false,
+              page_location: window.location.origin + window.location.pathname,
+              page_referrer: safePageReferrer
+            },
+              campaignSource ? { campaign_source: campaignSource } : {},
+              campaignMedium ? { campaign_medium: campaignMedium } : {}
+            ));
           `}
         </Script>
         <a

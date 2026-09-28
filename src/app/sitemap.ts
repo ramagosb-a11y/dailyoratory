@@ -11,6 +11,7 @@ import { getApprovedPrayerIntentions } from "@/lib/prayerIntentions";
 import { publishedResources } from "@/lib/resources";
 import { getPublishedSacramentCompanions } from "@/lib/sacraments";
 import { getPublishedSaints } from "@/lib/saints";
+import { isIndexableSitemapPath } from "@/lib/sitemapEligibility";
 import { absoluteUrl, hasMalformedUrlPattern, isInternalHref, normalizeInternalHref, validateSingleUrl } from "@/lib/url";
 
 export const revalidate = 86400;
@@ -355,6 +356,10 @@ function buildSitemapEntry(
 
     if (!isInternalHref(normalizedHref)) {
       logSitemapWarning(`Skipping external URL from ${source}`, href);
+      return null;
+    }
+
+    if (!isIndexableSitemapPath(new URL(absoluteUrl(normalizedHref)).pathname)) {
       return null;
     }
 
