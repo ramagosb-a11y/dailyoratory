@@ -2,7 +2,18 @@
 
 **Date:** 2026-09-27
 
-**Scope:** Local implementation of the approved Nightly Examen refresh for `/daily-examen/nightly`, following the Morning Prayer photo-and-reading-panel style. The owner separately authorized commit, `main` push and production publication on 2026-09-28.
+**Scope:** Approved Nightly Examen refresh for `/daily-examen/nightly`, following the Morning Prayer photo-and-reading-panel style. The original refresh and this follow-up amendment were explicitly authorized for `main` and Production on 2026-09-27.
+
+## Owner-approved amendment (2026-09-27)
+
+The owner approved two follow-up changes and explicitly authorized committing both to `main` and deploying them to Production, with no Preview deployment:
+
+- Added a completion-page encouragement based on the sequence of unique locally saved completion dates. The existing history cap limits the display to “at least 90” for longer rhythms. Failed storage suppresses any saved-streak claim. A missed night has no broken-streak message, and no completion count/date or prayer text is sent to analytics.
+- Replaced the native browser clear-data confirmation with an in-page alert dialog. It provides clear/cancel actions, Escape handling, focus containment, and sensible focus return; confirmation clears the existing Examen key that contains draft and completed history.
+
+Focused Privacy/Safety and UX reviews approved the amendment with findings addressed; independent code review reported no actionable findings. No additional theology or prayer copy was changed.
+
+**Amendment verification:** Targeted ESLint, `npm run typecheck`, `npm run validate:urls`, `npm run seo:preflight`, client-store audit, image checks, and `npm run build` passed. The first sandboxed build attempt could not fetch existing Google Fonts; the approved retry with network access compiled and generated all 621 static pages, with the rendering-strategy audit passing. Browser QA against an isolated production-mode local origin used a blank synthetic session (no journal input): the completion page showed the gentle return copy, saved history displayed one local date, the clear alert opened with focus on “Keep my data,” and Escape dismissed it and returned focus to the clear button. The synthetic record was retained; no user-origin records were read or cleared.
 
 ## Delivered
 
@@ -28,8 +39,8 @@
 
 - Independent Catholic content, UX/SEO and privacy/safety recommendations are recorded in `REVIEWS.md` and reflected in the implementation. The owner approved the focused page 4 copy recommendations on 2026-09-27.
 - Independent implementation code review found two issues (rest pace journaling and legacy draft-note migration); both were fixed and verified with targeted lint, typecheck and production build. The reviewer reported no other scoped actionable issues.
-- The AI content review does not replace the repository owner’s human theological/editorial publication review. Review the concrete implementation before any release.
-- No production deployment, push, merge or external publication was performed.
+- The AI content review does not replace human theological/editorial review. This implementation’s production release was explicitly authorized by the owner; no claim of ecclesial approval is made.
+- The original implementation and the amendment have been released through the Git-integrated Production workflow; no Preview deployment was created for this amendment.
 
 ## Workspace hygiene
 

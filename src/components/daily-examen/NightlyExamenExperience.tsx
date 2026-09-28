@@ -39,8 +39,12 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
   const [pace, setPace] = useState<NightlyExamenPace>("review");
   const [draft, setDraft] = useState<NightlyExamenDraft | null>(null);
   const [completedSession, setCompletedSession] = useState<NightlyExamenSession | null>(null);
+  const [completionStreak, setCompletionStreak] = useState<number | null>(null);
   const [storageMessage, setStorageMessage] = useState<string | null>(null);
+  const [showClearConfirmation, setShowClearConfirmation] = useState(false);
   const topRef = useRef<HTMLElement | null>(null);
+  const clearDialogRef = useRef<HTMLElement | null>(null);
+  const clearTriggerRef = useRef<HTMLElement | null>(null);
   const resumableDraft = store.draft?.localDate === getLocalDate() ? store.draft : null;
 
   const focusCurrentHeading = useCallback(() => {
@@ -143,10 +147,14 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
       durationMinutes,
     };
     const saved = completeNightlyExamen(session);
+    const streakNights = saved
+      ? getConsecutiveNightCount([...store.sessions, session], session.localDate)
+      : null;
     setStorageMessage(saved ? null : "This prayer is complete, but browser storage is unavailable, so it was not added to your saved Examen history.");
     setCompletedSession(session);
     setDraft(null);
     setView("complete");
+    setCompletionStreak(streakNights);
     trackEvent("daily_examen_complete");
   }
 
@@ -164,7 +172,17 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
   }
 
   function clearPrivateData() {
-    if (!window.confirm("Clear this browser’s saved Nightly Examen draft and completed-session history? This cannot be undone.")) return;
+    clearTriggerRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    setShowClearConfirmation(true);
+  }
+
+  function closeClearConfirmation() {
+    setShowClearConfirmation(false);
+    window.requestAnimationFrame(() => clearTriggerRef.current?.focus({ preventScroll: true }));
+  }
+
+  function confirmClearPrivateData() {
+    setShowClearConfirmation(false);
     const cleared = clearNightlyExamenData();
     setDraft(null);
     setCompletedSession(null);
@@ -173,7 +191,14 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
       ? "The saved Nightly Examen draft and completed-session history were cleared from this browser."
       : "This browser prevented the saved Nightly Examen data from being cleared. You can keep praying, but the stored entries remain on this device.");
     trackEvent("daily_examen_clear_private_data");
+    window.requestAnimationFrame(() => document.getElementById("nightly-examen-current-heading")?.focus({ preventScroll: true }));
   }
+
+  useEffect(() => {
+    if (!showClearConfirmation) return;
+    const firstButton = clearDialogRef.current?.querySelector<HTMLButtonElement>("button:not([disabled])");
+    firstButton?.focus();
+  }, [showClearConfirmation]);
 
   return (
     <section
@@ -211,6 +236,7 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
         {view === "complete" && completedSession ? (
           <CompleteView
             session={completedSession}
+            streakNights={completionStreak}
             storageMessage={storageMessage}
             onRestart={() => begin(true)}
             onOpenMap={() => setView("grace-map")}
@@ -224,6 +250,43 @@ export function NightlyExamenExperience({ standalone = false }: { standalone?: b
           />
         ) : null}
       </div>
+      {showClearConfirmation ? (
+        <div className={styles.confirmationBackdrop}>
+          <section
+            ref={clearDialogRef}
+            aria-labelledby="clear-examen-title"
+            aria-describedby="clear-examen-description"
+            aria-modal="true"
+            className={styles.confirmationDialog}
+            onKeyDown={(event) => {
+              if (event.key === "Escape") {
+                event.preventDefault();
+                closeClearConfirmation();
+              } else if (event.key === "Tab") {
+                const buttons = clearDialogRef.current?.querySelectorAll<HTMLButtonElement>("button:not([disabled])");
+                if (!buttons?.length) return;
+                const first = buttons[0];
+                const last = buttons[buttons.length - 1];
+                if (event.shiftKey && document.activeElement === first) {
+                  event.preventDefault();
+                  last.focus();
+                } else if (!event.shiftKey && document.activeElement === last) {
+                  event.preventDefault();
+                  first.focus();
+                }
+              }
+            }}
+            role="alertdialog"
+          >
+            <h2 id="clear-examen-title">Clear saved Examen data?</h2>
+            <p id="clear-examen-description">This removes the unfinished draft and completed-session history saved for this site in this browser. This cannot be undone.</p>
+            <div className={styles.confirmationActions}>
+              <button className={`${styles.secondaryButton} focus-ring`} onClick={closeClearConfirmation} type="button">Keep my data</button>
+              <button className={`${styles.clearButton} focus-ring`} onClick={confirmClearPrivateData} type="button">Clear saved data</button>
+            </div>
+          </section>
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -448,11 +511,13 @@ function PrayerImage({ pageIndex, priority = false }: { pageIndex: number; prior
 
 function CompleteView({
   session,
+  streakNights,
   storageMessage,
   onRestart,
   onOpenMap,
 }: {
   session: NightlyExamenSession;
+  streakNights: number | null;
   storageMessage: string | null;
   onRestart: () => void;
   onOpenMap: () => void;
@@ -471,6 +536,15 @@ function CompleteView({
             <p className={styles.signOfCross}>Make the Sign of the Cross.</p>
           </blockquote>
           <p className={styles.optionalCopy}>You may rest now. You do not have to solve tomorrow tonight.</p>
+          <p className={styles.completionStreak}>
+            {streakNights === null
+              ? "Thank you for making room for prayer tonight. You can return tomorrow, or whenever you are ready."
+              : streakNights >= 90
+                ? "You have made time for prayer on at least 90 nights in a row. Give thanks for this rhythm, and return whenever you are ready."
+                : streakNights > 1
+                  ? `You have made time for prayer ${streakNights} nights in a row. Give thanks for this rhythm, and return whenever you are ready.`
+                  : "Thank you for making room for prayer tonight. You can return tomorrow, or whenever you are ready."}
+          </p>
           <div className={styles.completionActions}>
             <button type="button" onClick={onRestart} className={`${styles.primaryButton} focus-ring`}>Begin a new Examen</button>
             <button type="button" onClick={onOpenMap} className={`${styles.secondaryButton} focus-ring`}>View saved Examen history</button>
@@ -570,6 +644,20 @@ function getLocalDate(date = new Date()) {
   const month = String(date.getMonth() + 1).padStart(2, "0");
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
+}
+
+function getConsecutiveNightCount(sessions: NightlyExamenSession[], completedDate: string) {
+  const dates = new Set(sessions.map((session) => session.localDate));
+  const [year, month, day] = completedDate.split("-").map(Number);
+  let ordinal = Math.floor(Date.UTC(year, month - 1, day) / 86_400_000);
+  let count = 0;
+
+  while (dates.has(new Date(ordinal * 86_400_000).toISOString().slice(0, 10))) {
+    count += 1;
+    ordinal -= 1;
+  }
+
+  return count;
 }
 
 function buildWeekDays(sessions: NightlyExamenSession[]) {

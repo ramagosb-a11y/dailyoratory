@@ -657,6 +657,15 @@ details[open] > .disclosure > span {
   line-height: 1.75;
 }
 
+.completionStreak {
+  margin: 1.1rem 0 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid #bd8a2f;
+  color: #4a433b;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
 .completionActions {
   display: grid;
   grid-template-columns: 1fr;
@@ -752,6 +761,56 @@ details[open] > .disclosure > span {
 
 .clearButton:hover {
   background: #f6e9e7;
+}
+
+.confirmationBackdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: rgba(8, 22, 37, 0.64);
+}
+
+.confirmationDialog {
+  width: min(100%, 30rem);
+  padding: clamp(1.35rem, 5vw, 2rem);
+  border: 1px solid #d7c39e;
+  border-radius: 1.1rem;
+  background: #fffaf0;
+  box-shadow: 0 1.5rem 4rem rgba(8, 22, 37, 0.28);
+}
+
+.confirmationDialog h2 {
+  margin: 0;
+  color: #0d2038;
+  font-family: var(--font-heading), Georgia, serif;
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+}
+
+.confirmationDialog p {
+  margin: 0.85rem 0 0;
+  color: #344357;
+  line-height: 1.6;
+}
+
+.confirmationActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.confirmationActions .clearButton {
+  flex: 1 1 10rem;
+  margin-top: 0;
+  background: #7a2533;
+  color: #fff;
+}
+
+.confirmationActions .clearButton:hover {
+  background: #65202b;
 }
 
 :global(body):has(.standalone) {

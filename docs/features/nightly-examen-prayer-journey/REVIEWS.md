@@ -1,6 +1,6 @@
 # REVIEWS — Nightly Examen Prayer Journey
 
-- Feature/spec revision: `nightly-examen-prayer-journey` 0.3; content revision 2.0
+- Feature/spec revision: `nightly-examen-prayer-journey` 0.4; content revision 2.0
 - Review date: 2026-09-27
 - Overall decision: Owner approved focused page 4 copy edits on 2026-09-27. UX/SEO and privacy reviews returned ready/conditional-pass findings and the independent implementation review identified two P2 issues, both addressed below. Reverification is recorded in `IMPLEMENTATION-REPORT.md`. This file is not human ecclesial approval.
 
@@ -72,3 +72,13 @@ Privacy / QA acceptance: Source inspection confirms no note/resolution strings a
 Route, data store, asset set and approved copy revision mapped. UX/SEO, privacy and independent code-review findings have been reflected in the implementation. Typecheck, targeted lint, build, image, route and SEO checks pass; full repository lint baseline failures and partial browser coverage are reported. Desktop/tablet/mobile layouts were visually inspected. Human editorial/publication review remains before a production release. Status: implementation complete; release review outstanding.
 
 **Independent implementation review (2026-09-27):** Review found that the “brief” pace did not suppress journaling and that legacy v1 draft fields (`gratitude`, `significantMoment`, `mercy`) were not populated into the new six-page notes array. Both findings were fixed: the quiet pace now starts and renders without writing; pace descriptions now match the fixed six-page journey; old draft fields are mapped to their corresponding page note on sanitization when no new notes array exists. Targeted ESLint, typecheck, and production build were rerun successfully after these fixes. The reviewer found no other scoped actionable issues.
+
+## Consecutive completion amendment — focused independent reviews (2026-09-27)
+
+Owner approved a completion-page encouragement showing the user's consecutive Examen nights and the clear-data fix, with commit to `main` and Production explicitly authorized. No prayer text, theology, route, or metadata changes are part of this amendment.
+
+**Privacy / Safety reviewer verdict: ready with conditions met.** The existing local store already retains up to 90 completed sessions with `localDate`; existing completion replaces a session on the same local date. Derive the current sequence from unique local dates ending on this completion. Do not add a separate progress store, event parameters, or network flow. Suppress a saved-streak claim when storage fails. Clearing the single Examen key must remove the draft and history used by the calculation. Avoid broken-streak/guilt language. Reviewer identified missing focus containment/restoration in the recently added custom clear alert dialog; implemented Escape dismissal, Tab containment, focus on dialog entry, and focus restoration/heading handoff.
+
+**UX / Formation reviewer verdict: ready.** Use brief, ordinary readable text on the completion view, without badge/flame/score treatment or an additional live-region announcement because the completion heading receives focus. Count unique local dates, deduplicate same-night completion, use the 90-session history cap, and suppress streak copy if saving failed. Welcome the user without drawing attention to a gap. No additional control, tracking, or animation is needed.
+
+**Resolution:** Implemented a local-only count over saved completion dates. At 90 consecutive saved dates, copy says “at least 90” to reflect the history cap. The confirmation remains in-page and keyboard accessible, does not require the browser's native confirm prompt, and clear action removes the same history key. No journal text, completion dates, or counts are sent to analytics/network. Targeted lint, typecheck, build, and browser interaction verification remain recorded in `IMPLEMENTATION-REPORT.md`.

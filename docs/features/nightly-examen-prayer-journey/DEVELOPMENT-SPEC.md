@@ -2,12 +2,12 @@
 
 ## Identity and authorization
 - Feature ID: `nightly-examen-prayer-journey`
-- Spec revision/date: 0.2 / 2026-09-27
-- Status: `approved-for-implementation`; owner approved page 4 revisions on 2026-09-27. UX/SEO/privacy reviews have been completed and findings addressed in implementation.
+- Spec revision/date: 0.3 / 2026-09-27
+- Status: `approved-for-implementation`; owner approved page 4 revisions on 2026-09-27 and approved the completion streak plus clear-data correction on 2026-09-27. Focused UX/privacy reviews for the amendment are complete.
 - Owner: Brent (repository owner)
-- Implementation approval: Owner requested the update and supplied this complete feature brief on 2026-09-27, including “I want the update to look like the morning prayer format with look and style.” On 2026-09-27 the owner approved the independent review's focused page 4 revisions; this authorizes local implementation of spec 0.2/content 2.0 only. It does not authorize release.
-- Required review artifacts and reviewed revisions: `IDEA.md` 0.2; `CONTENT.md` 2.0; `REVIEWS.md` 0.3 (independent AI Catholic review, UX/SEO review, Privacy/Safety review); user's feature brief and page 4 approval.
-- Production authorization: **not authorized**
+- Implementation approval: Owner requested the update and supplied the feature brief on 2026-09-27, including “I want the update to look like the morning prayer format with look and style.” On 2026-09-27 the owner approved the independent review's focused page 4 revisions, then approved adding consecutive completion encouragement and fixing clear data. Owner explicitly authorized: “Approved them commit both changes and deploy to productions and main. Not to preview.” This authorizes the reviewed scope in spec 0.3, commit to `main`, and Production deployment via the Git integration; no Preview deployment.
+- Required review artifacts and reviewed revisions: `IDEA.md` 0.2; `CONTENT.md` 2.0; `REVIEWS.md` 0.4 (independent AI Catholic review, UX/SEO review, Privacy/Safety review, and focused streak UX/privacy reviews); user feature brief, page 4 approval, and consecutive-completion/clear-data approval.
+- Production authorization: **authorized by owner on 2026-09-27 for this reviewed amendment**
 - Re-review triggers: substantive changes to copy/meaning, route, image/data flow, session retention or telemetry.
 
 ## Goal and scope
@@ -19,6 +19,7 @@
 - New components only if necessary, with justification: A structured six-page content record is appropriate to bind title, intro, prayer, image/alt, prompts and resolution choices; a focused client journey may render that data. Six unique assets required. Preserve compatible existing resume/history/clear affordances; either retain existing Grace Map via accessible secondary action or explicitly document an owner-approved migration after existing functionality is confirmed working.
 - Allowed files and dependencies: Nightly Examen route/component/CSS/data, narrowly scoped Examen types/storage if necessary, six feature image assets and attribution notes, this feature packet. No new dependency or external service.
 - Explicit non-goals: production deploy/push/merge; modifying other prayer modules, global analytics architecture, sitemap membership or navigation without identified need; replacing session history with remote storage; implying site-generated forgiveness or sacramental effect.
+- Approved amendment (2026-09-27): Add a low-key completion message derived from unique completed local calendar dates, and correct the clear-data interaction. A missed night does not produce a broken-streak warning, score, badge, or admonishment. Do not add a separate streak store or analytics. The owner explicitly authorized committing and deploying this scope to `main` / Production; do not create a Preview deployment.
 
 ## Content contract
 - Exact approved content IDs/files/revisions: `CONTENT.md` revision 2.0, implemented as `src/data/nightlyExamenJourney.ts` with stable IDs `presence`, `gratitude`, `review`, `mercy`, `resolution`, `surrender`.
@@ -29,6 +30,8 @@
 
 ## Behavior
 - User flow: The dedicated route opens at step 1 of 6. Each step presents one unique image, page count plus text progress, title, brief guide, prayer, collapsed Go Deeper prompts, optional journal field and Previous/Continue. Steps follow the supplied order exactly. Page 6 presents the closing prayer, Sign of the Cross and unmistakable completion state; restart is available. Users may silently reflect and advance with empty fields.
+- Completion rhythm: After a successful local save, the completion page may reflect the number of consecutive nights found among unique saved `localDate` values, including the just-completed session. If 90 consecutive dates are present, say “at least 90” because saved history is capped at 90. Do not claim a saved streak if the save fails. Keep the copy gentle and free of pressure; after any gap, welcome the user without calling attention to a broken streak. No new personal fields or analytics are added; clearing Examen data clears the dates used for this calculation.
+- Clear-data confirmation: Use an in-page alert dialog instead of a native browser confirm prompt. Name the data and irreversible effect, provide Keep my data / Clear saved data actions, Escape dismissal, contained keyboard focus and visible focus. Return focus appropriately after cancellation and successful clearing.
 - Mobile behavior: Stack image above prayer content, preserve aspect ratio, avoid text-on-image overlays; readable controls with safe-area spacing and no horizontal scroll. At narrow widths, buttons stack if needed.
 - Desktop behavior: Morning Prayer-inspired large image area with a readable, generous prayer card/pane. Preserve the dark, peaceful nighttime atmosphere and Daily Oratory brand.
 - Empty/loading/error/complete/return states: Direct route renders first step. Missing/slow image has calm fallback and no blocked navigation. Draft restores current session after refresh if storage works; storage denial falls back to in-memory state with honest status. Page 6 completion and reset are explicit. Existing resume/Grace Map/history/data-clear behaviors are retained where compatible pending explicit contract clarification.
@@ -50,8 +53,10 @@
 | AC-7 | Keyboard, focus, reduced motion, headings, text area names and progress work | Keyboard/browser; screen-reader label inspection; prefers-reduced-motion | No keyboard trap; visible focus; meaningful sequence/status; transition respects preference |
 | AC-8 | Sensitive text stays local and existing compatible Examen behavior is preserved | Inspect analytics/network/URLs and existing storage before/after; synthetic markers | No reflection text leaves page; existing saved records not silently removed; clear behavior accurate |
 | AC-9 | App and guards pass without weakening existing protections | `npm run lint`, `npm run typecheck`, `npm run build`, route/image checks | Checks pass; baseline failures separately documented |
+| AC-10 | Completion reflects consecutive locally saved calendar nights without telemetry or reflection text exposure | Synthetic date cases for duplicates, consecutive dates, gaps, local-date boundaries, and storage failure | Count unique dates ending at this completion; no claim on failed save; no notes, count or date in analytics/network |
+| AC-11 | Clear control opens an accessible in-page confirmation and removes the session data for the current origin | Keyboard/pointer flow with synthetic storage | Cancel retains data; confirm clears draft/history (and derived streak); focus remains usable; native confirm is not required |
 
-- Automated test scope and commands: Use existing scripts where applicable; do not add a testing framework. Run lint/typecheck/build and route/SEO/image guards; navigation browser check if supported on this host.
+- Automated test scope and commands: Use existing scripts where applicable; do not add a testing framework. Run lint/typecheck/build and route/SEO/image guards; browser checks with synthetic data where supported.
 - Manual/browser checks and synthetic fixtures: Direct route; all steps both directions; questions open/closed; blank and long notes; refresh; restart; missing/slow asset fallback; widths around 390px, tablet and desktop; keyboard-only; reduced motion; screen-reader labels; dark/light support if app theme applies. Analytics/network checks use synthetic markers only.
 - Known baseline failures/limitations: Worktree already contains unrelated changes, preserved. Full `npm run lint` reports existing violations outside the feature; targeted ESLint for the changed implementation files passes. The in-app browser loaded the route and rendered the desktop/tablet/mobile layouts, but the start control did not advance the isolated local preview beyond the welcome screen. The regular local origin showed existing saved history, which was left untouched. Human theological/editorial publication review remains a separate owner decision.
 - Code-review assignment: Independent implementation reviewer completed the integrated scoped review; two P2 findings were resolved and recorded in `REVIEWS.md`.
