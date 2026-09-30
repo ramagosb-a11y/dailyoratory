@@ -5,6 +5,6 @@ export function AdorationPortal() {
   const liveStreams = getLiveAdorationStreams();
 
   return (
-    <AdorationQuietRoom streams={liveStreams} />
+    <AdorationQuietRoom streams={liveStreams} headingLevel="h2" />
   );
 }

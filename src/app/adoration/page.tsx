@@ -27,7 +27,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import { buildArticleStructuredData, buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structuredData";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Eucharistic Adoration | Live Perpetual Adoration and Prayer",
+  title: "Live Eucharistic Adoration and Prayer",
   description:
     "Pray before Jesus in Eucharistic Adoration with live and 24/7 perpetual adoration streams, a Holy Hour guide, beginner instructions, Scripture, prayers, and Catholic resources.",
   path: "/adoration",

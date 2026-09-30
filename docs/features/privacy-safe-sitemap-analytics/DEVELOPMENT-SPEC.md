@@ -3,13 +3,21 @@
 ## Identity and authorization
 
 - Feature ID: `privacy-safe-sitemap-analytics`
-- Spec revision/date: 1 / 2026-09-28
+- Spec revision/date: 2 / 2026-09-30 (owner-approved follow-up)
 - Status: release-authorized
 - Owner: Brent Ramagost
 - Implementation approval: Owner instruction “PLEASE IMPLEMENT THIS PLAN” dated 2026-09-28, approving the complete plan in this conversation.
 - Required review artifacts and reviewed revisions: `REVIEWS.md` revision 1 (coordinator reviews; not independent).
 - Production authorization: Owner instruction on 2026-09-28 authorizes committing the reviewed feature to `main` and using the Git-integrated Vercel Production deployment; explicitly excludes Preview. It does not authorize GA4 or Search Console dashboard changes.
 - Re-review triggers: Sitemap eligibility policy or analytics data-flow changes.
+
+## Owner-approved follow-up — revision 2
+
+- Approval evidence: Owner replied “approved” on 2026-09-30 to the focused follow-up covering `/fasting-retreat` privacy classification and removal of current generic, private-tool, and non-goal GA4 key-event flags. This authorizes the listed code and GA4 event-configuration changes only; no deploy, push, or other GA4 settings changes.
+- Code addition: Treat `/fasting-retreat` and nested paths as sensitive analytics paths so its personal retreat tool retains path-only page views and suppresses custom interaction events.
+- GA4 cleanup: Unmark the existing key-event flags `bible_resource_click`, `click`, `first_visit`, `form_start`, `media_card_click`, `media_embed_open`, `reflection_open`, `rosary_mystery_group_click`, `saint_of_day_learn_more_click`, and `saint_profile_open`. Leave event collection intact and do not add key events until the owner defines a measurable business goal. Confession/examen events were already not marked as key events at the time of this change.
+- New-page measurement: Newly created public pages remain measured by ordinary sanitized page views; page views, opens, and navigation clicks are not key events solely because a page is new.
+- Verification: Focused route privacy test; verify the GA4 event list shows those flags disabled. No release authorization is included.
 
 ## Goal and scope
 

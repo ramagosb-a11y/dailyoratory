@@ -27,6 +27,8 @@ test("personal spiritual-tool routes are classified for path-only reporting", ()
   assert.equal(isSensitiveAnalyticsPath("/ocia"), true);
   assert.equal(isSensitiveAnalyticsPath("/body-soul-spirit"), true);
   assert.equal(isSensitiveAnalyticsPath("/relics"), true);
+  assert.equal(isSensitiveAnalyticsPath("/fasting-retreat"), true);
+  assert.equal(isSensitiveAnalyticsPath("/fasting-retreat/intentions"), true);
   assert.equal(isSensitiveAnalyticsPath("/pathways/recommended"), true);
   assert.equal(isSensitiveAnalyticsPath("/saints/confirmation"), true);
   assert.equal(isSensitiveAnalyticsPath("/library/catechism"), false);

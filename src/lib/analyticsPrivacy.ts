@@ -9,6 +9,7 @@ const SENSITIVE_PATH_PREFIXES = [
   "/prayer-intentions",
   "/virtue-tracker",
   "/reflections/reading-and-reflections",
+  "/fasting-retreat",
   "/rule-of-life/builder",
   "/rule-of-life/my-rule",
   "/pathways/my-pathways",

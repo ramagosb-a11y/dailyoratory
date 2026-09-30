@@ -128,9 +128,9 @@ export function LitanyPrayerShelf({ litanies }: LitanyPrayerShelfProps) {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Choose a litany</p>
-            <h2 className="font-display mt-3 text-4xl font-semibold text-navy sm:text-5xl" id="contemplative-litanies-heading">
+            <h1 className="font-display mt-3 text-4xl font-semibold text-navy sm:text-5xl" id="contemplative-litanies-heading">
               A shelf of prayer cards
-            </h2>
+            </h1>
             <p className="daily-readable-muted mt-4 max-w-xl text-base leading-8 text-muted">
               Move gently through each litany, then begin when one meets the need of your heart.
             </p>

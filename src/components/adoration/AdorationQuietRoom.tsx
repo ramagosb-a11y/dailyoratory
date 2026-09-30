@@ -66,21 +66,24 @@ const adorationHymns = [
 export function AdorationQuietRoom({
   streams,
   initialStreamId,
+  headingLevel = "h1",
 }: {
   streams: LiveAdorationStreamRecord[];
   initialStreamId?: string;
+  headingLevel?: "h1" | "h2";
 }) {
   const [quietMode, setQuietMode] = useState(true);
   const [selectedStreamId, setSelectedStreamId] = useState(initialStreamId ?? streams[0]?.id ?? "");
   const stream = streams.find((item) => item.id === selectedStreamId) ?? streams[0];
   const safeEmbed = stream ? getSafeAdorationEmbed(stream) : null;
   const statusMeta = stream ? getAdorationStatusMeta(stream.streamStatus) : null;
+  const Heading = headingLevel;
 
   if (!stream) {
     return (
       <section className="dashboard-card p-6">
         <p className="text-xs font-bold uppercase text-burgundy">Live Adoration</p>
-        <h1 className="font-display mt-3 text-5xl font-semibold leading-tight text-navy">No streams are available.</h1>
+        <Heading className="font-display mt-3 text-5xl font-semibold leading-tight text-navy">No streams are available.</Heading>
         <p className="mt-4 text-base leading-8 text-muted">
           Return soon for reviewed Eucharistic Adoration streams, or remain here in quiet prayer with the Lord.
         </p>
@@ -102,9 +105,9 @@ export function AdorationQuietRoom({
             <p className={`mt-6 text-xs font-bold uppercase tracking-[0.18em] ${quietMode ? "text-gold-soft" : "text-burgundy"}`}>
               Live Adoration quiet room
             </p>
-            <h1 className={`font-display mt-3 text-4xl font-semibold leading-tight sm:text-6xl ${quietMode ? "text-ivory" : "text-navy"}`}>
+            <Heading className={`font-display mt-3 text-4xl font-semibold leading-tight sm:text-6xl ${quietMode ? "text-ivory" : "text-navy"}`}>
               {stream.chapelName}
-            </h1>
+            </Heading>
             <p className={`mt-3 text-base font-semibold ${quietMode ? "text-gold-soft" : "text-burgundy"}`}>
               {stream.parishOrCommunityName}
             </p>

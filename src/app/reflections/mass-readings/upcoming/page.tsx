@@ -31,6 +31,7 @@ export default async function UpcomingMassReadingsPage() {
             eyebrow="Upcoming"
             title="Upcoming Mass Readings Reflections"
             summary="See what Daily Oratory has scheduled for future daily Mass, Sunday Mass, solemnity, and feast day reflections."
+            as="h1"
           />
           <div className="flex flex-col gap-3 sm:flex-row">
             <Link href="/reflections/mass-readings" className="btn btn-secondary focus-ring">

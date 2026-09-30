@@ -22,6 +22,7 @@ export function LiturgicalCalendarView() {
           eyebrow="Liturgical Living"
           title={`${month.label} calendar`}
           summary="The Daily Oratory liturgical Google Calendar is embedded here, with a PDF-derived local summary retained for fast browsing and diocesan verification."
+          as="h1"
         />
         <div className="mt-6">
           <VerificationNote note={diocesanVerificationNote} />
