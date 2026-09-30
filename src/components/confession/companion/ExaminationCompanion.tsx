@@ -58,6 +58,7 @@ export function ExaminationCompanion() {
   const [customText, setCustomText] = useState("");
   const [confessedIds, setConfessedIds] = useState<string[]>([]);
   const [showDateEditor, setShowDateEditor] = useState(false);
+  const [copiedHistoryId, setCopiedHistoryId] = useState<string | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
@@ -354,6 +355,27 @@ export function ExaminationCompanion() {
             history={store.history}
             lastConfessionDate={store.lastConfessionDate}
             onChangeDate={updateLastConfessionDate}
+            onCopy={async (entry) => {
+              const text = `${formatDate(entry.completedAt)}\n${entry.itemCount} item${entry.itemCount === 1 ? "" : "s"} · ${entry.guideTitles.join(", ")}`;
+              try {
+                await navigator.clipboard.writeText(text);
+                setCopiedHistoryId(entry.id);
+                window.setTimeout(() => setCopiedHistoryId((current) => current === entry.id ? null : current), 2200);
+              } catch {
+                setCopiedHistoryId(null);
+              }
+            }}
+            onCopyAll={async () => {
+              try {
+                await navigator.clipboard.writeText(store.history.map((entry) => formatDate(entry.completedAt)).join("\n"));
+                setCopiedHistoryId("all");
+                window.setTimeout(() => setCopiedHistoryId((current) => current === "all" ? null : current), 2200);
+              } catch {
+                setCopiedHistoryId(null);
+              }
+            }}
+            copiedHistoryId={copiedHistoryId}
+            onDelete={(id) => updateStore((current) => ({ ...current, history: current.history.filter((entry) => entry.id !== id) }))}
             onClearAll={clearAllData}
           />
         ) : null}
@@ -834,10 +856,14 @@ function ConfessionalView({ confessedIds, items, lastConfessionSummary, onFinish
   );
 }
 
-function PrivacyHistoryView({ history, lastConfessionDate, onChangeDate, onClearAll }: {
+function PrivacyHistoryView({ history, lastConfessionDate, onChangeDate, onCopy, onCopyAll, copiedHistoryId, onDelete, onClearAll }: {
   history: { id: string; completedAt: string; itemCount: number; guideTitles: string[] }[];
   lastConfessionDate: string;
   onChangeDate: (date: string) => void;
+  onCopy: (entry: { id: string; completedAt: string; itemCount: number; guideTitles: string[] }) => void;
+  onCopyAll: () => void;
+  copiedHistoryId: string | null;
+  onDelete: (id: string) => void;
   onClearAll: () => void;
 }) {
   return (
@@ -858,14 +884,27 @@ function PrivacyHistoryView({ history, lastConfessionDate, onChangeDate, onClear
         <h2 className="font-display mt-2 text-4xl font-semibold text-navy">Completed confessions</h2>
         <p className="mt-3 text-sm leading-7 text-muted">History keeps only the date, item count, and guide names—not the sins or notes.</p>
         {history.length ? (
-          <ol className="mt-5 grid gap-3">
-            {history.map((entry) => (
-              <li key={entry.id} className="rounded-xl border border-stone bg-ivory p-4">
-                <p className="font-semibold text-navy">{formatDate(entry.completedAt)}</p>
-                <p className="mt-1 text-sm leading-6 text-muted">{entry.itemCount} item{entry.itemCount === 1 ? "" : "s"} · {entry.guideTitles.join(", ")}</p>
-              </li>
-            ))}
-          </ol>
+          <>
+            <button type="button" onClick={onCopyAll} className="focus-ring mt-4 min-h-11 rounded-lg border border-navy/25 px-4 py-2 text-sm font-semibold text-navy">
+              {copiedHistoryId === "all" ? "Dates copied" : "Copy all dates"}
+            </button>
+            <ol className="mt-5 grid gap-3">
+              {history.map((entry) => (
+                <li key={entry.id} className="rounded-xl border border-stone bg-ivory p-4">
+                  <p className="font-semibold text-navy">{formatDate(entry.completedAt)}</p>
+                  <p className="mt-1 text-sm leading-6 text-muted">{entry.itemCount} item{entry.itemCount === 1 ? "" : "s"} · {entry.guideTitles.join(", ")}</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <button type="button" onClick={() => onCopy(entry)} className="focus-ring min-h-10 rounded-lg border border-navy/25 px-3 py-2 text-sm font-semibold text-navy">
+                      {copiedHistoryId === entry.id ? "Copied" : "Copy"}
+                    </button>
+                    <button type="button" aria-label={`Delete confession history from ${formatDate(entry.completedAt)}`} onClick={() => onDelete(entry.id)} className="focus-ring min-h-10 rounded-lg border border-burgundy/40 px-3 py-2 text-sm font-semibold text-burgundy">
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </>
         ) : <p className="mt-5 rounded-xl border border-stone bg-parchment p-5 text-sm leading-7 text-muted">No completed confession history is stored yet.</p>}
       </section>
     </div>
