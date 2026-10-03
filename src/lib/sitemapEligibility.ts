@@ -1,3 +1,11 @@
+import { legacyRedirects } from "../data/redirects";
+
+// Exact retired routes must not compete with their canonical destinations.
+const REDIRECTED_SITEMAP_PATHS = new Set([
+  "/reflections",
+  ...legacyRedirects.filter((rule) => !rule.source.includes(":")).map((rule) => rule.source),
+]);
+
 // Keep aligned with route-level noindex metadata and audited personal utility/form pages.
 const NON_INDEXABLE_SITEMAP_PATHS = new Set([
   "/fasting-retreat",
@@ -29,5 +37,5 @@ const NON_INDEXABLE_SITEMAP_PATHS = new Set([
 ]);
 
 export function isIndexableSitemapPath(pathname: string): boolean {
-  return !NON_INDEXABLE_SITEMAP_PATHS.has(pathname);
+  return !NON_INDEXABLE_SITEMAP_PATHS.has(pathname) && !REDIRECTED_SITEMAP_PATHS.has(pathname);
 }

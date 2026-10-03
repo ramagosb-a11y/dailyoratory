@@ -274,7 +274,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { label: "Contact", href: "/contact" },
   ];
   const pages = [{ label: "Home", href: "/" }, ...primaryNavigation, ...startHerePages, ...toolPages, ...aboutPages, ...rosaryPages, ...divineMercyPages, ...devotionRosaryPages, ...reflectionPages, ...massPages, ...catholicLifePages, ...sacramentalEmergencyPages, ...biblePages, ...bodySoulSpiritPages, ...sinAndTemptationPages, ...scripturePages, ...prayerGuidePages, ...formationPages, ...gracePages, ...eschatologyPages, ...catholicBurialPages, ...indulgencePages, ...studyPages, ...devotionPages, ...sacramentalPages, ...relicPages, ...newsPages, ...catechismPages, ...angelsPages, ...dailyExamenPages, ...explorePages, ...ociaPages, ...returningPages, ...glossaryPages, ...traditionPages, ...councilPages, ...familyPages, ...popePages, ...vaticanPages, ...mediaPages, ...featuredSeriesPages, ...homilyPages, ...searchPages, ...liturgyHoursPages, ...dailyPrayerPages, ...adorationPages, ...liturgicalLivingPages, ...ruleOfLifePages, ...pathwayPages, ...sacramentPages, ...confessionPages, ...virtueTrackerPages, ...saintPages, ...prayerIntentionPages, ...communityPages]
-    .map((item) => buildSitemapEntry(item.href, new Date(), item.label))
+    .map((item) => buildSitemapEntry(item.href, undefined, item.label))
     .filter(isSitemapEntry);
 
   const resourcePages = publishedResources
@@ -301,7 +301,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter(isSitemapEntry);
   const massReadingReflections = await getPublishedMassReadingsReflectionsData();
   const dynamicDevotionPages = getApprovedDevotions()
-    .map((devotion) => buildSitemapEntry(`/devotions/${devotion.slug}`, new Date(), `devotion:${devotion.slug}`))
+    .map((devotion) => buildSitemapEntry(`/devotions/${devotion.slug}`, undefined, `devotion:${devotion.slug}`))
     .filter(isSitemapEntry);
   const dynamicReflectionPages = massReadingReflections
     .map((reflection) => buildSitemapEntry(`/reflections/mass-readings/${reflection.slug}`, new Date(reflection.updatedAt), `reflection:${reflection.slug}`))
@@ -342,7 +342,7 @@ function dedupeByUrl(entries: MetadataRoute.Sitemap): MetadataRoute.Sitemap {
 
 function buildSitemapEntry(
   href: string,
-  lastModified: Date,
+  lastModified: Date | undefined,
   source: string,
 ): MetadataRoute.Sitemap[number] | null {
   try {
@@ -370,7 +370,8 @@ function buildSitemapEntry(
       return null;
     }
 
-    return { url, lastModified };
+    // Omit unknown dates instead of treating sitemap regeneration as a content edit.
+    return lastModified && !Number.isNaN(lastModified.getTime()) ? { url, lastModified } : { url };
   } catch (error) {
     logSitemapWarning(`Skipping invalid sitemap URL from ${source}`, href, error);
     return null;
