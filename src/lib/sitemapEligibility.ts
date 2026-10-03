@@ -8,13 +8,11 @@ const REDIRECTED_SITEMAP_PATHS = new Set([
 
 // Keep aligned with route-level noindex metadata and audited personal utility/form pages.
 const NON_INDEXABLE_SITEMAP_PATHS = new Set([
-  "/fasting-retreat",
   "/rosary/visual-meditation",
   "/prayers/litany-of-saint-darby",
   "/confession/examination/print",
   "/prayer-intentions/submit",
   "/adoration/submit-stream",
-  "/reflections/reading-and-reflections",
   "/rule-of-life/builder",
   "/rule-of-life/examen",
   "/rule-of-life/my-rule",

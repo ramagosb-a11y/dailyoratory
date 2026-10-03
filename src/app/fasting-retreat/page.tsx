@@ -4,8 +4,10 @@ export const metadata: Metadata = {
   title: { absolute: "Three-Day Fasting Retreat | Daily Oratory" },
   description:
     "A guided Catholic retreat with Jesus, Mary, and the Holy Family. Prayer, Scripture, and a gentle daily rhythm.",
-  robots: { index: false, follow: false },
+  alternates: { canonical: "/fasting-retreat" },
+  robots: { index: true, follow: true },
   openGraph: {
+    url: "/fasting-retreat",
     images: [
       {
         url: "/images/fasting-retreat/01-retreat-opening.webp",

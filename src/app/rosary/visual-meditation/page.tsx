@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Visual Rosary Meditation Preview",
   description: "A mobile-first guided Holy Rosary with sacred artwork, contemplative viewpoints, and Seven-Senses meditation.",
   robots: { index: false, follow: false },
+  alternates: { canonical: "/rosary/visual-meditation" },
 };
 
 export default function VisualRosaryMeditationPage() {

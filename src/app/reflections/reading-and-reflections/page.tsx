@@ -21,7 +21,6 @@ export const metadata: Metadata = createPageMetadata({
   title: "Reading and Reflections",
   description: "Pray with the daily Mass readings, keep a private Scripture journal on your device, and explore trusted Catholic Bible resources.",
   path: "/reflections/reading-and-reflections",
-  noIndex: true,
 });
 
 export default async function ReadingAndReflectionsReviewPage() {
