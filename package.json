@@ -27,6 +27,8 @@
     "test:life-of-jesus-scripture": "node --experimental-strip-types scripts/validate-life-of-jesus-douay-rheims.mjs",
     "test:reading-and-reflections": "node --experimental-strip-types --test scripts/reading-and-reflections.test.mjs",
     "test:analytics-privacy": "node --experimental-strip-types --test src/lib/analyticsPrivacy.test.mjs",
+    "test:strongholds": "node --experimental-strip-types --test scripts/strongholds.test.mjs",
+    "test:strongholds:browser": "node scripts/check-strongholds-browser.cjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

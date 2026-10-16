@@ -20,7 +20,8 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
   const immersivePrayerRoute = isImmersivePrayerRoute(pathname);
   const standaloneCompanionRoute = isStandaloneCompanionRoute(pathname);
   const retreatRoute = pathname?.replace(/\/+$/, "") === "/fasting-retreat";
-  const hideSiteChrome = immersivePrayerRoute || standaloneCompanionRoute || retreatRoute;
+  const strongholdsRoute = pathname === "/strongholds" || pathname?.startsWith("/strongholds/");
+  const hideSiteChrome = immersivePrayerRoute || standaloneCompanionRoute || retreatRoute || strongholdsRoute;
 
   return (
     <>
@@ -41,7 +42,7 @@ export function SiteChrome({ children }: { children: React.ReactNode }) {
         id="main-content"
         className={immersivePrayerRoute ? "flex-1 way-of-cross-page-shell" : "flex-1"}
       >
-        {retreatRoute ? children : <LiturgicalPageTheme>{children}</LiturgicalPageTheme>}
+        {retreatRoute || strongholdsRoute ? children : <LiturgicalPageTheme>{children}</LiturgicalPageTheme>}
       </main>
     </>
   );

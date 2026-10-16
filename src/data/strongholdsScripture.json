@@ -1,0 +1,634 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "edition": "The Holy Bible in English, Douay-Rheims American Edition of 1899, translated from the Latin Vulgate",
+    "shortEdition": "Douay-Rheims American Edition of 1899",
+    "editionId": "engDRA",
+    "editionUrl": "https://ebible.org/find/details.php?id=engDRA",
+    "rights": "public-domain",
+    "rightsUrl": "https://ebible.org/engDRA/copyright.htm",
+    "downloadUrl": "https://ebible.org/Scriptures/engDRA_vpl.zip",
+    "accessedAt": "2026-10-15",
+    "sourceFilesDate": "2022-11-03",
+    "archiveSha256": "3ffaba207835c9cbb668bce5287f23bab10c8560f51aa74494ff7bcb8a1a7a47",
+    "textSha256": "96282bfa7c89a74680cea66fe873aafa5e7cd446407f0ff2531a723e19eee2c2",
+    "sourceVerseCount": 35811,
+    "attribution": "Public-domain Douay-Rheims Bible text courtesy of eBible.org.",
+    "verification": "All curated verses extracted exactly from the SHA-256-verified official engDRA VPL source; copyright and edition pages inspected on the access date.",
+    "independentReview": "Independent AI exact-text/source review completed by /root/design_ux on 2026-10-15; human editorial publication approval remains pending."
+  },
+  "aliases": {
+    "Matthew 11:28": "Matthew 11:28",
+    "Philippians 4:6–7": "Philippians 4:6–7",
+    "James 4:6–8": "James 4:6–8",
+    "Ephesians 4:26–32": "Ephesians 4:26–32",
+    "1 Corinthians 6:18–20": "1 Corinthians 6:18–20",
+    "Galatians 5:25–26": "Galatians 5:25–26",
+    "Psalm 50 (Douay-Rheims)": "Psalm 50",
+    "Psalm 50": "Psalm 50",
+    "Matthew 6:25–34": "Matthew 6:25–34",
+    "Ephesians 4:25": "Ephesians 4:25",
+    "2 Corinthians 10:5": "2 Corinthians 10:5",
+    "Matthew 11:28–30": "Matthew 11:28–30",
+    "2 Corinthians 10:3–6": "2 Corinthians 10:3–6",
+    "Galatians 5:22–26": "Galatians 5:22–26",
+    "James 1:22": "James 1:22",
+    "John 15:4–5": "John 15:4–5",
+    "Matthew 6:6–8": "Matthew 6:6–8",
+    "Hebrews 4:12–13": "Hebrews 4:12–13",
+    "Mark 9:24": "Mark 9:23",
+    "Mark 9:23": "Mark 9:23",
+    "John 14:15": "John 14:15",
+    "John 13:34–35": "John 13:34–35",
+    "John 20:22–23": "John 20:22–23",
+    "John 6:51": "John 6:51",
+    "Luke 2:19": "Luke 2:19",
+    "Mark 6:31": "Mark 6:31",
+    "Psalm 50 (Douay-Rheims numbering)": "Psalm 50",
+    "John 6:51–52": "John 6:51–52"
+  },
+  "passages": {
+    "Matthew 11:28": {
+      "reference": "Matthew 11:28",
+      "sourceReference": "Matthew 11:28",
+      "bookCode": "MAT",
+      "chapter": 11,
+      "sourceUrl": "https://ebible.org/engDRA/MAT11.htm#V28",
+      "verses": [
+        {
+          "number": 28,
+          "text": "Come to me, all you that labour, and are burdened, and I will refresh you."
+        }
+      ],
+      "versesSha256": "c3d2e2ed9c3525b187b19b1f08c14766030f21ee50010e9744feeacf0f8f79ba"
+    },
+    "Philippians 4:6–7": {
+      "reference": "Philippians 4:6–7",
+      "sourceReference": "Philippians 4:6–7",
+      "bookCode": "PHI",
+      "chapter": 4,
+      "sourceUrl": "https://ebible.org/engDRA/PHP04.htm#V6",
+      "verses": [
+        {
+          "number": 6,
+          "text": "Be nothing solicitous; but in every thing, by prayer and supplication, with thanksgiving, let your petitions be made known to God."
+        },
+        {
+          "number": 7,
+          "text": "And the peace of God, which surpasseth all understanding, keep your hearts and minds in Christ Jesus."
+        }
+      ],
+      "versesSha256": "5c18da3fbe92f9c8fac40788fe78489452958569d65f1fceb356502f8c0d6d06"
+    },
+    "James 4:6–8": {
+      "reference": "James 4:6–8",
+      "sourceReference": "James 4:6–8",
+      "bookCode": "JAM",
+      "chapter": 4,
+      "sourceUrl": "https://ebible.org/engDRA/JAS04.htm#V6",
+      "verses": [
+        {
+          "number": 6,
+          "text": "But he giveth greater grace. Wherefore he saith: God resisteth the proud, and giveth grace to the humble."
+        },
+        {
+          "number": 7,
+          "text": "Be subject therefore to God, but resist the devil, and he will fly from you."
+        },
+        {
+          "number": 8,
+          "text": "Draw nigh to God, and he will draw nigh to you. Cleanse your hands, ye sinners: and purify your hearts, ye double minded."
+        }
+      ],
+      "versesSha256": "4d06156b32d3c39d7e7607005caa1c145bcd9bd7c10df9cfe876955db9d49473"
+    },
+    "Ephesians 4:26–32": {
+      "reference": "Ephesians 4:26–32",
+      "sourceReference": "Ephesians 4:26–32",
+      "bookCode": "EPH",
+      "chapter": 4,
+      "sourceUrl": "https://ebible.org/engDRA/EPH04.htm#V26",
+      "verses": [
+        {
+          "number": 26,
+          "text": "Be angry, and sin not. Let not the sun go down upon your anger."
+        },
+        {
+          "number": 27,
+          "text": "Give not place to the devil."
+        },
+        {
+          "number": 28,
+          "text": "He that stole, let him now steal no more; but rather let him labour, working with his hands the thing which is good, that he may have something to give to him that suffereth need."
+        },
+        {
+          "number": 29,
+          "text": "Let no evil speech proceed from your mouth; but that which is good, to the edification of faith, that it may administer grace to the hearers."
+        },
+        {
+          "number": 30,
+          "text": "And grieve not the holy Spirit of God: whereby you are sealed unto the day of redemption."
+        },
+        {
+          "number": 31,
+          "text": "Let all bitterness, and anger, and indignation, and clamour, and blasphemy, be put away from you, with all malice."
+        },
+        {
+          "number": 32,
+          "text": "And be ye kind one to another; merciful, forgiving one another, even as God hath forgiven you in Christ."
+        }
+      ],
+      "versesSha256": "21b0369797851862279703853d19e2f2aedcec549824fd32abc4fdb70da8eb25"
+    },
+    "1 Corinthians 6:18–20": {
+      "reference": "1 Corinthians 6:18–20",
+      "sourceReference": "1 Corinthians 6:18–20",
+      "bookCode": "1CO",
+      "chapter": 6,
+      "sourceUrl": "https://ebible.org/engDRA/1CO06.htm#V18",
+      "verses": [
+        {
+          "number": 18,
+          "text": "Fly fornication. Every sin that a man doth, is without the body; but he that committeth fornication, sinneth against his own body."
+        },
+        {
+          "number": 19,
+          "text": "Or know you not, that your members are the temple of the Holy Ghost, who is in you, whom you have from God; and you are not your own?"
+        },
+        {
+          "number": 20,
+          "text": "For you are bought with a great price. Glorify and bear God in your body."
+        }
+      ],
+      "versesSha256": "b2eb0e76a228f046e74ded0d8ccb6b70381b7304698ccb376638ff2a38aef362"
+    },
+    "Galatians 5:25–26": {
+      "reference": "Galatians 5:25–26",
+      "sourceReference": "Galatians 5:25–26",
+      "bookCode": "GAL",
+      "chapter": 5,
+      "sourceUrl": "https://ebible.org/engDRA/GAL05.htm#V25",
+      "verses": [
+        {
+          "number": 25,
+          "text": "If we live in the Spirit, let us also walk in the Spirit."
+        },
+        {
+          "number": 26,
+          "text": "Let us not be made desirous of vain glory, provoking one another, envying on another."
+        }
+      ],
+      "versesSha256": "6293cdff0c5ce84ce1f6cb65420f9d6031c155ab69f46d558b32ea05c8bf6fe3"
+    },
+    "Psalm 50": {
+      "reference": "Psalm 50",
+      "sourceReference": "Psalm 50:1–21",
+      "bookCode": "PSA",
+      "chapter": 50,
+      "sourceUrl": "https://ebible.org/engDRA/PSA050.htm#V1",
+      "verses": [
+        {
+          "number": 1,
+          "text": "Unto the end, a psalm of David,"
+        },
+        {
+          "number": 2,
+          "text": "When Nathan the prophet came to him after he had sinned with Bethsabee."
+        },
+        {
+          "number": 3,
+          "text": "Have mercy on me, O God, according to thy great mercy. And according to the multitude of thy tender mercies blot out my iniquity."
+        },
+        {
+          "number": 4,
+          "text": "Wash me yet more from my iniquity, and cleanse me from my sin."
+        },
+        {
+          "number": 5,
+          "text": "For I know my iniquity, and my sin is always before me."
+        },
+        {
+          "number": 6,
+          "text": "To thee only have I sinned, and have done evil before thee: that thou mayst be justified in thy words and mayst overcome when thou art judged."
+        },
+        {
+          "number": 7,
+          "text": "For behold I was conceived in iniquities; and in sins did my mother conceive me."
+        },
+        {
+          "number": 8,
+          "text": "For behold thou hast loved truth: the uncertain and hidden things of thy wisdom thou hast made manifest to me."
+        },
+        {
+          "number": 9,
+          "text": "Thou shalt sprinkle me with hyssop, and I shall be cleansed: thou shalt wash me, and I shall be made whiter than snow."
+        },
+        {
+          "number": 10,
+          "text": "To my hearing thou shalt give joy and gladness: and the bones that have been humbled shall rejoice."
+        },
+        {
+          "number": 11,
+          "text": "Turn away thy face from my sins, and blot out all my iniquities."
+        },
+        {
+          "number": 12,
+          "text": "Create a clean heart in me, O God: and renew a right spirit within my bowels."
+        },
+        {
+          "number": 13,
+          "text": "Cast me not away from thy face; and take not thy holy spirit from me."
+        },
+        {
+          "number": 14,
+          "text": "Restore unto me the joy of thy salvation, and strengthen me with a perfect spirit."
+        },
+        {
+          "number": 15,
+          "text": "I will teach the unjust thy ways: and the wicked shall be converted to thee."
+        },
+        {
+          "number": 16,
+          "text": "Deliver me from blood, O God, thou God of my salvation: and my tongue shall extol thy justice."
+        },
+        {
+          "number": 17,
+          "text": "O Lord, thou wilt open my lips: and my mouth shall declare thy praise."
+        },
+        {
+          "number": 18,
+          "text": "For if thou hadst desired sacrifice, I would indeed have given it: with burnt offerings thou wilt not be delighted."
+        },
+        {
+          "number": 19,
+          "text": "A sacrifice to God is an afflicted spirit: a contrite and humbled heart, O God, thou wilt not despise."
+        },
+        {
+          "number": 20,
+          "text": "Deal favourably, O Lord, in thy good will with Sion; that the walls of Jerusalem may be built up."
+        },
+        {
+          "number": 21,
+          "text": "Then shalt thou accept the sacrifice of justice, oblations and whole burnt offerings: then shall they lay calves upon thy altar."
+        }
+      ],
+      "versesSha256": "cba57f0804e49dc301897fead69ef6429aafa1e44d436851ae15c6cb9ad7b90d",
+      "numberingNote": "Douay-Rheims Psalm 50 corresponds to Psalm 51 in many modern editions. The full source psalm has verses 1–21, including its opening superscription."
+    },
+    "Matthew 6:25–34": {
+      "reference": "Matthew 6:25–34",
+      "sourceReference": "Matthew 6:25–34",
+      "bookCode": "MAT",
+      "chapter": 6,
+      "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V25",
+      "verses": [
+        {
+          "number": 25,
+          "text": "Therefore I say to you, be not solicitous for your life, what you shall eat, nor for your body, what you shall put on. Is not the life more than the meat: and the body more than the raiment?"
+        },
+        {
+          "number": 26,
+          "text": "Behold the birds of the air, for they neither sow, nor do they reap, nor gather into barns: and your heavenly Father feedeth them. Are not you of much more value than they?"
+        },
+        {
+          "number": 27,
+          "text": "And which of you by taking thought, can add to his stature by one cubit?"
+        },
+        {
+          "number": 28,
+          "text": "And for raiment why are you solicitous? Consider the lilies of the field, how they grow: they labour not, neither do they spin."
+        },
+        {
+          "number": 29,
+          "text": "But I say to you, that not even Solomon in all his glory was arrayed as one of these."
+        },
+        {
+          "number": 30,
+          "text": "And if the grass of the field, which is today, and tomorrow is cast into the oven, God doth so clothe: how much more you, O ye of little faith?"
+        },
+        {
+          "number": 31,
+          "text": "Be not solicitous therefore, saying, What shall we eat: or what shall we drink, or wherewith shall we be clothed?"
+        },
+        {
+          "number": 32,
+          "text": "For after all these things do the heathens seek. For your Father knoweth that you have need of all these things."
+        },
+        {
+          "number": 33,
+          "text": "Seek ye therefore first the kingdom of God, and his justice, and all these things shall be added unto you."
+        },
+        {
+          "number": 34,
+          "text": "Be not therefore solicitous for tomorrow; for the morrow will be solicitous for itself. Sufficient for the day is the evil thereof."
+        }
+      ],
+      "versesSha256": "db702f6b389688aef0095fe3162c8c9008fa0d87bc411ac8818efb62fef92510"
+    },
+    "Ephesians 4:25": {
+      "reference": "Ephesians 4:25",
+      "sourceReference": "Ephesians 4:25",
+      "bookCode": "EPH",
+      "chapter": 4,
+      "sourceUrl": "https://ebible.org/engDRA/EPH04.htm#V25",
+      "verses": [
+        {
+          "number": 25,
+          "text": "Wherefore putting away lying, speak; ye the truth every man with his neighbour; for we are members one of another."
+        }
+      ],
+      "versesSha256": "c6819a5f65838b1e5b92ca262d6107bce70b2ee600357eff24ff0960ee9ccbe3"
+    },
+    "2 Corinthians 10:5": {
+      "reference": "2 Corinthians 10:5",
+      "sourceReference": "2 Corinthians 10:5",
+      "bookCode": "2CO",
+      "chapter": 10,
+      "sourceUrl": "https://ebible.org/engDRA/2CO10.htm#V5",
+      "verses": [
+        {
+          "number": 5,
+          "text": "And every height that exhalteth itself against the knowledge of God, and bringing into captivity every understanding unto the obedience of Christ;"
+        }
+      ],
+      "versesSha256": "b250df88b7d27f882ddcac105d063682cf2fef2373fe542a21053855c0f6bd8e"
+    },
+    "Matthew 11:28–30": {
+      "reference": "Matthew 11:28–30",
+      "sourceReference": "Matthew 11:28–30",
+      "bookCode": "MAT",
+      "chapter": 11,
+      "sourceUrl": "https://ebible.org/engDRA/MAT11.htm#V28",
+      "verses": [
+        {
+          "number": 28,
+          "text": "Come to me, all you that labour, and are burdened, and I will refresh you."
+        },
+        {
+          "number": 29,
+          "text": "Take up my yoke upon you, and learn of me, because I am meek, and humble of heart: and you shall find rest to your souls."
+        },
+        {
+          "number": 30,
+          "text": "For my yoke is sweet and my burden light."
+        }
+      ],
+      "versesSha256": "69965eca6245fa34a3c4ce448c178850bc1337e8b90c608a3cdd3abc50086844"
+    },
+    "2 Corinthians 10:3–6": {
+      "reference": "2 Corinthians 10:3–6",
+      "sourceReference": "2 Corinthians 10:3–6",
+      "bookCode": "2CO",
+      "chapter": 10,
+      "sourceUrl": "https://ebible.org/engDRA/2CO10.htm#V3",
+      "verses": [
+        {
+          "number": 3,
+          "text": "For though we walk in the flesh, we do not war according to the flesh."
+        },
+        {
+          "number": 4,
+          "text": "For the weapons of our warfare are not carnal, but mighty to God unto the pulling down of fortifications, destroying counsels,"
+        },
+        {
+          "number": 5,
+          "text": "And every height that exhalteth itself against the knowledge of God, and bringing into captivity every understanding unto the obedience of Christ;"
+        },
+        {
+          "number": 6,
+          "text": "And having in readiness to revenge all disobedience, when your obedience shall be fulfilled."
+        }
+      ],
+      "versesSha256": "d28ed28f805d44df8e4a07b6d2f14afccb5ec22ed144bf7dcf858333191a3339"
+    },
+    "Galatians 5:22–26": {
+      "reference": "Galatians 5:22–26",
+      "sourceReference": "Galatians 5:22–26",
+      "bookCode": "GAL",
+      "chapter": 5,
+      "sourceUrl": "https://ebible.org/engDRA/GAL05.htm#V22",
+      "verses": [
+        {
+          "number": 22,
+          "text": "But the fruit of the Spirit is, charity, joy, peace, patience, benignity, goodness, longanimity,"
+        },
+        {
+          "number": 23,
+          "text": "Mildness, faith, modesty, continency, chastity. Against such there is no law."
+        },
+        {
+          "number": 24,
+          "text": "And they that are Christ’s, have crucified their flesh, with the vices and concupiscences."
+        },
+        {
+          "number": 25,
+          "text": "If we live in the Spirit, let us also walk in the Spirit."
+        },
+        {
+          "number": 26,
+          "text": "Let us not be made desirous of vain glory, provoking one another, envying on another."
+        }
+      ],
+      "versesSha256": "146d9ace7840c8b9afde5767cb1ba22cde8616bc44da19ce2060fe7d316f92ad"
+    },
+    "James 1:22": {
+      "reference": "James 1:22",
+      "sourceReference": "James 1:22",
+      "bookCode": "JAM",
+      "chapter": 1,
+      "sourceUrl": "https://ebible.org/engDRA/JAS01.htm#V22",
+      "verses": [
+        {
+          "number": 22,
+          "text": "But be ye doers of the word, and not hearers only, deceiving your own selves."
+        }
+      ],
+      "versesSha256": "dba91d09a93e215fa9f4f5d3be8a106084e6ea2dc84f69d5bf70067cf8cfccf8"
+    },
+    "John 15:4–5": {
+      "reference": "John 15:4–5",
+      "sourceReference": "John 15:4–5",
+      "bookCode": "JOH",
+      "chapter": 15,
+      "sourceUrl": "https://ebible.org/engDRA/JHN15.htm#V4",
+      "verses": [
+        {
+          "number": 4,
+          "text": "Abide in me, and I in you. As the branch cannot bear fruit of itself, unless it abide in the vine, so neither can you, unless you abide in me."
+        },
+        {
+          "number": 5,
+          "text": "I am the vine: you the branches: he that abideth in me, and I in him, the same beareth much fruit: for without me you can do nothing."
+        }
+      ],
+      "versesSha256": "d9945e0cb557bb083ca8fa1ccde314b080d1d23fc002d48d6c10a7d46a87d35a"
+    },
+    "Matthew 6:6–8": {
+      "reference": "Matthew 6:6–8",
+      "sourceReference": "Matthew 6:6–8",
+      "bookCode": "MAT",
+      "chapter": 6,
+      "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V6",
+      "verses": [
+        {
+          "number": 6,
+          "text": "But thou when thou shalt pray, enter into thy chamber, and having shut the door, pray to thy Father in secret: and thy Father who seeth in secret will repay thee."
+        },
+        {
+          "number": 7,
+          "text": "And when you are praying, speak not much, as the heathens. For they think that in their much speaking they may be heard."
+        },
+        {
+          "number": 8,
+          "text": "Be not you therefore like to them, for your Father knoweth what is needful for you, before you ask him."
+        }
+      ],
+      "versesSha256": "8c3110472e7e26035c6805eed14bd2e443e654e8ac01124c3c637bd82c3e873d"
+    },
+    "Hebrews 4:12–13": {
+      "reference": "Hebrews 4:12–13",
+      "sourceReference": "Hebrews 4:12–13",
+      "bookCode": "HEB",
+      "chapter": 4,
+      "sourceUrl": "https://ebible.org/engDRA/HEB04.htm#V12",
+      "verses": [
+        {
+          "number": 12,
+          "text": "For the word of God is living and effectual, and more piercing than any two edged sword; and reaching unto the division of the soul and the spirit, of the joints also and the marrow, and is a discerner of the thoughts and intents of the heart."
+        },
+        {
+          "number": 13,
+          "text": "Neither is there any creature invisible in his sight: but all things are naked and open to his eyes, to whom our speech is."
+        }
+      ],
+      "versesSha256": "9cf7be3d15a529cb6e7b9cb5c1078be95d51563765dd1bebee54949ffbc0f336"
+    },
+    "Mark 9:23": {
+      "reference": "Mark 9:23",
+      "sourceReference": "Mark 9:23",
+      "bookCode": "MAR",
+      "chapter": 9,
+      "sourceUrl": "https://ebible.org/engDRA/MRK09.htm#V23",
+      "verses": [
+        {
+          "number": 23,
+          "text": "And immediately the father of the boy crying out, with tears said: I do believe, Lord: help my unbelief."
+        }
+      ],
+      "versesSha256": "86f16fef6541848fa744081e3ac1aa026570016aa0f2ea615cbe102bcd5e8fac",
+      "numberingNote": "The prior Strongholds Faith card used modern Mark 9:24 for the fathers prayer of belief. In this Douay-Rheims edition that prayer is Mark 9:23; Mark 9:24 begins the next action. Update displayed references to Mark 9:23 (Douay-Rheims)."
+    },
+    "John 14:15": {
+      "reference": "John 14:15",
+      "sourceReference": "John 14:15",
+      "bookCode": "JOH",
+      "chapter": 14,
+      "sourceUrl": "https://ebible.org/engDRA/JHN14.htm#V15",
+      "verses": [
+        {
+          "number": 15,
+          "text": "If you love me, keep my commandments."
+        }
+      ],
+      "versesSha256": "a4ee5d358998d9b0a440c50dc2c4f8d7e305b9edc53c3262dd8afe0be53d7fb1"
+    },
+    "John 13:34–35": {
+      "reference": "John 13:34–35",
+      "sourceReference": "John 13:34–35",
+      "bookCode": "JOH",
+      "chapter": 13,
+      "sourceUrl": "https://ebible.org/engDRA/JHN13.htm#V34",
+      "verses": [
+        {
+          "number": 34,
+          "text": "A new commandment I give unto you: That you love one another, as I have loved you, that you also love one another."
+        },
+        {
+          "number": 35,
+          "text": "By this shall all men know that you are my disciples, if you have love one for another."
+        }
+      ],
+      "versesSha256": "614f5c7e88af4efb29e1fe182b4385f62059624181f76b5bea11314e1b6f1512"
+    },
+    "John 20:22–23": {
+      "reference": "John 20:22–23",
+      "sourceReference": "John 20:22–23",
+      "bookCode": "JOH",
+      "chapter": 20,
+      "sourceUrl": "https://ebible.org/engDRA/JHN20.htm#V22",
+      "verses": [
+        {
+          "number": 22,
+          "text": "When he had said this, he breathed on them; and he said to them: Receive ye the Holy Ghost."
+        },
+        {
+          "number": 23,
+          "text": "Whose sins you shall forgive, they are forgiven them; and whose sins you shall retain, they are retained."
+        }
+      ],
+      "versesSha256": "d0b1b5c27a6b429741a6a0c7bb1a86082b5b886914563ad01ec1eeec431250a2"
+    },
+    "John 6:51": {
+      "reference": "John 6:51",
+      "sourceReference": "John 6:51",
+      "bookCode": "JOH",
+      "chapter": 6,
+      "sourceUrl": "https://ebible.org/engDRA/JHN06.htm#V51",
+      "verses": [
+        {
+          "number": 51,
+          "text": "I am the living bread which came down from heaven."
+        }
+      ],
+      "versesSha256": "efb40344347ad889a42d73547ea28609ad55de2cb019ae58d635182f208f17f0",
+      "numberingNote": "Douay-Rheims John 6:51 is the single sentence about the living bread. The following promise and flesh-for-the-world clause are Douay-Rheims 6:52; many modern editions combine these under 6:51. These records preserve Douay-Rheims numbering."
+    },
+    "Luke 2:19": {
+      "reference": "Luke 2:19",
+      "sourceReference": "Luke 2:19",
+      "bookCode": "LUK",
+      "chapter": 2,
+      "sourceUrl": "https://ebible.org/engDRA/LUK02.htm#V19",
+      "verses": [
+        {
+          "number": 19,
+          "text": "But Mary kept all these words, pondering them in her heart."
+        }
+      ],
+      "versesSha256": "5cbb2bb2188c28760adb3ad77c36bb839485915343c6d151993fc5257c1d4c24"
+    },
+    "Mark 6:31": {
+      "reference": "Mark 6:31",
+      "sourceReference": "Mark 6:31",
+      "bookCode": "MAR",
+      "chapter": 6,
+      "sourceUrl": "https://ebible.org/engDRA/MRK06.htm#V31",
+      "verses": [
+        {
+          "number": 31,
+          "text": "And he said to them: Come apart into a desert place, and rest a little. For there were many coming and going: and they had not so much as time to eat."
+        }
+      ],
+      "versesSha256": "021b0b40f8382dcd32298a96fe063f266473cf461082533241ab66ba80759485"
+    },
+    "John 6:51–52": {
+      "reference": "John 6:51–52",
+      "sourceReference": "John 6:51–52",
+      "bookCode": "JOH",
+      "chapter": 6,
+      "sourceUrl": "https://ebible.org/engDRA/JHN06.htm#V51",
+      "verses": [
+        {
+          "number": 51,
+          "text": "I am the living bread which came down from heaven."
+        },
+        {
+          "number": 52,
+          "text": "If any man eat of this bread, he shall live for ever; and the bread that I will give, is my flesh, for the life of the world."
+        }
+      ],
+      "versesSha256": "ddd80ece49712a009ba59396aff4926c34ce6604e33dbe075d81be635d225b7f",
+      "numberingNote": "Douay-Rheims John 6:51 is the single sentence about the living bread. The following promise and flesh-for-the-world clause are Douay-Rheims 6:52; many modern editions combine these under 6:51. These records preserve Douay-Rheims numbering."
+    }
+  }
+}

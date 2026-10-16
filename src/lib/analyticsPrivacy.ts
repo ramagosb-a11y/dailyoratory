@@ -1,4 +1,5 @@
 const SENSITIVE_PATH_PREFIXES = [
+  "/strongholds",
   "/confession/examination",
   "/daily-examen",
   "/pray",
