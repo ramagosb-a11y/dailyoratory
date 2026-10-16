@@ -109,3 +109,9 @@ Revision17 owner clarification, 2026-10-16: all prayers must remain within Stron
 
 ## Companion destinations revision 18 — October 16, 2026
 Owner authorizes exact module destinations for Adoration (/adoration/companion), Rosary (/rosary/visual-meditation) and Divine Mercy (/divine-mercy/chaplet). Use these as explicit exceptions to the prior within-Strongholds prayer-navigation scope. Set Eucharist and Rosary resource buttons to the requested modules with accurate labels; add a Divine Mercy Chaplet option in the begin-again disclosure. Preserve all inline prayers and the exact Confession examination-companion destination. No theological text, storage, global redirect or production-release change. Regression tests must preserve the no-prayer-library rule while allowing these exact modules.
+
+## Artwork revision 19 — October 16, 2026
+Owner requests the modern Grow companion be a Black man. Edit the existing image with the built-in image tool, preserve the setting/Jesus/style, optimize the generated output, use grow-v2.webp to avoid cached old content, update both image/alt records, retain original sources outside deployment and document provenance. No theological copy, application logic or production release change. Verify image quality/dimensions, local step6 rendering, scoped lint/typecheck/tests, image guards and build.
+
+## Discern artwork revision 20 — October 16, 2026
+Owner requests the woman in the Discern artwork become a Vietnamese woman. Edit existing owned artwork with built-in image generation, retain composition and devotional setting, optimize with existing Sharp, version the filename and update both image/alt references. Preserve prior pending Grow image work. No Scripture/prayer/behavior change or production release. Provenance in IMAGE-EDIT-20.md.

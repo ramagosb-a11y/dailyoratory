@@ -1,0 +1,10 @@
+# Discern artwork edit — revision 20
+
+Owner request, October 16, 2026: “change this to a vietnamese women.” Scope: replace the woman in the existing Discern devotional illustration with a Vietnamese adult woman. Local implementation authorized; no new production release requested.
+
+Reference: public/images/strongholds/discern.webp, inspected before editing. Built-in OpenAI image generation with the owned existing illustration as the only reference, opaque background. Generated original remains at C:/Users/brent/.codex/generated_images/01a14119-2b0e-7113-86ee-66e665c0a40c/exec-8f441f51-b071-403f-bdb4-7dd0930409e1.png.
+
+Exact prompt:
+> Edit this existing devotional illustration. Change only the adult woman into a Vietnamese adult woman, with natural Vietnamese facial features and dark hair loosely tied back. Keep her approximate age, peaceful contemplative expression, exact seated pose, head resting on her hand, and natural coherent hands and skin. Preserve her cream blouse and burgundy shawl. Preserve the composition, open Bible, blank paper, pen, table, fruitful grape vine, dry twig, lantern, evening vineyard, distant city and water, warm light, painterly photorealistic devotional style, and 3:2 framing. Do not add text, flags, costumes, stereotypical props, or other people. Everything besides the woman's appearance should remain as close to the original as possible.
+
+Generated result visually inspected. Generative edits can slightly vary surrounding details; no pixel-identical preservation is claimed. Existing Sharp quality 88, no resizing/upscaling or transparency change. PNG 2,267,078 bytes → 1536×1024 WebP 253,764 bytes, saving 2,013,314 bytes (88.8%). Compared with prior public WebP 294,476 bytes, new asset is 40,712 bytes smaller (13.8%). Source PNG and old WebP archived outside public in output/strongholds-scripture-art/. New versioned discern-v2.webp avoids stale optimized-image caches. Both typed image references and alt text updated. Original AI-edited devotional illustration; no historical authenticity, third-party license, exclusive copyright or Church approval claimed. Scripture, prayers and behavior unchanged.

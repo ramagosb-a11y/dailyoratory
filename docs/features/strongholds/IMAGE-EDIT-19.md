@@ -1,0 +1,11 @@
+# Grow artwork edit — revision 19
+
+Owner request, October16,2026: “change this person to a black man,” with the Grow illustration attached. Scope: the modern companion on the right, not Jesus. Implementation authorized by this request; production release not requested.
+
+Reference: public/images/strongholds/grow.webp (the original generated devotional illustration, inspected before editing).
+Tool: built-in OpenAI image generation, referenced-image edit, opaque background. Generated source: C:/Users/brent/.codex/generated_images/01a14119-2b0e-7113-86ee-66e665c0a40c/exec-47ee0ce4-9c76-478f-b19c-5d50d0ecdfe0.png.
+
+Exact prompt:
+> Edit this existing devotional illustration for Daily Oratory. Change ONLY the modern adult man on the RIGHT, walking beside Jesus, into a Black man with rich dark-brown skin, natural short tightly curled black hair, and a neatly trimmed short beard. He should retain the same approximate age, warm attentive expression, walking pose, body proportions, green T-shirt, brown overshirt, blue jeans and shoes. His hands and all visible skin should consistently match his new complexion. Preserve Jesus on the LEFT exactly as depicted, with his existing appearance, cream robe, burgundy mantle, gesture and hand on the companion's shoulder. Preserve the vineyard, grapes, olive branches, golden sunset, stone garden path, distant city, composition, camera framing, peaceful painterly devotional realism and warm lighting. Maintain the original 3:2 landscape composition. No lettering, no frame, no new symbols or objects. This is an edit of the companion only, not a redesign.
+
+Parent visually inspected the generated result. Generative edits can slightly vary surrounding details; no pixel-identical preservation is claimed. Converted with existing Sharp at quality88, no resizing/upscaling or transparency change. Source PNG2,731,478bytes;1536×1024 WebP377,368bytes;86.2%reduction. Prior public WebP426,218bytes archived in output before replacement; netpublicasset reduction48,850bytes. New filename grow-v2.webp and both typed image/alt references updated; no remaining old source reference. Existing typography/layout/Scripture/prayers unchanged. No new traditional artwork or license assertion.
