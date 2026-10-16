@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { usePathname } from "next/navigation";
 import { useStrongholds } from "./StrongholdsProvider";
 import { StrongholdsNavigation } from "./StrongholdsNavigation";
 import { StrongholdsIcon } from "./StrongholdsIcon";
@@ -11,8 +13,36 @@ import { notifyStrongholdsStorage } from "@/lib/strongholdsStorage";
 import { STRONGHOLDS_CORE_REFERENCE } from "@/data/strongholdsPractice";
 import styles from "./Strongholds.module.css";
 
+const prayerAnchors = new Set(["begin-again", "morning-prayer", "evening-reflection", "strength-prayer-heading", "scriptural-foundation"]);
+function revealPrayerAnchor(id: string) {
+  if (!prayerAnchors.has(id)) return;
+  const target = document.getElementById(id);
+  if (!target) return;
+  if (target instanceof HTMLDetailsElement) target.open = true;
+  target.setAttribute("tabindex", "-1");
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ block: "start", behavior: "instant" });
+}
+
 export function StrongholdsShell({ children }: { children: React.ReactNode }) {
   const { appearance, setAppearance, setDraft } = useStrongholds();
+  const pathname = usePathname();
+  useEffect(() => {
+    const reveal = () => revealPrayerAnchor(window.location.hash.slice(1));
+    reveal();
+    window.addEventListener("hashchange", reveal);
+    return () => window.removeEventListener("hashchange", reveal);
+  }, [pathname]);
+  function followPrayerAnchor(event: MouseEvent<HTMLDivElement>) {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const anchor = event.target instanceof Element ? event.target.closest("a[href]") : null;
+    if (!anchor) return;
+    const destination = new URL(anchor.getAttribute("href")!, window.location.href);
+    const id = destination.hash.slice(1);
+    if (destination.origin !== window.location.origin || destination.pathname !== pathname || !prayerAnchors.has(id) || !document.getElementById(id)) return;
+    event.preventDefault();
+    revealPrayerAnchor(id);
+  }
   const dialog = useRef<HTMLDialogElement>(null);
   const [message, setMessage] = useState("");
   function clear() {
@@ -22,12 +52,13 @@ export function StrongholdsShell({ children }: { children: React.ReactNode }) {
     setDraft(newStrongholdsDraft());
     setMessage(draftDeleted && historyDeleted ? "Strongholds reflections and saved journey deleted. Other tools are unchanged." : "The memory journey was cleared, but this browser could not delete all saved Strongholds data. Retry or use browser settings.");
   }
-  return <div className={styles.featureBackdrop} data-theme={appearance.theme} data-reading={appearance.large ? "large" : "standard"} data-reduced-motion={appearance.reduced}>
+  return <div className={styles.featureBackdrop} onClickCapture={followPrayerAnchor} data-theme={appearance.theme} data-reading={appearance.large ? "large" : "standard"} data-reduced-motion={appearance.reduced}>
     <header className={styles.topbar}><div>
-      <Link href="/strongholds" className={`${styles.wordmark} focus-ring`}><span className={styles.iconBox}><StrongholdsIcon name="faith" /></span><span><strong>Strongholds</strong><small>2 Cor 10:3–6 · Captive to Christ</small></span></Link>
+      <Link href="/strongholds" className={`${styles.wordmark} focus-ring`}><span className={`${styles.iconBox} ${styles.brandEmblem}`}><Image src="/images/strongholds/sword-shield-burgundy.webp" alt="" width={80} height={80} sizes="44px" /></span><span><strong>Strongholds</strong><small>2 Cor 10:3–6 · Captive to Christ</small></span></Link>
+      <nav className={styles.exitBar} aria-label="Exit Strongholds"><Link href="/" aria-label="Home · Daily Oratory" className={`${styles.homeLink} focus-ring`}><span aria-hidden="true">←</span> Home<span className={styles.homeDestination}> · Daily Oratory</span></Link></nav>
       <Link className={`${styles.helpPill} focus-ring`} href="/strongholds/help-now"><StrongholdsIcon /><span>Help Me Right Now</span></Link>
       <button className={`${styles.iconButton} focus-ring`} aria-label="Open Settings and Sacred Integrity" onClick={() => dialog.current?.showModal()}><StrongholdsIcon name="settings" /></button>
-    </div><nav className={styles.exitBar} aria-label="Exit Strongholds"><Link href="/" aria-label="Home · Daily Oratory" className={`${styles.homeLink} focus-ring`}><span aria-hidden="true">←</span> Home<span className={styles.homeDestination}> · Daily Oratory</span></Link></nav></header>
+    </div></header>
     <div className={styles.shell}><div className={styles.content}>{children}</div>
       <footer className={styles.featureFooter}><p><Link className={`${styles.linkButton} focus-ring`} href="/strongholds#scriptural-foundation">Our foundation · {STRONGHOLDS_CORE_REFERENCE}</Link></p><nav aria-label="Breadcrumb"><Link className="focus-ring" href="/">Daily Oratory · Home</Link><span aria-hidden="true"> / </span><Link href="/strongholds">Strongholds</Link></nav><p>Prayer, Scripture, and one faithful response to grace.</p></footer>
     </div><StrongholdsNavigation />

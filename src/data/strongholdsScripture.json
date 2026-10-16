@@ -45,7 +45,12 @@
     "Luke 2:19": "Luke 2:19",
     "Mark 6:31": "Mark 6:31",
     "Psalm 50 (Douay-Rheims numbering)": "Psalm 50",
-    "John 6:51–52": "John 6:51–52"
+    "John 6:51–52": "John 6:51–52",
+    "Matthew 4:1–11": "Matthew 4:1–11",
+    "Matthew 6:9–13": "Matthew 6:9–13",
+    "Matthew 26:41": "Matthew 26:41",
+    "Hebrews 4:15–16": "Hebrews 4:15–16",
+    "1 Corinthians 10:13": "1 Corinthians 10:13"
   },
   "passages": {
     "Matthew 11:28": {
@@ -629,6 +634,136 @@
       ],
       "versesSha256": "ddd80ece49712a009ba59396aff4926c34ce6604e33dbe075d81be635d225b7f",
       "numberingNote": "Douay-Rheims John 6:51 is the single sentence about the living bread. The following promise and flesh-for-the-world clause are Douay-Rheims 6:52; many modern editions combine these under 6:51. These records preserve Douay-Rheims numbering."
+    },
+    "Matthew 4:1–11": {
+      "reference": "Matthew 4:1–11",
+      "sourceReference": "Matthew 4:1–11",
+      "bookCode": "MAT",
+      "chapter": 4,
+      "sourceUrl": "https://ebible.org/engDRA/MAT04.htm#V1",
+      "verses": [
+        {
+          "number": 1,
+          "text": "Then Jesus was led by the spirit into the desert, to be tempted by the devil."
+        },
+        {
+          "number": 2,
+          "text": "And when he had fasted forty days and forty nights, afterwards he was hungry."
+        },
+        {
+          "number": 3,
+          "text": "And the tempter coming said to him: If thou be the Son of God, command that these stones be made bread."
+        },
+        {
+          "number": 4,
+          "text": "Who answered and said: It is written, Not in bread alone doth man live, but in every word that proceedeth from the mouth of God."
+        },
+        {
+          "number": 5,
+          "text": "Then the devil took him up into the holy city, and set him upon the pinnacle of the temple,"
+        },
+        {
+          "number": 6,
+          "text": "And said to him: If thou be the Son of God, cast thyself down, for it is written: That he hath given his angels charge over thee, and in their hands shall they bear thee up, lest perhaps thou dash thy foot against a stone."
+        },
+        {
+          "number": 7,
+          "text": "Jesus said to him: It is written again: Thou shalt not tempt the Lord thy God."
+        },
+        {
+          "number": 8,
+          "text": "Again the devil took him up into a very high mountain, and shewed him all the kingdoms of the world, and the glory of them,"
+        },
+        {
+          "number": 9,
+          "text": "And said to him: All these will I give thee, if falling down thou wilt adore me."
+        },
+        {
+          "number": 10,
+          "text": "Then Jesus saith to him: Begone, Satan: for it is written, The Lord thy God shalt thou adore, and him only shalt thou serve."
+        },
+        {
+          "number": 11,
+          "text": "Then the devil left him; and behold angels came and ministered to him."
+        }
+      ],
+      "versesSha256": "e775ec9dd292af8862b2bbcb6613dbd3185f2293128e1cdcdbbf59eb366c06a4"
+    },
+    "Matthew 6:9–13": {
+      "reference": "Matthew 6:9–13",
+      "sourceReference": "Matthew 6:9–13",
+      "bookCode": "MAT",
+      "chapter": 6,
+      "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V9",
+      "verses": [
+        {
+          "number": 9,
+          "text": "Thus therefore shall you pray: Our Father who art in heaven, hallowed be thy name."
+        },
+        {
+          "number": 10,
+          "text": "Thy kingdom come. Thy will be done on earth as it is in heaven."
+        },
+        {
+          "number": 11,
+          "text": "Give us this day our supersubstantial bread."
+        },
+        {
+          "number": 12,
+          "text": "And forgive us our debts, as we also forgive our debtors."
+        },
+        {
+          "number": 13,
+          "text": "And lead us not into temptation. But deliver us from evil. Amen."
+        }
+      ],
+      "versesSha256": "629e77fd833141edb0839f4d10b16b8224dce2e474c91921a2251c93ee2afb40"
+    },
+    "Matthew 26:41": {
+      "reference": "Matthew 26:41",
+      "sourceReference": "Matthew 26:41",
+      "bookCode": "MAT",
+      "chapter": 26,
+      "sourceUrl": "https://ebible.org/engDRA/MAT26.htm#V41",
+      "verses": [
+        {
+          "number": 41,
+          "text": "Watch ye, and pray that ye enter not into temptation. The spirit indeed is willing, but the flesh weak."
+        }
+      ],
+      "versesSha256": "1788c73bfc4182dee867039609524cd3ce3ea9f67f0e524f418172b8092f9fc5"
+    },
+    "Hebrews 4:15–16": {
+      "reference": "Hebrews 4:15–16",
+      "sourceReference": "Hebrews 4:15–16",
+      "bookCode": "HEB",
+      "chapter": 4,
+      "sourceUrl": "https://ebible.org/engDRA/HEB04.htm#V15",
+      "verses": [
+        {
+          "number": 15,
+          "text": "For we have not a high priest, who can not have compassion on our infirmities: but one tempted in all things like as we are, without sin."
+        },
+        {
+          "number": 16,
+          "text": "Let us go therefore with confidence to the throne of grace: that we may obtain mercy, and find grace in seasonable aid."
+        }
+      ],
+      "versesSha256": "59be4c251bdf1a67fe9d41306cc48f74f4f7997564ed7ab1802116d7ed9571b2"
+    },
+    "1 Corinthians 10:13": {
+      "reference": "1 Corinthians 10:13",
+      "sourceReference": "1 Corinthians 10:13",
+      "bookCode": "1CO",
+      "chapter": 10,
+      "sourceUrl": "https://ebible.org/engDRA/1CO10.htm#V13",
+      "verses": [
+        {
+          "number": 13,
+          "text": "Let no temptation take hold on you, but such as is human. And God is faithful, who will not suffer you to be tempted above that which you are able: but will make also with temptation issue, that you may be able to bear it."
+        }
+      ],
+      "versesSha256": "d13a8d2ba80af125bc2a1c80ca9c91fac445e17116d0112335d5ca9cabd0f5c3"
     }
   }
 }

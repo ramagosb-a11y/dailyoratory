@@ -98,3 +98,35 @@ Owner requested stronger buttons/cards, deeper prayers, no prayer-library links,
 | My Journey | Refined private-browser/empty/history cards, action buttons and continuation to Weapons/Sanctuary. No scoring or tracking added. |
 
 First CUA pass inspected seven mobile screenshots and DOM: all route headings correct, zero horizontal overflow or prayer-library links. Visual review caught header-wordmark overlap and oversized auxiliary paragraphs from large-mode specificity. Fixed mobile wordmark width, exempted auxiliary shared classes from the body multiplier and applied those shared classes to resource/source notices. Main reading remains large; light remains default. Both themes have purpose-specific tokens. No animation added; reduced-motion, forced-colors selected state and summary-only print rules retained. Final build and browser results recorded in IMPLEMENTATION-REPORT.
+
+## Revision 14 — three design review and improvement passes, 2026-10-16
+
+The owner likes the content and requested a sharper look, feel, and navigation, with three review/improvement passes. Parent /root implemented the changes and performed rendered reviews. Agent strongholds_design_review14 independently reviewed the source and final diff. No devotional wording, Scripture, prayer, state, or storage behavior changed.
+
+| Criterion | Before / available | Final / available | Evidence |
+|---|---|---|---|
+| Message clarity and audience fit | 18/20 | 18/20 | Catholic prayer purpose and optional writing retained. |
+| Content usefulness | 18/20 | 18/20 | Scripture, prayers, reflections and safeguards preserved. |
+| Visual hierarchy and scanning | 9/15 | 14/15 | Heading-first panels, numbered steps, clearer teaching surfaces, readable mobile primary CTA. |
+| Navigation and interaction | 10/15 | 14/15 | Inline desktop Home, active dock tiles, Back/Continue arrows, roomy completion controls. |
+| Accessible usability | 11/15 | 14/15 | 35 route/width checks, focus behavior, selection checks, larger day controls and high-contrast step outline. |
+| Trust and reassurance | 9/10 | 9/10 | Attribution, sources, privacy and pastoral boundaries retained. |
+| Visible technical and SEO basics | 5/5 | 5/5 | Existing route, canonical and indexing conventions preserved. |
+
+Subjective UX assessment: 80/100 (B) before; 92/100 (A) after. This is design judgment, not an instrumented metric or complete accessibility certification.
+
+### Pass 1 — hierarchy and orientation
+
+The journey had two links to Sanctuary, a foundation disclosure before its title, and wrapping text-only progress. Implemented one Pause & Exit control, heading/invitation before numbered semantic progress, supporting foundation disclosure below orientation, consistent framed page headers, a 44rem reading container, and a floating dock. Reviewed the revised journey on desktop and at 390px. Interim assessment: 85/100.
+
+### Pass 2 — buttons and selections
+
+Mobile review found an awkwardly wrapped category label and primary CTA copy squeezed beside its emblem. Added a concise two-column category grid from 360px (one column at 320px), CSS check marks with existing aria-pressed semantics, a separate emblem row and full-width CTA copy, clear native disclosure controls, arrow affordances, and a four-plus-three formation day grid. Restored explicit primary styling for formation links. Moved the unchanged Weapons attribution below its resource list to prioritize the tools. Reviewed Sanctuary, Help, Defenses, Weapons and Discernment on mobile. Interim assessment: 89/100.
+
+### Pass 3 — responsive and interaction polish
+
+Checked all seven routes at 320, 360, 390, 768 and 1280px. No visible controls or headings exceeded the viewport; the intentionally offscreen Skip link was excluded from geometry findings. Independent review caught five summary actions inheriting paired flex rules: corrected them to a dedicated grid, one column on mobile and two on desktop. All five controls measured 317px wide and 52px tall at 390px. Added an active-step outline for forced colors, a stable three-column layout within desktop Weapons cards, and a centered resource dialog with a sticky close header.
+
+Keyboard Continue focused H1 and returned to scroll position 2px. Back preserved category and trigger selections. Escape closed the resource dialog and restored its opener. Dark mode and reduced motion were verified without reloading their temporary appearance choices. The rebuilt seven-route mobile check retained ivory/large defaults, six navigation destinations and zero error logs. Final independent source review found no remaining blockers. Final assessment: 92/100.
+
+Coverage limits: in-app browser checks, not physical Safari, OS text scaling, a full screen-reader audit, forced-colors hardware, physical print or performance tracing. Existing summary-only print rules remain intact. React checklist: stable hooks, no new state/effects/network calls, existing client islands, typed progress and semantic controls. No new images or dependencies. This revision remains local for owner review.

@@ -16,10 +16,11 @@ import { useStrongholds } from "./StrongholdsProvider";
 import { StrongholdsIcon } from "./StrongholdsIcon";
 import { StrongholdsScripture } from "./StrongholdsScripture";
 import { StrongholdsCoreScripture } from "./StrongholdsCoreScripture";
+import { StrongholdsReturnPlan, StrongholdsBeginAgain, StrongholdsTemptationReassurance } from "./StrongholdsSupport";
 import styles from "./Strongholds.module.css";
 
 export function CategoryChoices({ value, onChange }: { value: StrongholdCategory; onChange: (value: StrongholdCategory) => void }) {
-  return <fieldset className={styles.fieldset}><legend>Name the struggle (optional)</legend><div className={styles.choices}>
+  return <fieldset className={styles.fieldset}><legend>Name the struggle (optional)</legend><div className={`${styles.choices} ${styles.categoryChoices}`}>
     {strongholdCategories.map(id => <button key={id} type="button" className={`${styles.choice} focus-ring`} aria-pressed={value === id} onClick={() => onChange(id)}>{strongholdCounsel[id].label}</button>)}
   </div></fieldset>;
 }
@@ -72,15 +73,15 @@ export function StrongholdsJourney() {
   }
   if (finished) return <section className={styles.journey}><h1 tabIndex={-1} ref={heading}>Go in hope</h1><p>Your in-memory journey has ended. Return to Christ as often as you need; completing a journey is not a measure of holiness.</p><p role="status">{message}</p><div className={styles.buttons}><Link className="btn btn-primary focus-ring" href="/strongholds">Return to Strongholds</Link><Link className="btn btn-secondary focus-ring" href="/strongholds/weapons">Continue Praying</Link><button type="button" className="btn btn-secondary focus-ring" onClick={() => remove()}>Retry Deleting Saved Data</button></div></section>;
   return <section className={`${styles.journey} ${styles.journeySurface}`} aria-label="Strongholds guided prayer">
-    <div className={styles.stepToolbar}><Link className="btn btn-secondary focus-ring" href="/strongholds">← Sanctuary</Link><span>Step {draft.step + 1} of 6</span><Link className="btn btn-secondary focus-ring" href="/strongholds">Pause & Exit</Link></div>
-    <StrongholdsCoreScripture compact />
-    <header className={styles.practiceHeader}>
+    <div className={`${styles.stepToolbar} ${styles.journeyToolbar}`}><span>Step {draft.step + 1} of 6</span><Link className="btn btn-secondary focus-ring" href="/strongholds">Pause & Exit</Link></div>
+    <header className={`${styles.practiceHeader} ${styles.pageHeader}`}>
     <p className={styles.eyebrow}><StrongholdsIcon />Step {draft.step + 1} · {page.name} · Writing optional</p>
-    <ol className={styles.progress} aria-label="Prayer steps">{strongholdsSteps.map((step, index) => <li key={step.name} aria-current={draft.step === index ? "step" : undefined}>{index + 1}. {step.name}</li>)}</ol>
-    <progress className={styles.meter} value={draft.step + 1} max={6} aria-label={`Step ${draft.step + 1} of 6: ${page.name}`} />
     <h1 ref={heading} tabIndex={-1}>{page.heading}</h1>
     <p className={styles.small}>{strongholdsStepInvitations[draft.step]}</p>
+    <ol className={styles.progress} aria-label="Prayer steps">{strongholdsSteps.map((step, index) => <li key={step.name} aria-label={`${index + 1}. ${step.name}`} aria-current={draft.step === index ? "step" : undefined} data-complete={index < draft.step}><span className={styles.progressNumber} aria-hidden="true">{index + 1}</span><span className={styles.progressName}>{step.name}</span></li>)}</ol>
+    <progress className={styles.meter} value={draft.step + 1} max={6} aria-label={`Step ${draft.step + 1} of 6: ${page.name}`} />
     </header>
+    <StrongholdsCoreScripture compact />
     <details className={styles.disclosure}><summary className="focus-ring">See the six prayer movements</summary><section className={styles.fortress} aria-label="Six prayer movements"><div className={styles.fortressHeader}><strong>Captive to Christ</strong><span>{page.name}</span></div><ol className={styles.stones}>{strongholdsStones.map((stone,index) => <li key={stone} aria-current={index === draft.step ? "step" : undefined} data-complete={index < draft.step}>{stone}<small>{index < draft.step ? "Considered in prayer" : index === draft.step ? "Pause here" : `Movement ${index + 1}`}</small></li>)}</ol><p className={styles.small}>The stones symbolize patterns brought to prayer. They do not measure sin, holiness, or freedom from distress.</p></section></details>
     <figure className={styles.teachingArtwork}><Image className={styles.teachingImage} src={"/images/strongholds/" + lesson.image + ".webp"} alt={lesson.alt} width={1536} height={1024} sizes="(max-width: 640px) 100vw, 640px" /><figcaption>{lesson.caption}</figcaption></figure>
     <section className={styles.teachingLesson} aria-labelledby="strongholds-lesson-heading"><p className={styles.eyebrow}>Learn from the passage</p><h2 id="strongholds-lesson-heading">{lesson.title}</h2><StrongholdsScripture reference={STRONGHOLDS_CORE_REFERENCE} verseNumbers={lesson.verses} /><p className={styles.small}>Original devotional application</p><p>{lesson.application}</p><p><strong>Practice this now:</strong> {lesson.practice}</p></section>
@@ -90,6 +91,7 @@ export function StrongholdsJourney() {
     <ul className={styles.questions}>{page.questions.map(question => <li key={question}>{question}</li>)}</ul>
     {draft.step > 0 && <StrongholdsPersonalGuidance category={draft.category} step={draft.step} />}
     {draft.step === 0 && <>
+      <StrongholdsTemptationReassurance />
       <CategoryChoices value={draft.category} onChange={category => { if (category !== draft.category) patch({ category, action: "", surrendered: false }); }} />
       <StrongholdsPersonalGuidance category={draft.category} />
       <fieldset className={styles.fieldset}><legend>What came before? (optional; choose any)</legend><div className={styles.choices}>{strongholdsTriggers.map(trigger => <button type="button" key={trigger} className={`${styles.choice} focus-ring`} aria-pressed={draft.triggers.includes(trigger)} onClick={() => patch({ triggers: draft.triggers.includes(trigger) ? draft.triggers.filter(t => t !== trigger) : [...draft.triggers, trigger] })}>{trigger}</button>)}</div></fieldset>
@@ -115,25 +117,27 @@ export function StrongholdsJourney() {
       {circumstances.length > 0 && <StrongholdsTriggerGuidance category={draft.category} triggers={draft.triggers} compact />}
       <fieldset className={styles.fieldset}><legend>One practical response for this struggle or circumstance (optional)</legend><div className={styles.choices}>{actions.map(action => <button type="button" key={action} className={`${styles.choice} focus-ring`} aria-pressed={draft.action === action} onClick={() => patch({ action: draft.action === action ? "" : action })}>{action}</button>)}</div></fieldset>
       <OptionalText label="My resolution (optional; choose above or write my own)" value={draft.action} onChange={action => patch({ action })} />
+      <StrongholdsReturnPlan circumstances={circumstances} action={draft.action} fallback={counsel.actions[0]} />
       <p>Forgiveness does not require excusing harm or abandoning appropriate boundaries.</p>
-      <p>For sacramental guidance, speak with a priest and visit the existing guides.</p><div className={styles.actions}><Link className="btn btn-secondary focus-ring" href="/confession">Confession guide</Link><Link className="btn btn-secondary focus-ring" href="/sacraments">Sacramental resources</Link></div>
+      <p>For sacramental guidance, speak with a priest and visit the existing guides.</p><div className={styles.actions}><Link className="btn btn-secondary focus-ring" href="/confession/examination-companion">Confession guide</Link><Link className="btn btn-secondary focus-ring" href="/sacraments">Sacramental resources</Link></div>
     </>}
     {draft.step !== 1 && draft.step !== 3 && draft.step !== 4 && draft.step !== 5 && <OptionalText label="My reflection (optional)" value={draft.notes[draft.step]} onChange={note => patch({ notes: draft.notes.map((value, i) => i === draft.step ? note : value) })} />}
     {draft.step === 5 && <article className={`${styles.card} ${styles.summary}`} aria-label="Prayer summary">
       <p className={styles.eyebrow}>Strongholds · personal prayer summary</p><h2>One truth, one next step</h2>
       <dl><dt>Experience identified</dt><dd>{counsel.label}</dd><dt>Thought examined</dt><dd>{draft.thought || "Held silently / not yet named"}</dd><dt>Scripture reference</dt><dd>{counsel.reference}</dd><dt>Truth to remember</dt><dd>{counsel.truth}</dd><dt>Practical action</dt><dd>{draft.action || "Carry a quiet intention to respond in love."}</dd>{draft.response && <><dt>My prayerful response</dt><dd>{draft.response}</dd></>}</dl>
+      <StrongholdsReturnPlan circumstances={circumstances} action={draft.action} fallback={counsel.actions[0]} />
       <h3>Closing prayer</h3><p className={styles.prayer}>{page.prayer}</p><p>God’s grace invites a new beginning. Completing this journey is not a measure of holiness.</p>
       <h3>My practice of virtue</h3><p>{personal.virtue}: {personal.virtuePractice}</p><p>{personal.remember}</p>
-      {circumstances.length > 0 && <><h3>What came before, and a plan</h3><ul>{circumstances.map(item => <li key={item.name}><strong>{item.name}:</strong> {item.plan}</li>)}</ul></>}
       <StrongholdsScripture reference={counsel.reference} expandable={false} />
       <p className={styles.small}>Scripture: public-domain Douay-Rheims, American Edition of 1899. Reflections and prayers are original devotional applications.</p>
     </article>}
+    {draft.step === 5 && <StrongholdsBeginAgain />}
     <p><strong>A small practice:</strong> {page.action}</p>
     {draft.step !== 5 && <div className={styles.prayer}><p>{page.prayer}</p></div>}
     <details className={styles.disclosure}><summary className="focus-ring">Go a little deeper</summary><p>{page.deeper}</p></details>
-    <div className={styles.buttons}>
-      {draft.step === 0 ? <Link className="btn btn-secondary focus-ring" href="/strongholds">Back to Strongholds</Link> : <button type="button" className="btn btn-secondary focus-ring" onClick={() => move(-1)}>Back</button>}
-      {draft.step < 5 && <button type="button" className="btn btn-primary focus-ring" onClick={() => move(1)}>Continue</button>}
+    <div className={`${styles.buttons} ${styles.stepActions} ${draft.step === 5 ? styles.completionActions : ""}`}>
+      {draft.step === 0 ? <Link className="btn btn-secondary focus-ring" href="/strongholds">Back to Strongholds</Link> : <button type="button" className="btn btn-secondary focus-ring" onClick={() => move(-1)}><span aria-hidden="true">←</span> Back</button>}
+      {draft.step < 5 && <button type="button" className="btn btn-primary focus-ring" onClick={() => move(1)}>Continue <StrongholdsIcon name="arrow" /></button>}
       {draft.step === 5 && <><button type="button" className="btn btn-primary focus-ring" onClick={saveReflection}>Save Reflection to My Journey</button><button type="button" className="btn btn-secondary focus-ring" onClick={() => window.print()}>Print Summary</button><button type="button" className="btn btn-secondary focus-ring" onClick={() => remove(true)}>Finish Without Saving</button><Link className="btn btn-secondary focus-ring" href="/strongholds/weapons">Continue Praying</Link></>}
     </div>
     <details className={styles.disclosure} open={draft.step === 5 ? true : undefined}><summary className="focus-ring">Save or delete on this device</summary><p>{STRONGHOLDS_PRIVACY}</p><p>Saving is optional. Each press saves one snapshot, replacing any previous Strongholds snapshot. Later edits are not automatically saved. Finish Without Saving clears this journey and any saved journey snapshot. Previously saved My Journey reflections remain until you delete them in My Journey or Settings. Printed pages may be visible to others.</p><div className={styles.buttons}><button type="button" className="btn btn-primary focus-ring" onClick={save}>Save on This Device</button><button type="button" className="btn btn-secondary focus-ring" onClick={() => remove()}>Delete Saved Journey</button></div></details>

@@ -81,3 +81,21 @@ The initial coverage audit extracted all reference properties from `strongholdCo
 - Import author and source researcher are the same agent for this work. Independent exact-text/rights review was requested from a separate agent; record its actual result when returned. Source equality and public-domain evidence do not constitute human ecclesial or editorial approval.
 
 UI integration, complete-content display, newly added test results, and runtime/privacy verification are owned by the implementing agent and must be recorded separately. No push or deployment is authorized by this audit.
+
+## Temptation-support additions — 2026-10-16
+
+The owner approved implementing the five recommendations from the local Catholic Sources/formation review. Source importer: AI agent `/root/temptation_sources_review`. This addition uses the already downloaded official VPL cache at `C:/Users/brent/AppData/Local/Temp/strongholds-engDRA-20261015/engDRA_vpl.txt`; no external theological research or new download was performed. Its freshly recomputed SHA-256 is `96282bfa7c89a74680cea66fe873aafa5e7cd446407f0ff2531a723e19eee2c2`, identical to the pinned source. Edition, rights, access-date and earlier independent-review metadata were preserved, not relabeled as a fresh remote rights audit or independent approval of these additions.
+
+| Added complete passage/key and self-alias | Verses | Source chapter |
+| --- | --- | --- |
+| Matthew 4:1–11 | 11 | [eBible chapter](https://ebible.org/engDRA/MAT04.htm#V1) |
+| Matthew 6:9–13 | 5 | [eBible chapter](https://ebible.org/engDRA/MAT06.htm#V9) |
+| Matthew 26:41 | 1 | [eBible chapter](https://ebible.org/engDRA/MAT26.htm#V41) |
+| Hebrews 4:15–16 | 2 | [eBible chapter](https://ebible.org/engDRA/HEB04.htm#V15) |
+| 1 Corinthians 10:13 | 1 | [eBible chapter](https://ebible.org/engDRA/1CO10.htm#V13) |
+
+Each numbered verse was imported by exact source key, without punctuation, spelling or capitalization changes; each new record has a SHA-256 of UTF-8 `JSON.stringify(verses)`. The importer rejected a mismatched complete-source hash, duplicate source keys, missing verses, and unexpected existing records. After import, all **102 verse occurrences across 30 passage records** matched the pinned VPL exactly, and all 30 passage digests matched. There are now 33 aliases. These checks extend the data, not the prior independent review's stated 25-passage scope. Independent review of the new quotations is a separate handoff.
+
+The numbering follows this Douay-Rheims source: Matthew 6:9–13 is the biblical Our Father passage, not a substituted modern or traditional liturgical rendering. Its complete verse text and verse labels must be retained. Matthew 4:1–11 concerns Christ's temptation in the desert; its forty-day fast is not a fasting prescription for visitors. Hebrews 4:15–16 identifies Christ as tempted without sin and invites confidence in His mercy and timely grace. Matthew 26:41 is read in the Gethsemane context of watchfulness and prayer. First Corinthians 10:13 concerns temptation in Paul's warning against idolatry: it must not be rendered as a promise that every distressing circumstance can be endured unaided, or as a reason to remain in danger or refuse necessary support.
+
+All contextual explanations are original editorial applications, distinct from the exact Bible text. No CCC or Spiritual Exercises primary text was newly verified. Their earlier unresolved source checks, traditional-prayer verification limits and human theological/editorial review status remain separate. This import does not authorize publication or deployment.

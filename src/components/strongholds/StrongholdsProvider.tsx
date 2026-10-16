@@ -7,7 +7,7 @@ type Appearance = { theme: "midnight" | "ivory"; large: boolean; reduced: boolea
 const StrongholdsContext = createContext<{ draft: StrongholdsDraft; setDraft: Dispatch<SetStateAction<StrongholdsDraft>>; appearance: Appearance; setAppearance: Dispatch<SetStateAction<Appearance>> } | null>(null);
 export function StrongholdsProvider({ children }: { children: React.ReactNode }) {
   const [draft, setDraft] = useState(newStrongholdsDraft);
-  const [appearance, setAppearance] = useState<Appearance>({ theme: "ivory", large: true, reduced: false });
+  const [appearance, setAppearance] = useState<Appearance>({ theme: "midnight", large: true, reduced: false });
   return <StrongholdsContext.Provider value={{ draft, setDraft, appearance, setAppearance }}>{children}</StrongholdsContext.Provider>;
 }
 export function useStrongholds() {

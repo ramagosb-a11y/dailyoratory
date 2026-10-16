@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState, type MouseEvent } from "react";
 import { strongholdsResources, type StrongholdsResource } from "@/data/strongholds";
 import { StrongholdsIcon, type StrongholdsIconName } from "./StrongholdsIcon";
 import { StrongholdsScripture } from "./StrongholdsScripture";
+import { StrongholdsGospelExample, StrongholdsLordsPrayer } from "./StrongholdsSupport";
 import styles from "./Weapons.module.css";
 import shared from "./Strongholds.module.css";
 
@@ -44,12 +45,11 @@ export function StrongholdsWeapons() {
   }
 
   return <section className={styles.library} aria-labelledby="weapons-heading">
-    <header className={styles.heading}>
+    <header className={`${styles.heading} ${shared.pageHeader}`}>
       <p className={`${styles.eyebrow} ${shared.eyebrow}`}>The spiritual armory</p>
       <h1 id="weapons-heading">Spiritual Weapons</h1>
       <p>Draw from the life of the Church. Open a resource for a short prayer and one practical response.</p>
     </header>
-    <p className={`${styles.sourceNote} ${shared.small}`}>Scripture quotations use the verified public-domain Douay-Rheims American Edition of 1899. Reflections and prayers are original devotional applications, separate from Scripture.</p>
     <ul className={styles.list}>
       {strongholdsResources.map((resource, index) => <li key={resource.title}>
         <button type="button" className={styles.resourceButton} aria-haspopup="dialog" onClick={event => showResource(resource, event)}>
@@ -59,6 +59,7 @@ export function StrongholdsWeapons() {
         </button>
       </li>)}
     </ul>
+    <p className={`${styles.sourceNote} ${shared.small}`}>Scripture quotations use the verified public-domain Douay-Rheims American Edition of 1899. Reflections and prayers are original devotional applications, separate from Scripture.</p>
     <dialog ref={dialog} className={styles.dialog} aria-labelledby={titleId} aria-describedby={descriptionId} onClose={returnToLibrary} onClick={closeOnBackdrop}>
       <div className={styles.dialogContent}>
         <div className={styles.dialogHeader}>
@@ -73,6 +74,8 @@ export function StrongholdsWeapons() {
             <p><strong>Church reference</strong><span>{selected.church}</span></p>
           </div>
           <StrongholdsScripture reference={selected.scripture} />
+          {selected.title === "Prayer" && <StrongholdsLordsPrayer />}
+          {selected.title === "Scripture" && <StrongholdsGospelExample />}
           <section className={styles.prayer} aria-labelledby={`${titleId}-prayer`}><h3 id={`${titleId}-prayer`}>A short prayer</h3><p>{selected.prayer}</p></section>
           <section className={styles.practice} aria-labelledby={`${titleId}-practice`}><h3 id={`${titleId}-practice`}>Put it into practice</h3><p>{selected.action}</p></section>
           <Link className={`btn btn-primary focus-ring ${styles.continueLink}`} href={selected.href}>{selected.link}<StrongholdsIcon name="arrow" /></Link>

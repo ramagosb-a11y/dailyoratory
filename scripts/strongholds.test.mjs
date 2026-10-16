@@ -1,8 +1,9 @@
+import { buildStrongholdsReturnPlan } from "../src/data/strongholdsSupport.ts";
 import { strongholdsTeaching, strongholdsPassageContext } from "../src/data/strongholdsTeaching.ts";
 import { struggleGuidance, triggerNames, triggerGuidance, getTriggerGuidance } from "../src/data/strongholdsGuidance.ts";
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { newStrongholdsDraft, moveStrongholdsStep, parseStrongholds, readStrongholds, saveStrongholds, deleteStrongholds, STRONGHOLDS_KEY, strongholdCategories, parseStrongholdsHistory, saveStrongholdsEntry, deleteStrongholdsEntry, deleteStrongholdsHistory, readStrongholdsHistory, STRONGHOLDS_HISTORY_KEY, STRONGHOLDS_HISTORY_LIMIT } from "../src/lib/strongholdsState.ts";
 import { strongholdsFormationDays, strongholdsDiscernmentRules, strongholdsDiscernmentSuggestion } from "../src/data/strongholdsFormation.ts";
 import { strongholdCounsel, strongholdsSteps, strongholdsResources, strongholdsComfortVerse } from "../src/data/strongholds.ts";
@@ -145,8 +146,8 @@ test("every Scripture reference resolves to the checked public-domain Douay-Rhei
     for (let i=1;i<passage.verses.length;i++) assert.equal(passage.verses[i].number,passage.verses[i-1].number+1);
     count+=passage.verses.length;
   }
-  assert.equal(Object.keys(archive.passages).length,25);
-  assert.equal(count,82);
+  assert.equal(Object.keys(archive.passages).length,30);
+  assert.equal(count,102);
   assert.equal(strongholdsResources.find(r=>r.title==='Faith').scripture,'Mark 9:23');
   assert.match(getStrongholdsScripture('Mark 9:23').verses[0].text,/I do believe, Lord: help my unbelief/);
   assert.equal(getStrongholdsScripture('John 6:51').verses[0].text,'I am the living bread which came down from heaven.');
@@ -242,4 +243,59 @@ test("expanded original prayers cover every intention, struggle, step, resource 
  assert.deepEqual(strongholdsFormationDays.map(d=>d.morningPrayer),strongholdsFormationPrayers);
  assert.ok(strongholdsJourneyPrayers[0].startsWith('Lord Jesus, help me recognize what is happening within me and respond with Your grace.'));
  for(const resource of strongholdsResources)assert.ok(!/^\/prayers(?:[\/#?]|$)/.test(resource.href));
+});
+
+
+test("return plans work for all struggles, empty choices and saved records without a schema change", () => {
+  for (const category of strongholdCategories) {
+    const record={...newStrongholdsDraft(),category,triggers:["Fatigue","Digital content"],action:strongholdCounsel[category].actions[0]};
+    const circumstances=getTriggerGuidance(category,record.triggers);
+    const plan=buildStrongholdsReturnPlan(circumstances,record.action,strongholdCounsel[category].actions[0]);
+    assert.equal(plan.chosen,true);
+    assert.equal(plan.response,record.action);
+    assert.match(plan.when,/fatigue.*digital content/);
+    const storage=memoryStorage();assert.equal(saveStrongholds(storage,record),true);
+    const restored=readStrongholds(storage).saved.draft;
+    assert.deepEqual(buildStrongholdsReturnPlan(getTriggerGuidance(restored.category,restored.triggers),restored.action,strongholdCounsel[category].actions[0]),plan);
+    const fallback=buildStrongholdsReturnPlan([],"  ",strongholdCounsel[category].actions[0]);
+    assert.equal(fallback.chosen,false);assert.equal(fallback.response,strongholdCounsel[category].actions[0]);
+    assert.equal(fallback.when,"If I notice this struggle returning");
+  }
+});
+test("new formation readings resolve complete biblical prayer and Gospel ranges", () => {
+  for(const [reference,numbers] of [["Matthew 4:1–11",[1,2,3,4,5,6,7,8,9,10,11]],["Matthew 6:9–13",[9,10,11,12,13]],["Matthew 26:41",[41]],["Hebrews 4:15–16",[15,16]],["1 Corinthians 10:13",[13]]]) {
+    const excerpt=getStrongholdsScriptureExcerpt(reference,numbers);
+    assert.ok(excerpt,reference);assert.deepEqual(excerpt.verses.map(verse=>verse.number),numbers);
+    assert.equal(excerpt.reference,reference);
+  }
+  assert.equal(strongholdsResources.find(resource=>resource.title==="Reconciliation").href,"/confession/examination-companion");
+});
+
+
+test("prayer handoffs use Strongholds or the exact owner-approved companion modules", () => {
+ for(const title of ["Prayer","Humility","Obedience to God","Charity","The Holy Spirit"]){
+  assert.match(strongholdsResources.find(r=>r.title===title).href,/^\/strongholds(?:[\/#]|$)/,title);
+ }
+ assert.equal(strongholdsResources.find(r=>r.title==="Reconciliation").href,"/confession/examination-companion");
+ assert.equal(strongholdsResources.find(r=>r.title==="The Eucharist").href,"/adoration/companion");
+ assert.equal(strongholdsResources.find(r=>r.title==="The Rosary").href,"/rosary/visual-meditation");
+ assert.match(readFileSync(new URL("../src/components/strongholds/StrongholdsSupport.tsx",import.meta.url),"utf8"),/href="\/divine-mercy\/chaplet"/);
+ const formationSource=readFileSync(new URL('../src/components/strongholds/StrongholdsFormation.tsx',import.meta.url),'utf8');
+ assert.ok(!/href=["']\/(?:prayers|rosary|morning-prayer|daily-examen|adoration)(?:[\/#"'])/.test(formationSource));
+});
+
+
+test("Strongholds links cannot reach the prayer library through known redirects", () => {
+ const redirects=new Map([...readFileSync(new URL('../src/data/redirects.ts',import.meta.url),'utf8').matchAll(/source:\s*"([^"]+)"\s*,\s*destination:\s*"([^"]+)"[\s\S]*?status:\s*"([^"]+)"/g)].filter(match=>match[3]==="implemented" && match[1]!==match[2]).map(match=>[match[1],match[2]]));
+ const base=new URL('../src/components/strongholds/',import.meta.url);
+ const files=readdirSync(base).filter(name=>name.endsWith('.tsx')).map(name=>new URL(name,base));
+ files.push(new URL('../src/app/strongholds/page.tsx',import.meta.url));
+ const destinations=[...strongholdsResources.map(resource=>resource.href)];
+ for(const file of files) for(const match of readFileSync(file,'utf8').matchAll(/href(?:=|:)\s*["']([^"']+)["']/g)) destinations.push(match[1]);
+ for(const destination of destinations){
+  let path=new URL(destination,'https://dailyoratory.faith/strongholds').pathname;
+  const visited=new Set();
+  while(redirects.has(path)){assert.ok(!visited.has(path),'redirect loop: '+destination);visited.add(path);path=redirects.get(path);}
+  assert.ok(!/^\/(?:prayers|library)(?:\/|$)/.test(path),'prayer-library detour: '+destination);
+ }
 });
