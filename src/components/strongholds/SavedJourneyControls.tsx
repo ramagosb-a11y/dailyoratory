@@ -24,7 +24,7 @@ export function SavedJourneyControls() {
     let removed = false;
     try { removed = deleteStrongholds(window.localStorage); } catch {}
     notifyStrongholdsStorage();
-    setMessage(removed ? "Saved Strongholds draft deleted. Saved My Journey reflections and other prayer tools are unchanged." : "This browser could not delete saved data. Try again or use browser settings to remove this site's stored data.");
+    setMessage(removed ? "Saved Strongholds journey deleted. Saved My Journey reflections and other prayer tools are unchanged." : "This browser could not delete saved data. Try again or use browser settings to remove this site's stored data.");
     if (removed) beginButton.current?.focus();
   }
   return <div className={styles.landingActions}>
@@ -36,7 +36,7 @@ export function SavedJourneyControls() {
       {saved.status === "invalid" && <p>The saved record is unreadable or from an unsupported version. It has not been loaded. You can delete it and begin again.</p>}
       {saved.status === "unavailable" && <p>Browser storage is unavailable. You can still pray without saving.</p>}
       {saved.status === "saved" && <p>A saved snapshot is available. Resuming does not enable automatic saving.</p>}
-      <button type="button" className="btn btn-secondary focus-ring" onClick={removeSaved}>Delete Saved Draft</button>
+      <button type="button" className="btn btn-secondary focus-ring" onClick={removeSaved}>Delete Saved Journey</button>
     </div>}
     <p role="status">{message}</p>
   </div>;

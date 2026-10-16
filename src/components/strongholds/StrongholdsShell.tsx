@@ -20,7 +20,7 @@ export function StrongholdsShell({ children }: { children: React.ReactNode }) {
     try { draftDeleted = deleteStrongholds(window.localStorage); historyDeleted = deleteStrongholdsHistory(window.localStorage); } catch {}
     notifyStrongholdsStorage();
     setDraft(newStrongholdsDraft());
-    setMessage(draftDeleted && historyDeleted ? "Strongholds reflections and saved draft deleted. Other tools are unchanged." : "The memory journey was cleared, but this browser could not delete all saved Strongholds data. Retry or use browser settings.");
+    setMessage(draftDeleted && historyDeleted ? "Strongholds reflections and saved journey deleted. Other tools are unchanged." : "The memory journey was cleared, but this browser could not delete all saved Strongholds data. Retry or use browser settings.");
   }
   return <div className={styles.featureBackdrop} data-theme={appearance.theme} data-reading={appearance.large ? "large" : "standard"} data-reduced-motion={appearance.reduced}>
     <header className={styles.topbar}><div>
@@ -37,8 +37,8 @@ export function StrongholdsShell({ children }: { children: React.ReactNode }) {
         <fieldset className={styles.fieldset}><legend>Reading font size</legend><div className={styles.choices}>{[false,true].map(large => <button key={String(large)} className={`${styles.choice} focus-ring`} aria-pressed={appearance.large === large} onClick={() => setAppearance(a => ({ ...a, large }))}>{large ? "Large Reading Size" : "Standard Size"}</button>)}</div></fieldset>
         <label className={styles.checkLabel}><input type="checkbox" checked={appearance.reduced} onChange={e => setAppearance(a => ({ ...a, reduced: e.target.checked }))} /> Reduced motion</label><p className={styles.small}>System reduced-motion preferences are also respected. Appearance choices last while this feature is open; they are not saved.</p>
         <h3>Catholic content integrity</h3><p>All Scripture quotations use the verified public-domain Douay-Rheims American Edition of 1899. Each reading identifies its verses and source. Original devotional reflections are separate from Scripture.</p><p>This aid does not replace a priest, confessor, spiritual director, or necessary professional care. It cannot judge supernatural causes or sacramental standing.</p>
-        <h3>Privacy & local data</h3><p>{STRONGHOLDS_PRIVACY}</p><p>Answers stay in memory until you explicitly save a draft or a reflection. No account, AI, database, or cloud backup is used. Delete affects Strongholds only.</p>
-        <details className={styles.disclosure}><summary>Delete all Strongholds data</summary><p>Remove saved drafts and reflections from this browser, and clear the current in-memory journey. This cannot be undone here.</p><button className="btn btn-secondary focus-ring" onClick={clear}>Delete All Strongholds Data</button></details><p role="status">{message}</p>
+        <h3>Privacy & local data</h3><p>{STRONGHOLDS_PRIVACY}</p><p>Answers stay in memory until you explicitly save a journey or a reflection. No account, AI, database, or cloud backup is used. Delete affects Strongholds only.</p>
+        <details className={styles.disclosure}><summary>Delete all Strongholds data</summary><p>Remove saved journeys and reflections from this browser, and clear the current in-memory journey. This cannot be undone here.</p><button className="btn btn-secondary focus-ring" onClick={clear}>Delete All Strongholds Data</button></details><p role="status">{message}</p>
         <button className="btn btn-primary focus-ring" onClick={() => dialog.current?.close()}>Done</button>
       </div>
     </dialog>
