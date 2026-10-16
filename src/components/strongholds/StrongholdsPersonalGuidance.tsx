@@ -17,7 +17,7 @@ export function StrongholdsPersonalGuidance({ category, step = 0 }: { category: 
     {step === 2 && <><h3>Discern this particular struggle</h3><ul className={styles.questions}>{guide.questions.map(question => <li key={question}>{question}</li>)}</ul></>}
     {step >= 3 && <p><strong>Carry this truth:</strong> {counsel.truth}</p>}
     {step === 5 && <p>{guide.remember}</p>}
-    <p className={styles.small}>Original devotional suggestions · draft. These selections do not determine guilt, diagnose a condition, or identify a thought’s spiritual origin.</p>
+    <p className={styles.small}>Original devotional suggestions. These selections do not determine guilt, diagnose a condition, or identify a thought’s spiritual origin.</p>
   </section>;
 }
 

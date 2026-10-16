@@ -49,7 +49,7 @@ export function StrongholdsWeapons() {
       <h1 id="weapons-heading">Spiritual Weapons</h1>
       <p>Draw from the life of the Church. Open a resource for a short prayer and one practical response.</p>
     </header>
-    <p className={`${styles.sourceNote} ${shared.small}`}>Scripture quotations use the verified public-domain Douay-Rheims American Edition of 1899. Original devotional applications and Church references still await source and human editorial review.</p>
+    <p className={`${styles.sourceNote} ${shared.small}`}>Scripture quotations use the verified public-domain Douay-Rheims American Edition of 1899. Reflections and prayers are original devotional applications, separate from Scripture.</p>
     <ul className={styles.list}>
       {strongholdsResources.map((resource, index) => <li key={resource.title}>
         <button type="button" className={styles.resourceButton} aria-haspopup="dialog" onClick={event => showResource(resource, event)}>
@@ -70,13 +70,13 @@ export function StrongholdsWeapons() {
         {selected && <>
           <div className={styles.references}>
             <p><strong>Scripture reference</strong><span>{selected.scripture}</span></p>
-            <p><strong>Church reference for verification</strong><span>{selected.church}</span></p>
+            <p><strong>Church reference</strong><span>{selected.church}</span></p>
           </div>
           <StrongholdsScripture reference={selected.scripture} />
           <section className={styles.prayer} aria-labelledby={`${titleId}-prayer`}><h3 id={`${titleId}-prayer`}>A short prayer</h3><p>{selected.prayer}</p></section>
           <section className={styles.practice} aria-labelledby={`${titleId}-practice`}><h3 id={`${titleId}-practice`}>Put it into practice</h3><p>{selected.action}</p></section>
           <Link className={`btn btn-primary focus-ring ${styles.continueLink}`} href={selected.href}>{selected.link}<StrongholdsIcon name="arrow" /></Link>
-          <p className={`${styles.dialogNote} ${shared.small}`}>The explanation, prayer, and practice are original devotional applications, separate from the Scripture quotation. Church-reference verification and human editorial review remain pending.</p>
+          <p className={`${styles.dialogNote} ${shared.small}`}>The explanation, prayer, and practice are original devotional applications, separate from the Scripture quotation.</p>
           <button type="button" className={`btn btn-secondary focus-ring ${styles.returnButton}`} onClick={() => dialog.current?.close()}>Return to the armory</button>
         </>}
       </div>

@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "Strongholds — Spiritual Weapons",
-  description: "Explore prayer, Scripture, and resources from the life of the Church. Draft editorial preview.",
+  description: "Explore prayer, Scripture, and resources from the life of the Church.",
   path: "/strongholds/weapons",
   image: "/images/strongholds/foundation.webp",
   noIndex: true,

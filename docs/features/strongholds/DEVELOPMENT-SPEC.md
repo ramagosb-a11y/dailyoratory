@@ -85,3 +85,7 @@ Owner supplied an iPhone screenshot showing clipped Strongholds title, crowded h
 
 
 Revision11 release authorization,2026-10-16: owner explicitly instructs 'Commit deploy to production and main not preview'. Release this reviewed mobile correction by pushing canonical main to trigger the Git-integrated production deployment. No preview deployment, branch, PR, content/source-status or configuration changes.
+
+
+## Public status-note cleanup revision12 —2026-10-16
+Owner requests removing preview notes because the module is live. Remove the shared status banner, inline draft/preview badges and metadata qualifiers, plus repetitive review-status sentences from prayer/formation/resource surfaces. Retain original-application attribution, exact Scripture sources, privacy and pastoral safeguards. Consolidate unresolved Church-source/editorial facts in Sources and artwork and internal review records; do not fabricate review completion or approval. No doctrinal wording or Scripture change, no indexing-policy change. Release this live-site copy cleanup through existing main-to-production Git workflow, not a preview deployment. Validate all7routes,18tests,focusedlint,type/build/guards,productionaliases and publiccopy.

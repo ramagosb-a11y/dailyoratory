@@ -83,9 +83,9 @@ export function StrongholdsJourney() {
     </header>
     <details className={styles.disclosure}><summary className="focus-ring">See the six prayer movements</summary><section className={styles.fortress} aria-label="Six prayer movements"><div className={styles.fortressHeader}><strong>Captive to Christ</strong><span>{page.name}</span></div><ol className={styles.stones}>{strongholdsStones.map((stone,index) => <li key={stone} aria-current={index === draft.step ? "step" : undefined} data-complete={index < draft.step}>{stone}<small>{index < draft.step ? "Considered in prayer" : index === draft.step ? "Pause here" : `Movement ${index + 1}`}</small></li>)}</ol><p className={styles.small}>The stones symbolize patterns brought to prayer. They do not measure sin, holiness, or freedom from distress.</p></section></details>
     <figure className={styles.teachingArtwork}><Image className={styles.teachingImage} src={"/images/strongholds/" + lesson.image + ".webp"} alt={lesson.alt} width={1536} height={1024} sizes="(max-width: 640px) 100vw, 640px" /><figcaption>{lesson.caption}</figcaption></figure>
-    <section className={styles.teachingLesson} aria-labelledby="strongholds-lesson-heading"><p className={styles.eyebrow}>Learn from the passage</p><h2 id="strongholds-lesson-heading">{lesson.title}</h2><StrongholdsScripture reference={STRONGHOLDS_CORE_REFERENCE} verseNumbers={lesson.verses} /><p className={styles.small}>Original devotional application · draft</p><p>{lesson.application}</p><p><strong>Practice this now:</strong> {lesson.practice}</p></section>
+    <section className={styles.teachingLesson} aria-labelledby="strongholds-lesson-heading"><p className={styles.eyebrow}>Learn from the passage</p><h2 id="strongholds-lesson-heading">{lesson.title}</h2><StrongholdsScripture reference={STRONGHOLDS_CORE_REFERENCE} verseNumbers={lesson.verses} /><p className={styles.small}>Original devotional application</p><p>{lesson.application}</p><p><strong>Practice this now:</strong> {lesson.practice}</p></section>
     <details className={styles.disclosure}><summary className="focus-ring">Supporting Scripture · {page.reference}</summary><StrongholdsScripture reference={page.reference} /></details>
-    <p className={styles.small}>Reflections, truth statements, and prayers below are original devotional drafts, separate from the Scripture quotation.</p>
+    <p className={styles.small}>Reflections, truth statements, and prayers below are original devotional applications, separate from the Scripture quotation.</p>
     <p>{page.reflection}</p>
     <ul className={styles.questions}>{page.questions.map(question => <li key={question}>{question}</li>)}</ul>
     {draft.step > 0 && <StrongholdsPersonalGuidance category={draft.category} step={draft.step} />}
@@ -120,13 +120,13 @@ export function StrongholdsJourney() {
     </>}
     {draft.step !== 1 && draft.step !== 3 && draft.step !== 4 && draft.step !== 5 && <OptionalText label="My reflection (optional)" value={draft.notes[draft.step]} onChange={note => patch({ notes: draft.notes.map((value, i) => i === draft.step ? note : value) })} />}
     {draft.step === 5 && <article className={`${styles.card} ${styles.summary}`} aria-label="Prayer summary">
-      <p className={styles.eyebrow}>Strongholds · personal prayer summary · draft</p><h2>One truth, one next step</h2>
+      <p className={styles.eyebrow}>Strongholds · personal prayer summary</p><h2>One truth, one next step</h2>
       <dl><dt>Experience identified</dt><dd>{counsel.label}</dd><dt>Thought examined</dt><dd>{draft.thought || "Held silently / not yet named"}</dd><dt>Scripture reference</dt><dd>{counsel.reference}</dd><dt>Truth to remember</dt><dd>{counsel.truth}</dd><dt>Practical action</dt><dd>{draft.action || "Carry a quiet intention to respond in love."}</dd>{draft.response && <><dt>My prayerful response</dt><dd>{draft.response}</dd></>}</dl>
       <h3>Closing prayer</h3><p className={styles.prayer}>{page.prayer}</p><p>God’s grace invites a new beginning. Completing this journey is not a measure of holiness.</p>
       <h3>My practice of virtue</h3><p>{personal.virtue}: {personal.virtuePractice}</p><p>{personal.remember}</p>
       {circumstances.length > 0 && <><h3>What came before, and a plan</h3><ul>{circumstances.map(item => <li key={item.name}><strong>{item.name}:</strong> {item.plan}</li>)}</ul></>}
       <StrongholdsScripture reference={counsel.reference} expandable={false} />
-      <p className={styles.small}>Scripture: public-domain Douay-Rheims, American Edition of 1899. Reflections and prayers are original devotional drafts awaiting editorial review.</p>
+      <p className={styles.small}>Scripture: public-domain Douay-Rheims, American Edition of 1899. Reflections and prayers are original devotional applications.</p>
     </article>}
     <p><strong>A small practice:</strong> {page.action}</p>
     {draft.step !== 5 && <div className={styles.prayer}><p>{page.prayer}</p></div>}

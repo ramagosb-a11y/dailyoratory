@@ -41,7 +41,6 @@
 .iconButton { min-width:44px; min-height:44px; display:inline-grid; place-items:center; border:1px solid var(--sh-border); border-radius:.7rem; background:var(--sh-control); color:var(--sh-text); cursor:pointer; }
 .iconButton:hover { border-color:var(--sh-gold); background:var(--sh-gold-soft); }
 .iconButton svg { width:1.2rem; height:1.2rem; }
-.draft { font-size:.78em; text-align:center; color:var(--sh-muted); padding:0 0 .9rem; margin:0 !important; }
 .featureNav { position:fixed; bottom:0; left:0; right:0; z-index:35; background:var(--sh-panel); border-top:1px solid var(--sh-border); padding-bottom:env(safe-area-inset-bottom); box-shadow:0 -4px 20px #0000000a; }
 .featureNav > div { width:min(100%,40rem); margin:auto; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); }
 .featureNav a { position:relative; min-height:76px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:.4rem; color:var(--sh-muted); text-decoration:none; font-size:.68rem; font-weight:550; text-align:center; line-height:1.3; padding:.55rem .15rem; border-top:3px solid transparent; }
@@ -210,7 +209,7 @@
 .modalBody { padding:1.4rem; }
 .entryHeader { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:.5rem 1rem; padding-bottom:.6rem; border-bottom:1px solid var(--sh-border); }
 .entryHeader time { color:var(--sh-muted); font-size:.8em; }
-.featureBackdrop[data-reading="large"] :is(p,legend,textarea,select):where(:not(.small,.draft,.eyebrow,.scriptureCredit,.scriptureCaption)) { font-size:1.08em; }
+.featureBackdrop[data-reading="large"] :is(p,legend,textarea,select):where(:not(.small,.eyebrow,.scriptureCredit,.scriptureCaption)) { font-size:1.08em; }
 .featureBackdrop[data-reading="large"] .prayer { font-size:1.2em; }
 .featureBackdrop[data-reading="large"] .prayer p { font-size:1em; }
 
@@ -264,7 +263,7 @@
 @media(forced-colors:active) { .choice[aria-pressed="true"],.selected,.featureNav a[aria-current] { outline:2px solid Highlight; outline-offset:-3px; } }
 @media print {
   :global(body) { background:white !important; }
-  .topbar,.featureNav,.draft,.featureFooter,.modal { display:none !important; }
+  .topbar,.featureNav,.featureFooter,.modal { display:none !important; }
   .featureBackdrop { min-height:0; color:#111; background:white; --sh-bg:white; --sh-panel:white; --sh-control:white; --sh-text:#111; --sh-muted:#444; --sh-gold:#333; --sh-gold-soft:white; --sh-accent:#222; --sh-border:#bbb; }
   .featureBackdrop * { box-shadow:none !important; }
   .shell { max-width:none; padding:0; }
