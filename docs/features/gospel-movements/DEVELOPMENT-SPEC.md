@@ -19,3 +19,6 @@ Revision 1, 2026-10-28. Local implementation authorized by the owner's selected 
 5. Targeted ESLint, typecheck, production build and URL validation; browser review home-to-music flow and screenshots. Record failures honestly. Owner is final local visual reviewer; no fabricated independent review.
 
 Reversal: remove spotlight import/render, /music page, shared data/style/assets and sitemap entry only. Implementation report records evidence.
+
+## Revision 2 — link and mobile photo refinement, 2026-10-28
+Owner requested removing link icons on the home music feature and dedicated music page, and improving the dedicated hero photo on mobile. Remove decorative arrow glyphs from music CTAs and return link; preserve destinations and accessible external-link labels. Below 640px, display the chapel photograph in its own unobstructed image area above the hero text rather than cropping it behind a tall text block. Retain desktop overlay layout. No new images, dependencies, content meaning or data changes. Validate mobile/desktop layouts, links, focused lint, typecheck and production build. Local review first; the preceding release authorization applied to revision 1.

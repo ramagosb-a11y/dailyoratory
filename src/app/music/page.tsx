@@ -16,7 +16,9 @@ export default function MusicPage() {
   return (
     <div className={styles.page}>
       <section aria-labelledby="music-title" className={styles.hero}>
-        <Image src="/images/music/sanctuary.webp" alt="" fill sizes="100vw" preload className={styles.background} />
+        <div className={styles.heroArt}>
+          <Image src="/images/music/sanctuary.webp" alt="" fill sizes="100vw" preload className={styles.background} />
+        </div>
         <div className={styles.heroShade} />
         <div className={styles.heroContent}>
           <nav aria-label="Breadcrumb" className={styles.breadcrumb}><Link href="/">Home</Link><span aria-hidden="true">/</span><span aria-current="page">Music</span></nav>
@@ -25,7 +27,7 @@ export default function MusicPage() {
           <p className={styles.lightCopy}>{gospelMovementsDescription}</p>
           <p className={styles.attribution}>@thegospelmovements</p>
           <div className={styles.actions}>
-            <a href={gospelMovementsProfile} target="_blank" rel="noopener noreferrer" aria-label="View All Songs on Suno (opens in a new tab)" className={styles.burgundyButton}>View All Songs on Suno <span aria-hidden="true">↗</span></a>
+            <a href={gospelMovementsProfile} target="_blank" rel="noopener noreferrer" aria-label="View All Songs on Suno (opens in a new tab)" className={styles.burgundyButton}>View All Songs on Suno</a>
           </div>
         </div>
       </section>
@@ -41,13 +43,13 @@ export default function MusicPage() {
               <Image src={playlist.image} alt={`Cover artwork for ${playlist.title}`} width={640} height={420} sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw" className={styles.cover} />
               <div className={styles.playlistContent}>
                 <h3>{playlist.title}</h3>
-                <a href={playlist.href} target="_blank" rel="noopener noreferrer" aria-label={`Open ${playlist.title} on Suno (opens in a new tab)`} className={styles.burgundyButton}>Open on Suno <span aria-hidden="true">↗</span></a>
+                <a href={playlist.href} target="_blank" rel="noopener noreferrer" aria-label={`Open ${playlist.title} on Suno (opens in a new tab)`} className={styles.burgundyButton}>Open on Suno</a>
               </div>
             </li>
           ))}
         </ul>
         <p className={styles.note}>Music opens on Suno in a new tab.</p>
-        <Link href="/#gospel-movements" className={styles.backLink}>← Back to Daily Oratory</Link>
+        <Link href="/#gospel-movements" className={styles.backLink}>Back to Daily Oratory</Link>
       </section>
     </div>
   );

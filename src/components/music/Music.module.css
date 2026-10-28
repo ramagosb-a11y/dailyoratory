@@ -16,6 +16,7 @@
 .goldButton:focus-visible, .outlineButton:focus-visible, .burgundyButton:focus-visible, .breadcrumb a:focus-visible, .backLink:focus-visible { outline: 3px solid #bd8a2f; outline-offset: 4px; }
 .attribution { margin-top: 1.5rem; color: #ead6a7; font-size: 1rem; overflow-wrap: anywhere; }
 .hero { position: relative; isolation: isolate; background: #201b15; min-height: 34rem; }
+.heroArt { position: absolute; inset: 0; z-index: -2; }
 .heroShade { background: linear-gradient(90deg, #17140deb 0%, #17140dc9 40%, #17140d08 100%); }
 .heroContent { max-width: 80rem; margin: auto; padding: 2rem 2.5rem 3.75rem; }
 .breadcrumb { display: flex; gap: .8rem; color: #fffdf7; font-size: .9rem; margin-bottom: 2.5rem; }
@@ -35,5 +36,17 @@
 .note { margin: 2.5rem 0 1rem; text-align: center; color: #4b443a; font-size: .9rem; }
 .backLink { display: block; width: fit-content; margin: auto; color: #7a2533; text-decoration: underline; text-underline-offset: 4px; }
 @media (max-width: 1023px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cardShade { background: linear-gradient(90deg, #061629f5, #061629ba 65%, #06162960); } }
-@media (max-width: 639px) { .grid { grid-template-columns: 1fr; } .heroContent, .collection { padding-left: 1.25rem; padding-right: 1.25rem; } .heroShade { background: #17140dbb; } .actions { flex-direction: column; } .actions a { width: 100%; } .spotlightContent { padding: 2rem 1.5rem; } .hero { min-height: 0; } }
+@media (max-width: 639px) {
+  .grid { grid-template-columns: 1fr; }
+  .heroContent, .collection { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .heroArt { position: relative; inset: auto; z-index: 0; height: clamp(14rem, 65vw, 25rem); overflow: hidden; }
+  .heroArt .background { z-index: 0; object-position: 85% 55%; }
+  .heroShade { display: none; }
+  .heroContent { padding-top: 1.5rem; padding-bottom: 2rem; }
+  .breadcrumb { margin-bottom: 1.75rem; }
+  .actions { flex-direction: column; }
+  .actions a { width: 100%; }
+  .spotlightContent { padding: 2rem 1.5rem; }
+  .hero { min-height: 0; }
+}
 @media (prefers-reduced-motion: reduce) { .goldButton, .outlineButton, .burgundyButton { transition: none; } }

@@ -14,8 +14,8 @@ export function HomeMusicSpotlight() {
           <h2 id="home-music-title" className={styles.cardTitle}>The Gospel <span>Movements</span></h2>
           <p className={styles.lightCopy}>{gospelMovementsDescription}</p>
           <div className={styles.actions}>
-            <a href={gospelMovementsProfile} target="_blank" rel="noopener noreferrer" aria-label="View All Songs on Suno (opens in a new tab)" className={styles.goldButton}>View All Songs on Suno <span aria-hidden="true">↗</span></a>
-            <Link href="/music" className={styles.outlineButton}>Explore Playlists <span aria-hidden="true">→</span></Link>
+            <a href={gospelMovementsProfile} target="_blank" rel="noopener noreferrer" aria-label="View All Songs on Suno (opens in a new tab)" className={styles.goldButton}>View All Songs on Suno</a>
+            <Link href="/music" className={styles.outlineButton}>Explore Playlists</Link>
           </div>
           <p className={styles.attribution}>@thegospelmovements</p>
         </div>

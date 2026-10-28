@@ -11,3 +11,6 @@
 - Artwork storage: 5,727,437 original bytes to 935,784 WebP bytes (84% reduction). Original art, local preparation helper and QA logs stay uncommitted. Public covers are sourced from the owner's supplied Suno links; provenance is recorded in SUNO-METADATA.json.
 - Human visual review: owner selected the designs and requested release after receiving the full local-site review URLs. No independent code/theological review is claimed.
 - Production status and smoke results will be reported after Git push. No version, dependency, settings, content or configuration changes are part of the release step.
+
+## Revision 2 authorization — 2026-10-28
+Owner instruction: “Commit deploy to main and production not preview”. Authorizes release of the reviewed arrow-removal and mobile hero-framing fixes from revision 2. Release includes only the music page, home music component, scoped music CSS and feature documentation; no assets or dependencies changed. Existing local outputs remain uncommitted. Prior production / rollback reference: dpl_98jWx6a3J3D4L9hay9Y34tM7Cvtx at commit 1dc14d4e1e956a1127c00116bea3200343942db0. Local 390px/1440px review, focused lint, typecheck and build already passed during implementation; release build, URL and SEO checks are rerun before pushing. Full-repository lint backlog remains documented above and excluded from this focused release.

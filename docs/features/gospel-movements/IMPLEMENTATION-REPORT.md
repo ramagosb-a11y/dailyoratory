@@ -25,3 +25,10 @@ Home feature: http://127.0.0.1:3000/#gospel-movements
 Collection: http://127.0.0.1:3000/music
 
 Check both selected visuals and the Suno destinations. No commit, push or deployment performed. Unrelated pre-existing untracked outputs preserved.
+
+## Revision 2 local verification — 2026-10-28
+- Removed visible arrow glyphs from both home music links, the music profile button, eleven playlist links and the return link. Accessible new-tab descriptions remain.
+- Mobile hero now displays the chapel image separately above the text, without an overlay; existing WebP is reused. Desktop preserves the previous photo/text composition.
+- Focused ESLint, typecheck and production build including image/client-store/rendering audits passed. Diff whitespace check passed.
+- Browser checked at 390px and 1440px: no horizontal overflow; chapel image loaded; eleven playlist links retained; zero arrow glyphs on music links and both home music CTAs. Mobile and desktop screenshots inspected. Local site running at http://127.0.0.1:3000/music.
+- Local changes only; revision 2 is not committed or deployed. Revision 1 production release is documented separately in RELEASE.md.
