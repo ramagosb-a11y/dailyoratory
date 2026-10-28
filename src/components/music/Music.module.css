@@ -1,0 +1,39 @@
+.page { background: #fffdf7; color: #0d2038; }
+.spotlight { position: relative; isolation: isolate; overflow: hidden; border-radius: 1.75rem; border: 1px solid #bd8a2f80; background: #081b30; box-shadow: 0 14px 40px #0d203815; }
+.background { object-fit: cover; object-position: center; z-index: -2; }
+.cardShade, .heroShade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #061629ed 0%, #061629c9 40%, #06162910 100%); }
+.spotlightContent { position: relative; padding: clamp(2rem, 5vw, 4.5rem); max-width: 49rem; }
+.eyebrow { color: #ead6a7; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .22em; }
+.cardTitle, .heroTitle { font-family: var(--font-heading); font-size: clamp(2.8rem, 5vw, 4.9rem); font-weight: 600; line-height: 1.05; color: #fffdf7; margin: 1rem 0; }
+.cardTitle span { display: block; color: #ead6a7; }
+.lightCopy { max-width: 34rem; color: #fffdf7; font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 1.8; margin-top: 1.25rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 1.75rem; }
+.goldButton, .outlineButton, .burgundyButton { display: inline-flex; justify-content: center; align-items: center; gap: 1rem; min-height: 3.2rem; padding: .85rem 1.25rem; border-radius: .55rem; font-size: 1rem; font-weight: 600; line-height: 1.5; text-align: center; text-decoration: none; transition: filter .15s; }
+.goldButton { background: #ead6a7; color: #0d2038; border: 1px solid #ead6a7; }
+.outlineButton { background: #081b3080; border: 1px solid #ead6a7; color: #fffdf7; }
+.burgundyButton { background: #7a2533; color: #fffdf7; border: 1px solid #bd8a2f; }
+.goldButton:hover, .outlineButton:hover, .burgundyButton:hover { filter: brightness(1.12); }
+.goldButton:focus-visible, .outlineButton:focus-visible, .burgundyButton:focus-visible, .breadcrumb a:focus-visible, .backLink:focus-visible { outline: 3px solid #bd8a2f; outline-offset: 4px; }
+.attribution { margin-top: 1.5rem; color: #ead6a7; font-size: 1rem; overflow-wrap: anywhere; }
+.hero { position: relative; isolation: isolate; background: #201b15; min-height: 34rem; }
+.heroShade { background: linear-gradient(90deg, #17140deb 0%, #17140dc9 40%, #17140d08 100%); }
+.heroContent { max-width: 80rem; margin: auto; padding: 2rem 2.5rem 3.75rem; }
+.breadcrumb { display: flex; gap: .8rem; color: #fffdf7; font-size: .9rem; margin-bottom: 2.5rem; }
+.breadcrumb a { text-decoration: underline; text-underline-offset: 4px; }
+.heroTitle { font-size: clamp(2.8rem, 4.5vw, 4.5rem); max-width: 43rem; }
+.collection { max-width: 80rem; margin: auto; padding: 3.5rem 2.5rem; }
+.collectionHeading { text-align: center; border-top: 1px solid #bd8a2f80; padding-top: 2rem; margin-bottom: 2rem; }
+.collectionEyebrow { color: #7a2533; text-transform: uppercase; letter-spacing: .17em; font-size: .75rem; font-weight: 700; }
+.collectionHeading h2 { font: 600 clamp(2.4rem, 4vw, 3.5rem)/1.2 var(--font-heading); color: #7a2533; margin: .5rem 0; }
+.collectionHeading > p:last-child { color: #4b443a; line-height: 1.7; }
+.grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.1rem; list-style: none; padding: 0; margin: 0; }
+.playlist { display: flex; flex-direction: column; min-width: 0; background: #fcf7ed; border: 1px solid #d8cdb9; border-radius: .6rem; padding: .65rem; }
+.cover { width: 100%; height: auto; aspect-ratio: 640/420; object-fit: cover; border-radius: .25rem; }
+.playlistContent { display: flex; flex: 1; flex-direction: column; gap: 1rem; padding: 1rem .25rem .35rem; }
+.playlistContent h3 { font: 600 1.65rem/1.25 var(--font-heading); color: #0d2038; text-align: center; overflow-wrap: anywhere; margin: 0; }
+.playlistContent a { margin-top: auto; }
+.note { margin: 2.5rem 0 1rem; text-align: center; color: #4b443a; font-size: .9rem; }
+.backLink { display: block; width: fit-content; margin: auto; color: #7a2533; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 1023px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cardShade { background: linear-gradient(90deg, #061629f5, #061629ba 65%, #06162960); } }
+@media (max-width: 639px) { .grid { grid-template-columns: 1fr; } .heroContent, .collection { padding-left: 1.25rem; padding-right: 1.25rem; } .heroShade { background: #17140dbb; } .actions { flex-direction: column; } .actions a { width: 100%; } .spotlightContent { padding: 2rem 1.5rem; } .hero { min-height: 0; } }
+@media (prefers-reduced-motion: reduce) { .goldButton, .outlineButton, .burgundyButton { transition: none; } }

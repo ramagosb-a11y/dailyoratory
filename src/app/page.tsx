@@ -12,6 +12,7 @@ import { HomeStrongholdsCta } from "@/components/home/HomeStrongholdsCta";
 import { HomeWayOfCrossCta } from "@/components/home/HomeWayOfCrossCta";
 import { HomeLitanyTeaser } from "@/components/home/HomeLitanyTeaser";
 import { Hero } from "@/components/home/Hero";
+import { HomeMusicSpotlight } from "@/components/home/HomeMusicSpotlight";
 import { TodayInTheChurch } from "@/components/home/TodayInTheChurch";
 import { litanyCatalog } from "@/components/contemplative-litanies/data/litanyRegistry";
 import { createPageMetadata } from "@/lib/metadata";
@@ -100,6 +101,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <HomeMusicSpotlight />
       <HomeExaminationSpotlight />
       <FooterCta />
       <GrowInFaithSection />

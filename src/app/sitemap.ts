@@ -255,7 +255,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const familyPages: Array<{ label: string; href: string }> = [];
   const popePages = [{ label: "The Pope and the Papacy", href: "/pope" }];
   const vaticanPages = [{ label: "The Vatican", href: "/vatican" }];
-  const mediaPages = [{ label: "Catholic Media Library", href: "/media" }];
+  const mediaPages = [{ label: "Catholic Media Library", href: "/media" }, { label: "The Gospel Movements", href: "/music" }];
   const featuredSeriesPages = [{ label: "Prophecy Series", href: "/prophecy-series" }];
   const homilyPages = [{ label: "Catholic Homilies Library", href: "/homilies" }];
   const searchPages = [{ label: "Search", href: "/search" }];
