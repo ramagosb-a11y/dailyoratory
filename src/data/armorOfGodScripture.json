@@ -1,0 +1,740 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "edition": "Douay-Rheims American Edition of 1899",
+    "editionId": "engDRA",
+    "rights": "public-domain",
+    "rightsUrl": "https://ebible.org/engDRA/copyright.htm",
+    "downloadUrl": "https://ebible.org/Scriptures/engDRA_vpl.zip",
+    "accessedAt": "2026-10-29",
+    "sourceFilesDate": "2022-11-03",
+    "archiveSha256": "d93d363ccc3839f761ca4ff1016be71ce8493c85bcf230f66184052594cf7169",
+    "textSha256": "96282bfa7c89a74680cea66fe873aafa5e7cd446407f0ff2531a723e19eee2c2",
+    "attribution": "Public-domain Douay-Rheims Bible text courtesy of eBible.org.",
+    "verification": "Extracted verse by verse from official engDRA VPL downloaded 2026-10-29; exact source text retained. Independent theological review pending."
+  },
+  "passages": {
+    "Ephesians 6:14": {
+      "reference": "Ephesians 6:14",
+      "text": "Stand therefore, having your loins girt about with truth, and having on the breastplate of justice,",
+      "sourceUrl": "https://ebible.org/engDRA/EPH06.htm#V14"
+    },
+    "Ephesians 6:15": {
+      "reference": "Ephesians 6:15",
+      "text": "And your feet shod with the preparation of the gospel of peace:",
+      "sourceUrl": "https://ebible.org/engDRA/EPH06.htm#V15"
+    },
+    "Ephesians 6:16": {
+      "reference": "Ephesians 6:16",
+      "text": "In all things taking the shield of faith, wherewith you may be able to extinguish all the fiery darts of the most wicked one.",
+      "sourceUrl": "https://ebible.org/engDRA/EPH06.htm#V16"
+    },
+    "Ephesians 6:17": {
+      "reference": "Ephesians 6:17",
+      "text": "And take unto you the helmet of salvation, and the sword of the Spirit (which is the word of God).",
+      "sourceUrl": "https://ebible.org/engDRA/EPH06.htm#V17"
+    },
+    "John 14:1": {
+      "reference": "John 14:1",
+      "text": "Let not your heart be troubled. You believe in God, believe also in me.",
+      "sourceUrl": "https://ebible.org/engDRA/JHN14.htm#V1"
+    },
+    "James 1:19–20": {
+      "reference": "James 1:19–20",
+      "text": "You know, my dearest brethren. And let every man be swift to hear, but slow to speak, and slow to anger. For the anger of man worketh not the justice of God.",
+      "sourceUrl": "https://ebible.org/engDRA/JAS01.htm#V19"
+    },
+    "Ephesians 4:2–3": {
+      "reference": "Ephesians 4:2–3",
+      "text": "With all humility and mildness, with patience, supporting one another in charity. Careful to keep the unity of the Spirit in the bond of peace.",
+      "sourceUrl": "https://ebible.org/engDRA/EPH04.htm#V2"
+    },
+    "Proverbs 3:5–6": {
+      "reference": "Proverbs 3:5–6",
+      "text": "Have confidence in the Lord with all thy heart, and lean not upon thy own prudence. In all thy ways think on him, and he will direct thy steps.",
+      "sourceUrl": "https://ebible.org/engDRA/PRO03.htm#V5"
+    },
+    "1 John 1:9": {
+      "reference": "1 John 1:9",
+      "text": "If we confess our sins, he is faithful and just, to forgive us our sins, and to cleanse us from all iniquity.",
+      "sourceUrl": "https://ebible.org/engDRA/1JN01.htm#V9"
+    },
+    "John 14:27": {
+      "reference": "John 14:27",
+      "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, do I give unto you. Let not your heart be troubled, nor let it be afraid.",
+      "sourceUrl": "https://ebible.org/engDRA/JHN14.htm#V27"
+    },
+    "Matthew 6:34": {
+      "reference": "Matthew 6:34",
+      "text": "Be not therefore solicitous for tomorrow; for the morrow will be solicitous for itself. Sufficient for the day is the evil thereof.",
+      "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V34"
+    },
+    "Galatians 6:9": {
+      "reference": "Galatians 6:9",
+      "text": "And in doing good, let us not fail. For in due time we shall reap, not failing.",
+      "sourceUrl": "https://ebible.org/engDRA/GAL06.htm#V9"
+    },
+    "Philippians 2:3–5": {
+      "reference": "Philippians 2:3–5",
+      "text": "Let nothing be done through contention, neither by vain glory: but in humility, let each esteem others better than themselves: Each one not considering the things that are his own, but those that are other men’s. For let this mind be in you, which was also in Christ Jesus:",
+      "sourceUrl": "https://ebible.org/engDRA/PHP02.htm#V3"
+    },
+    "Ephesians 4:26–27": {
+      "reference": "Ephesians 4:26–27",
+      "text": "Be angry, and sin not. Let not the sun go down upon your anger. Give not place to the devil.",
+      "sourceUrl": "https://ebible.org/engDRA/EPH04.htm#V26"
+    },
+    "Galatians 5:25–26": {
+      "reference": "Galatians 5:25–26",
+      "text": "If we live in the Spirit, let us also walk in the Spirit. Let us not be made desirous of vain glory, provoking one another, envying on another.",
+      "sourceUrl": "https://ebible.org/engDRA/GAL05.htm#V25"
+    },
+    "1 Corinthians 6:19–20": {
+      "reference": "1 Corinthians 6:19–20",
+      "text": "Or know you not, that your members are the temple of the Holy Ghost, who is in you, whom you have from God; and you are not your own? For you are bought with a great price. Glorify and bear God in your body.",
+      "sourceUrl": "https://ebible.org/engDRA/1CO06.htm#V19"
+    },
+    "Luke 12:15": {
+      "reference": "Luke 12:15",
+      "text": "And he said to them: Take heed and beware of all covetousness; for a man’s life doth not consist in the abundance of things which he possesseth.",
+      "sourceUrl": "https://ebible.org/engDRA/LUK12.htm#V15"
+    },
+    "Ephesians 4:25": {
+      "reference": "Ephesians 4:25",
+      "text": "Wherefore putting away lying, speak; ye the truth every man with his neighbour; for we are members one of another.",
+      "sourceUrl": "https://ebible.org/engDRA/EPH04.htm#V25"
+    },
+    "Romans 12:11–12": {
+      "reference": "Romans 12:11–12",
+      "text": "In carefulness not slothful. In spirit fervent. Serving the Lord. Rejoicing in hope. Patient in tribulation. Instant in prayer.",
+      "sourceUrl": "https://ebible.org/engDRA/ROM12.htm#V11"
+    },
+    "Ephesians 4:31–32": {
+      "reference": "Ephesians 4:31–32",
+      "text": "Let all bitterness, and anger, and indignation, and clamour, and blasphemy, be put away from you, with all malice. And be ye kind one to another; merciful, forgiving one another, even as God hath forgiven you in Christ.",
+      "sourceUrl": "https://ebible.org/engDRA/EPH04.htm#V31"
+    },
+    "2 Corinthians 12:9": {
+      "reference": "2 Corinthians 12:9",
+      "text": "And he said to me: My grace is sufficient for thee; for power is made perfect in infirmity. Gladly therefore will I glory in my infirmities, that the power of Christ may dwell in me.",
+      "sourceUrl": "https://ebible.org/engDRA/2CO12.htm#V9"
+    },
+    "John 11:25–26": {
+      "reference": "John 11:25–26",
+      "text": "Jesus said to her: I am the resurrection and the life: he that believeth in me, although he be dead, shall live: And every one that liveth, and believeth in me, shall not die for ever. Believest thou this?",
+      "sourceUrl": "https://ebible.org/engDRA/JHN11.htm#V25"
+    },
+    "Colossians 3:12–13": {
+      "reference": "Colossians 3:12–13",
+      "text": "Put ye on therefore, as the elect of God, holy, and beloved, the bowels of mercy, benignity, humility, modesty, patience: Bearing with one another, and forgiving one another, if any have a complaint against another: even as the Lord hath forgiven you, so do you also.",
+      "sourceUrl": "https://ebible.org/engDRA/COL03.htm#V12"
+    },
+    "Matthew 6:31–33": {
+      "reference": "Matthew 6:31–33",
+      "text": "Be not solicitous therefore, saying, What shall we eat: or what shall we drink, or wherewith shall we be clothed? For after all these things do the heathens seek. For your Father knoweth that you have need of all these things. Seek ye therefore first the kingdom of God, and his justice, and all these things shall be added unto you.",
+      "sourceUrl": "https://ebible.org/engDRA/MAT06.htm#V31"
+    },
+    "Hebrews 13:5–6": {
+      "reference": "Hebrews 13:5–6",
+      "text": "Let your manners be without covetousness, contented with such things as you have; for he hath said: I will not leave thee, neither will I forsake thee. So that we may confidently say: The Lord is my helper: I will not fear what man shall do to me.",
+      "sourceUrl": "https://ebible.org/engDRA/HEB13.htm#V5"
+    },
+    "Romans 12:12": {
+      "reference": "Romans 12:12",
+      "text": "Rejoicing in hope. Patient in tribulation. Instant in prayer.",
+      "sourceUrl": "https://ebible.org/engDRA/ROM12.htm#V12"
+    },
+    "Matthew 11:28–30": {
+      "reference": "Matthew 11:28–30",
+      "text": "Come to me, all you that labour, and are burdened, and I will refresh you. Take up my yoke upon you, and learn of me, because I am meek, and humble of heart: and you shall find rest to your souls. For my yoke is sweet and my burden light.",
+      "sourceUrl": "https://ebible.org/engDRA/MAT11.htm#V28"
+    },
+    "James 1:5": {
+      "reference": "James 1:5",
+      "text": "But if any of you want wisdom, let him ask of God, who giveth to all men abundantly, and upbraideth not; and it shall be given him.",
+      "sourceUrl": "https://ebible.org/engDRA/JAS01.htm#V5"
+    },
+    "1 Peter 3:15–16": {
+      "reference": "1 Peter 3:15–16",
+      "text": "But sanctify the Lord Christ in your hearts, being ready always to satisfy every one that asketh you a reason of that hope which is in you. But with modesty and fear, having a good conscience: that whereas they speak evil of you, they may be ashamed who falsely accuse your good conversation in Christ.",
+      "sourceUrl": "https://ebible.org/engDRA/1PE03.htm#V15"
+    },
+    "John 20:27–29": {
+      "reference": "John 20:27–29",
+      "text": "Then he saith to Thomas: Put in thy finger hither, and see my hands; and bring hither thy hand, and put it into my side; and be not faithless, but believing. Thomas answered, and said to him: My Lord, and my God. Jesus saith to him: Because thou hast seen me, Thomas, thou hast believed: blessed are they that have not seen, and have believed.",
+      "sourceUrl": "https://ebible.org/engDRA/JHN20.htm#V27"
+    },
+    "Romans 12:2": {
+      "reference": "Romans 12:2",
+      "text": "And be not conformed to this world; but be reformed in the newness of your mind, that you may prove what is the good, and the acceptable, and the perfect will of God.",
+      "sourceUrl": "https://ebible.org/engDRA/ROM12.htm#V2"
+    },
+    "1 Thessalonians 5:19–22": {
+      "reference": "1 Thessalonians 5:19–22",
+      "text": "Extinguish not the spirit. Despise not prophecies. But prove all things; hold fast that which is good. From all appearance of evil refrain yourselves.",
+      "sourceUrl": "https://ebible.org/engDRA/1TH05.htm#V19"
+    },
+    "2 Timothy 1:7–8": {
+      "reference": "2 Timothy 1:7–8",
+      "text": "For God hath not given us the spirit of fear: but of power, and of love, and of sobriety. Be not thou therefore ashamed of the testimony of our Lord, nor of me his prisoner: but labour with the gospel, according to the power of God,",
+      "sourceUrl": "https://ebible.org/engDRA/2TI01.htm#V7"
+    },
+    "Ephesians 6:10–12": {
+      "reference": "Ephesians 6:10–12",
+      "text": "Finally, brethren, be strengthened in the Lord, and in the might of his power. Put you on the armour of God, that you may be able to stand against the deceits of the devil. For our wrestling is not against flesh and blood; but against principalities and power, against the rulers of the world of this darkness, against the spirits of wickedness in the high places.",
+      "sourceUrl": "https://ebible.org/engDRA/EPH06.htm#V10"
+    },
+    "Ephesians 6:10–20": {
+      "reference": "Ephesians 6:10–20",
+      "text": "Finally, brethren, be strengthened in the Lord, and in the might of his power. Put you on the armour of God, that you may be able to stand against the deceits of the devil. For our wrestling is not against flesh and blood; but against principalities and power, against the rulers of the world of this darkness, against the spirits of wickedness in the high places. Therefore take unto you the armour of God, that you may be able to resist in the evil day, and to stand in all things perfect. Stand therefore, having your loins girt about with truth, and having on the breastplate of justice, And your feet shod with the preparation of the gospel of peace: In all things taking the shield of faith, wherewith you may be able to extinguish all the fiery darts of the most wicked one. And take unto you the helmet of salvation, and the sword of the Spirit (which is the word of God). By all prayer and supplication praying at all times in the spirit; and in the same watching with all instance and supplication for all the saints: And for me, that speech may be given me, that I may open my mouth with confidence, to make known the mystery of the gospel. For which I am an ambassador in a chain, so that therein I may be bold to speak according as I ought.",
+      "sourceUrl": "https://ebible.org/engDRA/EPH06.htm#V10"
+    },
+    "John 11:35": {
+      "reference": "John 11:35",
+      "text": "And Jesus wept.",
+      "sourceUrl": "https://ebible.org/engDRA/JHN11.htm#V35"
+    }
+  },
+  "verification": {
+    "Ephesians 6:14": {
+      "bookCode": "EPH",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 14,
+          "text": "Stand therefore, having your loins girt about with truth, and having on the breastplate of justice,"
+        }
+      ],
+      "joinedTextSha256": "eadba33cf4dddf44c3fe6c5240489b5e4da31f5acc66cf4f25f3f5370eba2de9"
+    },
+    "Ephesians 6:15": {
+      "bookCode": "EPH",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 15,
+          "text": "And your feet shod with the preparation of the gospel of peace:"
+        }
+      ],
+      "joinedTextSha256": "7e10b8eca1c38c48a9270190f158f1a19272a11a08377343e6a7fac7e2cf38a3"
+    },
+    "Ephesians 6:16": {
+      "bookCode": "EPH",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 16,
+          "text": "In all things taking the shield of faith, wherewith you may be able to extinguish all the fiery darts of the most wicked one."
+        }
+      ],
+      "joinedTextSha256": "c9c74e77e49f24339bb58bcf2494c9f4de2086a5fd4120f01b4965bc53c90c01"
+    },
+    "Ephesians 6:17": {
+      "bookCode": "EPH",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 17,
+          "text": "And take unto you the helmet of salvation, and the sword of the Spirit (which is the word of God)."
+        }
+      ],
+      "joinedTextSha256": "db75f88d66a4995251ed395ecb7b90ddb2563666afdfefc1fc72cbf1dc606cbd"
+    },
+    "John 14:1": {
+      "bookCode": "JOH",
+      "chapter": 14,
+      "verses": [
+        {
+          "number": 1,
+          "text": "Let not your heart be troubled. You believe in God, believe also in me."
+        }
+      ],
+      "joinedTextSha256": "3d301bc0ea046801fed24d37d280964d180cd33e120532a63603771d428de71d"
+    },
+    "James 1:19–20": {
+      "bookCode": "JAM",
+      "chapter": 1,
+      "verses": [
+        {
+          "number": 19,
+          "text": "You know, my dearest brethren. And let every man be swift to hear, but slow to speak, and slow to anger."
+        },
+        {
+          "number": 20,
+          "text": "For the anger of man worketh not the justice of God."
+        }
+      ],
+      "joinedTextSha256": "1730540dba23da7ad9f40c3947952e6176a0bf999c11adaa775d908fa521b874"
+    },
+    "Ephesians 4:2–3": {
+      "bookCode": "EPH",
+      "chapter": 4,
+      "verses": [
+        {
+          "number": 2,
+          "text": "With all humility and mildness, with patience, supporting one another in charity."
+        },
+        {
+          "number": 3,
+          "text": "Careful to keep the unity of the Spirit in the bond of peace."
+        }
+      ],
+      "joinedTextSha256": "3a7f0969e9f0d420933c736127b723fec7c0bd5b25cc5d13ef2d55faf2c49a14"
+    },
+    "Proverbs 3:5–6": {
+      "bookCode": "PRO",
+      "chapter": 3,
+      "verses": [
+        {
+          "number": 5,
+          "text": "Have confidence in the Lord with all thy heart, and lean not upon thy own prudence."
+        },
+        {
+          "number": 6,
+          "text": "In all thy ways think on him, and he will direct thy steps."
+        }
+      ],
+      "joinedTextSha256": "0b6b3d382191436f03e4d1c7a9461e9bb213beed5e9b7bde4a61dd0a3d5b3916"
+    },
+    "1 John 1:9": {
+      "bookCode": "1JO",
+      "chapter": 1,
+      "verses": [
+        {
+          "number": 9,
+          "text": "If we confess our sins, he is faithful and just, to forgive us our sins, and to cleanse us from all iniquity."
+        }
+      ],
+      "joinedTextSha256": "b79b65e21e5759251b1158421a2bce0164b121a6c79e1cc4075322bc7d0f5b5f"
+    },
+    "John 14:27": {
+      "bookCode": "JOH",
+      "chapter": 14,
+      "verses": [
+        {
+          "number": 27,
+          "text": "Peace I leave with you, my peace I give unto you: not as the world giveth, do I give unto you. Let not your heart be troubled, nor let it be afraid."
+        }
+      ],
+      "joinedTextSha256": "4955c9eedce05a670957d9266847643059fa7a9c1a1c774feac30b8e4b7fa223"
+    },
+    "Matthew 6:34": {
+      "bookCode": "MAT",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 34,
+          "text": "Be not therefore solicitous for tomorrow; for the morrow will be solicitous for itself. Sufficient for the day is the evil thereof."
+        }
+      ],
+      "joinedTextSha256": "65285ade4e641620deecaff64cea288619ad93304f999e00187335fa49ecbb94"
+    },
+    "Galatians 6:9": {
+      "bookCode": "GAL",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 9,
+          "text": "And in doing good, let us not fail. For in due time we shall reap, not failing."
+        }
+      ],
+      "joinedTextSha256": "57b6298bba3d48cf10b27ca7c1f82b7152af30334f3ef03182004dc55f0ec110"
+    },
+    "Philippians 2:3–5": {
+      "bookCode": "PHI",
+      "chapter": 2,
+      "verses": [
+        {
+          "number": 3,
+          "text": "Let nothing be done through contention, neither by vain glory: but in humility, let each esteem others better than themselves:"
+        },
+        {
+          "number": 4,
+          "text": "Each one not considering the things that are his own, but those that are other men’s."
+        },
+        {
+          "number": 5,
+          "text": "For let this mind be in you, which was also in Christ Jesus:"
+        }
+      ],
+      "joinedTextSha256": "ba7e249a9bc25ea07f899a8b94dc1daca980916a7e403f9a6c3038e45a7281be"
+    },
+    "Ephesians 4:26–27": {
+      "bookCode": "EPH",
+      "chapter": 4,
+      "verses": [
+        {
+          "number": 26,
+          "text": "Be angry, and sin not. Let not the sun go down upon your anger."
+        },
+        {
+          "number": 27,
+          "text": "Give not place to the devil."
+        }
+      ],
+      "joinedTextSha256": "96c82deba10c3423b109d091b520c9b1d2199936c0448b5743750c8713513c2e"
+    },
+    "Galatians 5:25–26": {
+      "bookCode": "GAL",
+      "chapter": 5,
+      "verses": [
+        {
+          "number": 25,
+          "text": "If we live in the Spirit, let us also walk in the Spirit."
+        },
+        {
+          "number": 26,
+          "text": "Let us not be made desirous of vain glory, provoking one another, envying on another."
+        }
+      ],
+      "joinedTextSha256": "e6fc5d1f97290d33f50a16c2f1abd475fef9d2c05296b78411e00221aa252378"
+    },
+    "1 Corinthians 6:19–20": {
+      "bookCode": "1CO",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 19,
+          "text": "Or know you not, that your members are the temple of the Holy Ghost, who is in you, whom you have from God; and you are not your own?"
+        },
+        {
+          "number": 20,
+          "text": "For you are bought with a great price. Glorify and bear God in your body."
+        }
+      ],
+      "joinedTextSha256": "f86845752729c33f9db23d05be6d046899780a073e386607e6e5694da87d1752"
+    },
+    "Luke 12:15": {
+      "bookCode": "LUK",
+      "chapter": 12,
+      "verses": [
+        {
+          "number": 15,
+          "text": "And he said to them: Take heed and beware of all covetousness; for a man’s life doth not consist in the abundance of things which he possesseth."
+        }
+      ],
+      "joinedTextSha256": "cd4cd5ab9b11d1ab5baf0cd9f841d75aa4b6b02a8e8a22bc54a549b2ab244292"
+    },
+    "Ephesians 4:25": {
+      "bookCode": "EPH",
+      "chapter": 4,
+      "verses": [
+        {
+          "number": 25,
+          "text": "Wherefore putting away lying, speak; ye the truth every man with his neighbour; for we are members one of another."
+        }
+      ],
+      "joinedTextSha256": "9ebfa3797c8f9d9bba21418ace30af00451542ae0c2ee071141dc3d071351fe4"
+    },
+    "Romans 12:11–12": {
+      "bookCode": "ROM",
+      "chapter": 12,
+      "verses": [
+        {
+          "number": 11,
+          "text": "In carefulness not slothful. In spirit fervent. Serving the Lord."
+        },
+        {
+          "number": 12,
+          "text": "Rejoicing in hope. Patient in tribulation. Instant in prayer."
+        }
+      ],
+      "joinedTextSha256": "854d0595cb3c33632f9d7c01510a35ecd8f59df6f28cb028659500a097402dee"
+    },
+    "Ephesians 4:31–32": {
+      "bookCode": "EPH",
+      "chapter": 4,
+      "verses": [
+        {
+          "number": 31,
+          "text": "Let all bitterness, and anger, and indignation, and clamour, and blasphemy, be put away from you, with all malice."
+        },
+        {
+          "number": 32,
+          "text": "And be ye kind one to another; merciful, forgiving one another, even as God hath forgiven you in Christ."
+        }
+      ],
+      "joinedTextSha256": "73a2c4a3637672215e67027d27a8c07f2379f9fafd35271f70354c2ef6e080e5"
+    },
+    "2 Corinthians 12:9": {
+      "bookCode": "2CO",
+      "chapter": 12,
+      "verses": [
+        {
+          "number": 9,
+          "text": "And he said to me: My grace is sufficient for thee; for power is made perfect in infirmity. Gladly therefore will I glory in my infirmities, that the power of Christ may dwell in me."
+        }
+      ],
+      "joinedTextSha256": "bc793578bcba0177798ccf76cff755e4b436b6b8e844b134e4197baf35e484d1"
+    },
+    "John 11:25–26": {
+      "bookCode": "JOH",
+      "chapter": 11,
+      "verses": [
+        {
+          "number": 25,
+          "text": "Jesus said to her: I am the resurrection and the life: he that believeth in me, although he be dead, shall live:"
+        },
+        {
+          "number": 26,
+          "text": "And every one that liveth, and believeth in me, shall not die for ever. Believest thou this?"
+        }
+      ],
+      "joinedTextSha256": "9a011e6a3f9e0923ccc65afba5a3e19760e08931e6b472278179295a6a2115df"
+    },
+    "Colossians 3:12–13": {
+      "bookCode": "COL",
+      "chapter": 3,
+      "verses": [
+        {
+          "number": 12,
+          "text": "Put ye on therefore, as the elect of God, holy, and beloved, the bowels of mercy, benignity, humility, modesty, patience:"
+        },
+        {
+          "number": 13,
+          "text": "Bearing with one another, and forgiving one another, if any have a complaint against another: even as the Lord hath forgiven you, so do you also."
+        }
+      ],
+      "joinedTextSha256": "6fef97bc827e53c1f599c7d5e593a42717f535d74b5bb28db1fee2551c49510b"
+    },
+    "Matthew 6:31–33": {
+      "bookCode": "MAT",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 31,
+          "text": "Be not solicitous therefore, saying, What shall we eat: or what shall we drink, or wherewith shall we be clothed?"
+        },
+        {
+          "number": 32,
+          "text": "For after all these things do the heathens seek. For your Father knoweth that you have need of all these things."
+        },
+        {
+          "number": 33,
+          "text": "Seek ye therefore first the kingdom of God, and his justice, and all these things shall be added unto you."
+        }
+      ],
+      "joinedTextSha256": "094c932e15278b725ab5bb7c3f74458da11a6f733803cd06eb2d346fa4d2a48b"
+    },
+    "Hebrews 13:5–6": {
+      "bookCode": "HEB",
+      "chapter": 13,
+      "verses": [
+        {
+          "number": 5,
+          "text": "Let your manners be without covetousness, contented with such things as you have; for he hath said: I will not leave thee, neither will I forsake thee."
+        },
+        {
+          "number": 6,
+          "text": "So that we may confidently say: The Lord is my helper: I will not fear what man shall do to me."
+        }
+      ],
+      "joinedTextSha256": "0fced296894ac001ffd295036ce54b2ab974dbc58756e8d871906e999789fcdc"
+    },
+    "Romans 12:12": {
+      "bookCode": "ROM",
+      "chapter": 12,
+      "verses": [
+        {
+          "number": 12,
+          "text": "Rejoicing in hope. Patient in tribulation. Instant in prayer."
+        }
+      ],
+      "joinedTextSha256": "c32dadd5eb64f244db46ef9e8c2774ef9a9e97fae74a58e2f0d6174448b9fcd2"
+    },
+    "Matthew 11:28–30": {
+      "bookCode": "MAT",
+      "chapter": 11,
+      "verses": [
+        {
+          "number": 28,
+          "text": "Come to me, all you that labour, and are burdened, and I will refresh you."
+        },
+        {
+          "number": 29,
+          "text": "Take up my yoke upon you, and learn of me, because I am meek, and humble of heart: and you shall find rest to your souls."
+        },
+        {
+          "number": 30,
+          "text": "For my yoke is sweet and my burden light."
+        }
+      ],
+      "joinedTextSha256": "c18b9035c233bf2324154d71bb0200d9a49eded0b8e4b7a4d3f1736d7c00772e"
+    },
+    "James 1:5": {
+      "bookCode": "JAM",
+      "chapter": 1,
+      "verses": [
+        {
+          "number": 5,
+          "text": "But if any of you want wisdom, let him ask of God, who giveth to all men abundantly, and upbraideth not; and it shall be given him."
+        }
+      ],
+      "joinedTextSha256": "0eb5d8814b7e8e059c7b7064e5ac7a81a700e5643727528d355ceee259eaf53a"
+    },
+    "1 Peter 3:15–16": {
+      "bookCode": "1PE",
+      "chapter": 3,
+      "verses": [
+        {
+          "number": 15,
+          "text": "But sanctify the Lord Christ in your hearts, being ready always to satisfy every one that asketh you a reason of that hope which is in you."
+        },
+        {
+          "number": 16,
+          "text": "But with modesty and fear, having a good conscience: that whereas they speak evil of you, they may be ashamed who falsely accuse your good conversation in Christ."
+        }
+      ],
+      "joinedTextSha256": "619bfd3fb0e48e803f2786298db823e43665f448a764a15079272920cd15c664"
+    },
+    "John 20:27–29": {
+      "bookCode": "JOH",
+      "chapter": 20,
+      "verses": [
+        {
+          "number": 27,
+          "text": "Then he saith to Thomas: Put in thy finger hither, and see my hands; and bring hither thy hand, and put it into my side; and be not faithless, but believing."
+        },
+        {
+          "number": 28,
+          "text": "Thomas answered, and said to him: My Lord, and my God."
+        },
+        {
+          "number": 29,
+          "text": "Jesus saith to him: Because thou hast seen me, Thomas, thou hast believed: blessed are they that have not seen, and have believed."
+        }
+      ],
+      "joinedTextSha256": "20b1cea3b862cbbbe4a27895f4b48709d67facc2cbbb63b42eefe81d05e7a04d"
+    },
+    "Romans 12:2": {
+      "bookCode": "ROM",
+      "chapter": 12,
+      "verses": [
+        {
+          "number": 2,
+          "text": "And be not conformed to this world; but be reformed in the newness of your mind, that you may prove what is the good, and the acceptable, and the perfect will of God."
+        }
+      ],
+      "joinedTextSha256": "16b7a9d198d6edba059e4372c005164d513eda34e930c764fb0859a556832e75"
+    },
+    "1 Thessalonians 5:19–22": {
+      "bookCode": "1TH",
+      "chapter": 5,
+      "verses": [
+        {
+          "number": 19,
+          "text": "Extinguish not the spirit."
+        },
+        {
+          "number": 20,
+          "text": "Despise not prophecies."
+        },
+        {
+          "number": 21,
+          "text": "But prove all things; hold fast that which is good."
+        },
+        {
+          "number": 22,
+          "text": "From all appearance of evil refrain yourselves."
+        }
+      ],
+      "joinedTextSha256": "2941a6b7c1ce72b53437fc41ac5d825b743677d85f7fee94b353fa06e1b6dab5"
+    },
+    "2 Timothy 1:7–8": {
+      "bookCode": "2TI",
+      "chapter": 1,
+      "verses": [
+        {
+          "number": 7,
+          "text": "For God hath not given us the spirit of fear: but of power, and of love, and of sobriety."
+        },
+        {
+          "number": 8,
+          "text": "Be not thou therefore ashamed of the testimony of our Lord, nor of me his prisoner: but labour with the gospel, according to the power of God,"
+        }
+      ],
+      "joinedTextSha256": "dd7ec82fca8e2830dbfb4b2545c450fc876150c8e47331de7feb97fc1380f497"
+    },
+    "Ephesians 6:10–12": {
+      "bookCode": "EPH",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 10,
+          "text": "Finally, brethren, be strengthened in the Lord, and in the might of his power."
+        },
+        {
+          "number": 11,
+          "text": "Put you on the armour of God, that you may be able to stand against the deceits of the devil."
+        },
+        {
+          "number": 12,
+          "text": "For our wrestling is not against flesh and blood; but against principalities and power, against the rulers of the world of this darkness, against the spirits of wickedness in the high places."
+        }
+      ],
+      "joinedTextSha256": "68beeb527429e11fa66f2c8a4f4eb17bca1dbc8bb31d21bb78464e36d659c2a7"
+    },
+    "Ephesians 6:10–20": {
+      "bookCode": "EPH",
+      "chapter": 6,
+      "verses": [
+        {
+          "number": 10,
+          "text": "Finally, brethren, be strengthened in the Lord, and in the might of his power."
+        },
+        {
+          "number": 11,
+          "text": "Put you on the armour of God, that you may be able to stand against the deceits of the devil."
+        },
+        {
+          "number": 12,
+          "text": "For our wrestling is not against flesh and blood; but against principalities and power, against the rulers of the world of this darkness, against the spirits of wickedness in the high places."
+        },
+        {
+          "number": 13,
+          "text": "Therefore take unto you the armour of God, that you may be able to resist in the evil day, and to stand in all things perfect."
+        },
+        {
+          "number": 14,
+          "text": "Stand therefore, having your loins girt about with truth, and having on the breastplate of justice,"
+        },
+        {
+          "number": 15,
+          "text": "And your feet shod with the preparation of the gospel of peace:"
+        },
+        {
+          "number": 16,
+          "text": "In all things taking the shield of faith, wherewith you may be able to extinguish all the fiery darts of the most wicked one."
+        },
+        {
+          "number": 17,
+          "text": "And take unto you the helmet of salvation, and the sword of the Spirit (which is the word of God)."
+        },
+        {
+          "number": 18,
+          "text": "By all prayer and supplication praying at all times in the spirit; and in the same watching with all instance and supplication for all the saints:"
+        },
+        {
+          "number": 19,
+          "text": "And for me, that speech may be given me, that I may open my mouth with confidence, to make known the mystery of the gospel."
+        },
+        {
+          "number": 20,
+          "text": "For which I am an ambassador in a chain, so that therein I may be bold to speak according as I ought."
+        }
+      ],
+      "joinedTextSha256": "6f79c7d0d3a57457be53f7132e772153706ff22ce1481e9c49bb07fdcf4f5e7d"
+    },
+    "John 11:35": {
+      "bookCode": "JOH",
+      "chapter": 11,
+      "verses": [
+        {
+          "number": 35,
+          "text": "And Jesus wept."
+        }
+      ],
+      "joinedTextSha256": "06aae1ff66646ec41c031801c1530653c204c996e33920b6151c75614cead926"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-29",
+  "provider": "OpenAI image generation",
+  "description": "Original AI-generated devotional illustrations with photographic styling; symbolic, not historical artifacts.",
+  "images": [
+    {
+      "id": "armor-chapel",
+      "source": "exec-90f6fec1-13d9-4e37-a300-ce4ea07c4989.png",
+      "originalBytes": 2600026,
+      "path": "public/images/armor-of-god/armor-chapel.webp",
+      "bytes": 259286,
+      "width": 1536,
+      "height": 1024
+    },
+    {
+      "id": "shield-scripture",
+      "source": "exec-43f349a9-ca66-4ae6-975b-d754068fd3e1.png",
+      "originalBytes": 2792954,
+      "path": "public/images/armor-of-god/shield-scripture.webp",
+      "bytes": 166412,
+      "width": 1050,
+      "height": 700
+    },
+    {
+      "id": "belt",
+      "source": "exec-ba48e6b8-38b5-4d0c-83f8-4c86daa6bf62.png",
+      "originalBytes": 2570631,
+      "path": "public/images/armor-of-god/belt.webp",
+      "bytes": 126486,
+      "width": 1050,
+      "height": 700
+    },
+    {
+      "id": "breastplate",
+      "source": "exec-a393233a-cb2b-40a7-a4d6-0c6b5a819c8f.png",
+      "originalBytes": 2452558,
+      "path": "public/images/armor-of-god/breastplate.webp",
+      "bytes": 112228,
+      "width": 1050,
+      "height": 700
+    },
+    {
+      "id": "shoes",
+      "source": "exec-6407ae75-4934-4c4e-afb4-2c287a3aa4ab.png",
+      "originalBytes": 2493407,
+      "path": "public/images/armor-of-god/shoes.webp",
+      "bytes": 125472,
+      "width": 1050,
+      "height": 700
+    },
+    {
+      "id": "shield",
+      "source": "exec-688eae5a-3395-4767-b590-1e1c8ba31a22.png",
+      "originalBytes": 2457882,
+      "path": "public/images/armor-of-god/shield.webp",
+      "bytes": 117044,
+      "width": 1050,
+      "height": 700
+    },
+    {
+      "id": "helmet",
+      "source": "exec-fddeab41-2e1a-4717-9d50-ae87892c730b.png",
+      "originalBytes": 2430911,
+      "path": "public/images/armor-of-god/helmet.webp",
+      "bytes": 119594,
+      "width": 1050,
+      "height": 700
+    },
+    {
+      "id": "sword",
+      "source": "exec-89753f36-1542-487c-acb3-6242eaccfaec.png",
+      "originalBytes": 2642177,
+      "path": "public/images/armor-of-god/sword.webp",
+      "bytes": 123690,
+      "width": 1050,
+      "height": 700
+    }
+  ]
+}

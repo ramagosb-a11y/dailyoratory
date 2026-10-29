@@ -4,6 +4,7 @@ import { join } from "node:path";
 const root = process.cwd();
 const manifestPath = join(root, ".next", "prerender-manifest.json");
 const requiredPrerenderedRoutes = [
+  "/armor-of-god",
   "/",
   "/dashboard",
   "/homilies",

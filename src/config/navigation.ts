@@ -39,6 +39,7 @@ const navigationSections: NavigationSection[] = [
         title: "Devotions",
         children: [
           { label: "Strongholds", href: "/strongholds" },
+          { label: "The Armor of God", href: "/armor-of-god" },
           { label: "Pray the Rosary", href: "/rosary/visual-meditation" },
           { label: "Pray a Litany", href: "/prayers/litanies" },
           { label: "Divine Mercy Chaplet", href: "/divine-mercy/chaplet" },

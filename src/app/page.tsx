@@ -9,6 +9,7 @@ import { HomeHeavenboundSpotlight } from "@/components/home/HomeHeavenboundSpotl
 import { HomeRosaryCta } from "@/components/home/HomeRosaryCta";
 import { HomeDivineMercyCta } from "@/components/home/HomeDivineMercyCta";
 import { HomeStrongholdsCta } from "@/components/home/HomeStrongholdsCta";
+import { HomeArmorOfGodCta } from "@/components/home/HomeArmorOfGodCta";
 import { HomeWayOfCrossCta } from "@/components/home/HomeWayOfCrossCta";
 import { HomeLitanyTeaser } from "@/components/home/HomeLitanyTeaser";
 import { Hero } from "@/components/home/Hero";
@@ -110,6 +111,7 @@ export default function Home() {
       <HomeRosaryCta />
       <HomeLitanyTeaser collectionHref="/prayers/litanies" litanies={homeLitanyTeaser} />
       <HomeDivineMercyCta />
+      <HomeArmorOfGodCta />
       <HomeStrongholdsCta />
       <FindMassSection />
     </div>

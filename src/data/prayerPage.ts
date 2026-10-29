@@ -380,6 +380,14 @@ export const prayerPathSteps = [
 
 export const prayerToolCards: PrayerToolCard[] = [
   {
+    id: "armor-of-god",
+    title: "The Armor of God",
+    description: "Bring your struggles to Christ through Scripture, spiritual armor, prayer, and one faithful action.",
+    href: "/armor-of-god",
+    cta: "Put On the Armor",
+    timeNeeded: "3–5 minutes per situation",
+  },
+  {
     id: "scripture-prayer",
     title: "Scripture Prayer",
     description: "Pray with the Word of God and build a daily Scripture rhythm.",

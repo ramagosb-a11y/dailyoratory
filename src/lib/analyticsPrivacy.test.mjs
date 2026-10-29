@@ -22,6 +22,8 @@ test("personal spiritual-tool routes are classified for path-only reporting", ()
   assert.equal(isSensitiveAnalyticsPath("/reflections/reading-and-reflections"), true);
   assert.equal(isSensitiveAnalyticsPath("/confession/examination-companion"), true);
   assert.equal(isSensitiveAnalyticsPath("/adoration/companion"), true);
+  assert.equal(isSensitiveAnalyticsPath("/armor-of-god"), true);
+  assert.equal(isSensitiveAnalyticsPath("/armor-of-god?ignored=private"), true);
   assert.equal(isSensitiveAnalyticsPath("/pray"), true);
   assert.equal(isSensitiveAnalyticsPath("/formation"), true);
   assert.equal(isSensitiveAnalyticsPath("/ocia"), true);

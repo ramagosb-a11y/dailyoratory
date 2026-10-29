@@ -29,6 +29,9 @@
     "test:analytics-privacy": "node --experimental-strip-types --test src/lib/analyticsPrivacy.test.mjs",
     "test:strongholds": "node --experimental-strip-types --test scripts/strongholds.test.mjs",
     "test:strongholds:browser": "node scripts/check-strongholds-browser.cjs",
+    "test:armor": "node --experimental-strip-types --test scripts/armor-of-god.test.mjs",
+    "test:armor:browser": "node --experimental-strip-types scripts/check-armor-of-god-browser.cjs",
+    "test:armor:design": "node scripts/check-armor-design.cjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
