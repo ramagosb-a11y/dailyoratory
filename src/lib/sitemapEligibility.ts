@@ -35,7 +35,7 @@ const NON_INDEXABLE_SITEMAP_PATHS = new Set([
 ]);
 
 export function isIndexableSitemapPath(pathname: string): boolean {
-  // Editorial draft: keep all Strongholds surfaces out of public discovery.
-  if (pathname === "/strongholds" || pathname.startsWith("/strongholds/")) return false;
+  // The published overview is public; guided exercises and saved reflections stay noindex.
+  if (pathname.startsWith("/strongholds/")) return false;
   return !NON_INDEXABLE_SITEMAP_PATHS.has(pathname) && !REDIRECTED_SITEMAP_PATHS.has(pathname);
 }

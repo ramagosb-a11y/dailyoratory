@@ -11,7 +11,7 @@ import { STRONGHOLDS_PRIVACY } from "@/lib/strongholdsState";
 import { createPageMetadata } from "@/lib/metadata";
 import styles from "@/components/strongholds/Strongholds.module.css";
 
-export const metadata = createPageMetadata({ title: "Strongholds — Taking Every Thought Captive to Christ", description: "A Catholic guide to notice troubling thoughts, bring them to Christ, and choose a response to grace.", path: "/strongholds", image: "/images/strongholds/foundation.webp", noIndex: true });
+export const metadata = createPageMetadata({ title: "Strongholds — Taking Every Thought Captive to Christ", description: "A Catholic guide to notice troubling thoughts, bring them to Christ, and choose a response to grace.", path: "/strongholds", image: "/images/strongholds/foundation.webp" });
 export default function StrongholdsPage() {
   return <div className={styles.landing}>
     <section className={styles.sanctuaryWelcome}><header className={styles.sanctuaryHeading}><span className={`${styles.iconBox} ${styles.brandEmblem}`}><Image src="/images/strongholds/sword-shield-burgundy.webp" alt="" width={80} height={80} sizes="80px" /></span><h1>Strongholds</h1><p className={styles.subtitle}>Taking Every Thought Captive to Christ</p></header>
