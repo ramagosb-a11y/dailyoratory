@@ -32,3 +32,6 @@ Check both selected visuals and the Suno destinations. No commit, push or deploy
 - Focused ESLint, typecheck and production build including image/client-store/rendering audits passed. Diff whitespace check passed.
 - Browser checked at 390px and 1440px: no horizontal overflow; chapel image loaded; eleven playlist links retained; zero arrow glyphs on music links and both home music CTAs. Mobile and desktop screenshots inspected. Local site running at http://127.0.0.1:3000/music.
 - Local changes only; revision 2 is not committed or deployed. Revision 1 production release is documented separately in RELEASE.md.
+
+## Revision 3 local verification — 2026-10-29
+Country moved first and HipHop (the rap playlist) last; other nine records retain their relative order. Titles, URLs and cover associations unchanged. Focused ESLint, order/uniqueness check, production build with audits and rendered local /music order check passed. Local server started on port 3000. This ordering update is not committed or deployed.

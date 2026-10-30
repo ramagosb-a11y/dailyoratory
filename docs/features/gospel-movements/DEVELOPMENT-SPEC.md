@@ -22,3 +22,6 @@ Reversal: remove spotlight import/render, /music page, shared data/style/assets 
 
 ## Revision 2 — link and mobile photo refinement, 2026-10-28
 Owner requested removing link icons on the home music feature and dedicated music page, and improving the dedicated hero photo on mobile. Remove decorative arrow glyphs from music CTAs and return link; preserve destinations and accessible external-link labels. Below 640px, display the chapel photograph in its own unobstructed image area above the hero text rather than cropping it behind a tall text block. Retain desktop overlay layout. No new images, dependencies, content meaning or data changes. Validate mobile/desktop layouts, links, focused lint, typecheck and production build. Local review first; the preceding release authorization applied to revision 1.
+
+## Revision 3 — playlist display order, 2026-10-29
+Owner requested “Move country to the top, move rap to bottom”. Country becomes first and the existing HipHop playlist (the rap collection) becomes last. Retain all eleven records and preserve their titles, covers, destinations and the relative order of the other nine entries. This supersedes the original-order requirement for display only. Local implementation; no production release authorization inferred from the earlier revision-specific releases.
