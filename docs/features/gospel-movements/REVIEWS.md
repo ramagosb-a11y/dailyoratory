@@ -8,3 +8,5 @@
 - Efficiency: static Server Components, no request-time Suno fetch, new dependencies or configuration. Optimize new artwork/covers to WebP before use. No Vercel settings/usage changes; provider usage not inspected for a local-only change.
 - Sources: public Suno og:title and og:image verified 2026-10-28 for all eleven supplied links. Preserve titles (trim whitespace and remove account suffix only). Owner copy describes inspiration, not liturgical suitability. No songs/lyrics reproduced.
 - Independent review pending owner review; no newly authored theological content requires theological approval for this local implementation.
+
+Revision 4 (2026-10-30): four independent web-team source-review/fix rounds are recorded in [DESIGN-REVIEWS.md](DESIGN-REVIEWS.md). Both UX and frontend reviewers reported ready after the fourth pass; implementing parent owns browser and build verification. Original self-review record above applies to revision1 only.

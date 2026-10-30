@@ -35,3 +35,14 @@ Check both selected visuals and the Suno destinations. No commit, push or deploy
 
 ## Revision 3 local verification — 2026-10-29
 Country moved first and HipHop (the rap playlist) last; other nine records retain their relative order. Titles, URLs and cover associations unchanged. Focused ESLint, order/uniqueness check, production build with audits and rendered local /music order check passed. Local server started on port 3000. This ordering update is not committed or deployed.
+
+## Revision 4 local verification — 2026-10-30
+Completed four review/fix rounds with independent UX/art-direction and frontend/accessibility reviewers. See DESIGN-REVIEWS.md for findings, fixes and review limitations. Both final source reviews returned ready; parent performed browser/build checks.
+
+- Dedicated page now has an ivory/photo split introduction, mobile photo above text, secondary Browse Playlists jump, square full artwork at quality85, three/two/one-column cards and one full-card link per playlist. Polished edges, title wrapping, focus indicators and comfortable touch targets. No arrows, new copy claims, assets, dependencies or data changes.
+- New dedicated MusicPage.module.css prevents home styling changes. Home screenshot and destination checks passed, and home component/shared stylesheet/data have no diff.
+- Focused ESLint, npm run typecheck, production build including client-store/image/rendering audits, validate:urls and seo:preflight all passed. Existing full-repository lint backlog was not changed or rerun; prior release findings remain documented.
+- Browser checked nine widths320–1440 including both sides of grid/hero breakpoints: no overflow or clipped titles, square artwork, correct columns. Browse Enter then Tab selects Country with visible uncut3px outline/5px offset. Mobile count font14px; no nested controls. Visible images loaded and final built-page console error list empty. Actual200% browser zoom was not tested.
+- Built local /music returns200 with all eleven original destinations and correct Country-first/HipHop-last order. Optimized WebP sources retained unchanged; storage delta0bytes. Owner review URL: http://127.0.0.1:3000/music. Local production-mode server running; no commit/push/deployment for revision4.
+
+Revision4 amendment: removed the owner-specified Gospel playlist entry. Ten entries remain; dynamic count updates automatically, Country remains first and HipHop last. Focused lint, data removal/order checks, production build with audits and local rendered200/count/link-absence checks passed. Local review server refreshed. No commit or production deployment for this removal.

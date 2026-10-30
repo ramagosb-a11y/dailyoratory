@@ -7,7 +7,6 @@ export const gospelMovementsDescription =
 export const gospelMovementsPlaylists = [
   { title: "Country", href: "https://suno.com/s/PLHLM6ukPxmT5YJK", image: "/images/music/playlist-09.webp" },
   { title: "Heart And Soul", href: "https://suno.com/s/htZltsYERr4aj0HI", image: "/images/music/playlist-02.webp" },
-  { title: "Gospel", href: "https://suno.com/s/PpvYSTpAKvnIef2D", image: "/images/music/playlist-03.webp" },
   { title: "Pop", href: "https://suno.com/s/lTqQ9ir0iJOhJ0kI", image: "/images/music/playlist-04.webp" },
   { title: "R&B", href: "https://suno.com/s/oSZgap0vrcoTQZ45", image: "/images/music/playlist-05.webp" },
   { title: "Swamp Pop", href: "https://suno.com/s/BO4dtdlnCAg7JKwK", image: "/images/music/playlist-06.webp" },
