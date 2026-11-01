@@ -96,7 +96,7 @@ export default function DevotionsPage() {
         </div>
 
         <div className="mt-14">
-          <DevotionsLibraryGrid devotions={approved} />
+          <DevotionsLibraryGrid />
         </div>
       </main>
     </div>

@@ -1,25 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { gatherAWordSteps, gatherAWordWarning, prayerBeforeTheReadings } from "@/data/biblePage";
 import { trackEvent } from "@/lib/analytics";
 import { BibleCard, BibleCardGrid, BibleSection } from "@/components/bible/BibleUi";
 import { PrayerCard } from "@/components/ui/PrayerCard";
 
 export function GatherAWordFromReadings() {
-  const [copied, setCopied] = useState(false);
-
-  async function copyPrayer() {
-    try {
-      await navigator.clipboard.writeText(prayerBeforeTheReadings);
-      trackEvent("prayer_copy", { page_path: "/bible", category: "bible-prayer-before-readings" });
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2200);
-    } catch {
-      setCopied(false);
-    }
-  }
-
   return (
     <BibleSection
       id="gather-a-word"
@@ -48,8 +34,6 @@ export function GatherAWordFromReadings() {
           onCopy={async (prayer) => {
             await navigator.clipboard.writeText(prayer);
             trackEvent("prayer_copy", { page_path: "/bible", category: "bible-prayer-before-readings" });
-            setCopied(true);
-            window.setTimeout(() => setCopied(false), 2200);
           }}
         />
       </div>

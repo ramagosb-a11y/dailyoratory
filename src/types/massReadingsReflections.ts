@@ -1,9 +1,4 @@
-import type {
-  BaseContentRecord,
-  ContentStatus,
-  CopyrightStatus,
-  LiturgicalSeasonName,
-} from "@/types/content";
+import type { BaseContentRecord, CopyrightStatus, LiturgicalSeasonName } from "@/types/content";
 
 export type ReflectionType =
   | "daily-mass"

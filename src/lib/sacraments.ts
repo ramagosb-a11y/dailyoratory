@@ -4,14 +4,7 @@ import { sacramentalJourneyPrompts, sacramentLearningNeeds } from "@/data/sacram
 import { sacramentResources } from "@/data/sacramentResources";
 import { sacramentGroups, sacraments } from "@/data/sacraments";
 import type { SacramentCompanionRecord } from "@/types/sacramentCompanion";
-import type {
-  Sacrament,
-  SacramentFAQ,
-  SacramentGroupType,
-  SacramentRelatedLink,
-  SacramentResource,
-  SacramentalJourneyAnswers,
-} from "@/types/sacraments";
+import type { Sacrament, SacramentGroupType, SacramentRelatedLink, SacramentalJourneyAnswers } from "@/types/sacraments";
 
 export const sacramentBasePages = [
   { label: "Overview", href: "/sacraments" },

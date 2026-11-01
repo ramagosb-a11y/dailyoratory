@@ -1,6 +1,6 @@
 const {chromium}=require("C:/Users/brent/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright");
 const assert=require("node:assert/strict");
-const fs=require("node:fs");
+
 (async()=>{
 const browser=await chromium.launch({channel:"msedge",headless:true});
 const context=await browser.newContext({viewport:{width:1440,height:1000},reducedMotion:"reduce"});

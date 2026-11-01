@@ -135,9 +135,7 @@ export function bibleBookUrl(bookNameOrAbbreviation: string): string | null {
   return slug ? `${USCCB_BIBLE_BASE_URL}/${slug}/0` : null;
 }
 
-export function cccUrl(_reference?: string) {
-  return CCC_INDEX_URL;
-}
+export const cccUrl: (reference?: string) => string = () => CCC_INDEX_URL;
 
 export function detectBibleReferences(text: string): BibleReference[] {
   return getCitationMatches(text)

@@ -22,14 +22,12 @@ const reconciliationLink: BodySoulSpiritLink = {
 };
 const massLink: BodySoulSpiritLink = { label: "The Holy Mass", href: "/mass" };
 const exploreLink: BodySoulSpiritLink = { label: "Explore the Catholic Faith", href: "/explore" };
-const ociaLink: BodySoulSpiritLink = { label: "OCIA", href: "/ocia" };
 const scripturePrayerLink: BodySoulSpiritLink = {
   label: "Scripture Prayer",
   href: "/library/scripture-prayer",
 };
 const adorationLink: BodySoulSpiritLink = { label: "Adoration", href: "/adoration" };
 const hoursLink: BodySoulSpiritLink = { label: "Liturgy of the Hours", href: "/liturgy-of-the-hours" };
-const catechismLink: BodySoulSpiritLink = { label: "Catechism", href: "/catechism" };
 const sacramentsLink: BodySoulSpiritLink = { label: "Sacraments", href: "/sacraments" };
 const mediaLink: BodySoulSpiritLink = { label: "Media Library", href: "/media" };
 

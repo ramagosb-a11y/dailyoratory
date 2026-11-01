@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 import { getHomilyActionLabel, getHomilyThumbnail } from "@/lib/homilies";
@@ -17,7 +19,10 @@ export function HomilyCard({
   return (
     <article className="card group flex h-full flex-col overflow-hidden">
       <div className={`w-full overflow-hidden border-b border-stone bg-navy/5 ${large ? "aspect-[16/9]" : "aspect-video"}`}>
-        <img
+        <Image
+          width={480}
+          height={360}
+          unoptimized
           src={getHomilyThumbnail(item)}
           alt={item.altText}
           className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.01]"

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { SectionHeader } from "@/components/section-header";
 import { getAngelEpisodes } from "@/lib/angels";
@@ -24,7 +25,10 @@ export function AngelTeachingSeries() {
         {episodes.map((episode) => (
           <article key={episode.id} className="card group flex h-full flex-col overflow-hidden">
             <div className="aspect-video w-full overflow-hidden border-b border-stone bg-navy/5">
-              <img
+              <Image
+                width={480}
+                height={360}
+                unoptimized
                 src={getThumbnailUrl(episode.youtubeVideoId)}
                 alt={episode.title}
                 className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.01]"

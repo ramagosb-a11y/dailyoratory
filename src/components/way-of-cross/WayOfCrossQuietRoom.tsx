@@ -2,19 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { saveWayOfCrossProgress, useWayOfCrossProgress, type WayOfCrossForm } from "@/lib/wayOfCrossStorage";
 import { alphonsusStations, closingPrayer, openingPrayer, stations } from "@/content/way-of-cross";
 
-type Form = "daily" | "alphonsus";
-const stationKey = "daily-oratory-way-of-cross-station";
-const formKey = "daily-oratory-way-of-cross-form";
+type Form = WayOfCrossForm;
 
 export function WayOfCrossQuietRoom() {
-  // Start from the same values on the server and client, then restore an optional
-  // saved place after hydration so localStorage cannot change the initial markup.
-  const [form, setForm] = useState<Form>("daily");
-  const [index, setIndex] = useState(-1);
-  const [hasRestoredProgress, setHasRestoredProgress] = useState(false);
+  const { form, index } = useWayOfCrossProgress();
   const [largeText, setLargeText] = useState(false);
   const [silence, setSilence] = useState(0);
   const active = form === "daily" ? stations : alphonsusStations;
@@ -24,22 +19,8 @@ export function WayOfCrossQuietRoom() {
   const dark = "bg-navy text-ivory";
   const muted = "text-stone-soft";
 
-  useEffect(() => {
-    try {
-      setForm(window.localStorage.getItem(formKey) === "alphonsus" ? "alphonsus" : "daily");
-      const saved = Number(window.localStorage.getItem(stationKey));
-      setIndex(Number.isInteger(saved) && saved >= -1 && saved <= 14 ? saved : -1);
-    } catch { /* Optional resume state. */ }
-    setHasRestoredProgress(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hasRestoredProgress) return;
-    try { window.localStorage.setItem(formKey, form); window.localStorage.setItem(stationKey, String(index)); } catch { /* Optional resume state. */ }
-  }, [form, hasRestoredProgress, index]);
-
   function go(next: number) {
-    setIndex(Math.max(-1, Math.min(14, next)));
+    saveWayOfCrossProgress(form, next);
     setSilence(0);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -47,7 +28,7 @@ export function WayOfCrossQuietRoom() {
   return <div className={`way-of-cross-shell overflow-hidden rounded-[1.25rem] ${dark}`}>
     <header className="way-cross-header border-b border-gold-soft/30 px-5 py-7 sm:px-10 sm:py-9">
       <div className="flex flex-wrap items-center justify-between gap-4"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-soft">A contemplative prayer experience</p><h1 className="font-display mt-2 text-4xl font-semibold leading-tight sm:text-6xl">The Way of the Cross</h1></div><Link href="/" className="btn btn-outline-inverse focus-ring">Home</Link></div>
-      <div className="mt-6 grid gap-2 sm:flex" role="tablist" aria-label="Prayer form"><button type="button" role="tab" aria-selected={form === "daily"} onClick={() => { setForm("daily"); go(-1); }} className={`focus-ring rounded-md border px-4 py-3 text-left text-sm font-bold ${form === "daily" ? "border-gold bg-burgundy text-ivory" : "border-gold-soft/40 text-gold-soft"}`}>Daily Oratory meditation</button><button type="button" role="tab" aria-selected={form === "alphonsus"} onClick={() => { setForm("alphonsus"); go(-1); }} className={`focus-ring rounded-md border px-4 py-3 text-left text-sm font-bold ${form === "alphonsus" ? "border-gold bg-burgundy text-ivory" : "border-gold-soft/40 text-gold-soft"}`}>St. Alphonsus · 1887 edition</button></div>
+      <div className="mt-6 grid gap-2 sm:flex" role="tablist" aria-label="Prayer form"><button type="button" role="tab" aria-selected={form === "daily"} onClick={() => { saveWayOfCrossProgress("daily", -1); setSilence(0); window.scrollTo({ top: 0, behavior: "smooth" }); }} className={`focus-ring rounded-md border px-4 py-3 text-left text-sm font-bold ${form === "daily" ? "border-gold bg-burgundy text-ivory" : "border-gold-soft/40 text-gold-soft"}`}>Daily Oratory meditation</button><button type="button" role="tab" aria-selected={form === "alphonsus"} onClick={() => { saveWayOfCrossProgress("alphonsus", -1); setSilence(0); window.scrollTo({ top: 0, behavior: "smooth" }); }} className={`focus-ring rounded-md border px-4 py-3 text-left text-sm font-bold ${form === "alphonsus" ? "border-gold bg-burgundy text-ivory" : "border-gold-soft/40 text-gold-soft"}`}>St. Alphonsus · 1887 edition</button></div>
       <nav className="way-cross-progress mt-7 flex flex-wrap gap-2" aria-label="Stations"><button type="button" onClick={() => go(-1)} className={`focus-ring rounded-full px-3 py-2 text-xs ${opening ? "bg-gold text-navy" : "text-gold-soft"}`}>Opening</button>{active.map((item, i) => <button key={item.number} type="button" onClick={() => go(i)} aria-label={`Go to Station ${item.roman}: ${item.title}`} aria-current={i === index ? "step" : undefined} className={`focus-ring rounded-full px-3 py-2 text-xs ${i === index ? "bg-gold text-navy" : "text-gold-soft"}`}>{item.roman}</button>)}<button type="button" onClick={() => go(14)} className={`focus-ring rounded-full px-3 py-2 text-xs ${closing ? "bg-gold text-navy" : "text-gold-soft"}`}>Closing</button></nav>
     </header>
     <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(22rem,0.85fr)]"><div className="way-cross-art relative min-h-[28rem] bg-black lg:sticky lg:top-0 lg:h-[calc(100vh-2rem)] lg:min-h-0"><Image src={opening ? "/images/way-of-cross/opening-jerusalem.webp" : current?.artwork ?? "/images/way-of-cross/station-14-tomb.webp"} alt={opening ? "A distant view of Jerusalem as Jesus begins the road to Calvary" : current?.imageAlt ?? "A quiet horizon after the Way of the Cross"} fill priority={opening} sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-transparent to-navy/20"/><div className="absolute bottom-0 left-0 p-7 sm:p-12"><p className="text-xs font-bold uppercase tracking-[0.2em] text-gold-soft">{opening ? "Begin the pilgrimage" : closing ? "Remain here" : `Station ${current?.roman}`}</p><p className="font-display mt-3 max-w-xl text-4xl leading-[0.95] text-ivory sm:text-6xl">{opening ? "Walk with Jesus to Calvary" : closing ? "The Cross Is Not the End" : current?.title}</p></div></div>

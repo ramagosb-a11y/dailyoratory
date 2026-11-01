@@ -6,7 +6,7 @@ import { saintReadingPlan } from "@/data/saintReadingPlan";
 import { saintResources } from "@/data/saintResources";
 import { saints, saintCompanionRecommendations, saintGoogleSheetsSchema, saintLifeSituationOptions, saintStateOfLifeOptions, saintTypeOptions, saintVirtueOptions } from "@/data/saints";
 import { saintVirtues } from "@/data/saintVirtues";
-import type { Saint, SaintCategory, SaintCompanionInput, SaintCompanionPlan, SaintCompanionRecommendation, SaintCompanionType, SaintFinderPreferences, SaintLifeSituation, SaintOfDay, SaintRecord, StateOfLife } from "@/types/saints";
+import type { Saint, SaintCompanionInput, SaintCompanionPlan, SaintCompanionType, SaintFinderPreferences, SaintLifeSituation, SaintOfDay, StateOfLife } from "@/types/saints";
 
 export const saintLinks = [
   { label: "Library", href: "/saints" },

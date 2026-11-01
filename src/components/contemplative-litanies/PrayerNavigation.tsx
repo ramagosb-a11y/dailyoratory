@@ -15,7 +15,6 @@ interface PrayerNavigationProps {
 
 export const PrayerNavigation: React.FC<PrayerNavigationProps> = ({
   currentStep,
-  totalSteps,
   sectionCount = 8,
   onPrevious,
   onNext,

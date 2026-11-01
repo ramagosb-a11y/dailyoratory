@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 // Matches the repository's existing bundled Playwright/Edge browser-check convention.
 const { chromium } = require(process.env.ARMOR_PLAYWRIGHT_PATH || "C:/Users/brent/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright");
 const assert = require("node:assert/strict");

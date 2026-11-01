@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { SectionHeader } from "@/components/section-header";
@@ -19,7 +20,10 @@ export function PrayerMediaFeature({ item }: { item: MediaItem | null }) {
 
       <article className="card mt-7 grid overflow-hidden lg:grid-cols-[1.05fr_0.95fr]">
         <div className="aspect-video overflow-hidden border-b border-stone bg-navy/5 lg:aspect-auto lg:min-h-[22rem] lg:border-b-0 lg:border-r">
-          <img
+          <Image
+            width={480}
+            height={360}
+            unoptimized
             src={thumbnail}
             alt={item.altText}
             className="h-full w-full object-cover"

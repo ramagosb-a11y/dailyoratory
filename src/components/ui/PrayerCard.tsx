@@ -1,6 +1,5 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { useState } from "react";
 import { CardTitle, PrayerText, SectionEyebrow, SmallText } from "@/components/ui/Typography";
 

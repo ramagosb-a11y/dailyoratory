@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState, useEffect, useRef } from 'react';
 import { LitanyData } from './types';
 import { PrayerSection } from './PrayerSection';
@@ -102,7 +103,11 @@ export const PrayerExperience: React.FC<PrayerExperienceProps> = ({
           <div className="relative group mb-8">
             <div className="absolute -inset-3 rounded-2xl border border-[#BD8A2F]/40 pointer-events-none" />
             <div className="w-36 h-48 sm:w-44 sm:h-60 rounded-xl overflow-hidden border border-[#D8CDB9] shadow-2xl bg-[#E5DCC8]">
-              <img
+              <Image
+                width={176}
+                height={240}
+                sizes="176px"
+                unoptimized={/^https?:/.test(heroImage)}
                 src={heroImage}
                 alt={litany.heroImageAlt || litany.title}
                 referrerPolicy="no-referrer"

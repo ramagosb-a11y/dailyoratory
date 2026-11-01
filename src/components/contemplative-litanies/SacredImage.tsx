@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React, { useState } from 'react';
 
 interface SacredImageProps {
@@ -59,7 +60,10 @@ export const SacredImage: React.FC<SacredImageProps> = ({
                 </span>
               </div>
             )}
-            <img
+            <Image
+              fill
+              sizes="(max-width: 640px) 100vw, 672px"
+              unoptimized={/^https?:/.test(src)}
               src={src}
               alt={alt}
               referrerPolicy="no-referrer"

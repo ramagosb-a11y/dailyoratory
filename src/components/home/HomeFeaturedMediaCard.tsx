@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import Link from "next/link";
 import { trackEvent } from "@/lib/analytics";
 
@@ -22,7 +24,10 @@ export function HomeFeaturedMediaCard({ item }: { item: HomeFeaturedMediaCardIte
   const thumbnailOnly = (
     <div className="aspect-video w-full overflow-hidden rounded-2xl border border-stone bg-navy/5 sm:hidden">
       {item.thumbnailUrl ? (
-        <img
+        <Image
+          width={480}
+          height={360}
+          unoptimized
           src={item.thumbnailUrl}
           alt={item.altText}
           className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.01]"
@@ -47,7 +52,10 @@ export function HomeFeaturedMediaCard({ item }: { item: HomeFeaturedMediaCardIte
       {thumbnailOnly}
       <div className="hidden aspect-video w-full overflow-hidden border-b border-stone bg-navy/5 sm:block">
         {item.thumbnailUrl ? (
-          <img
+          <Image
+            width={480}
+            height={360}
+            unoptimized
             src={item.thumbnailUrl}
             alt={item.altText}
             className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.01]"

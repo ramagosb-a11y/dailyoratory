@@ -21,7 +21,7 @@ export function RetreatPrayerPanel({ blocks }: { blocks: RetreatBlock[] }) {
 
           return block.text
             .split(/\n\s*\n/)
-            .map((paragraph, paragraphIndex) => paragraph.trim())
+            .map((paragraph) => paragraph.trim())
             .filter(Boolean)
             .map((paragraph, paragraphIndex) => (
               <p

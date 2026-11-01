@@ -6,9 +6,9 @@ const {renderToStaticMarkup} = require('react-dom/server');
 function loadTs(path, dependencies = {}) {
   const source = fs.readFileSync(path, 'utf8');
   const code = ts.transpileModule(source, {compilerOptions: {module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX}}).outputText;
-  const module = {exports: {}};
-  new Function('require', 'module', 'exports', code)(name => dependencies[name] ?? require(name), module, module.exports);
-  return module.exports;
+  const loadedModule = {exports: {}};
+  new Function('require', 'module', 'exports', code)(name => dependencies[name] ?? require(name), loadedModule, loadedModule.exports);
+  return loadedModule.exports;
 }
 // Only date selection is under test; its unrelated liturgical-calendar dependency is isolated.
 const {selectMassReflectionForIsoDate: select} = loadTs('src/lib/staticDailyContent.ts', {'@/data/liturgicalLiving': {defaultLiturgicalLivingSettings: {timeZone:'America/Chicago'}}});

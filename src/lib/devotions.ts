@@ -1,14 +1,7 @@
 import { devotionCategories } from "@/data/devotionCategories";
 import { devotions, devotionRecommendationNeeds } from "@/data/devotions";
 import { trustedDevotionLinks } from "@/data/trustedDevotionLinks";
-import type {
-  Devotion,
-  DevotionCategory,
-  DevotionFilterState,
-  DevotionRecommendationNeed,
-  DevotionSortOption,
-  TrustedDevotionLink,
-} from "@/types/devotions";
+import type { Devotion, DevotionFilterState, DevotionSortOption } from "@/types/devotions";
 
 export function getDevotions() {
   return [...devotions].sort((a, b) => a.sortOrder - b.sortOrder || a.title.localeCompare(b.title));

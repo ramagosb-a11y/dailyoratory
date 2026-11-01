@@ -46,6 +46,8 @@ export function MediaEmbed({ item }: { item: MediaItem }) {
       return item.imageUrl ? (
         <div className="card-parchment overflow-hidden p-4">
           <div className="overflow-hidden rounded-md border border-stone bg-parchment">
+            {/* External originals have unknown dimensions; preserve their intrinsic aspect ratio and direct delivery. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={item.imageUrl} alt={item.altText} className="h-auto w-full object-cover" loading="lazy" />
           </div>
           {item.sourceUrl ? (

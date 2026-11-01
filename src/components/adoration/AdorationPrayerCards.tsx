@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { PrayerCard } from "@/components/ui/PrayerCard";
 import { getAdorationPrayers } from "@/lib/adoration";
@@ -8,17 +7,10 @@ import { trackEvent } from "@/lib/analytics";
 
 export function AdorationPrayerCards() {
   const prayers = getAdorationPrayers();
-  const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  async function copyPrayer(id: string, title: string, body: string) {
-    try {
-      await navigator.clipboard.writeText(body);
-      setCopiedId(id);
-      trackEvent("adoration_prayer_copy", { page_path: "/adoration", prayer_title: title });
-      window.setTimeout(() => setCopiedId(null), 2200);
-    } catch {
-      setCopiedId(null);
-    }
+  async function copyPrayer(title: string, body: string) {
+    await navigator.clipboard.writeText(body);
+    trackEvent("adoration_prayer_copy", { page_path: "/adoration", prayer_title: title });
   }
 
   return (
@@ -37,7 +29,7 @@ export function AdorationPrayerCards() {
             prayer={prayer.body}
             copyLabel="Copy Prayer"
             copiedLabel="Prayer copied"
-            onCopy={async (body) => copyPrayer(prayer.id, prayer.title, body)}
+            onCopy={async (body) => copyPrayer(prayer.title, body)}
           />
         ))}
       </div>

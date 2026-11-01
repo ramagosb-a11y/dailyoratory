@@ -4,9 +4,9 @@ import { useMemo, useState } from "react";
 import { DevotionCard } from "@/components/devotions/DevotionCard";
 import { DevotionFilters } from "@/components/devotions/DevotionFilters";
 import { filterDevotions, getDevotionCategories, sortDevotions } from "@/lib/devotions";
-import type { Devotion, DevotionFilterState, DevotionSortOption } from "@/types/devotions";
+import type { DevotionFilterState, DevotionSortOption } from "@/types/devotions";
 
-export function DevotionsLibraryGrid({ devotions }: { devotions: Devotion[] }) {
+export function DevotionsLibraryGrid() {
   const [filters, setFilters] = useState<DevotionFilterState>({});
   const [sort, setSort] = useState<DevotionSortOption>("featured");
   const categories = getDevotionCategories().map((category) => ({ label: category.title, value: category.slug }));

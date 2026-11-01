@@ -1,9 +1,5 @@
 import { humanPersonPoints, spiritLanguageNote } from "@/data/bodySoulSpiritPage";
-import {
-  BodySoulSpiritCard,
-  BodySoulSpiritCardGrid,
-  BodySoulSpiritSection,
-} from "@/components/body-soul-spirit/BodySoulSpiritUi";
+import { BodySoulSpiritCard, BodySoulSpiritSection } from "@/components/body-soul-spirit/BodySoulSpiritUi";
 
 export function HumanPersonBodySoul() {
   return (

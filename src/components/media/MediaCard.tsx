@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import Link from "next/link";
 import { useState } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
@@ -22,9 +24,11 @@ export function MediaCard({
     <article className="card group flex h-full flex-col overflow-hidden">
       <div className="aspect-video w-full overflow-hidden border-b border-stone bg-navy/5">
         {thumbnail ? (
-          // next/image is not used here because the library needs to accept public third-party image URLs without
-          // tightening remote image config on each new source.
-          <img
+          // Provider thumbnails stay direct so adding a media source needs no remote optimizer configuration.
+          <Image
+            width={480}
+            height={360}
+            unoptimized
             src={thumbnail}
             alt={item.altText}
             className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.01]"

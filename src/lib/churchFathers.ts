@@ -1,12 +1,7 @@
 import { churchFatherReadingPlan } from "@/data/churchFatherReadingPlan";
 import { churchFathers } from "@/data/churchFathers";
 import { churchFatherTopics } from "@/data/churchFatherTopics";
-import type {
-  ChurchFather,
-  ChurchFatherReadingPlanItem,
-  ChurchFatherTopic,
-  TraditionGroup,
-} from "@/types/churchFathers";
+import type { ChurchFather, TraditionGroup } from "@/types/churchFathers";
 
 export function getChurchFathers() {
   return [...churchFathers].sort((a, b) => a.sortOrder - b.sortOrder || a.name.localeCompare(b.name));

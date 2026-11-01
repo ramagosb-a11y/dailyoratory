@@ -1,14 +1,8 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import ts from 'typescript';
 
 // Read-only generator: emits an apply_patch document, or verifies against fresh eBible text.
-function data(file) {
-  const source = fs.readFileSync(file, 'utf8').replace(/^import .*$/gm, '');
-  const exported = {};
-  new Function('exports', ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS } }).outputText)(exported);
-  return exported;
-}
+
 const slots = [
 ['preparation','Psalm 50:3–4, 12–14'],
 ['day-1','John 15:1–11'],['day-2','Luke 1:26–38'],['day-3','Matthew 1:18–25'],

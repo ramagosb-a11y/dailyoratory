@@ -1,13 +1,4 @@
-import type {
-  CanonizationStatus,
-  Saint,
-  SaintCompanionRecommendation,
-  SaintCompanionType,
-  SaintFinderPreferences,
-  SaintLifeSituation,
-  SaintVocation,
-  StateOfLife,
-} from "@/types/saints";
+import type { CanonizationStatus, Saint, SaintCompanionRecommendation, SaintCompanionType, SaintLifeSituation, SaintVocation, StateOfLife } from "@/types/saints";
 
 const sharedResourceIds = [
   "saint-resource-vatican-news",
