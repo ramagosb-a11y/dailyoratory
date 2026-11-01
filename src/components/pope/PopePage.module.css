@@ -1,0 +1,56 @@
+.page { background: #f7f4ec; color: #172a39; overflow-wrap: anywhere; }
+.main { max-width: 1376px; margin: auto; padding: 32px 40px 80px; }
+.hero { position: relative; isolation: isolate; overflow: hidden; margin-top: 28px; background: #122838; color: #fffaf0; min-height: 620px; display: grid; grid-template-columns: 1.05fr 1fr; border-radius: 4px; }
+.heroImage { position: absolute; inset: 0 0 0 40%; z-index: -2; }
+.heroImage img { object-fit: cover; object-position: 57% center; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#122838 5%,rgba(18,40,56,.97) 32%,rgba(18,40,56,.6) 58%,rgba(18,40,56,.08) 100%); }
+.heroCopy { padding: 64px 0 60px 56px; }
+.eyebrow { display: flex; align-items: center; gap: 12px; font-size: .7rem; letter-spacing: .2em; font-weight: 700; text-transform: uppercase; color: #e5c98c; }
+.eyebrow::before { content: ""; width: 32px; height: 1px; background: currentColor; }
+.hero h1 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(4.5rem,7.6vw,7rem); line-height: 1; letter-spacing: -.045em; margin: 24px 0; font-weight: 500; }
+.subtitle { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(1.5rem,2.2vw,2rem); line-height: 1.3; max-width: 470px; color: #f1e5cb; }
+.intro { font-size: 1rem; line-height: 1.85; margin-top: 24px; color: #e0e5e6; max-width: 500px; }
+.heroActions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.primary, .secondary { display: inline-flex; align-items: center; justify-content: center; gap: 18px; padding: 14px 20px; min-height: 50px; font-size: .85rem; font-weight: 700; border-radius: 2px; text-decoration: none; transition: background .2s; }
+.primary { background: #e0c186; color: #142a3a; border: 1px solid #e0c186; }
+.primary:hover { background: #f3dbac; }
+.secondary { color: #fff8e9; border: 1px solid #9ba6aa; }
+.secondary:hover { background: #ffffff15; }
+.prayerLink { display: inline-block; margin-top: 22px; color: #eee0be; text-underline-offset: 5px; font-size: .875rem; }
+.imageCaption { position: absolute; right: 26px; bottom: 22px; max-width: 45%; text-align: right; text-transform: uppercase; font-size: .6rem; letter-spacing: .16em; color: #fff; text-shadow: 0 1px 8px #000; }
+.note { padding: 20px 24px; display: grid; grid-template-columns: auto 1fr; gap: 20px; border-bottom: 1px solid #ddd4c0; font-size: .82rem; line-height: 1.8; color: #625f58; }
+.note strong { color: #775a2e; font-size: .65rem; text-transform: uppercase; letter-spacing: .14em; padding-top: 3px; }
+.chapterNav { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); margin: 32px 0 52px; border: 1px solid #d8cfbb; }
+.chapterNav a { display: flex; gap: 14px; align-items: center; padding: 20px; font-size: .9rem; text-decoration: none; font-weight: 600; border-right: 1px solid #d8cfbb; transition: background .2s; }
+.chapterNav a:last-child { border: 0; }
+.chapterNav a:hover { background: #eee7d8; }
+.chapterNav span { color: #8c7040; font-size: .7rem; font-weight: 400; }
+.chapter { margin-top: 88px; scroll-margin-top: 110px; }
+.chapterHeading { display: flex; align-items: baseline; gap: 20px; padding-bottom: 22px; margin-bottom: 42px; border-bottom: 1px solid #c8b382; }
+.chapterNumber { color: #8c7040; font-family: Georgia,serif; font-style: italic; font-size: 1.3rem; }
+.chapterHeading h2 { font-family: var(--font-cormorant), Georgia, serif; font-size: clamp(2.2rem,3.8vw,3.8rem); line-height: 1.1; letter-spacing: -.025em; }
+.chapterContent { display: grid; grid-template-columns: minmax(0, 1fr); gap: 56px; }
+.chapterContent section { scroll-margin-top: 110px; min-width: 0; }
+.chapterContent :global(.card-parchment) { background: #fffdf7; border: 1px solid #dfd8c9; box-shadow: 0 5px 20px #29363e04; border-radius: 3px; }
+.chapterContent :global(.text-sm) { font-size: 1rem; line-height: 1.85; }
+.chapterContent :global(.text-xs) { font-size: .7rem; }
+.chapterContent h2 { font-size: clamp(1.8rem,2.7vw,2.65rem); }
+.chapterContent h3 { line-height: 1.25; }
+.chapterContent details { border-left: 3px solid #c2a46c; }
+.chapterContent summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.chapterContent summary::after { content: "+"; color: #846a37; font-size: 1.6rem; font-weight: 400; }
+.chapterContent details[open] summary::after { content: "−"; }
+.chapterContent :global(#pray-for-the-holy-father) { padding: clamp(24px,5vw,64px); background: #172e3e; border-top: 3px solid #c6a76b; }
+.chapterContent :global(#pray-for-the-holy-father) h2 { color: #fff8ea; }
+.chapterContent :global(#pray-for-the-holy-father) > div:first-child p { color: #e1d4b8; }
+.chapterContent :global(#pray-for-the-holy-father) :global(.card-parchment) { background: #fffaf0; padding: clamp(22px,4vw,44px); }
+.chapterContent :global(#pray-for-the-holy-father) :global(.whitespace-pre-line) { font-family: var(--font-cormorant),Georgia,serif; font-size: 1.4rem; line-height: 1.9; color: #273b46; max-width: 48rem; }
+.closing { margin-top: 64px; padding-top: 32px; border-top: 1px solid #d8cfbb; }
+.credits { font-size: .75rem; line-height: 1.9; color: #696457; margin-top: 32px; }
+.credits a { text-decoration: underline; text-underline-offset: 3px; }
+.page a:focus-visible, .page button:focus-visible, .page summary:focus-visible { outline: 3px solid #aa7b2b; outline-offset: 5px; }
+.hero a:focus-visible { outline-color: #ffe0a0; }
+@media (max-width: 1000px) { .main { padding-inline: 24px; } .hero { grid-template-columns: 1.3fr 1fr; } .heroCopy { padding: 46px 0 48px 32px; } .heroImage { left: 30%; } .chapterNav a { padding: 18px 12px; gap: 8px; } }
+@media (max-width: 640px) { .main { padding: 24px 18px 56px; } .hero { min-height: auto; display: block; padding-top: 200px; } .heroImage { inset: 0 0 auto; height: 340px; } .heroImage img { object-position: center 40%; } .hero::after { background: linear-gradient(0deg,#122838 0%,#122838 57%,rgba(18,40,56,.15) 100%); } .heroCopy { padding: 24px; } .hero h1 { font-size: 4.4rem; } .heroActions { display: grid; } .heroActions a { width: 100%; } .intro { font-size: .95rem; } .imageCaption { top: 16px; bottom: auto; max-width: 90%; font-size: .55rem; } .note { padding: 20px 4px; display: block; } .note strong { display: block; margin-bottom: 6px; } .chapterNav { display: flex; flex-wrap: wrap; margin: 24px 0 32px; padding: 8px; gap: 0 8px; } .chapterNav a { border: 0; flex: 1 1 42%; min-height: 48px; padding: 12px; } .chapter { margin-top: 56px; } .chapterHeading { gap: 14px; margin-bottom: 32px; } .chapterContent { gap: 40px; } }
+@media (prefers-reduced-motion: reduce) { .page *, .page *::before, .page *::after { scroll-behavior: auto; transition: none; } }
+@media print { .hero { display: block; min-height: auto; background: white; color: black; } .heroCopy { padding: 0; } .heroImage,.hero::after,.imageCaption,.chapterNav { display: none; } .hero p,.hero h1 { color: black; } .chapter { margin-top: 32px; } }

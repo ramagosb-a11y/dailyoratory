@@ -65,6 +65,7 @@ export function VaticanIISection() {
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
         <Link href="/mass" className="btn btn-secondary focus-ring justify-center">Mass</Link>
+        <Link href="/vatican-ii" className="btn btn-secondary focus-ring justify-center">Vatican II and the Mass</Link>
         <Link href="/tradition" className="btn btn-secondary focus-ring justify-center">Tradition</Link>
         <Link href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
         <Link href="/formation" className="btn btn-secondary focus-ring justify-center">Formation</Link>

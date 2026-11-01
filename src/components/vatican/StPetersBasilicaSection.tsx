@@ -1,3 +1,5 @@
+import { VaticanPhoto } from "./VaticanPhotos";
+import styles from "./VaticanPage.module.css";
 import Link from "next/link";
 import { SectionHeader } from "@/components/section-header";
 import { getStPetersHighlights } from "@/lib/vatican";
@@ -6,16 +8,19 @@ export function StPetersBasilicaSection() {
   const highlights = getStPetersHighlights();
 
   return (
-    <section>
+    <section id="st-peters" className={styles.landmark}>
+      <div className={styles.landmarkIntro}>
       <SectionHeader
         eyebrow="Saint Peter's Basilica"
         title="Saint Peter's Basilica"
         summary="Saint Peter's Basilica is one of the most important churches in the Catholic world. It stands over the traditional burial place of Saint Peter, the apostle to whom Catholics trace the Petrine ministry of the Pope."
       />
-      <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <VaticanPhoto photo="basilica" />
+      </div>
+      <div className={styles.highlights}>
         {highlights.map((item) => (
-          <article key={item} className="card-parchment p-5">
-            <h3 className="font-display text-2xl font-semibold text-navy">{item}</h3>
+          <article key={item} >
+            <h3 >{item}</h3>
           </article>
         ))}
       </div>

@@ -19,6 +19,7 @@ export function VaticanISection() {
         </p>
       </div>
       <div className="mt-6 flex flex-wrap gap-3">
+        <Link href="/vatican-i" className="btn btn-primary focus-ring justify-center">Explore Vatican I</Link>
         <Link href="/catechism" className="btn btn-secondary focus-ring justify-center">Catechism</Link>
         <Link href="/tradition" className="btn btn-secondary focus-ring justify-center">Tradition</Link>
         <Link href="/pope" className="btn btn-secondary focus-ring justify-center">The Pope</Link>

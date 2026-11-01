@@ -400,6 +400,21 @@ export const featuredSearchStartingPoints = [
 
 export const staticSearchIndex: SearchItem[] = [
   {
+    id: "search-vatican-ii-mass",
+    title: "Vatican II and the Mass",
+    slug: "vatican-ii",
+    href: "/vatican-ii",
+    description: "Explore the Council’s pastoral purpose, expanded Scripture readings, Latin and vernacular, and participation in the Church’s prayer.",
+    content: "Vatican II Second Vatican Council Mass Sacrosanctum Concilium Dei Verbum Paul VI Roman Missal 1962 1969 1970 lectionary Sunday readings A B C Matthew Mark Luke John Latin vernacular participation silence",
+    category: "Learn",
+    type: "guide",
+    tags: ["Vatican II", "Mass", "Scripture", "liturgy", "lectionary"],
+    audience: ["Catholics", "Returning Catholics", "Explorers"],
+    section: "Learn",
+    priority: 90,
+    status: "approved",
+  },
+  {
     id: "search-life-of-jesus",
     title: "The Life of Jesus",
     slug: "life-of-jesus",

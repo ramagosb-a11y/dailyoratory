@@ -1,0 +1,28 @@
+.section { margin: 2.5rem auto; max-width: 80rem; padding: 0 1.25rem; scroll-margin-top: 7rem; width: 100%; }
+.card { background: #0a2032; border: 1px solid #b9934d; border-radius: 1.5rem; isolation: isolate; overflow: hidden; position: relative; }
+.art { inset: 0 0 0 35%; position: absolute; z-index: -1; }
+.art img { object-fit: cover; object-position: 65% center; }
+.art::after { background: linear-gradient(90deg, #0a2032 0%, #0a2032b3 18%, #0a203210 65%); content: ""; inset: 0; position: absolute; }
+.copy { background: linear-gradient(90deg, #0a2032 55%, #0a203200); max-width: 64%; padding: clamp(2rem, 5vw, 4.5rem); padding-right: 5rem; }
+.eyebrow { color: #e4bf75; font-size: .75rem; font-weight: 650; letter-spacing: .18em; line-height: 1.7; margin: 0 0 1.4rem; text-transform: uppercase; }
+.copy h2 { color: #fff9ed; font-family: var(--font-heading); font-size: clamp(2.6rem, 4.5vw, 4.4rem); font-weight: 500; letter-spacing: -.025em; line-height: 1.08; margin: 0; }
+.description { color: #f3eadb; font-size: 1.05rem; line-height: 1.9; margin: 1.5rem 0 2rem; max-width: 28rem; }
+.button { align-items: center; background: #e0b65f; border: 1px solid #e9c880; border-radius: .5rem; color: #102537; display: inline-flex; font-weight: 700; justify-content: center; line-height: 1.5; min-height: 48px; padding: .9rem 1.8rem; text-decoration: none; }
+.button:hover { background: #f0cf8d; }
+.button:focus-visible { outline: 3px solid #fff9ed; outline-offset: 5px; }
+.caption { color: #e4bf75; font-size: .8rem; letter-spacing: .1em; line-height: 1.7; margin: 2.5rem 0 0; }
+@media(min-width:640px) { .section { padding-inline: 2rem; } }
+@media(min-width:1024px) { .section { padding-inline: 2.5rem; } }
+@media(max-width:767px) {
+  .section { margin-block: 1.5rem; }
+  .art { aspect-ratio: 16 / 9; inset: auto; position: relative; z-index: 0; }
+  .art img { object-position: 70% 45%; }
+  .art::after { background: linear-gradient(0deg, #0a2032, transparent 45%); }
+  .copy { background: none; max-width: none; padding: 1.25rem 1.5rem 2rem; }
+  .copy h2 { font-size: clamp(2.5rem, 9vw, 3.5rem); }
+  .desktopBreak { display: none; }
+  .eyebrow { margin-bottom: 1rem; }
+  .description { font-size: 1rem; margin-block: 1.25rem 1.5rem; }
+  .button { width: 100%; }
+  .caption { font-size: .75rem; margin-top: 1.75rem; }
+}

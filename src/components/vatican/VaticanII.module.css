@@ -1,0 +1,43 @@
+.card { background: #0a2033; border: 1px solid #aa8b50; border-radius: 1.25rem; isolation: isolate; overflow: hidden; position: relative; }
+.art { position: absolute; inset: 0 0 0 30%; z-index: -1; }
+.art img { object-fit: cover; object-position: 70% center; }
+.art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,#0a2033,#0a2033a6 28%,transparent 80%); }
+.copy { max-width: 63%; padding: clamp(2rem,5vw,4rem); background: linear-gradient(90deg,#0a2033 55%,transparent); }
+.eyebrow { color: #e5c17d; font-weight: 650; font-size: .75rem; letter-spacing: .16em; line-height: 1.8; text-transform: uppercase; margin: 0 0 1.25rem; }
+.copy h2 { color: #fff9ee; font-family: var(--font-heading); font-size: clamp(3rem,5.5vw,5rem); font-weight: 500; line-height: 1.05; margin: 0; letter-spacing: -.025em; }
+.description { color: #fff2de; font-size: 1.1rem; line-height: 1.85; max-width: 28rem; margin: 1.5rem 0 2rem; }
+.button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; border-radius: .5rem; padding: 1rem 1.7rem; background: #e5bd70; color: #10283c; font-weight: 700; text-decoration: none; line-height: 1.5; }
+.button:hover { background: #f2d498; }
+.card .button:focus-visible { outline: 3px solid #fff9ef; outline-offset: 5px; }
+.footer { color: #e7c88e; font-size: .85rem; line-height: 1.8; margin: 2rem 0 0; letter-spacing: .06em; }
+.credit { color: #c8d1d7; font-size: .7rem; margin: .8rem 0 0; line-height: 1.7; }
+.page { background: #faf7f0; color: #142c40; min-height: 70vh; }
+.main { max-width: 76rem; margin: auto; padding: 2.5rem 2rem 5rem; }
+.guideHeader { padding-block: 3rem; max-width: 56rem; }
+.guideHeader h1 { font-family: var(--font-heading); font-size: clamp(2.8rem,6vw,4.5rem); line-height: 1.1; margin: .8rem 0 1.5rem; }
+.guideHeader > p { font-size: 1.1rem; line-height: 1.9; }
+.guideEyebrow { color: #713343; font-size: .8rem !important; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; }
+.main h2 { font-family: var(--font-heading); font-size: 2.25rem; line-height: 1.2; }
+.documents { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.25rem; margin-top: 1.75rem; }
+.document { background: linear-gradient(145deg,#fff,#fff9ef); border: 1px solid #c7b58e; border-top: 4px solid #af8b46; border-radius: 1rem; box-shadow: 0 8px 24px #142c4010; padding: 1.75rem; }
+.document h3 { font-family: var(--font-heading); font-size: 1.8rem; line-height: 1.2; margin: 0 0 1rem; }
+.document p { font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem; }
+.document a, .resources a { display: inline-flex; align-items: center; min-height: 48px; color: #fff8e9; background: #153348; border-radius: .5rem; padding: .8rem 1.1rem; text-decoration: none; font-weight: 650; }
+.resources { margin-top: 3.5rem; }
+.resources > p { line-height: 1.9; margin-block: 1rem; }
+.resources > div { display: flex; flex-wrap: wrap; gap: .8rem; }
+.page a:focus-visible { outline: 3px solid #855b25; outline-offset: 5px; }
+.back { display: inline-flex; align-items: center; min-height: 48px; text-decoration: underline; text-underline-offset: 4px; margin-top: 2rem; }
+@media(max-width:767px) {
+  .art { position: relative; inset: auto; aspect-ratio: 3/2; z-index: 0; }
+  .art::after { background: linear-gradient(0deg,#0a2033,transparent 45%); }
+  .copy { max-width: none; padding: 1.25rem 1.5rem 2rem; background: none; }
+  .copy h2 { font-size: clamp(3rem,12vw,4rem); }
+  .description { font-size: 1rem; }
+  .button { width: 100%; }
+  .footer { font-size: .75rem; letter-spacing: .02em; }
+  .main { padding: 1.5rem 1.25rem 3rem; }
+  .documents { grid-template-columns: minmax(0,1fr); }
+  .document { padding: 1.5rem; }
+  .resources > div { flex-direction: column; }
+}

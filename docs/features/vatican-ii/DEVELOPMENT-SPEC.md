@@ -1,0 +1,10 @@
+# Discover Vatican II — revision 1, 2026-10-31
+
+**Current visual refinement contract: [revision 3](VISUAL-REVIEW-SPEC.md), authorized by the owner on 2026-10-31.** The [revision 2 content contract](REVISION-2.md) remains preserved. The historical revision below records the existing card/starter guide.
+Owner approved selected concept1 via “add 1”, following request for a card at bottom of Vatican page linking to its own page. Local implementation authorized, release not authorized.
+
+Add navy/gold Discover Vatican II card after all existing Vatican sections. HTML copy exactly from selected concept: The Second Vatican Council; Discover Vatican II; Explore the council, its documents, and its place in the life of the Church.; Explore Vatican II; History · Documents · Understanding. Link /vatican-ii. Illustrative generated council artwork, marked as illustration, not archival photography. Optimize WebP; keep original outside repo. Mobile image above text, semantic h2, visible keyboard focus, 48px CTA.
+
+Dedicated static /vatican-ii guide uses existing official council document data for four constitutions, with link to full Vatican archive and USCCB history/overview. Introductory fact: Vatican II met from1962to1965 and produced16documents, sourced to https://www.usccb.org/second-vatican-council and official Vatican archive https://www.vatican.va/archive/hist_councils/ii_vatican_council/index.htm. No interpretive theology, fabricated quotes, copied long passages or new tracking. Metadata/sitemap entry. Preserve existing page removals and all prior edits.
+
+Acceptance: card at literal bottom, click reaches new guide,4unique existing document links plus full archive and USCCB; existing route unaffected; mobile/desktop image/focus/nooverflow; focused lint, typecheck/build guards, URLs/SEO, diff check. Read-only independent content/code review for sourced facts. No dependencies, new storage, runtime fetching, embeds or billing/settings changes. Static render/lazy card image, guide image lazy unless abovefold. Provider usage not inspected. Human review local only.

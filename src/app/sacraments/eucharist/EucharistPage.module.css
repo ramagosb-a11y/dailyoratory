@@ -1,0 +1,236 @@
+.page {
+  background: #faf7f0;
+  color: #142a3d;
+}
+
+.main {
+  max-width: 86rem;
+  margin: auto;
+  padding: 2rem 2.5rem 5rem;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  margin-top: 1.75rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #091b2b;
+  color: #fff8eb;
+  box-shadow: 0 24px 55px #142a3d1a;
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  padding: clamp(2rem, 4.5vw, 4rem);
+  padding-right: 1rem;
+  align-self: center;
+}
+
+.heroEyebrow {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  color: #e2c48c;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+}
+
+.heroEyebrow > span { font-size: 1.1rem; }
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(4rem, 7.6vw, 7rem);
+  line-height: .95;
+  font-weight: 500;
+  letter-spacing: -.045em;
+  margin: 1.75rem 0;
+  color: #fff8eb;
+}
+
+.hero h1 > span {
+  display: block;
+  font-size: .55em;
+  font-style: italic;
+  letter-spacing: -.02em;
+  margin-bottom: .3em;
+  color: #e5c58b;
+}
+
+.goldRule { width: 3.5rem; height: 1px; background: #c8a162; margin: 1.8rem 0; }
+.heroLead { max-width: 29rem; font-size: 1.1rem; line-height: 1.85; color: #e3e0d8; }
+.heroActions { display: flex; flex-wrap: wrap; gap: .65rem 1.25rem; margin-top: 1.75rem; }
+.heroActions a { display: inline-flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 48px; padding: .85rem 1rem; border-radius: .35rem; font-size: .85rem; font-weight: 650; text-decoration: none; }
+.primaryAction { color: #102638; background: #e6c689; border: 1px solid #e6c689; }
+.secondaryAction { color: #f4e6cd; border: 1px solid #7c8589; }
+.heroActions a:hover { background: #f4dbac; color: #102638; }
+.heroFoot { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.8rem; color: #b9c3c9; font-size: .65rem; letter-spacing: .05em; }
+.heroArt { position: relative; min-height: 37rem; }
+.heroArt img { object-fit: cover; object-position: 66% center; }
+.heroArt::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #091b2b 0%, #091b2b00 30%); pointer-events: none; }
+
+.introduction { display: grid; grid-template-columns: 1.25fr 1fr; gap: 4rem; padding: 3rem 2.5rem; }
+.introduction > p { font-size: 1rem; line-height: 1.9; color: #504e46; align-self: center; }
+.quietSummary { border-left: 1px solid #b89556; padding-left: 2rem; }
+.quietSummary > p:first-child { font-size: .65rem; }
+.quietSummary > p:nth-child(2) { font-weight: 500; margin-top: .65rem; }
+.quietSummary > p:last-child { margin-top: .65rem; }
+
+.pathways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid #d8c9ae; border-radius: .5rem; background: #f0e9db; }
+.pathways > a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.3rem 1.4rem; color: #182d3d; font-size: .85rem; font-weight: 650; text-decoration: none; min-height: 64px; }
+.pathways > a + a { border-left: 1px solid #d8c9ae; }
+.pathways > a > span:first-child { display: flex; align-items: center; gap: .85rem; }
+.pathways > a > span:first-child::first-letter { color: #8b642e; }
+.pathways > a:hover { background: #e8ddc8; }
+.outline { margin-top: 2rem; padding-bottom: 1rem; border-bottom: 1px solid #d8c9ae; }
+.outline nav { margin-bottom: 0; gap: .5rem; }
+.outline :global(.liturgical-label) { color: #6c343b; margin-bottom: .5rem; }
+.outline :global(.liturgical-chip) { background: transparent; border: 1px solid #d8c9ae; color: #253a47; border-radius: .3rem; box-shadow: none; min-height: 44px; display: inline-flex; align-items: center; font-size: .8rem; }
+.outline details { margin-bottom: .5rem; }
+
+.flow { display: grid; gap: 4rem; margin-top: 3.5rem; counter-reset: chapter; }
+.flow > section { min-width: 0; scroll-margin-top: 7rem; }
+.flow > section:has(h2) { counter-increment: chapter; }
+.flow > section h2 { font-size: clamp(2rem, 3.7vw, 3rem); line-height: 1.12; font-weight: 500; letter-spacing: -.025em; text-wrap: balance; }
+.flow > section:has(h2) > p:first-of-type::before,
+.flow > section:has(h2) > article:first-child > p:first-child::before { content: counter(chapter, decimal-leading-zero) " / "; color: #8d6a32; margin-right: .4rem; }
+.flow :global(.card-parchment) { border: 0; border-radius: .3rem; border-top: 1px solid #d6c6a6; background: transparent; box-shadow: none; }
+.flow > :global(.card-parchment) { padding: 2rem 0 0; }
+.flow > section > :global(.card-parchment) { padding: 2rem 0 0; }
+.flow :global(.card-parchment)::before, .flow :global(.card-parchment)::after { display: none; }
+.flow :global(.text-muted) { color: #504e46; }
+.flow :global(.rounded-3xl) { border-radius: .5rem; }
+.flow p { max-width: 72ch; }
+.flow div:has(> p + p) { align-content: start; }
+.flow :global(.btn) { border-radius: .35rem; min-height: 48px; white-space: normal; text-align: center; }
+.page a:focus-visible, .page summary:focus-visible { outline: 3px solid #905922; outline-offset: 5px; }
+.page .heroActions a:focus-visible { outline-color: #f4d99e; }
+
+.flow :global(#what-is-the-eucharist) ul { gap: 0; background: #f0e9db; border-radius: .5rem; padding: .5rem 1.5rem; }
+.flow :global(#what-is-the-eucharist) li { background: transparent; border: 0; border-bottom: 1px solid #d9cdb9; border-radius: 0; padding: .9rem 0 .9rem 1.35rem; position: relative; }
+.flow :global(#what-is-the-eucharist) li::before { content: "✦"; color: #94713b; position: absolute; left: 0; font-size: .6rem; top: 1rem; }
+.flow :global(#what-is-the-eucharist) li:last-child { border-bottom: 0; }
+
+.flow :global(#real-presence) { gap: 3rem; align-items: center; }
+.flow :global(#real-presence) > aside { position: relative; background: #702637; border: 1px solid #8b4451; border-radius: .6rem; padding: clamp(2rem, 4vw, 3.5rem); box-shadow: 0 14px 40px #70263712; }
+.flow :global(#real-presence) > aside::before { content: "✦"; color: #e0bf7c; display: block; font-size: 1.7rem; margin-bottom: 2rem; }
+.flow :global(#real-presence) > aside > p:last-child { font-size: clamp(1.8rem, 2.5vw, 2.4rem); font-weight: 500; line-height: 1.4; color: #fff6e8; }
+
+.massArt { height: clamp(18rem, 35vw, 30rem); position: relative; margin-bottom: 2rem; overflow: hidden; border-radius: .6rem; background: #302c26; }
+.massArt img { object-fit: cover; object-position: center 36%; }
+.massArt::after { content: ""; position: absolute; inset: 50% 0 0; background: linear-gradient(transparent, #091b2bbf); }
+.massArt > span { position: absolute; z-index: 1; bottom: 1.5rem; left: 2rem; font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; color: #fff5df; }
+
+.flow :global(#four-ways) { background: #10283a; color: #fff5e7; padding: clamp(1.5rem, 4vw, 3rem); border-radius: .6rem; }
+.flow :global(#four-ways) > p { color: #e5c588; }
+.flow :global(#four-ways) h2 { color: #fff5e7; max-width: 23ch; }
+.flow :global(#four-ways) > div { gap: 0; margin-top: 2rem; }
+.flow :global(#four-ways) article { padding: 1.5rem 1.3rem 0 0; border-top: 1px solid #65717a; }
+.flow :global(#four-ways) article + article { padding-left: 1.3rem; border-left: 1px solid #65717a; }
+.flow :global(#four-ways) h3 { color: #fff5e7; font-size: 1.85rem; margin-top: 1rem; }
+.flow :global(#four-ways) article p { color: #d9dee0; }
+.wayNumber { color: #e2bf7f; font-family: var(--font-heading); font-size: 1.6rem; }
+
+.flow :global(#holy-communion) { column-gap: 3rem; }
+.flow :global(#holy-communion) > aside { align-self: center; background: #f0e9db; padding: 2rem; border: 0; }
+.flow :global(#holy-communion) li { padding: .5rem 0 .5rem 1rem; border-left: 2px solid #bc9858; }
+.flow :global(#holy-communion) > div:last-child,
+.flow :global(#cannot-receive) > div:last-child { border: 0; border-left: 3px solid #b19051; background: #f0e9db; }
+
+.flow :global(#prepare) { background: #f1eadc; border: 1px solid #d6c6a6; border-radius: .6rem; padding: clamp(1.4rem, 3.5vw, 3rem); }
+.flow :global(#prepare) > div:first-of-type > div { background: #fffaf1; border: 0; border-left: 3px solid #9b7242; }
+.flow :global(#prepare) ul { gap: 0; }
+.flow :global(#prepare) li { background: transparent; border: 0; border-bottom: 1px solid #d6c6a6; border-radius: 0; padding: .75rem 0 .75rem 2rem; position: relative; }
+.flow :global(#prepare) li::before { content: "✓"; color: #536743; position: absolute; left: .2rem; font-weight: 700; }
+.flow :global(#cannot-receive) { column-gap: 3rem; }
+.flow :global(#cannot-receive) > ul { align-self: center; gap: 0; border-block: 1px solid #d6c6a6; }
+.flow :global(#cannot-receive) li { border: 0; border-bottom: 1px solid #e3d8c6; background: transparent; border-radius: 0; padding: .75rem 1rem; }
+.flow :global(#cannot-receive) li:last-child { border-bottom: 0; }
+
+.flow :global(#adoration) { padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid #d6c6a6; border-radius: .6rem; background: #fffaf1; }
+.flow :global(#adoration) ol { counter-reset: adoration-step; }
+.flow :global(#adoration) ol li { counter-increment: adoration-step; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid #dcd0b9; padding-bottom: .45rem; }
+.flow :global(#adoration) ol li::before { content: counter(adoration-step, decimal-leading-zero); font-family: var(--font-heading); font-size: 1.2rem; color: #805d29; }
+.flow :global(#daily-life) { column-gap: 3rem; }
+.flow :global(#daily-life) > article:last-child { background: #f0e9db; padding: 2rem; border-top: 0; }
+.flow :global(#daily-life) li { border-bottom: 1px solid #d6c6a6; padding-bottom: .7rem; }
+
+.flow :global(#questions) > div { gap: 0 2rem; align-items: start; }
+.question { border-top: 1px solid #c9b796; padding: .3rem 0; }
+.question summary { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 80px; padding: .8rem .25rem; cursor: pointer; list-style: none; }
+.question summary::-webkit-details-marker { display: none; }
+.question h3 { display: inline; font-size: 1.6rem; line-height: 1.2; }
+.question summary > span { position: relative; flex: 0 0 1rem; height: 1rem; }
+.question summary > span::before, .question summary > span::after { content: ""; position: absolute; background: #8c682f; width: 1rem; height: 1px; top: 50%; left: 0; }
+.question summary > span::after { transform: rotate(90deg); }
+.question[open] summary > span::after { display: none; }
+.question > p { margin: .5rem 1.8rem 1.5rem 0; font-size: 1rem; line-height: 1.85; }
+.question summary:hover h3 { color: #7a2533; }
+.printQuestion { display: none; }
+
+.flow :global(#prayers) > div, .flow :global(#related) > div { gap: 0 2rem; }
+.flow :global(#prayers) > div > a, .flow :global(#related) > div > a { display: flex; justify-content: space-between; align-items: center; gap: .75rem; border: 0; border-bottom: 1px solid #d8c9ae; border-radius: 0; padding: 1.1rem .2rem; background: transparent; min-height: 64px; }
+.flow :global(#prayers) > div > a::after, .flow :global(#related) > div > a::after { content: "↗"; color: #875d2b; }
+.flow :global(#prayers) > div > a:hover, .flow :global(#related) > div > a:hover { color: #7a2533; background: #f1eadc; }
+.flow :global(#references) { gap: 3rem; }
+.flow :global(#references) h2 { font-size: 2.2rem; }
+.flow :global(#references) span { border: 0; border-radius: .2rem; border-left: 2px solid #c8ae7a; background: #f0e9db; }
+.flow > section:last-child { background: transparent; border: 0; border-top: 1px solid #d8c9ae; border-radius: 0; padding: 1.5rem 0 0; }
+
+@media (max-width: 1100px) {
+  .heroCopy { padding: 2.5rem 1rem 2.5rem 2.5rem; }
+  .heroArt { min-height: 34rem; }
+  .introduction { padding-inline: .5rem; gap: 2rem; }
+  .pathways > a { padding: 1rem; font-size: .8rem; }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  .flow :global(#four-ways) article:nth-child(3) { border-left: 0; padding-left: 0; }
+  .flow :global(#four-ways) article:nth-child(n+3) { margin-top: 1.5rem; }
+}
+
+@media (max-width: 767px) {
+  .main { padding: 1.4rem 1.25rem 3rem; }
+  .hero { grid-template-columns: 1fr; margin-top: 1.25rem; }
+  .heroCopy { padding: 2.4rem 1.75rem 1.5rem; }
+  .hero h1 { font-size: clamp(3.8rem, 12vw, 5.5rem); margin-block: 1.5rem; }
+  .heroLead { font-size: 1rem; }
+  .heroArt { min-height: 0; height: 20rem; }
+  .heroArt img { object-position: 67% 52%; }
+  .heroArt::after { background: linear-gradient(#091b2b, #091b2b00 24%); }
+  .heroFoot { margin-top: 1.3rem; }
+  .introduction { grid-template-columns: 1fr; padding: 2rem .25rem; gap: 1.75rem; }
+  .quietSummary { padding-left: 1.25rem; }
+  .pathways { grid-template-columns: 1fr; }
+  .pathways > a + a { border-left: 0; border-top: 1px solid #d8c9ae; }
+  .outline { margin-top: 1.4rem; }
+  .flow { gap: 2.75rem; margin-top: 2rem; }
+  .flow :global(#real-presence), .flow :global(#holy-communion), .flow :global(#cannot-receive), .flow :global(#daily-life), .flow :global(#references) { gap: 1.5rem; }
+  .flow h2 { overflow-wrap: anywhere; }
+  .massArt { height: 17rem; }
+  .massArt img { object-position: 52% 25%; }
+  .massArt > span { left: 1rem; bottom: 1rem; }
+  .flow :global(#four-ways) article + article { padding-left: 0; border-left: 0; margin-top: 1.5rem; }
+  .flow :global(#four-ways) article { padding-right: 0; }
+  .flow :global(#four-ways) h2 { font-size: 2rem; }
+  .flow :global(#adoration) > div:last-child { flex-direction: column; }
+  .question summary { min-height: 76px; }
+}
+
+@media print {
+  .hero { display: block; background: white; color: black; box-shadow: none; }
+  .heroCopy { padding: 1rem 0; }
+  .hero h1, .hero h1 > span, .heroLead, .heroEyebrow { color: black; }
+  .heroArt, .heroActions, .heroFoot, .pathways, .outline, .massArt { display: none; }
+  .main { padding: 0; }
+  .question { display: none; }
+  .printQuestion { display: block; break-inside: avoid; padding-block: 1rem; }
+  .printQuestion h3 { font-weight: 700; }
+  .flow { gap: 2rem; }
+  .flow :global(#four-ways), .flow :global(#real-presence) > aside { background: white; color: black; border: 1px solid #aaa; }
+  .flow :global(#four-ways) h2, .flow :global(#four-ways) h3, .flow :global(#four-ways) article p, .flow :global(#real-presence) > aside > p:last-child { color: black; }
+}

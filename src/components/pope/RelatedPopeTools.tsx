@@ -10,7 +10,7 @@ export function RelatedPopeTools() {
       <SectionHeader eyebrow="Related Daily Oratory tools" title="Continue Learning with Daily Oratory" />
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {tools.map((tool) => (
-          <article key={tool.href} className="card-parchment liturgical-card-accent p-5">
+          <article key={`${tool.href}:${tool.title}`} className="card-parchment liturgical-card-accent p-5">
             <h3 className="font-display text-2xl font-semibold text-navy">{tool.title}</h3>
             <p className="mt-3 text-sm leading-7 text-muted">{tool.description}</p>
             <TrackedLink

@@ -46,3 +46,10 @@ Completed four review/fix rounds with independent UX/art-direction and frontend/
 - Built local /music returns200 with all eleven original destinations and correct Country-first/HipHop-last order. Optimized WebP sources retained unchanged; storage delta0bytes. Owner review URL: http://127.0.0.1:3000/music. Local production-mode server running; no commit/push/deployment for revision4.
 
 Revision4 amendment: removed the owner-specified Gospel playlist entry. Ten entries remain; dynamic count updates automatically, Country remains first and HipHop last. Focused lint, data removal/order checks, production build with audits and local rendered200/count/link-absence checks passed. Local review server refreshed. No commit or production deployment for this removal.
+
+## Revision 5 local verification — 2026-10-31
+Added Music linking to /music immediately after Media under Learn in the shared desktop/mobile navigation configuration. No page content, playlist data, styles or dependencies changed.
+
+Focused ESLint, production build including rendering audit, URL validation and diff whitespace checks passed. Browser checks at 390px and 1440px confirmed Music appears under Learn; selecting it on mobile navigates to /music and closes the drawer. Desktop correctly marks Music as the current page. Review performed by the implementing agent; no independent review claimed for this configuration-only change.
+
+Local review: http://127.0.0.1:3000/music. No commit, push or deployment performed.

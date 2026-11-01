@@ -1,0 +1,15 @@
+# Combined release — 2026-11-01
+
+Owner authorization in this chat: “Commit all changes, including vatican I , vatican II, Pope, eucharist, deploy to production and manin”. Interpreted main as the existing main branch; no new branch or preview requested. This explicitly authorizes publication of the current combined feature set after release validation.
+
+Scope: all pending application source, optimized assets, associated feature records and Pope browser regression script. Includes Vatican homepage feature, Vatican redesign, Vatican I/II guides and visual revisions, Pope redesign plus duplicate-key fix, Eucharist redesign, and shared Music/Vatican menu, search and sitemap discovery. No dependency, billing, secret or deployment configuration changes.
+
+Canonical checkout and linked Vercel daily-oratory project verified. origin/main fetched with 0 ahead/0 behind before release. Previous READY production/rollback reference: dpl_EekNkNCNtnQFzDVyGEz12o2tPxYQ, commit 26b181b71f951753c7d900906b4cc971d7fda6ff, daily-oratory-uxgg2u98y-ramagosb-6300s-projects.vercel.app. Aliases include dailyoratory.faith and www.dailyoratory.faith.
+
+Reviewed existing source/content/visual review records in each feature packet. Owner's current release request supersedes historical local-only publication status, without manufacturing ecclesial approval or source verification. Vatican guides have recorded independent content review; Eucharist and Pope preserve existing teaching. Image conversion and rights evidence retained in feature reports; new assets are optimized WebP and image guard checks required. Historic conversion savings include Vatican photography 19,834,575 bytes (93.6%), interior photo 4,257,403 bytes (92.9%), initial Vatican II illustration 2,141,480 bytes (89.0%); later visual revisions retained optimized assets unchanged.
+
+Generated output screenshots and logs remain local, deliberately uncommitted. Existing unrelated full lint backlog: 43 errors/36 warnings, documented previously. All changed/new application TS/TSX and script files pass focused ESLint. URL validation and SEO preflight pass. Build and final release results recorded below after completion.
+
+Release path: commit reviewed source/docs/assets on main and push origin/main; verify Git-triggered Vercel deployment matches that exact commit, is READY and owns production aliases, then read-only HTTP/browser smoke routes. No manual production deployment or substitute promotion authorized by this workflow; observed push/deployment failure is a stop condition.
+
+Release checks: combined production build passed (exit 0), including TypeScript, source/image/client-store guards and postbuild rendering audit; all affected public routes remain prerendered. URL validation, SEO preflight (13/13 priority routes), focused ESLint for all changed/new TS/TSX/scripts and diff whitespace checks passed. Shared dev server returned a transient print-route 404; exact newly built production server on 3016 serves confession examination and print successfully. Production smoke results are reported in the release conversation after Vercel is READY.

@@ -1,0 +1,7 @@
+.card { background: #430b13; }
+.card .art::after { background: linear-gradient(90deg,#430b13,#430b13a6 28%,transparent 80%); }
+.card .copy { background: linear-gradient(90deg,#430b13 55%,transparent); }
+@media(max-width:767px) {
+  .card .art::after { background: linear-gradient(0deg,#430b13,transparent 45%); }
+  .card .copy { background: none; }
+}

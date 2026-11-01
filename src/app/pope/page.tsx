@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+import styles from "@/components/pope/PopePage.module.css";
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { createPageMetadata } from "@/lib/metadata";
@@ -46,82 +48,39 @@ export const metadata: Metadata = createPageMetadata({
   ],
 });
 
-export default function PopePage() {
-  return (
-    <div className="paper-texture">
-      <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Learn", href: "/learn" }, { label: "The Pope" }]} />
 
-        <div className="mt-8">
-          <PopeHero />
-        </div>
-        <div className="mt-14">
-          <CurrentPopeCard />
-        </div>
-        <div className="mt-14">
-          <WhatIsPope />
-        </div>
-        <div className="mt-14">
-          <WhyPeterMatters />
-        </div>
-        <div className="mt-14">
-          <PopeRoles />
-        </div>
-        <div className="mt-14">
-          <PapalInfallibilityExplainer />
-        </div>
-        <div className="mt-14">
-          <LevelsOfPapalTeaching />
-        </div>
-        <div className="mt-14">
-          <PapalDocumentsLibrary />
-        </div>
-        <div className="mt-14">
-          <FeaturedPapalDocuments />
-        </div>
-        <div className="mt-14">
-          <PapalTimeline />
-        </div>
-        <div className="mt-14">
-          <HowPopeIsChosen />
-        </div>
-        <div className="mt-14">
-          <PopeBishopsCouncils />
-        </div>
-        <div className="mt-14">
-          <PopeAndMagisterium />
-        </div>
-        <div className="mt-14">
-          <PopeFAQ />
-        </div>
-        <div className="mt-14">
-          <PopeForExplorers />
-        </div>
-        <div className="mt-14">
-          <PrayerForHolyFather />
-        </div>
-        <div className="mt-14">
-          <PopesMonthlyIntentions />
-        </div>
-        <div className="mt-14">
-          <ReadPapalDocumentsPrayerfully />
-        </div>
-        <div className="mt-14">
-          <PapalDocumentsByTheme />
-        </div>
-        <div className="mt-14">
-          <PopeDailyLife />
-        </div>
-        <div className="mt-14">
-          <PopeOfficialSources />
-        </div>
-        <div className="mt-14">
-          <RelatedPopeTools />
-        </div>
-        <div className="mt-14">
-          <PopeCopyrightNote />
-        </div>
-      </main>
-    </div>
-  );
+const chapters = [
+  { id: "pope-foundations", label: "Foundations", title: "Understanding the papacy" },
+  { id: "pope-teaching", label: "Teaching", title: "Faith, teaching & unity" },
+  { id: "pope-documents", label: "Documents", title: "Explore the papal library" },
+  { id: "pope-history", label: "History", title: "A living succession" },
+  { id: "pope-prayer", label: "Prayer", title: "From understanding to prayer" },
+];
+
+function Chapter({ index, children }: { index: number; children: ReactNode }) {
+  const chapter = chapters[index];
+  return <section id={chapter.id} className={styles.chapter} aria-labelledby={chapter.id + "-title"}>
+    <header className={styles.chapterHeading}><span className={styles.chapterNumber} aria-hidden="true">0{index + 1}</span><h2 id={chapter.id + "-title"}>{chapter.title}</h2></header>
+    <div className={styles.chapterContent}>{children}</div>
+  </section>;
+}
+
+export default function PopePage() {
+  return <div className={styles.page}>
+    <main className={styles.main}>
+      <Breadcrumbs items={[{ label: "Learn", href: "/learn" }, { label: "The Pope" }]} />
+      <PopeHero />
+      <nav className={styles.chapterNav} aria-label="Explore the Pope page">
+        {chapters.map((chapter, index) => <a key={chapter.id} href={"#" + chapter.id}><span aria-hidden="true">0{index + 1}</span>{chapter.label}</a>)}
+      </nav>
+      <CurrentPopeCard />
+      <Chapter index={0}><WhatIsPope /><WhyPeterMatters /><PopeRoles /><PopeForExplorers /></Chapter>
+      <Chapter index={1}><PapalInfallibilityExplainer /><LevelsOfPapalTeaching /><PopeBishopsCouncils /><PopeAndMagisterium /><PopeFAQ /></Chapter>
+      <Chapter index={2}><PapalDocumentsLibrary /><FeaturedPapalDocuments /><ReadPapalDocumentsPrayerfully /><PapalDocumentsByTheme /></Chapter>
+      <Chapter index={3}><PapalTimeline /><HowPopeIsChosen /><PopeDailyLife /></Chapter>
+      <Chapter index={4}><PrayerForHolyFather /><PopesMonthlyIntentions /><PopeOfficialSources /><RelatedPopeTools /></Chapter>
+      <div className={styles.closing}><PopeCopyrightNote /></div>
+      <p id="pope-photo-credit" className={styles.credits}>Photography: <a href="https://commons.wikimedia.org/wiki/File:St._Peter%27s_Basilica_in_Vatican_City.jpg">Saint Peter’s Basilica</a> by Didier Moïse, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>. Resized and converted to WebP; cropped for display.</p>
+    </main>
+  </div>;
 }

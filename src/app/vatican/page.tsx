@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+import { VaticanICard } from "@/components/vatican/VaticanICard";
+import { VaticanIICard } from "@/components/vatican/VaticanIICard";
+import styles from "@/components/vatican/VaticanPage.module.css";
+import { VaticanPhotoCredits } from "@/components/vatican/VaticanPhotos";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { createPageMetadata } from "@/lib/metadata";
 import { VaticanHero } from "@/components/vatican/VaticanHero";
@@ -14,12 +18,8 @@ import { VaticanHistoryTimeline } from "@/components/vatican/VaticanHistoryTimel
 import { VaticanAndPope } from "@/components/vatican/VaticanAndPope";
 import { VaticanAndMass } from "@/components/vatican/VaticanAndMass";
 import { SacredArtAsPrayer } from "@/components/vatican/SacredArtAsPrayer";
-import { VirtualPilgrimage } from "@/components/vatican/VirtualPilgrimage";
-import { VaticanForExplorers } from "@/components/vatican/VaticanForExplorers";
 import { VaticanOfficialSources } from "@/components/vatican/VaticanOfficialSources";
 import { PlanVaticanVisit } from "@/components/vatican/PlanVaticanVisit";
-import { VaticanFAQ } from "@/components/vatican/VaticanFAQ";
-import { RelatedVaticanTools } from "@/components/vatican/RelatedVaticanTools";
 import { VaticanCopyrightNote } from "@/components/vatican/VaticanCopyrightNote";
 
 export const metadata: Metadata = createPageMetadata({
@@ -46,69 +46,30 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function VaticanPage() {
   return (
-    <div className="paper-texture">
-      <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
+    <div className={styles.page}>
+      <main className={styles.main}>
         <Breadcrumbs items={[{ label: "Learn", href: "/learn" }, { label: "The Vatican" }]} />
 
-        <div className="mt-8">
-          <VaticanHero />
-        </div>
-        <div className="mt-14">
-          <WhatIsVatican />
-        </div>
-        <div className="mt-14">
-          <WhyVaticanMatters />
-        </div>
-        <div className="mt-14">
-          <VaticanLiveBroadcasts />
-        </div>
-        <div className="mt-14">
-          <FeaturedVaticanVideos />
-        </div>
-        <div className="mt-14">
-          <VaticanVirtualTours />
-        </div>
-        <div className="mt-14">
-          <StPetersBasilicaSection />
-        </div>
-        <div className="mt-14">
-          <SistineChapelSection />
-        </div>
-        <div className="mt-14">
-          <VaticanMuseumsSection />
-        </div>
-        <div className="mt-14">
-          <VaticanHistoryTimeline />
-        </div>
-        <div className="mt-14">
-          <VaticanAndPope />
-        </div>
-        <div className="mt-14">
-          <VaticanAndMass />
-        </div>
-        <div className="mt-14">
-          <SacredArtAsPrayer />
-        </div>
-        <div className="mt-14">
-          <VirtualPilgrimage />
-        </div>
-        <div className="mt-14">
-          <VaticanForExplorers />
-        </div>
-        <div className="mt-14">
-          <VaticanOfficialSources />
-        </div>
-        <div className="mt-14">
-          <PlanVaticanVisit />
-        </div>
-        <div className="mt-14">
-          <VaticanFAQ />
-        </div>
-        <div className="mt-14">
-          <RelatedVaticanTools />
-        </div>
-        <div className="mt-14">
-          <VaticanCopyrightNote />
+        <VaticanHero />
+        <div className={styles.flow}>
+          <div><VaticanVirtualTours /></div>
+          <div><WhatIsVatican /></div>
+          <div><WhyVaticanMatters /></div>
+          <div><VaticanLiveBroadcasts /></div>
+          <div><FeaturedVaticanVideos /></div>
+          <div><StPetersBasilicaSection /></div>
+          <div><SistineChapelSection /></div>
+          <div><VaticanMuseumsSection /></div>
+          <div><VaticanHistoryTimeline /></div>
+          <div><VaticanAndPope /></div>
+          <div><VaticanAndMass /></div>
+          <div><SacredArtAsPrayer /></div>
+          <div id="official-sources"><VaticanOfficialSources /></div>
+          <div><PlanVaticanVisit /></div>
+          <div><VaticanCopyrightNote /></div>
+          <div><VaticanPhotoCredits /></div>
+          <VaticanICard />
+          <VaticanIICard />
         </div>
       </main>
     </div>

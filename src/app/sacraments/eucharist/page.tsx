@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import styles from "./EucharistPage.module.css";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { SectionJumpNav } from "@/components/SectionJumpNav";
 import { StructuredDataScript } from "@/components/seo/StructuredDataScript";
@@ -237,8 +239,8 @@ const faqStructuredData = {
 
 export default function EucharistPage() {
   return (
-    <div className="paper-texture">
-      <main className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
+    <div className={styles.page}>
+      <main className={styles.main}>
         <StructuredDataScript
           data={[
             buildWebPageStructuredData({
@@ -262,31 +264,38 @@ export default function EucharistPage() {
 
         <Breadcrumbs items={[{ label: "Sacraments", href: "/sacraments" }, { label: "The Eucharist" }]} />
 
-        <header className="liturgical-page-hero mt-8 overflow-hidden rounded-3xl border border-gold/25 bg-white/80 p-6 shadow-soft sm:p-8 lg:p-10">
-          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Catholic Formation</p>
-              <h1 className="font-display mt-3 text-4xl font-semibold leading-tight text-navy sm:text-5xl lg:text-6xl">
-                The Eucharist
+        <header className={styles.hero}>
+            <div className={styles.heroCopy}>
+              <p className={styles.heroEyebrow}><span aria-hidden="true">✦</span> Catholic Formation</p>
+              <h1>
+                <span>The</span> Eucharist
               </h1>
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
+              <div className={styles.goldRule} aria-hidden="true" />
+              <p className={styles.heroLead}>
                 The Real Presence of Jesus Christ, given to the Church in the Mass and received in Holy Communion.
               </p>
-              <p className="mt-5 max-w-4xl text-base leading-8 text-muted">
+              <div className={styles.heroActions}>
+                <Link href="/mass" className={styles.primaryAction}>
+                  See How It Fits in the Mass <span aria-hidden="true">↗</span>
+                </Link>
+                <Link href="/confession" className={styles.secondaryAction}>
+                  Confession Guide <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+              <p className={styles.heroFoot}>Presence <span aria-hidden="true">·</span> Sacrifice <span aria-hidden="true">·</span> Communion <span aria-hidden="true">·</span> Thanksgiving</p>
+            </div>
+            <div className={styles.heroArt}>
+              <Image src="/images/adoration/monstrance-adoration-night.webp" alt="A golden monstrance holding the sacred Host in a candlelit chapel" fill sizes="(max-width: 760px) 100vw, 55vw" preload />
+            </div>
+        </header>
+
+        <div className={styles.introduction}>
+              <p>
                 The Eucharist is not only a symbol, a reminder, or a holy meal. Catholics believe that Jesus Christ is
                 truly present - Body, Blood, Soul, and Divinity - under the appearances of bread and wine. The Eucharist
                 is the source and summit of the Christian life because it is Christ Himself.
               </p>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-                <Link href="/mass" className="btn btn-primary focus-ring daily-button-readable justify-center">
-                  See How It Fits in the Mass
-                </Link>
-                <Link href="/confession" className="btn btn-secondary focus-ring daily-button-readable justify-center">
-                  Confession Guide
-                </Link>
-              </div>
-            </div>
-            <aside className="rounded-3xl border border-gold/30 bg-ivory/80 p-5">
+            <aside className={styles.quietSummary}>
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">A quiet summary</p>
               <p className="mt-4 font-display text-3xl font-semibold leading-tight text-navy">
                 The Eucharist is Christ Himself.
@@ -295,10 +304,15 @@ export default function EucharistPage() {
                 The Church approaches this mystery with faith, reverence, thanksgiving, and humble love.
               </p>
             </aside>
-          </div>
-        </header>
+        </div>
 
-        <div className="mt-8">
+        <nav className={styles.pathways} aria-label="Start exploring the Eucharist">
+          <Link href="#what-is-the-eucharist"><span>01 <span>Understand the mystery</span></span><span aria-hidden="true">↗</span></Link>
+          <Link href="#prepare"><span>02 <span>Prepare for Communion</span></span><span aria-hidden="true">↗</span></Link>
+          <Link href="#adoration"><span>03 <span>Spend time in Adoration</span></span><span aria-hidden="true">↗</span></Link>
+        </nav>
+
+        <div className={styles.outline}>
           <SectionJumpNav
             ariaLabel="Eucharist page navigation"
             mobileTitle="Open the Eucharist guide outline"
@@ -306,7 +320,7 @@ export default function EucharistPage() {
           />
         </div>
 
-        <div className="mt-12 grid gap-10">
+        <div className={styles.flow}>
           <section id="what-is-the-eucharist" className="card-parchment scroll-mt-24 p-6 sm:p-8">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Meaning</p>
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">What Is the Eucharist?</h2>
@@ -361,6 +375,10 @@ export default function EucharistPage() {
           </section>
 
           <section id="mass" className="card-parchment scroll-mt-24 p-6 sm:p-8">
+            <div className={styles.massArt}>
+              <Image src="/images/mass/journey/consecration.webp" alt="A priest elevates the Host above the altar during Mass" fill sizes="(max-width: 760px) 100vw, 1100px" />
+              <span aria-hidden="true">The Holy Mass</span>
+            </div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">The Mass</p>
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Why the Mass Matters</h2>
             <div className="mt-5 grid gap-5 lg:grid-cols-2">
@@ -393,8 +411,9 @@ export default function EucharistPage() {
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Four ways to understand</p>
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Presence, Sacrifice, Communion, Thanksgiving</h2>
             <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {fourWays.map((item) => (
+              {fourWays.map((item, index) => (
                 <article key={item.title} className="card-parchment p-6">
+                  <span className={styles.wayNumber} aria-hidden="true">0{index + 1}</span>
                   <h3 className="font-display text-3xl font-semibold text-navy">{item.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-muted">{item.body}</p>
                 </article>
@@ -566,10 +585,16 @@ export default function EucharistPage() {
             <h2 className="font-display mt-3 text-4xl font-semibold text-navy">Common Misunderstandings</h2>
             <div className="mt-6 grid gap-5 md:grid-cols-2">
               {commonQuestions.map((item) => (
-                <article key={item.question} className="card-parchment p-6">
-                  <h3 className="font-display text-2xl font-semibold text-navy">{item.question}</h3>
-                  <p className="mt-4 text-sm leading-7 text-muted">{item.answer}</p>
-                </article>
+                <div key={item.question}>
+                  <details className={styles.question}>
+                    <summary><h3 className="font-display text-2xl font-semibold text-navy">{item.question}</h3><span aria-hidden="true" /></summary>
+                    <p className="mt-4 text-sm leading-7 text-muted">{item.answer}</p>
+                  </details>
+                  <article className={styles.printQuestion}>
+                    <h3>{item.question}</h3>
+                    <p>{item.answer}</p>
+                  </article>
+                </div>
               ))}
             </div>
           </section>

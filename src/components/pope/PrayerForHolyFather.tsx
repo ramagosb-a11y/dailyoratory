@@ -7,16 +7,19 @@ import { trackEvent } from "@/lib/analytics";
 
 export function PrayerForHolyFather() {
   const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState("");
   const prayer = formatPrayerForPopeForCopy();
 
   async function copyPrayer() {
     try {
       await navigator.clipboard.writeText(prayer);
       setCopied(true);
+      setCopyStatus("Prayer copied to clipboard.");
       trackEvent("prayer_for_pope_copy", { page_path: "/pope", section: "prayer-for-holy-father" });
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyStatus("Unable to copy. You can select and copy the prayer text above.");
     }
   }
 
@@ -33,6 +36,7 @@ export function PrayerForHolyFather() {
             Learn About Indulgences
           </a>
         </div>
+        <p role="status" className="mt-3 text-sm text-muted">{copyStatus}</p>
       </div>
     </section>
   );

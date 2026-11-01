@@ -1,31 +1,34 @@
 import { TrackedLink } from "@/components/analytics/TrackedLink";
+import Image from "next/image";
+import { vaticanPhotos } from "./VaticanPhotos";
+import styles from "./VaticanPage.module.css";
 
 export function VaticanHero() {
   return (
-    <section className="liturgical-gradient-soft overflow-hidden rounded-md border border-stone bg-parchment px-6 py-8 shadow-soft sm:px-8 sm:py-10">
-      <div className="max-w-3xl">
-        <p className="liturgical-section-eyebrow text-xs font-bold uppercase tracking-[0.16em]">Catholic formation</p>
-        <h1 className="font-display mt-3 text-4xl font-semibold leading-tight text-navy sm:text-5xl">The Vatican</h1>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-muted sm:text-base">
+    <>
+    <section className={styles.hero} aria-labelledby="vatican-title">
+      <div className={styles.heroArt}><Image src={vaticanPhotos.basilica.src} alt={vaticanPhotos.basilica.alt} fill preload quality={85} sizes="(max-width: 767px) 100vw, 55vw" /></div>
+      <div className={styles.heroCopy}>
+        <p className={styles.heroEyebrow}>Catholic formation</p>
+        <h1 id="vatican-title">The Vatican</h1>
+        <p className={styles.heroSummary}>
           Explore the spiritual, historical, and artistic heart of the Catholic Church.
         </p>
-        <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
-          The Vatican is a place of prayer, pilgrimage, history, sacred art, and service to the universal Church. From Saint
-          Peter&apos;s Basilica to the Sistine Chapel, from papal documents to live broadcasts, the Vatican invites visitors to
-          encounter the beauty of faith and the mission of the Church.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <a href="#watch-vatican-live" className="btn liturgical-button focus-ring">
-            Watch Vatican Live
-          </a>
-          <a href="#virtual-tours" className="btn btn-secondary focus-ring">
+        <div className={styles.heroActions}>
+          <a href="#virtual-tours" className={styles.goldButton}>
             Tour Saint Peter&apos;s Basilica
           </a>
-          <a href="#vatican-history" className="btn btn-ghost focus-ring">
+          <a href="#watch-vatican-live" className={styles.outlineButton}>Watch Vatican Live</a>
+          <a href="#vatican-history" className={styles.outlineButton}>
             Explore Vatican History
           </a>
         </div>
-        <div className="card-parchment mt-6 max-w-2xl border border-stone/70 bg-ivory/90 p-4">
+        <p className={styles.heroFoot}>Prayer · Pilgrimage · Sacred art</p>
+      </div>
+    </section>
+    <div className={styles.intro}>
+      <p>The Vatican is a place of prayer, pilgrimage, history, sacred art, and service to the universal Church. From Saint Peter&apos;s Basilica to the Sistine Chapel, from papal documents to live broadcasts, the Vatican invites visitors to encounter the beauty of faith and the mission of the Church.</p>
+        <div className={styles.sourceNote}>
           <p className="text-xs font-bold uppercase tracking-[0.14em] text-burgundy">Note</p>
           <p className="mt-2 text-sm leading-7 text-muted">
             Daily Oratory links to official Vatican resources, broadcasts, and virtual tours. External videos and tours remain
@@ -41,7 +44,7 @@ export function VaticanHero() {
             Open the official Vatican site
           </TrackedLink>
         </div>
-      </div>
-    </section>
+    </div>
+    </>
   );
 }

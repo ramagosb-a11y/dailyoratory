@@ -1,6 +1,6 @@
 import { TrackedLink } from "@/components/analytics/TrackedLink";
-import { SectionHeader } from "@/components/section-header";
 import { getCurrentPope } from "@/lib/pope";
+import styles from "./CurrentPopeCard.module.css";
 
 export function CurrentPopeCard() {
   const pope = getCurrentPope();
@@ -12,38 +12,41 @@ export function CurrentPopeCard() {
   }).format(new Date(pope.pontificateStart));
 
   return (
-    <section>
-      <SectionHeader eyebrow="Current pope" title="The Current Pope" summary="This information is sourced from the official Vatican page." />
-      <article className="card-parchment liturgical-card-accent mt-7 grid gap-6 p-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-burgundy">{pope.ordinal} Pope of the Catholic Church</p>
-          <h2 className="font-display mt-2 text-4xl font-semibold text-navy">{pope.papalName}</h2>
-          <p className="mt-3 text-sm font-semibold text-navy">{pope.title}</p>
-          <p className="mt-4 text-sm leading-7 text-muted">{pope.shortDescription}</p>
-          <dl className="mt-5 grid gap-3 text-sm text-muted sm:grid-cols-2">
-            <div className="rounded-md border border-stone bg-ivory px-4 py-3">
-              <dt className="font-semibold text-navy">Beginning of pontificate</dt>
+    <section className={styles.panel} aria-labelledby="current-pope-heading">
+      <div className={styles.masthead}>
+        <p className={styles.eyebrow}>Current pope</p>
+        <h2 id="current-pope-heading" className="font-display">The Current Pope</h2>
+      </div>
+      <article className={styles.layout}>
+        <div className={styles.biography}>
+          <p className={styles.ordinal}>{pope.ordinal} Pope of the Catholic Church</p>
+          <h3 className={`font-display ${styles.name}`}>{pope.papalName}</h3>
+          <p className={styles.title}>{pope.title}</p>
+          <p className={styles.description}>{pope.shortDescription}</p>
+          <dl className={styles.facts}>
+            <div>
+              <dt>Beginning of pontificate</dt>
               <dd>{pontificateStart}</dd>
             </div>
-            <div className="rounded-md border border-stone bg-ivory px-4 py-3">
-              <dt className="font-semibold text-navy">Official title</dt>
+            <div>
+              <dt>Official title</dt>
               <dd>Bishop of Rome</dd>
             </div>
           </dl>
         </div>
-        <div className="grid gap-3">
+        <div className={styles.resources}>
+          <p className={styles.sourceNote}>This information is sourced from the official Vatican page.</p>
           {pope.documentLinks.map((link, index) => (
             <TrackedLink
               key={link.href}
               href={link.href}
               external
-              className={`focus-ring inline-flex items-center justify-center rounded-md border px-4 py-3 text-sm font-semibold transition ${
-                index === 0 ? "border-gold bg-gold text-navy hover:bg-gold-soft" : "border-stone bg-ivory text-navy hover:bg-parchment"
-              }`}
+              className={`focus-ring ${styles.resourceLink} ${index === 0 ? styles.featuredLink : ""}`}
               eventName="pope_resource_click"
               eventParams={{ resource_name: link.label, resource_url: link.href, page_path: "/pope", section: "current-pope" }}
             >
-              {link.label}
+              <span>{link.label}</span>
+              <span aria-hidden="true" className={styles.arrow}>↗</span>
             </TrackedLink>
           ))}
         </div>

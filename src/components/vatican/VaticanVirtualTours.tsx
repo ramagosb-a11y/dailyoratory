@@ -1,6 +1,9 @@
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { SectionHeader } from "@/components/section-header";
 import { getVaticanVirtualTours } from "@/lib/vatican";
+import Image from "next/image";
+import { vaticanPhotos } from "./VaticanPhotos";
+import styles from "./VaticanPage.module.css";
 
 export function VaticanVirtualTours() {
   const tours = getVaticanVirtualTours();
@@ -12,14 +15,18 @@ export function VaticanVirtualTours() {
         title="Virtual Tours of the Vatican"
         summary="If you cannot travel, official Vatican tours can still become a prayerful doorway into the Church's history, beauty, and worship."
       />
-      <div className="mt-7 grid gap-4 md:grid-cols-2">
-        {tours.map((tour) => (
-          <article key={tour.id} className="card-parchment liturgical-card-accent p-5">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-burgundy">
+      <div className={styles.tourGrid}>
+        {tours.map((tour) => {
+          const photo = vaticanPhotos[tour.id === "st-peters-vr-tour" ? "basilicaInterior" : tour.category === "sistine-chapel" ? "sistine" : tour.category === "museum" ? "museums" : "basilica"];
+          return (
+          <article key={tour.id} className={styles.tourCard}>
+            <div className={`${styles.tourArt} ${tour.category === "sistine-chapel" ? styles.ceilingArt : ""}`}><Image src={photo.src} alt={photo.alt} fill quality={85} sizes="(max-width: 767px) 100vw, (max-width: 1376px) 50vw, 650px" /></div>
+            <div className={styles.tourBody}>
+            <p className={styles.tourLabel}>
               {tour.official ? "Official Vatican source" : "External resource"}
             </p>
             <h3 className="font-display mt-2 text-2xl font-semibold text-navy">{tour.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">{tour.description}</p>
+            <p className={styles.tourDescription}>{tour.description}</p>
             <TrackedLink
               href={tour.url}
               external
@@ -29,8 +36,9 @@ export function VaticanVirtualTours() {
             >
               Begin a Virtual Pilgrimage
             </TrackedLink>
+            </div>
           </article>
-        ))}
+        );})}
       </div>
     </section>
   );

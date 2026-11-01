@@ -27,11 +27,11 @@ export function VaticanAndMass() {
         <Link href="/mass" className="btn btn-secondary focus-ring">
           Understand the Mass
         </Link>
+        <Link href="/vatican-ii" className="btn btn-secondary focus-ring">
+          Vatican II and the Mass
+        </Link>
         <Link href="/sacraments/eucharist" className="btn btn-secondary focus-ring">
           Learn About the Eucharist
-        </Link>
-        <Link href="/liturgical-living/seasons" className="btn btn-secondary focus-ring">
-          Explore Liturgical Seasons
         </Link>
       </div>
     </section>
