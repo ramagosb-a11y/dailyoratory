@@ -256,6 +256,7 @@ export function getAdorationLocationLabel(stream: LiveAdorationStreamRecord) {
 
 export function formatAdorationDateTime(value: string) {
   return new Intl.DateTimeFormat("en-US", {
+    timeZone: "UTC",
     month: "short",
     day: "numeric",
     year: "numeric",
