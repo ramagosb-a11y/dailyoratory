@@ -65,12 +65,29 @@ test("event fields are limited, URLs are stripped, and private values are remove
 
 test("sitemap excludes noindex and personal utility routes while preserving public content", () => {
   for (const path of [
-    "/fasting-retreat", "/rosary/visual-meditation", "/confession/examination/print",
-    "/reflections/reading-and-reflections", "/rule-of-life/my-rule", "/virtue-tracker/check-in",
+    "/rosary/visual-meditation", "/confession/examination/print",
+    "/rule-of-life/my-rule", "/virtue-tracker/check-in",
     "/rule-of-life/examen", "/pathways/recommended",
     "/saints/companions", "/liturgical-living/settings", "/prayer-intentions/submit", "/adoration/submit-stream",
   ]) assert.equal(isIndexableSitemapPath(path), false, `${path} should be omitted`);
 
-  for (const path of ["/", "/rosary", "/library/catechism", "/prayer-intentions/approved-intention"])
+  for (const path of ["/", "/devotions/holy-rosary", "/catechism", "/prayer-intentions/approved-intention"])
     assert.equal(isIndexableSitemapPath(path), true, `${path} should remain eligible`);
+});
+
+test("public retreat and reflection pages remain indexable with sensitive analytics protection", () => {
+  // Commit 6088b01 intentionally enabled discovery without enabling interaction tracking.
+  for (const path of ["/fasting-retreat", "/reflections/reading-and-reflections"]) {
+    assert.equal(isIndexableSitemapPath(path), true, `${path} is a published public page`);
+    assert.equal(isSensitiveAnalyticsPath(path), true, `${path} still requires path-only analytics`);
+  }
+});
+
+test("retired aliases stay out of the sitemap while canonical destinations remain eligible", () => {
+  for (const path of ["/rosary", "/library/catechism", "/reflections"]) {
+    assert.equal(isIndexableSitemapPath(path), false, `${path} is a retired alias`);
+  }
+  for (const path of ["/catechism", "/devotions/holy-rosary", "/reflections/mass-readings"]) {
+    assert.equal(isIndexableSitemapPath(path), true, `${path} is a canonical public destination`);
+  }
 });
