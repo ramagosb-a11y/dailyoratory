@@ -1,5 +1,5 @@
+import { EditorialPage, EditorialHero, EditorialSection, EditorialLinks } from "@/components/editorial/Editorial";
 import type { Metadata } from "next";
-import { Breadcrumbs } from "@/components/breadcrumbs";
 import { DiscussionTopicCard } from "@/components/community/DiscussionTopicCard";
 import { getPublishedDiscussionTopics } from "@/lib/community";
 import { createPageMetadata } from "@/lib/metadata";
@@ -13,29 +13,9 @@ export const metadata: Metadata = createPageMetadata({
 export default function GroupDiscussionTopicsPage() {
   const topics = getPublishedDiscussionTopics();
 
-  return (
-    <main className="paper-texture">
-      <section className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Group Discussion Topics" }]} />
-        <div className="mt-8 max-w-3xl">
-          <p className="text-xs font-bold uppercase text-burgundy">Group discussion topics</p>
-          <h1 className="font-display mt-3 text-4xl font-semibold leading-tight text-navy sm:text-5xl lg:text-6xl">
-            Conversation shaped by prayer.
-          </h1>
-          <p className="mt-5 text-base leading-8 text-muted">
-            Each topic gives a group a simple prayer, Scripture reference, reflection questions, and facilitator notes
-            for reverent Catholic conversation.
-          </p>
-        </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-7xl px-5 pb-14 sm:px-8 lg:px-10">
-        <div className="grid gap-4 lg:grid-cols-2">
-          {topics.map((topic) => (
-            <DiscussionTopicCard key={topic.id} topic={topic} />
-          ))}
-        </div>
-      </section>
-    </main>
-  );
+  return <EditorialPage longform breadcrumbs={[{ label: "Community", href: "/community" }, { label: "Group Discussion Topics" }]}>
+    <EditorialHero eyebrow="Gather. Listen. Reflect." title="Conversation shaped by prayer." description="A simple starting point for parish groups, families, and prayer communities. Choose a topic, open its guide, and make room for every voice." image="/images/editorial/group-discussion.webp" imageAlt="A place for shared prayer and conversation" actions={[{ label: "Choose a discussion", href: "#discussion-topics" }, { label: "Facilitator guidance", href: "#gather-well" }]} />
+    <EditorialSection id="discussion-topics" eyebrow="Choose your gathering" title="A conversation worth having"><EditorialLinks links={topics.map((topic) => ({ label: topic.title, href: "#" + topic.slug }))} />{topics.map((topic) => <DiscussionTopicCard key={topic.id} topic={topic} />)}{topics.length === 0 && <p className="text-base leading-8 text-muted">Discussion guides are being prepared. Explore the prayer library while you wait.</p>}</EditorialSection>
+    <EditorialSection id="gather-well" eyebrow="Make room for one another" title="Gather with care." description="Begin with the opening prayer. Let each person choose whether to speak, listen without pressure, and keep the discussion grounded in its Scripture reference."><p className="text-base leading-8 text-muted">No one needs to share private sins, a confession, or personal spiritual details. A group discussion does not replace sacramental Confession, spiritual direction, or pastoral care.</p><EditorialLinks links={[{ label: "Prayer library", href: "/pray" }, { label: "Catholic formation", href: "/formation" }, { label: "Community", href: "/community" }]} /></EditorialSection>
+  </EditorialPage>;
 }

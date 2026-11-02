@@ -1,32 +1,8 @@
 import type { GroupDiscussionTopicRecord } from "@/types/community";
 
 export function DiscussionTopicCard({ topic }: { topic: GroupDiscussionTopicRecord }) {
-  return (
-    <article id={topic.slug} className="card resource-card scroll-mt-28 p-5">
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <span className="season-pill">{topic.durationMinutes} minutes</span>
-        {topic.scriptureReference ? <span className="season-pill">{topic.scriptureReference}</span> : null}
-      </div>
-      <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-navy">{topic.title}</h2>
-      <p className="mt-3 text-sm leading-7 text-muted">{topic.description}</p>
-      <div className="mt-5 rounded-md border border-stone bg-parchment p-4">
-        <p className="text-xs font-bold uppercase text-burgundy">Opening prayer</p>
-        <p className="mt-2 font-display text-2xl leading-8 text-navy">{topic.openingPrayer}</p>
-      </div>
-      <div className="mt-5 grid gap-3">
-        {topic.questions.map((question) => (
-          <p key={question} className="rounded-md border border-stone bg-ivory p-3 text-sm leading-6 text-muted">
-            {question}
-          </p>
-        ))}
-      </div>
-      <div className="mt-5 flex flex-wrap gap-2">
-        {topic.tags.slice(0, 4).map((tag) => (
-          <span key={tag} className="season-pill">
-            {tag}
-          </span>
-        ))}
-      </div>
-    </article>
-  );
+  return <details id={topic.slug} className="group scroll-mt-28 border-b border-stone py-5">
+    <summary className="focus-ring cursor-pointer rounded-sm px-1 py-3"><span className="text-xs font-semibold uppercase tracking-widest text-burgundy">{topic.durationMinutes} minutes{topic.scriptureReference ? " · " + topic.scriptureReference : ""}</span><h2 className="font-display mt-2 inline-block text-3xl font-semibold leading-tight text-navy">{topic.title}</h2><span className="mt-2 block max-w-3xl text-base leading-8 text-muted">{topic.description}</span><span className="mt-3 block text-sm font-semibold text-burgundy">Open the discussion guide</span></summary>
+    <div className="space-y-7 px-1 pb-5 pt-5"><p className="text-sm leading-7 text-muted">For {topic.bestFor.map(audience => audience.replaceAll("-", " ")).join(", ")}.</p><section><h3 className="text-xs font-bold uppercase tracking-widest text-burgundy">Opening prayer</h3><p className="font-display mt-3 max-w-3xl text-2xl leading-9 text-navy">{topic.openingPrayer}</p></section><section><h3 className="font-display text-2xl font-semibold text-navy">Reflect together</h3><ol className="mt-4 list-decimal space-y-4 pl-5 text-base leading-8 text-muted">{topic.questions.map((question) => <li key={question}>{question}</li>)}</ol></section>{topic.facilitatorNotes.length > 0 && <section><h3 className="font-display text-2xl font-semibold text-navy">For the facilitator</h3><ul className="mt-4 list-disc space-y-3 pl-5 text-base leading-8 text-muted">{topic.facilitatorNotes.map((note) => <li key={note}>{note}</li>)}</ul></section>}</div>
+  </details>;
 }

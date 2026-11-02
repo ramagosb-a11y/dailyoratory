@@ -5,9 +5,11 @@ import { TrackedLink } from "@/components/analytics/TrackedLink";
 export function CouncilCard({
   council,
   compact = false,
+  suppressResourceTracking = false,
 }: {
   council: ChurchCouncil;
   compact?: boolean;
+  suppressResourceTracking?: boolean;
 }) {
   return (
     <article className="card-parchment p-5">
@@ -49,8 +51,8 @@ export function CouncilCard({
                 href={link.href}
                 external
                 className="btn btn-secondary focus-ring justify-center"
-                eventName="council_resource_click"
-                eventParams={{ resource_name: council.name, resource_url: link.href, page_path: "/councils", section: "councils-timeline" }}
+                eventName={suppressResourceTracking ? undefined : "council_resource_click"}
+                eventParams={suppressResourceTracking ? undefined : { resource_name: council.name, resource_url: link.href, page_path: "/councils", section: "councils-timeline" }}
               >
                 {link.label}
               </TrackedLink>

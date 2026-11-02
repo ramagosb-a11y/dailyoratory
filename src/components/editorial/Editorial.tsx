@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { editorialImages } from "@/data/editorialImages";
 import styles from "./Editorial.module.css";
+import { EditorialAnchorReveal } from "./EditorialAnchorReveal";
 
 type Destination = { label: string; href: string };
 const photosBySource = new Map(Object.values(editorialImages).map((photo) => [photo.src, photo]));
@@ -18,18 +19,19 @@ function PhotoCredit({ src }: { src: string }) {
   );
 }
 
-export function EditorialPage({ children, breadcrumbs }: { children: ReactNode; breadcrumbs: { label: string; href?: string }[] }) {
+export function EditorialPage({ children, breadcrumbs, longform = false }: { children: ReactNode; breadcrumbs: { label: string; href?: string }[]; longform?: boolean }) {
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${longform ? styles.longform : ""}`}>
+      {longform && <EditorialAnchorReveal />}
       <div className={styles.container}><Breadcrumbs items={breadcrumbs} />{children}</div>
     </div>
   );
 }
 
-export function EditorialHero({ eyebrow, title, description, image, imageAlt, actions, credit }: { eyebrow: string; title: string; description: string; image: string; imageAlt: string; actions: Destination[]; credit?: ReactNode }) {
+export function EditorialHero({ eyebrow, title, description, image, imageAlt, actions, credit, compact = false }: { eyebrow: string; title: string; description: string; image: string; imageAlt: string; actions: Destination[]; credit?: ReactNode; compact?: boolean }) {
   const photo = photosBySource.get(image);
   return (
-    <header className={styles.hero}>
+    <header className={`${styles.hero} ${compact ? styles.compact : ""}`}>
       <div className={styles.heroArt}>
         <Image src={image} alt={photo?.alt ?? imageAlt} fill preload quality={85} sizes="(max-width: 760px) 100vw, 65vw" />
       </div>

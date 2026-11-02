@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { getCouncilTopicRecommendation, getCouncilTopics, getChurchCouncils } from "@/lib/councils";
-import { trackEvent } from "@/lib/analytics";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 
 export function CouncilTopicFinder() {
@@ -32,9 +31,7 @@ export function CouncilTopicFinder() {
               value={selectedTopic}
               onChange={(event) => {
                 const next = event.target.value;
-                setSelectedTopic(next);
-                trackEvent("council_topic_finder_use", { page_path: "/councils", topic_slug: next });
-              }}
+                setSelectedTopic(next);              }}
               className="form-field focus-ring"
             >
               {topics.map((topic) => (
@@ -74,8 +71,6 @@ export function CouncilTopicFinder() {
                 href={link.href}
                 external
                 className="btn btn-secondary focus-ring justify-center"
-                eventName="council_resource_click"
-                eventParams={{ resource_name: recommendation?.title, resource_url: link.href, page_path: "/councils", section: "topic-finder" }}
               >
                 {link.label}
               </TrackedLink>

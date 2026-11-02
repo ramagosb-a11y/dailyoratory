@@ -2,7 +2,7 @@
 .container { max-width: 86rem; margin: auto; padding: 2rem 2.5rem 5rem; }
 .page [id] { scroll-margin-top: 7rem; }
 .page * { min-width: 0; }
-.page a:focus-visible, .page button:focus-visible, .page summary:focus-visible, .page input:focus-visible, .page select:focus-visible { outline: 3px solid #97652b; outline-offset: 4px; }
+.page a:focus-visible, .page button:focus-visible, .page summary:focus-visible, .page input:focus-visible, .page select:focus-visible, .page textarea:focus-visible { outline: 3px solid #97652b; outline-offset: 4px; }
 .hero { position: relative; isolation: isolate; overflow: hidden; background: #0c2435; border-radius: 1.4rem; margin-top: 1.75rem; color: #fffaf0; min-height: 34rem; display: flex; align-items: center; }
 .heroArt { position: absolute; inset: 0 0 0 32%; z-index: -2; }
 .heroArt img { object-fit: cover; object-position: center; }
@@ -56,8 +56,20 @@
 .page :global(button), .page :global(select), .page :global(a.season-pill), .page :global(a.rounded-full), .page nav a { min-height: 44px; }
 .page :global(a.season-pill), .page :global(a.rounded-full), .page nav a { display: inline-flex; align-items: center; }
 .hero + details, .hero + details + nav { margin-top: 1.25rem; }
+.compact { min-height: 23rem; }
+.compact h1 { font-size: clamp(2.5rem,4.7vw,4.7rem); }
+.compact .heroCopy { padding: 2.5rem 3rem 3.2rem; }
+.longform :global(.card-parchment) { background: transparent; box-shadow: none; }
+.longform .disclosureBody > :global(section) { padding: 1rem 0; border: 0; }
+.longform .disclosureBody :global(.dashboard-card) { box-shadow: none; }
+.longform :global(p), .longform :global(li) { overflow-wrap: anywhere; }
+.longform :global(pre) { max-width: 100%; overflow-wrap: anywhere; }
+.longform :global(.mt-14) { margin-top: 2rem; }
+@media(max-width: 760px) { .compact { padding-top: 9rem; min-height: 0; } .compact .heroArt { height: 16rem; } .compact .heroCopy { padding: 1.25rem 1.3rem 3.5rem; } .compact::after { background: linear-gradient(180deg,transparent 2rem,#0c2435b0 8rem,#0c2435 15rem); } .compact h1 { font-size: clamp(2.25rem,9vw,3.3rem); } }
+@media print { .longform .hero { min-height: 0; padding: 0; background: white; color: black; } .longform .heroArt, .longform .heroCredit, .longform .actions, .longform nav { display: none; } .longform .hero::after { display: none; } .longform .heroCopy { width: 100%; padding: 0; } .longform .heroDescription, .longform .eyebrow { color: black; } .longform details > * { display: block !important; } .longform .container { padding: 0; } }
 @media(min-width: 1001px) { .grid > .card:only-child { grid-column: span 2; } }
 @media(max-width: 1000px) { .container { padding: 1.5rem 1.5rem 4rem; } .grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .heroCopy { width: 76%; padding: 2.75rem; } }
 @media(max-width: 760px) { .container { padding: 1.25rem 1.1rem 3rem; } .hero { display: block; min-height: 0; margin-top: 1.3rem; padding-top: 13rem; } .heroArt { inset: 0 0 auto; height: 20rem; } .hero::after { background: linear-gradient(180deg,transparent 5rem,#0c243599 12rem,#0c2435 20rem); } .heroCopy { padding: 1.5rem 1.5rem 3.7rem; width: 100%; } .hero h1 { font-size: clamp(2.8rem,10vw,4.2rem); } .heroDescription { font-size: 1.3rem; } .heroCredit { right: .8rem; left: .8rem; max-width: none; width: fit-content; bottom: .6rem; } .actions { margin-top: 1.5rem; } .actions a { width: 100%; } .links { grid-template-columns: 1fr; } .photoArt { aspect-ratio: 1.5; } }
 @media(max-width: 600px) { .grid { grid-template-columns: 1fr; gap: 1.2rem; } .sectionHeading { margin-bottom: 1.3rem; } .cardArt { aspect-ratio: 1.85; } }
 @media(prefers-reduced-motion: reduce) { .cardArt img { transition: none; } .card:hover .cardArt img { transform: none; } }
+@media(max-width: 760px) { .compact { padding-top: 8rem; } .compact .heroArt { height: 15rem; } .compact::after { background: linear-gradient(180deg,transparent 2rem,#0c2435b0 8rem,#0c2435 15rem); } .compact h1 { font-size: clamp(2.25rem,9vw,3.3rem); } .compact .heroCopy { padding-bottom: 1.5rem; } .compact .heroCredit { position: relative; inset: auto; max-width: calc(100% - 2.6rem); margin: 0 1.3rem .8rem; } }

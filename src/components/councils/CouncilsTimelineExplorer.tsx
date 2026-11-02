@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { getChurchCouncils, getCouncilTimelineFilters } from "@/lib/councils";
-import { trackEvent } from "@/lib/analytics";
 import { CouncilCard } from "@/components/councils/CouncilCard";
 
 export function CouncilsTimelineExplorer() {
@@ -29,9 +28,7 @@ export function CouncilsTimelineExplorer() {
               value={selectedFilter}
               onChange={(event) => {
                 const next = event.target.value;
-                setSelectedFilter(next);
-                trackEvent("council_timeline_filter", { page_path: "/councils", filter_slug: next });
-              }}
+                setSelectedFilter(next);              }}
               className="form-field focus-ring"
             >
               {filters.map((filter) => (
@@ -51,7 +48,7 @@ export function CouncilsTimelineExplorer() {
             <p className="mt-3 text-sm leading-7 text-muted">{activeFilter?.description}</p>
           </div>
           {filteredCouncils.map((council) => (
-            <CouncilCard key={council.id} council={council} compact />
+            <CouncilCard key={council.id} council={council} suppressResourceTracking />
           ))}
         </aside>
       </div>

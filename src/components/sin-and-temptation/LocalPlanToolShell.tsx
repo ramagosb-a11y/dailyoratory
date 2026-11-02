@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { readPrivatePlan, writePrivatePlan, removePrivatePlan } from "./safePlanStorage";
 import { trackEvent, type AnalyticsEventName } from "@/lib/analytics";
 
 type ToolField = {
@@ -20,6 +21,7 @@ export function LocalPlanToolShell({
   buildCopyText,
   copyEventName,
   printEventName,
+  safeStorage = false,
 }: {
   eyebrow: string;
   title: string;
@@ -30,45 +32,70 @@ export function LocalPlanToolShell({
   buildCopyText: (values: Record<string, string>) => string;
   copyEventName?: AnalyticsEventName;
   printEventName?: AnalyticsEventName;
+  safeStorage?: boolean;
 }) {
   const [values, setValues] = useState<Record<string, string>>(initialValues);
   const [copied, setCopied] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [status, setStatus] = useState("");
   const preview = useMemo(() => buildCopyText(values), [buildCopyText, values]);
 
   function setValue(fieldId: string, value: string) {
     setValues((current) => ({ ...current, [fieldId]: value }));
     setSaved(false);
+    if (safeStorage) setStatus("");
   }
 
   async function handleCopy() {
     try {
       await navigator.clipboard.writeText(preview);
-      if (copyEventName) trackEvent(copyEventName, { section: storageKey });
+      if (!safeStorage && copyEventName) trackEvent(copyEventName, { section: storageKey });
       setCopied(true);
+      if (safeStorage) setStatus("Plan copied. Clearing this form does not erase clipboard or printed copies.");
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);
+      if (safeStorage) setStatus("Copy is unavailable. Select the plan text and copy it manually.");
     }
   }
 
   function handlePrint() {
-    if (printEventName) trackEvent(printEventName, { section: storageKey });
-    window.print();
+    if (!safeStorage && printEventName) trackEvent(printEventName, { section: storageKey });
+    if (!safeStorage) { window.print(); return; }
+    try { window.print(); setStatus("Print dialog requested. Printed copies remain separate from browser storage."); }
+    catch { setStatus("Printing is unavailable. You can copy the plan instead."); }
   }
 
   function clearPlan() {
+    if (safeStorage) {
+      setValues(initialValues); setCopied(false); setSaved(false);
+      const result = removePrivatePlan(() => window.localStorage, storageKey);
+      setStatus(result.ok ? "Plan cleared from this form and browser storage. Clipboard and printed copies are separate." : result.message);
+      return;
+    }
     setValues(initialValues);
     setCopied(false);
     setSaved(false);
   }
 
   function savePlan() {
+    if (safeStorage) {
+      const result = writePrivatePlan(() => window.localStorage, storageKey, values, initialValues);
+      setSaved(result.ok); setStatus(result.ok ? "Plan saved only in this browser. It is not encrypted by this tool." : result.message);
+      return;
+    }
     window.localStorage.setItem(storageKey, JSON.stringify(values));
     setSaved(true);
   }
 
   function loadPlan() {
+    if (safeStorage) {
+      const result = readPrivatePlan(() => window.localStorage, storageKey, initialValues);
+      if (!result.ok) { setSaved(false); setStatus(result.message); return; }
+      if (!result.value) { setStatus("No saved plan was found in this browser. Your current entries are unchanged."); return; }
+      setValues(result.value); setSaved(true); setCopied(false); setStatus("Saved plan loaded from this browser.");
+      return;
+    }
     const savedValue = window.localStorage.getItem(storageKey);
     if (!savedValue) return;
     try {
@@ -109,7 +136,7 @@ export function LocalPlanToolShell({
               </label>
             ))}
             <div className="rounded-md border border-stone bg-parchment px-4 py-3 text-xs leading-6 text-muted">
-              This reflection is stored only in this browser if saved. Daily Oratory does not receive it.
+              {safeStorage ? "Saving is optional and manual. Entries stay in this browser; anyone using this browser profile may be able to read saved data. Clear removes this saved plan, but not clipboard or printed copies." : "This reflection is stored only in this browser if saved. Daily Oratory does not receive it."}
             </div>
           </div>
         </form>
@@ -134,6 +161,7 @@ export function LocalPlanToolShell({
               Clear
             </button>
           </div>
+          {safeStorage && <p role="status" aria-live="polite" className="mt-4 text-sm leading-7 text-muted">{status}</p>}
         </aside>
       </div>
     </section>

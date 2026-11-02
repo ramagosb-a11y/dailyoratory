@@ -1,4 +1,4 @@
-/** Licensed documentary photographs. Full provenance and optimization ledger: docs/features/eight-page-editorial-redesign/PHOTOGRAPHY.md. */
+/** Licensed photographs. Ledgers: docs/features/{eight-page-editorial-redesign,thirteen-page-editorial-redesign}/PHOTOGRAPHY.md. */
 export const editorialImages: Record<string, { src: string; alt: string; credit: string; sourceUrl: string; license: string; licenseUrl?: string }> = {
   "learn": {
     "src": "/images/editorial/learn.webp",
@@ -102,5 +102,86 @@ export const editorialImages: Record<string, { src: string; alt: string; credit:
     "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wedding_cord_ceremony.jpg",
     "license": "CC BY-SA 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0"
+  },
+
+  "sacramentals": {
+    "src": "/images/editorial/sacramentals.webp",
+    "alt": "Close view of red rosary beads",
+    "credit": "liz west from Boxborough, MA, USA",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Rosary_beads_closeup.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0"
+  },
+  "relics": {
+    "src": "/images/editorial/relics.webp",
+    "alt": "A reliquary on display at the Museum of Catholic Art and History in Columbus, Ohio",
+    "credit": "Nheyob",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Museum_of_Catholic_Art_and_History_(Columbus,_Ohio)_-_Reliquary_containing_bones_from_all_twelve_Apostles.jpg",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "adoration-chapel": {
+    "src": "/images/editorial/adoration-chapel.webp",
+    "alt": "Eucharistic Adoration in the Church of the Sacred Heart in Monaco",
+    "credit": "Willuconquer",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Adoration_du_Saint_Sacrement_%C3%A0_l%27Eglise_du_Sacr%C3%A9-Coeur_de_Monaco.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "homilies": {
+    "src": "/images/editorial/homilies.webp",
+    "alt": "The pulpit in Westminster Cathedral, London",
+    "credit": "User:FA2010",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Westminster_Cathedral_pulpit_001.jpg",
+    "license": "Public domain"
+  },
+  "group-discussion": {
+    "src": "/images/editorial/group-discussion.webp",
+    "alt": "A Catholic youth group outside the Episcopal Palace in Porto, Portugal",
+    "credit": "dlovins99",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Catholic_youth_group_in_front_of_Episcopal_Palace_2023-08-04_17.57.57_(53111823416).jpg",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  },
+  "council-photo": {
+    "src": "/images/vatican-ii/council-005.webp",
+    "alt": "The altar and apse of Saint Peter’s Basilica prepared for a papal Mass during the Second Vatican Council",
+    "credit": "Lothar Wolleh",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Second_Vatican_Council_by_Lothar_Wolleh_005.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "sistine-photo": {
+    "src": "/images/vatican/sistine.webp",
+    "alt": "Michelangelo’s frescoes across the Sistine Chapel ceiling",
+    "credit": "Qypchak / Amandajm",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:CAPPELLA_SISTINA_Ceiling.jpg",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "basilica-photo": {
+    "src": "/images/vatican/st-peters-interior.webp",
+    "alt": "Sunlight entering the nave of Saint Peter’s Basilica",
+    "credit": "MarcusObal",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saint_Peter%27s_Basilica.JPG",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+  },
+  "holy-water": {
+    "src": "/images/editorial/holy-water.webp",
+    "alt": "An angel-shaped holy water font at Saint Mary Church in Chillicothe, Ohio",
+    "credit": "Nheyob",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saint_Mary_Church_(Chillicothe,_Ohio)_-_angel_statue_holy_water_font.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  "crucifix": {
+    "src": "/images/editorial/crucifix.webp",
+    "alt": "A crucifix at Saint Nicholas Catholic Church in Zanesville, Ohio",
+    "credit": "Nheyob",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Saint_Nicholas_Catholic_Church_(Zanesville,_Ohio)_-_crucifix.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
   }
+
 };

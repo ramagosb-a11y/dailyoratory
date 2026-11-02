@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { AdorationNav } from "@/components/adoration/AdorationNav";
-import { Breadcrumbs } from "@/components/breadcrumbs";
+import { SectionJumpNav } from "@/components/SectionJumpNav";
+import { EditorialPage, EditorialHero } from "@/components/editorial/Editorial";
+import styles from "./Meditation.module.css";
 import { StructuredDataScript } from "@/components/seo/StructuredDataScript";
 import { createPageMetadata } from "@/lib/metadata";
 import { buildBreadcrumbList, buildWebPageStructuredData } from "@/lib/structuredData";
@@ -17,7 +19,7 @@ const sections = [
   { id: "mercy", label: "Ask for mercy" },
   { id: "providence", label: "Entrust your needs" },
   { id: "forgiveness", label: "Choose forgiveness" },
-  { id: "communion", label: "Receive communion" },
+  { id: "communion", label: "Do not walk alone" },
   { id: "gratitude", label: "Give thanks" },
   { id: "conversion", label: "Begin again" },
   { id: "silence", label: "Remain in silence" },
@@ -63,7 +65,7 @@ type MeditationSectionProps = {
 
 function MeditationSection({ id, title, children }: MeditationSectionProps) {
   return (
-    <section id={id} className="card-parchment scroll-mt-24 p-6 sm:p-8">
+    <section id={id} className={styles.movement}>
       <h2 className="font-display text-3xl font-semibold text-navy sm:text-4xl">{title}</h2>
       <div className="daily-card-readable mt-5 space-y-5 text-base leading-8 text-muted sm:text-lg">{children}</div>
     </section>
@@ -72,8 +74,7 @@ function MeditationSection({ id, title, children }: MeditationSectionProps) {
 
 export default function MeditationBeforeTheBlessedSacramentPage() {
   return (
-    <div className="paper-texture">
-      <main className="mx-auto w-full max-w-5xl px-5 py-10 sm:px-8 lg:px-10">
+    <EditorialPage longform breadcrumbs={[{ label: "Pray", href: "/pray" }, { label: "Adoration", href: "/adoration" }, { label: "Meditation before the Blessed Sacrament" }]}>
         <StructuredDataScript
           data={[
             buildWebPageStructuredData({
@@ -88,33 +89,9 @@ export default function MeditationBeforeTheBlessedSacramentPage() {
           ]}
         />
 
-        <Breadcrumbs
-          items={[
-            { label: "Adoration", href: "/adoration" },
-            { label: "Meditation Before the Blessed Sacrament" },
-          ]}
-        />
-        <AdorationNav />
-
-        <header className="card-parchment p-6 sm:p-8 lg:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Eucharistic Adoration</p>
-          <h1 className="font-display mt-3 text-4xl font-semibold leading-tight text-navy sm:text-5xl lg:text-6xl">
-            A Meditation Before the Blessed Sacrament
-          </h1>
-          <p className="daily-readable mt-5 max-w-3xl text-lg leading-8 text-navy">
-            Bring your whole life before Jesus: the people you love, the wounds you carry, the mercy you need, and
-            the gratitude you have not yet spoken.
-          </p>
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link href="/adoration/live" className="btn btn-primary focus-ring min-h-12 justify-center">
-              Enter Live Adoration
-            </Link>
-            <Link href="/adoration/holy-hour" className="btn btn-secondary focus-ring min-h-12 justify-center">
-              Open the Holy Hour Guide
-            </Link>
-          </div>
-        </header>
-
+        <EditorialHero compact eyebrow="Before the Blessed Sacrament" title="A Meditation with Christ" description="Bring your whole life before Jesus: the people you love, the wounds you carry, the mercy you need, and the gratitude you have not yet spoken." image="/images/editorial/formation.webp" imageAlt="" actions={[{label:"Begin guided Adoration",href:"/adoration/companion"},{label:"Begin a guided Holy Hour",href:"/adoration/companion?mode=holy-hour"}]} />
+        <AdorationNav compact />
+        <div className={styles.reading}>
         <aside className="mt-6 rounded-md border border-gold/40 bg-ivory px-5 py-4" aria-label="Devotional note">
           <p className="text-sm leading-7 text-muted">
             <strong className="text-navy">Devotional note:</strong> This original Daily Oratory meditation uses an
@@ -124,19 +101,9 @@ export default function MeditationBeforeTheBlessedSacramentPage() {
           </p>
         </aside>
 
-        <nav className="mt-6 card-parchment p-6" aria-label="Meditation sections">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-burgundy">Move through the meditation</p>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {sections.map((section) => (
-              <a key={section.id} href={`#${section.id}`} className="btn btn-secondary focus-ring min-h-10 px-4 py-2 text-sm">
-                {section.label}
-              </a>
-            ))}
-          </div>
-        </nav>
-
-        <section className="mt-8 card-parchment border-gold/50 p-6 sm:p-8">
-          <p className="font-display text-2xl font-semibold text-navy">Opening prayer</p>
+        <div className="mt-8"><SectionJumpNav ariaLabel="Meditation movements" mobileTitle="Choose a movement of prayer" items={sections.map(section => ({label:section.label,href:`#${section.id}`}))} /></div>
+        <section className={styles.prayer}>
+          <h2 id="opening-prayer" className="font-display text-3xl font-semibold text-navy">Opening prayer</h2>
           <p className="daily-card-readable mt-4 text-lg leading-9 text-muted">
             Lord Jesus Christ, truly present in the Most Blessed Sacrament, I believe that You are here. I adore You
             with reverence, love, and trust. Quiet what is restless in me. Give me honesty in prayer, sorrow for sin,
@@ -331,7 +298,7 @@ export default function MeditationBeforeTheBlessedSacramentPage() {
             ))}
           </div>
         </section>
-      </main>
-    </div>
+        </div>
+    </EditorialPage>
   );
 }

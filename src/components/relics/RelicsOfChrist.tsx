@@ -5,7 +5,6 @@ const items = [
   "True Cross",
   "Crown of Thorns",
   "Holy Nails",
-  "Shroud-related devotion should be framed carefully",
 ] as const;
 
 export function RelicsOfChrist() {
@@ -14,7 +13,7 @@ export function RelicsOfChrist() {
       <SectionHeader
         eyebrow="Christ"
         title="Relics Connected with Christ"
-        summary="Some relics are traditionally connected with the Passion of Christ. These relics are honored because they are connected to the saving work of Jesus."
+        summary="Some objects are traditionally associated with Christ’s Passion and venerated in remembrance of His saving death and Resurrection. This page does not authenticate individual objects."
       />
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {items.map((item) => (
@@ -23,11 +22,6 @@ export function RelicsOfChrist() {
           </article>
         ))}
       </div>
-      <p className="mt-6 rounded-2xl border border-gold/30 bg-ivory/85 p-5 text-sm leading-7 text-muted">
-        Use careful language here: relics may be <span className="font-semibold text-navy">traditionally associated with</span>,
-        <span className="font-semibold text-navy"> venerated as</span>, or <span className="font-semibold text-navy">historically connected with</span>
-        Christ’s Passion. Avoid sensational claims and keep the focus on His saving death and Resurrection.
-      </p>
       <RelicLinkRow
         links={[
           { label: "The Holy Mass", href: "/mass" },

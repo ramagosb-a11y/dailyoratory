@@ -1,32 +1,22 @@
 import type { Metadata } from "next";
-import { Breadcrumbs } from "@/components/breadcrumbs";
-import { HowToVenerateRelic } from "@/components/relics/HowToVenerateRelic";
-import { RelatedRelicTools } from "@/components/relics/RelatedRelicTools";
-import { RelicClasses } from "@/components/relics/RelicClasses";
-import { RelicCopyrightNote } from "@/components/relics/RelicCopyrightNote";
-import { RelicPilgrimageSites } from "@/components/relics/RelicPilgrimageSites";
-import { RelicPrayerCards } from "@/components/relics/RelicPrayerCards";
-import { RelicResources } from "@/components/relics/RelicResources";
+import { createPageMetadata } from "@/lib/metadata";
+import { EditorialPage, EditorialHero, EditorialSection, EditorialDisclosure, EditorialLinks } from "@/components/editorial/Editorial";
 import { RelicVisitReflectionTool } from "@/components/relics/RelicVisitReflectionTool";
-import { RelicsAndHealing } from "@/components/relics/RelicsAndHealing";
-import { RelicsAndMass } from "@/components/relics/RelicsAndMass";
+import { RelicClasses } from "@/components/relics/RelicClasses";
+import { HowToVenerateRelic } from "@/components/relics/HowToVenerateRelic";
 import { RelicsAndScripture } from "@/components/relics/RelicsAndScripture";
-import { RelicsAtHome } from "@/components/relics/RelicsAtHome";
+import { RelicsOfChrist } from "@/components/relics/RelicsOfChrist";
+import { RelicsAndMass } from "@/components/relics/RelicsAndMass";
 import { RelicsAuthenticity } from "@/components/relics/RelicsAuthenticity";
 import { RelicsBuyingSelling } from "@/components/relics/RelicsBuyingSelling";
-import { RelicsCommunionOfSaints } from "@/components/relics/RelicsCommunionOfSaints";
-import { RelicsEarlyChurch } from "@/components/relics/RelicsEarlyChurch";
-import { RelicsFAQ } from "@/components/relics/RelicsFAQ";
-import { RelicsForExplorers } from "@/components/relics/RelicsForExplorers";
-import { RelicsForFamilies } from "@/components/relics/RelicsForFamilies";
-import { RelicsHero } from "@/components/relics/RelicsHero";
-import { RelicsNotMagic } from "@/components/relics/RelicsNotMagic";
-import { RelicsOfChrist } from "@/components/relics/RelicsOfChrist";
-import { WhatAreRelics } from "@/components/relics/WhatAreRelics";
+import { RelicsAndHealing } from "@/components/relics/RelicsAndHealing";
 import { WhatIfIHaveRelic } from "@/components/relics/WhatIfIHaveRelic";
-import { WhatIsReliquary } from "@/components/relics/WhatIsReliquary";
-import { WhyVenerateRelics } from "@/components/relics/WhyVenerateRelics";
-import { createPageMetadata } from "@/lib/metadata";
+import { RelicPrayerCards } from "@/components/relics/RelicPrayerCards";
+import { RelicsFAQ } from "@/components/relics/RelicsFAQ";
+import { RelicResources } from "@/components/relics/RelicResources";
+import { RelicCopyrightNote } from "@/components/relics/RelicCopyrightNote";
+import { RelicPilgrimageSites } from "@/components/relics/RelicPilgrimageSites";
+
 
 const baseMetadata = createPageMetadata({
   title: "Catholic Relics | Saints, Veneration, Relic Classes, and the Communion of Saints",
@@ -61,89 +51,40 @@ export const metadata: Metadata = {
 
 export default function RelicsPage() {
   return (
-    <div className="paper-texture">
-      <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Learn", href: "/learn" }, { label: "Relics" }]} />
-
-        <div className="mt-8">
-          <RelicsHero />
-        </div>
-        <div className="mt-14">
-          <WhatAreRelics />
-        </div>
-        <div className="mt-14">
-          <WhyVenerateRelics />
-        </div>
-        <div className="mt-14">
-          <RelicsNotMagic />
-        </div>
-        <div className="mt-14">
-          <RelicClasses />
-        </div>
-        <div className="mt-14">
-          <RelicsOfChrist />
-        </div>
-        <div className="mt-14">
-          <RelicsAndScripture />
-        </div>
-        <div className="mt-14">
-          <RelicsEarlyChurch />
-        </div>
-        <div className="mt-14">
-          <RelicsAndMass />
-        </div>
-        <div className="mt-14">
-          <RelicsCommunionOfSaints />
-        </div>
-        <div className="mt-14">
-          <HowToVenerateRelic />
-        </div>
-        <div className="mt-14">
-          <WhatIsReliquary />
-        </div>
-        <div className="mt-14">
-          <RelicPilgrimageSites />
-        </div>
-        <div className="mt-14">
-          <RelicsAtHome />
-        </div>
-        <div className="mt-14">
-          <WhatIfIHaveRelic />
-        </div>
-        <div className="mt-14">
-          <RelicsBuyingSelling />
-        </div>
-        <div className="mt-14">
-          <RelicsAuthenticity />
-        </div>
-        <div className="mt-14">
-          <RelicsAndHealing />
-        </div>
-        <div className="mt-14">
-          <RelicsForExplorers />
-        </div>
-        <div className="mt-14">
-          <RelicsForFamilies />
-        </div>
-        <div className="mt-14">
-          <RelicsFAQ />
-        </div>
-        <div className="mt-14">
-          <RelicPrayerCards />
-        </div>
-        <div className="mt-14">
-          <RelicVisitReflectionTool />
-        </div>
-        <div className="mt-14">
-          <RelatedRelicTools />
-        </div>
-        <div className="mt-14">
-          <RelicResources />
-        </div>
-        <div className="mt-14">
-          <RelicCopyrightNote />
-        </div>
-      </main>
-    </div>
+    <EditorialPage longform breadcrumbs={[{ label: "Learn", href: "/learn" }, { label: "Relics" }]}>
+      <EditorialHero compact eyebrow="The communion of saints" title="Remember the saints. Follow Christ." description="Understand Catholic relics, prepare for a reverent visit, and keep the focus on God’s grace in the lives of His saints." image="/images/editorial/relics.webp" imageAlt="Catholic sacred art and architecture" actions={[{ label: "Prepare for a visit", href: "#relic-visit-preparation" }, { label: "Understand relics", href: "#what-are-relics" }]} />
+      <EditorialSection id="what-are-relics" eyebrow="Understand" title="Faith lived in real history">
+        <div className="max-w-3xl space-y-4 text-base leading-8 text-muted"><p>The Church venerates the bodily remains of saints and objects associated with their lives. These signs recall the grace of Christ at work in real people and invite us to imitate their faith.</p><p>Veneration is not worship. Worship belongs to God alone. Relics are not lucky charms, and devotion to them does not control God or guarantee healing.</p></div>
+        <EditorialLinks links={[{ label: "The Church’s guidance on relics, 236–237", href: "https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20020513_vers-direttorio_en.html" }, { label: "Explore the saints", href: "/saints" }]} />
+      </EditorialSection>
+      <EditorialSection id="relic-visit-preparation" eyebrow="A reverent encounter" title="Prepare for your visit">
+        <RelicVisitReflectionTool />
+        <EditorialDisclosure title="How to venerate a relic"><HowToVenerateRelic /></EditorialDisclosure>
+      </EditorialSection>
+      <EditorialSection eyebrow="Recognize and understand" title="Relics, Scripture, and sacred memory">
+        <RelicClasses />
+        <EditorialDisclosure title="Relics in Scripture"><RelicsAndScripture /></EditorialDisclosure>
+        <EditorialDisclosure title="Traditionally associated with Christ’s Passion"><RelicsOfChrist /></EditorialDisclosure>
+        <EditorialDisclosure title="Relics and the Mass"><RelicsAndMass /></EditorialDisclosure>
+      </EditorialSection>
+      <EditorialSection eyebrow="Authenticity and care" title="Handle sacred things with care">
+        <p className="max-w-3xl text-base leading-8 text-muted">Daily Oratory cannot authenticate a relic. Some claims are uncertain or disputed; seek guidance from the relevant parish, shrine, religious community, or diocese.</p>
+        <RelicsBuyingSelling />
+        <EditorialDisclosure title="Documentation and authenticity"><RelicsAuthenticity /></EditorialDisclosure>
+        <EditorialDisclosure title="If you have inherited or received a relic"><WhatIfIHaveRelic /></EditorialDisclosure>
+        <EditorialDisclosure title="Healing, faith, and appropriate care"><RelicsAndHealing /></EditorialDisclosure>
+        <p className="text-sm leading-7 text-muted">God is the healer. Continue appropriate medical care, and bring serious illness to prayer, the sacraments, and professional care.</p>
+      </EditorialSection>
+      <EditorialSection eyebrow="Prayer and pilgrimage" title="Ask for intercession. Grow in charity.">
+        <p className="text-sm leading-7 text-muted">Original Daily Oratory devotional prayers.</p>
+        <RelicPrayerCards />
+        <EditorialDisclosure title="Pilgrimage resources"><RelicPilgrimageSites /></EditorialDisclosure>
+      </EditorialSection>
+      <EditorialSection eyebrow="Further reading" title="Questions and Church guidance">
+        <EditorialDisclosure title="Common questions"><RelicsFAQ /></EditorialDisclosure>
+        <RelicResources />
+        <RelicCopyrightNote />
+      </EditorialSection>
+    </EditorialPage>
   );
 }

@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { SectionHeader } from "@/components/section-header";
 import { relicVisitOptions } from "@/data/relicsPage";
-import { trackEvent } from "@/lib/analytics";
 import type { RelicVisitNeed } from "@/types/relics";
 import { buildRelicVisitRecommendation, formatRelicVisitRecommendationForCopy } from "@/lib/relics";
 
@@ -14,9 +13,7 @@ export function RelicVisitReflectionTool() {
   const result = useMemo(() => buildRelicVisitRecommendation(need), [need]);
 
   function changeNeed(value: RelicVisitNeed) {
-    setNeed(value);
-    trackEvent("relic_visit_tool_use", { item_slug: value, destination: "/relics" });
-  }
+    setNeed(value);  }
 
   async function copyRecommendation() {
     try {

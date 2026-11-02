@@ -92,10 +92,10 @@ export const relicClasses: RelicClass[] = [
     id: "class-third",
     title: "Third-Class Relic",
     slug: "third-class",
-    description: "An object touched to a first-class or second-class relic, or to a saint's tomb or shrine.",
-    examples: ["holy card", "cloth", "medal"],
+    description: "An object brought into contact with a saint's body, tomb, or relic.",
+    examples: ["a cloth brought into contact with a saint's tomb", "a prayer card brought into contact with a saint's relic"],
     reverenceNote: "Third-class relics are often devotional items used for prayer and remembrance.",
-    cautionNote: "Even these should never be treated like magic protection or novelty items.",
+    cautionNote: "Contact with an arbitrary shrine or holy site does not establish this connection. Daily Oratory does not authenticate relics. These objects should never be treated as magical protection or novelty items.",
     sortOrder: 30,
   },
 ];

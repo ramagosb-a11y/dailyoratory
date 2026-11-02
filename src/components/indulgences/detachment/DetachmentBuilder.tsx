@@ -62,6 +62,7 @@ export function DetachmentBuilder() {
   return (
     <div id="detachment-builder">
       <LocalPlanToolShell
+        safeStorage
         eyebrow="Prayerful planning"
         title="Build a Detachment from Sin Plan"
         summary="Help your next step become concrete. This plan is meant to support grace, honesty, and peace rather than anxious self-analysis."

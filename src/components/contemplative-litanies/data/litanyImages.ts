@@ -15,7 +15,7 @@ const saintJosephProtectorImg = image('saint-joseph-protector-of-the-church.webp
 const holyNameHeroImg = image('holy_name_hero_1788196946386.jpg');
 const preciousBloodHeroImg = image('precious_blood_hero_1788196962982.jpg');
 const loretoHeroImg = image('loreto_hero_1788196976232.jpg');
-const saintsHeroImg = image('saints_hero_1788196988693.jpg');
+const saintsHeroImg = image('saints_hero_1788196988693.webp');
 const humilityHeroImg = image('humility_hero_1788197000998.jpg');
 
 export {

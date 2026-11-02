@@ -1,4 +1,5 @@
 import { getLiturgicalDashboardModel, type LiturgicalDashboardModel } from "@/lib/liturgicalLiving";
+import { dailyPrayerDayTitle } from "./dailyPrayerTitle";
 
 export type DailyPrayerModel = {
   liturgicalTitle: string;
@@ -13,6 +14,7 @@ export type DailyPrayerModel = {
 export function getDailyPrayerModel(date = new Date()): DailyPrayerModel {
   const model = getLiturgicalDashboardModel(date);
   const day = model.day;
+  const liturgicalTitle = dailyPrayerDayTitle(day.title);
   const prayerTitle = day.suggestedPrayer?.title ?? "Begin in prayer";
   const prayerLead = day.suggestedPrayer?.description ?? "Offer the day to the Lord and ask for grace to live faithfully.";
   const invocation = getInvocation(model);
@@ -22,7 +24,7 @@ export function getDailyPrayerModel(date = new Date()): DailyPrayerModel {
   const prayerBody = [
     `${invocation}`,
     "",
-    `As the Church keeps ${day.title}, I come before You with gratitude and trust.`,
+    `As the Church keeps ${liturgicalTitle}, I come before You with gratitude and trust.`,
     `${thanksgiving}`,
     "",
     `${petition}`,
@@ -37,14 +39,14 @@ export function getDailyPrayerModel(date = new Date()): DailyPrayerModel {
   ].join("\n");
 
   return {
-    liturgicalTitle: day.title,
+    liturgicalTitle,
     prayerTitle,
     prayerLead,
     prayerBody,
     prayerTextForCopy: [
       "Daily Oratory Suggested Prayer",
       prayerTitle,
-      `${day.title}`,
+      liturgicalTitle,
       "",
       prayerBody,
     ].join("\n"),

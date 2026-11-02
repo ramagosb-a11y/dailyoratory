@@ -1,0 +1,7 @@
+.reading { max-width: 49rem; margin: 2.5rem auto 0; }
+.movement { scroll-margin-top: 7rem; padding: 2.75rem 0; border-bottom: 1px solid #d4c6aa; }
+.movement h2 { font-family: var(--font-heading); font-weight: 500; font-size: clamp(2rem,4vw,2.9rem); line-height: 1.15; }
+.movement p { font-size: 1.125rem; line-height: 1.95; }
+.prayer { padding: 2rem 1.5rem; margin-block: 2rem; border-left: 2px solid #b59052; background: #f1ebde; }
+@media(max-width:600px) { .reading { margin-top: 1.5rem; } .movement { padding: 2rem 0; } .movement p { font-size: 1.05rem; line-height: 1.9; } .prayer { padding: 1.5rem 1.1rem; } }
+@media print { .reading { max-width: none; } .movement { break-inside: auto; } }

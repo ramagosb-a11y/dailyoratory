@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { SectionHeader } from "@/components/section-header";
-import { trackEvent } from "@/lib/analytics";
 import { sacramentalFinderOptions } from "@/data/sacramentalsPage";
 import type { SacramentalFinderNeed } from "@/types/sacramentals";
 import { buildSacramentalFinderRecommendation, formatSacramentalFinderRecommendationForCopy } from "@/lib/sacramentals";
@@ -25,9 +24,7 @@ export function SacramentalFinderTool() {
   }
 
   function handleChange(value: SacramentalFinderNeed) {
-    setNeed(value);
-    trackEvent("sacramental_finder_use", { item_slug: value, source: "/sacramentals" });
-  }
+    setNeed(value);  }
 
   return (
     <section>

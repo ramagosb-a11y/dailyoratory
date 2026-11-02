@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { SectionHeader } from "@/components/section-header";
 import { getAdorationPrayerPaths, getPrayerPathByNeed } from "@/lib/adoration";
-import { trackEvent } from "@/lib/analytics";
 import type { PrayerPathNeed } from "@/types/adoration";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 
@@ -48,9 +47,7 @@ export function AdorationPrayerPathSelector() {
               value={need}
               onChange={(event) => {
                 const nextNeed = event.target.value as PrayerPathNeed;
-                setNeed(nextNeed);
-                trackEvent("adoration_prayer_path_select", { page_path: "/adoration", prayer_path: nextNeed });
-              }}
+                setNeed(nextNeed);              }}
               className="rounded-md border border-stone bg-ivory px-3 py-3 text-sm font-normal text-navy"
             >
               {paths.map((path) => (

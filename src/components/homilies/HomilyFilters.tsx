@@ -6,8 +6,6 @@ import { getHomilySeasonOptions, getHomilyTopicOptions, isAudioHomily, isPlaylis
 import type { HomilyItem } from "@/types/homilies";
 import { AudioHomilies } from "./AudioHomilies";
 import { HomilyCard } from "./HomilyCard";
-import { HomilySeasonBrowser } from "./HomilySeasonBrowser";
-import { HomilyTopicBrowser } from "./HomilyTopicBrowser";
 
 export function HomilyFilters({ items }: { items: HomilyItem[] }) {
   const [query, setQuery] = useState("");
@@ -22,6 +20,16 @@ export function HomilyFilters({ items }: { items: HomilyItem[] }) {
   const seasons = getHomilySeasonOptions();
   const speakers = Array.from(new Set(items.map((item) => item.creator))).sort();
   const audiences = Array.from(new Set(items.flatMap((item) => item.audience))).sort();
+
+  function clearFilters() {
+    setQuery("");
+    setMediaType("");
+    setTopic("");
+    setSeason("");
+    setSpeaker("");
+    setAudience("");
+    setFeaturedOnly(false);
+  }
 
   const normalizedQuery = query.trim().toLowerCase();
 
@@ -146,26 +154,16 @@ export function HomilyFilters({ items }: { items: HomilyItem[] }) {
             />
             Featured only
           </label>
-          <p className="text-sm font-semibold text-muted">{filtered.length} approved homily item{filtered.length === 1 ? "" : "s"}</p>
+          <p role="status" aria-live="polite" aria-atomic="true" className="text-sm font-semibold text-muted">{filtered.length} approved homily item{filtered.length === 1 ? "" : "s"}</p>
+          <button type="button" onClick={clearFilters} className="btn btn-secondary focus-ring justify-center">Clear filters</button>
         </div>
       </div>
 
-      <HomilyTopicBrowser
-        topics={topics}
-        activeTopic={topic}
-        onSelect={(value) => {
-          setTopic(value);
-          trackEvent("homily_filter_apply", { filter_name: "topic", filter_value: value || "all" });
-        }}
-      />
-      <HomilySeasonBrowser
-        seasons={seasons}
-        activeSeason={season}
-        onSelect={(value) => {
-          setSeason(value);
-          trackEvent("homily_filter_apply", { filter_name: "season", filter_value: value || "all" });
-        }}
-      />
+      {filtered.length === 0 && <div className="rounded-lg border border-stone bg-ivory p-6 sm:p-8">
+        <h3 className="font-display text-3xl font-semibold text-navy">No homilies match these filters.</h3>
+        <p className="mt-3 text-base leading-8 text-muted">Try a shorter search, choose a different topic, or clear the filters to see every available item.</p>
+        <button type="button" onClick={clearFilters} className="btn btn-primary focus-ring mt-5 justify-center">Show all homilies</button>
+      </div>}
 
       {playlistItems.length ? (
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">

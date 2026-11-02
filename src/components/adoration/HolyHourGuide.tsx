@@ -7,18 +7,31 @@ import { formatHolyHourGuideForCopy, getHolyHourGuide } from "@/lib/adoration";
 import { trackEvent } from "@/lib/analytics";
 import type { HolyHourGuideBlock } from "@/types/adoration";
 
-export function HolyHourGuide() {
+export function HolyHourGuide({ pagePath = "/adoration" }: { pagePath?: string }) {
   const segments = getHolyHourGuide();
   const [copied, setCopied] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
 
   async function copyGuide() {
     try {
+      setStatusMessage("");
       await navigator.clipboard.writeText(formatHolyHourGuideForCopy());
       setCopied(true);
-      trackEvent("adoration_holy_hour_copy", { page_path: "/adoration" });
+      setStatusMessage("Holy Hour guide copied to clipboard.");
+      trackEvent("adoration_holy_hour_copy", { page_path: pagePath });
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setStatusMessage("Copy is unavailable. You can select and copy the guide text manually.");
+    }
+  }
+
+  function printGuide() {
+    setStatusMessage("");
+    try {
+      window.print();
+    } catch {
+      setStatusMessage("Printing is unavailable here. Try your browser's Print command.");
     }
   }
 
@@ -87,7 +100,7 @@ export function HolyHourGuide() {
         <button type="button" onClick={copyGuide} className="btn liturgical-button focus-ring justify-center">
           {copied ? "Holy Hour guide copied" : "Copy Holy Hour Guide"}
         </button>
-        <button type="button" onClick={() => window.print()} className="btn btn-secondary focus-ring justify-center">
+        <button type="button" onClick={printGuide} className="btn btn-secondary focus-ring justify-center">
           Print Holy Hour Guide
         </button>
         <Link
@@ -97,6 +110,7 @@ export function HolyHourGuide() {
           Open Adoration Companion
         </Link>
       </div>
+      <p role="status" className="mt-3 text-sm leading-7 text-muted">{statusMessage}</p>
     </section>
   );
 }

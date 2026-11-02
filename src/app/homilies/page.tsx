@@ -1,5 +1,5 @@
+import { EditorialPage, EditorialHero, EditorialSection, EditorialDisclosure, EditorialLinks } from "@/components/editorial/Editorial";
 import type { Metadata } from "next";
-import { AudioHomilies } from "@/components/homilies/AudioHomilies";
 import { FeaturedHomilies } from "@/components/homilies/FeaturedHomilies";
 import { HomilyCollections } from "@/components/homilies/HomilyCollections";
 import { HomilyCopyrightNote } from "@/components/homilies/HomilyCopyrightNote";
@@ -7,8 +7,6 @@ import { HomilyExternalResources } from "@/components/homilies/HomilyExternalRes
 import { HomilyFilters } from "@/components/homilies/HomilyFilters";
 import { HomiliesAndMass } from "@/components/homilies/HomiliesAndMass";
 import { HomiliesForExplorers } from "@/components/homilies/HomiliesForExplorers";
-import { HomiliesHero } from "@/components/homilies/HomiliesHero";
-import { HomilyPlaylists } from "@/components/homilies/HomilyPlaylists";
 import { HomilyReflectionPrompts } from "@/components/homilies/HomilyReflectionPrompts";
 import { HowToUseHomilies } from "@/components/homilies/HowToUseHomilies";
 import { RelatedHomilyTools } from "@/components/homilies/RelatedHomilyTools";
@@ -19,8 +17,6 @@ import {
   getFeaturedHomilies,
   getFeaturedHomilyCollections,
   getHomilyResources,
-  isAudioHomily,
-  isPlaylistHomily,
 } from "@/lib/homilies";
 
 const pageDescription =
@@ -79,46 +75,19 @@ export default async function HomiliesPage() {
     Promise.resolve(getHomilyResources()),
   ]);
 
-  const playlistItems = allHomilies.filter((item) => isPlaylistHomily(item));
-  const audioItems = allHomilies.filter((item) => isAudioHomily(item));
-
   return (
-    <div className="paper-texture">
-      <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
-        <HomiliesHero />
-        <div className="mt-14">
-          <FeaturedHomilies items={featuredHomilies.slice(0, 5)} />
-        </div>
-        <div className="mt-14">
-          <HomilyPlaylists items={playlistItems} />
-        </div>
-        <div className="mt-14">
-          <AudioHomilies items={audioItems} />
-        </div>
-        <div className="mt-14">
-          <HomilyFilters items={allHomilies} />
-        </div>
-        <div className="mt-14">
-          <HomilyCollections collections={collections} />
-        </div>
-        <div className="mt-14">
-          <HowToUseHomilies />
-        </div>
-        <div className="mt-14">
-          <HomilyReflectionPrompts />
-        </div>
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          <HomiliesAndMass />
-          <HomiliesForExplorers />
-        </div>
-        <div className="mt-14">
-          <HomilyExternalResources resources={resources} />
-        </div>
-        <div className="mt-14 grid gap-8 lg:grid-cols-2">
-          <RelatedHomilyTools />
-          <HomilyCopyrightNote />
-        </div>
-      </main>
-    </div>
+    <EditorialPage longform breadcrumbs={[{ label: "Learn", href: "/learn" }, { label: "Homilies" }]}>
+      <EditorialHero eyebrow="Listen with the Church" title="A word for the journey." description="Catholic preaching, Gospel reflections, and thoughtful formation. Find a voice that helps you listen, pray, and live the faith." image="/images/editorial/homilies.webp" imageAlt="A Catholic church prepared for worship" actions={[{ label: "Explore the library", href: "#homily-library" }, ...(featuredHomilies.length ? [{ label: "Featured listening", href: "#featured-homilies" }] : [])]} />
+      {featuredHomilies.length > 0 && <div className="mt-12"><FeaturedHomilies items={featuredHomilies.slice(0, 2)} /></div>}
+      <EditorialSection id="homily-library" eyebrow="Choose your next listen" title="The homily library" description="Search approved videos, playlists, and audio resources by topic, season, or speaker."><div id="homily-playlists"><HomilyFilters items={allHomilies} /></div></EditorialSection>
+      {collections.length > 0 && <EditorialSection eyebrow="A path to follow" title="Listen a little deeper"><HomilyCollections collections={collections} /></EditorialSection>}
+      <EditorialSection eyebrow="Carry it into life" title="From listening to prayer">
+        <EditorialDisclosure title="A simple way to listen"><HowToUseHomilies /></EditorialDisclosure>
+        <EditorialDisclosure title="Reflection prompts to keep"><HomilyReflectionPrompts /></EditorialDisclosure>
+        <EditorialDisclosure title="Homilies, the Mass, and first questions"><HomiliesAndMass /><HomiliesForExplorers /></EditorialDisclosure>
+        <EditorialLinks links={[{ label: "Daily Mass reflections", href: "/reflections/mass-readings" }, { label: "Today’s prayer", href: "/pray/today" }]} />
+      </EditorialSection>
+      <EditorialSection eyebrow="Keep exploring" title="Sources and further listening"><EditorialDisclosure title="External homily resources"><HomilyExternalResources resources={resources} /></EditorialDisclosure><EditorialDisclosure title="Related tools and source notes"><RelatedHomilyTools /><HomilyCopyrightNote /></EditorialDisclosure></EditorialSection>
+    </EditorialPage>
   );
 }

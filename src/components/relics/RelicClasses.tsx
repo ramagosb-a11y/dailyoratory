@@ -23,7 +23,7 @@ export function RelicClasses() {
       <SectionHeader
         eyebrow="Classes"
         title="The Classes of Relics"
-        summary="First class: part of the saint. Second class: something used by the saint. Third class: something touched to a relic or holy site."
+        summary="First class: part of the saint. Second class: something used by the saint. Third class: an object brought into contact with a saint's body, tomb, or relic."
       />
       <div className="mt-7 grid gap-5 lg:grid-cols-3">
         {classes.map((item) => (
