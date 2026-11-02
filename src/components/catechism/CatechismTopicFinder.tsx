@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { SectionHeader } from "@/components/section-header";
-import { trackEvent } from "@/lib/analytics";
 import {
   buildCatechismStudyPlan,
   formatCatechismStudyPlanForCopy,
@@ -15,6 +14,7 @@ export function CatechismTopicFinder() {
   const topics = getCatechismTopics();
   const [topicSlug, setTopicSlug] = useState(topics[0]?.slug ?? "");
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   const topic = useMemo(
     () => getCatechismTopicBySlug(topicSlug) ?? topics[0],
@@ -24,15 +24,13 @@ export function CatechismTopicFinder() {
 
   async function copyPlan() {
     try {
+      setCopyError(false);
       await navigator.clipboard.writeText(formatCatechismStudyPlanForCopy(plan));
       setCopied(true);
-      trackEvent("catechism_study_plan_copy", {
-        topic_slug: topic?.slug,
-        page_path: "/catechism",
-      });
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyError(true);
     }
   }
 
@@ -43,7 +41,7 @@ export function CatechismTopicFinder() {
   return (
     <section id="catechism-topic-finder" className="scroll-mt-28">
       <SectionHeader
-        eyebrow="Interactive tool"
+        eyebrow="Your starting point"
         title="Find a Catechism Topic"
         summary="Choose the question or situation that best describes where you want to begin. This tool uses local state only and does not send your selection to a server."
       />
@@ -57,10 +55,6 @@ export function CatechismTopicFinder() {
               onChange={(event) => {
                 const nextValue = event.target.value;
                 setTopicSlug(nextValue);
-                trackEvent("catechism_topic_select", {
-                  topic_slug: nextValue,
-                  page_path: "/catechism",
-                });
               }}
               className="form-field focus-ring"
             >
@@ -116,9 +110,7 @@ export function CatechismTopicFinder() {
               eventName="catechism_resource_click"
               eventParams={{
                 resource_name: "Official Catechism link",
-                resource_url: topic.officialResourceUrl,
                 section: "catechism-topic-finder",
-                topic_slug: topic.slug,
                 page_path: "/catechism",
               }}
             >
@@ -139,6 +131,7 @@ export function CatechismTopicFinder() {
           </div>
         </aside>
       </div>
+    <p role="status" className="mt-3 text-sm text-muted">{copyError ? "Copy is unavailable. You can select and copy the text manually." : copied ? "Copied to clipboard." : ""}</p>
     </section>
   );
 }

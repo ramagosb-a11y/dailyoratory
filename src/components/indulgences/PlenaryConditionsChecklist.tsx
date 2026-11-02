@@ -35,6 +35,10 @@ export function PlenaryConditionsChecklist() {
           </ul>
         </div>
         <div className="grid gap-5">
+          <NotePanel title="Check the grant">
+            The prescribed work and its particular requirements must be completed. Prayer for detachment is not itself a determination that full detachment has been attained.
+            <a className="text-link focus-ring mt-3 block" href="https://www.vatican.va/roman_curia/tribunals/apost_penit/documents/rc_trib_appen_pro_20000129_indulgence_en.html" target="_blank" rel="noopener noreferrer">Read the Apostolic Penitentiary’s explanation</a>
+          </NotePanel>
           <NotePanel title="Pastoral note">
             If full detachment from sin is lacking, the indulgence may be partial rather than plenary.
           </NotePanel>

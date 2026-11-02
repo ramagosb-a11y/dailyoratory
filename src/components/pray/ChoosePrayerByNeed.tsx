@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
-import { trackEvent } from "@/lib/analytics";
 import { getPrayerNeedRecommendations, getTopPrayers } from "@/lib/prayer";
 
 const recommendations = getPrayerNeedRecommendations();
@@ -26,7 +25,7 @@ export function ChoosePrayerByNeed() {
 
   return (
     <section id="prayer-by-need" className="scroll-mt-28">
-      <p className="liturgical-section-eyebrow">Interactive tool</p>
+      <p className="liturgical-section-eyebrow">Prayer for your need</p>
       <h2 className="font-display mt-2 text-4xl font-semibold leading-tight text-navy sm:text-5xl">
         What do you need to pray about today?
       </h2>
@@ -44,7 +43,6 @@ export function ChoosePrayerByNeed() {
               onChange={(event) => {
                 const nextValue = event.target.value;
                 setNeedSlug(nextValue);
-                trackEvent("prayer_need_select", { need_slug: nextValue });
               }}
               className="form-field focus-ring"
             >
@@ -74,7 +72,7 @@ export function ChoosePrayerByNeed() {
                 <p className="mt-2 text-sm leading-7 text-muted">
                   {prayer.whenToPray} prayer for {prayer.category.toLowerCase()}.
                 </p>
-                <a href="#prayers-for-today" className="mt-3 inline-flex text-sm font-semibold text-navy underline-offset-4 hover:underline">
+                <a href={prayer.sortOrder === 1 ? "#prayers-for-today" : `#prayer-${prayer.slug}`} className="mt-3 inline-flex text-sm font-semibold text-navy underline-offset-4 hover:underline">
                   Read this prayer
                 </a>
               </div>

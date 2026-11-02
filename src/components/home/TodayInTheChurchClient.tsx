@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { TodaySaintCompanionCard } from "@/components/home/TodaySaintCompanionCard";
+import styles from "./TodayReadingsButton.module.css";
 import { todayActionClassName } from "@/components/home/todayActionStyles";
 import { homeLiturgicalSurfaceThemes } from "@/components/home/homeLiturgicalSurface";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
@@ -64,7 +65,7 @@ export function TodayInTheChurchClient({
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <TrackedLink
               href="/reflections/reading-and-reflections"
-              className={`${todayActionClassName} ${theme.primaryButtonClassName}`}
+              className={`${todayActionClassName} ${styles.readingsButton}`}
               eventName="reflection_open"
               eventParams={{
                 reflection_slug: "reading-and-reflections-index",

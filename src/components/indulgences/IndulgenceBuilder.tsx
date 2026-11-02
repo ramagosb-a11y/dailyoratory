@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { commonIndulgencedWorks } from "@/data/commonIndulgencedWorks";
-import { buildIndulgencePlanText, validateIndulgencePlan } from "@/lib/indulgences";
+import { buildIndulgencePlanText, validateIndulgencePlan, isWithinJubilee2025, isWithinYearOfSaintFrancis2026 } from "@/lib/indulgences";
+import { parseStoredIndulgencePlan } from "./planStorage";
 import type { IndulgenceOfferingTarget, IndulgencePlan, IndulgencedWorkSlug } from "@/types/indulgences";
 
 const STORAGE_KEY = "daily-oratory-indulgence-plan";
@@ -29,7 +30,14 @@ const intentionOptions: { value: IndulgenceOfferingTarget; label: string }[] = [
 export function IndulgenceBuilder() {
   const [plan, setPlan] = useState<IndulgencePlan>(emptyPlan);
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
   const [storageReady, setStorageReady] = useState(false);
+  const changedByUser = useRef(false);
+  const [storageMessage, setStorageMessage] = useState("");
+  const availableWorks = commonIndulgencedWorks.filter((work) =>
+    (work.slug !== "jubilee-pilgrimage" || isWithinJubilee2025()) &&
+    (work.slug !== "saint-francis-pilgrimage" || isWithinYearOfSaintFrancis2026()),
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -38,25 +46,34 @@ export function IndulgenceBuilder() {
       try {
         const raw = window.localStorage.getItem(STORAGE_KEY);
         if (raw) {
-          const parsed = JSON.parse(raw) as Partial<IndulgencePlan>;
-          setPlan((current) => ({ ...current, ...parsed }));
+          const parsed = parseStoredIndulgencePlan(raw, [...commonIndulgencedWorks.map((work) => work.slug), "other"]);
+          if (parsed) {
+            const expired = (parsed.selectedWork === "jubilee-pilgrimage" && !isWithinJubilee2025()) ||
+              (parsed.selectedWork === "saint-francis-pilgrimage" && !isWithinYearOfSaintFrancis2026());
+            setPlan(expired ? { ...parsed, selectedWork: "other" } : parsed);
+            if (expired) setStorageMessage("The saved special-year work has ended. Choose a currently available work; your other preparation notes are retained.");
+          } else setStorageMessage("The saved plan could not be read. You can begin a new plan below.");
         }
         setStorageReady(true);
       } catch {
         setStorageReady(false);
+        setStorageMessage("Browser storage is unavailable. Your plan can still be used here, but changes will not be saved.");
       }
     });
     return () => { cancelled = true; };
   }, []);
 
   useEffect(() => {
-    if (!storageReady) return;
-
+    if (!storageReady || !changedByUser.current) return;
+    let cancelled = false;
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(plan));
     } catch {
-      // Keep the builder functional even if storage is unavailable.
+      queueMicrotask(() => {
+        if (!cancelled) setStorageMessage("Your changes could not be saved in this browser. You can still use or copy the plan.");
+      });
     }
+    return () => { cancelled = true; };
   }, [plan, storageReady]);
 
   const validation = validateIndulgencePlan(plan);
@@ -64,20 +81,26 @@ export function IndulgenceBuilder() {
 
   async function copyPlan() {
     try {
+      setCopyError(false);
       await navigator.clipboard.writeText(planText);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyError(true);
     }
   }
 
   function clearPlan() {
+    changedByUser.current = false;
     setPlan({ ...emptyPlan, createdAt: new Date().toISOString() });
+    setCopied(false);
+    setCopyError(false);
     try {
       window.localStorage.removeItem(STORAGE_KEY);
+      setStorageMessage("Plan cleared from this browser.");
     } catch {
-      // ignore
+      setStorageMessage("Plan reset. Browser storage is unavailable, so saved data could not be cleared.");
     }
   }
 
@@ -92,7 +115,7 @@ export function IndulgenceBuilder() {
       </p>
 
       <div className="mt-6 grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
-        <form className="dashboard-card p-6 sm:p-8" onSubmit={(event) => event.preventDefault()}>
+        <form className="dashboard-card p-6 sm:p-8" onChangeCapture={() => { changedByUser.current = true; setStorageMessage(""); }} onSubmit={(event) => event.preventDefault()}>
           <div className="grid gap-6">
             <label className="grid gap-2">
               <span className="text-sm font-semibold text-navy">What indulgenced work will you complete today?</span>
@@ -102,7 +125,7 @@ export function IndulgenceBuilder() {
                 className="form-field focus-ring"
                 aria-label="What indulgenced work will you complete today?"
               >
-                {commonIndulgencedWorks.map((work) => (
+                {availableWorks.map((work) => (
                   <option key={work.id} value={work.slug}>
                     {work.title}
                   </option>
@@ -131,6 +154,7 @@ export function IndulgenceBuilder() {
               <span className="text-sm font-semibold text-navy">Name or intention (optional)</span>
               <input
                 type="text"
+                maxLength={500}
                 value={plan.intentionName}
                 onChange={(event) => setPlan((current) => ({ ...current, intentionName: event.target.value }))}
                 className="form-field focus-ring"
@@ -169,8 +193,9 @@ export function IndulgenceBuilder() {
             </fieldset>
 
             <div className="rounded-md border border-stone bg-parchment px-4 py-3 text-xs leading-6 text-muted">
-              Privacy note: stored only in this browser if saved.
+              Changes are saved automatically in this browser when storage is available. Clear Plan removes this browser’s saved plan. Copying or printing creates a separate copy you manage.
             </div>
+            <p role="status" className="text-sm leading-7 text-muted">{storageMessage}</p>
           </div>
         </form>
 
@@ -202,6 +227,9 @@ export function IndulgenceBuilder() {
               Clear Plan
             </button>
           </div>
+          <p role="status" className="mt-3 text-sm leading-7 text-muted">
+            {copyError ? "Copy is unavailable. You can select and copy the plan text manually." : copied ? "Plan copied to clipboard." : ""}
+          </p>
         </aside>
       </div>
     </section>

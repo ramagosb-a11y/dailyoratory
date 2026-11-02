@@ -14,14 +14,17 @@ const weeklyRhythm = [
 
 export function WeeklyFormationPlan() {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   async function copyWeeklyRhythm() {
     try {
+      setCopyError(false);
       await navigator.clipboard.writeText(["A Simple Weekly Formation Rhythm", "", ...weeklyRhythm].join("\n"));
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyError(true);
     }
   }
 
@@ -44,6 +47,7 @@ export function WeeklyFormationPlan() {
       <button type="button" onClick={copyWeeklyRhythm} className="btn btn-secondary focus-ring mt-5 justify-center">
         {copied ? "Weekly rhythm copied" : "Copy Weekly Rhythm"}
       </button>
+    <p role="status" className="mt-3 text-sm text-muted">{copyError ? "Copy is unavailable. You can select and copy the text manually." : copied ? "Copied to clipboard." : ""}</p>
     </section>
   );
 }

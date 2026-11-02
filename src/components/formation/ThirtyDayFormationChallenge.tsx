@@ -6,6 +6,7 @@ import type { FormationChallenge } from "@/types/formation";
 
 export function ThirtyDayFormationChallenge({ challenge }: { challenge: FormationChallenge }) {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   const challengeText = [
     challenge.title,
@@ -20,11 +21,13 @@ export function ThirtyDayFormationChallenge({ challenge }: { challenge: Formatio
 
   async function copyChallenge() {
     try {
+      setCopyError(false);
       await navigator.clipboard.writeText(challengeText);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyError(true);
     }
   }
 
@@ -61,6 +64,7 @@ export function ThirtyDayFormationChallenge({ challenge }: { challenge: Formatio
           Start with Rule of Life
         </Link>
       </div>
+    <p role="status" className="mt-3 text-sm text-muted">{copyError ? "Copy is unavailable. You can select and copy the text manually." : copied ? "Copied to clipboard." : ""}</p>
     </section>
   );
 }

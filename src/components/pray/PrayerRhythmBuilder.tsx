@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
-import { trackEvent } from "@/lib/analytics";
 import { buildPrayerRhythmPlan, formatPrayerRhythmPlanForCopy } from "@/lib/prayer";
 
 const timeOptions = ["2 minutes", "5 minutes", "10 minutes", "15 minutes", "30 minutes", "60 minutes"];
@@ -23,7 +22,7 @@ export function PrayerRhythmBuilder() {
   const [timeOfDay, setTimeOfDay] = useState("Morning");
   const [prayerStyle, setPrayerStyle] = useState("traditional prayers");
   const [copied, setCopied] = useState(false);
-  const hasMountedRef = useRef(false);
+  const [copyError, setCopyError] = useState(false);
 
   const plan = useMemo(
     () =>
@@ -36,26 +35,16 @@ export function PrayerRhythmBuilder() {
     [prayerStyle, timeAvailable, timeOfDay],
   );
 
-  useEffect(() => {
-    if (!hasMountedRef.current) {
-      hasMountedRef.current = true;
-      return;
-    }
-
-    trackEvent("prayer_rhythm_build", {
-      time_available: timeAvailable,
-      time_of_day: timeOfDay,
-      prayer_style: prayerStyle,
-    });
-  }, [prayerStyle, timeAvailable, timeOfDay]);
 
   async function copyPlan() {
     try {
+      setCopyError(false);
       await navigator.clipboard.writeText(formatPrayerRhythmPlanForCopy(plan));
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyError(true);
     }
   }
 
@@ -67,7 +56,7 @@ export function PrayerRhythmBuilder() {
 
   return (
     <section id="prayer-rhythm-builder" className="scroll-mt-28">
-      <p className="liturgical-section-eyebrow">Interactive tool</p>
+      <p className="liturgical-section-eyebrow">A steady rhythm</p>
       <h2 className="font-display mt-2 text-4xl font-semibold leading-tight text-navy sm:text-5xl">
         Build a simple prayer rhythm
       </h2>
@@ -162,6 +151,7 @@ export function PrayerRhythmBuilder() {
           </div>
         </aside>
       </div>
+    <p role="status" className="mt-3 text-sm text-muted">{copyError ? "Copy is unavailable. You can select and copy the text manually." : copied ? "Copied to clipboard." : ""}</p>
     </section>
   );
 }

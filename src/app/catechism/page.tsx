@@ -1,26 +1,15 @@
 import type { Metadata } from "next";
-import { Breadcrumbs } from "@/components/breadcrumbs";
-import { BeginnerCatechismPaths } from "@/components/catechism/BeginnerCatechismPaths";
-import { CatechismAndMass } from "@/components/catechism/CatechismAndMass";
-import { CatechismAndMoralLife } from "@/components/catechism/CatechismAndMoralLife";
-import { CatechismAndPrayer } from "@/components/catechism/CatechismAndPrayer";
-import { CatechismAndScripture } from "@/components/catechism/CatechismAndScripture";
-import { CatechismCopyrightNote } from "@/components/catechism/CatechismCopyrightNote";
-import { CatechismDailyLife } from "@/components/catechism/CatechismDailyLife";
-import { CatechismFAQ } from "@/components/catechism/CatechismFAQ";
-import { CatechismForDifferentUsers } from "@/components/catechism/CatechismForDifferentUsers";
-import { CatechismHero } from "@/components/catechism/CatechismHero";
+import { createPageMetadata } from "@/lib/metadata";
+import { SectionJumpNav } from "@/components/SectionJumpNav";
+import { EditorialPage, EditorialHero, EditorialSection, EditorialGrid, EditorialCard, EditorialDisclosure } from "@/components/editorial/Editorial";
+import { CatechismTopicFinder } from "@/components/catechism/CatechismTopicFinder";
+import { FourPillars } from "@/components/catechism/FourPillars";
 import { CatechismReadingPlan } from "@/components/catechism/CatechismReadingPlan";
 import { CatechismStudyMethod } from "@/components/catechism/CatechismStudyMethod";
-import { CatechismTopicFinder } from "@/components/catechism/CatechismTopicFinder";
 import { CompendiumSection } from "@/components/catechism/CompendiumSection";
-import { FourPillars } from "@/components/catechism/FourPillars";
-import { HowToUseCatechism } from "@/components/catechism/HowToUseCatechism";
+import { CatechismFAQ } from "@/components/catechism/CatechismFAQ";
 import { OfficialCatechismResources } from "@/components/catechism/OfficialCatechismResources";
-import { RelatedCatechismTools } from "@/components/catechism/RelatedCatechismTools";
-import { WhatIsCatechism } from "@/components/catechism/WhatIsCatechism";
-import { WhyCatechismMatters } from "@/components/catechism/WhyCatechismMatters";
-import { createPageMetadata } from "@/lib/metadata";
+import { CatechismCopyrightNote } from "@/components/catechism/CatechismCopyrightNote";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Catechism of the Catholic Church",
@@ -43,90 +32,23 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function CatechismPage() {
   return (
-    <div className="paper-texture">
-      <main className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:px-10">
-        <Breadcrumbs items={[{ label: "Learn", href: "/learn" }, { label: "Catechism" }]} />
-
-        <div className="mt-8">
-          <CatechismHero />
-        </div>
-
-        <div className="mt-14">
-          <WhatIsCatechism />
-        </div>
-
-        <div className="mt-14">
-          <WhyCatechismMatters />
-        </div>
-
-        <div className="mt-14">
-          <FourPillars />
-        </div>
-
-        <div className="mt-14">
-          <HowToUseCatechism />
-        </div>
-
-        <div className="mt-14">
-          <CatechismTopicFinder />
-        </div>
-
-        <div className="mt-14">
-          <BeginnerCatechismPaths />
-        </div>
-
-        <div className="mt-14">
-          <CatechismDailyLife />
-        </div>
-
-        <div className="mt-14">
-          <CatechismAndScripture />
-        </div>
-
-        <div className="mt-14">
-          <CatechismAndMass />
-        </div>
-
-        <div className="mt-14">
-          <CatechismAndPrayer />
-        </div>
-
-        <div className="mt-14">
-          <CatechismAndMoralLife />
-        </div>
-
-        <div className="mt-14">
-          <CompendiumSection />
-        </div>
-
-        <div className="mt-14">
-          <CatechismReadingPlan />
-        </div>
-
-        <div className="mt-14">
-          <CatechismStudyMethod />
-        </div>
-
-        <div className="mt-14">
-          <CatechismFAQ />
-        </div>
-
-        <div className="mt-14">
-          <CatechismForDifferentUsers />
-        </div>
-
-        <div className="mt-14">
-          <RelatedCatechismTools />
-        </div>
-
-        <div className="mt-14">
-          <OfficialCatechismResources />
-        </div>
-
-        <div className="mt-14">
-          <CatechismCopyrightNote />
-        </div>
-      </main>
-    </div>
+    <EditorialPage breadcrumbs={[{ label: "Learn", href: "/learn" }, { label: "Catechism" }]}>
+      <EditorialHero eyebrow="Know the faith" title="The Catechism" description="Explore what the Church believes, celebrates, lives, and prays. Begin with a question, then follow it to the source." image="/images/editorial/catechism.webp" imageAlt="" actions={[{ label: "Find a topic", href: "#catechism-topic-finder" }, { label: "Read the official Catechism", href: "https://www.vatican.va/archive/ENG0015/_INDEX.HTM" }]} />
+      <SectionJumpNav ariaLabel="Catechism sections" items={[{ label: "Find a topic", href: "#catechism-topic-finder" }, { label: "Four pillars", href: "#four-pillars" }, { label: "Study", href: "#study" }, { label: "Daily life", href: "#daily-life" }, { label: "Questions", href: "#questions" }, { label: "Sources", href: "#sources" }]} />
+      <div className="mt-14"><CatechismTopicFinder /></div>
+      <EditorialSection title="A map of the Catholic faith" eyebrow="The foundations" description="The Catechism of the Catholic Church is a comprehensive summary of Catholic teaching. It connects doctrine, worship, morality, and prayer. CCC references identify paragraph numbers, so you can return to the teaching in context."><FourPillars /></EditorialSection>
+      <EditorialSection id="study" title="Read slowly. Return often." eyebrow="A place to begin" description="A manageable reading plan and a simple method for prayerful study.">
+        <CatechismReadingPlan />
+        <EditorialDisclosure title="A method for studying the Catechism"><CatechismStudyMethod /></EditorialDisclosure>
+        <EditorialDisclosure title="Prefer a question-and-answer format?"><CompendiumSection /></EditorialDisclosure>
+      </EditorialSection>
+      <EditorialSection id="daily-life" title="Let learning become life" eyebrow="Take the next step"><EditorialGrid>
+        <EditorialCard title="Scripture" description="Read the Bible with the Church and bring the Word of God into prayer." href="/bible" image="/images/editorial/learn.webp" />
+        <EditorialCard title="The sacramental life" description="Explore the seven sacraments and prepare with your parish." href="/sacraments" image="/images/editorial/eucharist.webp" />
+        <EditorialCard title="Prayer and virtue" description="Find a practical path through doctrine, virtue, and spiritual growth." href="/formation" image="/images/editorial/formation.webp" />
+      </EditorialGrid></EditorialSection>
+      <EditorialSection id="questions" title="Questions along the way"><CatechismFAQ /></EditorialSection>
+      <EditorialSection id="sources" title="Go to the source" eyebrow="Official teaching"><OfficialCatechismResources /><CatechismCopyrightNote /></EditorialSection>
+    </EditorialPage>
   );
 }

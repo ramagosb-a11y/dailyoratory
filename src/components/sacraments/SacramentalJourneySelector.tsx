@@ -31,6 +31,7 @@ export function SacramentalJourneySelector() {
             <button
               key={need.id}
               type="button"
+              aria-pressed={selectedNeed === need.slug}
               onClick={() => setSelectedNeed(need.slug)}
               className={`rounded-3xl border px-4 py-4 text-left transition ${
                 selectedNeed === need.slug
@@ -83,6 +84,7 @@ export function SacramentalJourneySelector() {
                       <button
                         key={option.id}
                         type="button"
+                        aria-pressed={active}
                         onClick={() => setAnswers((current) => ({ ...current, [fieldKey]: option.id.endsWith("yes") }))}
                         className={`rounded-full border px-3 py-2 text-sm transition ${
                           active ? "border-gold bg-ivory text-navy" : "border-stone-200 text-muted hover:border-gold"

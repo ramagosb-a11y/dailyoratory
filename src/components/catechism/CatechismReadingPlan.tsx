@@ -13,14 +13,17 @@ function formatReadingPlanForCopy() {
 export function CatechismReadingPlan() {
   const weeks = getCatechismReadingPlan();
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   async function copyPlan() {
     try {
+      setCopyError(false);
       await navigator.clipboard.writeText(formatReadingPlanForCopy());
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyError(true);
     }
   }
 
@@ -55,6 +58,7 @@ export function CatechismReadingPlan() {
           Print Reading Plan
         </button>
       </div>
+    <p role="status" className="mt-3 text-sm text-muted">{copyError ? "Copy is unavailable. You can select and copy the text manually." : copied ? "Copied to clipboard." : ""}</p>
     </section>
   );
 }

@@ -1,0 +1,63 @@
+.page { background: #faf7f0; color: #142b3e; }
+.container { max-width: 86rem; margin: auto; padding: 2rem 2.5rem 5rem; }
+.page [id] { scroll-margin-top: 7rem; }
+.page * { min-width: 0; }
+.page a:focus-visible, .page button:focus-visible, .page summary:focus-visible, .page input:focus-visible, .page select:focus-visible { outline: 3px solid #97652b; outline-offset: 4px; }
+.hero { position: relative; isolation: isolate; overflow: hidden; background: #0c2435; border-radius: 1.4rem; margin-top: 1.75rem; color: #fffaf0; min-height: 34rem; display: flex; align-items: center; }
+.heroArt { position: absolute; inset: 0 0 0 32%; z-index: -2; }
+.heroArt img { object-fit: cover; object-position: center; }
+.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,#0c2435 18%,#0c2435f5 36%,#0c24359c 56%,#0c24350a 100%); }
+.heroCopy { padding: clamp(2rem,5vw,4.5rem); width: 65%; }
+.eyebrow { text-transform: uppercase; letter-spacing: .16em; font-size: .72rem; font-weight: 750; color: #80532b; line-height: 1.7; }
+.hero .eyebrow { color: #efcf8c; }
+.hero h1 { font-family: var(--font-heading); font-size: clamp(3.1rem,6.5vw,6rem); font-weight: 500; line-height: 1.02; letter-spacing: -.025em; margin: 1.2rem 0; overflow-wrap: break-word; }
+.heroDescription { max-width: 32rem; font-family: var(--font-heading); font-size: clamp(1.35rem,2vw,1.7rem); line-height: 1.5; color: #f5ead8; }
+.actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.actions a { display: inline-flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 48px; padding: .9rem 1.2rem; border-radius: .45rem; font-size: .88rem; font-weight: 650; text-decoration: none; }
+.primary { background: #e9c77f; color: #102b3c; border: 1px solid #e9c77f; }
+.secondary { border: 1px solid #a0aeb5; color: #fffaf0; background: #0c243580; }
+.actions a:hover { background: #f7dea8; color: #102b3c; }
+.hero .actions a:focus-visible { outline-color: #fffaf0; }
+.heroCredit { position: absolute; right: 1rem; bottom: .75rem; max-width: 48%; color: #fff; background: #0c2435d9; padding: .25rem .5rem; border-radius: .2rem; }
+.credit { font-size: .65rem; line-height: 1.6; }
+.credit a { text-decoration: underline; text-underline-offset: 2px; }
+.section { margin-top: clamp(2.75rem,5vw,4.5rem); }
+.sectionHeading { margin-bottom: 1.75rem; max-width: 53rem; }
+.sectionHeading h2 { font-family: var(--font-heading); font-size: clamp(2.15rem,3.6vw,3.5rem); line-height: 1.1; font-weight: 600; margin: .4rem 0 .8rem; }
+.sectionHeading > p:last-child:not(.eyebrow) { font-size: 1rem; line-height: 1.85; color: #55594f; }
+.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.5rem; }
+.card { background: #fffdf8; border: 1px solid #d9cfbc; border-radius: .8rem; overflow: hidden; display: flex; flex-direction: column; }
+.cardArt { position: relative; aspect-ratio: 1.65; background: #e1d6c2; overflow: hidden; }
+.cardArt img { object-fit: cover; transition: transform .35s; }
+.card:hover .cardArt img { transform: scale(1.025); }
+.cardCopy { padding: 1.5rem; flex: 1; }
+.card h3 { font-family: var(--font-heading); font-size: 1.85rem; font-weight: 600; line-height: 1.2; margin: .4rem 0 .8rem; }
+.card h3 a { text-decoration: none; }
+.card h3 a:hover { color: #855027; text-decoration: underline; text-underline-offset: 4px; }
+.card h3 span { font-family: var(--font-geist-sans); font-size: 1.2rem; color: #916b32; }
+.cardCopy > p:last-child { color: #55594f; font-size: .93rem; line-height: 1.8; }
+.cardCredit { padding: 0 1.5rem .8rem; color: #656056; }
+.disclosure { border-top: 1px solid #d0c3a9; border-bottom: 1px solid #d0c3a9; margin-top: 1rem; }
+.disclosure summary { cursor: pointer; font-family: var(--font-heading); font-size: 1.55rem; font-weight: 600; padding: 1.15rem .35rem; min-height: 48px; }
+.disclosure summary:hover { color: #855027; }
+.disclosureBody { display: grid; gap: 1.5rem; padding: .5rem 0 1.5rem; }
+.photo { margin: 0; }
+.photoArt { position: relative; aspect-ratio: 2.2; border-radius: .9rem; overflow: hidden; background: #d8cdb8; }
+.photoArt img { object-fit: cover; }
+.photo figcaption { color: #655f53; font-size: .75rem; line-height: 1.7; margin-top: .65rem; }
+.links { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 2rem; list-style: none; padding: 0; margin: 1.5rem 0; }
+.links li { border-bottom: 1px solid #d9cfbc; }
+.links a { display: flex; justify-content: space-between; gap: 1rem; align-items: center; min-height: 52px; padding: .75rem .15rem; font-size: .93rem; font-weight: 600; text-decoration: none; }
+.links a:hover { color: #88532a; }
+.page :global(.card-parchment) { background: #fffdf8; border: 1px solid #d8ceba; border-radius: .75rem; box-shadow: none; }
+.page :global(.card-parchment h2) { font-size: clamp(1.8rem,3vw,2.5rem); line-height: 1.15; }
+.page :global(.btn) { white-space: normal; min-height: 48px; }
+.page :global(.text-xs) { line-height: 1.7; }
+.page :global(button), .page :global(select), .page :global(a.season-pill), .page :global(a.rounded-full), .page nav a { min-height: 44px; }
+.page :global(a.season-pill), .page :global(a.rounded-full), .page nav a { display: inline-flex; align-items: center; }
+.hero + details, .hero + details + nav { margin-top: 1.25rem; }
+@media(min-width: 1001px) { .grid > .card:only-child { grid-column: span 2; } }
+@media(max-width: 1000px) { .container { padding: 1.5rem 1.5rem 4rem; } .grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .heroCopy { width: 76%; padding: 2.75rem; } }
+@media(max-width: 760px) { .container { padding: 1.25rem 1.1rem 3rem; } .hero { display: block; min-height: 0; margin-top: 1.3rem; padding-top: 13rem; } .heroArt { inset: 0 0 auto; height: 20rem; } .hero::after { background: linear-gradient(180deg,transparent 5rem,#0c243599 12rem,#0c2435 20rem); } .heroCopy { padding: 1.5rem 1.5rem 3.7rem; width: 100%; } .hero h1 { font-size: clamp(2.8rem,10vw,4.2rem); } .heroDescription { font-size: 1.3rem; } .heroCredit { right: .8rem; left: .8rem; max-width: none; width: fit-content; bottom: .6rem; } .actions { margin-top: 1.5rem; } .actions a { width: 100%; } .links { grid-template-columns: 1fr; } .photoArt { aspect-ratio: 1.5; } }
+@media(max-width: 600px) { .grid { grid-template-columns: 1fr; gap: 1.2rem; } .sectionHeading { margin-bottom: 1.3rem; } .cardArt { aspect-ratio: 1.85; } }
+@media(prefers-reduced-motion: reduce) { .cardArt img { transition: none; } .card:hover .cardArt img { transform: none; } }

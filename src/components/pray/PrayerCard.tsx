@@ -8,9 +8,11 @@ import type { PrayerPagePrayer } from "@/types/prayer";
 
 export function PrayerCard({ prayer }: { prayer: PrayerPagePrayer }) {
   const [copied, setCopied] = useState(false);
+  const [copyError, setCopyError] = useState(false);
 
   async function copyPrayer() {
     try {
+      setCopyError(false);
       await navigator.clipboard.writeText(copyPrayerText(prayer));
       trackEvent("prayer_copy", {
         prayer_slug: prayer.slug,
@@ -21,6 +23,7 @@ export function PrayerCard({ prayer }: { prayer: PrayerPagePrayer }) {
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyError(true);
     }
   }
 
@@ -61,13 +64,14 @@ export function PrayerCard({ prayer }: { prayer: PrayerPagePrayer }) {
       {prayer.closing ? <SmallText className="mt-6 text-base leading-8 sm:text-lg">{prayer.closing}</SmallText> : null}
 
       <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-        <button type="button" onClick={copyPrayer} className="btn liturgical-button focus-ring w-full justify-center sm:w-auto">
+        <button type="button" onClick={copyPrayer} aria-label={`Copy prayer: ${prayer.title}`} className="btn liturgical-button focus-ring w-full justify-center sm:w-auto">
           {copied ? "Prayer copied" : "Copy Prayer"}
         </button>
         <a href="#prayer-rhythm-builder" className="btn btn-secondary focus-ring w-full justify-center sm:w-auto">
           Add to Daily Rhythm
         </a>
       </div>
+    <p role="status" className="mt-3 text-sm text-muted">{copyError ? "Copy is unavailable. You can select and copy the text manually." : copied ? "Copied to clipboard." : ""}</p>
     </article>
   );
 }

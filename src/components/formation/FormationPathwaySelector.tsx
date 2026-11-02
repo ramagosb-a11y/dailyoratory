@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { trackEvent } from "@/lib/analytics";
+import { useMemo, useState } from "react";
 import { buildFormationPlan, formatFormationPlanForCopy, getFormationPathRecommendations } from "@/lib/formation";
 
 const recommendations = getFormationPathRecommendations();
@@ -10,7 +9,7 @@ const defaultNeed = recommendations[0]?.userNeed ?? "";
 export function FormationPathwaySelector() {
   const [userNeed, setUserNeed] = useState(defaultNeed);
   const [copied, setCopied] = useState(false);
-  const hasTrackedSelectionRef = useRef(false);
+  const [copyError, setCopyError] = useState(false);
 
   const plan = useMemo(() => buildFormationPlan({ userNeed, createdAt: new Date().toISOString() }), [userNeed]);
   const planText = useMemo(
@@ -20,34 +19,20 @@ export function FormationPathwaySelector() {
 
   async function copyPlan() {
     try {
+      setCopyError(false);
       await navigator.clipboard.writeText(planText);
-      trackEvent("formation_plan_copy", {
-        user_need: userNeed,
-        recommended_path: plan?.title,
-      });
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2200);
     } catch {
       setCopied(false);
+      setCopyError(true);
     }
   }
 
-  useEffect(() => {
-    if (!userNeed) return;
-    if (!hasTrackedSelectionRef.current) {
-      hasTrackedSelectionRef.current = true;
-      return;
-    }
-
-    trackEvent("formation_path_start", {
-      user_need: userNeed,
-      recommended_path: plan?.title,
-    });
-  }, [plan?.title, userNeed]);
 
   return (
     <section id="formation-selector" className="scroll-mt-28">
-      <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Interactive tool</p>
+      <p className="text-xs font-bold uppercase tracking-[0.16em] text-burgundy">Your next step</p>
       <h2 className="font-display mt-2 text-4xl font-semibold leading-tight text-navy sm:text-5xl">
         Where should I begin?
       </h2>
@@ -93,7 +78,7 @@ export function FormationPathwaySelector() {
               <p className="font-semibold text-navy">Daily Oratory tools</p>
               <ul className="mt-2 space-y-1">
                 {plan?.links.map((link) => (
-                  <li key={link.href}>• {link.label}</li>
+                  <li key={link.href}><a className="focus-ring underline underline-offset-4" href={link.href}>{link.label}</a></li>
                 ))}
               </ul>
             </div>
@@ -111,6 +96,7 @@ export function FormationPathwaySelector() {
           </div>
         </aside>
       </div>
+    <p role="status" className="mt-3 text-sm text-muted">{copyError ? "Copy is unavailable. You can select and copy the text manually." : copied ? "Copied to clipboard." : ""}</p>
     </section>
   );
 }
